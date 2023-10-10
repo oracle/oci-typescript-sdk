@@ -105,6 +105,38 @@ export interface AutonomousVmClusterSummary {
    */
   "nextMaintenanceRunId"?: string;
   /**
+   * The percentage of total number of CPUs used in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuPercentage"?: number;
+  /**
+   * The percentage of the data storage used for the Autonomous Databases in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autonomousDataStoragePercentage"?: number;
+  /**
+   * The number of CPUs provisioned in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "provisionedCpus"?: number;
+  /**
+   * The total data disk group size for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalAutonomousDataStorageInTBs"?: number;
+  /**
+   * The number of CPUs reserved in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "reservedCpus"?: number;
+  /**
+   * The number of provisionable Autonomous Container Databases in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "provisionableAutonomousContainerDatabases"?: number;
+  /**
+   * The number of provisioned Autonomous Container Databases in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "provisionedAutonomousContainerDatabases"?: number;
+  /**
+   * The number of non-provisionable Autonomous Container Databases in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "nonProvisionableAutonomousContainerDatabases"?: number;
+  /**
    * The memory allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;

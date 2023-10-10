@@ -46,6 +46,11 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
    */
   "vtapCaptureFilterRules"?: Array<model.VtapCaptureFilterRuleDetails>;
   /**
+   * The set of rules governing what traffic the VCN flow log collects.
+   *
+   */
+  "flowLogCaptureFilterRules"?: Array<model.FlowLogCaptureFilterRuleDetails>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -64,6 +69,11 @@ export namespace UpdateCaptureFilterDetails {
           ? obj.vtapCaptureFilterRules.map(item => {
               return model.VtapCaptureFilterRuleDetails.getJsonObj(item);
             })
+          : undefined,
+        "flowLogCaptureFilterRules": obj.flowLogCaptureFilterRules
+          ? obj.flowLogCaptureFilterRules.map(item => {
+              return model.FlowLogCaptureFilterRuleDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -77,6 +87,11 @@ export namespace UpdateCaptureFilterDetails {
         "vtapCaptureFilterRules": obj.vtapCaptureFilterRules
           ? obj.vtapCaptureFilterRules.map(item => {
               return model.VtapCaptureFilterRuleDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "flowLogCaptureFilterRules": obj.flowLogCaptureFilterRules
+          ? obj.flowLogCaptureFilterRules.map(item => {
+              return model.FlowLogCaptureFilterRuleDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

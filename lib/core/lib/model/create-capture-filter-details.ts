@@ -62,11 +62,17 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "vtapCaptureFilterRules"?: Array<model.VtapCaptureFilterRuleDetails>;
+  /**
+   * The set of rules governing what traffic the VCN flow log collects.
+   *
+   */
+  "flowLogCaptureFilterRules"?: Array<model.FlowLogCaptureFilterRuleDetails>;
 }
 
 export namespace CreateCaptureFilterDetails {
   export enum FilterType {
-    Vtap = "VTAP"
+    Vtap = "VTAP",
+    Flowlog = "FLOWLOG"
   }
 
   export function getJsonObj(obj: CreateCaptureFilterDetails): object {
@@ -76,6 +82,11 @@ export namespace CreateCaptureFilterDetails {
         "vtapCaptureFilterRules": obj.vtapCaptureFilterRules
           ? obj.vtapCaptureFilterRules.map(item => {
               return model.VtapCaptureFilterRuleDetails.getJsonObj(item);
+            })
+          : undefined,
+        "flowLogCaptureFilterRules": obj.flowLogCaptureFilterRules
+          ? obj.flowLogCaptureFilterRules.map(item => {
+              return model.FlowLogCaptureFilterRuleDetails.getJsonObj(item);
             })
           : undefined
       }
@@ -90,6 +101,11 @@ export namespace CreateCaptureFilterDetails {
         "vtapCaptureFilterRules": obj.vtapCaptureFilterRules
           ? obj.vtapCaptureFilterRules.map(item => {
               return model.VtapCaptureFilterRuleDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "flowLogCaptureFilterRules": obj.flowLogCaptureFilterRules
+          ? obj.flowLogCaptureFilterRules.map(item => {
+              return model.FlowLogCaptureFilterRuleDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

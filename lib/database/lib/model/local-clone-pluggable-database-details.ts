@@ -16,6 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * **Deprecated.** Use {@link #createPluggableDatabaseDetails(CreatePluggableDatabaseDetailsRequest) createPluggableDatabaseDetails} for Pluggable Database LocalClone Operation.
  * Parameters for cloning a pluggable database (PDB) within the same database (CDB).
  * <p>
  **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.

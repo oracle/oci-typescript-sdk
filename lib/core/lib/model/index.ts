@@ -460,6 +460,8 @@ import * as FastConnectProviderService from "./fast-connect-provider-service";
 export import FastConnectProviderService = FastConnectProviderService.FastConnectProviderService;
 import * as FastConnectProviderServiceKey from "./fast-connect-provider-service-key";
 export import FastConnectProviderServiceKey = FastConnectProviderServiceKey.FastConnectProviderServiceKey;
+import * as FlowLogCaptureFilterRuleDetails from "./flow-log-capture-filter-rule-details";
+export import FlowLogCaptureFilterRuleDetails = FlowLogCaptureFilterRuleDetails.FlowLogCaptureFilterRuleDetails;
 import * as GetPublicIpByIpAddressDetails from "./get-public-ip-by-ip-address-details";
 export import GetPublicIpByIpAddressDetails = GetPublicIpByIpAddressDetails.GetPublicIpByIpAddressDetails;
 import * as GetPublicIpByPrivateIpIdDetails from "./get-public-ip-by-private-ip-id-details";

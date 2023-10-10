@@ -49,6 +49,7 @@ export interface PluggableDatabase {
   "timeCreated": Date;
   "connectionStrings"?: model.PluggableDatabaseConnectionStrings;
   /**
+   * **Deprecated.** Use {@link #pluggableDatabaseNodeLevelDetails(PluggableDatabaseNodeLevelDetailsRequest) pluggableDatabaseNodeLevelDetails} for OpenMode details.
    * The mode that pluggable database is in. Open mode can only be changed to READ_ONLY or MIGRATE directly from the backend (within the Oracle Database software).
    *
    */
@@ -78,6 +79,13 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "pluggableDatabaseManagementConfig"?: model.PluggableDatabaseManagementConfig;
+  "refreshableCloneConfig"?: model.PluggableDatabaseRefreshableCloneConfig;
+  /**
+   * Pluggable Database Node Level Details.
+   * Example: [{\"nodeName\" : \"node1\", \"openMode\" : \"READ_WRITE\"}, {\"nodeName\" : \"node2\", \"openMode\" : \"READ_ONLY\"}]
+   *
+   */
+  "pdbNodeLevelDetails"?: Array<model.PluggableDatabaseNodeLevelDetails>;
 }
 
 export namespace PluggableDatabase {
@@ -88,6 +96,13 @@ export namespace PluggableDatabase {
     Terminated = "TERMINATED",
     Updating = "UPDATING",
     Failed = "FAILED",
+    Relocating = "RELOCATING",
+    Relocated = "RELOCATED",
+    Refreshing = "REFRESHING",
+    RestoreInProgress = "RESTORE_IN_PROGRESS",
+    RestoreFailed = "RESTORE_FAILED",
+    BackupInProgress = "BACKUP_IN_PROGRESS",
+    Disabled = "DISABLED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -119,6 +134,14 @@ export namespace PluggableDatabase {
           ? model.PluggableDatabaseManagementConfig.getJsonObj(
               obj.pluggableDatabaseManagementConfig
             )
+          : undefined,
+        "refreshableCloneConfig": obj.refreshableCloneConfig
+          ? model.PluggableDatabaseRefreshableCloneConfig.getJsonObj(obj.refreshableCloneConfig)
+          : undefined,
+        "pdbNodeLevelDetails": obj.pdbNodeLevelDetails
+          ? obj.pdbNodeLevelDetails.map(item => {
+              return model.PluggableDatabaseNodeLevelDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -137,6 +160,16 @@ export namespace PluggableDatabase {
           ? model.PluggableDatabaseManagementConfig.getDeserializedJsonObj(
               obj.pluggableDatabaseManagementConfig
             )
+          : undefined,
+        "refreshableCloneConfig": obj.refreshableCloneConfig
+          ? model.PluggableDatabaseRefreshableCloneConfig.getDeserializedJsonObj(
+              obj.refreshableCloneConfig
+            )
+          : undefined,
+        "pdbNodeLevelDetails": obj.pdbNodeLevelDetails
+          ? obj.pdbNodeLevelDetails.map(item => {
+              return model.PluggableDatabaseNodeLevelDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

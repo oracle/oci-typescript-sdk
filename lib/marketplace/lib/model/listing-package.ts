@@ -73,6 +73,11 @@ export namespace ListingPackage {
 
     if (obj && "packageType" in obj && obj.packageType) {
       switch (obj.packageType) {
+        case "CONTAINER":
+          return model.ContainerListingPackage.getJsonObj(
+            <model.ContainerListingPackage>(<object>jsonObj),
+            true
+          );
         case "ORCHESTRATION":
           return model.OrchestrationListingPackage.getJsonObj(
             <model.OrchestrationListingPackage>(<object>jsonObj),
@@ -81,6 +86,11 @@ export namespace ListingPackage {
         case "IMAGE":
           return model.ImageListingPackage.getJsonObj(
             <model.ImageListingPackage>(<object>jsonObj),
+            true
+          );
+        case "KUBERNETES":
+          return model.KubernetesListingPackage.getJsonObj(
+            <model.KubernetesListingPackage>(<object>jsonObj),
             true
           );
         default:
@@ -108,6 +118,11 @@ export namespace ListingPackage {
 
     if (obj && "packageType" in obj && obj.packageType) {
       switch (obj.packageType) {
+        case "CONTAINER":
+          return model.ContainerListingPackage.getDeserializedJsonObj(
+            <model.ContainerListingPackage>(<object>jsonObj),
+            true
+          );
         case "ORCHESTRATION":
           return model.OrchestrationListingPackage.getDeserializedJsonObj(
             <model.OrchestrationListingPackage>(<object>jsonObj),
@@ -116,6 +131,11 @@ export namespace ListingPackage {
         case "IMAGE":
           return model.ImageListingPackage.getDeserializedJsonObj(
             <model.ImageListingPackage>(<object>jsonObj),
+            true
+          );
+        case "KUBERNETES":
+          return model.KubernetesListingPackage.getDeserializedJsonObj(
+            <model.KubernetesListingPackage>(<object>jsonObj),
             true
           );
         default:

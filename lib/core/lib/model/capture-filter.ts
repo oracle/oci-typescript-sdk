@@ -80,6 +80,11 @@ Example: `2021-08-25T21:10:29.600Z`
    *
    */
   "vtapCaptureFilterRules"?: Array<model.VtapCaptureFilterRuleDetails>;
+  /**
+   * The set of rules governing what traffic the VCN flow log collects.
+   *
+   */
+  "flowLogCaptureFilterRules"?: Array<model.FlowLogCaptureFilterRuleDetails>;
 }
 
 export namespace CaptureFilter {
@@ -98,6 +103,7 @@ export namespace CaptureFilter {
 
   export enum FilterType {
     Vtap = "VTAP",
+    Flowlog = "FLOWLOG",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -113,6 +119,11 @@ export namespace CaptureFilter {
           ? obj.vtapCaptureFilterRules.map(item => {
               return model.VtapCaptureFilterRuleDetails.getJsonObj(item);
             })
+          : undefined,
+        "flowLogCaptureFilterRules": obj.flowLogCaptureFilterRules
+          ? obj.flowLogCaptureFilterRules.map(item => {
+              return model.FlowLogCaptureFilterRuleDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -126,6 +137,11 @@ export namespace CaptureFilter {
         "vtapCaptureFilterRules": obj.vtapCaptureFilterRules
           ? obj.vtapCaptureFilterRules.map(item => {
               return model.VtapCaptureFilterRuleDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "flowLogCaptureFilterRules": obj.flowLogCaptureFilterRules
+          ? obj.flowLogCaptureFilterRules.map(item => {
+              return model.FlowLogCaptureFilterRuleDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

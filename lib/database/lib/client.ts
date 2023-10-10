@@ -2889,6 +2889,97 @@ export class DatabaseClient {
   }
 
   /**
+   * Converts a Refreshable clone to Regular pluggable database (PDB).
+   * Pluggable Database will be in `READ_WRITE` openmode after conversion.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ConvertToRegularPluggableDatabaseRequest
+   * @return ConvertToRegularPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToRegularPluggableDatabase.ts.html |here} to see how to use ConvertToRegularPluggableDatabase API.
+   */
+  public async convertToRegularPluggableDatabase(
+    convertToRegularPluggableDatabaseRequest: requests.ConvertToRegularPluggableDatabaseRequest
+  ): Promise<responses.ConvertToRegularPluggableDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#convertToRegularPluggableDatabase.");
+    const operationName = "convertToRegularPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/ConvertToRegularPluggableDatabase";
+    const pathParams = {
+      "{pluggableDatabaseId}": convertToRegularPluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": convertToRegularPluggableDatabaseRequest.ifMatch,
+      "opc-request-id": convertToRegularPluggableDatabaseRequest.opcRequestId,
+      "opc-retry-token": convertToRegularPluggableDatabaseRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      convertToRegularPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/convertToRegular",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        convertToRegularPluggableDatabaseRequest.convertToRegularPluggableDatabaseDetails,
+        "ConvertToRegularPluggableDatabaseDetails",
+        model.ConvertToRegularPluggableDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConvertToRegularPluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new application virtual IP (VIP) address in the specified cloud VM cluster based on the request parameters you provide.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -4879,6 +4970,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 
   /**
    * Creates and starts a pluggable database in the specified container database.
+   * Pluggable Database can be created using different operations (e.g. LocalClone, RemoteClone, Relocate ) with this API.
    * Use the {@link #startPluggableDatabase(StartPluggableDatabaseRequest) startPluggableDatabase} and {@link #stopPluggableDatabase(StopPluggableDatabaseRequest) stopPluggableDatabase} APIs to start and stop the pluggable database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -10881,6 +10973,84 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Get the resource usage details for the specified Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAutonomousVmClusterResourceUsageRequest
+   * @return GetAutonomousVmClusterResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVmClusterResourceUsage.ts.html |here} to see how to use GetAutonomousVmClusterResourceUsage API.
+   */
+  public async getAutonomousVmClusterResourceUsage(
+    getAutonomousVmClusterResourceUsageRequest: requests.GetAutonomousVmClusterResourceUsageRequest
+  ): Promise<responses.GetAutonomousVmClusterResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousVmClusterResourceUsage.");
+    const operationName = "getAutonomousVmClusterResourceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/GetAutonomousVmClusterResourceUsage";
+    const pathParams = {
+      "{autonomousVmClusterId}": getAutonomousVmClusterResourceUsageRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutonomousVmClusterResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousVmClusterResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}/resourceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousVmClusterResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousVmClusterResourceUsage",
+        bodyModel: model.AutonomousVmClusterResourceUsage,
+        type: "model.AutonomousVmClusterResourceUsage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified backup.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBackupRequest
@@ -16555,6 +16725,143 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListAutonomousVirtualMachinesRequest
   ): AsyncIterableIterator<responses.ListAutonomousVirtualMachinesResponse> {
     return paginateResponses(request, req => this.listAutonomousVirtualMachines(req));
+  }
+
+  /**
+   * Gets the list of resource usage details for all the Autonomous Container Database in the specified Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAutonomousVmClusterAcdResourceUsageRequest
+   * @return ListAutonomousVmClusterAcdResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListAutonomousVmClusterAcdResourceUsage API.
+   */
+  public async listAutonomousVmClusterAcdResourceUsage(
+    listAutonomousVmClusterAcdResourceUsageRequest: requests.ListAutonomousVmClusterAcdResourceUsageRequest
+  ): Promise<responses.ListAutonomousVmClusterAcdResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousVmClusterAcdResourceUsage."
+      );
+    const operationName = "listAutonomousVmClusterAcdResourceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/ListAutonomousVmClusterAcdResourceUsage";
+    const pathParams = {
+      "{autonomousVmClusterId}":
+        listAutonomousVmClusterAcdResourceUsageRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {
+      "compartmentId": listAutonomousVmClusterAcdResourceUsageRequest.compartmentId,
+      "limit": listAutonomousVmClusterAcdResourceUsageRequest.limit,
+      "page": listAutonomousVmClusterAcdResourceUsageRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutonomousVmClusterAcdResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousVmClusterAcdResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}/acdResourceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousVmClusterAcdResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AutonomousContainerDatabaseResourceUsage,
+        type: "Array<model.AutonomousContainerDatabaseResourceUsage>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAutonomousVmClusterAcdResourceUsageRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseResourceUsage objects
+   * contained in responses from the listAutonomousVmClusterAcdResourceUsage operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousVmClusterAcdResourceUsage(
+    request: requests.ListAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseResourceUsage> {
+    return paginateRecords(request, req => this.listAutonomousVmClusterAcdResourceUsage(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAutonomousVmClusterAcdResourceUsageResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousVmClusterAcdResourceUsage operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousVmClusterAcdResourceUsageResponses(
+    request: requests.ListAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<responses.ListAutonomousVmClusterAcdResourceUsageResponse> {
+    return paginateResponses(request, req => this.listAutonomousVmClusterAcdResourceUsage(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseResourceUsage objects
+   * contained in responses from the listAutonomousVmClusterAcdResourceUsage operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousVmClusterAcdResourceUsageRecordIterator(
+    request: requests.ListAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseResourceUsage> {
+    return paginateRecords(request, req => this.listAutonomousVmClusterAcdResourceUsage(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousVmClusterAcdResourceUsage operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousVmClusterAcdResourceUsageResponseIterator(
+    request: requests.ListAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<responses.ListAutonomousVmClusterAcdResourceUsageResponse> {
+    return paginateResponses(request, req => this.listAutonomousVmClusterAcdResourceUsage(req));
   }
 
   /**
@@ -22689,6 +22996,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * **Deprecated.** Use {@link #createPluggableDatabase(CreatePluggableDatabaseRequest) createPluggableDatabase} for Pluggable Database LocalClone Operation.
    * Clones and starts a pluggable database (PDB) in the same database (CDB) as the source PDB. The source PDB must be in the `READ_WRITE` openMode to perform the clone operation.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -23131,6 +23439,91 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Refreshes a pluggable database (PDB) Refreshable clone.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RefreshPluggableDatabaseRequest
+   * @return RefreshPluggableDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RefreshPluggableDatabase.ts.html |here} to see how to use RefreshPluggableDatabase API.
+   */
+  public async refreshPluggableDatabase(
+    refreshPluggableDatabaseRequest: requests.RefreshPluggableDatabaseRequest
+  ): Promise<responses.RefreshPluggableDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#refreshPluggableDatabase.");
+    const operationName = "refreshPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/RefreshPluggableDatabase";
+    const pathParams = {
+      "{pluggableDatabaseId}": refreshPluggableDatabaseRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": refreshPluggableDatabaseRequest.ifMatch,
+      "opc-request-id": refreshPluggableDatabaseRequest.opcRequestId,
+      "opc-retry-token": refreshPluggableDatabaseRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshPluggableDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/refresh",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshPluggableDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Asynchronously registers this Autonomous Database with Data Safe.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -23391,6 +23784,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * **Deprecated.** Use {@link #createPluggableDatabase(CreatePluggableDatabaseRequest) createPluggableDatabase} for Pluggable Database RemoteClone Operation.
    * Clones a pluggable database (PDB) to a different database from the source PDB. The cloned PDB will be started upon completion of the clone operation. The source PDB must be in the `READ_WRITE` openMode when performing the clone.
    * For Exadata Cloud@Customer instances, the source pluggable database (PDB) must be on the same Exadata Infrastructure as the target container database (CDB) to create a remote clone.
    *

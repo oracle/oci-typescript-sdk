@@ -29668,7 +29668,8 @@ The operation returns configuration information for only the specified IPSec tun
       "sortBy": listCaptureFiltersRequest.sortBy,
       "sortOrder": listCaptureFiltersRequest.sortOrder,
       "displayName": listCaptureFiltersRequest.displayName,
-      "lifecycleState": listCaptureFiltersRequest.lifecycleState
+      "lifecycleState": listCaptureFiltersRequest.lifecycleState,
+      "filterType": listCaptureFiltersRequest.filterType
     };
 
     let headerParams = {

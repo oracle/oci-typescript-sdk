@@ -17,6 +17,7 @@ import common = require("oci-common");
 
 /**
  * Parameters for creating a pluggable database in a specified container database (CDB).
+ * Additional option `pdbCreationTypeDetails` can be used for creating Pluggable Database using different operations, e.g. LocalClone, Remote Clone, Relocate.
  * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
  */
@@ -44,6 +45,18 @@ export interface CreatePluggableDatabaseDetails {
    */
   "shouldPdbAdminAccountBeLocked"?: boolean;
   /**
+   * The DB system administrator password of the Container Database.
+   */
+  "containerDatabaseAdminPassword"?: string;
+  /**
+   * Indicates whether to take Pluggable Database Backup after the operation.
+   */
+  "shouldCreatePdbBackup"?: boolean;
+  "pdbCreationTypeDetails"?:
+    | model.CreatePluggableDatabaseFromRelocateDetails
+    | model.CreatePluggableDatabaseFromRemoteCloneDetails
+    | model.CreatePluggableDatabaseFromLocalCloneDetails;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -61,12 +74,28 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace CreatePluggableDatabaseDetails {
   export function getJsonObj(obj: CreatePluggableDatabaseDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pdbCreationTypeDetails": obj.pdbCreationTypeDetails
+          ? model.CreatePluggableDatabaseCreationTypeDetails.getJsonObj(obj.pdbCreationTypeDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreatePluggableDatabaseDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pdbCreationTypeDetails": obj.pdbCreationTypeDetails
+          ? model.CreatePluggableDatabaseCreationTypeDetails.getDeserializedJsonObj(
+              obj.pdbCreationTypeDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -74,6 +74,8 @@ import * as ConfigureAutonomousDatabaseVaultKeyResponse from "./configure-autono
 export import ConfigureAutonomousDatabaseVaultKeyResponse = ConfigureAutonomousDatabaseVaultKeyResponse.ConfigureAutonomousDatabaseVaultKeyResponse;
 import * as ConvertToPdbResponse from "./convert-to-pdb-response";
 export import ConvertToPdbResponse = ConvertToPdbResponse.ConvertToPdbResponse;
+import * as ConvertToRegularPluggableDatabaseResponse from "./convert-to-regular-pluggable-database-response";
+export import ConvertToRegularPluggableDatabaseResponse = ConvertToRegularPluggableDatabaseResponse.ConvertToRegularPluggableDatabaseResponse;
 import * as CreateApplicationVipResponse from "./create-application-vip-response";
 export import CreateApplicationVipResponse = CreateApplicationVipResponse.CreateApplicationVipResponse;
 import * as CreateAutonomousContainerDatabaseResponse from "./create-autonomous-container-database-response";
@@ -268,6 +270,8 @@ import * as GetAutonomousVirtualMachineResponse from "./get-autonomous-virtual-m
 export import GetAutonomousVirtualMachineResponse = GetAutonomousVirtualMachineResponse.GetAutonomousVirtualMachineResponse;
 import * as GetAutonomousVmClusterResponse from "./get-autonomous-vm-cluster-response";
 export import GetAutonomousVmClusterResponse = GetAutonomousVmClusterResponse.GetAutonomousVmClusterResponse;
+import * as GetAutonomousVmClusterResourceUsageResponse from "./get-autonomous-vm-cluster-resource-usage-response";
+export import GetAutonomousVmClusterResourceUsageResponse = GetAutonomousVmClusterResourceUsageResponse.GetAutonomousVmClusterResourceUsageResponse;
 import * as GetBackupResponse from "./get-backup-response";
 export import GetBackupResponse = GetBackupResponse.GetBackupResponse;
 import * as GetBackupDestinationResponse from "./get-backup-destination-response";
@@ -394,6 +398,8 @@ import * as ListAutonomousExadataInfrastructuresResponse from "./list-autonomous
 export import ListAutonomousExadataInfrastructuresResponse = ListAutonomousExadataInfrastructuresResponse.ListAutonomousExadataInfrastructuresResponse;
 import * as ListAutonomousVirtualMachinesResponse from "./list-autonomous-virtual-machines-response";
 export import ListAutonomousVirtualMachinesResponse = ListAutonomousVirtualMachinesResponse.ListAutonomousVirtualMachinesResponse;
+import * as ListAutonomousVmClusterAcdResourceUsageResponse from "./list-autonomous-vm-cluster-acd-resource-usage-response";
+export import ListAutonomousVmClusterAcdResourceUsageResponse = ListAutonomousVmClusterAcdResourceUsageResponse.ListAutonomousVmClusterAcdResourceUsageResponse;
 import * as ListAutonomousVmClustersResponse from "./list-autonomous-vm-clusters-response";
 export import ListAutonomousVmClustersResponse = ListAutonomousVmClustersResponse.ListAutonomousVmClustersResponse;
 import * as ListBackupDestinationResponse from "./list-backup-destination-response";
@@ -498,6 +504,8 @@ import * as ModifyDatabaseManagementResponse from "./modify-database-management-
 export import ModifyDatabaseManagementResponse = ModifyDatabaseManagementResponse.ModifyDatabaseManagementResponse;
 import * as ModifyPluggableDatabaseManagementResponse from "./modify-pluggable-database-management-response";
 export import ModifyPluggableDatabaseManagementResponse = ModifyPluggableDatabaseManagementResponse.ModifyPluggableDatabaseManagementResponse;
+import * as RefreshPluggableDatabaseResponse from "./refresh-pluggable-database-response";
+export import RefreshPluggableDatabaseResponse = RefreshPluggableDatabaseResponse.RefreshPluggableDatabaseResponse;
 import * as RegisterAutonomousDatabaseDataSafeResponse from "./register-autonomous-database-data-safe-response";
 export import RegisterAutonomousDatabaseDataSafeResponse = RegisterAutonomousDatabaseDataSafeResponse.RegisterAutonomousDatabaseDataSafeResponse;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationResponse from "./reinstate-autonomous-container-database-dataguard-association-response";

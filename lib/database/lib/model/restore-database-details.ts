@@ -18,6 +18,7 @@ import common = require("oci-common");
 export interface RestoreDatabaseDetails {
   /**
    * Restores using the backup with the System Change Number (SCN) specified.
+   * This field is applicable for both use cases - Restoring Container Database or Restoring specific Pluggable Database.
    *
    */
   "databaseSCN"?: string;
@@ -31,6 +32,11 @@ export interface RestoreDatabaseDetails {
    *
    */
   "latest"?: boolean;
+  /**
+   * Restores only the Pluggable Database (if specified) using the inputs provided in request.
+   *
+   */
+  "pluggableDatabaseName"?: string;
 }
 
 export namespace RestoreDatabaseDetails {
