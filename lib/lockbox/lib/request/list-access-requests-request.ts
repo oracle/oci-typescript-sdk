@@ -43,6 +43,10 @@ export interface ListAccessRequestsRequest extends common.BaseRequest {
    */
   "lockboxPartner"?: model.LockboxPartner;
   /**
+   * The ID of the partner.
+   */
+  "partnerId"?: string;
+  /**
    * The unique identifier (OCID) of the requestor in which to list resources.
    */
   "requestorId"?: string;
@@ -63,6 +67,14 @@ export interface ListAccessRequestsRequest extends common.BaseRequest {
    *
    */
   "sortBy"?: ListAccessRequestsRequest.SortBy;
+  /**
+   * Date and time on or after which Access Requests were created, as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339)
+   */
+  "timeCreatedAfter"?: Date;
+  /**
+   * Date and time on or before which Access requests were created, as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339)
+   */
+  "timeCreatedBefore"?: Date;
 }
 
 export namespace ListAccessRequestsRequest {

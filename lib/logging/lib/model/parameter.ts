@@ -1,8 +1,7 @@
 /**
  * Logging Management API
  * Use the Logging Management API to create, read, list, update, move and delete
-log groups, log objects, log saved searches, agent configurations, log data models,
-continuous queries, and managed continuous queries.
+log groups, log objects, log saved searches, and agent configurations.
 
 For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
@@ -27,20 +26,7 @@ export interface Parameter {
    * Parameter name.
    */
   "name": string;
-  /**
-   * The user-friendly display name. This must be unique within the enclosing resource,
-   * and it's changeable. Avoid entering confidential information.
-   *
-   */
-  "displayName"?: string;
-  /**
-   * Parameter type.
-   */
   "type": Parameter.Type;
-  /**
-   * Parameter rqsType if applicable.
-   */
-  "rqsType"?: string;
   /**
    * Java regex pattern to validate a parameter value.
    */
@@ -52,8 +38,6 @@ export namespace Parameter {
     Integer = "integer",
     String = "string",
     Boolean = "boolean",
-    EnumString = "ENUM_STRING",
-    RqsFilter = "RQS_FILTER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

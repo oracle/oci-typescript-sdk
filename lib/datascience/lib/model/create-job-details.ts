@@ -42,6 +42,10 @@ export interface CreateJobDetails {
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobLogConfigurationDetails"?: model.JobLogConfigurationDetails;
   /**
+   * Collection of JobStorageMountConfigurationDetails.
+   */
+  "jobStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`
    *
@@ -70,6 +74,11 @@ export namespace CreateJobDetails {
           : undefined,
         "jobLogConfigurationDetails": obj.jobLogConfigurationDetails
           ? model.JobLogConfigurationDetails.getJsonObj(obj.jobLogConfigurationDetails)
+          : undefined,
+        "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
+          ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -90,6 +99,11 @@ export namespace CreateJobDetails {
           : undefined,
         "jobLogConfigurationDetails": obj.jobLogConfigurationDetails
           ? model.JobLogConfigurationDetails.getDeserializedJsonObj(obj.jobLogConfigurationDetails)
+          : undefined,
+        "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
+          ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

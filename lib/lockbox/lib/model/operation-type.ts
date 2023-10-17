@@ -1,6 +1,6 @@
 /**
  * Managed Access API
- * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/en-us/iaas/managed-access/overview.htm).
+ * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/iaas/Content/managed-access/home.htm).
 
 Use the table of contents and search tool to explore the Managed Access API.
 
@@ -32,6 +32,9 @@ export enum OperationType {
   MoveApprovalTemplate = "MOVE_APPROVAL_TEMPLATE",
   UpdateApprovalTemplate = "UPDATE_APPROVAL_TEMPLATE",
   DeleteApprovalTemplate = "DELETE_APPROVAL_TEMPLATE",
+  CreatePartner = "CREATE_PARTNER",
+  RemindAccessRequest = "REMIND_ACCESS_REQUEST",
+  CreateAccesscontextattribute = "CREATE_ACCESSCONTEXTATTRIBUTE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -1,6 +1,6 @@
 /**
  * Managed Access API
- * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/en-us/iaas/managed-access/overview.htm).
+ * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/iaas/Content/managed-access/home.htm).
 
 Use the table of contents and search tool to explore the Managed Access API.
 
@@ -30,6 +30,8 @@ import * as DeleteApprovalTemplateRequest from "./delete-approval-template-reque
 export import DeleteApprovalTemplateRequest = DeleteApprovalTemplateRequest.DeleteApprovalTemplateRequest;
 import * as DeleteLockboxRequest from "./delete-lockbox-request";
 export import DeleteLockboxRequest = DeleteLockboxRequest.DeleteLockboxRequest;
+import * as ExportAccessRequestsRequest from "./export-access-requests-request";
+export import ExportAccessRequestsRequest = ExportAccessRequestsRequest.ExportAccessRequestsRequest;
 import * as GetAccessMaterialsRequest from "./get-access-materials-request";
 export import GetAccessMaterialsRequest = GetAccessMaterialsRequest.GetAccessMaterialsRequest;
 import * as GetAccessRequestRequest from "./get-access-request-request";

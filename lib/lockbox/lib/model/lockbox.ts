@@ -1,6 +1,6 @@
 /**
  * Managed Access API
- * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/en-us/iaas/managed-access/overview.htm).
+ * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/iaas/Content/managed-access/home.htm).
 
 Use the table of contents and search tool to explore the Managed Access API.
 
@@ -34,9 +34,17 @@ export interface Lockbox {
    */
   "compartmentId": string;
   /**
+   * The unique identifier (OCID) of partner resource using this lockbox to lock a resource
+   */
+  "partnerId"?: string;
+  /**
+   * The unique identifier (OCID) of lockbox resource using to reference parent lockbox in hybrid oma setup
+   */
+  "parentLockboxId"?: string;
+  /**
    * Compartment Identifier
    */
-  "partnerCompartmentId": string;
+  "partnerCompartmentId"?: string;
   /**
    * The unique identifier (OCID) of associated resource that the lockbox is created for.
    */
@@ -44,7 +52,7 @@ export interface Lockbox {
   /**
    * The partner using this lockbox to lock a resource.
    */
-  "lockboxPartner": model.LockboxPartner;
+  "lockboxPartner"?: model.LockboxPartner;
   /**
    * The time the the Lockbox was created. An RFC3339 formatted datetime string
    */

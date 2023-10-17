@@ -55,6 +55,10 @@ export interface Job {
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobLogConfigurationDetails"?: model.JobLogConfigurationDetails;
   /**
+   * Collection of JobStorageMountConfigurationDetails.
+   */
+  "jobStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
    * The state of the job.
    */
   "lifecycleState": model.JobLifecycleState;
@@ -91,6 +95,11 @@ export namespace Job {
           : undefined,
         "jobLogConfigurationDetails": obj.jobLogConfigurationDetails
           ? model.JobLogConfigurationDetails.getJsonObj(obj.jobLogConfigurationDetails)
+          : undefined,
+        "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
+          ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -111,6 +120,11 @@ export namespace Job {
           : undefined,
         "jobLogConfigurationDetails": obj.jobLogConfigurationDetails
           ? model.JobLogConfigurationDetails.getDeserializedJsonObj(obj.jobLogConfigurationDetails)
+          : undefined,
+        "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
+          ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

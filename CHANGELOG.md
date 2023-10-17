@@ -3,6 +3,37 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.71.0 - 2023-10-17
+### Added
+- Support for the Caching Service
+- Support for the Marketplace Publisher service
+- Support for higher limits for network firewalls in the Network Firewall service
+- Support for exporting access request reports in the Lockbox service
+- Support for storage mounts for jobs and notebooks in the Data Science service
+- Support for unified agent operational metrics for the service configurations in the Logging Management service
+
+### Breaking Changes
+- The properties `displayName` and `dqsType` were removed in the `Parameter` model in the Logging Management service
+- The enum members `EnumString` and `RqsFilter` were removed from the enum `Type` in the `Parameter` model in the Logging Management service
+- The property `serviceStage` was removed in the request class `ListServicesRequest` in the Logging Management service
+- The models `TcpApplication` and `UdpApplication` were removed in the Network Firewall service
+- The enum `Type` was removed in the model `DecryptionProfile` in the Network Firewall service
+- The properties `mappedSecrets`, `applicationLists`, `urlLists`, `ipAddressLists`, `securityRules`, `decryptionRules` and `decryptionProfiles` were removed in the model `CreateNetworkFirewallPolicyDetails` in the Network Firewall service
+- The enum `Action` was removed in the model `DecryptionRule` in the Network Firewall service
+- The type of property `action` was changed to `DecryptionActionType` in the model `DecryptionRule` in the Network Firewall service
+- The property `sources` has been replaced by `sourceAddress` in the models `SecurityRuleMatchCriteria` and `DecryptionRuleMatchCriteria` in the Network Firewall service
+- The property `destinations` has been replaced by `destinationAddress` in the models `SecurityRuleMatchCriteria` and `DecryptionRuleMatchCriteria` in the Network Firewall service
+- The enum `Type` was removed in the model `MappedSecret` in the Network Firewall service
+- The type of property `Type` was changed to `InspectionType` in the model `MappedSecret` in the Network Firewall service
+- The properties `applicationLists`, `urlLists`, `ipAddressLists`, `securityRules`, `decryptionRules`, `decryptionProfiles`, `mappedSecrets` and `isFirewallAttached` were removed in the model `NetworkFirewallPolicy` in the Network Firewall service
+- The enums `Action` and `Inspection` were removed in the model `SecurityRule` in the Network Firewall service
+- The type of property `action` was changed to `TrafficActionType` in the model `SecurityRule` in the Network Firewall service
+- The type of property `inspection` was changed to `TrafficInspectionType` in the model `SecurityRule` in the Network Firewall service
+- The property `applications` has been replaced by `application` in the model `SecurityRuleMatchCriteria` in the Network Firewall service
+- The property `urls` has been replaced by `url` in the model `SecurityRuleMatchCriteria` in the Network Firewall service
+- The properties `mappedSecrets`, `applicationLists`, `urlLists`, `ipAddressLists`, `securityRules`, `decryptionRules` and `decryptionProfiles` were removed in the model `UpdateNetworkFirewallPolicyDetails` in the Network Firewall service
+
+
 ## 2.70.4 - 2023-10-10
 ### Added
 - Support for creating flow log type capture filters in the Virtual Cloud Network service

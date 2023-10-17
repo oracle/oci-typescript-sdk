@@ -43,6 +43,10 @@ export interface ListLockboxesRequest extends common.BaseRequest {
    */
   "lockboxPartner"?: model.LockboxPartner;
   /**
+   * The ID of the partner.
+   */
+  "partnerId"?: string;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

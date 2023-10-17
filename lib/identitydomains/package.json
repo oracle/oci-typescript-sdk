@@ -1,6 +1,6 @@
 {
   "name": "oci-identitydomains",
-  "version": "2.70.4",
+  "version": "2.71.0",
   "description": "OCI NodeJS client for Identity Domains Service",
   "repository": {
     "type": "git",

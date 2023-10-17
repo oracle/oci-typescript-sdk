@@ -1,8 +1,7 @@
 /**
  * Logging Management API
  * Use the Logging Management API to create, read, list, update, move and delete
-log groups, log objects, log saved searches, agent configurations, log data models,
-continuous queries, and managed continuous queries.
+log groups, log objects, log saved searches, and agent configurations.
 
 For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
@@ -28,19 +27,19 @@ export interface UnifiedAgentSyslogParser extends model.UnifiedAgentParser {
    */
   "timeFormat"?: string;
   /**
-   * rfc5424 time format.
+   * RFC 5424 time format.
    */
   "rfc5424TimeFormat"?: string;
   /**
-   * Message format of syslog.
+   * Syslog message format.
    */
   "messageFormat"?: UnifiedAgentSyslogParser.MessageFormat;
   /**
-   * With priority or not.
+   * Specifies with priority or not. Corresponds to the Fluentd with_priority parameter.
    */
   "isWithPriority"?: boolean;
   /**
-   * Support colonless ident or not.
+   * Specifies whether or not to support colonless ident. Corresponds to the Fluentd support_colonless_ident parameter.
    */
   "isSupportColonlessIdent"?: boolean;
   /**

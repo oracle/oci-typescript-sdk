@@ -60,6 +60,10 @@ export interface JobRun {
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobLogConfigurationOverrideDetails"?: model.JobLogConfigurationDetails;
+  /**
+   * Collection of JobStorageMountConfigurationDetails.
+   */
+  "jobStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
   "logDetails"?: model.JobRunLogDetails;
   /**
    * The state of the job run.
@@ -99,6 +103,11 @@ export namespace JobRun {
         "jobLogConfigurationOverrideDetails": obj.jobLogConfigurationOverrideDetails
           ? model.JobLogConfigurationDetails.getJsonObj(obj.jobLogConfigurationOverrideDetails)
           : undefined,
+        "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
+          ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
+          : undefined,
         "logDetails": obj.logDetails ? model.JobRunLogDetails.getJsonObj(obj.logDetails) : undefined
       }
     };
@@ -123,6 +132,11 @@ export namespace JobRun {
           ? model.JobLogConfigurationDetails.getDeserializedJsonObj(
               obj.jobLogConfigurationOverrideDetails
             )
+          : undefined,
+        "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
+          ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined,
         "logDetails": obj.logDetails
           ? model.JobRunLogDetails.getDeserializedJsonObj(obj.logDetails)

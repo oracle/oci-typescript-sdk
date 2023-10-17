@@ -1,8 +1,7 @@
 /**
  * Logging Management API
  * Use the Logging Management API to create, read, list, update, move and delete
-log groups, log objects, log saved searches, agent configurations, log data models,
-continuous queries, and managed continuous queries.
+log groups, log objects, log saved searches, and agent configurations.
 
 For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
@@ -27,16 +26,33 @@ export interface UnifiedAgentLoggingDestination {
    * The OCID of the resource.
    */
   "logObjectId": string;
+  "operationalMetricsConfiguration"?: model.OperationalMetricsConfiguration;
 }
 
 export namespace UnifiedAgentLoggingDestination {
   export function getJsonObj(obj: UnifiedAgentLoggingDestination): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operationalMetricsConfiguration": obj.operationalMetricsConfiguration
+          ? model.OperationalMetricsConfiguration.getJsonObj(obj.operationalMetricsConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UnifiedAgentLoggingDestination): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "operationalMetricsConfiguration": obj.operationalMetricsConfiguration
+          ? model.OperationalMetricsConfiguration.getDeserializedJsonObj(
+              obj.operationalMetricsConfiguration
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

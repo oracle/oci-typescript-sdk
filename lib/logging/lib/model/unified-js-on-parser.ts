@@ -1,8 +1,7 @@
 /**
  * Logging Management API
  * Use the Logging Management API to create, read, list, update, move and delete
-log groups, log objects, log saved searches, agent configurations, log data models,
-continuous queries, and managed continuous queries.
+log groups, log objects, log saved searches, and agent configurations.
 
 For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
@@ -24,7 +23,7 @@ import common = require("oci-common");
  */
 export interface UnifiedJSONParser extends model.UnifiedAgentParser {
   /**
-   * Time type of JSON parser.
+   * JSON parser time type.
    */
   "timeType"?: UnifiedJSONParser.TimeType;
   /**

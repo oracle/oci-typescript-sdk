@@ -52,6 +52,12 @@ export interface NotebookSession {
   "notebookSessionConfigDetails"?: model.NotebookSessionConfigDetails;
   "notebookSessionRuntimeConfigDetails"?: model.NotebookSessionRuntimeConfigDetails;
   /**
+   * Collection of NotebookSessionStorageMountConfigurationDetails.
+   */
+  "notebookSessionStorageMountConfigurationDetailsList"?: Array<
+    model.StorageMountConfigurationDetails
+  >;
+  /**
    * The URL to interact with the notebook session.
    */
   "notebookSessionUrl"?: string;
@@ -94,6 +100,11 @@ export namespace NotebookSession {
           ? model.NotebookSessionRuntimeConfigDetails.getJsonObj(
               obj.notebookSessionRuntimeConfigDetails
             )
+          : undefined,
+        "notebookSessionStorageMountConfigurationDetailsList": obj.notebookSessionStorageMountConfigurationDetailsList
+          ? obj.notebookSessionStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -118,6 +129,11 @@ export namespace NotebookSession {
           ? model.NotebookSessionRuntimeConfigDetails.getDeserializedJsonObj(
               obj.notebookSessionRuntimeConfigDetails
             )
+          : undefined,
+        "notebookSessionStorageMountConfigurationDetailsList": obj.notebookSessionStorageMountConfigurationDetailsList
+          ? obj.notebookSessionStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

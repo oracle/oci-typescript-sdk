@@ -1,8 +1,7 @@
 /**
  * Logging Management API
  * Use the Logging Management API to create, read, list, update, move and delete
-log groups, log objects, log saved searches, agent configurations, log data models,
-continuous queries, and managed continuous queries.
+log groups, log objects, log saved searches, and agent configurations.
 
 For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
@@ -20,15 +19,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * grok pattern object.
+ * Grok pattern object.
  */
 export interface GrokPattern {
   /**
-   * The grok pattern.
+   * The Grok pattern.
    */
   "pattern": string;
   /**
-   * The name key to tag this grok pattern.
+   * The name key to tag this Grok pattern.
    */
   "name"?: string;
   /**
