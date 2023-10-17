@@ -30,10 +30,10 @@ export interface ListDataSciencePrivateEndpointsRequest extends common.BaseReque
   /**
  * For list pagination. The maximum number of results per page,
 * or items to return in a paginated \"List\" call.
-* 1 is the minimum, 1000 is the maximum.
+* 1 is the minimum, 100 is the maximum.
 * See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
 * <p>
-Example: `500`
+Example: `50`
 * 
  */
   "limit"?: number;

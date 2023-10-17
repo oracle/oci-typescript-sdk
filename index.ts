@@ -214,3 +214,5 @@ export import ocicontrolcenter = require("oci-ocicontrolcenter");
 export import osmanagementhub = require("oci-osmanagementhub");
 export import fleetsoftwareupdate = require("oci-fleetsoftwareupdate");
 export import computecloudatcustomer = require("oci-computecloudatcustomer");
+export import marketplacepublisher = require("oci-marketplacepublisher");
+export import redis = require("oci-redis");

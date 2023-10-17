@@ -1,6 +1,6 @@
 /**
  * Managed Access API
- * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/en-us/iaas/managed-access/overview.htm).
+ * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/iaas/Content/managed-access/home.htm).
 
 Use the table of contents and search tool to explore the Managed Access API.
 
@@ -33,7 +33,7 @@ export interface ApprovalTemplateSummary {
    * The current state of the approval template.
    */
   "lifecycleState"?: string;
-  "approverLevels": model.ApproverLevels;
+  "approverLevels"?: model.ApproverLevels;
   /**
    * The unique identifier (OCID) of the customer compartment where the approval template is located.
    */

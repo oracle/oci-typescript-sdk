@@ -1,6 +1,6 @@
 {
   "name": "oci-aivision",
-  "version": "2.70.4",
+  "version": "2.71.0",
   "description": "OCI NodeJS client for Ai Vision Service",
   "repository": {
     "type": "git",

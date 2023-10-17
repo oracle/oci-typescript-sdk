@@ -1,8 +1,7 @@
 /**
  * Logging Management API
  * Use the Logging Management API to create, read, list, update, move and delete
-log groups, log objects, log saved searches, agent configurations, log data models,
-continuous queries, and managed continuous queries.
+log groups, log objects, log saved searches, and agent configurations.
 
 For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
@@ -24,11 +23,11 @@ import common = require("oci-common");
  */
 export interface UnifiedAgentCriParser extends model.UnifiedAgentParser {
   /**
-   * If you don't need stream/logtag fields, set this to false.
+   * If you don't need stream or logtag fields, set this to false.
    */
   "isMergeCriFields"?: boolean;
   /**
-   * Optional nested JSON Parser for CRI Parser. Supported fields are fieldTimeKey, timeFormat, and isKeepTimeKey.
+   * Optional nested JSON Parser for CRI. Supported fields are fieldTimeKey, timeFormat, and isKeepTimeKey.
    */
   "nestedParser"?: model.UnifiedJSONParser;
 

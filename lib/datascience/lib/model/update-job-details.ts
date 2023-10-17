@@ -31,6 +31,10 @@ export interface UpdateJobDetails {
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   /**
+   * Collection of JobStorageMountConfigurationDetails.
+   */
+  "jobStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`
    *
@@ -53,6 +57,11 @@ export namespace UpdateJobDetails {
           ? model.JobInfrastructureConfigurationDetails.getJsonObj(
               obj.jobInfrastructureConfigurationDetails
             )
+          : undefined,
+        "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
+          ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -67,6 +76,11 @@ export namespace UpdateJobDetails {
           ? model.JobInfrastructureConfigurationDetails.getDeserializedJsonObj(
               obj.jobInfrastructureConfigurationDetails
             )
+          : undefined,
+        "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
+          ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

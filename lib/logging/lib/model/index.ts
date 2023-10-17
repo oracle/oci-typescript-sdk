@@ -1,8 +1,7 @@
 /**
  * Logging Management API
  * Use the Logging Management API to create, read, list, update, move and delete
-log groups, log objects, log saved searches, agent configurations, log data models,
-continuous queries, and managed continuous queries.
+log groups, log objects, log saved searches, and agent configurations.
 
 For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
@@ -68,6 +67,14 @@ import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationTypes from "./operation-types";
 export import OperationTypes = OperationTypes.OperationTypes;
+import * as OperationalMetricsConfiguration from "./operational-metrics-configuration";
+export import OperationalMetricsConfiguration = OperationalMetricsConfiguration.OperationalMetricsConfiguration;
+import * as OperationalMetricsDestination from "./operational-metrics-destination";
+export import OperationalMetricsDestination = OperationalMetricsDestination.OperationalMetricsDestination;
+import * as OperationalMetricsRecordInput from "./operational-metrics-record-input";
+export import OperationalMetricsRecordInput = OperationalMetricsRecordInput.OperationalMetricsRecordInput;
+import * as OperationalMetricsSource from "./operational-metrics-source";
+export import OperationalMetricsSource = OperationalMetricsSource.OperationalMetricsSource;
 import * as Parameter from "./parameter";
 export import Parameter = Parameter.Parameter;
 import * as ResourceType from "./resource-type";

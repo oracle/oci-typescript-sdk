@@ -41,6 +41,12 @@ export interface UpdateNotebookSessionDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "notebookSessionRuntimeConfigDetails"?: model.NotebookSessionRuntimeConfigDetails;
+  /**
+   * Collection of NotebookSessionStorageMountConfigurationDetails.
+   */
+  "notebookSessionStorageMountConfigurationDetailsList"?: Array<
+    model.StorageMountConfigurationDetails
+  >;
 }
 
 export namespace UpdateNotebookSessionDetails {
@@ -58,6 +64,11 @@ export namespace UpdateNotebookSessionDetails {
           ? model.NotebookSessionRuntimeConfigDetails.getJsonObj(
               obj.notebookSessionRuntimeConfigDetails
             )
+          : undefined,
+        "notebookSessionStorageMountConfigurationDetailsList": obj.notebookSessionStorageMountConfigurationDetailsList
+          ? obj.notebookSessionStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -78,6 +89,11 @@ export namespace UpdateNotebookSessionDetails {
           ? model.NotebookSessionRuntimeConfigDetails.getDeserializedJsonObj(
               obj.notebookSessionRuntimeConfigDetails
             )
+          : undefined,
+        "notebookSessionStorageMountConfigurationDetailsList": obj.notebookSessionStorageMountConfigurationDetailsList
+          ? obj.notebookSessionStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

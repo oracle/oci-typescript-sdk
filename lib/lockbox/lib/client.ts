@@ -1,6 +1,6 @@
 /**
  * Managed Access API
- * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/en-us/iaas/managed-access/overview.htm).
+ * Use the Managed Access API to approve access requests, create and manage templates, and manage resource approval settings. For more information, see [Managed Access Overview](https://docs.oracle.com/iaas/Content/managed-access/home.htm).
 
 Use the table of contents and search tool to explore the Managed Access API.
 
@@ -806,6 +806,91 @@ export class LockboxClient {
   }
 
   /**
+   * Exports a list of AccessRequestSummary objects within a compartment and during a specified time range in text format. You can filter the results by problem severity.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ExportAccessRequestsRequest
+   * @return ExportAccessRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ExportAccessRequests.ts.html |here} to see how to use ExportAccessRequests API.
+   */
+  public async exportAccessRequests(
+    exportAccessRequestsRequest: requests.ExportAccessRequestsRequest
+  ): Promise<responses.ExportAccessRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LockboxClient#exportAccessRequests.");
+    const operationName = "exportAccessRequests";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": exportAccessRequestsRequest.id,
+      "displayName": exportAccessRequestsRequest.displayName,
+      "lifecycleState": exportAccessRequestsRequest.lifecycleState,
+      "lockboxPartner": exportAccessRequestsRequest.lockboxPartner,
+      "partnerId": exportAccessRequestsRequest.partnerId,
+      "requestorId": exportAccessRequestsRequest.requestorId,
+      "limit": exportAccessRequestsRequest.limit,
+      "page": exportAccessRequestsRequest.page,
+      "sortOrder": exportAccessRequestsRequest.sortOrder,
+      "sortBy": exportAccessRequestsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": exportAccessRequestsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportAccessRequestsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/accessRequests/actions/export",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportAccessRequestsRequest.exportAccessRequestsDetails,
+        "ExportAccessRequestsDetails",
+        model.ExportAccessRequestsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportAccessRequestsResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves the access credential/material associated with the access request.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1282,11 +1367,14 @@ export class LockboxClient {
       "displayName": listAccessRequestsRequest.displayName,
       "lifecycleState": listAccessRequestsRequest.lifecycleState,
       "lockboxPartner": listAccessRequestsRequest.lockboxPartner,
+      "partnerId": listAccessRequestsRequest.partnerId,
       "requestorId": listAccessRequestsRequest.requestorId,
       "limit": listAccessRequestsRequest.limit,
       "page": listAccessRequestsRequest.page,
       "sortOrder": listAccessRequestsRequest.sortOrder,
-      "sortBy": listAccessRequestsRequest.sortBy
+      "sortBy": listAccessRequestsRequest.sortBy,
+      "timeCreatedAfter": listAccessRequestsRequest.timeCreatedAfter,
+      "timeCreatedBefore": listAccessRequestsRequest.timeCreatedBefore
     };
 
     let headerParams = {
@@ -1451,6 +1539,7 @@ export class LockboxClient {
       "id": listLockboxesRequest.id,
       "resourceId": listLockboxesRequest.resourceId,
       "lockboxPartner": listLockboxesRequest.lockboxPartner,
+      "partnerId": listLockboxesRequest.partnerId,
       "limit": listLockboxesRequest.limit,
       "page": listLockboxesRequest.page,
       "sortOrder": listLockboxesRequest.sortOrder,
