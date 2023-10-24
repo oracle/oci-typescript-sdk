@@ -35,4 +35,8 @@ export interface DeleteDatabaseToolsPrivateEndpointRequest extends common.BaseRe
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

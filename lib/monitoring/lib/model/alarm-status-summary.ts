@@ -2,7 +2,8 @@
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
 Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
-For information about monitoring, see [Monitoring Overview](/iaas/Content/Monitoring/Concepts/monitoringoverview.htm).
+For more information, see
+[the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
  * OpenAPI spec version: 20180401
  * 
@@ -19,14 +20,16 @@ import common = require("oci-common");
 
 /**
 * A summary of properties for the specified alarm and its current evaluation status.
-* For information about alarms, see [Alarms Overview](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#AlarmsOverview).
+* For information about alarms, see
+* [Alarms Overview](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#AlarmsOverview).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * <p>
 For information about endpoints and signing API requests, see
-* [About the API](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm). For information about available SDKs and tools, see
+* [About the API](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm).
+* For information about available SDKs and tools, see
 * [SDKS and Other Tools](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/sdks.htm).
 * 
 */
@@ -59,14 +62,12 @@ Example: `2019-02-01T01:02:29.600Z`
     */
   "timestampTriggered": Date;
   /**
-    * The status of this alarm.
-* Status is collective, across all metric streams in the alarm.
-* To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
-* The alarm attribute `isNotificationsPerMetricDimensionEnabled` must be set to `true`.
-* <p>
-Example: `FIRING`
-* 
-    */
+   * The status of this alarm.
+   * Status is collective, across all metric streams in the alarm.
+   * To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
+   * Example: `FIRING`
+   *
+   */
   "status": AlarmStatusSummary.Status;
   /**
    * The configuration details for suppressing an alarm.

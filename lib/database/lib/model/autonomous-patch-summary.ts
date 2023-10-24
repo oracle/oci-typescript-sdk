@@ -66,6 +66,11 @@ export interface AutonomousPatchSummary {
    * Year in which the patch was released.
    */
   "year"?: string;
+  /**
+   * Maintenance run type, either \"QUARTERLY\" or \"TIMEZONE\".
+   *
+   */
+  "autonomousPatchType"?: AutonomousPatchSummary.AutonomousPatchType;
 }
 
 export namespace AutonomousPatchSummary {
@@ -84,6 +89,16 @@ export namespace AutonomousPatchSummary {
   export enum PatchModel {
     ReleaseUpdates = "RELEASE_UPDATES",
     ReleaseUpdateRevisions = "RELEASE_UPDATE_REVISIONS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AutonomousPatchType {
+    Quarterly = "QUARTERLY",
+    Timezone = "TIMEZONE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

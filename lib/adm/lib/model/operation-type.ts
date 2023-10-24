@@ -18,6 +18,12 @@ import common = require("oci-common");
  * Possible operation types.
  **/
 export enum OperationType {
+  CreateRemediationRecipe = "CREATE_REMEDIATION_RECIPE",
+  DeleteRemediationRecipe = "DELETE_REMEDIATION_RECIPE",
+  MoveRemediationRecipe = "MOVE_REMEDIATION_RECIPE",
+  UpdateRemediationRecipe = "UPDATE_REMEDIATION_RECIPE",
+  ActivateRemediationRecipe = "ACTIVATE_REMEDIATION_RECIPE",
+  DeactivateRemediationRecipe = "DEACTIVATE_REMEDIATION_RECIPE",
   CreateKnowledgeBase = "CREATE_KNOWLEDGE_BASE",
   DeleteKnowledgeBase = "DELETE_KNOWLEDGE_BASE",
   MoveKnowledgeBase = "MOVE_KNOWLEDGE_BASE",

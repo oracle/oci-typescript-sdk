@@ -20,6 +20,8 @@ import common = require("oci-common");
 export enum ConnectionType {
   OracleDatabase = "ORACLE_DATABASE",
   Mysql = "MYSQL",
+  Postgresql = "POSTGRESQL",
+  GenericJdbc = "GENERIC_JDBC",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

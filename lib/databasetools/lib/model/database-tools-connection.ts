@@ -64,13 +64,30 @@ export interface DatabaseToolsConnection {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
+   * Specifies whether this connection is supported by the Database Tools Runtime.
+   */
+  "runtimeSupport": model.RuntimeSupport;
 
   "type": string;
 }
 
 export namespace DatabaseToolsConnection {
   export function getJsonObj(obj: DatabaseToolsConnection): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
@@ -79,9 +96,19 @@ export namespace DatabaseToolsConnection {
             <model.DatabaseToolsConnectionOracleDatabase>(<object>jsonObj),
             true
           );
+        case "POSTGRESQL":
+          return model.DatabaseToolsConnectionPostgresql.getJsonObj(
+            <model.DatabaseToolsConnectionPostgresql>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.DatabaseToolsConnectionMySql.getJsonObj(
             <model.DatabaseToolsConnectionMySql>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC":
+          return model.DatabaseToolsConnectionGenericJdbc.getJsonObj(
+            <model.DatabaseToolsConnectionGenericJdbc>(<object>jsonObj),
             true
           );
         default:
@@ -91,7 +118,16 @@ export namespace DatabaseToolsConnection {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DatabaseToolsConnection): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
@@ -100,9 +136,19 @@ export namespace DatabaseToolsConnection {
             <model.DatabaseToolsConnectionOracleDatabase>(<object>jsonObj),
             true
           );
+        case "POSTGRESQL":
+          return model.DatabaseToolsConnectionPostgresql.getDeserializedJsonObj(
+            <model.DatabaseToolsConnectionPostgresql>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.DatabaseToolsConnectionMySql.getDeserializedJsonObj(
             <model.DatabaseToolsConnectionMySql>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC":
+          return model.DatabaseToolsConnectionGenericJdbc.getDeserializedJsonObj(
+            <model.DatabaseToolsConnectionGenericJdbc>(<object>jsonObj),
             true
           );
         default:

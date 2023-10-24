@@ -19,10 +19,14 @@ import * as ChangeTableCompartmentRequest from "./change-table-compartment-reque
 export import ChangeTableCompartmentRequest = ChangeTableCompartmentRequest.ChangeTableCompartmentRequest;
 import * as CreateIndexRequest from "./create-index-request";
 export import CreateIndexRequest = CreateIndexRequest.CreateIndexRequest;
+import * as CreateReplicaRequest from "./create-replica-request";
+export import CreateReplicaRequest = CreateReplicaRequest.CreateReplicaRequest;
 import * as CreateTableRequest from "./create-table-request";
 export import CreateTableRequest = CreateTableRequest.CreateTableRequest;
 import * as DeleteIndexRequest from "./delete-index-request";
 export import DeleteIndexRequest = DeleteIndexRequest.DeleteIndexRequest;
+import * as DeleteReplicaRequest from "./delete-replica-request";
+export import DeleteReplicaRequest = DeleteReplicaRequest.DeleteReplicaRequest;
 import * as DeleteRowRequest from "./delete-row-request";
 export import DeleteRowRequest = DeleteRowRequest.DeleteRowRequest;
 import * as DeleteTableRequest from "./delete-table-request";

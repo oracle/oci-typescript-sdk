@@ -194,6 +194,161 @@ export class ApplicationDependencyManagementClient {
   }
 
   /**
+   * Activates the specified Remediation Recipe.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ActivateRemediationRecipeRequest
+   * @return ActivateRemediationRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ActivateRemediationRecipe.ts.html |here} to see how to use ActivateRemediationRecipe API.
+   */
+  public async activateRemediationRecipe(
+    activateRemediationRecipeRequest: requests.ActivateRemediationRecipeRequest
+  ): Promise<responses.ActivateRemediationRecipeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#activateRemediationRecipe."
+      );
+    const operationName = "activateRemediationRecipe";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRecipeId}": activateRemediationRecipeRequest.remediationRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": activateRemediationRecipeRequest.ifMatch,
+      "opc-request-id": activateRemediationRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateRemediationRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRecipes/{remediationRecipeId}/actions/activate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateRemediationRecipeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cancels the specified remediation run.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelRemediationRunRequest
+   * @return CancelRemediationRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CancelRemediationRun.ts.html |here} to see how to use CancelRemediationRun API.
+   */
+  public async cancelRemediationRun(
+    cancelRemediationRunRequest: requests.CancelRemediationRunRequest
+  ): Promise<responses.CancelRemediationRunResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#cancelRemediationRun."
+      );
+    const operationName = "cancelRemediationRun";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRunId}": cancelRemediationRunRequest.remediationRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelRemediationRunRequest.ifMatch,
+      "opc-request-id": cancelRemediationRunRequest.opcRequestId,
+      "opc-retry-token": cancelRemediationRunRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelRemediationRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns/{remediationRunId}/actions/cancel",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelRemediationRunResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRun",
+        bodyModel: model.RemediationRun,
+        type: "model.RemediationRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancel work request with the given ID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
@@ -330,6 +485,163 @@ export class ApplicationDependencyManagementClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a Remediation Recipe from one compartment to another.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeRemediationRecipeCompartmentRequest
+   * @return ChangeRemediationRecipeCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeRemediationRecipeCompartment.ts.html |here} to see how to use ChangeRemediationRecipeCompartment API.
+   */
+  public async changeRemediationRecipeCompartment(
+    changeRemediationRecipeCompartmentRequest: requests.ChangeRemediationRecipeCompartmentRequest
+  ): Promise<responses.ChangeRemediationRecipeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#changeRemediationRecipeCompartment."
+      );
+    const operationName = "changeRemediationRecipeCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRecipeId}": changeRemediationRecipeCompartmentRequest.remediationRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeRemediationRecipeCompartmentRequest.ifMatch,
+      "opc-request-id": changeRemediationRecipeCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeRemediationRecipeCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRemediationRecipeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRecipes/{remediationRecipeId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeRemediationRecipeCompartmentRequest.changeRemediationRecipeCompartmentDetails,
+        "ChangeRemediationRecipeCompartmentDetails",
+        model.ChangeRemediationRecipeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeRemediationRecipeCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a remediation run from one compartment to another.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeRemediationRunCompartmentRequest
+   * @return ChangeRemediationRunCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeRemediationRunCompartment.ts.html |here} to see how to use ChangeRemediationRunCompartment API.
+   */
+  public async changeRemediationRunCompartment(
+    changeRemediationRunCompartmentRequest: requests.ChangeRemediationRunCompartmentRequest
+  ): Promise<responses.ChangeRemediationRunCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#changeRemediationRunCompartment."
+      );
+    const operationName = "changeRemediationRunCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRunId}": changeRemediationRunCompartmentRequest.remediationRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeRemediationRunCompartmentRequest.ifMatch,
+      "opc-request-id": changeRemediationRunCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeRemediationRunCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRemediationRunCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns/{remediationRunId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeRemediationRunCompartmentRequest.changeRemediationRunCompartmentDetails,
+        "ChangeRemediationRunCompartmentDetails",
+        model.ChangeRemediationRunCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeRemediationRunCompartmentResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -499,6 +811,166 @@ export class ApplicationDependencyManagementClient {
   }
 
   /**
+   * Creates a new Remediation Recipe.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateRemediationRecipeRequest
+   * @return CreateRemediationRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateRemediationRecipe.ts.html |here} to see how to use CreateRemediationRecipe API.
+   */
+  public async createRemediationRecipe(
+    createRemediationRecipeRequest: requests.CreateRemediationRecipeRequest
+  ): Promise<responses.CreateRemediationRecipeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#createRemediationRecipe."
+      );
+    const operationName = "createRemediationRecipe";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createRemediationRecipeRequest.opcRequestId,
+      "opc-retry-token": createRemediationRecipeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRemediationRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRecipes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRemediationRecipeRequest.createRemediationRecipeDetails,
+        "CreateRemediationRecipeDetails",
+        model.CreateRemediationRecipeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRemediationRecipeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new remediation run.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateRemediationRunRequest
+   * @return CreateRemediationRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateRemediationRun.ts.html |here} to see how to use CreateRemediationRun API.
+   */
+  public async createRemediationRun(
+    createRemediationRunRequest: requests.CreateRemediationRunRequest
+  ): Promise<responses.CreateRemediationRunResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#createRemediationRun."
+      );
+    const operationName = "createRemediationRun";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createRemediationRunRequest.opcRequestId,
+      "opc-retry-token": createRemediationRunRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRemediationRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRemediationRunRequest.createRemediationRunDetails,
+        "CreateRemediationRunDetails",
+        model.CreateRemediationRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRemediationRunResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRun",
+        bodyModel: model.RemediationRun,
+        type: "model.RemediationRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Vulnerability Audit by providing a tree of Application Dependencies.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateVulnerabilityAuditRequest
@@ -587,6 +1059,81 @@ export class ApplicationDependencyManagementClient {
   }
 
   /**
+   * Deactivates the specified Remediation Recipe.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeactivateRemediationRecipeRequest
+   * @return DeactivateRemediationRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeactivateRemediationRecipe.ts.html |here} to see how to use DeactivateRemediationRecipe API.
+   */
+  public async deactivateRemediationRecipe(
+    deactivateRemediationRecipeRequest: requests.DeactivateRemediationRecipeRequest
+  ): Promise<responses.DeactivateRemediationRecipeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#deactivateRemediationRecipe."
+      );
+    const operationName = "deactivateRemediationRecipe";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRecipeId}": deactivateRemediationRecipeRequest.remediationRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deactivateRemediationRecipeRequest.ifMatch,
+      "opc-request-id": deactivateRemediationRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateRemediationRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRecipes/{remediationRecipeId}/actions/deactivate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateRemediationRecipeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Knowledge Base.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteKnowledgeBaseRequest
@@ -647,6 +1194,151 @@ export class ApplicationDependencyManagementClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Remediation Recipe.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteRemediationRecipeRequest
+   * @return DeleteRemediationRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteRemediationRecipe.ts.html |here} to see how to use DeleteRemediationRecipe API.
+   */
+  public async deleteRemediationRecipe(
+    deleteRemediationRecipeRequest: requests.DeleteRemediationRecipeRequest
+  ): Promise<responses.DeleteRemediationRecipeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#deleteRemediationRecipe."
+      );
+    const operationName = "deleteRemediationRecipe";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRecipeId}": deleteRemediationRecipeRequest.remediationRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRemediationRecipeRequest.ifMatch,
+      "opc-request-id": deleteRemediationRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRemediationRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRecipes/{remediationRecipeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRemediationRecipeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified remediation run.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteRemediationRunRequest
+   * @return DeleteRemediationRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteRemediationRun.ts.html |here} to see how to use DeleteRemediationRun API.
+   */
+  public async deleteRemediationRun(
+    deleteRemediationRunRequest: requests.DeleteRemediationRunRequest
+  ): Promise<responses.DeleteRemediationRunResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#deleteRemediationRun."
+      );
+    const operationName = "deleteRemediationRun";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRunId}": deleteRemediationRunRequest.remediationRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRemediationRunRequest.ifMatch,
+      "opc-request-id": deleteRemediationRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRemediationRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns/{remediationRunId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRemediationRunResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -798,6 +1490,234 @@ export class ApplicationDependencyManagementClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the details of the specified RemediationRecipe.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRemediationRecipeRequest
+   * @return GetRemediationRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetRemediationRecipe.ts.html |here} to see how to use GetRemediationRecipe API.
+   */
+  public async getRemediationRecipe(
+    getRemediationRecipeRequest: requests.GetRemediationRecipeRequest
+  ): Promise<responses.GetRemediationRecipeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#getRemediationRecipe."
+      );
+    const operationName = "getRemediationRecipe";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRecipeId}": getRemediationRecipeRequest.remediationRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRemediationRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRemediationRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRecipes/{remediationRecipeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRemediationRecipeResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRecipe",
+        bodyModel: model.RemediationRecipe,
+        type: "model.RemediationRecipe",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the details of the specified remediation run.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRemediationRunRequest
+   * @return GetRemediationRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetRemediationRun.ts.html |here} to see how to use GetRemediationRun API.
+   */
+  public async getRemediationRun(
+    getRemediationRunRequest: requests.GetRemediationRunRequest
+  ): Promise<responses.GetRemediationRunResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#getRemediationRun."
+      );
+    const operationName = "getRemediationRun";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRunId}": getRemediationRunRequest.remediationRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRemediationRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRemediationRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns/{remediationRunId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRemediationRunResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRun",
+        bodyModel: model.RemediationRun,
+        type: "model.RemediationRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the details of the specified Remediation Run Stage.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetStageRequest
+   * @return GetStageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetStage.ts.html |here} to see how to use GetStage API.
+   */
+  public async getStage(
+    getStageRequest: requests.GetStageRequest
+  ): Promise<responses.GetStageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationDependencyManagementClient#getStage.");
+    const operationName = "getStage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRunId}": getStageRequest.remediationRunId,
+      "{stageType}": getStageRequest.stageType
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getStageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns/{remediationRunId}/stages/{stageType}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetStageResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRunStage",
+        bodyModel: model.RemediationRunStage,
+        type: "model.RemediationRunStage",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -969,6 +1889,90 @@ export class ApplicationDependencyManagementClient {
   }
 
   /**
+   * Returns a list of application dependency with their associated recommendations.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListApplicationDependencyRecommendationsRequest
+   * @return ListApplicationDependencyRecommendationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListApplicationDependencyRecommendations.ts.html |here} to see how to use ListApplicationDependencyRecommendations API.
+   */
+  public async listApplicationDependencyRecommendations(
+    listApplicationDependencyRecommendationsRequest: requests.ListApplicationDependencyRecommendationsRequest
+  ): Promise<responses.ListApplicationDependencyRecommendationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listApplicationDependencyRecommendations."
+      );
+    const operationName = "listApplicationDependencyRecommendations";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRunId}": listApplicationDependencyRecommendationsRequest.remediationRunId
+    };
+
+    const queryParams = {
+      "limit": listApplicationDependencyRecommendationsRequest.limit,
+      "page": listApplicationDependencyRecommendationsRequest.page,
+      "sortOrder": listApplicationDependencyRecommendationsRequest.sortOrder,
+      "gav": listApplicationDependencyRecommendationsRequest.gav,
+      "sortBy": listApplicationDependencyRecommendationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listApplicationDependencyRecommendationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApplicationDependencyRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns/{remediationRunId}/applicationDependencyRecommendations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListApplicationDependencyRecommendationsResponse>{},
+        body: await response.json(),
+        bodyKey: "applicationDependencyRecommendationCollection",
+        bodyModel: model.ApplicationDependencyRecommendationCollection,
+        type: "model.ApplicationDependencyRecommendationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of Application Dependencies with their associated vulnerabilities.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListApplicationDependencyVulnerabilitiesRequest
@@ -1126,6 +2130,264 @@ export class ApplicationDependencyManagementClient {
         bodyKey: "knowledgeBaseCollection",
         bodyModel: model.KnowledgeBaseCollection,
         type: "model.KnowledgeBaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Remediation Recipes based on the specified query parameters.
+   * The query parameters `compartmentId` or `id` must be provided.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRemediationRecipesRequest
+   * @return ListRemediationRecipesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListRemediationRecipes.ts.html |here} to see how to use ListRemediationRecipes API.
+   */
+  public async listRemediationRecipes(
+    listRemediationRecipesRequest: requests.ListRemediationRecipesRequest
+  ): Promise<responses.ListRemediationRecipesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listRemediationRecipes."
+      );
+    const operationName = "listRemediationRecipes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listRemediationRecipesRequest.id,
+      "sortBy": listRemediationRecipesRequest.sortBy,
+      "lifecycleState": listRemediationRecipesRequest.lifecycleState,
+      "sortOrder": listRemediationRecipesRequest.sortOrder,
+      "displayName": listRemediationRecipesRequest.displayName,
+      "limit": listRemediationRecipesRequest.limit,
+      "page": listRemediationRecipesRequest.page,
+      "compartmentId": listRemediationRecipesRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRemediationRecipesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRemediationRecipesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRecipes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRemediationRecipesResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRecipeCollection",
+        bodyModel: model.RemediationRecipeCollection,
+        type: "model.RemediationRecipeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of remediation runs contained by a compartment.
+   * The query parameter `compartmentId` is required unless the query parameter `id` is specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRemediationRunsRequest
+   * @return ListRemediationRunsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListRemediationRuns.ts.html |here} to see how to use ListRemediationRuns API.
+   */
+  public async listRemediationRuns(
+    listRemediationRunsRequest: requests.ListRemediationRunsRequest
+  ): Promise<responses.ListRemediationRunsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listRemediationRuns."
+      );
+    const operationName = "listRemediationRuns";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listRemediationRunsRequest.id,
+      "remediationRecipeId": listRemediationRunsRequest.remediationRecipeId,
+      "lifecycleState": listRemediationRunsRequest.lifecycleState,
+      "displayName": listRemediationRunsRequest.displayName,
+      "sortOrder": listRemediationRunsRequest.sortOrder,
+      "sortBy": listRemediationRunsRequest.sortBy,
+      "compartmentId": listRemediationRunsRequest.compartmentId,
+      "limit": listRemediationRunsRequest.limit,
+      "page": listRemediationRunsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRemediationRunsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRemediationRunsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRemediationRunsResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRunCollection",
+        bodyModel: model.RemediationRunCollection,
+        type: "model.RemediationRunCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Remediation Run Stages based on the specified query parameters and Remediation Run identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListStagesRequest
+   * @return ListStagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListStages.ts.html |here} to see how to use ListStages API.
+   */
+  public async listStages(
+    listStagesRequest: requests.ListStagesRequest
+  ): Promise<responses.ListStagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationDependencyManagementClient#listStages.");
+    const operationName = "listStages";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRunId}": listStagesRequest.remediationRunId
+    };
+
+    const queryParams = {
+      "type": listStagesRequest.type,
+      "status": listStagesRequest.status,
+      "sortOrder": listStagesRequest.sortOrder,
+      "limit": listStagesRequest.limit,
+      "page": listStagesRequest.page,
+      "sortBy": listStagesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listStagesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStagesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns/{remediationRunId}/stages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListStagesResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRunStageCollection",
+        bodyModel: model.RemediationRunStageCollection,
+        type: "model.RemediationRunStageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1553,6 +2815,170 @@ export class ApplicationDependencyManagementClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified Remediation Recipe.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateRemediationRecipeRequest
+   * @return UpdateRemediationRecipeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateRemediationRecipe.ts.html |here} to see how to use UpdateRemediationRecipe API.
+   */
+  public async updateRemediationRecipe(
+    updateRemediationRecipeRequest: requests.UpdateRemediationRecipeRequest
+  ): Promise<responses.UpdateRemediationRecipeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#updateRemediationRecipe."
+      );
+    const operationName = "updateRemediationRecipe";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRecipeId}": updateRemediationRecipeRequest.remediationRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRemediationRecipeRequest.ifMatch,
+      "opc-request-id": updateRemediationRecipeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRemediationRecipeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRecipes/{remediationRecipeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRemediationRecipeRequest.updateRemediationRecipeDetails,
+        "UpdateRemediationRecipeDetails",
+        model.UpdateRemediationRecipeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRemediationRecipeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates by identifier one or more attributes of the specified remediation run.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateRemediationRunRequest
+   * @return UpdateRemediationRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateRemediationRun.ts.html |here} to see how to use UpdateRemediationRun API.
+   */
+  public async updateRemediationRun(
+    updateRemediationRunRequest: requests.UpdateRemediationRunRequest
+  ): Promise<responses.UpdateRemediationRunResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#updateRemediationRun."
+      );
+    const operationName = "updateRemediationRun";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{remediationRunId}": updateRemediationRunRequest.remediationRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRemediationRunRequest.ifMatch,
+      "opc-request-id": updateRemediationRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRemediationRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/remediationRuns/{remediationRunId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRemediationRunRequest.updateRemediationRunDetails,
+        "UpdateRemediationRunDetails",
+        model.UpdateRemediationRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRemediationRunResponse>{},
+        body: await response.json(),
+        bodyKey: "remediationRun",
+        bodyModel: model.RemediationRun,
+        type: "model.RemediationRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

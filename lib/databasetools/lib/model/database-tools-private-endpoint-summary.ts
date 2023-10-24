@@ -41,6 +41,10 @@ export interface DatabaseToolsPrivateEndpointSummary {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName"?: string;
@@ -111,6 +115,12 @@ export namespace DatabaseToolsPrivateEndpointSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined,
+
         "reverseConnectionConfiguration": obj.reverseConnectionConfiguration
           ? model.DatabaseToolsPrivateEndpointReverseConnectionConfiguration.getJsonObj(
               obj.reverseConnectionConfiguration
@@ -125,6 +135,12 @@ export namespace DatabaseToolsPrivateEndpointSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "reverseConnectionConfiguration": obj.reverseConnectionConfiguration
           ? model.DatabaseToolsPrivateEndpointReverseConnectionConfiguration.getDeserializedJsonObj(
               obj.reverseConnectionConfiguration

@@ -120,6 +120,8 @@ import * as CreateExternalPluggableDatabaseRequest from "./create-external-plugg
 export import CreateExternalPluggableDatabaseRequest = CreateExternalPluggableDatabaseRequest.CreateExternalPluggableDatabaseRequest;
 import * as CreateKeyStoreRequest from "./create-key-store-request";
 export import CreateKeyStoreRequest = CreateKeyStoreRequest.CreateKeyStoreRequest;
+import * as CreateMaintenanceRunRequest from "./create-maintenance-run-request";
+export import CreateMaintenanceRunRequest = CreateMaintenanceRunRequest.CreateMaintenanceRunRequest;
 import * as CreateOneoffPatchRequest from "./create-oneoff-patch-request";
 export import CreateOneoffPatchRequest = CreateOneoffPatchRequest.CreateOneoffPatchRequest;
 import * as CreatePluggableDatabaseRequest from "./create-pluggable-database-request";

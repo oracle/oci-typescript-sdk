@@ -35,6 +35,10 @@ export interface CreateDatabaseToolsPrivateEndpointDetails {
    */
   "freeformTags"?: { [key: string]: string };
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName": string;
@@ -65,12 +69,30 @@ export interface CreateDatabaseToolsPrivateEndpointDetails {
 
 export namespace CreateDatabaseToolsPrivateEndpointDetails {
   export function getJsonObj(obj: CreateDatabaseToolsPrivateEndpointDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateDatabaseToolsPrivateEndpointDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

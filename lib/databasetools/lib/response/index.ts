@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddDatabaseToolsConnectionLockResponse from "./add-database-tools-connection-lock-response";
+export import AddDatabaseToolsConnectionLockResponse = AddDatabaseToolsConnectionLockResponse.AddDatabaseToolsConnectionLockResponse;
+import * as AddDatabaseToolsPrivateEndpointLockResponse from "./add-database-tools-private-endpoint-lock-response";
+export import AddDatabaseToolsPrivateEndpointLockResponse = AddDatabaseToolsPrivateEndpointLockResponse.AddDatabaseToolsPrivateEndpointLockResponse;
 import * as ChangeDatabaseToolsConnectionCompartmentResponse from "./change-database-tools-connection-compartment-response";
 export import ChangeDatabaseToolsConnectionCompartmentResponse = ChangeDatabaseToolsConnectionCompartmentResponse.ChangeDatabaseToolsConnectionCompartmentResponse;
 import * as ChangeDatabaseToolsPrivateEndpointCompartmentResponse from "./change-database-tools-private-endpoint-compartment-response";
@@ -43,6 +47,10 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RemoveDatabaseToolsConnectionLockResponse from "./remove-database-tools-connection-lock-response";
+export import RemoveDatabaseToolsConnectionLockResponse = RemoveDatabaseToolsConnectionLockResponse.RemoveDatabaseToolsConnectionLockResponse;
+import * as RemoveDatabaseToolsPrivateEndpointLockResponse from "./remove-database-tools-private-endpoint-lock-response";
+export import RemoveDatabaseToolsPrivateEndpointLockResponse = RemoveDatabaseToolsPrivateEndpointLockResponse.RemoveDatabaseToolsPrivateEndpointLockResponse;
 import * as UpdateDatabaseToolsConnectionResponse from "./update-database-tools-connection-response";
 export import UpdateDatabaseToolsConnectionResponse = UpdateDatabaseToolsConnectionResponse.UpdateDatabaseToolsConnectionResponse;
 import * as UpdateDatabaseToolsPrivateEndpointResponse from "./update-database-tools-private-endpoint-response";

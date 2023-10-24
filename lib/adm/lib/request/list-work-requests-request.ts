@@ -20,6 +20,8 @@ import common = require("oci-common");
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * A filter to return only resources that belong to the specified compartment identifier.
+   * Required only if the id query param is not specified.
+   *
    */
   "compartmentId"?: string;
   /**

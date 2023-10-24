@@ -22,16 +22,20 @@ export interface CreateDatabaseToolsConnectionRequest extends common.BaseRequest
    * Details for the new `DatabaseToolsConnection`.
    */
   "createDatabaseToolsConnectionDetails":
+    | model.CreateDatabaseToolsConnectionGenericJdbcDetails
+    | model.CreateDatabaseToolsConnectionPostgresqlDetails
     | model.CreateDatabaseToolsConnectionMySqlDetails
     | model.CreateDatabaseToolsConnectionOracleDatabaseDetails;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or
-   * server error without risk of executing that same action again. Retry tokens expire after 24
-   * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
-   * has been deleted and purged from the system, then a retry of the original creation request
-   * might be rejected.
-   *
-   */
+ * A token that uniquely identifies a request so it can be retried in case of a timeout or
+* server error without risk of executing that same action again. Retry tokens expire after 24
+* hours, but can be invalidated before then due to conflicting operations. For example, if a resource
+* has been deleted and purged from the system, then a retry of the original creation request
+* might be rejected.
+* <p>
+Accepted characters: ASCII alphanumerics plus underscore (U+005F LOW LINE \"_\") and dash (U+002D HYPHEN-MINUS \"-\")
+* 
+ */
   "opcRetryToken"?: string;
   /**
    * The client request ID for tracing.

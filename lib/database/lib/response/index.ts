@@ -120,6 +120,8 @@ import * as CreateExternalPluggableDatabaseResponse from "./create-external-plug
 export import CreateExternalPluggableDatabaseResponse = CreateExternalPluggableDatabaseResponse.CreateExternalPluggableDatabaseResponse;
 import * as CreateKeyStoreResponse from "./create-key-store-response";
 export import CreateKeyStoreResponse = CreateKeyStoreResponse.CreateKeyStoreResponse;
+import * as CreateMaintenanceRunResponse from "./create-maintenance-run-response";
+export import CreateMaintenanceRunResponse = CreateMaintenanceRunResponse.CreateMaintenanceRunResponse;
 import * as CreateOneoffPatchResponse from "./create-oneoff-patch-response";
 export import CreateOneoffPatchResponse = CreateOneoffPatchResponse.CreateOneoffPatchResponse;
 import * as CreatePluggableDatabaseResponse from "./create-pluggable-database-response";

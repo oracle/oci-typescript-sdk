@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of Knowledge Base summaries.
+ * Collection of knowledge base summaries.
  */
 export interface KnowledgeBaseCollection {
   /**
-   * List of Knowledge Base summaries.
+   * List of knowledge base summaries.
    */
   "items": Array<model.KnowledgeBaseSummary>;
 }

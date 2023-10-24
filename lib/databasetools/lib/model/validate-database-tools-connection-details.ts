@@ -27,6 +27,11 @@ export namespace ValidateDatabaseToolsConnectionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "POSTGRESQL":
+          return model.ValidateDatabaseToolsConnectionPostgresqlDetails.getJsonObj(
+            <model.ValidateDatabaseToolsConnectionPostgresqlDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATABASE":
           return model.ValidateDatabaseToolsConnectionOracleDatabaseDetails.getJsonObj(
             <model.ValidateDatabaseToolsConnectionOracleDatabaseDetails>(<object>jsonObj),
@@ -48,6 +53,11 @@ export namespace ValidateDatabaseToolsConnectionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "POSTGRESQL":
+          return model.ValidateDatabaseToolsConnectionPostgresqlDetails.getDeserializedJsonObj(
+            <model.ValidateDatabaseToolsConnectionPostgresqlDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATABASE":
           return model.ValidateDatabaseToolsConnectionOracleDatabaseDetails.getDeserializedJsonObj(
             <model.ValidateDatabaseToolsConnectionOracleDatabaseDetails>(<object>jsonObj),

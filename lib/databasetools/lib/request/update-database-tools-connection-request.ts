@@ -26,6 +26,8 @@ export interface UpdateDatabaseToolsConnectionRequest extends common.BaseRequest
    * The information to be updated.
    */
   "updateDatabaseToolsConnectionDetails":
+    | model.UpdateDatabaseToolsConnectionGenericJdbcDetails
+    | model.UpdateDatabaseToolsConnectionPostgresqlDetails
     | model.UpdateDatabaseToolsConnectionMySqlDetails
     | model.UpdateDatabaseToolsConnectionOracleDatabaseDetails;
   /**
@@ -41,4 +43,8 @@ export interface UpdateDatabaseToolsConnectionRequest extends common.BaseRequest
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

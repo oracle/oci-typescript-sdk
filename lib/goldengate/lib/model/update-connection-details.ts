@@ -73,9 +73,24 @@ export namespace UpdateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "ELASTICSEARCH":
+          return model.UpdateElasticsearchConnectionDetails.getJsonObj(
+            <model.UpdateElasticsearchConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_BIGQUERY":
+          return model.UpdateGoogleBigQueryConnectionDetails.getJsonObj(
+            <model.UpdateGoogleBigQueryConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE":
           return model.UpdateOracleConnectionDetails.getJsonObj(
             <model.UpdateOracleConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_REDSHIFT":
+          return model.UpdateAmazonRedshiftConnectionDetails.getJsonObj(
+            <model.UpdateAmazonRedshiftConnectionDetails>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
@@ -83,14 +98,29 @@ export namespace UpdateConnectionDetails {
             <model.UpdateOciObjectStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "REDIS":
+          return model.UpdateRedisConnectionDetails.getJsonObj(
+            <model.UpdateRedisConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "MONGODB":
           return model.UpdateMongoDbConnectionDetails.getJsonObj(
             <model.UpdateMongoDbConnectionDetails>(<object>jsonObj),
             true
           );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.UpdateGoogleCloudStorageConnectionDetails.getJsonObj(
+            <model.UpdateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.UpdateAzureDataLakeStorageConnectionDetails.getJsonObj(
             <model.UpdateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_KINESIS":
+          return model.UpdateAmazonKinesisConnectionDetails.getJsonObj(
+            <model.UpdateAmazonKinesisConnectionDetails>(<object>jsonObj),
             true
           );
         case "JAVA_MESSAGE_SERVICE":
@@ -148,6 +178,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
+        case "GENERIC":
+          return model.UpdateGenericConnectionDetails.getJsonObj(
+            <model.UpdateGenericConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.UpdateAzureSynapseConnectionDetails.getJsonObj(
             <model.UpdateAzureSynapseConnectionDetails>(<object>jsonObj),
@@ -164,9 +199,24 @@ export namespace UpdateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "ELASTICSEARCH":
+          return model.UpdateElasticsearchConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateElasticsearchConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_BIGQUERY":
+          return model.UpdateGoogleBigQueryConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateGoogleBigQueryConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE":
           return model.UpdateOracleConnectionDetails.getDeserializedJsonObj(
             <model.UpdateOracleConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_REDSHIFT":
+          return model.UpdateAmazonRedshiftConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateAmazonRedshiftConnectionDetails>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
@@ -174,14 +224,29 @@ export namespace UpdateConnectionDetails {
             <model.UpdateOciObjectStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "REDIS":
+          return model.UpdateRedisConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateRedisConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "MONGODB":
           return model.UpdateMongoDbConnectionDetails.getDeserializedJsonObj(
             <model.UpdateMongoDbConnectionDetails>(<object>jsonObj),
             true
           );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.UpdateGoogleCloudStorageConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.UpdateAzureDataLakeStorageConnectionDetails.getDeserializedJsonObj(
             <model.UpdateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_KINESIS":
+          return model.UpdateAmazonKinesisConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateAmazonKinesisConnectionDetails>(<object>jsonObj),
             true
           );
         case "JAVA_MESSAGE_SERVICE":
@@ -237,6 +302,11 @@ export namespace UpdateConnectionDetails {
         case "KAFKA":
           return model.UpdateKafkaConnectionDetails.getDeserializedJsonObj(
             <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GENERIC":
+          return model.UpdateGenericConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateGenericConnectionDetails>(<object>jsonObj),
             true
           );
         case "AZURE_SYNAPSE_ANALYTICS":

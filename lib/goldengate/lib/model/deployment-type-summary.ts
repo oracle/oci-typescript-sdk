@@ -21,8 +21,8 @@ import common = require("oci-common");
  */
 export interface DeploymentTypeSummary {
   /**
-   * The deployment category defines the broad separation of the deployment type into categories.  Currently
-   * the separation is 'DATA_REPLICATION' and 'STREAM_ANALYTICS'.
+   * The deployment category defines the broad separation of the deployment type into three categories.
+   * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS' and 'DATA_TRANSFORMS'.
    *
    */
   "category": DeploymentTypeSummary.Category;
@@ -62,12 +62,23 @@ export interface DeploymentTypeSummary {
    *
    */
   "oggVersion"?: string;
+  /**
+   * The URL to the webpage listing the supported technologies.
+   *
+   */
+  "supportedTechnologiesUrl"?: string;
+  /**
+   * The default admin username used by deployment.
+   *
+   */
+  "defaultUsername"?: string;
 }
 
 export namespace DeploymentTypeSummary {
   export enum Category {
     DataReplication = "DATA_REPLICATION",
     StreamAnalytics = "STREAM_ANALYTICS",
+    DataTransforms = "DATA_TRANSFORMS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -92,6 +103,13 @@ export namespace DeploymentTypeSummary {
     Hdfs = "HDFS",
     OracleNosql = "ORACLE_NOSQL",
     Mongodb = "MONGODB",
+    AmazonKinesis = "AMAZON_KINESIS",
+    AmazonRedshift = "AMAZON_REDSHIFT",
+    Redis = "REDIS",
+    Elasticsearch = "ELASTICSEARCH",
+    Generic = "GENERIC",
+    GoogleCloudStorage = "GOOGLE_CLOUD_STORAGE",
+    GoogleBigquery = "GOOGLE_BIGQUERY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

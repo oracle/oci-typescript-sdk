@@ -73,6 +73,28 @@ export interface Table {
    */
   "ddlStatement"?: string;
   /**
+   * The current state of this table's schema. Available states are
+   * MUTABLE - The schema can be changed. The table is not eligible for replication.
+   * FROZEN - The schema is immutable. The table is eligible for replication.
+   *
+   */
+  "schemaState"?: Table.SchemaState;
+  /**
+   * True if this table is currently a member of a replication set.
+   */
+  "isMultiRegion"?: boolean;
+  /**
+   * If this table is in a replication set, this value represents
+   * the progress of the initialization of the replica's data.  A
+   * value of 100 indicates that initialization has completed.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "localReplicaInitializationInPercent"?: number;
+  /**
+   * An array of Replica listing this table's replicas, if any
+   */
+  "replicas"?: Array<model.Replica>;
+  /**
    * Simple key-value pair that is applied without any predefined
    * name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -113,13 +135,29 @@ export namespace Table {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum SchemaState {
+    Mutable = "MUTABLE",
+    Frozen = "FROZEN",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Table): object {
     const jsonObj = {
       ...obj,
       ...{
         "tableLimits": obj.tableLimits ? model.TableLimits.getJsonObj(obj.tableLimits) : undefined,
 
-        "schema": obj.schema ? model.Schema.getJsonObj(obj.schema) : undefined
+        "schema": obj.schema ? model.Schema.getJsonObj(obj.schema) : undefined,
+
+        "replicas": obj.replicas
+          ? obj.replicas.map(item => {
+              return model.Replica.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -133,7 +171,13 @@ export namespace Table {
           ? model.TableLimits.getDeserializedJsonObj(obj.tableLimits)
           : undefined,
 
-        "schema": obj.schema ? model.Schema.getDeserializedJsonObj(obj.schema) : undefined
+        "schema": obj.schema ? model.Schema.getDeserializedJsonObj(obj.schema) : undefined,
+
+        "replicas": obj.replicas
+          ? obj.replicas.map(item => {
+              return model.Replica.getDeserializedJsonObj(item);
+            })
+          : undefined
       }
     };
 

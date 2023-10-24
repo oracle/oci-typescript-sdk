@@ -85,6 +85,44 @@ export interface CreateJavaMessageServiceConnectionDetails extends model.CreateC
    */
   "password"?: string;
   /**
+   * Security protocol for Java Message Service. If not provided, default is PLAIN.
+   * Optional until 2024-06-27, in the release after it will be made required.
+   *
+   */
+  "securityProtocol"?: string;
+  /**
+   * Authentication type for Java Message Service.  If not provided, default is NONE.
+   * Optional until 2024-06-27, in the release after it will be made required.
+   *
+   */
+  "authenticationType"?: string;
+  /**
+   * The base64 encoded content of the TrustStore file.
+   *
+   */
+  "trustStore"?: string;
+  /**
+   * The TrustStore password.
+   *
+   */
+  "trustStorePassword"?: string;
+  /**
+   * The base64 encoded content of the KeyStore file.
+   *
+   */
+  "keyStore"?: string;
+  /**
+   * The KeyStore password.
+   *
+   */
+  "keyStorePassword"?: string;
+  /**
+   * The password for the cert inside of the KeyStore.
+   * In case it differs from the KeyStore password, it should be provided.
+   *
+   */
+  "sslKeyPassword"?: string;
+  /**
    * The private IP address of the connection's endpoint in the customer's VCN, typically a
    * database endpoint or a big data endpoint (e.g. Kafka bootstrap server).
    * In case the privateIp is provided, the subnetId must also be provided.

@@ -42,6 +42,10 @@ export interface TableCollection {
    * The maximum number of on demand capacity tables allowed in the tenancy. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxOnDemandCapacityTables"?: number;
+  /**
+   * An array of regions that are available for replication.
+   */
+  "availableReplicationRegions"?: Array<string>;
 }
 
 export namespace TableCollection {

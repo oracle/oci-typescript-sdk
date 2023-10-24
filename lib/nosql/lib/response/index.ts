@@ -19,10 +19,14 @@ import * as ChangeTableCompartmentResponse from "./change-table-compartment-resp
 export import ChangeTableCompartmentResponse = ChangeTableCompartmentResponse.ChangeTableCompartmentResponse;
 import * as CreateIndexResponse from "./create-index-response";
 export import CreateIndexResponse = CreateIndexResponse.CreateIndexResponse;
+import * as CreateReplicaResponse from "./create-replica-response";
+export import CreateReplicaResponse = CreateReplicaResponse.CreateReplicaResponse;
 import * as CreateTableResponse from "./create-table-response";
 export import CreateTableResponse = CreateTableResponse.CreateTableResponse;
 import * as DeleteIndexResponse from "./delete-index-response";
 export import DeleteIndexResponse = DeleteIndexResponse.DeleteIndexResponse;
+import * as DeleteReplicaResponse from "./delete-replica-response";
+export import DeleteReplicaResponse = DeleteReplicaResponse.DeleteReplicaResponse;
 import * as DeleteRowResponse from "./delete-row-response";
 export import DeleteRowResponse = DeleteRowResponse.DeleteRowResponse;
 import * as DeleteTableResponse from "./delete-table-response";

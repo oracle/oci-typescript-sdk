@@ -64,16 +64,38 @@ export interface DatabaseToolsConnectionSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
+   * Specifies whether this connection is supported by the Database Tools Runtime.
+   */
+  "runtimeSupport": model.RuntimeSupport;
 
   "type": string;
 }
 
 export namespace DatabaseToolsConnectionSummary {
   export function getJsonObj(obj: DatabaseToolsConnectionSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "POSTGRESQL":
+          return model.DatabaseToolsConnectionPostgresqlSummary.getJsonObj(
+            <model.DatabaseToolsConnectionPostgresqlSummary>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATABASE":
           return model.DatabaseToolsConnectionOracleDatabaseSummary.getJsonObj(
             <model.DatabaseToolsConnectionOracleDatabaseSummary>(<object>jsonObj),
@@ -84,6 +106,11 @@ export namespace DatabaseToolsConnectionSummary {
             <model.DatabaseToolsConnectionMySqlSummary>(<object>jsonObj),
             true
           );
+        case "GENERIC_JDBC":
+          return model.DatabaseToolsConnectionGenericJdbcSummary.getJsonObj(
+            <model.DatabaseToolsConnectionGenericJdbcSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -91,10 +118,24 @@ export namespace DatabaseToolsConnectionSummary {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DatabaseToolsConnectionSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "POSTGRESQL":
+          return model.DatabaseToolsConnectionPostgresqlSummary.getDeserializedJsonObj(
+            <model.DatabaseToolsConnectionPostgresqlSummary>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATABASE":
           return model.DatabaseToolsConnectionOracleDatabaseSummary.getDeserializedJsonObj(
             <model.DatabaseToolsConnectionOracleDatabaseSummary>(<object>jsonObj),
@@ -103,6 +144,11 @@ export namespace DatabaseToolsConnectionSummary {
         case "MYSQL":
           return model.DatabaseToolsConnectionMySqlSummary.getDeserializedJsonObj(
             <model.DatabaseToolsConnectionMySqlSummary>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC":
+          return model.DatabaseToolsConnectionGenericJdbcSummary.getDeserializedJsonObj(
+            <model.DatabaseToolsConnectionGenericJdbcSummary>(<object>jsonObj),
             true
           );
         default:

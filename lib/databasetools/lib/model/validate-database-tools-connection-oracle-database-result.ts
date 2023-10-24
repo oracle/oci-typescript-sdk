@@ -26,7 +26,7 @@ export interface ValidateDatabaseToolsConnectionOracleDatabaseResult
   /**
    * The database version.
    */
-  "databaseVersion"?: string;
+  "databaseVersion": string;
 
   "type": string;
 }

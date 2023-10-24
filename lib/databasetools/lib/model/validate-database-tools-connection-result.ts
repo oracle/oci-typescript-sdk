@@ -54,6 +54,11 @@ export namespace ValidateDatabaseToolsConnectionResult {
             <model.ValidateDatabaseToolsConnectionMySqlResult>(<object>jsonObj),
             true
           );
+        case "POSTGRESQL":
+          return model.ValidateDatabaseToolsConnectionPostgresqlResult.getJsonObj(
+            <model.ValidateDatabaseToolsConnectionPostgresqlResult>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -73,6 +78,11 @@ export namespace ValidateDatabaseToolsConnectionResult {
         case "MYSQL":
           return model.ValidateDatabaseToolsConnectionMySqlResult.getDeserializedJsonObj(
             <model.ValidateDatabaseToolsConnectionMySqlResult>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.ValidateDatabaseToolsConnectionPostgresqlResult.getDeserializedJsonObj(
+            <model.ValidateDatabaseToolsConnectionPostgresqlResult>(<object>jsonObj),
             true
           );
         default:

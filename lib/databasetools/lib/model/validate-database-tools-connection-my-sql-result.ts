@@ -26,7 +26,7 @@ export interface ValidateDatabaseToolsConnectionMySqlResult
   /**
    * The database version.
    */
-  "databaseVersion"?: string;
+  "databaseVersion": string;
 
   "type": string;
 }

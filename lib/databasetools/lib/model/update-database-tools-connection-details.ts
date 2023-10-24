@@ -44,6 +44,16 @@ export namespace UpdateDatabaseToolsConnectionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GENERIC_JDBC":
+          return model.UpdateDatabaseToolsConnectionGenericJdbcDetails.getJsonObj(
+            <model.UpdateDatabaseToolsConnectionGenericJdbcDetails>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.UpdateDatabaseToolsConnectionPostgresqlDetails.getJsonObj(
+            <model.UpdateDatabaseToolsConnectionPostgresqlDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.UpdateDatabaseToolsConnectionMySqlDetails.getJsonObj(
             <model.UpdateDatabaseToolsConnectionMySqlDetails>(<object>jsonObj),
@@ -65,6 +75,16 @@ export namespace UpdateDatabaseToolsConnectionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GENERIC_JDBC":
+          return model.UpdateDatabaseToolsConnectionGenericJdbcDetails.getDeserializedJsonObj(
+            <model.UpdateDatabaseToolsConnectionGenericJdbcDetails>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.UpdateDatabaseToolsConnectionPostgresqlDetails.getDeserializedJsonObj(
+            <model.UpdateDatabaseToolsConnectionPostgresqlDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.UpdateDatabaseToolsConnectionMySqlDetails.getDeserializedJsonObj(
             <model.UpdateDatabaseToolsConnectionMySqlDetails>(<object>jsonObj),

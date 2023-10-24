@@ -26,6 +26,7 @@ export interface ValidateDatabaseToolsConnectionRequest extends common.BaseReque
    * Request to validate a DatabaseToolsConnection.
    */
   "validateDatabaseToolsConnectionDetails":
+    | model.ValidateDatabaseToolsConnectionPostgresqlDetails
     | model.ValidateDatabaseToolsConnectionOracleDatabaseDetails
     | model.ValidateDatabaseToolsConnectionMySqlDetails;
   /**

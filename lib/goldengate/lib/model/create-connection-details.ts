@@ -64,15 +64,15 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    */
   "keyId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
-   *
-   */
-  "subnetId"?: string;
-  /**
    * An array of Network Security Group OCIDs used to define network access for either Deployments or Connections.
    *
    */
   "nsgIds"?: Array<string>;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
+   *
+   */
+  "subnetId"?: string;
 
   "connectionType": string;
 }
@@ -101,6 +101,16 @@ export namespace CreateConnectionDetails {
         case "JAVA_MESSAGE_SERVICE":
           return model.CreateJavaMessageServiceConnectionDetails.getJsonObj(
             <model.CreateJavaMessageServiceConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_BIGQUERY":
+          return model.CreateGoogleBigQueryConnectionDetails.getJsonObj(
+            <model.CreateGoogleBigQueryConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_KINESIS":
+          return model.CreateAmazonKinesisConnectionDetails.getJsonObj(
+            <model.CreateAmazonKinesisConnectionDetails>(<object>jsonObj),
             true
           );
         case "SNOWFLAKE":
@@ -133,14 +143,34 @@ export namespace CreateConnectionDetails {
             <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ELASTICSEARCH":
+          return model.CreateElasticsearchConnectionDetails.getJsonObj(
+            <model.CreateElasticsearchConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.CreateAzureSynapseConnectionDetails.getJsonObj(
             <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
             true
           );
+        case "REDIS":
+          return model.CreateRedisConnectionDetails.getJsonObj(
+            <model.CreateRedisConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.CreateMysqlConnectionDetails.getJsonObj(
             <model.CreateMysqlConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GENERIC":
+          return model.CreateGenericConnectionDetails.getJsonObj(
+            <model.CreateGenericConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.CreateGoogleCloudStorageConnectionDetails.getJsonObj(
+            <model.CreateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
             true
           );
         case "KAFKA":
@@ -156,6 +186,11 @@ export namespace CreateConnectionDetails {
         case "GOLDENGATE":
           return model.CreateGoldenGateConnectionDetails.getJsonObj(
             <model.CreateGoldenGateConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_REDSHIFT":
+          return model.CreateAmazonRedshiftConnectionDetails.getJsonObj(
+            <model.CreateAmazonRedshiftConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_NOSQL":
@@ -194,6 +229,16 @@ export namespace CreateConnectionDetails {
             <model.CreateJavaMessageServiceConnectionDetails>(<object>jsonObj),
             true
           );
+        case "GOOGLE_BIGQUERY":
+          return model.CreateGoogleBigQueryConnectionDetails.getDeserializedJsonObj(
+            <model.CreateGoogleBigQueryConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_KINESIS":
+          return model.CreateAmazonKinesisConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAmazonKinesisConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "SNOWFLAKE":
           return model.CreateSnowflakeConnectionDetails.getDeserializedJsonObj(
             <model.CreateSnowflakeConnectionDetails>(<object>jsonObj),
@@ -224,14 +269,34 @@ export namespace CreateConnectionDetails {
             <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ELASTICSEARCH":
+          return model.CreateElasticsearchConnectionDetails.getDeserializedJsonObj(
+            <model.CreateElasticsearchConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.CreateAzureSynapseConnectionDetails.getDeserializedJsonObj(
             <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
             true
           );
+        case "REDIS":
+          return model.CreateRedisConnectionDetails.getDeserializedJsonObj(
+            <model.CreateRedisConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.CreateMysqlConnectionDetails.getDeserializedJsonObj(
             <model.CreateMysqlConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GENERIC":
+          return model.CreateGenericConnectionDetails.getDeserializedJsonObj(
+            <model.CreateGenericConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.CreateGoogleCloudStorageConnectionDetails.getDeserializedJsonObj(
+            <model.CreateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
             true
           );
         case "KAFKA":
@@ -247,6 +312,11 @@ export namespace CreateConnectionDetails {
         case "GOLDENGATE":
           return model.CreateGoldenGateConnectionDetails.getDeserializedJsonObj(
             <model.CreateGoldenGateConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_REDSHIFT":
+          return model.CreateAmazonRedshiftConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAmazonRedshiftConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_NOSQL":

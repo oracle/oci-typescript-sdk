@@ -84,6 +84,7 @@ export namespace MicrosoftSqlserverConnection {
     AmazonRdsSqlserver = "AMAZON_RDS_SQLSERVER",
     AzureSqlserverManagedInstance = "AZURE_SQLSERVER_MANAGED_INSTANCE",
     AzureSqlserverNonManagedInstance = "AZURE_SQLSERVER_NON_MANAGED_INSTANCE",
+    GoogleCloudSqlSqlserver = "GOOGLE_CLOUD_SQL_SQLSERVER",
     MicrosoftSqlserver = "MICROSOFT_SQLSERVER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

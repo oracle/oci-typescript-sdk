@@ -44,13 +44,15 @@ Example: `ocid1.compartment.oc1..exampleuniqueID`
   "compartmentIdInSubtree"?: boolean;
   /**
    * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call.
-   * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For important details about how pagination works, see
+   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see
+* [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Default: 1000
 * <p>
@@ -78,6 +80,39 @@ Example: `ASC`
 * 
  */
   "sortOrder"?: ListAlarmsStatusRequest.SortOrder;
+  /**
+ * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a resource that is monitored by the
+* metric that you are searching for.
+* <p>
+Example: `ocid1.instance.oc1.phx.exampleuniqueID`
+* 
+ */
+  "resourceId"?: string;
+  /**
+ * A filter to return only resources that match the given service name exactly.
+* Use this filter to list all alarms containing metric streams that match the *exact* service-name dimension.
+* <p>
+Example: `logging-analytics`
+* 
+ */
+  "serviceName"?: string;
+  /**
+ * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the entity monitored by the
+* metric that you are searching for.
+* <p>
+Example: `ocid1.instance.oc1.phx.exampleuniqueID`
+* 
+ */
+  "entityId"?: string;
+  /**
+ * The status of the metric stream to use for alarm filtering. For example, set `StatusQueryParam` to
+* \"FIRING\" to filter results to metric streams of the alarm with that status. Default behaviour is to return
+* alarms irrespective of metric streams' status.
+* <p>
+Example: `FIRING`
+* 
+ */
+  "status"?: ListAlarmsStatusRequest.Status;
 }
 
 export namespace ListAlarmsStatusRequest {
@@ -89,5 +124,10 @@ export namespace ListAlarmsStatusRequest {
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"
+  }
+
+  export enum Status {
+    Firing = "FIRING",
+    Ok = "OK"
   }
 }
