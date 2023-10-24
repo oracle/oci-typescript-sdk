@@ -2,7 +2,8 @@
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
 Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
-For information about monitoring, see [Monitoring Overview](/iaas/Content/Monitoring/Concepts/monitoringoverview.htm).
+For more information, see
+[the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
  * OpenAPI spec version: 20180401
  * 
@@ -197,16 +198,16 @@ export class MonitoringClient {
   }
 
   /**
-     * Moves an alarm into a different compartment within the same tenancy.
-* <p>
-For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
-* 
-     * This operation does not retry by default if the user has not defined a retry configuration.
-     * @param ChangeAlarmCompartmentRequest
-     * @return ChangeAlarmCompartmentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ChangeAlarmCompartment.ts.html |here} to see how to use ChangeAlarmCompartment API.
-     */
+   * Moves an alarm into a different compartment within the same tenancy.
+   * For more information, see
+   * [Moving an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/change-compartment-alarm.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeAlarmCompartmentRequest
+   * @return ChangeAlarmCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ChangeAlarmCompartment.ts.html |here} to see how to use ChangeAlarmCompartment API.
+   */
   public async changeAlarmCompartment(
     changeAlarmCompartmentRequest: requests.ChangeAlarmCompartmentRequest
   ): Promise<responses.ChangeAlarmCompartmentResponse> {
@@ -276,7 +277,10 @@ For information about moving resources between compartments, see [Moving Resourc
 
   /**
      * Creates a new alarm in the specified compartment.
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Creating an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/create-alarm.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -362,7 +366,10 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Deletes the specified alarm.
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Deleting an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/delete-alarm.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -436,7 +443,10 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Gets the specified alarm.
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Getting an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/get-alarm.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -518,7 +528,10 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Get the history of the specified alarm.
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Getting History of an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/get-alarm-history.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -606,7 +619,10 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Lists the alarms for the specified compartment.
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Listing Alarms](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -749,14 +765,16 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * List the status of each alarm in the specified compartment.
 * Status is collective, across all metric streams in the alarm.
 * To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
-* The alarm attribute `isNotificationsPerMetricDimensionEnabled` must be set to `true`.
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Listing Alarm Statuses](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-status.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
 * or transactions, per second (TPS) for a given tenancy.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAlarmsStatusRequest
      * @return ListAlarmsStatusResponse
      * @throws OciError when an error occurs
@@ -778,7 +796,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "limit": listAlarmsStatusRequest.limit,
       "displayName": listAlarmsStatusRequest.displayName,
       "sortBy": listAlarmsStatusRequest.sortBy,
-      "sortOrder": listAlarmsStatusRequest.sortOrder
+      "sortOrder": listAlarmsStatusRequest.sortOrder,
+      "resourceId": listAlarmsStatusRequest.resourceId,
+      "serviceName": listAlarmsStatusRequest.serviceName,
+      "entityId": listAlarmsStatusRequest.entityId,
+      "status": listAlarmsStatusRequest.status
     };
 
     let headerParams = {
@@ -786,7 +808,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
       "opc-request-id": listAlarmsStatusRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAlarmsStatusRequest.retryConfiguration,
@@ -890,8 +912,12 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Returns metric definitions that match the criteria specified in the request. Compartment OCID required.
-* For information about metrics, see [Metrics Overview](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#MetricsOverview).
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Listing Metric Definitions](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-metric.htm).
+* For information about metrics, see
+* [Metrics Overview](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#MetricsOverview).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 * 
@@ -1029,8 +1055,18 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 
   /**
      * Publishes raw metric data points to the Monitoring service.
-* For more information about publishing metrics, see [Publishing Custom Metrics](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/publishingcustommetrics.htm).
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For a data point to be posted, its timestamp must be near current time (less than two hours in the past and less than 10 minutes in the future).
+* <p>
+For more information about publishing metrics, see 
+* [Publishing Custom Metrics](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/publishingcustommetrics.htm)
+* and
+* [Custom Metrics Walkthrough](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/custom-metrics-walkthrough.htm).
+* For information about developing a metric-posting client, see
+* [Developer Guide](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/devtoolslanding.htm).
+* For an example client, see
+* [MonitoringMetricPostExample.java](https://github.com/oracle/oci-java-sdk/blob/master/bmc-examples/src/main/java/MonitoringMetricPostExample.java).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 Per-call limits information follows.
 * <p>
@@ -1041,9 +1077,10 @@ Per-call limits information follows.
 *A metric group is the combination of a given metric, metric namespace, and tenancy for the purpose of determining limits.
 * A dimension is a qualifier provided in a metric definition.
 * A metric stream is an individual set of aggregated data for a metric with zero or more dimension values.
-* For more information about metric-related concepts, see [Monitoring Concepts](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#concepts).
+* For more information about metric-related concepts, see
+* [Monitoring Concepts](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#concepts).
 * <p>
-The endpoints for this operation differ from other Monitoring operations. Replace the string `telemetry` with `telemetry-ingestion` in the endpoint, as in the following example:
+**Note:** The endpoints for this operation differ from other Monitoring operations. Replace the string `telemetry` with `telemetry-ingestion` in the endpoint, as in the following example:
 * <p>
 https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
 * 
@@ -1122,7 +1159,10 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
 
   /**
      * Removes any existing suppression for the specified alarm.
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Removing Suppression from an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/remove-alarm-suppression.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -1198,14 +1238,15 @@ This call is subject to a Monitoring limit that applies to the total number of r
   /**
      * Lists the current alarm status of each metric stream, where status is derived from the metric stream's last associated transition. 
 * Optionally filter by status value and one or more dimension key-value pairs.
-* This operation is only valid for alarms that have notifications per dimension enabled (`isNotificationsPerMetricDimensionEnabled=true`).
-*  If `isNotificationsPerMetricDimensionEnabled` for the alarm is false or null, then no results are returned.
+* For more information, see
+* [Listing Metric Stream Status in an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-status-metric-stream.htm).
 * <p>
-For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
-*  
-*  This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
-*  Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
-*  or transactions, per second (TPS) for a given tenancy.
+For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* <p>
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
+* or transactions, per second (TPS) for a given tenancy.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param RetrieveDimensionStatesRequest
@@ -1292,8 +1333,12 @@ For important limits information, see [Limits on Monitoring](https://docs.cloud.
 
   /**
      * Returns aggregated data that match the criteria specified in the request. Compartment OCID required.
-* For information on metric queries, see [Building Metric Queries](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/buildingqueries.htm).
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Querying Metric Data](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/query-metric-landing.htm)
+* and
+* [Creating a Query](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/query-metric.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 * 
@@ -1374,7 +1419,10 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 
   /**
      * Updates the specified alarm.
-* For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+* For more information, see
+* [Updating an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/update-alarm.htm).
+* For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,

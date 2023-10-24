@@ -193,6 +193,175 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Adds a lock to a DatabaseToolsConnection resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDatabaseToolsConnectionLockRequest
+   * @return AddDatabaseToolsConnectionLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsConnectionLock.ts.html |here} to see how to use AddDatabaseToolsConnectionLock API.
+   */
+  public async addDatabaseToolsConnectionLock(
+    addDatabaseToolsConnectionLockRequest: requests.AddDatabaseToolsConnectionLockRequest
+  ): Promise<responses.AddDatabaseToolsConnectionLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsConnectionLock.");
+    const operationName = "addDatabaseToolsConnectionLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/AddDatabaseToolsConnectionLock";
+    const pathParams = {
+      "{databaseToolsConnectionId}": addDatabaseToolsConnectionLockRequest.databaseToolsConnectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDatabaseToolsConnectionLockRequest.opcRequestId,
+      "if-match": addDatabaseToolsConnectionLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDatabaseToolsConnectionLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsConnections/{databaseToolsConnectionId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDatabaseToolsConnectionLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDatabaseToolsConnectionLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsConnection",
+        bodyModel: model.DatabaseToolsConnection,
+        type: "model.DatabaseToolsConnection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a DatabaseToolsPrivateEndpoint resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDatabaseToolsPrivateEndpointLockRequest
+   * @return AddDatabaseToolsPrivateEndpointLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsPrivateEndpointLock.ts.html |here} to see how to use AddDatabaseToolsPrivateEndpointLock API.
+   */
+  public async addDatabaseToolsPrivateEndpointLock(
+    addDatabaseToolsPrivateEndpointLockRequest: requests.AddDatabaseToolsPrivateEndpointLockRequest
+  ): Promise<responses.AddDatabaseToolsPrivateEndpointLockResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#addDatabaseToolsPrivateEndpointLock."
+      );
+    const operationName = "addDatabaseToolsPrivateEndpointLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/AddDatabaseToolsPrivateEndpointLock";
+    const pathParams = {
+      "{databaseToolsPrivateEndpointId}":
+        addDatabaseToolsPrivateEndpointLockRequest.databaseToolsPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDatabaseToolsPrivateEndpointLockRequest.opcRequestId,
+      "if-match": addDatabaseToolsPrivateEndpointLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDatabaseToolsPrivateEndpointLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsPrivateEndpoints/{databaseToolsPrivateEndpointId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDatabaseToolsPrivateEndpointLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDatabaseToolsPrivateEndpointLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsPrivateEndpoint",
+        bodyModel: model.DatabaseToolsPrivateEndpoint,
+        type: "model.DatabaseToolsPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the specified Database Tools connection to a different compartment in the same tenancy.
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -218,13 +387,14 @@ export class DatabaseToolsClient {
         changeDatabaseToolsConnectionCompartmentRequest.databaseToolsConnectionId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeDatabaseToolsConnectionCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeDatabaseToolsConnectionCompartmentRequest.ifMatch,
-      "opc-request-id": changeDatabaseToolsConnectionCompartmentRequest.opcRequestId,
-      "opc-retry-token": changeDatabaseToolsConnectionCompartmentRequest.opcRetryToken
+      "opc-request-id": changeDatabaseToolsConnectionCompartmentRequest.opcRequestId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -304,13 +474,14 @@ export class DatabaseToolsClient {
         changeDatabaseToolsPrivateEndpointCompartmentRequest.databaseToolsPrivateEndpointId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeDatabaseToolsPrivateEndpointCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeDatabaseToolsPrivateEndpointCompartmentRequest.ifMatch,
-      "opc-request-id": changeDatabaseToolsPrivateEndpointCompartmentRequest.opcRequestId,
-      "opc-retry-token": changeDatabaseToolsPrivateEndpointCompartmentRequest.opcRetryToken
+      "opc-request-id": changeDatabaseToolsPrivateEndpointCompartmentRequest.opcRequestId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -368,7 +539,7 @@ export class DatabaseToolsClient {
   /**
    * Creates a new Database Tools connection.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDatabaseToolsConnectionRequest
    * @return CreateDatabaseToolsConnectionResponse
    * @throws OciError when an error occurs
@@ -391,7 +562,7 @@ export class DatabaseToolsClient {
       "opc-request-id": createDatabaseToolsConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDatabaseToolsConnectionRequest.retryConfiguration,
@@ -459,7 +630,7 @@ export class DatabaseToolsClient {
   /**
    * Creates a new Database Tools private endpoint.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDatabaseToolsPrivateEndpointRequest
    * @return CreateDatabaseToolsPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -484,7 +655,7 @@ export class DatabaseToolsClient {
       "opc-request-id": createDatabaseToolsPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDatabaseToolsPrivateEndpointRequest.retryConfiguration,
@@ -569,7 +740,9 @@ export class DatabaseToolsClient {
       "{databaseToolsConnectionId}": deleteDatabaseToolsConnectionRequest.databaseToolsConnectionId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteDatabaseToolsConnectionRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -646,7 +819,9 @@ export class DatabaseToolsClient {
         deleteDatabaseToolsPrivateEndpointRequest.databaseToolsPrivateEndpointId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteDatabaseToolsPrivateEndpointRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1033,6 +1208,8 @@ export class DatabaseToolsClient {
       "lifecycleState": listDatabaseToolsConnectionsRequest.lifecycleState,
       "displayName": listDatabaseToolsConnectionsRequest.displayName,
       "type": listDatabaseToolsConnectionsRequest.type,
+      "runtimeSupport": listDatabaseToolsConnectionsRequest.runtimeSupport,
+      "relatedResourceIdentifier": listDatabaseToolsConnectionsRequest.relatedResourceIdentifier,
       "limit": listDatabaseToolsConnectionsRequest.limit,
       "page": listDatabaseToolsConnectionsRequest.page,
       "sortOrder": listDatabaseToolsConnectionsRequest.sortOrder,
@@ -1514,6 +1691,176 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Removes a lock from a DatabaseToolsConnection resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDatabaseToolsConnectionLockRequest
+   * @return RemoveDatabaseToolsConnectionLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsConnectionLock.ts.html |here} to see how to use RemoveDatabaseToolsConnectionLock API.
+   */
+  public async removeDatabaseToolsConnectionLock(
+    removeDatabaseToolsConnectionLockRequest: requests.RemoveDatabaseToolsConnectionLockRequest
+  ): Promise<responses.RemoveDatabaseToolsConnectionLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsConnectionLock.");
+    const operationName = "removeDatabaseToolsConnectionLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/RemoveDatabaseToolsConnectionLock";
+    const pathParams = {
+      "{databaseToolsConnectionId}":
+        removeDatabaseToolsConnectionLockRequest.databaseToolsConnectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDatabaseToolsConnectionLockRequest.opcRequestId,
+      "if-match": removeDatabaseToolsConnectionLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDatabaseToolsConnectionLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsConnections/{databaseToolsConnectionId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDatabaseToolsConnectionLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDatabaseToolsConnectionLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsConnection",
+        bodyModel: model.DatabaseToolsConnection,
+        type: "model.DatabaseToolsConnection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock from a DatabaseToolsPrivateEndpoint resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDatabaseToolsPrivateEndpointLockRequest
+   * @return RemoveDatabaseToolsPrivateEndpointLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsPrivateEndpointLock.ts.html |here} to see how to use RemoveDatabaseToolsPrivateEndpointLock API.
+   */
+  public async removeDatabaseToolsPrivateEndpointLock(
+    removeDatabaseToolsPrivateEndpointLockRequest: requests.RemoveDatabaseToolsPrivateEndpointLockRequest
+  ): Promise<responses.RemoveDatabaseToolsPrivateEndpointLockResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#removeDatabaseToolsPrivateEndpointLock."
+      );
+    const operationName = "removeDatabaseToolsPrivateEndpointLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/RemoveDatabaseToolsPrivateEndpointLock";
+    const pathParams = {
+      "{databaseToolsPrivateEndpointId}":
+        removeDatabaseToolsPrivateEndpointLockRequest.databaseToolsPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDatabaseToolsPrivateEndpointLockRequest.opcRequestId,
+      "if-match": removeDatabaseToolsPrivateEndpointLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDatabaseToolsPrivateEndpointLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsPrivateEndpoints/{databaseToolsPrivateEndpointId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDatabaseToolsPrivateEndpointLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDatabaseToolsPrivateEndpointLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsPrivateEndpoint",
+        bodyModel: model.DatabaseToolsPrivateEndpoint,
+        type: "model.DatabaseToolsPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified Database Tools connection.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseToolsConnectionRequest
@@ -1533,7 +1880,9 @@ export class DatabaseToolsClient {
       "{databaseToolsConnectionId}": updateDatabaseToolsConnectionRequest.databaseToolsConnectionId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateDatabaseToolsConnectionRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1615,7 +1964,9 @@ export class DatabaseToolsClient {
         updateDatabaseToolsPrivateEndpointRequest.databaseToolsPrivateEndpointId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateDatabaseToolsPrivateEndpointRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

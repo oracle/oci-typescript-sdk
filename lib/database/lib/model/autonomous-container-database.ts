@@ -120,6 +120,14 @@ export interface AutonomousContainerDatabase {
    */
   "versionPreference"?: AutonomousContainerDatabase.VersionPreference;
   /**
+   * Indicates if an automatic DST Time Zone file update is enabled for the Autonomous Container Database. If enabled along with Release Update, patching will be done in a Non-Rolling manner.
+   */
+  "isDstFileUpdateEnabled"?: boolean;
+  /**
+   * DST Time Zone File version of the Autonomous Container Database.
+   */
+  "dstFileVersion"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

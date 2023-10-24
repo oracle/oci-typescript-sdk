@@ -65,6 +65,11 @@ export interface TableUsageSummary {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxShardSizeUsageInPercent"?: number;
+  /**
+   * The time stamp of this usage record.
+   *
+   */
+  "timeStarted"?: Date;
 }
 
 export namespace TableUsageSummary {

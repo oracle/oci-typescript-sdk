@@ -34,4 +34,16 @@ export interface ListContainerDatabasePatchesRequest extends common.BaseRequest 
    * The pagination token to continue listing from.
    */
   "page"?: string;
+  /**
+   * Autonomous patch type, either \"QUARTERLY\" or \"TIMEZONE\".
+   *
+   */
+  "autonomousPatchType"?: ListContainerDatabasePatchesRequest.AutonomousPatchType;
+}
+
+export namespace ListContainerDatabasePatchesRequest {
+  export enum AutonomousPatchType {
+    Quarterly = "QUARTERLY",
+    Timezone = "TIMEZONE"
+  }
 }

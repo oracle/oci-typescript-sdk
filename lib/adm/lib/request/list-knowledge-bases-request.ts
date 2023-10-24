@@ -20,6 +20,8 @@ import common = require("oci-common");
 export interface ListKnowledgeBasesRequest extends common.BaseRequest {
   /**
    * A filter to return only resources that match the specified identifier.
+   * Required only if the compartmentId query parameter is not specified.
+   *
    */
   "id"?: string;
   /**
@@ -52,6 +54,8 @@ export interface ListKnowledgeBasesRequest extends common.BaseRequest {
   "page"?: string;
   /**
    * A filter to return only resources that belong to the specified compartment identifier.
+   * Required only if the id query param is not specified.
+   *
    */
   "compartmentId"?: string;
   /**

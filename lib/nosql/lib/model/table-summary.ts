@@ -68,6 +68,17 @@ export interface TableSummary {
    */
   "timeOfExpiration"?: Date;
   /**
+   * The current state of this table's schema. Available states are
+   * MUTABLE - The schema can be changed. The table is not eligible for replication.
+   * FROZEN - The schema is immutable. The table is eligible for replication.
+   *
+   */
+  "schemaState"?: TableSummary.SchemaState;
+  /**
+   * True if this table is currently a member of a replication set.
+   */
+  "isMultiRegion"?: boolean;
+  /**
    * Simple key-value pair that is applied without any predefined
    * name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -93,6 +104,16 @@ export interface TableSummary {
 }
 
 export namespace TableSummary {
+  export enum SchemaState {
+    Mutable = "MUTABLE",
+    Frozen = "FROZEN",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: TableSummary): object {
     const jsonObj = {
       ...obj,

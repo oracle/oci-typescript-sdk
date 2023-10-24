@@ -43,6 +43,44 @@ export class ApplicationDependencyManagementWaiter {
   }
 
   /**
+   * Waits forRemediationRecipe till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetRemediationRecipeResponse | null (null in case of 404 response)
+   */
+  public async forRemediationRecipe(
+    request: serviceRequests.GetRemediationRecipeRequest,
+    ...targetStates: models.RemediationRecipe.LifecycleState[]
+  ): Promise<serviceResponses.GetRemediationRecipeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getRemediationRecipe(request),
+      response => targetStates.includes(response.remediationRecipe.lifecycleState!),
+      targetStates.includes(models.RemediationRecipe.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forRemediationRun till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetRemediationRunResponse | null (null in case of 404 response)
+   */
+  public async forRemediationRun(
+    request: serviceRequests.GetRemediationRunRequest,
+    ...targetStates: models.RemediationRun.LifecycleState[]
+  ): Promise<serviceResponses.GetRemediationRunResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getRemediationRun(request),
+      response => targetStates.includes(response.remediationRun.lifecycleState!),
+      targetStates.includes(models.RemediationRun.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forVulnerabilityAudit till it reaches any of the provided states
    *
    * @param request the request to send

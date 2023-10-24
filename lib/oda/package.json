@@ -1,6 +1,6 @@
 {
   "name": "oci-oda",
-  "version": "2.71.0",
+  "version": "2.72.0",
   "description": "OCI NodeJS client for Oda Service",
   "repository": {
     "type": "git",

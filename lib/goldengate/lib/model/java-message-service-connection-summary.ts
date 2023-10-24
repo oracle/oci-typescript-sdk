@@ -69,6 +69,18 @@ export interface JavaMessageServiceConnectionSummary extends model.ConnectionSum
    */
   "connectionFactory"?: string;
   /**
+   * Security protocol for Java Message Service. If not provided, default is PLAIN.
+   * Optional until 2024-06-27, in the release after it will be made required.
+   *
+   */
+  "securityProtocol"?: string;
+  /**
+   * Authentication type for Java Message Service.  If not provided, default is NONE.
+   * Optional until 2024-06-27, in the release after it will be made required.
+   *
+   */
+  "authenticationType"?: string;
+  /**
    * The username Oracle GoldenGate uses to connect to the Java Message Service.
    * This username must already exist and be available by the Java Message Service to be connected to.
    *

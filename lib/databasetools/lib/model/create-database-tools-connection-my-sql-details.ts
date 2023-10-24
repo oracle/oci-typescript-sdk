@@ -23,12 +23,12 @@ export interface CreateDatabaseToolsConnectionMySqlDetails
   /**
    * The connection string used to connect to the MySQL Server.
    */
-  "connectionString"?: string;
+  "connectionString": string;
   /**
    * The user name.
    */
-  "userName"?: string;
-  "userPassword"?: model.DatabaseToolsUserPasswordSecretIdDetails;
+  "userName": string;
+  "userPassword": model.DatabaseToolsUserPasswordSecretIdDetails;
   /**
    * The advanced connection properties key-value pair (e.g., `sslMode`).
    */

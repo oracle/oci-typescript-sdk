@@ -4883,6 +4883,90 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates a maintenance run with one of the following:
+   * The latest available release update patch (RUP) for the Autonomous Container Database.
+   * The latest available RUP and DST time zone (TZ) file updates for the Autonomous Container Database.
+   * Creates a maintenance run to update the DST TZ file for the Autonomous Container Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateMaintenanceRunRequest
+   * @return CreateMaintenanceRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateMaintenanceRun.ts.html |here} to see how to use CreateMaintenanceRun API.
+   */
+  public async createMaintenanceRun(
+    createMaintenanceRunRequest: requests.CreateMaintenanceRunRequest
+  ): Promise<responses.CreateMaintenanceRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createMaintenanceRun.");
+    const operationName = "createMaintenanceRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRun/CreateMaintenanceRun";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createMaintenanceRunRequest.opcRequestId,
+      "opc-retry-token": createMaintenanceRunRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMaintenanceRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceRuns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMaintenanceRunRequest.createMaintenanceRunDetails,
+        "CreateMaintenanceRunDetails",
+        model.CreateMaintenanceRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMaintenanceRunResponse>{},
+        body: await response.json(),
+        bodyKey: "maintenanceRun",
+        bodyModel: model.MaintenanceRun,
+        type: "model.MaintenanceRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates one-off patch for specified database version to download.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -18191,7 +18275,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     const queryParams = {
       "limit": listContainerDatabasePatchesRequest.limit,
       "page": listContainerDatabasePatchesRequest.page,
-      "compartmentId": listContainerDatabasePatchesRequest.compartmentId
+      "compartmentId": listContainerDatabasePatchesRequest.compartmentId,
+      "autonomousPatchType": listContainerDatabasePatchesRequest.autonomousPatchType
     };
 
     let headerParams = {

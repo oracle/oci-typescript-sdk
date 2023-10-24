@@ -38,16 +38,43 @@ export interface CreateDatabaseToolsConnectionDetails {
    *
    */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
+   * Specifies whether this connection is supported by the Database Tools Runtime.
+   */
+  "runtimeSupport"?: model.RuntimeSupport;
 
   "type": string;
 }
 
 export namespace CreateDatabaseToolsConnectionDetails {
   export function getJsonObj(obj: CreateDatabaseToolsConnectionDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GENERIC_JDBC":
+          return model.CreateDatabaseToolsConnectionGenericJdbcDetails.getJsonObj(
+            <model.CreateDatabaseToolsConnectionGenericJdbcDetails>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.CreateDatabaseToolsConnectionPostgresqlDetails.getJsonObj(
+            <model.CreateDatabaseToolsConnectionPostgresqlDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.CreateDatabaseToolsConnectionMySqlDetails.getJsonObj(
             <model.CreateDatabaseToolsConnectionMySqlDetails>(<object>jsonObj),
@@ -65,10 +92,29 @@ export namespace CreateDatabaseToolsConnectionDetails {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateDatabaseToolsConnectionDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GENERIC_JDBC":
+          return model.CreateDatabaseToolsConnectionGenericJdbcDetails.getDeserializedJsonObj(
+            <model.CreateDatabaseToolsConnectionGenericJdbcDetails>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.CreateDatabaseToolsConnectionPostgresqlDetails.getDeserializedJsonObj(
+            <model.CreateDatabaseToolsConnectionPostgresqlDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.CreateDatabaseToolsConnectionMySqlDetails.getDeserializedJsonObj(
             <model.CreateDatabaseToolsConnectionMySqlDetails>(<object>jsonObj),

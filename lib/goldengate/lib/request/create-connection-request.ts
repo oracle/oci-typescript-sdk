@@ -27,17 +27,24 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateKafkaSchemaRegistryConnectionDetails
     | model.CreateMicrosoftSqlserverConnectionDetails
     | model.CreateJavaMessageServiceConnectionDetails
+    | model.CreateGoogleBigQueryConnectionDetails
+    | model.CreateAmazonKinesisConnectionDetails
     | model.CreateSnowflakeConnectionDetails
     | model.CreateAzureDataLakeStorageConnectionDetails
     | model.CreateMongoDbConnectionDetails
     | model.CreateAmazonS3ConnectionDetails
     | model.CreateHdfsConnectionDetails
     | model.CreateOciObjectStorageConnectionDetails
+    | model.CreateElasticsearchConnectionDetails
     | model.CreateAzureSynapseConnectionDetails
+    | model.CreateRedisConnectionDetails
     | model.CreateMysqlConnectionDetails
+    | model.CreateGenericConnectionDetails
+    | model.CreateGoogleCloudStorageConnectionDetails
     | model.CreateKafkaConnectionDetails
     | model.CreateOracleConnectionDetails
     | model.CreateGoldenGateConnectionDetails
+    | model.CreateAmazonRedshiftConnectionDetails
     | model.CreateOracleNosqlConnectionDetails;
   /**
    * A token that uniquely identifies a request so it can be retried, in case of a timeout or server error,

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to update an existing Knowledge Base.
+ * Details to update an existing knowledge base.
  */
 export interface UpdateKnowledgeBaseDetails {
   /**
-   * The name of the Knowledge Base.
+   * The name of the knowledge base.
    */
   "displayName"?: string;
   /**

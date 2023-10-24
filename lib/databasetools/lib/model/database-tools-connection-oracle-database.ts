@@ -22,7 +22,7 @@ export interface DatabaseToolsConnectionOracleDatabase extends model.DatabaseToo
   /**
    * The connect descriptor or Easy Connect Naming method used to connect to the database.
    */
-  "connectionString"?: string;
+  "connectionString": string;
   /**
    * The database user name.
    */
@@ -42,6 +42,9 @@ export interface DatabaseToolsConnectionOracleDatabase extends model.DatabaseToo
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Tools private endpoint used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
+  "proxyClient"?:
+    | model.DatabaseToolsConnectionOracleDatabaseProxyClientNoProxy
+    | model.DatabaseToolsConnectionOracleDatabaseProxyClientUserName;
 
   "type": string;
 }
@@ -68,6 +71,10 @@ export namespace DatabaseToolsConnectionOracleDatabase {
           ? obj.keyStores.map(item => {
               return model.DatabaseToolsKeyStore.getJsonObj(item);
             })
+          : undefined,
+
+        "proxyClient": obj.proxyClient
+          ? model.DatabaseToolsConnectionOracleDatabaseProxyClient.getJsonObj(obj.proxyClient)
           : undefined
       }
     };
@@ -98,6 +105,12 @@ export namespace DatabaseToolsConnectionOracleDatabase {
           ? obj.keyStores.map(item => {
               return model.DatabaseToolsKeyStore.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "proxyClient": obj.proxyClient
+          ? model.DatabaseToolsConnectionOracleDatabaseProxyClient.getDeserializedJsonObj(
+              obj.proxyClient
+            )
           : undefined
       }
     };

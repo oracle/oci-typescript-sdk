@@ -43,6 +43,9 @@ export interface UpdateDatabaseToolsConnectionOracleDatabaseDetails
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DatabaseToolsPrivateEndpoint used to access the database in the Customer VCN.
    */
   "privateEndpointId"?: string;
+  "proxyClient"?:
+    | model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameDetails
+    | model.DatabaseToolsConnectionOracleDatabaseProxyClientNoProxyDetails;
 
   "type": string;
 }
@@ -71,6 +74,12 @@ export namespace UpdateDatabaseToolsConnectionOracleDatabaseDetails {
           ? obj.keyStores.map(item => {
               return model.DatabaseToolsKeyStoreDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "proxyClient": obj.proxyClient
+          ? model.DatabaseToolsConnectionOracleDatabaseProxyClientDetails.getJsonObj(
+              obj.proxyClient
+            )
           : undefined
       }
     };
@@ -103,6 +112,12 @@ export namespace UpdateDatabaseToolsConnectionOracleDatabaseDetails {
           ? obj.keyStores.map(item => {
               return model.DatabaseToolsKeyStoreDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "proxyClient": obj.proxyClient
+          ? model.DatabaseToolsConnectionOracleDatabaseProxyClientDetails.getDeserializedJsonObj(
+              obj.proxyClient
+            )
           : undefined
       }
     };

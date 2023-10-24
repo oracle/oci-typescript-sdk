@@ -238,6 +238,8 @@ import * as CreateExternalPluggableDatabaseDetails from "./create-external-plugg
 export import CreateExternalPluggableDatabaseDetails = CreateExternalPluggableDatabaseDetails.CreateExternalPluggableDatabaseDetails;
 import * as CreateKeyStoreDetails from "./create-key-store-details";
 export import CreateKeyStoreDetails = CreateKeyStoreDetails.CreateKeyStoreDetails;
+import * as CreateMaintenanceRunDetails from "./create-maintenance-run-details";
+export import CreateMaintenanceRunDetails = CreateMaintenanceRunDetails.CreateMaintenanceRunDetails;
 import * as CreateOneoffPatchDetails from "./create-oneoff-patch-details";
 export import CreateOneoffPatchDetails = CreateOneoffPatchDetails.CreateOneoffPatchDetails;
 import * as CreatePluggableDatabaseCreationTypeDetails from "./create-pluggable-database-creation-type-details";

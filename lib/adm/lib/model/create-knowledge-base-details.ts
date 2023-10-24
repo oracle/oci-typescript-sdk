@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create a new Knowledge Base.
+ * Details to create a new knowledge base.
  */
 export interface CreateKnowledgeBaseDetails {
   /**
-   * The Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the Knowledge Base's compartment.
+   * The compartment Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the knowledge base.
    */
   "compartmentId": string;
   /**
-   * The name of the Knowledge Base.
+   * The name of the knowledge base.
    */
   "displayName"?: string;
   /**

@@ -78,6 +78,10 @@ export interface MaintenanceRunSummary {
    */
   "maintenanceSubtype"?: MaintenanceRunSummary.MaintenanceSubtype;
   /**
+   * Indicates if an automatic DST Time Zone file update is enabled for the Autonomous Container Database. If enabled along with Release Update, patching will be done in a Non-Rolling manner.
+   */
+  "isDstFileUpdateEnabled"?: boolean;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the maintenance run for the Autonomous Data Guard association's peer container database.
    */
   "peerMaintenanceRunId"?: string;
@@ -189,6 +193,7 @@ export namespace MaintenanceRunSummary {
     Database = "DATABASE",
     Oneoff = "ONEOFF",
     SecurityMonthly = "SECURITY_MONTHLY",
+    Timezone = "TIMEZONE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

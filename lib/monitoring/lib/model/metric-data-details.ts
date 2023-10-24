@@ -2,7 +2,8 @@
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
 Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
-For information about monitoring, see [Monitoring Overview](/iaas/Content/Monitoring/Concepts/monitoringoverview.htm).
+For more information, see
+[the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
  * OpenAPI spec version: 20180401
  * 
@@ -77,6 +78,7 @@ Example: `\"unit\": \"bytes\"`
   "metadata"?: { [key: string]: string };
   /**
    * A list of metric values with timestamps. At least one data point is required per call.
+   * For a data point to be posted, its timestamp must be near current time (less than two hours in the past and less than 10 minutes in the future).
    *
    */
   "datapoints": Array<model.Datapoint>;

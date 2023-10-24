@@ -28,10 +28,16 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
    *
    */
   "updateConnectionDetails":
+    | model.UpdateElasticsearchConnectionDetails
+    | model.UpdateGoogleBigQueryConnectionDetails
     | model.UpdateOracleConnectionDetails
+    | model.UpdateAmazonRedshiftConnectionDetails
     | model.UpdateOciObjectStorageConnectionDetails
+    | model.UpdateRedisConnectionDetails
     | model.UpdateMongoDbConnectionDetails
+    | model.UpdateGoogleCloudStorageConnectionDetails
     | model.UpdateAzureDataLakeStorageConnectionDetails
+    | model.UpdateAmazonKinesisConnectionDetails
     | model.UpdateJavaMessageServiceConnectionDetails
     | model.UpdateGoldenGateConnectionDetails
     | model.UpdatePostgresqlConnectionDetails
@@ -43,6 +49,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateHdfsConnectionDetails
     | model.UpdateMysqlConnectionDetails
     | model.UpdateKafkaConnectionDetails
+    | model.UpdateGenericConnectionDetails
     | model.UpdateAzureSynapseConnectionDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the

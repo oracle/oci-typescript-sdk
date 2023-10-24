@@ -15,31 +15,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The summary of a Knowledge Base.
+ * The summary of a knowledge base.
  */
 export interface KnowledgeBaseSummary {
   /**
-   * The Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the Knowledge Base.
+   * The Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the knowledge base.
    */
   "id": string;
   /**
-   * The name of the Knowledge Base.
+   * The name of the knowledge base.
    */
   "displayName": string;
   /**
-   * The creation date and time of the Knowledge Base (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   * The creation date and time of the knowledge base (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeCreated": Date;
   /**
-   * The date and time the Knowledge Base was last updated (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   * The date and time the knowledge base was last updated (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeUpdated": Date;
   /**
-   * The Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the Knowledge Base's compartment.
+   * The compartment Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the knowledge base.
    */
   "compartmentId": string;
   /**
-   * The current lifecycle state of the Knowledge Base.
+   * The current lifecycle state of the knowledge base.
    */
   "lifecycleState": string;
   /**

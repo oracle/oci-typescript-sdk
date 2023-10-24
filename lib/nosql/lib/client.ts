@@ -354,6 +354,85 @@ export class NosqlClient {
   }
 
   /**
+   * Add a replica for this table
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateReplicaRequest
+   * @return CreateReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/CreateReplica.ts.html |here} to see how to use CreateReplica API.
+   */
+  public async createReplica(
+    createReplicaRequest: requests.CreateReplicaRequest
+  ): Promise<responses.CreateReplicaResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#createReplica.");
+    const operationName = "createReplica";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/CreateReplica";
+    const pathParams = {
+      "{tableNameOrId}": createReplicaRequest.tableNameOrId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createReplicaRequest.opcRetryToken,
+      "if-match": createReplicaRequest.ifMatch,
+      "opc-request-id": createReplicaRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createReplicaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tables/{tableNameOrId}/replicas",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createReplicaRequest.createReplicaDetails,
+        "CreateReplicaDetails",
+        model.CreateReplicaDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateReplicaResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a new table.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateTableRequest
@@ -486,6 +565,82 @@ export class NosqlClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIndexResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the specified replica table in the remote region.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteReplicaRequest
+   * @return DeleteReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteReplica.ts.html |here} to see how to use DeleteReplica API.
+   */
+  public async deleteReplica(
+    deleteReplicaRequest: requests.DeleteReplicaRequest
+  ): Promise<responses.DeleteReplicaResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteReplica.");
+    const operationName = "deleteReplica";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/DeleteReplica";
+    const pathParams = {
+      "{tableNameOrId}": deleteReplicaRequest.tableNameOrId,
+      "{region}": deleteReplicaRequest.region
+    };
+
+    const queryParams = {
+      "compartmentId": deleteReplicaRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteReplicaRequest.ifMatch,
+      "opc-request-id": deleteReplicaRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteReplicaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tables/{tableNameOrId}/replicas/{region}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteReplicaResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

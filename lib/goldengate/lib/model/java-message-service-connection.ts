@@ -69,6 +69,18 @@ export interface JavaMessageServiceConnection extends model.Connection {
    */
   "connectionFactory"?: string;
   /**
+   * Security protocol for Java Message Service. If not provided, default is PLAIN.
+   * Optional until 2024-06-27, in the release after it will be made required.
+   *
+   */
+  "securityProtocol"?: JavaMessageServiceConnection.SecurityProtocol;
+  /**
+   * Authentication type for Java Message Service.  If not provided, default is NONE.
+   * Optional until 2024-06-27, in the release after it will be made required.
+   *
+   */
+  "authenticationType"?: JavaMessageServiceConnection.AuthenticationType;
+  /**
    * The username Oracle GoldenGate uses to connect to the Java Message Service.
    * This username must already exist and be available by the Java Message Service to be connected to.
    *
@@ -90,6 +102,27 @@ export interface JavaMessageServiceConnection extends model.Connection {
 export namespace JavaMessageServiceConnection {
   export enum TechnologyType {
     OracleWeblogicJms = "ORACLE_WEBLOGIC_JMS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum SecurityProtocol {
+    Plain = "PLAIN",
+    Tls = "TLS",
+    Mtls = "MTLS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AuthenticationType {
+    None = "NONE",
+    Basic = "BASIC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

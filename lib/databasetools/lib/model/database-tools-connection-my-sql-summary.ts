@@ -22,7 +22,7 @@ export interface DatabaseToolsConnectionMySqlSummary extends model.DatabaseTools
   /**
    * The connection string used to connect to the MySQL Server.
    */
-  "connectionString"?: string;
+  "connectionString": string;
   /**
    * The user name.
    */

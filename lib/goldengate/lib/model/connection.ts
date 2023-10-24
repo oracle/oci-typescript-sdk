@@ -102,11 +102,6 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    */
   "keyId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
-   *
-   */
-  "subnetId"?: string;
-  /**
    * List of ingress IP addresses from where the GoldenGate deployment connects to this connection's privateIp.
    * Customers may optionally set up ingress security rules to restrict traffic from these IP addresses.
    *
@@ -117,6 +112,11 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    *
    */
   "nsgIds"?: Array<string>;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
+   *
+   */
+  "subnetId"?: string;
 
   "connectionType": string;
 }
@@ -162,6 +162,16 @@ export namespace Connection {
             <model.JavaMessageServiceConnection>(<object>jsonObj),
             true
           );
+        case "ELASTICSEARCH":
+          return model.ElasticsearchConnection.getJsonObj(
+            <model.ElasticsearchConnection>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_REDSHIFT":
+          return model.AmazonRedshiftConnection.getJsonObj(
+            <model.AmazonRedshiftConnection>(<object>jsonObj),
+            true
+          );
         case "SNOWFLAKE":
           return model.SnowflakeConnection.getJsonObj(
             <model.SnowflakeConnection>(<object>jsonObj),
@@ -179,6 +189,11 @@ export namespace Connection {
             <model.AmazonS3Connection>(<object>jsonObj),
             true
           );
+        case "GOOGLE_BIGQUERY":
+          return model.GoogleBigQueryConnection.getJsonObj(
+            <model.GoogleBigQueryConnection>(<object>jsonObj),
+            true
+          );
         case "ORACLE":
           return model.OracleConnection.getJsonObj(<model.OracleConnection>(<object>jsonObj), true);
         case "AZURE_DATA_LAKE_STORAGE":
@@ -193,6 +208,11 @@ export namespace Connection {
           );
         case "HDFS":
           return model.HdfsConnection.getJsonObj(<model.HdfsConnection>(<object>jsonObj), true);
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.GoogleCloudStorageConnection.getJsonObj(
+            <model.GoogleCloudStorageConnection>(<object>jsonObj),
+            true
+          );
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnection.getJsonObj(
             <model.OciObjectStorageConnection>(<object>jsonObj),
@@ -208,6 +228,16 @@ export namespace Connection {
             <model.MicrosoftSqlserverConnection>(<object>jsonObj),
             true
           );
+        case "AMAZON_KINESIS":
+          return model.AmazonKinesisConnection.getJsonObj(
+            <model.AmazonKinesisConnection>(<object>jsonObj),
+            true
+          );
+        case "GENERIC":
+          return model.GenericConnection.getJsonObj(
+            <model.GenericConnection>(<object>jsonObj),
+            true
+          );
         case "ORACLE_NOSQL":
           return model.OracleNosqlConnection.getJsonObj(
             <model.OracleNosqlConnection>(<object>jsonObj),
@@ -218,6 +248,8 @@ export namespace Connection {
             <model.AzureSynapseConnection>(<object>jsonObj),
             true
           );
+        case "REDIS":
+          return model.RedisConnection.getJsonObj(<model.RedisConnection>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectionType}`);
       }
@@ -253,6 +285,16 @@ export namespace Connection {
             <model.JavaMessageServiceConnection>(<object>jsonObj),
             true
           );
+        case "ELASTICSEARCH":
+          return model.ElasticsearchConnection.getDeserializedJsonObj(
+            <model.ElasticsearchConnection>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_REDSHIFT":
+          return model.AmazonRedshiftConnection.getDeserializedJsonObj(
+            <model.AmazonRedshiftConnection>(<object>jsonObj),
+            true
+          );
         case "SNOWFLAKE":
           return model.SnowflakeConnection.getDeserializedJsonObj(
             <model.SnowflakeConnection>(<object>jsonObj),
@@ -271,6 +313,11 @@ export namespace Connection {
         case "AMAZON_S3":
           return model.AmazonS3Connection.getDeserializedJsonObj(
             <model.AmazonS3Connection>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_BIGQUERY":
+          return model.GoogleBigQueryConnection.getDeserializedJsonObj(
+            <model.GoogleBigQueryConnection>(<object>jsonObj),
             true
           );
         case "ORACLE":
@@ -293,6 +340,11 @@ export namespace Connection {
             <model.HdfsConnection>(<object>jsonObj),
             true
           );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.GoogleCloudStorageConnection.getDeserializedJsonObj(
+            <model.GoogleCloudStorageConnection>(<object>jsonObj),
+            true
+          );
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnection.getDeserializedJsonObj(
             <model.OciObjectStorageConnection>(<object>jsonObj),
@@ -308,6 +360,16 @@ export namespace Connection {
             <model.MicrosoftSqlserverConnection>(<object>jsonObj),
             true
           );
+        case "AMAZON_KINESIS":
+          return model.AmazonKinesisConnection.getDeserializedJsonObj(
+            <model.AmazonKinesisConnection>(<object>jsonObj),
+            true
+          );
+        case "GENERIC":
+          return model.GenericConnection.getDeserializedJsonObj(
+            <model.GenericConnection>(<object>jsonObj),
+            true
+          );
         case "ORACLE_NOSQL":
           return model.OracleNosqlConnection.getDeserializedJsonObj(
             <model.OracleNosqlConnection>(<object>jsonObj),
@@ -316,6 +378,11 @@ export namespace Connection {
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.AzureSynapseConnection.getDeserializedJsonObj(
             <model.AzureSynapseConnection>(<object>jsonObj),
+            true
+          );
+        case "REDIS":
+          return model.RedisConnection.getDeserializedJsonObj(
+            <model.RedisConnection>(<object>jsonObj),
             true
           );
         default:

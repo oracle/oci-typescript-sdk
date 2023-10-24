@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddDatabaseToolsConnectionLockRequest from "./add-database-tools-connection-lock-request";
+export import AddDatabaseToolsConnectionLockRequest = AddDatabaseToolsConnectionLockRequest.AddDatabaseToolsConnectionLockRequest;
+import * as AddDatabaseToolsPrivateEndpointLockRequest from "./add-database-tools-private-endpoint-lock-request";
+export import AddDatabaseToolsPrivateEndpointLockRequest = AddDatabaseToolsPrivateEndpointLockRequest.AddDatabaseToolsPrivateEndpointLockRequest;
 import * as ChangeDatabaseToolsConnectionCompartmentRequest from "./change-database-tools-connection-compartment-request";
 export import ChangeDatabaseToolsConnectionCompartmentRequest = ChangeDatabaseToolsConnectionCompartmentRequest.ChangeDatabaseToolsConnectionCompartmentRequest;
 import * as ChangeDatabaseToolsPrivateEndpointCompartmentRequest from "./change-database-tools-private-endpoint-compartment-request";
@@ -43,6 +47,10 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RemoveDatabaseToolsConnectionLockRequest from "./remove-database-tools-connection-lock-request";
+export import RemoveDatabaseToolsConnectionLockRequest = RemoveDatabaseToolsConnectionLockRequest.RemoveDatabaseToolsConnectionLockRequest;
+import * as RemoveDatabaseToolsPrivateEndpointLockRequest from "./remove-database-tools-private-endpoint-lock-request";
+export import RemoveDatabaseToolsPrivateEndpointLockRequest = RemoveDatabaseToolsPrivateEndpointLockRequest.RemoveDatabaseToolsPrivateEndpointLockRequest;
 import * as UpdateDatabaseToolsConnectionRequest from "./update-database-tools-connection-request";
 export import UpdateDatabaseToolsConnectionRequest = UpdateDatabaseToolsConnectionRequest.UpdateDatabaseToolsConnectionRequest;
 import * as UpdateDatabaseToolsPrivateEndpointRequest from "./update-database-tools-private-endpoint-request";

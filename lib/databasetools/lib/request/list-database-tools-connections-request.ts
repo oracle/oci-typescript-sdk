@@ -35,6 +35,14 @@ export interface ListDatabaseToolsConnectionsRequest extends common.BaseRequest 
    */
   "type"?: Array<model.ConnectionType>;
   /**
+   * A filter to return only resources with one of the specified runtimeSupport values.
+   */
+  "runtimeSupport"?: Array<model.RuntimeSupport>;
+  /**
+   * A filter to return only resources associated to the related resource identifier OCID passed in the query string.
+   */
+  "relatedResourceIdentifier"?: string;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

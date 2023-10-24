@@ -102,11 +102,6 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    */
   "keyId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
-   *
-   */
-  "subnetId"?: string;
-  /**
    * List of ingress IP addresses from where the GoldenGate deployment connects to this connection's privateIp.
    * Customers may optionally set up ingress security rules to restrict traffic from these IP addresses.
    *
@@ -117,6 +112,11 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    *
    */
   "nsgIds"?: Array<string>;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
+   *
+   */
+  "subnetId"?: string;
 
   "connectionType": string;
 }
@@ -171,6 +171,16 @@ export namespace ConnectionSummary {
             <model.SnowflakeConnectionSummary>(<object>jsonObj),
             true
           );
+        case "AMAZON_KINESIS":
+          return model.AmazonKinesisConnectionSummary.getJsonObj(
+            <model.AmazonKinesisConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "REDIS":
+          return model.RedisConnectionSummary.getJsonObj(
+            <model.RedisConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnectionSummary.getJsonObj(
             <model.OciObjectStorageConnectionSummary>(<object>jsonObj),
@@ -191,6 +201,11 @@ export namespace ConnectionSummary {
             <model.MongoDbConnectionSummary>(<object>jsonObj),
             true
           );
+        case "GOOGLE_BIGQUERY":
+          return model.GoogleBigQueryConnectionSummary.getJsonObj(
+            <model.GoogleBigQueryConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3":
           return model.AmazonS3ConnectionSummary.getJsonObj(
             <model.AmazonS3ConnectionSummary>(<object>jsonObj),
@@ -206,14 +221,34 @@ export namespace ConnectionSummary {
             <model.MysqlConnectionSummary>(<object>jsonObj),
             true
           );
+        case "GENERIC":
+          return model.GenericConnectionSummary.getJsonObj(
+            <model.GenericConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "KAFKA":
           return model.KafkaConnectionSummary.getJsonObj(
             <model.KafkaConnectionSummary>(<object>jsonObj),
             true
           );
+        case "ELASTICSEARCH":
+          return model.ElasticsearchConnectionSummary.getJsonObj(
+            <model.ElasticsearchConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_REDSHIFT":
+          return model.AmazonRedshiftConnectionSummary.getJsonObj(
+            <model.AmazonRedshiftConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "HDFS":
           return model.HdfsConnectionSummary.getJsonObj(
             <model.HdfsConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.GoogleCloudStorageConnectionSummary.getJsonObj(
+            <model.GoogleCloudStorageConnectionSummary>(<object>jsonObj),
             true
           );
         default:
@@ -271,6 +306,16 @@ export namespace ConnectionSummary {
             <model.SnowflakeConnectionSummary>(<object>jsonObj),
             true
           );
+        case "AMAZON_KINESIS":
+          return model.AmazonKinesisConnectionSummary.getDeserializedJsonObj(
+            <model.AmazonKinesisConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "REDIS":
+          return model.RedisConnectionSummary.getDeserializedJsonObj(
+            <model.RedisConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnectionSummary.getDeserializedJsonObj(
             <model.OciObjectStorageConnectionSummary>(<object>jsonObj),
@@ -291,6 +336,11 @@ export namespace ConnectionSummary {
             <model.MongoDbConnectionSummary>(<object>jsonObj),
             true
           );
+        case "GOOGLE_BIGQUERY":
+          return model.GoogleBigQueryConnectionSummary.getDeserializedJsonObj(
+            <model.GoogleBigQueryConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3":
           return model.AmazonS3ConnectionSummary.getDeserializedJsonObj(
             <model.AmazonS3ConnectionSummary>(<object>jsonObj),
@@ -306,14 +356,34 @@ export namespace ConnectionSummary {
             <model.MysqlConnectionSummary>(<object>jsonObj),
             true
           );
+        case "GENERIC":
+          return model.GenericConnectionSummary.getDeserializedJsonObj(
+            <model.GenericConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "KAFKA":
           return model.KafkaConnectionSummary.getDeserializedJsonObj(
             <model.KafkaConnectionSummary>(<object>jsonObj),
             true
           );
+        case "ELASTICSEARCH":
+          return model.ElasticsearchConnectionSummary.getDeserializedJsonObj(
+            <model.ElasticsearchConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_REDSHIFT":
+          return model.AmazonRedshiftConnectionSummary.getDeserializedJsonObj(
+            <model.AmazonRedshiftConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "HDFS":
           return model.HdfsConnectionSummary.getDeserializedJsonObj(
             <model.HdfsConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.GoogleCloudStorageConnectionSummary.getDeserializedJsonObj(
+            <model.GoogleCloudStorageConnectionSummary>(<object>jsonObj),
             true
           );
         default:

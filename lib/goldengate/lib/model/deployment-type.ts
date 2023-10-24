@@ -26,6 +26,8 @@ export enum DeploymentType {
   DatabaseMicrosoftSqlserver = "DATABASE_MICROSOFT_SQLSERVER",
   DatabaseMysql = "DATABASE_MYSQL",
   DatabasePostgresql = "DATABASE_POSTGRESQL",
+  DatabaseDb2Zos = "DATABASE_DB2ZOS",
+  DataTransforms = "DATA_TRANSFORMS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -23,12 +23,12 @@ export interface CreateDatabaseToolsConnectionOracleDatabaseDetails
   /**
    * The connect descriptor or Easy Connect Naming method use to connect to the database.
    */
-  "connectionString"?: string;
+  "connectionString": string;
   /**
    * The database user name.
    */
-  "userName"?: string;
-  "userPassword"?: model.DatabaseToolsUserPasswordSecretIdDetails;
+  "userName": string;
+  "userPassword": model.DatabaseToolsUserPasswordSecretIdDetails;
   /**
    * The advanced connection properties key-value pair (e.g., `oracle.net.ssl_server_dn_match`).
    */
@@ -43,6 +43,9 @@ export interface CreateDatabaseToolsConnectionOracleDatabaseDetails
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Tools private endpoint used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
+  "proxyClient"?:
+    | model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameDetails
+    | model.DatabaseToolsConnectionOracleDatabaseProxyClientNoProxyDetails;
 
   "type": string;
 }
@@ -71,6 +74,12 @@ export namespace CreateDatabaseToolsConnectionOracleDatabaseDetails {
           ? obj.keyStores.map(item => {
               return model.DatabaseToolsKeyStoreDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "proxyClient": obj.proxyClient
+          ? model.DatabaseToolsConnectionOracleDatabaseProxyClientDetails.getJsonObj(
+              obj.proxyClient
+            )
           : undefined
       }
     };
@@ -103,6 +112,12 @@ export namespace CreateDatabaseToolsConnectionOracleDatabaseDetails {
           ? obj.keyStores.map(item => {
               return model.DatabaseToolsKeyStoreDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "proxyClient": obj.proxyClient
+          ? model.DatabaseToolsConnectionOracleDatabaseProxyClientDetails.getDeserializedJsonObj(
+              obj.proxyClient
+            )
           : undefined
       }
     };
