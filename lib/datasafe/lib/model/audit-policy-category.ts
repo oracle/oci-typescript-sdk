@@ -24,6 +24,7 @@ export enum AuditPolicyCategory {
   OraclePredefined = "ORACLE_PREDEFINED",
   ComplianceStandard = "COMPLIANCE_STANDARD",
   Custom = "CUSTOM",
+  SqlFirewallAuditing = "SQL_FIREWALL_AUDITING",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

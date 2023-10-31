@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of a work request.
+ * The summary of a work request.
  */
 export interface WorkRequestSummary {
   /**
@@ -32,9 +33,9 @@ export interface WorkRequestSummary {
    */
   "status": model.OperationStatus;
   /**
-    * The ID (OCID) of the work request.
+    * The OCID of the work request.
 * <p>
-Example: `ocid1.workrequest.oc1.phx.&lt;unique_id&gt;`
+Example: `ocid1.workrequest.oc1..uniqueID`
 * 
     */
   "id": string;
@@ -44,7 +45,7 @@ Example: `ocid1.workrequest.oc1.phx.&lt;unique_id&gt;`
 * and those resources are not in the same compartment, it is up to the service team to pick the primary
 * resource whose compartment should be used.
 * <p>
-Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
+Example: `ocid1.compartment.oc1..uniqueID`
 * 
     */
   "compartmentId": string;

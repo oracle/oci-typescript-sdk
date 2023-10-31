@@ -36,15 +36,15 @@ export interface ListTargetDatabasesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * A filter to return the target databases that matches the current state of the target database.
+   * A filter to return only target databases that match the specified lifecycle state.
    */
   "lifecycleState"?: model.TargetDatabaseLifecycleState;
   /**
-   * A filter to return target databases that match the database type of the target database.
+   * A filter to return only target databases that match the specified database type.
    */
   "databaseType"?: model.DatabaseType;
   /**
-   * A filter to return target databases that match the infrastructure type of the target database.
+   * A filter to return only target databases that match the specified infrastructure type.
    */
   "infrastructureType"?: model.InfrastructureType;
   /**

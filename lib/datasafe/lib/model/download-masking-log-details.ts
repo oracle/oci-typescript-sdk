@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to download masking log.
+ * Details to download the masking log.
  */
 export interface DownloadMaskingLogDetails {
   /**

@@ -24,17 +24,7 @@ export interface ProfileAggregation {
   /**
    * The array of profile aggregation data.
    */
-  "items"?: Array<{ [key: string]: any }>;
-  /**
-   * The OCID of the latest user assessment corresponding to the target under consideration. A compartment
-   * type assessment can also be passed to profiles from all the targets from the corresponding compartment.
-   *
-   */
-  "userAssessmentId": string;
-  /**
-   * The OCID of the compartment that contains the user assessment.
-   */
-  "compartmentId": string;
+  "items": Array<{ [key: string]: any }>;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>

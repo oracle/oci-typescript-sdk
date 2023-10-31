@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details reqired to set baseline assessment.
+ * The details required to set the baseline for the assessment.
  */
 export interface UserAssessmentBaseLineDetails {
   /**
-   * The list of user assessment OCIDs that need to be updated while setting the baseline.
+   * The list of OCIDs for the user assessments that need to be updated while setting the baseline.
    */
   "assessmentIds"?: Array<string>;
 }

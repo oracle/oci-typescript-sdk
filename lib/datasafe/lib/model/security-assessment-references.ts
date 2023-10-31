@@ -15,7 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The filtering capability to list findings by the refernce label.
+ * A filter to return only findings that match the specified reference. Currently supported values are STIG, CIS, and GDPR.
+ * Here STIG refers to DISA STIG, CIS refers to CIS Benchmark, and GDPR refers to EU GDPR.
+ *
  **/
 export enum SecurityAssessmentReferences {
   Stig = "STIG",

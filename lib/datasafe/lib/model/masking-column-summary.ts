@@ -78,7 +78,7 @@ export interface MaskingColumnSummary {
    */
   "sensitiveTypeId"?: string;
   /**
-   * Indicates if data masking is enabled for the masking column.
+   * Indicates whether data masking is enabled for the masking column.
    */
   "isMaskingEnabled": boolean;
   /**

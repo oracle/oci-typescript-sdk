@@ -65,6 +65,8 @@ import * as CreateMaintenanceDetails from "./create-maintenance-details";
 export import CreateMaintenanceDetails = CreateMaintenanceDetails.CreateMaintenanceDetails;
 import * as CreateReplicaDetails from "./create-replica-details";
 export import CreateReplicaDetails = CreateReplicaDetails.CreateReplicaDetails;
+import * as DatabaseManagementStatus from "./database-management-status";
+export import DatabaseManagementStatus = DatabaseManagementStatus.DatabaseManagementStatus;
 import * as DbSystem from "./db-system";
 export import DbSystem = DbSystem.DbSystem;
 import * as DbSystemEndpoint from "./db-system-endpoint";

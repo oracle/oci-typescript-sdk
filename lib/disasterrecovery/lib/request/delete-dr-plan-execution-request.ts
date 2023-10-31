@@ -19,9 +19,9 @@ import common = require("oci-common");
  */
 export interface DeleteDrPlanExecutionRequest extends common.BaseRequest {
   /**
- * The OCID of the DR Plan Execution.
+ * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.exampleocid`
+Example: `ocid1.drplanexecution.oc1..uniqueID`
 * 
  */
   "drPlanExecutionId": string;

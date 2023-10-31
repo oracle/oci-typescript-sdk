@@ -67,7 +67,7 @@ export interface ListSecurityAssessmentsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListSecurityAssessmentsRequest.SortOrder;
   /**
-   * A filter to return only security assessments that are set as baseline.
+   * A filter to return only the security assessments that are set as a baseline.
    */
   "isBaseline"?: boolean;
   /**

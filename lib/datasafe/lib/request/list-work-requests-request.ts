@@ -27,13 +27,13 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "operationType"?: string;
   /**
-   * The field used for sorting. Only one sorting order (sortOrder) can be specified.
+   * The field used for sorting. Only one sorting parameter can be specified.
    * The default order is descending.
    *
    */
   "sortBy"?: ListWorkRequestsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (ASC) or descending (DESC).
+   * The sorting order for the work requests, either ascending (ASC) or descending (DESC).
    */
   "sortOrder"?: ListWorkRequestsRequest.SortOrder;
   /**
@@ -56,6 +56,20 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    * For list pagination. The maximum number of items to return per page in a paginated \"List\" call. For details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;
+  /**
+   * Default is false.
+   * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned. Depends on the 'accessLevel' setting.
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
+   * Valid values are RESTRICTED and ACCESSIBLE. Default is RESTRICTED.
+   * Setting this to ACCESSIBLE returns only those compartments for which the
+   * user has INSPECT permissions directly or indirectly (permissions can be on a
+   * resource in a subcompartment). When set to RESTRICTED permissions are checked and no partial results are displayed.
+   *
+   */
+  "accessLevel"?: ListWorkRequestsRequest.AccessLevel;
 }
 
 export namespace ListWorkRequestsRequest {
@@ -68,5 +82,10 @@ export namespace ListWorkRequestsRequest {
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"
+  }
+
+  export enum AccessLevel {
+    Restricted = "RESTRICTED",
+    Accessible = "ACCESSIBLE"
   }
 }

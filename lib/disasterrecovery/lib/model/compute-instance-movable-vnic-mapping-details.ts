@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,43 +19,46 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A movable compute instance's source and destination VNIC mapping.
+ * Source VNIC to destination subnet mapping for a movable compute instance.
+ *
  */
 export interface ComputeInstanceMovableVnicMappingDetails {
   /**
-    * The OCID of the VNIC.
+    * The OCID of the source VNIC.
 * <p>
-Example: `ocid1.vnic.oc1..&lt;unique_id&gt;`
+Example: `ocid1.vnic.oc1..uniqueID`
 * 
     */
   "sourceVnicId": string;
   /**
-    * The OCID of the destination (remote) subnet to which this VNIC should connect.
+    * The OCID of the destination subnet to which the source VNIC should connect.        
 * <p>
-Example: `ocid1.subnet.oc1..&lt;unique_id&gt;`
+Example: `ocid1.subnet.oc1..uniqueID`
 * 
     */
   "destinationSubnetId": string;
   /**
-    * The primary private IP address to assign. This address must belong to the destination subnet.
+    * The primary private IP address to be assigned to the source VNIC in the destination subnet. 
+* This IP address must belong to the destination subnet.
 * <p>
 Example: `10.0.3.3`
 * 
     */
   "destinationPrimaryPrivateIpAddress"?: string;
   /**
-    * The hostname to assign for this primary private IP.
-* The value is the hostname portion of the private IP's fully qualified domain name (FQDN) 
-* (for example, bminstance1 in FQDN bminstance1.subnet123.vcn1.oraclevcn.com).
+    * The hostname label to be assigned in the destination subnet for the primary private IP of the source VNIC.
+* This label is the hostname portion of the private IP's fully qualified domain name (FQDN) 
+* (for example, 'myhost1' in the FQDN 'myhost1.subnet123.vcn1.oraclevcn.com').
 * <p>
-Example: `bminstance1`
+Example: `myhost1`
 * 
     */
   "destinationPrimaryPrivateIpHostnameLabel"?: string;
   /**
-    * A list of network security group (NSG) IDs in the destination region which this VNIC should use.
+    * A list of OCIDs of network security groups (NSG) in the destination region which should be assigned to
+* the source VNIC.
 * <p>
-Example: `[ ocid1.networksecuritygroup.oc1..&lt;unique_id&gt;, ocid1.networksecuritygroup.oc1..&lt;unique_id&gt; ]`
+Example: `[ ocid1.networksecuritygroup.oc1..uniqueID, ocid1.networksecuritygroup.oc1..uniqueID ]`
 * 
     */
   "destinationNsgIdList"?: Array<string>;

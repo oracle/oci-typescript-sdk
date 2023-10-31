@@ -386,6 +386,18 @@ import * as SummarizeAlertLogCountsResponse from "./summarize-alert-log-counts-r
 export import SummarizeAlertLogCountsResponse = SummarizeAlertLogCountsResponse.SummarizeAlertLogCountsResponse;
 import * as SummarizeAttentionLogCountsResponse from "./summarize-attention-log-counts-response";
 export import SummarizeAttentionLogCountsResponse = SummarizeAttentionLogCountsResponse.SummarizeAttentionLogCountsResponse;
+import * as GetManagedMySqlDatabaseResponse from "./get-managed-my-sql-database-response";
+export import GetManagedMySqlDatabaseResponse = GetManagedMySqlDatabaseResponse.GetManagedMySqlDatabaseResponse;
+import * as GetMySqlFleetMetricResponse from "./get-my-sql-fleet-metric-response";
+export import GetMySqlFleetMetricResponse = GetMySqlFleetMetricResponse.GetMySqlFleetMetricResponse;
+import * as ListManagedMySqlDatabaseConfigurationDataResponse from "./list-managed-my-sql-database-configuration-data-response";
+export import ListManagedMySqlDatabaseConfigurationDataResponse = ListManagedMySqlDatabaseConfigurationDataResponse.ListManagedMySqlDatabaseConfigurationDataResponse;
+import * as ListManagedMySqlDatabaseSqlDataResponse from "./list-managed-my-sql-database-sql-data-response";
+export import ListManagedMySqlDatabaseSqlDataResponse = ListManagedMySqlDatabaseSqlDataResponse.ListManagedMySqlDatabaseSqlDataResponse;
+import * as ListManagedMySqlDatabasesResponse from "./list-managed-my-sql-databases-response";
+export import ListManagedMySqlDatabasesResponse = ListManagedMySqlDatabasesResponse.ListManagedMySqlDatabasesResponse;
+import * as SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse from "./summarize-managed-my-sql-database-availability-metrics-response";
+export import SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse = SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse.SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse;
 import * as ModifySnapshotSettingsResponse from "./modify-snapshot-settings-response";
 export import ModifySnapshotSettingsResponse = ModifySnapshotSettingsResponse.ModifySnapshotSettingsResponse;
 import * as CloneSqlTuningTaskResponse from "./clone-sql-tuning-task-response";

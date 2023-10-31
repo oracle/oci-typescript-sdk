@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,11 +19,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties for a Compute Instance member of a DR Protection Group.
+ * Deprecated. Properties for a compute instance member of a DR protection group.
  */
 export interface DrProtectionGroupMemberComputeInstance extends model.DrProtectionGroupMember {
   /**
-    * A flag indicating if this compute instance should be moved during DR operations.
+    * A flag indicating if the compute instance should be moved during DR operations.
 * <p>
 Example: `false`
 * 
@@ -34,16 +35,18 @@ Example: `false`
    */
   "vnicMapping"?: Array<model.ComputeInstanceVnicMapping>;
   /**
-    * The OCID of the compartment for this compute instance in the destination region.
+    * The OCID of a compartment in the destination region in which the compute instance
+* should be launched.
 * <p>
-Example: `ocid1.compartment.oc1..exampleocid`
+Example: `ocid1.compartment.oc1..uniqueID`
 * 
     */
   "destinationCompartmentId"?: string;
   /**
-    * The OCID of the dedicated VM Host for this compute instance in the destination region.
+    * The OCID of a dedicated VM host in the destination region where the compute instance
+* should be launched.
 * <p>
-Example: `ocid1.dedicatedvmhost.oc1.iad.exampleocid`
+Example: `ocid1.dedicatedvmhost.oc1..uniqueID`
 * 
     */
   "destinationDedicatedVmHostId"?: string;

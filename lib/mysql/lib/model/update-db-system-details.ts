@@ -156,6 +156,11 @@ It is not possible to decrease data storage size.
    *
    */
   "crashRecovery"?: model.CrashRecoveryStatus;
+  /**
+   * Whether to enable monitoring via the Database Management service.
+   *
+   */
+  "databaseManagement"?: model.DatabaseManagementStatus;
 }
 
 export namespace UpdateDbSystemDetails {

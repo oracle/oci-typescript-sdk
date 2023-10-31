@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,23 +19,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information about a group execution in a DR Plan Execution.
+ * The details of a group execution in a DR plan execution.
  */
 export interface DrPlanGroupExecution {
   /**
     * The unique id of the group. Must not be modified by user.
 * <p>
-Example: `sgid1.group..&lt;unique_id&gt;`
+Example: `sgid1.group..uniqueID`
 * 
     */
   "groupId": string;
   /**
-   * The plan group type.
-   *
-   */
+    * The group type.
+* <p>
+Example: `BUILT_IN`
+* 
+    */
   "type": model.DrPlanGroupType;
   /**
-    * The display name of group that was executed.
+    * The display name of the group execution.
 * <p>
 Example: `DATABASE_SWITCHOVER`
 * 
@@ -46,21 +49,21 @@ Example: `DATABASE_SWITCHOVER`
    */
   "status": model.DrPlanGroupExecutionStatus;
   /**
-    * Additional details about the group execution status.
+    * Additional details on the group execution status.
 * <p>
-Example: `A total of three steps failed in the group`
+Example: `A total of [3] steps failed in the group`
 * 
     */
   "statusDetails"?: string;
   /**
-    * The time at which group execution began. An RFC3339 formatted datetime string.
+    * The time when group execution began. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
     */
   "timeStarted"?: Date;
   /**
-    * The time at which group execution ended. An RFC3339 formatted datetime string.
+    * The time when group execution ended. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
@@ -74,7 +77,7 @@ Example: `120`
     */
   "executionDurationInSec"?: number;
   /**
-   * A list of details of each step executed in this group.
+   * A list of step executions in the group.
    *
    */
   "stepExecutions": Array<model.DrPlanStepExecution>;

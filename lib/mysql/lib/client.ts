@@ -2351,6 +2351,7 @@ export class DbSystemClient {
       "lifecycleState": listDbSystemsRequest.lifecycleState,
       "configurationId": listDbSystemsRequest.configurationId,
       "isUpToDate": listDbSystemsRequest.isUpToDate,
+      "databaseManagement": listDbSystemsRequest.databaseManagement,
       "sortBy": listDbSystemsRequest.sortBy,
       "sortOrder": listDbSystemsRequest.sortOrder,
       "limit": listDbSystemsRequest.limit,

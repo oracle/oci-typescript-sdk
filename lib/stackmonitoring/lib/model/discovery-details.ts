@@ -30,6 +30,10 @@ export interface DiscoveryDetails {
    * The Name of resource type
    */
   "resourceName": string;
+  /**
+   * License edition of the monitored resource.
+   */
+  "license"?: model.LicenseType;
   "properties": model.PropertyDetails;
   "credentials"?: model.CredentialCollection;
   "tags"?: model.PropertyDetails;

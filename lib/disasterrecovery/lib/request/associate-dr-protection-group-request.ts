@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface AssociateDrProtectionGroupRequest extends common.BaseRequest {
   /**
-   * Details for creating an association between two DR Protection Groups.
+   * Details for creating an association between two DR protection groups.
    */
   "associateDrProtectionGroupDetails": model.AssociateDrProtectionGroupDetails;
   /**
- * The OCID of the DR Protection Group.
+ * The OCID of the DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.exampleocid`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
  */
   "drProtectionGroupId": string;

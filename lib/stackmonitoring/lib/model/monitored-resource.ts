@@ -86,6 +86,10 @@ export interface MonitoredResource {
    */
   "lifecycleState"?: model.ResourceLifecycleState;
   /**
+   * License edition of the monitored resource.
+   */
+  "license"?: model.LicenseType;
+  /**
    * List of monitored resource properties.
    *
    */

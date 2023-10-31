@@ -23,7 +23,7 @@ export interface GetSecurityAssessmentComparisonRequest extends common.BaseReque
    */
   "securityAssessmentId": string;
   /**
-   * The OCID of the baseline security assessment.
+   * The OCID of the security assessment baseline.
    */
   "comparisonSecurityAssessmentId": string;
   /**

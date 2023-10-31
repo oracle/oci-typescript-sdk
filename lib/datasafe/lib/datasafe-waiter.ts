@@ -174,6 +174,25 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forDatabaseSecurityConfig till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDatabaseSecurityConfigResponse | null (null in case of 404 response)
+   */
+  public async forDatabaseSecurityConfig(
+    request: serviceRequests.GetDatabaseSecurityConfigRequest,
+    ...targetStates: models.DatabaseSecurityConfigLifecycleState[]
+  ): Promise<serviceResponses.GetDatabaseSecurityConfigResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDatabaseSecurityConfig(request),
+      response => targetStates.includes(response.databaseSecurityConfig.lifecycleState!),
+      targetStates.includes(models.DatabaseSecurityConfigLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDiscoveryJob till it reaches any of the provided states
    *
    * @param request the request to send
@@ -380,6 +399,44 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forSecurityPolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSecurityPolicyResponse | null (null in case of 404 response)
+   */
+  public async forSecurityPolicy(
+    request: serviceRequests.GetSecurityPolicyRequest,
+    ...targetStates: models.SecurityPolicyLifecycleState[]
+  ): Promise<serviceResponses.GetSecurityPolicyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSecurityPolicy(request),
+      response => targetStates.includes(response.securityPolicy.lifecycleState!),
+      targetStates.includes(models.SecurityPolicyLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSecurityPolicyDeployment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSecurityPolicyDeploymentResponse | null (null in case of 404 response)
+   */
+  public async forSecurityPolicyDeployment(
+    request: serviceRequests.GetSecurityPolicyDeploymentRequest,
+    ...targetStates: models.SecurityPolicyDeploymentLifecycleState[]
+  ): Promise<serviceResponses.GetSecurityPolicyDeploymentResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSecurityPolicyDeployment(request),
+      response => targetStates.includes(response.securityPolicyDeployment.lifecycleState!),
+      targetStates.includes(models.SecurityPolicyDeploymentLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forSensitiveColumn till it reaches any of the provided states
    *
    * @param request the request to send
@@ -432,6 +489,44 @@ export class DataSafeWaiter {
       () => this.client.getSensitiveType(request),
       response => targetStates.includes(response.sensitiveType.lifecycleState!),
       targetStates.includes(models.DiscoveryLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSqlCollection till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSqlCollectionResponse | null (null in case of 404 response)
+   */
+  public async forSqlCollection(
+    request: serviceRequests.GetSqlCollectionRequest,
+    ...targetStates: models.SqlCollectionLifecycleState[]
+  ): Promise<serviceResponses.GetSqlCollectionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSqlCollection(request),
+      response => targetStates.includes(response.sqlCollection.lifecycleState!),
+      targetStates.includes(models.SqlCollectionLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSqlFirewallPolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSqlFirewallPolicyResponse | null (null in case of 404 response)
+   */
+  public async forSqlFirewallPolicy(
+    request: serviceRequests.GetSqlFirewallPolicyRequest,
+    ...targetStates: models.SqlFirewallPolicyLifecycleState[]
+  ): Promise<serviceResponses.GetSqlFirewallPolicyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSqlFirewallPolicy(request),
+      response => targetStates.includes(response.sqlFirewallPolicy.lifecycleState!),
+      targetStates.includes(models.SqlFirewallPolicyLifecycleState.Deleted)
     );
   }
 

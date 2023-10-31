@@ -132,6 +132,11 @@ export interface DbSystemSnapshot {
    *
    */
   "crashRecovery"?: model.CrashRecoveryStatus;
+  /**
+   * Whether to enable monitoring via the Database Management service.
+   *
+   */
+  "databaseManagement"?: model.DatabaseManagementStatus;
 }
 
 export namespace DbSystemSnapshot {

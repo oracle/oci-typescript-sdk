@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface UpdateDrPlanRequest extends common.BaseRequest {
   /**
-   * Details of DR Plan to update.
+   * Details for updating the DR plan.
    */
   "updateDrPlanDetails": model.UpdateDrPlanDetails;
   /**
- * The OCID of the DR Plan.
+ * The OCID of the DR plan.
 * <p>
-Example: `ocid1.drplan.oc1.iad.exampleocid`
+Example: `ocid1.drplan.oc1..uniqueID`
 * 
  */
   "drPlanId": string;

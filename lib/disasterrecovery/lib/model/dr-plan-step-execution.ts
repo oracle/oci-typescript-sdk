@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,30 +19,30 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information about a step execution.
+ * The details of a step execution in a DR plan execution.
  */
 export interface DrPlanStepExecution {
   /**
-    * The unique id of this step. Must not be modified by user.
+    * The unique id of the step. Must not be modified by user.
 * <p>
-Example: `sgid1.step..&lt;unique_id&gt;`
+Example: `sgid1.step..uniqueID`
 * 
     */
   "stepId": string;
   /**
-   * The plan step type.
+   * The step type.
    *
    */
   "type": model.DrPlanStepType;
   /**
     * The unique id of the group to which this step belongs. Must not be modified by user.
 * <p>
-Example: `sgid1.group..&lt;unique_id&gt;`
+Example: `sgid1.group..uniqueID`
 * 
     */
   "groupId": string;
   /**
-    * The display name of the step.
+    * The display name of the step execution.
 * <p>
 Example: `DATABASE_SWITCHOVER`
 * 
@@ -54,28 +55,28 @@ Example: `DATABASE_SWITCHOVER`
    */
   "status": model.DrPlanStepExecutionStatus;
   /**
-    * Additional details about the step execution status.
+    * Additional details on the step execution status.
 * <p>
 Example: `This step failed to complete due to a timeout`
 * 
     */
   "statusDetails"?: string;
   /**
-    * The time at which step execution began. An RFC3339 formatted datetime string.
+    * The time when step execution began. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
     */
   "timeStarted"?: Date;
   /**
-    * The time at which step execution ended. An RFC3339 formatted datetime string.
+    * The time when execution ended. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
     */
   "timeEnded"?: Date;
   /**
-    * The total duration in seconds taken to complete step execution.
+    * The total duration in seconds taken to complete the step execution.
 * <p>
 Example: `35`
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

@@ -21,7 +21,7 @@ export interface GetWorkRequestRequest extends common.BaseRequest {
   /**
  * The ID (OCID) of the asynchronous request.
 * <p>
-Example: `ocid1.workrequest.oc1.phx.exampleocid`
+Example: `ocid1.workrequest.oc1..uniqueID`
 * 
  */
   "workRequestId": string;

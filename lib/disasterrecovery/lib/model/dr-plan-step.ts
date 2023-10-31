@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,27 +19,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a step in a DR Plan.
+ * Details of a step in a DR plan.
  */
 export interface DrPlanStep {
   /**
-    * The unique id of this step. Must not be modified by the user.
+    * The unique id of the step. Must not be modified by the user.
 * <p>
-Example: `sgid1.step..&lt;unique_id&gt;`
+Example: `sgid1.step..uniqueID`
 * 
     */
   "id": string;
   /**
     * The unique id of the group to which this step belongs. Must not be modified by user.
 * <p>
-Example: `sgid1.group..&lt;unique_id&gt;`
+Example: `sgid1.group..uniqueID`
 * 
     */
   "groupId": string;
   /**
     * The OCID of the member associated with this step.
 * <p>
-Example: `ocid1.database.oc1.phx.&lt;unique_id&gt;`
+Example: `ocid1.database.oc1..uniqueID`
 * 
     */
   "memberId"?: string;
@@ -48,7 +49,7 @@ Example: `ocid1.database.oc1.phx.&lt;unique_id&gt;`
    */
   "type": model.DrPlanStepType;
   /**
-    * The display name of this DR Plan Group.
+    * The display name of the group.
 * <p>
 Example: `DATABASE_SWITCHOVER`
 * 

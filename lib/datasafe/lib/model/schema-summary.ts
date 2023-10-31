@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a schema fetched from the database.
+ * The details of a schema fetched from the database.
  */
 export interface SchemaSummary {
   /**

@@ -90,6 +90,16 @@ export namespace Config {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "LICENSE_ENTERPRISE_EXTENSIBILITY":
+          return model.LicenseEnterpriseExtensibilityConfigDetails.getJsonObj(
+            <model.LicenseEnterpriseExtensibilityConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "LICENSE_AUTO_ASSIGN":
+          return model.LicenseAutoAssignConfigDetails.getJsonObj(
+            <model.LicenseAutoAssignConfigDetails>(<object>jsonObj),
+            true
+          );
         case "AUTO_PROMOTE":
           return model.AutoPromoteConfigDetails.getJsonObj(
             <model.AutoPromoteConfigDetails>(<object>jsonObj),
@@ -106,6 +116,16 @@ export namespace Config {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "LICENSE_ENTERPRISE_EXTENSIBILITY":
+          return model.LicenseEnterpriseExtensibilityConfigDetails.getDeserializedJsonObj(
+            <model.LicenseEnterpriseExtensibilityConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "LICENSE_AUTO_ASSIGN":
+          return model.LicenseAutoAssignConfigDetails.getDeserializedJsonObj(
+            <model.LicenseAutoAssignConfigDetails>(<object>jsonObj),
+            true
+          );
         case "AUTO_PROMOTE":
           return model.AutoPromoteConfigDetails.getDeserializedJsonObj(
             <model.AutoPromoteConfigDetails>(<object>jsonObj),

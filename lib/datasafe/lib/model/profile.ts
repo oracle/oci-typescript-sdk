@@ -39,7 +39,7 @@ export interface Profile {
    */
   "profileName": string;
   /**
-   * The number of users having a given profile. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of users that have a given profile. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "userCount"?: number;
   /**

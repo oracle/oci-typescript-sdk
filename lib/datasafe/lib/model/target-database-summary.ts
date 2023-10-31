@@ -43,7 +43,7 @@ export interface TargetDatabaseSummary {
    */
   "databaseType": model.DatabaseType;
   /**
-   * The OCIDs of associated resources like Database, Data Safe private endpoint etc.
+   * The OCIDs of associated resources like database, Data Safe private endpoint etc.
    */
   "associatedResourceIds"?: Array<string>;
   /**

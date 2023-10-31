@@ -21,7 +21,7 @@ export interface ApplySdmMaskingPolicyDifferenceDetails {
   /**
    * The OCID of the SDM masking policy difference.
    */
-  "sdmMaskingPolicyDifferenceId"?: string;
+  "sdmMaskingPolicyDifferenceId": string;
 }
 
 export namespace ApplySdmMaskingPolicyDifferenceDetails {

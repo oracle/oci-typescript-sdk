@@ -15603,6 +15603,649 @@ export class DiagnosabilityClient {
     }
   }
 }
+export enum ManagedMySqlDatabasesApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class ManagedMySqlDatabasesClient {
+  protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "ManagedMySqlDatabases";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20201101";
+    if (this.logger)
+      this.logger.info(`ManagedMySqlDatabasesClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        ManagedMySqlDatabasesClient.serviceEndpointTemplate,
+        this._region,
+        ManagedMySqlDatabasesClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        ManagedMySqlDatabasesClient.serviceEndpointTemplate,
+        this._regionId,
+        ManagedMySqlDatabasesClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      ManagedMySqlDatabasesClient.serviceEndpointTemplate,
+      region,
+      ManagedMySqlDatabasesClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      ManagedMySqlDatabasesClient.serviceEndpointTemplate,
+      regionId,
+      ManagedMySqlDatabasesClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Retrieves the general information for a specific MySQL Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetManagedMySqlDatabaseRequest
+   * @return GetManagedMySqlDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetManagedMySqlDatabase.ts.html |here} to see how to use GetManagedMySqlDatabase API.
+   */
+  public async getManagedMySqlDatabase(
+    getManagedMySqlDatabaseRequest: requests.GetManagedMySqlDatabaseRequest
+  ): Promise<responses.GetManagedMySqlDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#getManagedMySqlDatabase.");
+    const operationName = "getManagedMySqlDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/GetManagedMySqlDatabase";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": getManagedMySqlDatabaseRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getManagedMySqlDatabaseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getManagedMySqlDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetManagedMySqlDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "managedMySqlDatabase",
+        bodyModel: model.ManagedMySqlDatabase,
+        type: "model.ManagedMySqlDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the health metrics for a fleet of MySQL Databases in a compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMySqlFleetMetricRequest
+   * @return GetMySqlFleetMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetMySqlFleetMetric.ts.html |here} to see how to use GetMySqlFleetMetric API.
+   */
+  public async getMySqlFleetMetric(
+    getMySqlFleetMetricRequest: requests.GetMySqlFleetMetricRequest
+  ): Promise<responses.GetMySqlFleetMetricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#getMySqlFleetMetric.");
+    const operationName = "getMySqlFleetMetric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/MySqlFleetMetrics/GetMySqlFleetMetric";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getMySqlFleetMetricRequest.compartmentId,
+      "filterByMetricNames": getMySqlFleetMetricRequest.filterByMetricNames,
+      "startTime": getMySqlFleetMetricRequest.startTime,
+      "endTime": getMySqlFleetMetricRequest.endTime,
+      "filterByMySqlDeploymentTypeParam":
+        getMySqlFleetMetricRequest.filterByMySqlDeploymentTypeParam,
+      "filterByMdsDeploymentType": getMySqlFleetMetricRequest.filterByMdsDeploymentType,
+      "filterByMySqlStatus": getMySqlFleetMetricRequest.filterByMySqlStatus,
+      "filterByMySqlDatabaseVersion": getMySqlFleetMetricRequest.filterByMySqlDatabaseVersion
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMySqlFleetMetricRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMySqlFleetMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mysqlFleetMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMySqlFleetMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "mySqlFleetMetrics",
+        bodyModel: model.MySqlFleetMetrics,
+        type: "model.MySqlFleetMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves configuration data for a specific MySQL database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListManagedMySqlDatabaseConfigurationDataRequest
+   * @return ListManagedMySqlDatabaseConfigurationDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabaseConfigurationData.ts.html |here} to see how to use ListManagedMySqlDatabaseConfigurationData API.
+   */
+  public async listManagedMySqlDatabaseConfigurationData(
+    listManagedMySqlDatabaseConfigurationDataRequest: requests.ListManagedMySqlDatabaseConfigurationDataRequest
+  ): Promise<responses.ListManagedMySqlDatabaseConfigurationDataResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabaseConfigurationData."
+      );
+    const operationName = "listManagedMySqlDatabaseConfigurationData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ListManagedMySqlDatabaseConfigurationData";
+    const pathParams = {
+      "{managedMySqlDatabaseId}":
+        listManagedMySqlDatabaseConfigurationDataRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listManagedMySqlDatabaseConfigurationDataRequest.limit,
+      "page": listManagedMySqlDatabaseConfigurationDataRequest.page,
+      "sortOrder": listManagedMySqlDatabaseConfigurationDataRequest.sortOrder,
+      "sortBy": listManagedMySqlDatabaseConfigurationDataRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listManagedMySqlDatabaseConfigurationDataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedMySqlDatabaseConfigurationDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/configurationData",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListManagedMySqlDatabaseConfigurationDataResponse>{},
+        body: await response.json(),
+        bodyKey: "mySqlConfigurationDataCollection",
+        bodyModel: model.MySqlConfigurationDataCollection,
+        type: "model.MySqlConfigurationDataCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the SQL performance data for a specific MySQL database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListManagedMySqlDatabaseSqlDataRequest
+   * @return ListManagedMySqlDatabaseSqlDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabaseSqlData.ts.html |here} to see how to use ListManagedMySqlDatabaseSqlData API.
+   */
+  public async listManagedMySqlDatabaseSqlData(
+    listManagedMySqlDatabaseSqlDataRequest: requests.ListManagedMySqlDatabaseSqlDataRequest
+  ): Promise<responses.ListManagedMySqlDatabaseSqlDataResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabaseSqlData."
+      );
+    const operationName = "listManagedMySqlDatabaseSqlData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ListManagedMySqlDatabaseSqlData";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": listManagedMySqlDatabaseSqlDataRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {
+      "filterColumn": listManagedMySqlDatabaseSqlDataRequest.filterColumn,
+      "limit": listManagedMySqlDatabaseSqlDataRequest.limit,
+      "page": listManagedMySqlDatabaseSqlDataRequest.page,
+      "startTime": listManagedMySqlDatabaseSqlDataRequest.startTime,
+      "endTime": listManagedMySqlDatabaseSqlDataRequest.endTime,
+      "sortBy": listManagedMySqlDatabaseSqlDataRequest.sortBy,
+      "sortOrder": listManagedMySqlDatabaseSqlDataRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listManagedMySqlDatabaseSqlDataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedMySqlDatabaseSqlDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/sqlData",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListManagedMySqlDatabaseSqlDataResponse>{},
+        body: await response.json(),
+        bodyKey: "mySqlDataCollection",
+        bodyModel: model.MySqlDataCollection,
+        type: "model.MySqlDataCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of Managed MySQL Databases in a specific compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListManagedMySqlDatabasesRequest
+   * @return ListManagedMySqlDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabases.ts.html |here} to see how to use ListManagedMySqlDatabases API.
+   */
+  public async listManagedMySqlDatabases(
+    listManagedMySqlDatabasesRequest: requests.ListManagedMySqlDatabasesRequest
+  ): Promise<responses.ListManagedMySqlDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabases.");
+    const operationName = "listManagedMySqlDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabaseCollection/ListManagedMySqlDatabases";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listManagedMySqlDatabasesRequest.compartmentId,
+      "page": listManagedMySqlDatabasesRequest.page,
+      "limit": listManagedMySqlDatabasesRequest.limit,
+      "sortBy": listManagedMySqlDatabasesRequest.sortBy,
+      "sortOrder": listManagedMySqlDatabasesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listManagedMySqlDatabasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listManagedMySqlDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListManagedMySqlDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "managedMySqlDatabaseCollection",
+        bodyModel: model.ManagedMySqlDatabaseCollection,
+        type: "model.ManagedMySqlDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the availability metrics for the MySQL Database specified by managedMySqlDatabaseId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest
+   * @return SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeManagedMySqlDatabaseAvailabilityMetrics.ts.html |here} to see how to use SummarizeManagedMySqlDatabaseAvailabilityMetrics API.
+   */
+  public async summarizeManagedMySqlDatabaseAvailabilityMetrics(
+    summarizeManagedMySqlDatabaseAvailabilityMetricsRequest: requests.SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest
+  ): Promise<responses.SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#summarizeManagedMySqlDatabaseAvailabilityMetrics."
+      );
+    const operationName = "summarizeManagedMySqlDatabaseAvailabilityMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/SummarizeManagedMySqlDatabaseAvailabilityMetrics";
+    const pathParams = {
+      "{managedMySqlDatabaseId}":
+        summarizeManagedMySqlDatabaseAvailabilityMetricsRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {
+      "page": summarizeManagedMySqlDatabaseAvailabilityMetricsRequest.page,
+      "limit": summarizeManagedMySqlDatabaseAvailabilityMetricsRequest.limit,
+      "startTime": summarizeManagedMySqlDatabaseAvailabilityMetricsRequest.startTime,
+      "endTime": summarizeManagedMySqlDatabaseAvailabilityMetricsRequest.endTime
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeManagedMySqlDatabaseAvailabilityMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeManagedMySqlDatabaseAvailabilityMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/availabilityMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
 export enum PerfhubApiKeys {}
 /**
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.

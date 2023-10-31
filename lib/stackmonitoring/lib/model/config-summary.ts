@@ -75,6 +75,16 @@ export namespace ConfigSummary {
             <model.AutoPromoteConfigSummary>(<object>jsonObj),
             true
           );
+        case "LICENSE_AUTO_ASSIGN":
+          return model.LicenseAutoAssignConfigSummary.getJsonObj(
+            <model.LicenseAutoAssignConfigSummary>(<object>jsonObj),
+            true
+          );
+        case "LICENSE_ENTERPRISE_EXTENSIBILITY":
+          return model.LicenseEnterpriseExtensibilityConfigSummary.getJsonObj(
+            <model.LicenseEnterpriseExtensibilityConfigSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configType}`);
       }
@@ -89,6 +99,16 @@ export namespace ConfigSummary {
         case "AUTO_PROMOTE":
           return model.AutoPromoteConfigSummary.getDeserializedJsonObj(
             <model.AutoPromoteConfigSummary>(<object>jsonObj),
+            true
+          );
+        case "LICENSE_AUTO_ASSIGN":
+          return model.LicenseAutoAssignConfigSummary.getDeserializedJsonObj(
+            <model.LicenseAutoAssignConfigSummary>(<object>jsonObj),
+            true
+          );
+        case "LICENSE_ENTERPRISE_EXTENSIBILITY":
+          return model.LicenseEnterpriseExtensibilityConfigSummary.getDeserializedJsonObj(
+            <model.LicenseEnterpriseExtensibilityConfigSummary>(<object>jsonObj),
             true
           );
         default:

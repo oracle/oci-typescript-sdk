@@ -63,6 +63,12 @@ export interface CreateMonitoredResourceDetails {
    */
   "resourceTimeZone"?: string;
   /**
+   * License edition of the monitored resource. If not provided
+   * the default license type for the compartment will be used.
+   *
+   */
+  "license"?: model.LicenseType;
+  /**
    * List of monitored resource properties.
    *
    */

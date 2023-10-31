@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeTargetDatabaseCompartmentDetails {
   /**
-   * The OCID of the new compartment to where you want to move the Data Safe target database.
+   * The OCID of the compartment you want to move the Data Safe target database to.
    */
   "compartmentId": string;
 }

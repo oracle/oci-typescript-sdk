@@ -763,7 +763,7 @@ export class DataSafeClient {
   }
 
   /**
-   * Cancel the given work request.
+   * Cancel the specified work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
@@ -1215,6 +1215,89 @@ export class DataSafeClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDataSafePrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified database security configuration and its dependent resources into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeDatabaseSecurityConfigCompartmentRequest
+   * @return ChangeDatabaseSecurityConfigCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDatabaseSecurityConfigCompartment.ts.html |here} to see how to use ChangeDatabaseSecurityConfigCompartment API.
+   */
+  public async changeDatabaseSecurityConfigCompartment(
+    changeDatabaseSecurityConfigCompartmentRequest: requests.ChangeDatabaseSecurityConfigCompartmentRequest
+  ): Promise<responses.ChangeDatabaseSecurityConfigCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeDatabaseSecurityConfigCompartment."
+      );
+    const operationName = "changeDatabaseSecurityConfigCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfig/ChangeDatabaseSecurityConfigCompartment";
+    const pathParams = {
+      "{databaseSecurityConfigId}":
+        changeDatabaseSecurityConfigCompartmentRequest.databaseSecurityConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatabaseSecurityConfigCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatabaseSecurityConfigCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDatabaseSecurityConfigCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseSecurityConfigCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSecurityConfigs/{databaseSecurityConfigId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseSecurityConfigCompartmentRequest.changeDatabaseSecurityConfigCompartmentDetails,
+        "ChangeDatabaseSecurityConfigCompartmentDetails",
+        model.ChangeDatabaseSecurityConfigCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatabaseSecurityConfigCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1933,6 +2016,169 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Moves the specified security policy and its dependent resources into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSecurityPolicyCompartmentRequest
+   * @return ChangeSecurityPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityPolicyCompartment.ts.html |here} to see how to use ChangeSecurityPolicyCompartment API.
+   */
+  public async changeSecurityPolicyCompartment(
+    changeSecurityPolicyCompartmentRequest: requests.ChangeSecurityPolicyCompartmentRequest
+  ): Promise<responses.ChangeSecurityPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSecurityPolicyCompartment.");
+    const operationName = "changeSecurityPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicy/ChangeSecurityPolicyCompartment";
+    const pathParams = {
+      "{securityPolicyId}": changeSecurityPolicyCompartmentRequest.securityPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSecurityPolicyCompartmentRequest.ifMatch,
+      "opc-request-id": changeSecurityPolicyCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSecurityPolicyCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSecurityPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicies/{securityPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSecurityPolicyCompartmentRequest.changeSecurityPolicyCompartmentDetails,
+        "ChangeSecurityPolicyCompartmentDetails",
+        model.ChangeSecurityPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSecurityPolicyCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified security policy deployment and its dependent resources into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSecurityPolicyDeploymentCompartmentRequest
+   * @return ChangeSecurityPolicyDeploymentCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityPolicyDeploymentCompartment.ts.html |here} to see how to use ChangeSecurityPolicyDeploymentCompartment API.
+   */
+  public async changeSecurityPolicyDeploymentCompartment(
+    changeSecurityPolicyDeploymentCompartmentRequest: requests.ChangeSecurityPolicyDeploymentCompartmentRequest
+  ): Promise<responses.ChangeSecurityPolicyDeploymentCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeSecurityPolicyDeploymentCompartment."
+      );
+    const operationName = "changeSecurityPolicyDeploymentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyDeployment/ChangeSecurityPolicyDeploymentCompartment";
+    const pathParams = {
+      "{securityPolicyDeploymentId}":
+        changeSecurityPolicyDeploymentCompartmentRequest.securityPolicyDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSecurityPolicyDeploymentCompartmentRequest.ifMatch,
+      "opc-request-id": changeSecurityPolicyDeploymentCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSecurityPolicyDeploymentCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSecurityPolicyDeploymentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicyDeployments/{securityPolicyDeploymentId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSecurityPolicyDeploymentCompartmentRequest.changeSecurityPolicyDeploymentCompartmentDetails,
+        "ChangeSecurityPolicyDeploymentCompartmentDetails",
+        model.ChangeSecurityPolicyDeploymentCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSecurityPolicyDeploymentCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the specified sensitive data model and its dependent resources into a different compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeSensitiveDataModelCompartmentRequest
@@ -2068,6 +2314,166 @@ The existing saved security assessments created due to the schedule are not move
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSensitiveTypeCompartmentResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified SQL collection and its dependent resources into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSqlCollectionCompartmentRequest
+   * @return ChangeSqlCollectionCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSqlCollectionCompartment.ts.html |here} to see how to use ChangeSqlCollectionCompartment API.
+   */
+  public async changeSqlCollectionCompartment(
+    changeSqlCollectionCompartmentRequest: requests.ChangeSqlCollectionCompartmentRequest
+  ): Promise<responses.ChangeSqlCollectionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSqlCollectionCompartment.");
+    const operationName = "changeSqlCollectionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/ChangeSqlCollectionCompartment";
+    const pathParams = {
+      "{sqlCollectionId}": changeSqlCollectionCompartmentRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSqlCollectionCompartmentRequest.ifMatch,
+      "opc-request-id": changeSqlCollectionCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSqlCollectionCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSqlCollectionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSqlCollectionCompartmentRequest.changeSqlCollectionCompartmentDetails,
+        "ChangeSqlCollectionCompartmentDetails",
+        model.ChangeSqlCollectionCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSqlCollectionCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified SQL firewall policy and its dependent resources into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSqlFirewallPolicyCompartmentRequest
+   * @return ChangeSqlFirewallPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSqlFirewallPolicyCompartment.ts.html |here} to see how to use ChangeSqlFirewallPolicyCompartment API.
+   */
+  public async changeSqlFirewallPolicyCompartment(
+    changeSqlFirewallPolicyCompartmentRequest: requests.ChangeSqlFirewallPolicyCompartmentRequest
+  ): Promise<responses.ChangeSqlFirewallPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSqlFirewallPolicyCompartment.");
+    const operationName = "changeSqlFirewallPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicy/ChangeSqlFirewallPolicyCompartment";
+    const pathParams = {
+      "{sqlFirewallPolicyId}": changeSqlFirewallPolicyCompartmentRequest.sqlFirewallPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSqlFirewallPolicyCompartmentRequest.ifMatch,
+      "opc-request-id": changeSqlFirewallPolicyCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSqlFirewallPolicyCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSqlFirewallPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallPolicies/{sqlFirewallPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSqlFirewallPolicyCompartmentRequest.changeSqlFirewallPolicyCompartmentDetails,
+        "ChangeSqlFirewallPolicyCompartmentDetails",
+        model.ChangeSqlFirewallPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSqlFirewallPolicyCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2948,7 +3354,7 @@ You can use the maskingColumnGroup attribute to group the columns that you would
   }
 
   /**
-     * Creates a new masking policy and associates it with a sensitive data model or a reference target database.
+     * Creates a new masking policy and associates it with a sensitive data model or a target database.
 * <p>
 To use a sensitive data model as the source of masking columns, set the columnSource attribute to 
 * SENSITIVE_DATA_MODEL and provide the sensitiveDataModelId attribute. After creating a masking policy,
@@ -3655,6 +4061,97 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
         bodyKey: "sensitiveType",
         bodyModel: model.SensitiveType,
         type: "model.SensitiveType",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new SQL collection resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSqlCollectionRequest
+   * @return CreateSqlCollectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSqlCollection.ts.html |here} to see how to use CreateSqlCollection API.
+   */
+  public async createSqlCollection(
+    createSqlCollectionRequest: requests.CreateSqlCollectionRequest
+  ): Promise<responses.CreateSqlCollectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSqlCollection.");
+    const operationName = "createSqlCollection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/CreateSqlCollection";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSqlCollectionRequest.opcRetryToken,
+      "opc-request-id": createSqlCollectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSqlCollectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSqlCollectionRequest.createSqlCollectionDetails,
+        "CreateSqlCollectionDetails",
+        model.CreateSqlCollectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSqlCollectionResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlCollection",
+        bodyModel: model.SqlCollection,
+        type: "model.SqlCollection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5110,6 +5607,153 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSensitiveTypeResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified SQL collection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSqlCollectionRequest
+   * @return DeleteSqlCollectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlCollection.ts.html |here} to see how to use DeleteSqlCollection API.
+   */
+  public async deleteSqlCollection(
+    deleteSqlCollectionRequest: requests.DeleteSqlCollectionRequest
+  ): Promise<responses.DeleteSqlCollectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSqlCollection.");
+    const operationName = "deleteSqlCollection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/DeleteSqlCollection";
+    const pathParams = {
+      "{sqlCollectionId}": deleteSqlCollectionRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSqlCollectionRequest.ifMatch,
+      "opc-request-id": deleteSqlCollectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSqlCollectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSqlCollectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the SQL firewall policy resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSqlFirewallPolicyRequest
+   * @return DeleteSqlFirewallPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlFirewallPolicy.ts.html |here} to see how to use DeleteSqlFirewallPolicy API.
+   */
+  public async deleteSqlFirewallPolicy(
+    deleteSqlFirewallPolicyRequest: requests.DeleteSqlFirewallPolicyRequest
+  ): Promise<responses.DeleteSqlFirewallPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSqlFirewallPolicy.");
+    const operationName = "deleteSqlFirewallPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicy/DeleteSqlFirewallPolicy";
+    const pathParams = {
+      "{sqlFirewallPolicyId}": deleteSqlFirewallPolicyRequest.sqlFirewallPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSqlFirewallPolicyRequest.ifMatch,
+      "opc-request-id": deleteSqlFirewallPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSqlFirewallPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallPolicies/{sqlFirewallPolicyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSqlFirewallPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -6800,6 +7444,81 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Generates or appends to the SQL firewall policy using the specified SQL collection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateSqlFirewallPolicyRequest
+   * @return GenerateSqlFirewallPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSqlFirewallPolicy.ts.html |here} to see how to use GenerateSqlFirewallPolicy API.
+   */
+  public async generateSqlFirewallPolicy(
+    generateSqlFirewallPolicyRequest: requests.GenerateSqlFirewallPolicyRequest
+  ): Promise<responses.GenerateSqlFirewallPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSqlFirewallPolicy.");
+    const operationName = "generateSqlFirewallPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/GenerateSqlFirewallPolicy";
+    const pathParams = {
+      "{sqlCollectionId}": generateSqlFirewallPolicyRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": generateSqlFirewallPolicyRequest.ifMatch,
+      "opc-request-id": generateSqlFirewallPolicyRequest.opcRequestId,
+      "opc-retry-token": generateSqlFirewallPolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateSqlFirewallPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}/actions/generateSqlFirewallPolicy",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateSqlFirewallPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Generates the report of the specified user assessment. The report is available in PDF or XLS format.
    * After generating the report, use DownloadUserAssessmentReport to download it in the preferred format.
    *
@@ -7653,6 +8372,83 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
         bodyKey: "dataSafePrivateEndpoint",
         bodyModel: model.DataSafePrivateEndpoint,
         type: "model.DataSafePrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a database security configuration by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseSecurityConfigRequest
+   * @return GetDatabaseSecurityConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDatabaseSecurityConfig.ts.html |here} to see how to use GetDatabaseSecurityConfig API.
+   */
+  public async getDatabaseSecurityConfig(
+    getDatabaseSecurityConfigRequest: requests.GetDatabaseSecurityConfigRequest
+  ): Promise<responses.GetDatabaseSecurityConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getDatabaseSecurityConfig.");
+    const operationName = "getDatabaseSecurityConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfig/GetDatabaseSecurityConfig";
+    const pathParams = {
+      "{databaseSecurityConfigId}": getDatabaseSecurityConfigRequest.databaseSecurityConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseSecurityConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseSecurityConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSecurityConfigs/{databaseSecurityConfigId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseSecurityConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSecurityConfig",
+        bodyModel: model.DatabaseSecurityConfig,
+        type: "model.DatabaseSecurityConfig",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8764,7 +9560,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   }
 
   /**
-   * Gets the details of the comparison report on the security assessments submitted for comparison.
+   * Gets the details of the comparison report for the security assessments submitted for comparison.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSecurityAssessmentComparisonRequest
    * @return GetSecurityAssessmentComparisonResponse
@@ -8832,6 +9628,238 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a security policy by the specified OCID of the security policy resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSecurityPolicyRequest
+   * @return GetSecurityPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicy.ts.html |here} to see how to use GetSecurityPolicy API.
+   */
+  public async getSecurityPolicy(
+    getSecurityPolicyRequest: requests.GetSecurityPolicyRequest
+  ): Promise<responses.GetSecurityPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSecurityPolicy.");
+    const operationName = "getSecurityPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicy/GetSecurityPolicy";
+    const pathParams = {
+      "{securityPolicyId}": getSecurityPolicyRequest.securityPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecurityPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicies/{securityPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecurityPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "securityPolicy",
+        bodyModel: model.SecurityPolicy,
+        type: "model.SecurityPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a security policy deployment by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSecurityPolicyDeploymentRequest
+   * @return GetSecurityPolicyDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicyDeployment.ts.html |here} to see how to use GetSecurityPolicyDeployment API.
+   */
+  public async getSecurityPolicyDeployment(
+    getSecurityPolicyDeploymentRequest: requests.GetSecurityPolicyDeploymentRequest
+  ): Promise<responses.GetSecurityPolicyDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSecurityPolicyDeployment.");
+    const operationName = "getSecurityPolicyDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyDeployment/GetSecurityPolicyDeployment";
+    const pathParams = {
+      "{securityPolicyDeploymentId}": getSecurityPolicyDeploymentRequest.securityPolicyDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecurityPolicyDeploymentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityPolicyDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicyDeployments/{securityPolicyDeploymentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecurityPolicyDeploymentResponse>{},
+        body: await response.json(),
+        bodyKey: "securityPolicyDeployment",
+        bodyModel: model.SecurityPolicyDeployment,
+        type: "model.SecurityPolicyDeployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a security policy entity states by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSecurityPolicyEntryStateRequest
+   * @return GetSecurityPolicyEntryStateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicyEntryState.ts.html |here} to see how to use GetSecurityPolicyEntryState API.
+   */
+  public async getSecurityPolicyEntryState(
+    getSecurityPolicyEntryStateRequest: requests.GetSecurityPolicyEntryStateRequest
+  ): Promise<responses.GetSecurityPolicyEntryStateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSecurityPolicyEntryState.");
+    const operationName = "getSecurityPolicyEntryState";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyEntryState/GetSecurityPolicyEntryState";
+    const pathParams = {
+      "{securityPolicyDeploymentId}": getSecurityPolicyEntryStateRequest.securityPolicyDeploymentId,
+      "{securityPolicyEntryStateId}": getSecurityPolicyEntryStateRequest.securityPolicyEntryStateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSecurityPolicyEntryStateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSecurityPolicyEntryStateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/securityPolicyDeployments/{securityPolicyDeploymentId}/securityPolicyEntryStates/{securityPolicyEntryStateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSecurityPolicyEntryStateResponse>{},
+        body: await response.json(),
+        bodyKey: "securityPolicyEntryState",
+        bodyModel: model.SecurityPolicyEntryState,
+        type: "model.SecurityPolicyEntryState",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -9052,6 +10080,158 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
         bodyKey: "sensitiveType",
         bodyModel: model.SensitiveType,
         type: "model.SensitiveType",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a SQL collection by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSqlCollectionRequest
+   * @return GetSqlCollectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlCollection.ts.html |here} to see how to use GetSqlCollection API.
+   */
+  public async getSqlCollection(
+    getSqlCollectionRequest: requests.GetSqlCollectionRequest
+  ): Promise<responses.GetSqlCollectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSqlCollection.");
+    const operationName = "getSqlCollection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/GetSqlCollection";
+    const pathParams = {
+      "{sqlCollectionId}": getSqlCollectionRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSqlCollectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSqlCollectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSqlCollectionResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlCollection",
+        bodyModel: model.SqlCollection,
+        type: "model.SqlCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a SQL firewall policy by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSqlFirewallPolicyRequest
+   * @return GetSqlFirewallPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlFirewallPolicy.ts.html |here} to see how to use GetSqlFirewallPolicy API.
+   */
+  public async getSqlFirewallPolicy(
+    getSqlFirewallPolicyRequest: requests.GetSqlFirewallPolicyRequest
+  ): Promise<responses.GetSqlFirewallPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSqlFirewallPolicy.");
+    const operationName = "getSqlFirewallPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicy/GetSqlFirewallPolicy";
+    const pathParams = {
+      "{sqlFirewallPolicyId}": getSqlFirewallPolicyRequest.sqlFirewallPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSqlFirewallPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSqlFirewallPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallPolicies/{sqlFirewallPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSqlFirewallPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlFirewallPolicy",
+        bodyModel: model.SqlFirewallPolicy,
+        type: "model.SqlFirewallPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9304,7 +10484,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   }
 
   /**
-   * Gets the details of the comparison report for the user assessments provided.
+   * Gets the details of the comparison report for the user assessments submitted for comparison.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetUserAssessmentComparisonRequest
    * @return GetUserAssessmentComparisonResponse
@@ -11231,6 +12411,115 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   }
 
   /**
+     * Retrieves a list of all database security configurations in Data Safe.
+* <p>
+The ListDatabaseSecurityConfigs operation returns only the database security configurations in the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListDatabaseSecurityConfigs on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListDatabaseSecurityConfigsRequest
+     * @return ListDatabaseSecurityConfigsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseSecurityConfigs.ts.html |here} to see how to use ListDatabaseSecurityConfigs API.
+     */
+  public async listDatabaseSecurityConfigs(
+    listDatabaseSecurityConfigsRequest: requests.ListDatabaseSecurityConfigsRequest
+  ): Promise<responses.ListDatabaseSecurityConfigsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listDatabaseSecurityConfigs.");
+    const operationName = "listDatabaseSecurityConfigs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfigCollection/ListDatabaseSecurityConfigs";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseSecurityConfigsRequest.compartmentId,
+      "compartmentIdInSubtree": listDatabaseSecurityConfigsRequest.compartmentIdInSubtree,
+      "accessLevel": listDatabaseSecurityConfigsRequest.accessLevel,
+      "displayName": listDatabaseSecurityConfigsRequest.displayName,
+      "limit": listDatabaseSecurityConfigsRequest.limit,
+      "page": listDatabaseSecurityConfigsRequest.page,
+      "lifecycleState": listDatabaseSecurityConfigsRequest.lifecycleState,
+      "databaseSecurityConfigId": listDatabaseSecurityConfigsRequest.databaseSecurityConfigId,
+      "timeCreatedGreaterThanOrEqualTo":
+        listDatabaseSecurityConfigsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listDatabaseSecurityConfigsRequest.timeCreatedLessThan,
+      "targetId": listDatabaseSecurityConfigsRequest.targetId,
+      "sortOrder": listDatabaseSecurityConfigsRequest.sortOrder,
+      "sortBy": listDatabaseSecurityConfigsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseSecurityConfigsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseSecurityConfigsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSecurityConfigs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseSecurityConfigsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSecurityConfigCollection",
+        bodyModel: model.DatabaseSecurityConfigCollection,
+        type: "model.DatabaseSecurityConfigCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of columns of a SDM masking policy difference resource based on the specified query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDifferenceColumnsRequest
@@ -11597,7 +12886,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   }
 
   /**
-   * List all the findings from all the targets in the specified assessment.
+   * List all the findings from all the targets in the specified compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFindingsRequest
@@ -13818,6 +15107,308 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   }
 
   /**
+     * Retrieves a list of all security policies in Data Safe.
+* <p>
+The ListSecurityPolicies operation returns only the security policies in the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPolicies on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSecurityPoliciesRequest
+     * @return ListSecurityPoliciesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicies.ts.html |here} to see how to use ListSecurityPolicies API.
+     */
+  public async listSecurityPolicies(
+    listSecurityPoliciesRequest: requests.ListSecurityPoliciesRequest
+  ): Promise<responses.ListSecurityPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSecurityPolicies.");
+    const operationName = "listSecurityPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyCollection/ListSecurityPolicies";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSecurityPoliciesRequest.compartmentId,
+      "compartmentIdInSubtree": listSecurityPoliciesRequest.compartmentIdInSubtree,
+      "accessLevel": listSecurityPoliciesRequest.accessLevel,
+      "displayName": listSecurityPoliciesRequest.displayName,
+      "limit": listSecurityPoliciesRequest.limit,
+      "page": listSecurityPoliciesRequest.page,
+      "lifecycleState": listSecurityPoliciesRequest.lifecycleState,
+      "securityPolicyId": listSecurityPoliciesRequest.securityPolicyId,
+      "sortOrder": listSecurityPoliciesRequest.sortOrder,
+      "sortBy": listSecurityPoliciesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSecurityPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecurityPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSecurityPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "securityPolicyCollection",
+        bodyModel: model.SecurityPolicyCollection,
+        type: "model.SecurityPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Retrieves a list of all security policy deployments in Data Safe.
+* <p>
+The ListSecurityPolicyDeployments operation returns only the security policy deployments in the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPolicyDeployments on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSecurityPolicyDeploymentsRequest
+     * @return ListSecurityPolicyDeploymentsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicyDeployments.ts.html |here} to see how to use ListSecurityPolicyDeployments API.
+     */
+  public async listSecurityPolicyDeployments(
+    listSecurityPolicyDeploymentsRequest: requests.ListSecurityPolicyDeploymentsRequest
+  ): Promise<responses.ListSecurityPolicyDeploymentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSecurityPolicyDeployments.");
+    const operationName = "listSecurityPolicyDeployments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyDeploymentCollection/ListSecurityPolicyDeployments";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSecurityPolicyDeploymentsRequest.compartmentId,
+      "compartmentIdInSubtree": listSecurityPolicyDeploymentsRequest.compartmentIdInSubtree,
+      "accessLevel": listSecurityPolicyDeploymentsRequest.accessLevel,
+      "displayName": listSecurityPolicyDeploymentsRequest.displayName,
+      "limit": listSecurityPolicyDeploymentsRequest.limit,
+      "page": listSecurityPolicyDeploymentsRequest.page,
+      "lifecycleState": listSecurityPolicyDeploymentsRequest.lifecycleState,
+      "securityPolicyDeploymentId": listSecurityPolicyDeploymentsRequest.securityPolicyDeploymentId,
+      "targetId": listSecurityPolicyDeploymentsRequest.targetId,
+      "securityPolicyId": listSecurityPolicyDeploymentsRequest.securityPolicyId,
+      "sortOrder": listSecurityPolicyDeploymentsRequest.sortOrder,
+      "sortBy": listSecurityPolicyDeploymentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSecurityPolicyDeploymentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecurityPolicyDeploymentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicyDeployments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSecurityPolicyDeploymentsResponse>{},
+        body: await response.json(),
+        bodyKey: "securityPolicyDeploymentCollection",
+        bodyModel: model.SecurityPolicyDeploymentCollection,
+        type: "model.SecurityPolicyDeploymentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Retrieves a list of all security policy entry states in Data Safe.
+* <p>
+The ListSecurityPolicyEntryStates operation returns only the security policy entry states for the specified security policy entry.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSecurityPolicyEntryStatesRequest
+     * @return ListSecurityPolicyEntryStatesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicyEntryStates.ts.html |here} to see how to use ListSecurityPolicyEntryStates API.
+     */
+  public async listSecurityPolicyEntryStates(
+    listSecurityPolicyEntryStatesRequest: requests.ListSecurityPolicyEntryStatesRequest
+  ): Promise<responses.ListSecurityPolicyEntryStatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSecurityPolicyEntryStates.");
+    const operationName = "listSecurityPolicyEntryStates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyEntryStateCollection/ListSecurityPolicyEntryStates";
+    const pathParams = {
+      "{securityPolicyDeploymentId}":
+        listSecurityPolicyEntryStatesRequest.securityPolicyDeploymentId
+    };
+
+    const queryParams = {
+      "limit": listSecurityPolicyEntryStatesRequest.limit,
+      "page": listSecurityPolicyEntryStatesRequest.page,
+      "deploymentStatus": listSecurityPolicyEntryStatesRequest.deploymentStatus,
+      "securityPolicyEntryId": listSecurityPolicyEntryStatesRequest.securityPolicyEntryId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSecurityPolicyEntryStatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSecurityPolicyEntryStatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicyDeployments/{securityPolicyDeploymentId}/securityPolicyEntryStates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSecurityPolicyEntryStatesResponse>{},
+        body: await response.json(),
+        bodyKey: "securityPolicyEntryStateCollection",
+        bodyModel: model.SecurityPolicyEntryStateCollection,
+        type: "model.SecurityPolicyEntryStateCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of sensitive columns present in the specified sensitive data model based on the specified query parameters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -14293,6 +15884,912 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   }
 
   /**
+     * Retrieves a list of all SQL collection analytics in Data Safe.
+* <p>
+The ListSqlCollectionAnalytics operation returns only the analytics for the SQL collections in the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollections on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSqlCollectionAnalyticsRequest
+     * @return ListSqlCollectionAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollectionAnalytics.ts.html |here} to see how to use ListSqlCollectionAnalytics API.
+     */
+  public async listSqlCollectionAnalytics(
+    listSqlCollectionAnalyticsRequest: requests.ListSqlCollectionAnalyticsRequest
+  ): Promise<responses.ListSqlCollectionAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlCollectionAnalytics.");
+    const operationName = "listSqlCollectionAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollectionAnalyticsCollection/ListSqlCollectionAnalytics";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlCollectionAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listSqlCollectionAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listSqlCollectionAnalyticsRequest.accessLevel,
+      "limit": listSqlCollectionAnalyticsRequest.limit,
+      "page": listSqlCollectionAnalyticsRequest.page,
+      "lifecycleState": listSqlCollectionAnalyticsRequest.lifecycleState,
+      "targetId": listSqlCollectionAnalyticsRequest.targetId,
+      "groupBy": listSqlCollectionAnalyticsRequest.groupBy,
+      "timeStarted": listSqlCollectionAnalyticsRequest.timeStarted,
+      "timeEnded": listSqlCollectionAnalyticsRequest.timeEnded
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlCollectionAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlCollectionAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollectionAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlCollectionAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlCollectionAnalyticsCollection",
+        bodyModel: model.SqlCollectionAnalyticsCollection,
+        type: "model.SqlCollectionAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a list of the SQL collection log analytics.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSqlCollectionLogInsightsRequest
+   * @return ListSqlCollectionLogInsightsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollectionLogInsights.ts.html |here} to see how to use ListSqlCollectionLogInsights API.
+   */
+  public async listSqlCollectionLogInsights(
+    listSqlCollectionLogInsightsRequest: requests.ListSqlCollectionLogInsightsRequest
+  ): Promise<responses.ListSqlCollectionLogInsightsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlCollectionLogInsights.");
+    const operationName = "listSqlCollectionLogInsights";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollectionLogInsightsCollection/ListSqlCollectionLogInsights";
+    const pathParams = {
+      "{sqlCollectionId}": listSqlCollectionLogInsightsRequest.sqlCollectionId
+    };
+
+    const queryParams = {
+      "limit": listSqlCollectionLogInsightsRequest.limit,
+      "page": listSqlCollectionLogInsightsRequest.page,
+      "timeStarted": listSqlCollectionLogInsightsRequest.timeStarted,
+      "timeEnded": listSqlCollectionLogInsightsRequest.timeEnded,
+      "groupBy": listSqlCollectionLogInsightsRequest.groupBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlCollectionLogInsightsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlCollectionLogInsightsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}/logInsights",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlCollectionLogInsightsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlCollectionLogInsightsCollection",
+        bodyModel: model.SqlCollectionLogInsightsCollection,
+        type: "model.SqlCollectionLogInsightsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Retrieves a list of all SQL collections in Data Safe.
+* <p>
+The ListSqlCollections operation returns only the SQL collections in the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollections on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSqlCollectionsRequest
+     * @return ListSqlCollectionsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollections.ts.html |here} to see how to use ListSqlCollections API.
+     */
+  public async listSqlCollections(
+    listSqlCollectionsRequest: requests.ListSqlCollectionsRequest
+  ): Promise<responses.ListSqlCollectionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSqlCollections.");
+    const operationName = "listSqlCollections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollectionCollection/ListSqlCollections";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlCollectionsRequest.compartmentId,
+      "compartmentIdInSubtree": listSqlCollectionsRequest.compartmentIdInSubtree,
+      "accessLevel": listSqlCollectionsRequest.accessLevel,
+      "displayName": listSqlCollectionsRequest.displayName,
+      "limit": listSqlCollectionsRequest.limit,
+      "page": listSqlCollectionsRequest.page,
+      "lifecycleState": listSqlCollectionsRequest.lifecycleState,
+      "sqlCollectionId": listSqlCollectionsRequest.sqlCollectionId,
+      "timeCreatedGreaterThanOrEqualTo": listSqlCollectionsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSqlCollectionsRequest.timeCreatedLessThan,
+      "targetId": listSqlCollectionsRequest.targetId,
+      "dbUserName": listSqlCollectionsRequest.dbUserName,
+      "sortOrder": listSqlCollectionsRequest.sortOrder,
+      "sortBy": listSqlCollectionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlCollectionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlCollectionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlCollectionsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlCollectionCollection",
+        bodyModel: model.SqlCollectionCollection,
+        type: "model.SqlCollectionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Returns the aggregation details of all SQL firewall allowed SQL statements.
+* <p>
+The ListSqlFirewallAllowedSqlAnalytics operation returns the aggregates of the SQL firewall allowed SQL statements in the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallAllowedSqlAnalytics on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSqlFirewallAllowedSqlAnalyticsRequest
+     * @return ListSqlFirewallAllowedSqlAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallAllowedSqlAnalytics.ts.html |here} to see how to use ListSqlFirewallAllowedSqlAnalytics API.
+     */
+  public async listSqlFirewallAllowedSqlAnalytics(
+    listSqlFirewallAllowedSqlAnalyticsRequest: requests.ListSqlFirewallAllowedSqlAnalyticsRequest
+  ): Promise<responses.ListSqlFirewallAllowedSqlAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallAllowedSqlAnalytics.");
+    const operationName = "listSqlFirewallAllowedSqlAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSqlAnalyticsCollection/ListSqlFirewallAllowedSqlAnalytics";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlFirewallAllowedSqlAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listSqlFirewallAllowedSqlAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listSqlFirewallAllowedSqlAnalyticsRequest.accessLevel,
+      "limit": listSqlFirewallAllowedSqlAnalyticsRequest.limit,
+      "page": listSqlFirewallAllowedSqlAnalyticsRequest.page,
+      "scimQuery": listSqlFirewallAllowedSqlAnalyticsRequest.scimQuery,
+      "groupBy": listSqlFirewallAllowedSqlAnalyticsRequest.groupBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlFirewallAllowedSqlAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlFirewallAllowedSqlAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallAllowedSqlAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlFirewallAllowedSqlAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlFirewallAllowedSqlAnalyticsCollection",
+        bodyModel: model.SqlFirewallAllowedSqlAnalyticsCollection,
+        type: "model.SqlFirewallAllowedSqlAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Retrieves a list of all SQL firewall allowed SQL statements.
+* <p>
+The ListSqlFirewallAllowedSqls operation returns only the SQL firewall allowed SQL statements in the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallPolicies on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSqlFirewallAllowedSqlsRequest
+     * @return ListSqlFirewallAllowedSqlsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallAllowedSqls.ts.html |here} to see how to use ListSqlFirewallAllowedSqls API.
+     */
+  public async listSqlFirewallAllowedSqls(
+    listSqlFirewallAllowedSqlsRequest: requests.ListSqlFirewallAllowedSqlsRequest
+  ): Promise<responses.ListSqlFirewallAllowedSqlsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallAllowedSqls.");
+    const operationName = "listSqlFirewallAllowedSqls";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSqlCollection/ListSqlFirewallAllowedSqls";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlFirewallAllowedSqlsRequest.compartmentId,
+      "compartmentIdInSubtree": listSqlFirewallAllowedSqlsRequest.compartmentIdInSubtree,
+      "accessLevel": listSqlFirewallAllowedSqlsRequest.accessLevel,
+      "limit": listSqlFirewallAllowedSqlsRequest.limit,
+      "page": listSqlFirewallAllowedSqlsRequest.page,
+      "scimQuery": listSqlFirewallAllowedSqlsRequest.scimQuery,
+      "sortOrder": listSqlFirewallAllowedSqlsRequest.sortOrder,
+      "sortBy": listSqlFirewallAllowedSqlsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlFirewallAllowedSqlsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlFirewallAllowedSqlsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallAllowedSqls",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlFirewallAllowedSqlsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlFirewallAllowedSqlCollection",
+        bodyModel: model.SqlFirewallAllowedSqlCollection,
+        type: "model.SqlFirewallAllowedSqlCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Retrieves a list of all SQL firewall policies.
+* <p>
+The ListSqlFirewallPolicies operation returns only the SQL firewall policies in the specified `compartmentId`.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallPolicies on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSqlFirewallPoliciesRequest
+     * @return ListSqlFirewallPoliciesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallPolicies.ts.html |here} to see how to use ListSqlFirewallPolicies API.
+     */
+  public async listSqlFirewallPolicies(
+    listSqlFirewallPoliciesRequest: requests.ListSqlFirewallPoliciesRequest
+  ): Promise<responses.ListSqlFirewallPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSqlFirewallPolicies.");
+    const operationName = "listSqlFirewallPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicyCollection/ListSqlFirewallPolicies";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlFirewallPoliciesRequest.compartmentId,
+      "compartmentIdInSubtree": listSqlFirewallPoliciesRequest.compartmentIdInSubtree,
+      "accessLevel": listSqlFirewallPoliciesRequest.accessLevel,
+      "displayName": listSqlFirewallPoliciesRequest.displayName,
+      "limit": listSqlFirewallPoliciesRequest.limit,
+      "page": listSqlFirewallPoliciesRequest.page,
+      "securityPolicyId": listSqlFirewallPoliciesRequest.securityPolicyId,
+      "lifecycleState": listSqlFirewallPoliciesRequest.lifecycleState,
+      "sqlFirewallPolicyId": listSqlFirewallPoliciesRequest.sqlFirewallPolicyId,
+      "dbUserName": listSqlFirewallPoliciesRequest.dbUserName,
+      "violationAction": listSqlFirewallPoliciesRequest.violationAction,
+      "timeCreatedGreaterThanOrEqualTo":
+        listSqlFirewallPoliciesRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSqlFirewallPoliciesRequest.timeCreatedLessThan,
+      "sortOrder": listSqlFirewallPoliciesRequest.sortOrder,
+      "sortBy": listSqlFirewallPoliciesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlFirewallPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlFirewallPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlFirewallPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlFirewallPolicyCollection",
+        bodyModel: model.SqlFirewallPolicyCollection,
+        type: "model.SqlFirewallPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Gets a list of aggregated SQL firewall policy details.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFirewallPolicyInfo on the specified 
+* `compartmentId` and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListSqlFirewallPolicyAnalyticsRequest
+     * @return ListSqlFirewallPolicyAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallPolicyAnalytics.ts.html |here} to see how to use ListSqlFirewallPolicyAnalytics API.
+     */
+  public async listSqlFirewallPolicyAnalytics(
+    listSqlFirewallPolicyAnalyticsRequest: requests.ListSqlFirewallPolicyAnalyticsRequest
+  ): Promise<responses.ListSqlFirewallPolicyAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallPolicyAnalytics.");
+    const operationName = "listSqlFirewallPolicyAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicyAnalyticsCollection/ListSqlFirewallPolicyAnalytics";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlFirewallPolicyAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listSqlFirewallPolicyAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listSqlFirewallPolicyAnalyticsRequest.accessLevel,
+      "limit": listSqlFirewallPolicyAnalyticsRequest.limit,
+      "page": listSqlFirewallPolicyAnalyticsRequest.page,
+      "groupBy": listSqlFirewallPolicyAnalyticsRequest.groupBy,
+      "lifecycleState": listSqlFirewallPolicyAnalyticsRequest.lifecycleState,
+      "securityPolicyId": listSqlFirewallPolicyAnalyticsRequest.securityPolicyId,
+      "timeStarted": listSqlFirewallPolicyAnalyticsRequest.timeStarted,
+      "timeEnded": listSqlFirewallPolicyAnalyticsRequest.timeEnded
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlFirewallPolicyAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlFirewallPolicyAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallPolicyAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlFirewallPolicyAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlFirewallPolicyAnalyticsCollection",
+        bodyModel: model.SqlFirewallPolicyAnalyticsCollection,
+        type: "model.SqlFirewallPolicyAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the aggregation details of the SQL firewall violations.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSqlFirewallViolationAnalyticsRequest
+   * @return ListSqlFirewallViolationAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallViolationAnalytics.ts.html |here} to see how to use ListSqlFirewallViolationAnalytics API.
+   */
+  public async listSqlFirewallViolationAnalytics(
+    listSqlFirewallViolationAnalyticsRequest: requests.ListSqlFirewallViolationAnalyticsRequest
+  ): Promise<responses.ListSqlFirewallViolationAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallViolationAnalytics.");
+    const operationName = "listSqlFirewallViolationAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallViolationSummary/ListSqlFirewallViolationAnalytics";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlFirewallViolationAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listSqlFirewallViolationAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listSqlFirewallViolationAnalyticsRequest.accessLevel,
+      "limit": listSqlFirewallViolationAnalyticsRequest.limit,
+      "page": listSqlFirewallViolationAnalyticsRequest.page,
+      "timeStarted": listSqlFirewallViolationAnalyticsRequest.timeStarted,
+      "timeEnded": listSqlFirewallViolationAnalyticsRequest.timeEnded,
+      "queryTimeZone": listSqlFirewallViolationAnalyticsRequest.queryTimeZone,
+      "sortOrder": listSqlFirewallViolationAnalyticsRequest.sortOrder,
+      "sortBy": listSqlFirewallViolationAnalyticsRequest.sortBy,
+      "scimQuery": listSqlFirewallViolationAnalyticsRequest.scimQuery,
+      "summaryField": listSqlFirewallViolationAnalyticsRequest.summaryField,
+      "groupBy": listSqlFirewallViolationAnalyticsRequest.groupBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlFirewallViolationAnalyticsRequest.opcRequestId,
+      "opc-retry-token": listSqlFirewallViolationAnalyticsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlFirewallViolationAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallViolationAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlFirewallViolationAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlFirewallViolationAnalyticsCollection",
+        bodyModel: model.SqlFirewallViolationAnalyticsCollection,
+        type: "model.SqlFirewallViolationAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of all the SQL firewall violations captured by the firewall.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSqlFirewallViolationsRequest
+   * @return ListSqlFirewallViolationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallViolations.ts.html |here} to see how to use ListSqlFirewallViolations API.
+   */
+  public async listSqlFirewallViolations(
+    listSqlFirewallViolationsRequest: requests.ListSqlFirewallViolationsRequest
+  ): Promise<responses.ListSqlFirewallViolationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallViolations.");
+    const operationName = "listSqlFirewallViolations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallViolationSummary/ListSqlFirewallViolations";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlFirewallViolationsRequest.compartmentId,
+      "compartmentIdInSubtree": listSqlFirewallViolationsRequest.compartmentIdInSubtree,
+      "limit": listSqlFirewallViolationsRequest.limit,
+      "page": listSqlFirewallViolationsRequest.page,
+      "accessLevel": listSqlFirewallViolationsRequest.accessLevel,
+      "sortOrder": listSqlFirewallViolationsRequest.sortOrder,
+      "sortBy": listSqlFirewallViolationsRequest.sortBy,
+      "scimQuery": listSqlFirewallViolationsRequest.scimQuery
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlFirewallViolationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlFirewallViolationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallViolations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlFirewallViolationsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlFirewallViolationsCollection",
+        bodyModel: model.SqlFirewallViolationsCollection,
+        type: "model.SqlFirewallViolationsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of table metadata objects.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -14684,7 +17181,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   }
 
   /**
-     * Gets a list of aggregated user details from the specified user assessment. This provides information about the overall state
+     * Gets a list of aggregated user details from the specified user assessment. This provides information about the overall state.
 * of database user security.  For example, the user details include how many users have the DBA role and how many users are in
 * the critical category. This data is especially useful content for dashboards or to support analytics.
 * <p>
@@ -15462,7 +17959,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "resourceId": listWorkRequestsRequest.resourceId,
       "targetDatabaseId": listWorkRequestsRequest.targetDatabaseId,
       "page": listWorkRequestsRequest.page,
-      "limit": listWorkRequestsRequest.limit
+      "limit": listWorkRequestsRequest.limit,
+      "compartmentIdInSubtree": listWorkRequestsRequest.compartmentIdInSubtree,
+      "accessLevel": listWorkRequestsRequest.accessLevel
     };
 
     let headerParams = {
@@ -16291,6 +18790,156 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Purge the SQL collection logs for the specified SqlCollection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PurgeSqlCollectionLogsRequest
+   * @return PurgeSqlCollectionLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PurgeSqlCollectionLogs.ts.html |here} to see how to use PurgeSqlCollectionLogs API.
+   */
+  public async purgeSqlCollectionLogs(
+    purgeSqlCollectionLogsRequest: requests.PurgeSqlCollectionLogsRequest
+  ): Promise<responses.PurgeSqlCollectionLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#purgeSqlCollectionLogs.");
+    const operationName = "purgeSqlCollectionLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/PurgeSqlCollectionLogs";
+    const pathParams = {
+      "{sqlCollectionId}": purgeSqlCollectionLogsRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": purgeSqlCollectionLogsRequest.ifMatch,
+      "opc-request-id": purgeSqlCollectionLogsRequest.opcRequestId,
+      "opc-retry-token": purgeSqlCollectionLogsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      purgeSqlCollectionLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}/actions/purgeLogs",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PurgeSqlCollectionLogsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Refreshes the specified database security configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RefreshDatabaseSecurityConfigurationRequest
+   * @return RefreshDatabaseSecurityConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshDatabaseSecurityConfiguration.ts.html |here} to see how to use RefreshDatabaseSecurityConfiguration API.
+   */
+  public async refreshDatabaseSecurityConfiguration(
+    refreshDatabaseSecurityConfigurationRequest: requests.RefreshDatabaseSecurityConfigurationRequest
+  ): Promise<responses.RefreshDatabaseSecurityConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#refreshDatabaseSecurityConfiguration.");
+    const operationName = "refreshDatabaseSecurityConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfig/RefreshDatabaseSecurityConfiguration";
+    const pathParams = {
+      "{databaseSecurityConfigId}":
+        refreshDatabaseSecurityConfigurationRequest.databaseSecurityConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": refreshDatabaseSecurityConfigurationRequest.ifMatch,
+      "opc-request-id": refreshDatabaseSecurityConfigurationRequest.opcRequestId,
+      "opc-retry-token": refreshDatabaseSecurityConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshDatabaseSecurityConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSecurityConfigs/{databaseSecurityConfigId}/actions/refresh",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshDatabaseSecurityConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Runs a security assessment, refreshes the latest assessment, and saves it for future reference.
    * The assessment runs with a securityAssessmentId of type LATEST. Before you start, first call the ListSecurityAssessments operation with filter \"type = latest\" to get the security assessment id for the target's latest assessment.
    *
@@ -16352,6 +19001,81 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RefreshSecurityAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Refresh the specified SQL collection Log Insights.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RefreshSqlCollectionLogInsightsRequest
+   * @return RefreshSqlCollectionLogInsightsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshSqlCollectionLogInsights.ts.html |here} to see how to use RefreshSqlCollectionLogInsights API.
+   */
+  public async refreshSqlCollectionLogInsights(
+    refreshSqlCollectionLogInsightsRequest: requests.RefreshSqlCollectionLogInsightsRequest
+  ): Promise<responses.RefreshSqlCollectionLogInsightsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#refreshSqlCollectionLogInsights.");
+    const operationName = "refreshSqlCollectionLogInsights";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/RefreshSqlCollectionLogInsights";
+    const pathParams = {
+      "{sqlCollectionId}": refreshSqlCollectionLogInsightsRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": refreshSqlCollectionLogInsightsRequest.ifMatch,
+      "opc-request-id": refreshSqlCollectionLogInsightsRequest.opcRequestId,
+      "opc-retry-token": refreshSqlCollectionLogInsightsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshSqlCollectionLogInsightsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}/actions/refreshLogInsights",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshSqlCollectionLogInsightsResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -17069,6 +19793,80 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Start the specified SQL collection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartSqlCollectionRequest
+   * @return StartSqlCollectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StartSqlCollection.ts.html |here} to see how to use StartSqlCollection API.
+   */
+  public async startSqlCollection(
+    startSqlCollectionRequest: requests.StartSqlCollectionRequest
+  ): Promise<responses.StartSqlCollectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#startSqlCollection.");
+    const operationName = "startSqlCollection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/sqlCollection/StartSqlCollection";
+    const pathParams = {
+      "{sqlCollectionId}": startSqlCollectionRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startSqlCollectionRequest.ifMatch,
+      "opc-request-id": startSqlCollectionRequest.opcRequestId,
+      "opc-retry-token": startSqlCollectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startSqlCollectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}/actions/start",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartSqlCollectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Stops the specified audit trail.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StopAuditTrailRequest
@@ -17121,6 +19919,80 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopAuditTrailResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Stops the specified SQL collection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StopSqlCollectionRequest
+   * @return StopSqlCollectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StopSqlCollection.ts.html |here} to see how to use StopSqlCollection API.
+   */
+  public async stopSqlCollection(
+    stopSqlCollectionRequest: requests.StopSqlCollectionRequest
+  ): Promise<responses.StopSqlCollectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#stopSqlCollection.");
+    const operationName = "stopSqlCollection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/StopSqlCollection";
+    const pathParams = {
+      "{sqlCollectionId}": stopSqlCollectionRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopSqlCollectionRequest.ifMatch,
+      "opc-request-id": stopSqlCollectionRequest.opcRequestId,
+      "opc-retry-token": stopSqlCollectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopSqlCollectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopSqlCollectionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -17845,6 +20717,85 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Updates the database security configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDatabaseSecurityConfigRequest
+   * @return UpdateDatabaseSecurityConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateDatabaseSecurityConfig.ts.html |here} to see how to use UpdateDatabaseSecurityConfig API.
+   */
+  public async updateDatabaseSecurityConfig(
+    updateDatabaseSecurityConfigRequest: requests.UpdateDatabaseSecurityConfigRequest
+  ): Promise<responses.UpdateDatabaseSecurityConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateDatabaseSecurityConfig.");
+    const operationName = "updateDatabaseSecurityConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfig/UpdateDatabaseSecurityConfig";
+    const pathParams = {
+      "{databaseSecurityConfigId}": updateDatabaseSecurityConfigRequest.databaseSecurityConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatabaseSecurityConfigRequest.ifMatch,
+      "opc-request-id": updateDatabaseSecurityConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseSecurityConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSecurityConfigs/{databaseSecurityConfigId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseSecurityConfigRequest.updateDatabaseSecurityConfigDetails,
+        "UpdateDatabaseSecurityConfigDetails",
+        model.UpdateDatabaseSecurityConfigDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseSecurityConfigResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates one or more attributes of the specified library masking format. Note that updating the formatEntries attribute replaces all the existing masking format entries with the specified format entries.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateLibraryMaskingFormatRequest
@@ -18481,6 +21432,164 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Updates the security policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSecurityPolicyRequest
+   * @return UpdateSecurityPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityPolicy.ts.html |here} to see how to use UpdateSecurityPolicy API.
+   */
+  public async updateSecurityPolicy(
+    updateSecurityPolicyRequest: requests.UpdateSecurityPolicyRequest
+  ): Promise<responses.UpdateSecurityPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSecurityPolicy.");
+    const operationName = "updateSecurityPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicy/UpdateSecurityPolicy";
+    const pathParams = {
+      "{securityPolicyId}": updateSecurityPolicyRequest.securityPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSecurityPolicyRequest.ifMatch,
+      "opc-request-id": updateSecurityPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSecurityPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicies/{securityPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSecurityPolicyRequest.updateSecurityPolicyDetails,
+        "UpdateSecurityPolicyDetails",
+        model.UpdateSecurityPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSecurityPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the security policy deployment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSecurityPolicyDeploymentRequest
+   * @return UpdateSecurityPolicyDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityPolicyDeployment.ts.html |here} to see how to use UpdateSecurityPolicyDeployment API.
+   */
+  public async updateSecurityPolicyDeployment(
+    updateSecurityPolicyDeploymentRequest: requests.UpdateSecurityPolicyDeploymentRequest
+  ): Promise<responses.UpdateSecurityPolicyDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSecurityPolicyDeployment.");
+    const operationName = "updateSecurityPolicyDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyDeployment/UpdateSecurityPolicyDeployment";
+    const pathParams = {
+      "{securityPolicyDeploymentId}":
+        updateSecurityPolicyDeploymentRequest.securityPolicyDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSecurityPolicyDeploymentRequest.ifMatch,
+      "opc-request-id": updateSecurityPolicyDeploymentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSecurityPolicyDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/securityPolicyDeployments/{securityPolicyDeploymentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSecurityPolicyDeploymentRequest.updateSecurityPolicyDeploymentDetails,
+        "UpdateSecurityPolicyDeploymentDetails",
+        model.UpdateSecurityPolicyDeploymentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSecurityPolicyDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates one or more attributes of the specified sensitive column.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSensitiveColumnRequest
@@ -18707,6 +21816,162 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the SQL collection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSqlCollectionRequest
+   * @return UpdateSqlCollectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSqlCollection.ts.html |here} to see how to use UpdateSqlCollection API.
+   */
+  public async updateSqlCollection(
+    updateSqlCollectionRequest: requests.UpdateSqlCollectionRequest
+  ): Promise<responses.UpdateSqlCollectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSqlCollection.");
+    const operationName = "updateSqlCollection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/UpdateSqlCollection";
+    const pathParams = {
+      "{sqlCollectionId}": updateSqlCollectionRequest.sqlCollectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSqlCollectionRequest.ifMatch,
+      "opc-request-id": updateSqlCollectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSqlCollectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlCollections/{sqlCollectionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSqlCollectionRequest.updateSqlCollectionDetails,
+        "UpdateSqlCollectionDetails",
+        model.UpdateSqlCollectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSqlCollectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the SQL firewall policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSqlFirewallPolicyRequest
+   * @return UpdateSqlFirewallPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSqlFirewallPolicy.ts.html |here} to see how to use UpdateSqlFirewallPolicy API.
+   */
+  public async updateSqlFirewallPolicy(
+    updateSqlFirewallPolicyRequest: requests.UpdateSqlFirewallPolicyRequest
+  ): Promise<responses.UpdateSqlFirewallPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSqlFirewallPolicy.");
+    const operationName = "updateSqlFirewallPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicy/UpdateSqlFirewallPolicy";
+    const pathParams = {
+      "{sqlFirewallPolicyId}": updateSqlFirewallPolicyRequest.sqlFirewallPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSqlFirewallPolicyRequest.ifMatch,
+      "opc-request-id": updateSqlFirewallPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSqlFirewallPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallPolicies/{sqlFirewallPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSqlFirewallPolicyRequest.updateSqlFirewallPolicyDetails,
+        "UpdateSqlFirewallPolicyDetails",
+        model.UpdateSqlFirewallPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSqlFirewallPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

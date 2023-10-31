@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDrProtectionGroupRequest extends common.BaseRequest {
   /**
-   * Details for the new DR Protection Group.
+   * Details for creating the DR protection group.
    */
   "createDrProtectionGroupDetails": model.CreateDrProtectionGroupDetails;
   /**

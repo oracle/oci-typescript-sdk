@@ -158,6 +158,11 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    *
    */
   "crashRecovery"?: model.CrashRecoveryStatus;
+  /**
+   * Whether to enable monitoring via the Database Management service.
+   *
+   */
+  "databaseManagement"?: model.DatabaseManagementStatus;
 }
 
 export namespace CreateDbSystemDetails {

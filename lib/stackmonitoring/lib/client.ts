@@ -365,6 +365,85 @@ When provided, If-Match is checked against ETag values of the resource.
   }
 
   /**
+   * Moves a Metric Extension resource from one compartment identifier to another.
+   * When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeMetricExtensionCompartmentRequest
+   * @return ChangeMetricExtensionCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeMetricExtensionCompartment.ts.html |here} to see how to use ChangeMetricExtensionCompartment API.
+   */
+  public async changeMetricExtensionCompartment(
+    changeMetricExtensionCompartmentRequest: requests.ChangeMetricExtensionCompartmentRequest
+  ): Promise<responses.ChangeMetricExtensionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#changeMetricExtensionCompartment."
+      );
+    const operationName = "changeMetricExtensionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/ChangeMetricExtensionCompartment";
+    const pathParams = {
+      "{metricExtensionId}": changeMetricExtensionCompartmentRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMetricExtensionCompartmentRequest.ifMatch,
+      "opc-request-id": changeMetricExtensionCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeMetricExtensionCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMetricExtensionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMetricExtensionCompartmentRequest.changeMetricExtensionCompartmentDetails,
+        "ChangeMetricExtensionCompartmentDetails",
+        model.ChangeMetricExtensionCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMetricExtensionCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a monitored resource from one compartment to another.
    * When provided, If-Match is checked against ETag values of the resource.
    *
@@ -438,6 +517,171 @@ When provided, If-Match is checked against ETag values of the resource.
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a stack monitoring resource task from one compartment to another.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMonitoredResourceTaskCompartmentRequest
+   * @return ChangeMonitoredResourceTaskCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeMonitoredResourceTaskCompartment.ts.html |here} to see how to use ChangeMonitoredResourceTaskCompartment API.
+   */
+  public async changeMonitoredResourceTaskCompartment(
+    changeMonitoredResourceTaskCompartmentRequest: requests.ChangeMonitoredResourceTaskCompartmentRequest
+  ): Promise<responses.ChangeMonitoredResourceTaskCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#changeMonitoredResourceTaskCompartment."
+      );
+    const operationName = "changeMonitoredResourceTaskCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/monitoredResourceTask/ChangeMonitoredResourceTaskCompartment";
+    const pathParams = {
+      "{monitoredResourceTaskId}":
+        changeMonitoredResourceTaskCompartmentRequest.monitoredResourceTaskId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMonitoredResourceTaskCompartmentRequest.ifMatch,
+      "opc-request-id": changeMonitoredResourceTaskCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeMonitoredResourceTaskCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMonitoredResourceTaskCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTasks/{monitoredResourceTaskId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMonitoredResourceTaskCompartmentRequest.changeMonitoredResourceTaskCompartmentDetails,
+        "ChangeMonitoredResourceTaskCompartmentDetails",
+        model.ChangeMonitoredResourceTaskCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMonitoredResourceTaskCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates the specified Baseline-able metric
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateBaselineableMetricRequest
+   * @return CreateBaselineableMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateBaselineableMetric.ts.html |here} to see how to use CreateBaselineableMetric API.
+   */
+  public async createBaselineableMetric(
+    createBaselineableMetricRequest: requests.CreateBaselineableMetricRequest
+  ): Promise<responses.CreateBaselineableMetricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createBaselineableMetric.");
+    const operationName = "createBaselineableMetric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/CreateBaselineableMetricDetails/CreateBaselineableMetric";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createBaselineableMetricRequest.opcRequestId,
+      "opc-retry-token": createBaselineableMetricRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBaselineableMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baselineableMetrics",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBaselineableMetricRequest.createBaselineableMetricDetails,
+        "CreateBaselineableMetricDetails",
+        model.CreateBaselineableMetricDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBaselineableMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "baselineableMetric",
+        bodyModel: model.BaselineableMetric,
+        type: "model.BaselineableMetric",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
           }
         ]
       });
@@ -618,6 +862,93 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Creates a new metric extension resource for a given compartment
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateMetricExtensionRequest
+   * @return CreateMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMetricExtension.ts.html |here} to see how to use CreateMetricExtension API.
+   */
+  public async createMetricExtension(
+    createMetricExtensionRequest: requests.CreateMetricExtensionRequest
+  ): Promise<responses.CreateMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMetricExtension.");
+    const operationName = "createMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/CreateMetricExtension";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMetricExtensionRequest.opcRetryToken,
+      "opc-request-id": createMetricExtensionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMetricExtensionRequest.createMetricExtensionDetails,
+        "CreateMetricExtensionDetails",
+        model.CreateMetricExtensionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMetricExtensionResponse>{},
+        body: await response.json(),
+        bodyKey: "metricExtension",
+        bodyModel: model.MetricExtension,
+        type: "model.MetricExtension",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new monitored resource for the given resource type with the details and submits
    * a work request for promoting the resource to agent. Once the resource is successfully
    * added to agent, resource state will be marked active.
@@ -712,6 +1043,247 @@ For example, when a new Management Agent gets registered in a certain compartmen
             value: response.headers.get("etag"),
             key: "etag",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a new stack monitoring resource task.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMonitoredResourceTaskRequest
+   * @return CreateMonitoredResourceTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoredResourceTask.ts.html |here} to see how to use CreateMonitoredResourceTask API.
+   */
+  public async createMonitoredResourceTask(
+    createMonitoredResourceTaskRequest: requests.CreateMonitoredResourceTaskRequest
+  ): Promise<responses.CreateMonitoredResourceTaskResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMonitoredResourceTask.");
+    const operationName = "createMonitoredResourceTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/CreateMonitoredResourceTask";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createMonitoredResourceTaskRequest.opcRequestId,
+      "opc-retry-token": createMonitoredResourceTaskRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMonitoredResourceTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTasks",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMonitoredResourceTaskRequest.createMonitoredResourceTaskDetails,
+        "CreateMonitoredResourceTaskDetails",
+        model.CreateMonitoredResourceTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMonitoredResourceTaskResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceTask",
+        bodyModel: model.MonitoredResourceTask,
+        type: "model.MonitoredResourceTask",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new monitored resource type.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMonitoredResourceTypeRequest
+   * @return CreateMonitoredResourceTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoredResourceType.ts.html |here} to see how to use CreateMonitoredResourceType API.
+   */
+  public async createMonitoredResourceType(
+    createMonitoredResourceTypeRequest: requests.CreateMonitoredResourceTypeRequest
+  ): Promise<responses.CreateMonitoredResourceTypeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMonitoredResourceType.");
+    const operationName = "createMonitoredResourceType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/CreateMonitoredResourceType";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createMonitoredResourceTypeRequest.opcRequestId,
+      "opc-retry-token": createMonitoredResourceTypeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMonitoredResourceTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTypes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMonitoredResourceTypeRequest.createMonitoredResourceTypeDetails,
+        "CreateMonitoredResourceTypeDetails",
+        model.CreateMonitoredResourceTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMonitoredResourceTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceType",
+        bodyModel: model.MonitoredResourceType,
+        type: "model.MonitoredResourceType",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the Baseline-able metric for the given id
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteBaselineableMetricRequest
+   * @return DeleteBaselineableMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteBaselineableMetric.ts.html |here} to see how to use DeleteBaselineableMetric API.
+   */
+  public async deleteBaselineableMetric(
+    deleteBaselineableMetricRequest: requests.DeleteBaselineableMetricRequest
+  ): Promise<responses.DeleteBaselineableMetricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteBaselineableMetric.");
+    const operationName = "deleteBaselineableMetric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetric/DeleteBaselineableMetric";
+    const pathParams = {
+      "{baselineableMetricId}": deleteBaselineableMetricRequest.baselineableMetricId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteBaselineableMetricRequest.opcRequestId,
+      "if-match": deleteBaselineableMetricRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBaselineableMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baselineableMetrics/{baselineableMetricId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBaselineableMetricResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
           }
         ]
       });
@@ -860,6 +1432,75 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Deletes a metric extension by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteMetricExtensionRequest
+   * @return DeleteMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMetricExtension.ts.html |here} to see how to use DeleteMetricExtension API.
+   */
+  public async deleteMetricExtension(
+    deleteMetricExtensionRequest: requests.DeleteMetricExtensionRequest
+  ): Promise<responses.DeleteMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteMetricExtension.");
+    const operationName = "deleteMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/DeleteMetricExtension";
+    const pathParams = {
+      "{metricExtensionId}": deleteMetricExtensionRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMetricExtensionRequest.ifMatch,
+      "opc-request-id": deleteMetricExtensionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMetricExtensionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete monitored resource by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    * By default, only the specified resource is deleted. If the parameter 'isDeleteMembers' is set to true,
    * then the member resources will be deleted too. If the operation fails partially, the deleted entries
@@ -925,6 +1566,75 @@ For example, when a new Management Agent gets registered in a certain compartmen
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a monitored resource type by identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteMonitoredResourceTypeRequest
+   * @return DeleteMonitoredResourceTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMonitoredResourceType.ts.html |here} to see how to use DeleteMonitoredResourceType API.
+   */
+  public async deleteMonitoredResourceType(
+    deleteMonitoredResourceTypeRequest: requests.DeleteMonitoredResourceTypeRequest
+  ): Promise<responses.DeleteMonitoredResourceTypeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteMonitoredResourceType.");
+    const operationName = "deleteMonitoredResourceType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/DeleteMonitoredResourceType";
+    const pathParams = {
+      "{monitoredResourceTypeId}": deleteMonitoredResourceTypeRequest.monitoredResourceTypeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMonitoredResourceTypeRequest.ifMatch,
+      "opc-request-id": deleteMonitoredResourceTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMonitoredResourceTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTypes/{monitoredResourceTypeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMonitoredResourceTypeResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1017,6 +1727,87 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Submits a request to disable matching metric extension Id for the given Resource IDs
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableMetricExtensionRequest
+   * @return DisableMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DisableMetricExtension.ts.html |here} to see how to use DisableMetricExtension API.
+   */
+  public async disableMetricExtension(
+    disableMetricExtensionRequest: requests.DisableMetricExtensionRequest
+  ): Promise<responses.DisableMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#disableMetricExtension.");
+    const operationName = "disableMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/DisableMetricExtension";
+    const pathParams = {
+      "{metricExtensionId}": disableMetricExtensionRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableMetricExtensionRequest.ifMatch,
+      "opc-request-id": disableMetricExtensionRequest.opcRequestId,
+      "opc-retry-token": disableMetricExtensionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}/actions/disable",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableMetricExtensionRequest.disableMetricExtensionDetails,
+        "DisableMetricExtensionDetails",
+        model.DisableMetricExtensionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableMetricExtensionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes associations between two monitored resources.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisassociateMonitoredResourcesRequest
@@ -1079,6 +1870,334 @@ For example, when a new Management Agent gets registered in a certain compartmen
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Submits a request to enable matching metric extension Id for the given Resource IDs
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableMetricExtensionRequest
+   * @return EnableMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/EnableMetricExtension.ts.html |here} to see how to use EnableMetricExtension API.
+   */
+  public async enableMetricExtension(
+    enableMetricExtensionRequest: requests.EnableMetricExtensionRequest
+  ): Promise<responses.EnableMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#enableMetricExtension.");
+    const operationName = "enableMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/EnableMetricExtension";
+    const pathParams = {
+      "{metricExtensionId}": enableMetricExtensionRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableMetricExtensionRequest.ifMatch,
+      "opc-request-id": enableMetricExtensionRequest.opcRequestId,
+      "opc-retry-token": enableMetricExtensionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}/actions/enable",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableMetricExtensionRequest.enableMetricExtensionDetails,
+        "EnableMetricExtensionDetails",
+        model.EnableMetricExtensionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableMetricExtensionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Evaluates metric for anomalies for the given data points
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EvaluateBaselineableMetricRequest
+   * @return EvaluateBaselineableMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/EvaluateBaselineableMetric.ts.html |here} to see how to use EvaluateBaselineableMetric API.
+   */
+  public async evaluateBaselineableMetric(
+    evaluateBaselineableMetricRequest: requests.EvaluateBaselineableMetricRequest
+  ): Promise<responses.EvaluateBaselineableMetricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#evaluateBaselineableMetric.");
+    const operationName = "evaluateBaselineableMetric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/EvaluateBaselineableMetricResult/EvaluateBaselineableMetric";
+    const pathParams = {
+      "{baselineableMetricId}": evaluateBaselineableMetricRequest.baselineableMetricId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": evaluateBaselineableMetricRequest.opcRequestId,
+      "if-match": evaluateBaselineableMetricRequest.ifMatch,
+      "opc-retry-token": evaluateBaselineableMetricRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      evaluateBaselineableMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baselineableMetrics/{baselineableMetricId}/actions/evaluate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        evaluateBaselineableMetricRequest.evaluateBaselineableMetricDetails,
+        "EvaluateBaselineableMetricDetails",
+        model.EvaluateBaselineableMetricDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EvaluateBaselineableMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "evaluateBaselineableMetricResult",
+        bodyModel: model.EvaluateBaselineableMetricResult,
+        type: "model.EvaluateBaselineableMetricResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Export generates a template used to create new metric extension resources similar to matching metric extension id.
+   * Response is a file that contains metric extension definition with placeholders for fields to be changed.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportMetricExtensionRequest
+   * @return ExportMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ExportMetricExtension.ts.html |here} to see how to use ExportMetricExtension API.
+   */
+  public async exportMetricExtension(
+    exportMetricExtensionRequest: requests.ExportMetricExtensionRequest
+  ): Promise<responses.ExportMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#exportMetricExtension.");
+    const operationName = "exportMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/ExportMetricExtension";
+    const pathParams = {
+      "{metricExtensionId}": exportMetricExtensionRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": exportMetricExtensionRequest.ifMatch,
+      "opc-request-id": exportMetricExtensionRequest.opcRequestId,
+      "opc-retry-token": exportMetricExtensionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}/actions/export",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportMetricExtensionResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the Baseline-able metric for the given id
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetBaselineableMetricRequest
+   * @return GetBaselineableMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetBaselineableMetric.ts.html |here} to see how to use GetBaselineableMetric API.
+   */
+  public async getBaselineableMetric(
+    getBaselineableMetricRequest: requests.GetBaselineableMetricRequest
+  ): Promise<responses.GetBaselineableMetricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getBaselineableMetric.");
+    const operationName = "getBaselineableMetric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetric/GetBaselineableMetric";
+    const pathParams = {
+      "{baselineableMetricId}": getBaselineableMetricRequest.baselineableMetricId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBaselineableMetricRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBaselineableMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baselineableMetrics/{baselineableMetricId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBaselineableMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "baselineableMetric",
+        bodyModel: model.BaselineableMetric,
+        type: "model.BaselineableMetric",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
           }
         ]
       });
@@ -1243,6 +2362,83 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Gets a Metric Extension by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMetricExtensionRequest
+   * @return GetMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMetricExtension.ts.html |here} to see how to use GetMetricExtension API.
+   */
+  public async getMetricExtension(
+    getMetricExtensionRequest: requests.GetMetricExtensionRequest
+  ): Promise<responses.GetMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMetricExtension.");
+    const operationName = "getMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/GetMetricExtension";
+    const pathParams = {
+      "{metricExtensionId}": getMetricExtensionRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMetricExtensionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMetricExtensionResponse>{},
+        body: await response.json(),
+        bodyKey: "metricExtension",
+        bodyModel: model.MetricExtension,
+        type: "model.MetricExtension",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get monitored resource for the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1300,6 +2496,160 @@ For example, when a new Management Agent gets registered in a certain compartmen
         bodyKey: "monitoredResource",
         bodyModel: model.MonitoredResource,
         type: "model.MonitoredResource",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets stack monitoring resource task details by identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMonitoredResourceTaskRequest
+   * @return GetMonitoredResourceTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoredResourceTask.ts.html |here} to see how to use GetMonitoredResourceTask API.
+   */
+  public async getMonitoredResourceTask(
+    getMonitoredResourceTaskRequest: requests.GetMonitoredResourceTaskRequest
+  ): Promise<responses.GetMonitoredResourceTaskResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMonitoredResourceTask.");
+    const operationName = "getMonitoredResourceTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/GetMonitoredResourceTask";
+    const pathParams = {
+      "{monitoredResourceTaskId}": getMonitoredResourceTaskRequest.monitoredResourceTaskId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMonitoredResourceTaskRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMonitoredResourceTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTasks/{monitoredResourceTaskId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMonitoredResourceTaskResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceTask",
+        bodyModel: model.MonitoredResourceTask,
+        type: "model.MonitoredResourceTask",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a monitored resource type by identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMonitoredResourceTypeRequest
+   * @return GetMonitoredResourceTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoredResourceType.ts.html |here} to see how to use GetMonitoredResourceType API.
+   */
+  public async getMonitoredResourceType(
+    getMonitoredResourceTypeRequest: requests.GetMonitoredResourceTypeRequest
+  ): Promise<responses.GetMonitoredResourceTypeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMonitoredResourceType.");
+    const operationName = "getMonitoredResourceType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/GetMonitoredResourceType";
+    const pathParams = {
+      "{monitoredResourceTypeId}": getMonitoredResourceTypeRequest.monitoredResourceTypeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMonitoredResourceTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMonitoredResourceTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTypes/{monitoredResourceTypeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMonitoredResourceTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceType",
+        bodyModel: model.MonitoredResourceType,
+        type: "model.MonitoredResourceType",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1380,6 +2730,96 @@ For example, when a new Management Agent gets registered in a certain compartmen
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List of summary of baseline-able metrics for a given resource group if specified.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListBaselineableMetricsRequest
+   * @return ListBaselineableMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListBaselineableMetrics.ts.html |here} to see how to use ListBaselineableMetrics API.
+   */
+  public async listBaselineableMetrics(
+    listBaselineableMetricsRequest: requests.ListBaselineableMetricsRequest
+  ): Promise<responses.ListBaselineableMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listBaselineableMetrics.");
+    const operationName = "listBaselineableMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetricSummary/ListBaselineableMetrics";
+    const pathParams = {};
+
+    const queryParams = {
+      "resourceGroup": listBaselineableMetricsRequest.resourceGroup,
+      "name": listBaselineableMetricsRequest.name,
+      "metricNamespace": listBaselineableMetricsRequest.metricNamespace,
+      "limit": listBaselineableMetricsRequest.limit,
+      "page": listBaselineableMetricsRequest.page,
+      "compartmentId": listBaselineableMetricsRequest.compartmentId,
+      "baselineableMetricId": listBaselineableMetricsRequest.baselineableMetricId,
+      "sortOrder": listBaselineableMetricsRequest.sortOrder,
+      "sortBy": listBaselineableMetricsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBaselineableMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBaselineableMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baselineableMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBaselineableMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "baselineableMetricSummaryCollection",
+        bodyModel: model.BaselineableMetricSummaryCollection,
+        type: "model.BaselineableMetricSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           },
           {
@@ -1648,6 +3088,366 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Returns a list of metric extensions
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMetricExtensionsRequest
+   * @return ListMetricExtensionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMetricExtensions.ts.html |here} to see how to use ListMetricExtensions API.
+   */
+  public async listMetricExtensions(
+    listMetricExtensionsRequest: requests.ListMetricExtensionsRequest
+  ): Promise<responses.ListMetricExtensionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMetricExtensions.");
+    const operationName = "listMetricExtensions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/ListMetricExtensions";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listMetricExtensionsRequest.limit,
+      "page": listMetricExtensionsRequest.page,
+      "sortBy": listMetricExtensionsRequest.sortBy,
+      "sortOrder": listMetricExtensionsRequest.sortOrder,
+      "compartmentId": listMetricExtensionsRequest.compartmentId,
+      "resourceType": listMetricExtensionsRequest.resourceType,
+      "name": listMetricExtensionsRequest.name,
+      "status": listMetricExtensionsRequest.status,
+      "lifecycleState": listMetricExtensionsRequest.lifecycleState,
+      "enabledOnResourceId": listMetricExtensionsRequest.enabledOnResourceId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMetricExtensionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMetricExtensionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMetricExtensionsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricExtensionCollection",
+        bodyModel: model.MetricExtensionCollection,
+        type: "model.MetricExtensionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of stack monitoring resource tasks in the compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMonitoredResourceTasksRequest
+   * @return ListMonitoredResourceTasksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResourceTasks.ts.html |here} to see how to use ListMonitoredResourceTasks API.
+   */
+  public async listMonitoredResourceTasks(
+    listMonitoredResourceTasksRequest: requests.ListMonitoredResourceTasksRequest
+  ): Promise<responses.ListMonitoredResourceTasksResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMonitoredResourceTasks.");
+    const operationName = "listMonitoredResourceTasks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/ListMonitoredResourceTasks";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMonitoredResourceTasksRequest.compartmentId,
+      "status": listMonitoredResourceTasksRequest.status,
+      "sortBy": listMonitoredResourceTasksRequest.sortBy,
+      "sortOrder": listMonitoredResourceTasksRequest.sortOrder,
+      "limit": listMonitoredResourceTasksRequest.limit,
+      "page": listMonitoredResourceTasksRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMonitoredResourceTasksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMonitoredResourceTasksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTasks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMonitoredResourceTasksResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceTasksCollection",
+        bodyModel: model.MonitoredResourceTasksCollection,
+        type: "model.MonitoredResourceTasksCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns list of resource types accessible to the customer.
+   * There are two types of resource types - System resource types and User resource types.
+   * System resource types are available out of the box in the stack monitoring resource service
+   * and are accessible to all the tenant users. User resource types are created in the context
+   * of a tenancy and are visible only for the tenancy. By default, both System resource types
+   * and User resource types are returned.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMonitoredResourceTypesRequest
+   * @return ListMonitoredResourceTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResourceTypes.ts.html |here} to see how to use ListMonitoredResourceTypes API.
+   */
+  public async listMonitoredResourceTypes(
+    listMonitoredResourceTypesRequest: requests.ListMonitoredResourceTypesRequest
+  ): Promise<responses.ListMonitoredResourceTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMonitoredResourceTypes.");
+    const operationName = "listMonitoredResourceTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/ListMonitoredResourceTypes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMonitoredResourceTypesRequest.compartmentId,
+      "name": listMonitoredResourceTypesRequest.name,
+      "status": listMonitoredResourceTypesRequest.status,
+      "isExcludeSystemTypes": listMonitoredResourceTypesRequest.isExcludeSystemTypes,
+      "metricNamespace": listMonitoredResourceTypesRequest.metricNamespace,
+      "sortBy": listMonitoredResourceTypesRequest.sortBy,
+      "sortOrder": listMonitoredResourceTypesRequest.sortOrder,
+      "limit": listMonitoredResourceTypesRequest.limit,
+      "page": listMonitoredResourceTypesRequest.page,
+      "fields": listMonitoredResourceTypesRequest.fields,
+      "excludeFields": listMonitoredResourceTypesRequest.excludeFields
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMonitoredResourceTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMonitoredResourceTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMonitoredResourceTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceTypesCollection",
+        bodyModel: model.MonitoredResourceTypesCollection,
+        type: "model.MonitoredResourceTypesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of monitored resources.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMonitoredResourcesRequest
+   * @return ListMonitoredResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResources.ts.html |here} to see how to use ListMonitoredResources API.
+   */
+  public async listMonitoredResources(
+    listMonitoredResourcesRequest: requests.ListMonitoredResourcesRequest
+  ): Promise<responses.ListMonitoredResourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMonitoredResources.");
+    const operationName = "listMonitoredResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/ListMonitoredResources";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMonitoredResourcesRequest.compartmentId,
+      "name": listMonitoredResourcesRequest.name,
+      "workRequestId": listMonitoredResourcesRequest.workRequestId,
+      "sortBy": listMonitoredResourcesRequest.sortBy,
+      "sortOrder": listMonitoredResourcesRequest.sortOrder,
+      "limit": listMonitoredResourcesRequest.limit,
+      "page": listMonitoredResourcesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMonitoredResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMonitoredResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMonitoredResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceCollection",
+        bodyModel: model.MonitoredResourceCollection,
+        type: "model.MonitoredResourceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Return a (paginated) list of errors for a given work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1887,6 +3687,261 @@ For example, when a new Management Agent gets registered in a certain compartmen
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Each resource is assigned a license based on which features are enabled for it.
+   * User is charged differently based on license.
+   * Specify the license type to be updated for the parent resource in the topology.
+   * The license type value is propagated to the member resources as well.
+   * Member resource is a resource which has \"contains\" association with the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ManageLicenseRequest
+   * @return ManageLicenseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ManageLicense.ts.html |here} to see how to use ManageLicense API.
+   */
+  public async manageLicense(
+    manageLicenseRequest: requests.ManageLicenseRequest
+  ): Promise<responses.ManageLicenseResponse> {
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#manageLicense.");
+    const operationName = "manageLicense";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/ManageLicense";
+    const pathParams = {
+      "{monitoredResourceId}": manageLicenseRequest.monitoredResourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": manageLicenseRequest.opcRetryToken,
+      "opc-request-id": manageLicenseRequest.opcRequestId,
+      "if-match": manageLicenseRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      manageLicenseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResources/{monitoredResourceId}/actions/manageLicense",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        manageLicenseRequest.manageLicenseDetails,
+        "ManageLicenseDetails",
+        model.ManageLicenseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ManageLicenseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Publish the Metric Extension identified by the id
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PublishMetricExtensionRequest
+   * @return PublishMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/PublishMetricExtension.ts.html |here} to see how to use PublishMetricExtension API.
+   */
+  public async publishMetricExtension(
+    publishMetricExtensionRequest: requests.PublishMetricExtensionRequest
+  ): Promise<responses.PublishMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#publishMetricExtension.");
+    const operationName = "publishMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/PublishMetricExtension";
+    const pathParams = {
+      "{metricExtensionId}": publishMetricExtensionRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": publishMetricExtensionRequest.opcRequestId,
+      "opc-retry-token": publishMetricExtensionRequest.opcRetryToken,
+      "if-match": publishMetricExtensionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      publishMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}/actions/publish",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PublishMetricExtensionResponse>{},
+        body: await response.json(),
+        bodyKey: "metricExtension",
+        bodyModel: model.MetricExtension,
+        type: "model.MetricExtension",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets resource count based on the aggregation criteria specified using \"groupBy\" parameter.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestMonitoredResourcesSummarizedCountRequest
+   * @return RequestMonitoredResourcesSummarizedCountResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestMonitoredResourcesSummarizedCount.ts.html |here} to see how to use RequestMonitoredResourcesSummarizedCount API.
+   */
+  public async requestMonitoredResourcesSummarizedCount(
+    requestMonitoredResourcesSummarizedCountRequest: requests.RequestMonitoredResourcesSummarizedCountRequest
+  ): Promise<responses.RequestMonitoredResourcesSummarizedCountResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#requestMonitoredResourcesSummarizedCount."
+      );
+    const operationName = "requestMonitoredResourcesSummarizedCount";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/RequestMonitoredResourcesSummarizedCount";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": requestMonitoredResourcesSummarizedCountRequest.compartmentId,
+      "groupBy": requestMonitoredResourcesSummarizedCountRequest.groupBy,
+      "license": requestMonitoredResourcesSummarizedCountRequest.license,
+      "resourceType": requestMonitoredResourcesSummarizedCountRequest.resourceType,
+      "sortBy": requestMonitoredResourcesSummarizedCountRequest.sortBy,
+      "sortOrder": requestMonitoredResourcesSummarizedCountRequest.sortOrder,
+      "limit": requestMonitoredResourcesSummarizedCountRequest.limit,
+      "page": requestMonitoredResourcesSummarizedCountRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": requestMonitoredResourcesSummarizedCountRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestMonitoredResourcesSummarizedCountRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResources/actions/summarizeCount",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestMonitoredResourcesSummarizedCountResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourcesCountAggregationCollection",
+        bodyModel: model.MonitoredResourcesCountAggregationCollection,
+        type: "model.MonitoredResourcesCountAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
           }
         ]
       });
@@ -2273,6 +4328,95 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Performs test of Metric Extension on a specific resource Id
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param TestMetricExtensionRequest
+   * @return TestMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/TestMetricExtension.ts.html |here} to see how to use TestMetricExtension API.
+   */
+  public async testMetricExtension(
+    testMetricExtensionRequest: requests.TestMetricExtensionRequest
+  ): Promise<responses.TestMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#testMetricExtension.");
+    const operationName = "testMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/TestMetricExtension";
+    const pathParams = {
+      "{metricExtensionId}": testMetricExtensionRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": testMetricExtensionRequest.ifMatch,
+      "opc-request-id": testMetricExtensionRequest.opcRequestId,
+      "opc-retry-token": testMetricExtensionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}/actions/test",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testMetricExtensionRequest.testMetricExtensionDetails,
+        "TestMetricExtensionDetails",
+        model.TestMetricExtensionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestMetricExtensionResponse>{},
+        body: await response.json(),
+        bodyKey: "testMetricExtensionData",
+        bodyModel: model.TestMetricExtensionData,
+        type: "model.TestMetricExtensionData",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Provided tags will be added or updated in the existing list of tags for the affected resources.
    * Resources to be updated are identified based on association types specified.
    * If association types not specified, then tags will be updated only for the resource identified by
@@ -2346,6 +4490,94 @@ For example, when a new Management Agent gets registered in a certain compartmen
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Baseline-able metric for the given id
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateBaselineableMetricRequest
+   * @return UpdateBaselineableMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateBaselineableMetric.ts.html |here} to see how to use UpdateBaselineableMetric API.
+   */
+  public async updateBaselineableMetric(
+    updateBaselineableMetricRequest: requests.UpdateBaselineableMetricRequest
+  ): Promise<responses.UpdateBaselineableMetricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateBaselineableMetric.");
+    const operationName = "updateBaselineableMetric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/UpdateBaselineableMetricDetails/UpdateBaselineableMetric";
+    const pathParams = {
+      "{baselineableMetricId}": updateBaselineableMetricRequest.baselineableMetricId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateBaselineableMetricRequest.ifMatch,
+      "opc-request-id": updateBaselineableMetricRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBaselineableMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baselineableMetrics/{baselineableMetricId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBaselineableMetricRequest.updateBaselineableMetricDetails,
+        "UpdateBaselineableMetricDetails",
+        model.UpdateBaselineableMetricDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBaselineableMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "baselineableMetric",
+        bodyModel: model.BaselineableMetric,
+        type: "model.BaselineableMetric",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
           }
         ]
       });
@@ -2439,6 +4671,94 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Updates the Metric Extension
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateMetricExtensionRequest
+   * @return UpdateMetricExtensionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMetricExtension.ts.html |here} to see how to use UpdateMetricExtension API.
+   */
+  public async updateMetricExtension(
+    updateMetricExtensionRequest: requests.UpdateMetricExtensionRequest
+  ): Promise<responses.UpdateMetricExtensionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMetricExtension.");
+    const operationName = "updateMetricExtension";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/UpdateMetricExtension";
+    const pathParams = {
+      "{metricExtensionId}": updateMetricExtensionRequest.metricExtensionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMetricExtensionRequest.ifMatch,
+      "opc-request-id": updateMetricExtensionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMetricExtensionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/{metricExtensionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMetricExtensionRequest.updateMetricExtensionDetails,
+        "UpdateMetricExtensionDetails",
+        model.UpdateMetricExtensionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMetricExtensionResponse>{},
+        body: await response.json(),
+        bodyKey: "metricExtension",
+        bodyModel: model.MetricExtension,
+        type: "model.MetricExtension",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update monitored resource by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    * Note that \"properties\" object, if specified, will entirely replace the existing object,
    * as part this operation.
@@ -2504,6 +4824,174 @@ For example, when a new Management Agent gets registered in a certain compartmen
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update stack monitoring resource task by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateMonitoredResourceTaskRequest
+   * @return UpdateMonitoredResourceTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoredResourceTask.ts.html |here} to see how to use UpdateMonitoredResourceTask API.
+   */
+  public async updateMonitoredResourceTask(
+    updateMonitoredResourceTaskRequest: requests.UpdateMonitoredResourceTaskRequest
+  ): Promise<responses.UpdateMonitoredResourceTaskResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMonitoredResourceTask.");
+    const operationName = "updateMonitoredResourceTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/UpdateMonitoredResourceTask";
+    const pathParams = {
+      "{monitoredResourceTaskId}": updateMonitoredResourceTaskRequest.monitoredResourceTaskId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMonitoredResourceTaskRequest.ifMatch,
+      "opc-request-id": updateMonitoredResourceTaskRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMonitoredResourceTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTasks/{monitoredResourceTaskId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMonitoredResourceTaskRequest.updateMonitoredResourceTaskDetails,
+        "UpdateMonitoredResourceTaskDetails",
+        model.UpdateMonitoredResourceTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMonitoredResourceTaskResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceTask",
+        bodyModel: model.MonitoredResourceTask,
+        type: "model.MonitoredResourceTask",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the Monitored Resource Type identified by the identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateMonitoredResourceTypeRequest
+   * @return UpdateMonitoredResourceTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoredResourceType.ts.html |here} to see how to use UpdateMonitoredResourceType API.
+   */
+  public async updateMonitoredResourceType(
+    updateMonitoredResourceTypeRequest: requests.UpdateMonitoredResourceTypeRequest
+  ): Promise<responses.UpdateMonitoredResourceTypeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMonitoredResourceType.");
+    const operationName = "updateMonitoredResourceType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/UpdateMonitoredResourceType";
+    const pathParams = {
+      "{monitoredResourceTypeId}": updateMonitoredResourceTypeRequest.monitoredResourceTypeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMonitoredResourceTypeRequest.ifMatch,
+      "opc-request-id": updateMonitoredResourceTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMonitoredResourceTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResourceTypes/{monitoredResourceTypeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMonitoredResourceTypeRequest.updateMonitoredResourceTypeDetails,
+        "UpdateMonitoredResourceTypeDetails",
+        model.UpdateMonitoredResourceTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMonitoredResourceTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoredResourceType",
+        bodyModel: model.MonitoredResourceType,
+        type: "model.MonitoredResourceType",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

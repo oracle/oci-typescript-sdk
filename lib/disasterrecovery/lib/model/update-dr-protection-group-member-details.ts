@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,13 +19,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Update properties for a member in a DR Protection Group.
+ * Update properties for a member in a DR protection group.
  */
 export interface UpdateDrProtectionGroupMemberDetails {
   /**
     * The OCID of the member.
 * <p>
-Example: `ocid1.database.oc1.phx.&lt;unique_id&gt;`
+Example: `ocid1.database.oc1..uniqueID`
 * 
     */
   "memberId": string;
@@ -43,9 +44,19 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberComputeInstanceDetails>(<object>jsonObj),
             true
           );
+        case "NETWORK_LOAD_BALANCER":
+          return model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "FILE_SYSTEM":
+          return model.UpdateDrProtectionGroupMemberFileSystemDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
             true
           );
         case "VOLUME_GROUP":
@@ -56,6 +67,11 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "COMPUTE_INSTANCE_NON_MOVABLE":
           return model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER":
+          return model.UpdateDrProtectionGroupMemberLoadBalancerDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_MOVABLE":
@@ -84,9 +100,19 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberComputeInstanceDetails>(<object>jsonObj),
             true
           );
+        case "NETWORK_LOAD_BALANCER":
+          return model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "FILE_SYSTEM":
+          return model.UpdateDrProtectionGroupMemberFileSystemDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
             true
           );
         case "VOLUME_GROUP":
@@ -97,6 +123,11 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "COMPUTE_INSTANCE_NON_MOVABLE":
           return model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER":
+          return model.UpdateDrProtectionGroupMemberLoadBalancerDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_MOVABLE":

@@ -1,6 +1,6 @@
 {
   "name": "oci-accessgovernancecp",
-  "version": "2.72.0",
+  "version": "2.73.0",
   "description": "OCI NodeJS client for Access Governance Cp Service",
   "repository": {
     "type": "git",

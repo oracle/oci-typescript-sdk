@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the Oracle Autonomous Database to be registered as a target database in Data Safe.
+ * The details of the Autonomous Database to be registered as a target database in Data Safe.
  */
 export interface AutonomousDatabaseDetails extends model.DatabaseDetails {
   /**
-   * The OCID of the autonomous database registered as a target database in Data Safe.
+   * The OCID of the Autonomous Database registered as a target database in Data Safe.
    */
   "autonomousDatabaseId": string;
 

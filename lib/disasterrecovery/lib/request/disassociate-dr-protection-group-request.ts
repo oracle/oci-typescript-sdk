@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface DisassociateDrProtectionGroupRequest extends common.BaseRequest {
   /**
-   * Details for removing an association between two DR Protection Groups.
+   * Details for deleting the association between two DR protection groups.
    */
   "disassociateDrProtectionGroupDetails": model.DisassociateDrProtectionGroupDefaultDetails;
   /**
- * The OCID of the DR Protection Group.
+ * The OCID of the DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.exampleocid`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
  */
   "drProtectionGroupId": string;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details used to create a new Data Safe private endpoint.
+ * The details used to create the new Data Safe private endpoint.
  */
 export interface CreateDataSafePrivateEndpointDetails {
   /**

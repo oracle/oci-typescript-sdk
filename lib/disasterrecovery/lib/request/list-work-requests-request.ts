@@ -21,14 +21,14 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
  * The ID (OCID) of the compartment in which to list resources.
 * <p>
-Example: `ocid1.compartment.oc1..exampleocid1`
+Example: `ocid1.compartment.oc1..uniqueID`
 * 
  */
   "compartmentId"?: string;
   /**
  * The ID (OCID) of the asynchronous work request.
 * <p>
-Example: `ocid1.workrequest.oc1.phx.exampleocid1`
+Example: `ocid1.workrequest.oc1..uniqueID`
 * 
  */
   "workRequestId"?: string;
@@ -38,10 +38,11 @@ Example: `ocid1.workrequest.oc1.phx.exampleocid1`
    */
   "status"?: model.OperationStatus;
   /**
-   * The ID (OCID) of the resource affected by the work request.
-   * Example: `ocid1.drplanexecution.oc1.iad.exampleocid`
-   *
-   */
+ * The ID (OCID) of the resource affected by the work request.
+* <p>
+Example: `ocid1.drplanexecution.oc1..uniqueID`
+* 
+ */
   "resourceId"?: string;
   /**
    * The client request ID for tracing.

@@ -386,6 +386,18 @@ import * as SummarizeAlertLogCountsRequest from "./summarize-alert-log-counts-re
 export import SummarizeAlertLogCountsRequest = SummarizeAlertLogCountsRequest.SummarizeAlertLogCountsRequest;
 import * as SummarizeAttentionLogCountsRequest from "./summarize-attention-log-counts-request";
 export import SummarizeAttentionLogCountsRequest = SummarizeAttentionLogCountsRequest.SummarizeAttentionLogCountsRequest;
+import * as GetManagedMySqlDatabaseRequest from "./get-managed-my-sql-database-request";
+export import GetManagedMySqlDatabaseRequest = GetManagedMySqlDatabaseRequest.GetManagedMySqlDatabaseRequest;
+import * as GetMySqlFleetMetricRequest from "./get-my-sql-fleet-metric-request";
+export import GetMySqlFleetMetricRequest = GetMySqlFleetMetricRequest.GetMySqlFleetMetricRequest;
+import * as ListManagedMySqlDatabaseConfigurationDataRequest from "./list-managed-my-sql-database-configuration-data-request";
+export import ListManagedMySqlDatabaseConfigurationDataRequest = ListManagedMySqlDatabaseConfigurationDataRequest.ListManagedMySqlDatabaseConfigurationDataRequest;
+import * as ListManagedMySqlDatabaseSqlDataRequest from "./list-managed-my-sql-database-sql-data-request";
+export import ListManagedMySqlDatabaseSqlDataRequest = ListManagedMySqlDatabaseSqlDataRequest.ListManagedMySqlDatabaseSqlDataRequest;
+import * as ListManagedMySqlDatabasesRequest from "./list-managed-my-sql-databases-request";
+export import ListManagedMySqlDatabasesRequest = ListManagedMySqlDatabasesRequest.ListManagedMySqlDatabasesRequest;
+import * as SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest from "./summarize-managed-my-sql-database-availability-metrics-request";
+export import SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest = SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest.SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest;
 import * as ModifySnapshotSettingsRequest from "./modify-snapshot-settings-request";
 export import ModifySnapshotSettingsRequest = ModifySnapshotSettingsRequest.ModifySnapshotSettingsRequest;
 import * as CloneSqlTuningTaskRequest from "./clone-sql-tuning-task-request";

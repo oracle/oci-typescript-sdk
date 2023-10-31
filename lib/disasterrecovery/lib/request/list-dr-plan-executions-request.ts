@@ -19,32 +19,32 @@ import common = require("oci-common");
  */
 export interface ListDrPlanExecutionsRequest extends common.BaseRequest {
   /**
- * The OCID of the DR Protection Group. Mandatory query param.
+ * The OCID of the DR protection group. Mandatory query param.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.exampleocid`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
  */
   "drProtectionGroupId": string;
   /**
-   * A filter to return only DR Plan Executions that match the given lifecycleState.
+   * A filter to return only DR plan executions that match the given lifecycle state.
    *
    */
   "lifecycleState"?: model.DrPlanExecutionLifecycleState;
   /**
- * The OCID of the DR Plan Execution.
+ * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.exampleocid`
+Example: `ocid1.drplanexecution.oc1..uniqueID`
 * 
  */
   "drPlanExecutionId"?: string;
   /**
-   * The DR Plan Execution type.
+   * The DR plan execution type.
    */
   "drPlanExecutionType"?: model.DrPlanExecutionType;
   /**
- * A filter to return only resources that match the entire display name given.
+ * A filter to return only resources that match the given display name.
 * <p>
-Example: `MY UNIQUE DISPLAY NAME`
+Example: `MyResourceDisplayName`
 * 
  */
   "displayName"?: string;
@@ -78,7 +78,7 @@ For important details about how pagination works,
  * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending.
 * Default order for displayName is ascending. If no value is specified timeCreated is default.
 * <p>
-Example: `displayName`
+Example: `MyResourceDisplayName`
 * 
  */
   "sortBy"?: ListDrPlanExecutionsRequest.SortBy;

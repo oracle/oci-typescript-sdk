@@ -39,7 +39,7 @@ export interface TargetAlertPolicyAssociation {
    */
   "targetId"?: string;
   /**
-   * Indicates if the target-alert policy association is enabled or disabled.
+   * Indicates if the target-alert policy association is enabled or disabled by user.
    */
   "isEnabled"?: boolean;
   /**

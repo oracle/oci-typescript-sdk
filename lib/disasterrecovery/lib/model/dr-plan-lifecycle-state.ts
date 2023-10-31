@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,15 +19,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible lifecycle states of a DR Plan.
- * - CREATING - DR Plan is being created.
- * - UPDATING - DR Plan is being updated.
- * - ACTIVE - DR Plan is active and available for operations.
- * - INACTIVE - DR Plan is inactive and is not available for operations.
- * - DELETING - DR Plan is being deleted.
- * - DELETED - DR Plan has been deleted.
- * - FAILED - DR Plan creation failed.
- * - NEEDS_ATTENTION - DR Plan has failed to update.
+ * The lifecycle states of a DR plan.
+ * - CREATING - DR plan is being created.
+ * - UPDATING - DR plan is being updated.
+ * - ACTIVE - DR plan is active and available for operations.
+ * - INACTIVE - DR plan is inactive and is not available for operations.
+ * - DELETING - DR plan is being deleted.
+ * - DELETED - DR plan has been deleted.
+ * - FAILED - DR plan creation failed.
+ * - NEEDS_ATTENTION - DR plan has failed to update.
  *
  **/
 export enum DrPlanLifecycleState {

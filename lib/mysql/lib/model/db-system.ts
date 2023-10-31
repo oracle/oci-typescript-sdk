@@ -173,6 +173,11 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "crashRecovery"?: model.CrashRecoveryStatus;
   "pointInTimeRecoveryDetails"?: model.PointInTimeRecoveryDetails;
+  /**
+   * Whether to enable monitoring via the Database Management service.
+   *
+   */
+  "databaseManagement"?: model.DatabaseManagementStatus;
 }
 
 export namespace DbSystem {

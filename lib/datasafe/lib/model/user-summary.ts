@@ -34,7 +34,7 @@ export interface UserSummary {
    */
   "userCategory"?: UserSummary.UserCategory;
   /**
-   * The user account status.
+   * The status of the user account.
    */
   "accountStatus"?: UserSummary.AccountStatus;
   /**
@@ -42,11 +42,11 @@ export interface UserSummary {
    */
   "targetId": string;
   /**
-   * The date and time when the user last logged in, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the user last logged in, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeLastLogin"?: Date;
   /**
-   * The date and time when the user was created in the database, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the user was created in the database, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeUserCreated"?: Date;
   /**
@@ -58,7 +58,7 @@ export interface UserSummary {
    */
   "userProfile"?: string;
   /**
-   * The date and time when the user password was last changed, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the user password was last changed, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timePasswordChanged"?: Date;
   /**

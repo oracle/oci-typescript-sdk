@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,23 +19,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties for a Movable Compute Instance member of a DR Protection Group.
+ * Properties for a movable compute instance member of a DR protection group.
  */
 export interface DrProtectionGroupMemberComputeInstanceMovable
   extends model.DrProtectionGroupMember {
   /**
-    * A flag indicating if this compute instance should be moved to the same fault domain. 
-* Compute instance launch will fail if this flag is set to true and capacity is not available in that specific fault domain in the destination region.
+    * A flag indicating if the compute instance should be moved to the same fault domain in the destination region. 
+* The compute instance launch will fail if this flag is set to true and capacity is not available in the 
+* specified fault domain in the destination region.
 * <p>
 Example: `false`
 * 
     */
   "isRetainFaultDomain"?: boolean;
   /**
-    * The OCID of the capacity reservation in the destination region using which this compute instance
-* should be launched.
+    * The OCID of a capacity reservation in the destination region which will be used to launch
+* the compute instance.
 * <p>
-Example: `ocid1.capacityreservation.oc1..&lt;unique_id&gt;`
+Example: `ocid1.capacityreservation.oc1..uniqueID`
 * 
     */
   "destinationCapacityReservationId"?: string;
@@ -44,19 +46,26 @@ Example: `ocid1.capacityreservation.oc1..&lt;unique_id&gt;`
    */
   "vnicMappings"?: Array<model.ComputeInstanceMovableVnicMapping>;
   /**
-    * The OCID of the compartment for this compute instance in the destination region.
+    * The OCID of a compartment in the destination region in which the compute instance
+* should be launched.
 * <p>
-Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
+Example: `ocid1.compartment.oc1..uniqueID`
 * 
     */
   "destinationCompartmentId"?: string;
   /**
-    * The OCID of the dedicated VM Host for this compute instance in the destination region.
+    * The OCID of a dedicated VM host in the destination region where the compute instance
+* should be launched.
 * <p>
-Example: `ocid1.dedicatedvmhost.oc1..&lt;unique_id&gt;`
+Example: `ocid1.dedicatedvmhost.oc1..uniqueID`
 * 
     */
   "destinationDedicatedVmHostId"?: string;
+  /**
+   * A list of details of operations performed on file systems.
+   *
+   */
+  "fileSystemOperations"?: Array<model.ComputeInstanceMovableFileSystemOperation>;
 
   "memberType": string;
 }
@@ -76,6 +85,12 @@ export namespace DrProtectionGroupMemberComputeInstanceMovable {
         "vnicMappings": obj.vnicMappings
           ? obj.vnicMappings.map(item => {
               return model.ComputeInstanceMovableVnicMapping.getJsonObj(item);
+            })
+          : undefined,
+
+        "fileSystemOperations": obj.fileSystemOperations
+          ? obj.fileSystemOperations.map(item => {
+              return model.ComputeInstanceMovableFileSystemOperation.getJsonObj(item);
             })
           : undefined
       }
@@ -98,6 +113,12 @@ export namespace DrProtectionGroupMemberComputeInstanceMovable {
         "vnicMappings": obj.vnicMappings
           ? obj.vnicMappings.map(item => {
               return model.ComputeInstanceMovableVnicMapping.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "fileSystemOperations": obj.fileSystemOperations
+          ? obj.fileSystemOperations.map(item => {
+              return model.ComputeInstanceMovableFileSystemOperation.getDeserializedJsonObj(item);
             })
           : undefined
       }
