@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a role fetched from the database.
+ * The details of a role fetched from the database.
  */
 export interface RoleSummary {
   /**
-   * Name of the role.
+   * The name of the role.
    */
   "roleName": string;
   /**

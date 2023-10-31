@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,10 +19,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties for a Non-Movable Compute Instance member of a DR Protection Group.
+ * Properties for a non-movable compute instance member of a DR protection group.
  */
 export interface DrProtectionGroupMemberComputeInstanceNonMovable
   extends model.DrProtectionGroupMember {
+  /**
+   * A flag indicating whether the non-movable compute instance needs to be started and stopped during DR operations.
+   *
+   */
+  "isStartStopEnabled"?: boolean;
+  /**
+   * Operations performed on a list of file systems used on the non-movable compute instance.
+   *
+   */
+  "fileSystemOperations"?: Array<model.ComputeInstanceNonMovableFileSystemOperation>;
+  /**
+   * Operations performed on a list of block volumes used on the non-movable compute instance.
+   *
+   */
+  "blockVolumeOperations"?: Array<model.ComputeInstanceNonMovableBlockVolumeOperation>;
+
   "memberType": string;
 }
 
@@ -36,7 +53,18 @@ export namespace DrProtectionGroupMemberComputeInstanceNonMovable {
         : (model.DrProtectionGroupMember.getJsonObj(
             obj
           ) as DrProtectionGroupMemberComputeInstanceNonMovable)),
-      ...{}
+      ...{
+        "fileSystemOperations": obj.fileSystemOperations
+          ? obj.fileSystemOperations.map(item => {
+              return model.ComputeInstanceNonMovableFileSystemOperation.getJsonObj(item);
+            })
+          : undefined,
+        "blockVolumeOperations": obj.blockVolumeOperations
+          ? obj.blockVolumeOperations.map(item => {
+              return model.ComputeInstanceNonMovableBlockVolumeOperation.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -52,7 +80,22 @@ export namespace DrProtectionGroupMemberComputeInstanceNonMovable {
         : (model.DrProtectionGroupMember.getDeserializedJsonObj(
             obj
           ) as DrProtectionGroupMemberComputeInstanceNonMovable)),
-      ...{}
+      ...{
+        "fileSystemOperations": obj.fileSystemOperations
+          ? obj.fileSystemOperations.map(item => {
+              return model.ComputeInstanceNonMovableFileSystemOperation.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined,
+        "blockVolumeOperations": obj.blockVolumeOperations
+          ? obj.blockVolumeOperations.map(item => {
+              return model.ComputeInstanceNonMovableBlockVolumeOperation.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

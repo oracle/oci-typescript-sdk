@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDrPlanRequest extends common.BaseRequest {
   /**
-   * Details for creating the new DR Plan.
+   * Details for creating the new DR plan.
    */
   "createDrPlanDetails": model.CreateDrPlanDetails;
   /**

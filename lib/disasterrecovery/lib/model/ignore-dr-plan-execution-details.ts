@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -24,14 +25,14 @@ export interface IgnoreDrPlanExecutionDetails {
   /**
     * The unique id of the group to ignore as a whole, or the group containing the step to ignore.
 * <p>
-Example: `sgid1.group..&lt;unique_id&gt;`
+Example: `sgid1.group..uniqueID`
 * 
     */
   "groupId": string;
   /**
     * The unique id of the step to ignore (optional). Only needed when ignoring a step.
 * <p>
-Example: `sgid1.step..&lt;unique_id&gt;`
+Example: `sgid1.step..uniqueID`
 * 
     */
   "stepId"?: string;

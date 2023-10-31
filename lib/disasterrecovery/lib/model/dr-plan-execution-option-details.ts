@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -30,14 +31,34 @@ export namespace DrPlanExecutionOptionDetails {
 
     if (obj && "planExecutionType" in obj && obj.planExecutionType) {
       switch (obj.planExecutionType) {
+        case "STOP_DRILL_PRECHECK":
+          return model.StopDrillPrecheckExecutionOptionDetails.getJsonObj(
+            <model.StopDrillPrecheckExecutionOptionDetails>(<object>jsonObj),
+            true
+          );
         case "SWITCHOVER_PRECHECK":
           return model.SwitchoverPrecheckExecutionOptionDetails.getJsonObj(
             <model.SwitchoverPrecheckExecutionOptionDetails>(<object>jsonObj),
             true
           );
+        case "STOP_DRILL":
+          return model.StopDrillExecutionOptionDetails.getJsonObj(
+            <model.StopDrillExecutionOptionDetails>(<object>jsonObj),
+            true
+          );
         case "FAILOVER_PRECHECK":
           return model.FailoverPrecheckExecutionOptionDetails.getJsonObj(
             <model.FailoverPrecheckExecutionOptionDetails>(<object>jsonObj),
+            true
+          );
+        case "START_DRILL":
+          return model.StartDrillExecutionOptionDetails.getJsonObj(
+            <model.StartDrillExecutionOptionDetails>(<object>jsonObj),
+            true
+          );
+        case "START_DRILL_PRECHECK":
+          return model.StartDrillPrecheckExecutionOptionDetails.getJsonObj(
+            <model.StartDrillPrecheckExecutionOptionDetails>(<object>jsonObj),
             true
           );
         case "SWITCHOVER":
@@ -62,14 +83,34 @@ export namespace DrPlanExecutionOptionDetails {
 
     if (obj && "planExecutionType" in obj && obj.planExecutionType) {
       switch (obj.planExecutionType) {
+        case "STOP_DRILL_PRECHECK":
+          return model.StopDrillPrecheckExecutionOptionDetails.getDeserializedJsonObj(
+            <model.StopDrillPrecheckExecutionOptionDetails>(<object>jsonObj),
+            true
+          );
         case "SWITCHOVER_PRECHECK":
           return model.SwitchoverPrecheckExecutionOptionDetails.getDeserializedJsonObj(
             <model.SwitchoverPrecheckExecutionOptionDetails>(<object>jsonObj),
             true
           );
+        case "STOP_DRILL":
+          return model.StopDrillExecutionOptionDetails.getDeserializedJsonObj(
+            <model.StopDrillExecutionOptionDetails>(<object>jsonObj),
+            true
+          );
         case "FAILOVER_PRECHECK":
           return model.FailoverPrecheckExecutionOptionDetails.getDeserializedJsonObj(
             <model.FailoverPrecheckExecutionOptionDetails>(<object>jsonObj),
+            true
+          );
+        case "START_DRILL":
+          return model.StartDrillExecutionOptionDetails.getDeserializedJsonObj(
+            <model.StartDrillExecutionOptionDetails>(<object>jsonObj),
+            true
+          );
+        case "START_DRILL_PRECHECK":
+          return model.StartDrillPrecheckExecutionOptionDetails.getDeserializedJsonObj(
+            <model.StartDrillPrecheckExecutionOptionDetails>(<object>jsonObj),
             true
           );
         case "SWITCHOVER":

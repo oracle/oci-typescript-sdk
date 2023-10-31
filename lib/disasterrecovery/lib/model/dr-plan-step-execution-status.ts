@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,17 +19,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible execution statuses for a DR Plan Step.
- * - QUEUED - DR Plan Step execution has been queued.
- * - DISABLED - DR Plan Step execution has been disabled.
- * - IN_PROGRESS - DR Plan Step execution is in progress.
- * - SUCCEEDED - DR Plan Step execution has succeeded.
- * - FAILED - DR Plan Step execution has failed.
- * - FAILED_IGNORED - DR Plan Step execution has failed, but was ignored.
- * - TIMED_OUT - DR Plan Step execution has timed out.
- * - TIMED_OUT_IGNORED - DR Plan Step execution has timed out, but was ignored.
- * - PAUSED - DR Plan Step execution has paused.
- * - CANCELED - DR Plan Step execution has been canceled.
+ * The execution statuses for a DR plan step.
+ * - QUEUED - DR plan step execution has been queued.
+ * - DISABLED - DR plan step execution has been disabled.
+ * - IN_PROGRESS - DR plan step execution is in progress.
+ * - SUCCEEDED - DR plan step execution has succeeded.
+ * - FAILED - DR plan step execution has failed.
+ * - FAILED_IGNORED - DR plan step execution has failed, but was ignored.
+ * - TIMED_OUT - DR plan step execution has timed out.
+ * - TIMED_OUT_IGNORED - DR plan step execution has timed out, but was ignored.
+ * - PAUSED - DR plan step execution has paused.
+ * - CANCELED - DR plan step execution has been canceled.
  *
  **/
 export enum DrPlanStepExecutionStatus {

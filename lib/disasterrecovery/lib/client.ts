@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -197,8 +198,8 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Create an association between the DR Protection Group identified by *drProtectionGroupId* and
-   * another DR Protection Group in a different region.
+   * Create an association between the DR protection group identified by *drProtectionGroupId* and
+   * another DR protection group.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AssociateDrProtectionGroupRequest
@@ -278,7 +279,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Cancel the DR Plan Execution indentified by *drPlanExecutionId*.
+   * Cancel the DR plan execution identified by *drPlanExecutionId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelDrPlanExecutionRequest
    * @return CancelDrPlanExecutionResponse
@@ -425,7 +426,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Move the DR Protection Group identified by *drProtectionGroupId* to a different compartment.
+   * Move the DR protection group identified by *drProtectionGroupId* to a different compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDrProtectionGroupCompartmentRequest
    * @return ChangeDrProtectionGroupCompartmentResponse
@@ -506,7 +507,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Creates a new DR Plan of the specified DR Plan type.
+   * Create a DR plan of the specified DR plan type.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDrPlanRequest
    * @return CreateDrPlanResponse
@@ -595,7 +596,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Execute a DR Plan for a DR Protection Group.
+   * Execute a DR plan for a DR protection group.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDrPlanExecutionRequest
    * @return CreateDrPlanExecutionResponse
@@ -685,7 +686,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Create a new DR Protection Group.
+   * Create a DR protection group.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDrProtectionGroupRequest
    * @return CreateDrProtectionGroupResponse
@@ -775,7 +776,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Delete the DR Plan identified by *drPlanId*.
+   * Delete the DR plan identified by *drPlanId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDrPlanRequest
    * @return DeleteDrPlanResponse
@@ -842,7 +843,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Delete the DR Plan Execution identified by *drPlanExecutionId*.
+   * Delete the DR plan execution identified by *drPlanExecutionId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDrPlanExecutionRequest
    * @return DeleteDrPlanExecutionResponse
@@ -915,7 +916,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Delete the DR Protection Group identified by *drProtectionGroupId*.
+   * Delete the DR protection group identified by *drProtectionGroupId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDrProtectionGroupRequest
    * @return DeleteDrProtectionGroupResponse
@@ -988,8 +989,8 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Delete the association between the DR Protection Group identified by *drProtectionGroupId*.
-   * and its peer DR Protection Group.
+   * Delete the association between the DR protection group identified by *drProtectionGroupId*.
+   * and its peer DR protection group.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisassociateDrProtectionGroupRequest
@@ -1069,7 +1070,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Get details for the DR Plan identified by *drPlanId*.
+   * Get details for the DR plan identified by *drPlanId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDrPlanRequest
    * @return GetDrPlanResponse
@@ -1144,7 +1145,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Get details for the DR Plan Execution identified by *drPlanExecutionId*.
+   * Get details for the DR plan execution identified by *drPlanExecutionId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDrPlanExecutionRequest
    * @return GetDrPlanExecutionResponse
@@ -1220,7 +1221,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Get the DR Protection Group identified by *drProtectionGroupId*.
+   * Get the DR protection group identified by *drProtectionGroupId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDrProtectionGroupRequest
    * @return GetDrProtectionGroupResponse
@@ -1376,7 +1377,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Ignore failed group or step in DR Plan Execution identified by *drPlanExecutionId* and resume execution.
+   * Ignore the failed group or step in DR plan execution identified by *drPlanExecutionId* and resume execution.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IgnoreDrPlanExecutionRequest
    * @return IgnoreDrPlanExecutionResponse
@@ -1455,7 +1456,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Get a summary list of all DR Plan Executions for a DR Protection Group.
+   * Get a summary list of all DR plan executions for a DR protection group.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDrPlanExecutionsRequest
    * @return ListDrPlanExecutionsResponse
@@ -1539,7 +1540,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Gets a summary list of all DR Plans for a DR Protection Group.
+   * Get a summary list of all DR plans for a DR protection group.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDrPlansRequest
    * @return ListDrPlansResponse
@@ -1622,7 +1623,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Gets a summary list of all DR Protection Groups in a compartment.
+   * Get a summary list of all DR protection groups in a compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDrProtectionGroupsRequest
    * @return ListDrProtectionGroupsResponse
@@ -1647,7 +1648,8 @@ export class DisasterRecoveryClient {
       "page": listDrProtectionGroupsRequest.page,
       "sortOrder": listDrProtectionGroupsRequest.sortOrder,
       "sortBy": listDrProtectionGroupsRequest.sortBy,
-      "role": listDrProtectionGroupsRequest.role
+      "role": listDrProtectionGroupsRequest.role,
+      "lifecycleSubState": listDrProtectionGroupsRequest.lifecycleSubState
     };
 
     let headerParams = {
@@ -1706,7 +1708,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Get a list of work request errors for the work request identified by *workRequestId*.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
@@ -1788,7 +1790,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Return a (paginated) list of logs for the work request identified by *workRequestId*.
+   * Get a list of logs for the work request identified by *workRequestId*.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
@@ -1954,7 +1956,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Pause the DR Plan Execution identified by *drPlanExecutionId*.
+   * Pause the DR plan execution identified by *drPlanExecutionId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PauseDrPlanExecutionRequest
    * @return PauseDrPlanExecutionResponse
@@ -2033,7 +2035,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Resume the DR Plan Execution identified by *drPlanExecutionId*.
+   * Resume the DR plan execution identified by *drPlanExecutionId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeDrPlanExecutionRequest
    * @return ResumeDrPlanExecutionResponse
@@ -2112,7 +2114,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Retry failed group or step in DR Plan Execution identified by *drPlanExecutionId* and resume execution.
+   * Retry the failed group or step in DR plan execution identified by *drPlanExecutionId* and resume execution.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RetryDrPlanExecutionRequest
    * @return RetryDrPlanExecutionResponse
@@ -2191,7 +2193,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Update the DR Plan identified by *drPlanId*.
+   * Update the DR plan identified by *drPlanId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrPlanRequest
    * @return UpdateDrPlanResponse
@@ -2268,7 +2270,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Update the DR Plan Execution identified by *drPlanExecutionId*.
+   * Update the DR plan execution identified by *drPlanExecutionId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrPlanExecutionRequest
    * @return UpdateDrPlanExecutionResponse
@@ -2346,7 +2348,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Update the DR Protection Group identified by *drProtectionGroupId*.
+   * Update the DR protection group identified by *drProtectionGroupId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrProtectionGroupRequest
    * @return UpdateDrProtectionGroupResponse
@@ -2424,7 +2426,7 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Update the role of the DR Protection Group identified by *drProtectionGroupId*.
+   * Update the role of the DR protection group identified by *drProtectionGroupId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrProtectionGroupRoleRequest
    * @return UpdateDrProtectionGroupRoleResponse

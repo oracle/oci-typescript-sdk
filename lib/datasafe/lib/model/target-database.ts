@@ -42,7 +42,7 @@ export interface TargetDatabase {
   "tlsConfig"?: model.TlsConfig;
   "connectionOption"?: model.PrivateEndpoint | model.OnPremiseConnector;
   /**
-   * The OCIDs of associated resources like Database, Data Safe private endpoint etc.
+   * The OCIDs of associated resources like database, Data Safe private endpoint etc.
    */
   "associatedResourceIds"?: Array<string>;
   /**
@@ -54,7 +54,7 @@ export interface TargetDatabase {
    */
   "lifecycleDetails"?: string;
   /**
-   * The date and time of target database registration and creation in Data Safe.
+   * The date and time of the target database registration and creation in Data Safe.
    */
   "timeCreated": Date;
   /**

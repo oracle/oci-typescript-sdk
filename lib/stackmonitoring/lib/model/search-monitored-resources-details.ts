@@ -64,6 +64,10 @@ export interface SearchMonitoredResourcesDetails {
    */
   "lifecycleState"?: model.ResourceLifecycleState;
   /**
+   * License edition of the monitored resource.
+   */
+  "license"?: model.LicenseType;
+  /**
    * Search for resources that were created within a specific date range,
    * using this parameter to specify the earliest creation date for the
    * returned list (inclusive). Specifying this parameter without the

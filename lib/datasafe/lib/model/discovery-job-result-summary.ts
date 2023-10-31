@@ -91,7 +91,7 @@ export interface DiscoveryJobResultSummary {
    */
   "plannedAction": string;
   /**
-   * Indicates if the discovery result has been processed. You can update this attribute using the PatchDiscoveryJobResults
+   * Indicates whether the discovery result has been processed. You can update this attribute using the PatchDiscoveryJobResults
    * operation to track whether the discovery result has already been processed and applied to the sensitive data model.
    *
    */

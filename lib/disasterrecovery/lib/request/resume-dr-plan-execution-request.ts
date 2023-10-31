@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface ResumeDrPlanExecutionRequest extends common.BaseRequest {
   /**
-   * Details for resuming a DR Plan Execution.
+   * Details for resuming the DR plan execution.
    */
   "resumeDrPlanExecutionDetails": model.ResumeDrPlanExecutionDetails;
   /**
- * The OCID of the DR Plan Execution.
+ * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.exampleocid`
+Example: `ocid1.drplanexecution.oc1..uniqueID`
 * 
  */
   "drPlanExecutionId": string;

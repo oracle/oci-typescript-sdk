@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface ChangeDrProtectionGroupCompartmentRequest extends common.BaseRequest {
   /**
-   * Details of DR Protection Group compartment to change.
+   * Details for changing the DR protection group compartment.
    */
   "changeDrProtectionGroupCompartmentDetails": model.ChangeDrProtectionGroupCompartmentDetails;
   /**
- * The OCID of the DR Protection Group.
+ * The OCID of the DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.exampleocid`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
  */
   "drProtectionGroupId": string;

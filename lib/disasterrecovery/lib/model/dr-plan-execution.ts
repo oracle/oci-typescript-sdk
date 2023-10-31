@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,64 +19,69 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of a DR Plan Execution.
+ * The details of a DR plan execution.
  */
 export interface DrPlanExecution {
   /**
-    * The OCID of the DR Plan Execution.
+    * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.&lt;unique_id&gt;`
+Example: `ocid1.drplanexecution.oc1..uniqueID`
 * 
     */
   "id": string;
   /**
-    * The OCID of the compartment containing this DR Plan Execution.
+    * The OCID of the compartment containing this DR plan execution.
 * <p>
-Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
+Example: `ocid1.compartment.oc1..uniqueID`
 * 
     */
   "compartmentId": string;
   /**
-    * The display name of this DR Plan Execution.
+    * The display name of the DR plan execution.
 * <p>
 Example: `Execution - EBS Switchover PHX to IAD`
 * 
     */
   "displayName": string;
   /**
-    * The OCID of the DR Plan.
+    * The OCID of the DR plan.
 * <p>
-Example: `ocid1.drplan.oc1.iad.&lt;unique_id&gt;`
+Example: `ocid1.drplan.oc1..uniqueID`
 * 
     */
   "planId": string;
   /**
-   * The type of the DR Plan executed.
+   * The type of the DR plan executed.
    *
    */
   "planExecutionType": model.DrPlanExecutionType;
   "executionOptions":
+    | model.StopDrillExecutionOptions
     | model.SwitchoverExecutionOptions
     | model.FailoverPrecheckExecutionOptions
+    | model.StartDrillExecutionOptions
     | model.SwitchoverPrecheckExecutionOptions
+    | model.StartDrillPrecheckExecutionOptions
+    | model.StopDrillPrecheckExecutionOptions
     | model.FailoverExecutionOptions;
   /**
-    * The OCID of the DR Protection Group to which this DR Plan Execution belongs.
+    * The OCID of the DR protection group to which this DR plan execution belongs.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.iad.&lt;unique_id&gt;`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
     */
   "drProtectionGroupId": string;
   /**
-    * The OCID of peer (remote) DR Protection Group associated with this plan's
-* DR Protection Group.
+    * The OCID of peer DR protection group associated with this plan's
+* DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.&lt;unique_id&gt;`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
     */
   "peerDrProtectionGroupId": string;
   /**
-    * The region of the peer (remote) DR Protection Group.
+    * The region of the peer DR protection group associated with this plan's
+* DR protection group.
 * <p>
 Example: `us-ashburn-1`
 * 
@@ -83,28 +89,28 @@ Example: `us-ashburn-1`
   "peerRegion": string;
   "logLocation": model.ObjectStorageLogLocation;
   /**
-    * The date and time at which DR Plan Execution was created. An RFC3339 formatted datetime string.
+    * The date and time at which DR plan execution was created. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
     */
   "timeCreated": Date;
   /**
-    * The date and time at which DR Plan Execution began. An RFC3339 formatted datetime string.
+    * The date and time at which DR plan execution began. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
     */
   "timeStarted"?: Date;
   /**
-    * The time at which DR Plan Execution was last updated. An RFC3339 formatted datetime string.
+    * The time when DR plan execution was last updated. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
     */
   "timeUpdated": Date;
   /**
-    * The date and time at which DR Plan Execution succeeded, failed, was paused, or was canceled.
+    * The date and time at which DR plan execution succeeded, failed, was paused, or was canceled.
 * An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
@@ -112,46 +118,47 @@ Example: `2019-03-29T09:36:42Z`
     */
   "timeEnded"?: Date;
   /**
-    * The total duration in seconds taken to complete the DR Plan Execution.
+    * The total duration in seconds taken to complete the DR plan execution.
 * <p>
 Example: `750`
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "executionDurationInSec"?: number;
   /**
-   * A list of groups executed in this DR Plan Execution.
+   * A list of groups executed in this DR plan execution.
    *
    */
   "groupExecutions": Array<model.DrPlanGroupExecution>;
   /**
-   * The current state of the DR Plan Execution.
+   * The current state of the DR plan execution.
    *
    */
   "lifecycleState": model.DrPlanExecutionLifecycleState;
   /**
-    * A message describing the DR Plan Execution's current state in more detail.
-* <p>
-Example: `The DR Plan Execution [Execution - EBS Switchover PHX to IAD] is currently in progress`
-* 
-    */
+   * A message describing the DR plan execution's current state in more detail.
+   *
+   */
   "lifeCycleDetails"?: string;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"Department\": \"Finance\"}`
-   *
-   */
+    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+* <p>
+Example: `{\"Department\": \"Finance\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
-   *
-   */
+    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* 
+    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
-   *
-   */
+    * Usage of system tag keys. These predefined keys are scoped to namespaces.
+* <p>
+Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+* 
+    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 

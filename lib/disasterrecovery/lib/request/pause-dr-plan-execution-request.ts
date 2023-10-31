@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface PauseDrPlanExecutionRequest extends common.BaseRequest {
   /**
-   * Details for pausing a DR Plan Execution.
+   * Details for pausing the DR plan execution.
    */
   "pauseDrPlanExecutionDetails": model.PauseDrPlanExecutionDetails;
   /**
- * The OCID of the DR Plan Execution.
+ * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.exampleocid`
+Example: `ocid1.drplanexecution.oc1..uniqueID`
 * 
  */
   "drPlanExecutionId": string;

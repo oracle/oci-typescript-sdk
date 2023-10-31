@@ -121,7 +121,7 @@ export interface ListSensitiveColumnsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListSensitiveColumnsRequest.SortOrder;
   /**
-   * The field to sort by. You can specify only one sort order (sortOrder). The default order for timeCreated is descending.
+   * The field to sort by. You can specify only one sorting parameter (sortOrder). The default order for timeCreated is descending.
    * The default order for schemaName, objectName, and columnName is ascending.
    *
    */

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Sort orders.
+ * Defines the sorting order of the assessment (ascending or descending).
  **/
 export enum SortOrders {
   Asc = "ASC",

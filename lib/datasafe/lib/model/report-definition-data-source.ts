@@ -20,6 +20,8 @@ import common = require("oci-common");
 export enum ReportDefinitionDataSource {
   Events = "EVENTS",
   Alerts = "ALERTS",
+  Violations = "VIOLATIONS",
+  AllowedSql = "ALLOWED_SQL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

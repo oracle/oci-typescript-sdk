@@ -31,7 +31,7 @@ export interface ListFindingsRequest extends common.BaseRequest {
    */
   "severity"?: ListFindingsRequest.Severity;
   /**
-   * An optional filter to return only findings containing the specified reference.
+   * An optional filter to return only findings that match the specified reference.
    */
   "references"?: model.SecurityAssessmentReferences;
   /**
@@ -57,7 +57,9 @@ export interface ListFindingsRequest extends common.BaseRequest {
    */
   "accessLevel"?: ListFindingsRequest.AccessLevel;
   /**
-   * Each finding has a key. This key is same for the finding across targets
+   * Each finding in security assessment has an associated key (think of key as a finding's name).
+   * For a given finding, the key will be the same across targets. The user can use these keys to filter the findings.
+   *
    */
   "findingKey"?: string;
 }

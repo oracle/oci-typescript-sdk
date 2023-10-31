@@ -38,6 +38,10 @@ export interface MonitoredResourceSummary {
    */
   "type": string;
   /**
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "compartmentId"?: string;
+  /**
    * Monitored Resource Host Name.
    *
    */
@@ -71,6 +75,10 @@ export interface MonitoredResourceSummary {
    *
    */
   "properties"?: Array<model.MonitoredResourceProperty>;
+  /**
+   * License edition of the monitored resource.
+   */
+  "license"?: model.LicenseType;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

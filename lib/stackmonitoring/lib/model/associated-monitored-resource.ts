@@ -64,6 +64,10 @@ export interface AssociatedMonitoredResource {
    */
   "lifecycleState"?: model.ResourceLifecycleState;
   /**
+   * License edition of the monitored resource.
+   */
+  "license"?: model.LicenseType;
+  /**
    * Association details of the resource.
    *
    */

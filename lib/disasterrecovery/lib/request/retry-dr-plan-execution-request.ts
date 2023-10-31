@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface RetryDrPlanExecutionRequest extends common.BaseRequest {
   /**
-   * Details of the failed group or step to retry.
+   * Details for retrying execution of the failed group or step.
    */
   "retryDrPlanExecutionDetails": model.RetryDrPlanExecutionDetails;
   /**
- * The OCID of the DR Plan Execution.
+ * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.exampleocid`
+Example: `ocid1.drplanexecution.oc1..uniqueID`
 * 
  */
   "drPlanExecutionId": string;

@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,39 +19,45 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for creating a DR Plan Execution.
+ * The details for creating a DR plan execution.
  */
 export interface CreateDrPlanExecutionDetails {
   /**
-    * The display name of the DR Plan Execution.
+    * The display name of the DR plan execution.
 * <p>
 Example: `Execution - EBS Switchover PHX to IAD`
 * 
     */
   "displayName"?: string;
   /**
-    * The OCID of the DR Plan.
+    * The OCID of the DR plan.
 * <p>
-Example: `ocid1.drplan.oc1.iad.&lt;unique_id&gt;`
+Example: `ocid1.drplan.oc1..uniqueID`
 * 
     */
   "planId": string;
   "executionOptions":
+    | model.StopDrillPrecheckExecutionOptionDetails
     | model.SwitchoverPrecheckExecutionOptionDetails
+    | model.StopDrillExecutionOptionDetails
     | model.FailoverPrecheckExecutionOptionDetails
+    | model.StartDrillExecutionOptionDetails
+    | model.StartDrillPrecheckExecutionOptionDetails
     | model.SwitchoverExecutionOptionDetails
     | model.FailoverExecutionOptionDetails;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"Department\": \"Finance\"}`
-   *
-   */
+    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+* <p>
+Example: `{\"Department\": \"Finance\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
-   *
-   */
+    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* 
+    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 

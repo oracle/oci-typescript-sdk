@@ -35,7 +35,7 @@ export interface ListMaskedColumnsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListMaskedColumnsRequest.SortOrder;
   /**
-   * The field to sort by. You can specify only one sort order (sortOrder). The default order for all the fields is ascending.
+   * The field to sort by. You can specify only one sorting parameter (sortOrder). The default order for all the fields is ascending.
    *
    */
   "sortBy"?: ListMaskedColumnsRequest.SortBy;

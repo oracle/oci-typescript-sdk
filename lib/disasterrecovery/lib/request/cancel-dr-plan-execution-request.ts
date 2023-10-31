@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface CancelDrPlanExecutionRequest extends common.BaseRequest {
   /**
-   * Details for canceling a DR Plan Execution.
+   * Details for canceling the DR plan execution.
    */
   "cancelDrPlanExecutionDetails": model.CancelDrPlanExecutionDetails;
   /**
- * The OCID of the DR Plan Execution.
+ * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.exampleocid`
+Example: `ocid1.drplanexecution.oc1..uniqueID`
 * 
  */
   "drPlanExecutionId": string;

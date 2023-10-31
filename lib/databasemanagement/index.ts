@@ -26,5 +26,6 @@ export { responses };
 export import DbManagementClient = client.DbManagementClient;
 export import DbManagementWaiter = dbmanagement_waiter.DbManagementWaiter;
 export import DiagnosabilityClient = client.DiagnosabilityClient;
+export import ManagedMySqlDatabasesClient = client.ManagedMySqlDatabasesClient;
 export import PerfhubClient = client.PerfhubClient;
 export import SqlTuningClient = client.SqlTuningClient;

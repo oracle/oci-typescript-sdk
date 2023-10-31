@@ -21,26 +21,26 @@ export interface ListDrProtectionGroupsRequest extends common.BaseRequest {
   /**
  * The ID (OCID) of the compartment in which to list resources.
 * <p>
-Example: `ocid1.compartment.oc1..exampleocid1`
+Example: `ocid1.compartment.oc1..uniqueID`
 * 
  */
   "compartmentId": string;
   /**
-   * A filter to return only DR Protection Groups that match the given lifecycleState.
+   * A filter to return only DR protection groups that match the given lifecycle state.
    *
    */
   "lifecycleState"?: model.DrProtectionGroupLifecycleState;
   /**
- * The OCID of the DR Protection Group. Optional query param.
+ * The OCID of the DR protection group. Optional query param.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.exampleocid`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
  */
   "drProtectionGroupId"?: string;
   /**
- * A filter to return only resources that match the entire display name given.
+ * A filter to return only resources that match the given display name.
 * <p>
-Example: `MY UNIQUE DISPLAY NAME`
+Example: `MyResourceDisplayName`
 * 
  */
   "displayName"?: string;
@@ -74,7 +74,7 @@ For important details about how pagination works,
  * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending.
 * Default order for displayName is ascending. If no value is specified timeCreated is default.
 * <p>
-Example: `displayName`
+Example: `MyResourceDisplayName`
 * 
  */
   "sortBy"?: ListDrProtectionGroupsRequest.SortBy;
@@ -84,9 +84,14 @@ Example: `displayName`
    */
   "opcRequestId"?: string;
   /**
-   * The DR Protection Group Role.
+   * The DR protection group Role.
    */
   "role"?: model.DrProtectionGroupRole;
+  /**
+   * A filter to return only DR protection groups that match the given lifecycle sub-state.
+   *
+   */
+  "lifecycleSubState"?: model.DrProtectionGroupLifecycleSubState;
 }
 
 export namespace ListDrProtectionGroupsRequest {

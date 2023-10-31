@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,33 +19,36 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for updating a DR Protection Group.
+ * The details for updating a DR protection group.
  */
 export interface UpdateDrProtectionGroupDetails {
   /**
-    * The display name of the DR Protection Group.
+    * The display name of the DR protection group.
 * <p>
-Example: `EBS PHX DRPG`
+Example: `EBS PHX Group`
 * 
     */
   "displayName"?: string;
   "logLocation"?: model.UpdateObjectStorageLogLocationDetails;
   /**
-   * A list of DR Protection Group members.
+   * A list of DR protection group members.  When updating members, this list must contain all members being retained,
+   * including added and updated members. The list must not contain deleted members.
    *
    */
   "members"?: Array<model.UpdateDrProtectionGroupMemberDetails>;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"Department\": \"Finance\"}`
-   *
-   */
+    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+* <p>
+Example: `{\"Department\": \"Finance\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
-   *
-   */
+    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* 
+    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 

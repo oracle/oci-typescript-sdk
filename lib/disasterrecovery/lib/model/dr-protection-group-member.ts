@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,13 +19,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties for a member in a DR Protection Group.
+ * The properties of a member in a DR protection group.
  */
 export interface DrProtectionGroupMember {
   /**
     * The OCID of the member.
 * <p>
-Example: `ocid1.instance.oc1.phx.&lt;unique_id&gt;`
+Example: `ocid1.instance.oc1..uniqueID`
 * 
     */
   "memberId": string;
@@ -43,6 +44,16 @@ export namespace DrProtectionGroupMember {
             <model.DrProtectionGroupMemberVolumeGroup>(<object>jsonObj),
             true
           );
+        case "NETWORK_LOAD_BALANCER":
+          return model.DrProtectionGroupMemberNetworkLoadBalancer.getJsonObj(
+            <model.DrProtectionGroupMemberNetworkLoadBalancer>(<object>jsonObj),
+            true
+          );
+        case "FILE_SYSTEM":
+          return model.DrProtectionGroupMemberFileSystem.getJsonObj(
+            <model.DrProtectionGroupMemberFileSystem>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_MOVABLE":
           return model.DrProtectionGroupMemberComputeInstanceMovable.getJsonObj(
             <model.DrProtectionGroupMemberComputeInstanceMovable>(<object>jsonObj),
@@ -51,6 +62,11 @@ export namespace DrProtectionGroupMember {
         case "AUTONOMOUS_DATABASE":
           return model.DrProtectionGroupMemberAutonomousDatabase.getJsonObj(
             <model.DrProtectionGroupMemberAutonomousDatabase>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER":
+          return model.DrProtectionGroupMemberLoadBalancer.getJsonObj(
+            <model.DrProtectionGroupMemberLoadBalancer>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE":
@@ -84,6 +100,16 @@ export namespace DrProtectionGroupMember {
             <model.DrProtectionGroupMemberVolumeGroup>(<object>jsonObj),
             true
           );
+        case "NETWORK_LOAD_BALANCER":
+          return model.DrProtectionGroupMemberNetworkLoadBalancer.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberNetworkLoadBalancer>(<object>jsonObj),
+            true
+          );
+        case "FILE_SYSTEM":
+          return model.DrProtectionGroupMemberFileSystem.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberFileSystem>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_MOVABLE":
           return model.DrProtectionGroupMemberComputeInstanceMovable.getDeserializedJsonObj(
             <model.DrProtectionGroupMemberComputeInstanceMovable>(<object>jsonObj),
@@ -92,6 +118,11 @@ export namespace DrProtectionGroupMember {
         case "AUTONOMOUS_DATABASE":
           return model.DrProtectionGroupMemberAutonomousDatabase.getDeserializedJsonObj(
             <model.DrProtectionGroupMemberAutonomousDatabase>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER":
+          return model.DrProtectionGroupMemberLoadBalancer.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberLoadBalancer>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE":

@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,98 +19,106 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information about a DR Plan Execution.
+ * The summary of a DR plan.
  */
 export interface DrPlanSummary {
   /**
-    * The OCID of this DR Plan.
+    * The OCID of the DR plan.
 * <p>
-Example: `ocid1.drplan.oc1.iad.&lt;unique_id&gt;`
+Example: `ocid1.drplan.oc1..uniqueID`
 * 
     */
   "id": string;
   /**
-    * The OCID of the compartment containing the DR Plan.
+    * The OCID of the compartment containing the DR plan.
 * <p>
-Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
+Example: `ocid1.compartment.oc1..uniqueID`
 * 
     */
   "compartmentId": string;
   /**
-    * The display name of this DR Plan.
+    * The display name of the DR plan.
 * <p>
 Example: `EBS Switchover PHX to IAD`
 * 
     */
   "displayName": string;
   /**
-   * The type of this DR Plan.
-   *
-   */
+    * The type of the DR plan.
+* <p>
+Example: `SWITCHOVER`
+* 
+    */
   "type": model.DrPlanType;
   /**
-    * The OCID of the DR Protection Group with which this DR Plan is associated.
+    * The OCID of the DR protection group to which this DR plan belongs.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.iad.&lt;unique_id&gt;`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
     */
   "drProtectionGroupId": string;
   /**
-    * The OCID of peer (remote) DR Protection Group associated with this plan execution's
-* DR Protection Group.
+    * The OCID of the peer DR protection group associated with this plan's
+* DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.&lt;unique_id&gt;`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
     */
   "peerDrProtectionGroupId": string;
   /**
-    * The region of the peer (remote) DR Protection Group.
+    * The region of the peer DR protection group associated with this plan's
+* DR protection group.
 * <p>
-Example: `us-phoenix-1`
+Example: `us-ashburn-1`
 * 
     */
   "peerRegion": string;
   /**
-    * The date and time the DR Plan was created. An RFC3339 formatted datetime string.
+    * The date and time the DR plan was created. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
     */
   "timeCreated": Date;
   /**
-    * The date and time the DR Plan was updated. An RFC3339 formatted datetime string.
+    * The date and time the DR plan was updated. An RFC3339 formatted datetime string.
 * <p>
 Example: `2019-03-29T09:36:42Z`
 * 
     */
   "timeUpdated": Date;
   /**
-   * The current state of the DR Plan.
-   *
-   */
+    * The current state of the DR plan.
+* <p>
+Example: `ACTIVE`
+* 
+    */
   "lifecycleState": model.DrPlanLifecycleState;
   /**
-   * A message describing the DR Plan's current state in more detail.
+   * A message describing the DR plan's current state in more detail.
    *
    */
   "lifeCycleDetails"?: string;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"Department\": \"Finance\"}`
-   *
-   */
+    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+* <p>
+Example: `{\"Department\": \"Finance\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
-   *
-   */
+    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* 
+    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
-   *
-   */
+    * Usage of system tag keys. These predefined keys are scoped to namespaces.
+* <p>
+Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+* 
+    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 

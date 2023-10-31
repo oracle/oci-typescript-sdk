@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,16 +19,36 @@ import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
 import * as AssociateDrProtectionGroupDetails from "./associate-dr-protection-group-details";
 export import AssociateDrProtectionGroupDetails = AssociateDrProtectionGroupDetails.AssociateDrProtectionGroupDetails;
+import * as BlockVolumeAttachmentDetails from "./block-volume-attachment-details";
+export import BlockVolumeAttachmentDetails = BlockVolumeAttachmentDetails.BlockVolumeAttachmentDetails;
+import * as BlockVolumeMountDetails from "./block-volume-mount-details";
+export import BlockVolumeMountDetails = BlockVolumeMountDetails.BlockVolumeMountDetails;
 import * as ChangeDrProtectionGroupCompartmentDetails from "./change-dr-protection-group-compartment-details";
 export import ChangeDrProtectionGroupCompartmentDetails = ChangeDrProtectionGroupCompartmentDetails.ChangeDrProtectionGroupCompartmentDetails;
+import * as ComputeInstanceMovableFileSystemOperation from "./compute-instance-movable-file-system-operation";
+export import ComputeInstanceMovableFileSystemOperation = ComputeInstanceMovableFileSystemOperation.ComputeInstanceMovableFileSystemOperation;
 import * as ComputeInstanceMovableVnicMapping from "./compute-instance-movable-vnic-mapping";
 export import ComputeInstanceMovableVnicMapping = ComputeInstanceMovableVnicMapping.ComputeInstanceMovableVnicMapping;
 import * as ComputeInstanceMovableVnicMappingDetails from "./compute-instance-movable-vnic-mapping-details";
 export import ComputeInstanceMovableVnicMappingDetails = ComputeInstanceMovableVnicMappingDetails.ComputeInstanceMovableVnicMappingDetails;
+import * as ComputeInstanceNonMovableBlockVolumeOperation from "./compute-instance-non-movable-block-volume-operation";
+export import ComputeInstanceNonMovableBlockVolumeOperation = ComputeInstanceNonMovableBlockVolumeOperation.ComputeInstanceNonMovableBlockVolumeOperation;
+import * as ComputeInstanceNonMovableFileSystemOperation from "./compute-instance-non-movable-file-system-operation";
+export import ComputeInstanceNonMovableFileSystemOperation = ComputeInstanceNonMovableFileSystemOperation.ComputeInstanceNonMovableFileSystemOperation;
 import * as ComputeInstanceVnicMapping from "./compute-instance-vnic-mapping";
 export import ComputeInstanceVnicMapping = ComputeInstanceVnicMapping.ComputeInstanceVnicMapping;
 import * as ComputeInstanceVnicMappingDetails from "./compute-instance-vnic-mapping-details";
 export import ComputeInstanceVnicMappingDetails = ComputeInstanceVnicMappingDetails.ComputeInstanceVnicMappingDetails;
+import * as CreateBlockVolumeAttachmentDetails from "./create-block-volume-attachment-details";
+export import CreateBlockVolumeAttachmentDetails = CreateBlockVolumeAttachmentDetails.CreateBlockVolumeAttachmentDetails;
+import * as CreateBlockVolumeMountDetails from "./create-block-volume-mount-details";
+export import CreateBlockVolumeMountDetails = CreateBlockVolumeMountDetails.CreateBlockVolumeMountDetails;
+import * as CreateComputeInstanceMovableFileSystemOperationDetails from "./create-compute-instance-movable-file-system-operation-details";
+export import CreateComputeInstanceMovableFileSystemOperationDetails = CreateComputeInstanceMovableFileSystemOperationDetails.CreateComputeInstanceMovableFileSystemOperationDetails;
+import * as CreateComputeInstanceNonMovableBlockVolumeOperationDetails from "./create-compute-instance-non-movable-block-volume-operation-details";
+export import CreateComputeInstanceNonMovableBlockVolumeOperationDetails = CreateComputeInstanceNonMovableBlockVolumeOperationDetails.CreateComputeInstanceNonMovableBlockVolumeOperationDetails;
+import * as CreateComputeInstanceNonMovableFileSystemOperationDetails from "./create-compute-instance-non-movable-file-system-operation-details";
+export import CreateComputeInstanceNonMovableFileSystemOperationDetails = CreateComputeInstanceNonMovableFileSystemOperationDetails.CreateComputeInstanceNonMovableFileSystemOperationDetails;
 import * as CreateDrPlanDetails from "./create-dr-plan-details";
 export import CreateDrPlanDetails = CreateDrPlanDetails.CreateDrPlanDetails;
 import * as CreateDrPlanExecutionDetails from "./create-dr-plan-execution-details";
@@ -36,6 +57,10 @@ import * as CreateDrProtectionGroupDetails from "./create-dr-protection-group-de
 export import CreateDrProtectionGroupDetails = CreateDrProtectionGroupDetails.CreateDrProtectionGroupDetails;
 import * as CreateDrProtectionGroupMemberDetails from "./create-dr-protection-group-member-details";
 export import CreateDrProtectionGroupMemberDetails = CreateDrProtectionGroupMemberDetails.CreateDrProtectionGroupMemberDetails;
+import * as CreateFileSystemMountDetails from "./create-file-system-mount-details";
+export import CreateFileSystemMountDetails = CreateFileSystemMountDetails.CreateFileSystemMountDetails;
+import * as CreateFileSystemUnmountDetails from "./create-file-system-unmount-details";
+export import CreateFileSystemUnmountDetails = CreateFileSystemUnmountDetails.CreateFileSystemUnmountDetails;
 import * as CreateObjectStorageLogLocationDetails from "./create-object-storage-log-location-details";
 export import CreateObjectStorageLogLocationDetails = CreateObjectStorageLogLocationDetails.CreateObjectStorageLogLocationDetails;
 import * as DisassociateDrProtectionGroupDetails from "./disassociate-dr-protection-group-details";
@@ -92,6 +117,8 @@ import * as DrProtectionGroupCollection from "./dr-protection-group-collection";
 export import DrProtectionGroupCollection = DrProtectionGroupCollection.DrProtectionGroupCollection;
 import * as DrProtectionGroupLifecycleState from "./dr-protection-group-lifecycle-state";
 export import DrProtectionGroupLifecycleState = DrProtectionGroupLifecycleState.DrProtectionGroupLifecycleState;
+import * as DrProtectionGroupLifecycleSubState from "./dr-protection-group-lifecycle-sub-state";
+export import DrProtectionGroupLifecycleSubState = DrProtectionGroupLifecycleSubState.DrProtectionGroupLifecycleSubState;
 import * as DrProtectionGroupMember from "./dr-protection-group-member";
 export import DrProtectionGroupMember = DrProtectionGroupMember.DrProtectionGroupMember;
 import * as DrProtectionGroupMemberType from "./dr-protection-group-member-type";
@@ -100,8 +127,24 @@ import * as DrProtectionGroupRole from "./dr-protection-group-role";
 export import DrProtectionGroupRole = DrProtectionGroupRole.DrProtectionGroupRole;
 import * as DrProtectionGroupSummary from "./dr-protection-group-summary";
 export import DrProtectionGroupSummary = DrProtectionGroupSummary.DrProtectionGroupSummary;
+import * as FileSystemExportMapping from "./file-system-export-mapping";
+export import FileSystemExportMapping = FileSystemExportMapping.FileSystemExportMapping;
+import * as FileSystemExportMappingDetails from "./file-system-export-mapping-details";
+export import FileSystemExportMappingDetails = FileSystemExportMappingDetails.FileSystemExportMappingDetails;
+import * as FileSystemMountDetails from "./file-system-mount-details";
+export import FileSystemMountDetails = FileSystemMountDetails.FileSystemMountDetails;
+import * as FileSystemUnmountDetails from "./file-system-unmount-details";
+export import FileSystemUnmountDetails = FileSystemUnmountDetails.FileSystemUnmountDetails;
 import * as IgnoreDrPlanExecutionDetails from "./ignore-dr-plan-execution-details";
 export import IgnoreDrPlanExecutionDetails = IgnoreDrPlanExecutionDetails.IgnoreDrPlanExecutionDetails;
+import * as LoadBalancerBackendSetMapping from "./load-balancer-backend-set-mapping";
+export import LoadBalancerBackendSetMapping = LoadBalancerBackendSetMapping.LoadBalancerBackendSetMapping;
+import * as LoadBalancerBackendSetMappingDetails from "./load-balancer-backend-set-mapping-details";
+export import LoadBalancerBackendSetMappingDetails = LoadBalancerBackendSetMappingDetails.LoadBalancerBackendSetMappingDetails;
+import * as NetworkLoadBalancerBackendSetMapping from "./network-load-balancer-backend-set-mapping";
+export import NetworkLoadBalancerBackendSetMapping = NetworkLoadBalancerBackendSetMapping.NetworkLoadBalancerBackendSetMapping;
+import * as NetworkLoadBalancerBackendSetMappingDetails from "./network-load-balancer-backend-set-mapping-details";
+export import NetworkLoadBalancerBackendSetMappingDetails = NetworkLoadBalancerBackendSetMappingDetails.NetworkLoadBalancerBackendSetMappingDetails;
 import * as ObjectStorageLogLocation from "./object-storage-log-location";
 export import ObjectStorageLogLocation = ObjectStorageLogLocation.ObjectStorageLogLocation;
 import * as ObjectStorageScriptLocation from "./object-storage-script-location";
@@ -114,6 +157,16 @@ import * as RetryDrPlanExecutionDetails from "./retry-dr-plan-execution-details"
 export import RetryDrPlanExecutionDetails = RetryDrPlanExecutionDetails.RetryDrPlanExecutionDetails;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
+import * as UpdateBlockVolumeAttachmentDetails from "./update-block-volume-attachment-details";
+export import UpdateBlockVolumeAttachmentDetails = UpdateBlockVolumeAttachmentDetails.UpdateBlockVolumeAttachmentDetails;
+import * as UpdateBlockVolumeMountDetails from "./update-block-volume-mount-details";
+export import UpdateBlockVolumeMountDetails = UpdateBlockVolumeMountDetails.UpdateBlockVolumeMountDetails;
+import * as UpdateComputeInstanceMovableFileSystemOperationDetails from "./update-compute-instance-movable-file-system-operation-details";
+export import UpdateComputeInstanceMovableFileSystemOperationDetails = UpdateComputeInstanceMovableFileSystemOperationDetails.UpdateComputeInstanceMovableFileSystemOperationDetails;
+import * as UpdateComputeInstanceNonMovableBlockVolumeOperationDetails from "./update-compute-instance-non-movable-block-volume-operation-details";
+export import UpdateComputeInstanceNonMovableBlockVolumeOperationDetails = UpdateComputeInstanceNonMovableBlockVolumeOperationDetails.UpdateComputeInstanceNonMovableBlockVolumeOperationDetails;
+import * as UpdateComputeInstanceNonMovableFileSystemOperationDetails from "./update-compute-instance-non-movable-file-system-operation-details";
+export import UpdateComputeInstanceNonMovableFileSystemOperationDetails = UpdateComputeInstanceNonMovableFileSystemOperationDetails.UpdateComputeInstanceNonMovableFileSystemOperationDetails;
 import * as UpdateDrPlanDetails from "./update-dr-plan-details";
 export import UpdateDrPlanDetails = UpdateDrPlanDetails.UpdateDrPlanDetails;
 import * as UpdateDrPlanExecutionDetails from "./update-dr-plan-execution-details";
@@ -130,6 +183,10 @@ import * as UpdateDrProtectionGroupMemberDetails from "./update-dr-protection-gr
 export import UpdateDrProtectionGroupMemberDetails = UpdateDrProtectionGroupMemberDetails.UpdateDrProtectionGroupMemberDetails;
 import * as UpdateDrProtectionGroupRoleDetails from "./update-dr-protection-group-role-details";
 export import UpdateDrProtectionGroupRoleDetails = UpdateDrProtectionGroupRoleDetails.UpdateDrProtectionGroupRoleDetails;
+import * as UpdateFileSystemMountDetails from "./update-file-system-mount-details";
+export import UpdateFileSystemMountDetails = UpdateFileSystemMountDetails.UpdateFileSystemMountDetails;
+import * as UpdateFileSystemUnmountDetails from "./update-file-system-unmount-details";
+export import UpdateFileSystemUnmountDetails = UpdateFileSystemUnmountDetails.UpdateFileSystemUnmountDetails;
 import * as UpdateObjectStorageLogLocationDetails from "./update-object-storage-log-location-details";
 export import UpdateObjectStorageLogLocationDetails = UpdateObjectStorageLogLocationDetails.UpdateObjectStorageLogLocationDetails;
 import * as UpdateObjectStorageScriptLocationDetails from "./update-object-storage-script-location-details";
@@ -163,6 +220,12 @@ import * as CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails from "
 export import CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails = CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails.CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails;
 import * as CreateDrProtectionGroupMemberDatabaseDetails from "./create-dr-protection-group-member-database-details";
 export import CreateDrProtectionGroupMemberDatabaseDetails = CreateDrProtectionGroupMemberDatabaseDetails.CreateDrProtectionGroupMemberDatabaseDetails;
+import * as CreateDrProtectionGroupMemberFileSystemDetails from "./create-dr-protection-group-member-file-system-details";
+export import CreateDrProtectionGroupMemberFileSystemDetails = CreateDrProtectionGroupMemberFileSystemDetails.CreateDrProtectionGroupMemberFileSystemDetails;
+import * as CreateDrProtectionGroupMemberLoadBalancerDetails from "./create-dr-protection-group-member-load-balancer-details";
+export import CreateDrProtectionGroupMemberLoadBalancerDetails = CreateDrProtectionGroupMemberLoadBalancerDetails.CreateDrProtectionGroupMemberLoadBalancerDetails;
+import * as CreateDrProtectionGroupMemberNetworkLoadBalancerDetails from "./create-dr-protection-group-member-network-load-balancer-details";
+export import CreateDrProtectionGroupMemberNetworkLoadBalancerDetails = CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails;
 import * as CreateDrProtectionGroupMemberVolumeGroupDetails from "./create-dr-protection-group-member-volume-group-details";
 export import CreateDrProtectionGroupMemberVolumeGroupDetails = CreateDrProtectionGroupMemberVolumeGroupDetails.CreateDrProtectionGroupMemberVolumeGroupDetails;
 import * as DisassociateDrProtectionGroupDefaultDetails from "./disassociate-dr-protection-group-default-details";
@@ -177,6 +240,12 @@ import * as DrProtectionGroupMemberComputeInstanceNonMovable from "./dr-protecti
 export import DrProtectionGroupMemberComputeInstanceNonMovable = DrProtectionGroupMemberComputeInstanceNonMovable.DrProtectionGroupMemberComputeInstanceNonMovable;
 import * as DrProtectionGroupMemberDatabase from "./dr-protection-group-member-database";
 export import DrProtectionGroupMemberDatabase = DrProtectionGroupMemberDatabase.DrProtectionGroupMemberDatabase;
+import * as DrProtectionGroupMemberFileSystem from "./dr-protection-group-member-file-system";
+export import DrProtectionGroupMemberFileSystem = DrProtectionGroupMemberFileSystem.DrProtectionGroupMemberFileSystem;
+import * as DrProtectionGroupMemberLoadBalancer from "./dr-protection-group-member-load-balancer";
+export import DrProtectionGroupMemberLoadBalancer = DrProtectionGroupMemberLoadBalancer.DrProtectionGroupMemberLoadBalancer;
+import * as DrProtectionGroupMemberNetworkLoadBalancer from "./dr-protection-group-member-network-load-balancer";
+export import DrProtectionGroupMemberNetworkLoadBalancer = DrProtectionGroupMemberNetworkLoadBalancer.DrProtectionGroupMemberNetworkLoadBalancer;
 import * as DrProtectionGroupMemberVolumeGroup from "./dr-protection-group-member-volume-group";
 export import DrProtectionGroupMemberVolumeGroup = DrProtectionGroupMemberVolumeGroup.DrProtectionGroupMemberVolumeGroup;
 import * as FailoverExecutionOptionDetails from "./failover-execution-option-details";
@@ -203,6 +272,22 @@ import * as RunLocalScriptUserDefinedStep from "./run-local-script-user-defined-
 export import RunLocalScriptUserDefinedStep = RunLocalScriptUserDefinedStep.RunLocalScriptUserDefinedStep;
 import * as RunObjectStoreScriptUserDefinedStep from "./run-object-store-script-user-defined-step";
 export import RunObjectStoreScriptUserDefinedStep = RunObjectStoreScriptUserDefinedStep.RunObjectStoreScriptUserDefinedStep;
+import * as StartDrillExecutionOptionDetails from "./start-drill-execution-option-details";
+export import StartDrillExecutionOptionDetails = StartDrillExecutionOptionDetails.StartDrillExecutionOptionDetails;
+import * as StartDrillExecutionOptions from "./start-drill-execution-options";
+export import StartDrillExecutionOptions = StartDrillExecutionOptions.StartDrillExecutionOptions;
+import * as StartDrillPrecheckExecutionOptionDetails from "./start-drill-precheck-execution-option-details";
+export import StartDrillPrecheckExecutionOptionDetails = StartDrillPrecheckExecutionOptionDetails.StartDrillPrecheckExecutionOptionDetails;
+import * as StartDrillPrecheckExecutionOptions from "./start-drill-precheck-execution-options";
+export import StartDrillPrecheckExecutionOptions = StartDrillPrecheckExecutionOptions.StartDrillPrecheckExecutionOptions;
+import * as StopDrillExecutionOptionDetails from "./stop-drill-execution-option-details";
+export import StopDrillExecutionOptionDetails = StopDrillExecutionOptionDetails.StopDrillExecutionOptionDetails;
+import * as StopDrillExecutionOptions from "./stop-drill-execution-options";
+export import StopDrillExecutionOptions = StopDrillExecutionOptions.StopDrillExecutionOptions;
+import * as StopDrillPrecheckExecutionOptionDetails from "./stop-drill-precheck-execution-option-details";
+export import StopDrillPrecheckExecutionOptionDetails = StopDrillPrecheckExecutionOptionDetails.StopDrillPrecheckExecutionOptionDetails;
+import * as StopDrillPrecheckExecutionOptions from "./stop-drill-precheck-execution-options";
+export import StopDrillPrecheckExecutionOptions = StopDrillPrecheckExecutionOptions.StopDrillPrecheckExecutionOptions;
 import * as SwitchoverExecutionOptionDetails from "./switchover-execution-option-details";
 export import SwitchoverExecutionOptionDetails = SwitchoverExecutionOptionDetails.SwitchoverExecutionOptionDetails;
 import * as SwitchoverExecutionOptions from "./switchover-execution-options";
@@ -221,6 +306,12 @@ import * as UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails from "
 export import UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails = UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails;
 import * as UpdateDrProtectionGroupMemberDatabaseDetails from "./update-dr-protection-group-member-database-details";
 export import UpdateDrProtectionGroupMemberDatabaseDetails = UpdateDrProtectionGroupMemberDatabaseDetails.UpdateDrProtectionGroupMemberDatabaseDetails;
+import * as UpdateDrProtectionGroupMemberFileSystemDetails from "./update-dr-protection-group-member-file-system-details";
+export import UpdateDrProtectionGroupMemberFileSystemDetails = UpdateDrProtectionGroupMemberFileSystemDetails.UpdateDrProtectionGroupMemberFileSystemDetails;
+import * as UpdateDrProtectionGroupMemberLoadBalancerDetails from "./update-dr-protection-group-member-load-balancer-details";
+export import UpdateDrProtectionGroupMemberLoadBalancerDetails = UpdateDrProtectionGroupMemberLoadBalancerDetails.UpdateDrProtectionGroupMemberLoadBalancerDetails;
+import * as UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails from "./update-dr-protection-group-member-network-load-balancer-details";
+export import UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails = UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails;
 import * as UpdateDrProtectionGroupMemberVolumeGroupDetails from "./update-dr-protection-group-member-volume-group-details";
 export import UpdateDrProtectionGroupMemberVolumeGroupDetails = UpdateDrProtectionGroupMemberVolumeGroupDetails.UpdateDrProtectionGroupMemberVolumeGroupDetails;
 import * as UpdateInvokeFunctionPrecheckStepDetails from "./update-invoke-function-precheck-step-details";

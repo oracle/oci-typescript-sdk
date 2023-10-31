@@ -65,6 +65,10 @@ export interface MonitoredResourceMemberSummary {
    */
   "lifecycleState"?: model.ResourceLifecycleState;
   /**
+   * License edition of the monitored resource.
+   */
+  "license"?: model.LicenseType;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *

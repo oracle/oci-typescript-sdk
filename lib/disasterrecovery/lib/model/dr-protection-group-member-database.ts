@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,14 +19,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties for a Database (DBCS) member of a DR Protection Group.
+ * The properties for a Base Database or Exadata Database member of a DR protection group.
  *
  */
 export interface DrProtectionGroupMemberDatabase extends model.DrProtectionGroupMember {
   /**
-    * The ID of the vault secret where the database password is stored.
+    * The OCID of the vault secret where the database SYSDBA password is stored.
+* This password is used for performing database DR operations.
 * <p>
-Example: `ocid1.vaultsecret.oc1.phx.exampleocid1`
+Example: `ocid1.vaultsecret.oc1..uniqueID`
 * 
     */
   "passwordVaultSecretId"?: string;

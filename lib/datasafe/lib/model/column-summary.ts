@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a column in a table fetched from the database.
+ * The details of a column in a table fetched from the database.
  */
 export interface ColumnSummary {
   /**

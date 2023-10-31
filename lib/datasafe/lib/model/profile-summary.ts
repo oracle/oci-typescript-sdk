@@ -43,7 +43,7 @@ export interface ProfileSummary {
    */
   "userCount"?: number;
   /**
-   * Maximum times the user is allowed in fail login before the user account is locked.
+   * Maximum times the user is allowed to fail login before the user account is locked.
    */
   "failedLoginAttempts"?: string;
   /**

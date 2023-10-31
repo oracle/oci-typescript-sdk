@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface UpdateDrProtectionGroupRoleRequest extends common.BaseRequest {
   /**
-   * The role details for the DR Protection Group.
+   * The role details for the DR protection group to be updated.
    */
   "updateDrProtectionGroupRoleDetails": model.UpdateDrProtectionGroupRoleDetails;
   /**
- * The OCID of the DR Protection Group.
+ * The OCID of the DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.exampleocid`
+Example: `ocid1.drprotectiongroup.oc1..uniqueID`
 * 
  */
   "drProtectionGroupId": string;

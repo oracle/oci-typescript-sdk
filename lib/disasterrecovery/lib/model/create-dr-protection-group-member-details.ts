@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,13 +19,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Create properties for a member in a DR Protection Group.
+ * Create properties for a member in a DR protection group.
  */
 export interface CreateDrProtectionGroupMemberDetails {
   /**
     * The OCID of the member.
 * <p>
-Example: `ocid1.instance.oc1.phx.&lt;unique_id&gt;`
+Example: `ocid1.instance.oc1..uniqueID`
 * 
     */
   "memberId": string;
@@ -63,9 +64,24 @@ export namespace CreateDrProtectionGroupMemberDetails {
             <model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
             true
           );
+        case "NETWORK_LOAD_BALANCER":
+          return model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
         case "VOLUME_GROUP":
           return model.CreateDrProtectionGroupMemberVolumeGroupDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
+            true
+          );
+        case "FILE_SYSTEM":
+          return model.CreateDrProtectionGroupMemberFileSystemDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER":
+          return model.CreateDrProtectionGroupMemberLoadBalancerDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
             true
           );
         default:
@@ -104,9 +120,24 @@ export namespace CreateDrProtectionGroupMemberDetails {
             <model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
             true
           );
+        case "NETWORK_LOAD_BALANCER":
+          return model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
         case "VOLUME_GROUP":
           return model.CreateDrProtectionGroupMemberVolumeGroupDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
+            true
+          );
+        case "FILE_SYSTEM":
+          return model.CreateDrProtectionGroupMemberFileSystemDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER":
+          return model.CreateDrProtectionGroupMemberLoadBalancerDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
             true
           );
         default:

@@ -59,6 +59,11 @@ export interface ListDbSystemsRequest extends common.BaseRequest {
    */
   "isUpToDate"?: boolean;
   /**
+   * Filter DB Systems by their Database Management configuration.
+   *
+   */
+  "databaseManagement"?: Array<ListDbSystemsRequest.DatabaseManagement>;
+  /**
    * The field to sort by. Only one sort order may be provided. Time fields are default ordered as descending. Display name is default ordered as ascending.
    *
    */
@@ -83,6 +88,11 @@ export interface ListDbSystemsRequest extends common.BaseRequest {
 }
 
 export namespace ListDbSystemsRequest {
+  export enum DatabaseManagement {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED"
+  }
+
   export enum SortBy {
     DisplayName = "displayName",
     TimeCreated = "timeCreated"

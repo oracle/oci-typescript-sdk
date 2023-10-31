@@ -31,6 +31,10 @@ export interface DiscoveryJobSummary {
    */
   "resourceName"?: string;
   /**
+   * License edition of the monitored resource.
+   */
+  "license"?: model.LicenseType;
+  /**
    * The OCID of the Compartment
    */
   "compartmentId"?: string;

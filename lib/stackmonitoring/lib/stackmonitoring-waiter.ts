@@ -24,6 +24,25 @@ export class StackMonitoringWaiter {
   ) {}
 
   /**
+   * Waits forBaselineableMetric till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBaselineableMetricResponse | null (null in case of 404 response)
+   */
+  public async forBaselineableMetric(
+    request: serviceRequests.GetBaselineableMetricRequest,
+    ...targetStates: models.BaselineableMetricLifeCycleStates[]
+  ): Promise<serviceResponses.GetBaselineableMetricResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getBaselineableMetric(request),
+      response => targetStates.includes(response.baselineableMetric.lifecycleState!),
+      targetStates.includes(models.BaselineableMetricLifeCycleStates.Deleted)
+    );
+  }
+
+  /**
    * Waits forConfig till it reaches any of the provided states
    *
    * @param request the request to send
@@ -62,6 +81,25 @@ export class StackMonitoringWaiter {
   }
 
   /**
+   * Waits forMetricExtension till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMetricExtensionResponse | null (null in case of 404 response)
+   */
+  public async forMetricExtension(
+    request: serviceRequests.GetMetricExtensionRequest,
+    ...targetStates: models.MetricExtensionLifeCycleStates[]
+  ): Promise<serviceResponses.GetMetricExtensionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getMetricExtension(request),
+      response => targetStates.includes(response.metricExtension.lifecycleState!),
+      targetStates.includes(models.MetricExtensionLifeCycleStates.Deleted)
+    );
+  }
+
+  /**
    * Waits forMonitoredResource till it reaches any of the provided states
    *
    * @param request the request to send
@@ -77,6 +115,43 @@ export class StackMonitoringWaiter {
       () => this.client.getMonitoredResource(request),
       response => targetStates.includes(response.monitoredResource.lifecycleState!),
       targetStates.includes(models.ResourceLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forMonitoredResourceTask till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMonitoredResourceTaskResponse
+   */
+  public async forMonitoredResourceTask(
+    request: serviceRequests.GetMonitoredResourceTaskRequest,
+    ...targetStates: models.MonitoredResourceTaskLifecycleState[]
+  ): Promise<serviceResponses.GetMonitoredResourceTaskResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getMonitoredResourceTask(request),
+      response => targetStates.includes(response.monitoredResourceTask.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forMonitoredResourceType till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMonitoredResourceTypeResponse | null (null in case of 404 response)
+   */
+  public async forMonitoredResourceType(
+    request: serviceRequests.GetMonitoredResourceTypeRequest,
+    ...targetStates: models.ResourceTypeLifecycleState[]
+  ): Promise<serviceResponses.GetMonitoredResourceTypeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getMonitoredResourceType(request),
+      response => targetStates.includes(response.monitoredResourceType.lifecycleState!),
+      targetStates.includes(models.ResourceTypeLifecycleState.Deleted)
     );
   }
 

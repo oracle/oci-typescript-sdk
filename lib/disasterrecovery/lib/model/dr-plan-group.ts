@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,30 +19,32 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a plan group in a DR Plan.
+ * Details of a group in a DR plan.
  */
 export interface DrPlanGroup {
   /**
-    * The unique id of this group. Must not be modified by user.
+    * The unique id of the group. Must not be modified by user.
 * <p>
-Example: `sgid1.group..&lt;unique_id&gt;`
+Example: `sgid1.group..uniqueID`
 * 
     */
   "id": string;
   /**
-   * The plan group type.
-   *
-   */
+    * The group type.
+* <p>
+Example: `BUILT_IN`
+* 
+    */
   "type": model.DrPlanGroupType;
   /**
-    * The display name of this DR Plan Group.
+    * The display name of the group.
 * <p>
 Example: `DATABASE_SWITCHOVER`
 * 
     */
   "displayName": string;
   /**
-   * The list of steps in this plan group.
+   * The list of steps in the group.
    *
    */
   "steps": Array<model.DrPlanStep>;

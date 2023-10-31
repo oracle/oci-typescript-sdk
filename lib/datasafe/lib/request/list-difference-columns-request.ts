@@ -51,7 +51,7 @@ export interface ListDifferenceColumnsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListDifferenceColumnsRequest.SortOrder;
   /**
-   * The field to sort by. You can specify only one sort order (sortOrder). The default order for schemaName is descending.
+   * The field to sort by. You can specify only one sorting parameter (sortOrder). The default order for schemaName is descending.
    * The default order for differenceType, schemaName, objectName, columnName and plannedAction is ascending.
    *
    */

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface UpdateTargetAlertPolicyAssociationDetails {
   /**
-   * Indicates if the target-alert policy association is enabled or disabled.
+   * Indicates if the target-alert policy association is enabled or disabled by user.
    */
   "isEnabled"?: boolean;
   /**

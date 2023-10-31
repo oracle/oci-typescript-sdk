@@ -1,8 +1,9 @@
 /**
  * Full Stack Disaster Recovery API
- * Use the Full Stack Disaster Recovery (FSDR) API to manage disaster recovery for business applications.
-FSDR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster recovery
-capabilities for all layers of an application stack, including infrastructure, middleware, database, and application.
+ * Use the Full Stack Disaster Recovery (DR) API to manage disaster recovery for business applications.
+Full Stack DR is an OCI disaster recovery orchestration and management service that provides comprehensive disaster 
+recovery capabilities for all layers of an application stack, including infrastructure, middleware, database, 
+and application.
 
  * OpenAPI spec version: 20220125
  * 
@@ -18,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Step types in a DR Plan.
+ * The types of steps in a DR plan.
  *
  **/
 export enum DrPlanStepType {
@@ -48,6 +49,45 @@ export enum DrPlanStepType {
   VolumeGroupRemove = "VOLUME_GROUP_REMOVE",
   VolumeGroupTerminate = "VOLUME_GROUP_TERMINATE",
   UserDefined = "USER_DEFINED",
+  VolumeGroupRestoreStartDrillPrecheck = "VOLUME_GROUP_RESTORE_START_DRILL_PRECHECK",
+  VolumeGroupRemovePrecheck = "VOLUME_GROUP_REMOVE_PRECHECK",
+  VolumeGroupTerminatePrecheck = "VOLUME_GROUP_TERMINATE_PRECHECK",
+  VolumeGroupRestoreStartDrill = "VOLUME_GROUP_RESTORE_START_DRILL",
+  AutonomousDatabaseCreateClonePrecheck = "AUTONOMOUS_DATABASE_CREATE_CLONE_PRECHECK",
+  AutonomousDatabaseDeleteClonePrecheck = "AUTONOMOUS_DATABASE_DELETE_CLONE_PRECHECK",
+  LoadBalancerUpdatePrimaryBackendSetPrecheck = "LOAD_BALANCER_UPDATE_PRIMARY_BACKEND_SET_PRECHECK",
+  LoadBalancerUpdateStandbyBackendSetPrecheck = "LOAD_BALANCER_UPDATE_STANDBY_BACKEND_SET_PRECHECK",
+  FileSystemSwitchoverPrecheck = "FILE_SYSTEM_SWITCHOVER_PRECHECK",
+  FileSystemFailoverPrecheck = "FILE_SYSTEM_FAILOVER_PRECHECK",
+  FileSystemStartDrillPrecheck = "FILE_SYSTEM_START_DRILL_PRECHECK",
+  FileSystemStopDrillPrecheck = "FILE_SYSTEM_STOP_DRILL_PRECHECK",
+  FileSystemRemovePrecheck = "FILE_SYSTEM_REMOVE_PRECHECK",
+  FileSystemTerminatePrecheck = "FILE_SYSTEM_TERMINATE_PRECHECK",
+  FileSystemMountPrecheck = "FILE_SYSTEM_MOUNT_PRECHECK",
+  FileSystemUnmountPrecheck = "FILE_SYSTEM_UNMOUNT_PRECHECK",
+  ComputeInstanceStartPrecheck = "COMPUTE_INSTANCE_START_PRECHECK",
+  ComputeInstanceAttachBlockVolumesPrecheck = "COMPUTE_INSTANCE_ATTACH_BLOCK_VOLUMES_PRECHECK",
+  ComputeInstanceDetachBlockVolumesPrecheck = "COMPUTE_INSTANCE_DETACH_BLOCK_VOLUMES_PRECHECK",
+  ComputeInstanceMountBlockVolumesPrecheck = "COMPUTE_INSTANCE_MOUNT_BLOCK_VOLUMES_PRECHECK",
+  ComputeInstanceUnmountBlockVolumesPrecheck = "COMPUTE_INSTANCE_UNMOUNT_BLOCK_VOLUMES_PRECHECK",
+  ComputeCapacityReservationStartDrillPrecheck = "COMPUTE_CAPACITY_RESERVATION_START_DRILL_PRECHECK",
+  ComputeCapacityAvailabilityStartDrillPrecheck = "COMPUTE_CAPACITY_AVAILABILITY_START_DRILL_PRECHECK",
+  AutonomousDatabaseCreateClone = "AUTONOMOUS_DATABASE_CREATE_CLONE",
+  AutonomousDatabaseDeleteClone = "AUTONOMOUS_DATABASE_DELETE_CLONE",
+  LoadBalancerUpdatePrimaryBackendSet = "LOAD_BALANCER_UPDATE_PRIMARY_BACKEND_SET",
+  LoadBalancerUpdateStandbyBackendSet = "LOAD_BALANCER_UPDATE_STANDBY_BACKEND_SET",
+  FileSystemSwitchover = "FILE_SYSTEM_SWITCHOVER",
+  FileSystemFailover = "FILE_SYSTEM_FAILOVER",
+  FileSystemRemove = "FILE_SYSTEM_REMOVE",
+  FileSystemReverse = "FILE_SYSTEM_REVERSE",
+  FileSystemTerminate = "FILE_SYSTEM_TERMINATE",
+  FileSystemStartDrill = "FILE_SYSTEM_START_DRILL",
+  FileSystemStopDrill = "FILE_SYSTEM_STOP_DRILL",
+  ComputeInstanceStart = "COMPUTE_INSTANCE_START",
+  ComputeInstanceAttachBlockVolumes = "COMPUTE_INSTANCE_ATTACH_BLOCK_VOLUMES",
+  ComputeInstanceDetachBlockVolumes = "COMPUTE_INSTANCE_DETACH_BLOCK_VOLUMES",
+  FileSystemMount = "FILE_SYSTEM_MOUNT",
+  FileSystemUnmount = "FILE_SYSTEM_UNMOUNT",
   ComputeCapacityReservationSwitchoverPrecheck = "COMPUTE_CAPACITY_RESERVATION_SWITCHOVER_PRECHECK",
   ComputeCapacityReservationFailoverPrecheck = "COMPUTE_CAPACITY_RESERVATION_FAILOVER_PRECHECK",
   ComputeCapacityAvailabilitySwitchoverPrecheck = "COMPUTE_CAPACITY_AVAILABILITY_SWITCHOVER_PRECHECK",
