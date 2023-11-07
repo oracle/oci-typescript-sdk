@@ -22,6 +22,7 @@ describe("Test Realm ", () => {
       const regionMetadata = JSON.parse(fileContent) as RegionMetadataSchema[];
       expect(regionMetadata && regionMetadata.length > 0 && Array.isArray(regionMetadata)).to.be
         .true;
+      Region.resetAlloyConfig();
       const regionsList = Region.values();
       regionMetadata.map(metadata => {
         expect(RegionMetadataSchema.isValidSchema(metadata)).to.be.true;
@@ -34,6 +35,11 @@ describe("Test Realm ", () => {
 
   it("should register a Realm sucessfully ", function() {
     const realm = Realm.register(realmId, secondLevelDomain);
+    expect(realm.realmId).equals(realmId);
+  });
+
+  it("should register a alloy Realm sucessfully ", function() {
+    const realm = Realm.register(realmId, secondLevelDomain, true);
     expect(realm.realmId).equals(realmId);
   });
 

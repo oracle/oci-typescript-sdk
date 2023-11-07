@@ -509,6 +509,87 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Request to perform validaition of the DRS file and create the file to the Object Storage.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDrsFileRequest
+   * @return CreateDrsFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateDrsFile.ts.html |here} to see how to use CreateDrsFile API.
+   */
+  public async createDrsFile(
+    createDrsFileRequest: requests.CreateDrsFileRequest
+  ): Promise<responses.CreateDrsFileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#createDrsFile.");
+    const operationName = "createDrsFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/CreateDrsFile";
+    const pathParams = {
+      "{fleetId}": createDrsFileRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createDrsFileRequest.opcRequestId,
+      "if-match": createDrsFileRequest.ifMatch,
+      "opc-retry-token": createDrsFileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDrsFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/drsFiles",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDrsFileRequest.createDrsFileDetails,
+        "CreateDrsFileDetails",
+        model.CreateDrsFileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDrsFileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Create a new Fleet using the information provided.
 * <p>
 `inventoryLog` is now a required parameter for CreateFleet API.
@@ -718,6 +799,82 @@ export class JavaManagementServiceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCryptoAnalysisResultResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Request to delete the DRS file from the Object Storage.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteDrsFileRequest
+   * @return DeleteDrsFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteDrsFile.ts.html |here} to see how to use DeleteDrsFile API.
+   */
+  public async deleteDrsFile(
+    deleteDrsFileRequest: requests.DeleteDrsFileRequest
+  ): Promise<responses.DeleteDrsFileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#deleteDrsFile.");
+    const operationName = "deleteDrsFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFile/DeleteDrsFile";
+    const pathParams = {
+      "{fleetId}": deleteDrsFileRequest.fleetId,
+      "{drsFileKey}": deleteDrsFileRequest.drsFileKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteDrsFileRequest.opcRequestId,
+      "if-match": deleteDrsFileRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDrsFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/drsFiles/{drsFileKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDrsFileResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -969,6 +1126,164 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Request to disable the DRS in the selected target in the Fleet.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableDrsRequest
+   * @return DisableDrsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DisableDrs.ts.html |here} to see how to use DisableDrs API.
+   */
+  public async disableDrs(
+    disableDrsRequest: requests.DisableDrsRequest
+  ): Promise<responses.DisableDrsResponse> {
+    if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#disableDrs.");
+    const operationName = "disableDrs";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/DisableDrs";
+    const pathParams = {
+      "{fleetId}": disableDrsRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableDrsRequest.opcRequestId,
+      "if-match": disableDrsRequest.ifMatch,
+      "opc-retry-token": disableDrsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableDrsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/disableDrs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableDrsRequest.disableDrsDetails,
+        "DisableDrsDetails",
+        model.DisableDrsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableDrsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Request to enable the DRS in the selected target in the Fleet.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableDrsRequest
+   * @return EnableDrsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/EnableDrs.ts.html |here} to see how to use EnableDrs API.
+   */
+  public async enableDrs(
+    enableDrsRequest: requests.EnableDrsRequest
+  ): Promise<responses.EnableDrsResponse> {
+    if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#enableDrs.");
+    const operationName = "enableDrs";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/EnableDrs";
+    const pathParams = {
+      "{fleetId}": enableDrsRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableDrsRequest.opcRequestId,
+      "if-match": enableDrsRequest.ifMatch,
+      "opc-retry-token": enableDrsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableDrsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/enableDrs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableDrsRequest.enableDrsDetails,
+        "EnableDrsDetails",
+        model.EnableDrsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableDrsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Generates Agent Deploy Script for Fleet using the information provided.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1114,6 +1429,239 @@ export class JavaManagementServiceClient {
         bodyKey: "cryptoAnalysisResult",
         bodyModel: model.CryptoAnalysisResult,
         type: "model.CryptoAnalysisResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the detail about the created DRS file in the Fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDrsFileRequest
+   * @return GetDrsFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetDrsFile.ts.html |here} to see how to use GetDrsFile API.
+   */
+  public async getDrsFile(
+    getDrsFileRequest: requests.GetDrsFileRequest
+  ): Promise<responses.GetDrsFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#getDrsFile.");
+    const operationName = "getDrsFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFile/GetDrsFile";
+    const pathParams = {
+      "{fleetId}": getDrsFileRequest.fleetId,
+      "{drsFileKey}": getDrsFileRequest.drsFileKey
+    };
+
+    const queryParams = {
+      "page": getDrsFileRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDrsFileRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDrsFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/drsFiles/{drsFileKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDrsFileResponse>{},
+        body: await response.json(),
+        bodyKey: "drsFile",
+        bodyModel: model.DrsFile,
+        type: "model.DrsFile",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns export setting for the specified Fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExportSettingRequest
+   * @return GetExportSettingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetExportSetting.ts.html |here} to see how to use GetExportSetting API.
+   */
+  public async getExportSetting(
+    getExportSettingRequest: requests.GetExportSettingRequest
+  ): Promise<responses.GetExportSettingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getExportSetting.");
+    const operationName = "getExportSetting";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportSetting/GetExportSetting";
+    const pathParams = {
+      "{fleetId}": getExportSettingRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExportSettingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExportSettingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/exportSetting",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExportSettingResponse>{},
+        body: await response.json(),
+        bodyKey: "exportSetting",
+        bodyModel: model.ExportSetting,
+        type: "model.ExportSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns last export status for the specified Fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExportStatusRequest
+   * @return GetExportStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetExportStatus.ts.html |here} to see how to use GetExportStatus API.
+   */
+  public async getExportStatus(
+    getExportStatusRequest: requests.GetExportStatusRequest
+  ): Promise<responses.GetExportStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getExportStatus.");
+    const operationName = "getExportStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportStatus/GetExportStatus";
+    const pathParams = {
+      "{fleetId}": getExportStatusRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExportStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExportStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/exportStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExportStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "exportStatus",
+        bodyModel: model.ExportStatus,
+        type: "model.ExportStatus",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2014,6 +2562,88 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * List the details about the created DRS files in the Fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDrsFilesRequest
+   * @return ListDrsFilesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListDrsFiles.ts.html |here} to see how to use ListDrsFiles API.
+   */
+  public async listDrsFiles(
+    listDrsFilesRequest: requests.ListDrsFilesRequest
+  ): Promise<responses.ListDrsFilesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listDrsFiles.");
+    const operationName = "listDrsFiles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFileCollection/ListDrsFiles";
+    const pathParams = {
+      "{fleetId}": listDrsFilesRequest.fleetId
+    };
+
+    const queryParams = {
+      "limit": listDrsFilesRequest.limit,
+      "page": listDrsFilesRequest.page,
+      "sortOrder": listDrsFilesRequest.sortOrder,
+      "sortBy": listDrsFilesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDrsFilesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrsFilesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/drsFiles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDrsFilesResponse>{},
+        body: await response.json(),
+        bodyKey: "drsFileCollection",
+        bodyModel: model.DrsFileCollection,
+        type: "model.DrsFileCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List potential diagnoses that would put a fleet into FAILED or NEEDS_ATTENTION lifecycle state.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2295,6 +2925,7 @@ export class JavaManagementServiceClient {
     const queryParams = {
       "familyVersion": listJavaFamiliesRequest.familyVersion,
       "displayName": listJavaFamiliesRequest.displayName,
+      "isSupportedVersion": listJavaFamiliesRequest.isSupportedVersion,
       "limit": listJavaFamiliesRequest.limit,
       "page": listJavaFamiliesRequest.page,
       "sortOrder": listJavaFamiliesRequest.sortOrder,
@@ -2970,7 +3601,8 @@ export class JavaManagementServiceClient {
       "id": listWorkRequestsRequest.id,
       "fleetId": listWorkRequestsRequest.fleetId,
       "page": listWorkRequestsRequest.page,
-      "limit": listWorkRequestsRequest.limit
+      "limit": listWorkRequestsRequest.limit,
+      "managedInstanceId": listWorkRequestsRequest.managedInstanceId
     };
 
     let headerParams = {
@@ -4606,6 +5238,171 @@ export class JavaManagementServiceClient {
         bodyModel: model.ResourceInventory,
         type: "model.ResourceInventory",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Request to perform validaition of the DRS file and update the existing file in the Object Storage.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDrsFileRequest
+   * @return UpdateDrsFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateDrsFile.ts.html |here} to see how to use UpdateDrsFile API.
+   */
+  public async updateDrsFile(
+    updateDrsFileRequest: requests.UpdateDrsFileRequest
+  ): Promise<responses.UpdateDrsFileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#updateDrsFile.");
+    const operationName = "updateDrsFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/UpdateDrsFile";
+    const pathParams = {
+      "{fleetId}": updateDrsFileRequest.fleetId,
+      "{drsFileKey}": updateDrsFileRequest.drsFileKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateDrsFileRequest.opcRequestId,
+      "if-match": updateDrsFileRequest.ifMatch,
+      "opc-retry-token": updateDrsFileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrsFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/drsFiles/{drsFileKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDrsFileRequest.updateDrsFileDetails,
+        "UpdateDrsFileDetails",
+        model.UpdateDrsFileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDrsFileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates existing export setting for the specified Fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateExportSettingRequest
+   * @return UpdateExportSettingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateExportSetting.ts.html |here} to see how to use UpdateExportSetting API.
+   */
+  public async updateExportSetting(
+    updateExportSettingRequest: requests.UpdateExportSettingRequest
+  ): Promise<responses.UpdateExportSettingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#updateExportSetting.");
+    const operationName = "updateExportSetting";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportSetting/UpdateExportSetting";
+    const pathParams = {
+      "{fleetId}": updateExportSettingRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExportSettingRequest.ifMatch,
+      "opc-request-id": updateExportSettingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExportSettingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/exportSetting",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExportSettingRequest.updateExportSettingDetails,
+        "UpdateExportSettingDetails",
+        model.UpdateExportSettingDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExportSettingResponse>{},
+        body: await response.json(),
+        bodyKey: "exportSetting",
+        bodyModel: model.ExportSetting,
+        type: "model.ExportSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

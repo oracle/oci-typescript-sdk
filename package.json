@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.73.0",
+  "version": "2.73.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -151,7 +151,8 @@
     "oci-workrequests": "file:lib/workrequests",
     "oci-computecloudatcustomer": "file:lib/computecloudatcustomer",
     "oci-marketplacepublisher": "file:lib/marketplacepublisher",
-    "oci-redis": "file:lib/redis"
+    "oci-redis": "file:lib/redis",
+    "oci-jmsjavadownloads": "file:lib/jmsjavadownloads"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

@@ -41,6 +41,7 @@ export interface ManagedInstanceUsage {
    */
   "hostId"?: string;
   "operatingSystem"?: model.OperatingSystem;
+  "agent"?: model.Agent;
   /**
    * The approximate count of applications reported by this managed instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -53,6 +54,10 @@ export interface ManagedInstanceUsage {
    * The approximate count of Java Runtimes reported by this managed instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateJreCount"?: number;
+  /**
+   * DRS file status
+   */
+  "drsFileStatus"?: model.DrsFileStatus;
   /**
    * Lower bound of the specified time period filter. JMS provides a view of the data that is _per day_. The query uses only the date element of the parameter.
    */
@@ -86,7 +91,8 @@ export namespace ManagedInstanceUsage {
       ...{
         "operatingSystem": obj.operatingSystem
           ? model.OperatingSystem.getJsonObj(obj.operatingSystem)
-          : undefined
+          : undefined,
+        "agent": obj.agent ? model.Agent.getJsonObj(obj.agent) : undefined
       }
     };
 
@@ -98,7 +104,8 @@ export namespace ManagedInstanceUsage {
       ...{
         "operatingSystem": obj.operatingSystem
           ? model.OperatingSystem.getDeserializedJsonObj(obj.operatingSystem)
-          : undefined
+          : undefined,
+        "agent": obj.agent ? model.Agent.getDeserializedJsonObj(obj.agent) : undefined
       }
     };
 

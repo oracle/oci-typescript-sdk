@@ -15,8 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the request to start a JFR analysis.
- * When the targets aren't specified, then all managed instances currently in the Fleet are selected.
+ * Details of the request to start a JFR crypto event analysis.
+ * When the targets aren't specified, then all managed instances currently in the fleet are selected.
  *
  */
 export interface RequestCryptoAnalysesDetails {

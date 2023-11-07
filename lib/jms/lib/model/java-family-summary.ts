@@ -41,6 +41,16 @@ export interface JavaFamilySummary {
    * Link to access the documentation for the release.
    */
   "docUrl": string;
+  /**
+   * Latest Java release version in the family.
+   */
+  "latestReleaseVersion": string;
+  /**
+   * Whether or not this Java release family is under active support.
+   * Refer [Java Support Roadmap](https://www.oracle.com/java/technologies/java-se-support-roadmap.html) for more details.
+   *
+   */
+  "isSupportedVersion": boolean;
 }
 
 export namespace JavaFamilySummary {

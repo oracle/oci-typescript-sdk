@@ -166,6 +166,8 @@ import * as ComputePerformanceSummary from "./compute-performance-summary";
 export import ComputePerformanceSummary = ComputePerformanceSummary.ComputePerformanceSummary;
 import * as ConfigureAutonomousDatabaseVaultKeyDetails from "./configure-autonomous-database-vault-key-details";
 export import ConfigureAutonomousDatabaseVaultKeyDetails = ConfigureAutonomousDatabaseVaultKeyDetails.ConfigureAutonomousDatabaseVaultKeyDetails;
+import * as ConfigureSaasAdminUserDetails from "./configure-saas-admin-user-details";
+export import ConfigureSaasAdminUserDetails = ConfigureSaasAdminUserDetails.ConfigureSaasAdminUserDetails;
 import * as ConsoleConnection from "./console-connection";
 export import ConsoleConnection = ConsoleConnection.ConsoleConnection;
 import * as ConsoleConnectionSummary from "./console-connection-summary";
@@ -178,6 +180,8 @@ import * as ConvertToRegularPluggableDatabaseDetails from "./convert-to-regular-
 export import ConvertToRegularPluggableDatabaseDetails = ConvertToRegularPluggableDatabaseDetails.ConvertToRegularPluggableDatabaseDetails;
 import * as CreateApplicationVipDetails from "./create-application-vip-details";
 export import CreateApplicationVipDetails = CreateApplicationVipDetails.CreateApplicationVipDetails;
+import * as CreateAutonomousContainerDatabaseDataguardAssociationDetails from "./create-autonomous-container-database-dataguard-association-details";
+export import CreateAutonomousContainerDatabaseDataguardAssociationDetails = CreateAutonomousContainerDatabaseDataguardAssociationDetails.CreateAutonomousContainerDatabaseDataguardAssociationDetails;
 import * as CreateAutonomousContainerDatabaseDetails from "./create-autonomous-container-database-details";
 export import CreateAutonomousContainerDatabaseDetails = CreateAutonomousContainerDatabaseDetails.CreateAutonomousContainerDatabaseDetails;
 import * as CreateAutonomousDatabaseBackupDetails from "./create-autonomous-database-backup-details";
@@ -534,6 +538,10 @@ import * as RotateCloudAutonomousVmClusterOrdsCertsDetails from "./rotate-cloud-
 export import RotateCloudAutonomousVmClusterOrdsCertsDetails = RotateCloudAutonomousVmClusterOrdsCertsDetails.RotateCloudAutonomousVmClusterOrdsCertsDetails;
 import * as RotateCloudAutonomousVmClusterSslCertsDetails from "./rotate-cloud-autonomous-vm-cluster-ssl-certs-details";
 export import RotateCloudAutonomousVmClusterSslCertsDetails = RotateCloudAutonomousVmClusterSslCertsDetails.RotateCloudAutonomousVmClusterSslCertsDetails;
+import * as SaasAdminUserConfiguration from "./saas-admin-user-configuration";
+export import SaasAdminUserConfiguration = SaasAdminUserConfiguration.SaasAdminUserConfiguration;
+import * as SaasAdminUserStatus from "./saas-admin-user-status";
+export import SaasAdminUserStatus = SaasAdminUserStatus.SaasAdminUserStatus;
 import * as ScanDetails from "./scan-details";
 export import ScanDetails = ScanDetails.ScanDetails;
 import * as ScheduledOperationDetails from "./scheduled-operation-details";

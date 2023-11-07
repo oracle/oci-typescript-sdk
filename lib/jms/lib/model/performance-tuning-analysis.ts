@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PerformanceTuningAnalysis {
   /**
-   * PerformanceTuningAnalysis flag to store enabled or disabled status.
+   * PerformanceTuningAnalysis flag to store enabled or disabled status
    */
   "isEnabled"?: boolean;
 }

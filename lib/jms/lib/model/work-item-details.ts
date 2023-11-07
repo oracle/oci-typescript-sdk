@@ -32,6 +32,11 @@ export namespace WorkItemDetails {
 
     if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
+        case "LCM":
+          return model.LcmWorkItemDetails.getJsonObj(
+            <model.LcmWorkItemDetails>(<object>jsonObj),
+            true
+          );
         case "BASIC":
           return model.BasicWorkItemDetails.getJsonObj(
             <model.BasicWorkItemDetails>(<object>jsonObj),
@@ -53,6 +58,11 @@ export namespace WorkItemDetails {
 
     if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
+        case "LCM":
+          return model.LcmWorkItemDetails.getDeserializedJsonObj(
+            <model.LcmWorkItemDetails>(<object>jsonObj),
+            true
+          );
         case "BASIC":
           return model.BasicWorkItemDetails.getDeserializedJsonObj(
             <model.BasicWorkItemDetails>(<object>jsonObj),

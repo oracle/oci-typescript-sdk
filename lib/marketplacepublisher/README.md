@@ -1,4 +1,3 @@
-
 # OCI NodeJS client for Marketplace Publisher Service
 
 This module enables you to write code to manage resources for Marketplace Publisher Service.

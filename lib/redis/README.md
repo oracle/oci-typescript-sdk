@@ -1,4 +1,3 @@
-
 # OCI NodeJS client for Redis Service
 
 This module enables you to write code to manage resources for Redis Service.

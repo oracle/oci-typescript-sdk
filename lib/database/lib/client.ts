@@ -2801,6 +2801,93 @@ export class DatabaseClient {
   }
 
   /**
+   * This operation updates SaaS administrative user configuration of the Autonomous Database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ConfigureSaasAdminUserRequest
+   * @return ConfigureSaasAdminUserResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureSaasAdminUser.ts.html |here} to see how to use ConfigureSaasAdminUser API.
+   */
+  public async configureSaasAdminUser(
+    configureSaasAdminUserRequest: requests.ConfigureSaasAdminUserRequest
+  ): Promise<responses.ConfigureSaasAdminUserResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#configureSaasAdminUser.");
+    const operationName = "configureSaasAdminUser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ConfigureSaasAdminUser";
+    const pathParams = {
+      "{autonomousDatabaseId}": configureSaasAdminUserRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": configureSaasAdminUserRequest.ifMatch,
+      "opc-request-id": configureSaasAdminUserRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      configureSaasAdminUserRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/configureSaasAdminUser",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        configureSaasAdminUserRequest.configureSaasAdminUserDetails,
+        "ConfigureSaasAdminUserDetails",
+        model.ConfigureSaasAdminUserDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConfigureSaasAdminUserResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Converts a non-container database to a pluggable database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3140,6 +3227,105 @@ export class DatabaseClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Create a new Autonomous Data Guard association. An Autonomous Data Guard association represents the replication relationship between the
+* specified Autonomous Container database and a peer Autonomous Container database. For more information, see [Using Oracle Data Guard](https://docs.cloud.oracle.com/Content/Database/Tasks/usingdataguard.htm).
+* <p>
+All Oracle Cloud Infrastructure resources, including Data Guard associations, get an Oracle-assigned, unique ID
+* called an Oracle Cloud Identifier (OCID). When you create a resource, you can find its OCID in the response.
+* You can also retrieve a resource's OCID by using a List API operation on that resource type, or by viewing the
+* resource in the Console. For more information, see
+* [Resource Identifiers](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateAutonomousContainerDatabaseDataguardAssociationRequest
+     * @return CreateAutonomousContainerDatabaseDataguardAssociationResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use CreateAutonomousContainerDatabaseDataguardAssociation API.
+     */
+  public async createAutonomousContainerDatabaseDataguardAssociation(
+    createAutonomousContainerDatabaseDataguardAssociationRequest: requests.CreateAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<responses.CreateAutonomousContainerDatabaseDataguardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#createAutonomousContainerDatabaseDataguardAssociation."
+      );
+    const operationName = "createAutonomousContainerDatabaseDataguardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/CreateAutonomousContainerDatabaseDataguardAssociation";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        createAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAutonomousContainerDatabaseDataguardAssociationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/autonomousContainerDatabaseDataguardAssociations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAutonomousContainerDatabaseDataguardAssociationRequest.createAutonomousContainerDatabaseDataguardAssociationDetails,
+        "CreateAutonomousContainerDatabaseDataguardAssociationDetails",
+        model.CreateAutonomousContainerDatabaseDataguardAssociationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAutonomousContainerDatabaseDataguardAssociationResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseDataguardAssociation",
+        bodyModel: model.AutonomousContainerDatabaseDataguardAssociation,
+        type: "model.AutonomousContainerDatabaseDataguardAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -25453,6 +25639,82 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This operation gets SaaS administrative user status of the Autonomous Database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SaasAdminUserStatusRequest
+   * @return SaasAdminUserStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SaasAdminUserStatus.ts.html |here} to see how to use SaasAdminUserStatus API.
+   */
+  public async saasAdminUserStatus(
+    saasAdminUserStatusRequest: requests.SaasAdminUserStatusRequest
+  ): Promise<responses.SaasAdminUserStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#saasAdminUserStatus.");
+    const operationName = "saasAdminUserStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/SaasAdminUserStatus";
+    const pathParams = {
+      "{autonomousDatabaseId}": saasAdminUserStatusRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": saasAdminUserStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      saasAdminUserStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/getSaasAdminUserStatus",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SaasAdminUserStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "saasAdminUserStatus",
+        bodyModel: model.SaasAdminUserStatus,
+        type: "model.SaasAdminUserStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

@@ -27,6 +27,10 @@ export interface ListJavaFamiliesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * Filter the Java Release Family versions by support status.
+   */
+  "isSupportedVersion"?: boolean;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

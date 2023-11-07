@@ -56,6 +56,16 @@ export interface JavaReleaseSummary {
    * Artifact content types for the Java version.
    */
   "artifactContentTypes": Array<JavaReleaseSummary.ArtifactContentTypes>;
+  /**
+   * List of My Oracle Support(MoS) patches available for this release.
+   * This information is only available for `BPR` release type.
+   *
+   */
+  "mosPatches"?: Array<model.PatchDetail>;
+  /**
+   * The number of days since this release has been under the security baseline. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "daysUnderSecurityBaseline"?: number;
 }
 
 export namespace JavaReleaseSummary {
@@ -79,6 +89,12 @@ export namespace JavaReleaseSummary {
           : undefined,
         "licenseDetails": obj.licenseDetails
           ? model.JavaLicense.getJsonObj(obj.licenseDetails)
+          : undefined,
+
+        "mosPatches": obj.mosPatches
+          ? obj.mosPatches.map(item => {
+              return model.PatchDetail.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -94,6 +110,12 @@ export namespace JavaReleaseSummary {
           : undefined,
         "licenseDetails": obj.licenseDetails
           ? model.JavaLicense.getDeserializedJsonObj(obj.licenseDetails)
+          : undefined,
+
+        "mosPatches": obj.mosPatches
+          ? obj.mosPatches.map(item => {
+              return model.PatchDetail.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

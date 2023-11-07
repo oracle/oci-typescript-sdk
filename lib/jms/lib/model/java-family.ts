@@ -21,6 +21,12 @@ import common = require("oci-common");
  */
 export interface JavaFamily {
   /**
+   * List of artifacts for the latest Java release version in this family.
+   * The script URLs in the response can be used from a command line, or in scripts and dockerfiles to always get the artifacts corresponding to the latest update release version.
+   *
+   */
+  "latestReleaseArtifacts"?: Array<model.JavaArtifact>;
+  /**
    * The Java release family identifier.
    */
   "familyVersion": string;
@@ -41,16 +47,44 @@ export interface JavaFamily {
    * Link to access the documentation for the release.
    */
   "docUrl": string;
+  /**
+   * Latest Java release version in the family.
+   */
+  "latestReleaseVersion": string;
+  /**
+   * Whether or not this Java release family is under active support.
+   * Refer [Java Support Roadmap](https://www.oracle.com/java/technologies/java-se-support-roadmap.html) for more details.
+   *
+   */
+  "isSupportedVersion": boolean;
 }
 
 export namespace JavaFamily {
   export function getJsonObj(obj: JavaFamily): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "latestReleaseArtifacts": obj.latestReleaseArtifacts
+          ? obj.latestReleaseArtifacts.map(item => {
+              return model.JavaArtifact.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: JavaFamily): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "latestReleaseArtifacts": obj.latestReleaseArtifacts
+          ? obj.latestReleaseArtifacts.map(item => {
+              return model.JavaArtifact.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

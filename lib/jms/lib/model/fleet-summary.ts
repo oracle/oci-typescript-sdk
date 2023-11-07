@@ -76,6 +76,11 @@ export interface FleetSummary {
    */
   "isAdvancedFeaturesEnabled"?: boolean;
   /**
+   * Whether or not export setting is enabled in this Fleet.
+   *
+   */
+  "isExportSettingEnabled"?: boolean;
+  /**
    * The creation date and time of the Fleet (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */
