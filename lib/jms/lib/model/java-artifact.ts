@@ -38,6 +38,45 @@ export interface JavaArtifact {
    * SHA256 checksum of the artifact.
    */
   "sha256": string;
+  /**
+   * The file name of the artifact.
+   */
+  "artifactFileName"?: string;
+  /**
+   * The target Operating System family for the artifact.
+   */
+  "osFamily": string;
+  /**
+   * The target Operating System architecture for the artifact.
+   */
+  "architecture": string;
+  /**
+   * The package type(typically the file extension) of the artifact.
+   */
+  "packageType": string;
+  /**
+   * Additional information about the package type.
+   */
+  "packageTypeDetail"?: string;
+  /**
+   * The endpoint that returns a short-lived artifact download URL in the response payload.
+   * This download url can then be used for downloading the artifact.
+   * See this [API](https://docs.oracle.com/en-us/iaas/api/#/en/jms/20230601/JavaArtifact/GenerateArtifactDownloadUrl) for more details.
+   *
+   */
+  "downloadUrl": string;
+  /**
+   * The endpoint for downloading this artifact from command line, automatically in scripts and dockerfiles.
+   * Depending on the context, this can point to the archive or latest update release version artifact in the specified family.
+   *
+   */
+  "scriptDownloadUrl": string;
+  /**
+   * The URL for retrieving the checksum for the artifact.
+   * Depending on the context, this can point to the checksum of the archive or latest update release version artifact.
+   *
+   */
+  "scriptChecksumUrl": string;
 }
 
 export namespace JavaArtifact {

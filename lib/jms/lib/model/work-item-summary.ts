@@ -27,7 +27,10 @@ export interface WorkItemSummary {
    */
   "workRequestId": string;
   "installationSite": model.InstallationSite;
-  "details": model.BasicWorkItemDetails | model.ApplicationWorkItemDetails;
+  "details":
+    | model.LcmWorkItemDetails
+    | model.BasicWorkItemDetails
+    | model.ApplicationWorkItemDetails;
   /**
    * The status of the work item.
    */

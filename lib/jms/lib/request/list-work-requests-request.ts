@@ -43,4 +43,8 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    * The maximum number of items to return.
    */
   "limit"?: number;
+  /**
+   * The Fleet-unique identifier of the managed instance.
+   */
+  "managedInstanceId"?: string;
 }

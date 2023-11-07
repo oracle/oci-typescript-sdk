@@ -786,6 +786,30 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forConfigureSaasAdminUser
+   *
+   * @param request the request to send
+   * @return response returns ConfigureSaasAdminUserResponse, GetWorkRequestResponse tuple
+   */
+  public async forConfigureSaasAdminUser(
+    request: serviceRequests.ConfigureSaasAdminUserRequest
+  ): Promise<{
+    response: serviceResponses.ConfigureSaasAdminUserResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const configureSaasAdminUserResponse = await this.client.configureSaasAdminUser(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      configureSaasAdminUserResponse.opcWorkRequestId
+    );
+    return {
+      response: configureSaasAdminUserResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forConvertToPdb
    *
    * @param request the request to send
@@ -875,6 +899,32 @@ export class DatabaseWaiter {
     );
     return {
       response: createAutonomousContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateAutonomousContainerDatabaseDataguardAssociation
+   *
+   * @param request the request to send
+   * @return response returns CreateAutonomousContainerDatabaseDataguardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateAutonomousContainerDatabaseDataguardAssociation(
+    request: serviceRequests.CreateAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.CreateAutonomousContainerDatabaseDataguardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createAutonomousContainerDatabaseDataguardAssociationResponse = await this.client.createAutonomousContainerDatabaseDataguardAssociation(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createAutonomousContainerDatabaseDataguardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: createAutonomousContainerDatabaseDataguardAssociationResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

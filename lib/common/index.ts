@@ -57,6 +57,7 @@ import getChunk from "./lib/chunker";
 import { ConfigFileReader } from "./lib/config-file-reader";
 import { Method, composeRequest, Params } from "./lib/request-generator";
 import { composeResponse } from "./lib/response-generator";
+import { isServiceEnabled } from "./lib/alloyConfiguration";
 export import AuthenticationDetailsProvider = auth.AuthenticationDetailsProvider;
 export import SimpleAuthenticationDetailsProvider = auth.SimpleAuthenticationDetailsProvider;
 export import RegionProvider = auth.RegionProvider;
@@ -79,6 +80,7 @@ export import ObjectSerializer = serializer.ObjectSerializer;
 export import byteLength = helper.byteLength;
 
 export import Range = range.Range;
+
 export {
   Region,
   Realm,
@@ -121,5 +123,6 @@ export {
   CircuitBreaker,
   getChunk,
   utils,
-  OkeWorkloadIdentityAuthenticationDetailsProvider
+  OkeWorkloadIdentityAuthenticationDetailsProvider,
+  isServiceEnabled
 };

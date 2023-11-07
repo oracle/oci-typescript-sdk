@@ -40,6 +40,7 @@ export interface UpdateFleetAgentConfigurationDetails {
   "agentPollingIntervalInMinutes"?: number;
   "linuxConfiguration"?: model.FleetAgentOsConfiguration;
   "windowsConfiguration"?: model.FleetAgentOsConfiguration;
+  "macOsConfiguration"?: model.FleetAgentOsConfiguration;
 }
 
 export namespace UpdateFleetAgentConfigurationDetails {
@@ -52,6 +53,9 @@ export namespace UpdateFleetAgentConfigurationDetails {
           : undefined,
         "windowsConfiguration": obj.windowsConfiguration
           ? model.FleetAgentOsConfiguration.getJsonObj(obj.windowsConfiguration)
+          : undefined,
+        "macOsConfiguration": obj.macOsConfiguration
+          ? model.FleetAgentOsConfiguration.getJsonObj(obj.macOsConfiguration)
           : undefined
       }
     };
@@ -67,6 +71,9 @@ export namespace UpdateFleetAgentConfigurationDetails {
           : undefined,
         "windowsConfiguration": obj.windowsConfiguration
           ? model.FleetAgentOsConfiguration.getDeserializedJsonObj(obj.windowsConfiguration)
+          : undefined,
+        "macOsConfiguration": obj.macOsConfiguration
+          ? model.FleetAgentOsConfiguration.getDeserializedJsonObj(obj.macOsConfiguration)
           : undefined
       }
     };

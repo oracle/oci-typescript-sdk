@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of a announcement on Console Overview page
+ * An summary of a announcement on Console Overview page
  */
 export interface AnnouncementSummary {
   /**

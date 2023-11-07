@@ -35,6 +35,10 @@ export interface GenerateAutonomousDatabaseWalletDetails {
    * The password to encrypt the keys inside the wallet. The password must be at least 8 characters long and must include at least 1 letter and either 1 numeric character or 1 special character.
    */
   "password": string;
+  /**
+   * True when requesting regional connection strings in PDB connect info, applicable to cross-region DG only.
+   */
+  "isRegional"?: boolean;
 }
 
 export namespace GenerateAutonomousDatabaseWalletDetails {

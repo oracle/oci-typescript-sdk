@@ -31,6 +31,10 @@ export interface JavaMigrationAnalysisResult {
    */
   "fleetId": string;
   /**
+   * The unique key that identifies the application.
+   */
+  "applicationKey"?: string;
+  /**
    * The name of the application for which the Java migration analysis was performed.
    */
   "applicationName": string;

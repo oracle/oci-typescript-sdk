@@ -41,6 +41,7 @@ export interface FleetAgentConfiguration {
   "agentPollingIntervalInMinutes"?: number;
   "linuxConfiguration": model.FleetAgentOsConfiguration;
   "windowsConfiguration": model.FleetAgentOsConfiguration;
+  "macOsConfiguration": model.FleetAgentOsConfiguration;
   /**
    * The date and time of the last modification to the Fleet Agent Configuration (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
@@ -58,6 +59,9 @@ export namespace FleetAgentConfiguration {
           : undefined,
         "windowsConfiguration": obj.windowsConfiguration
           ? model.FleetAgentOsConfiguration.getJsonObj(obj.windowsConfiguration)
+          : undefined,
+        "macOsConfiguration": obj.macOsConfiguration
+          ? model.FleetAgentOsConfiguration.getJsonObj(obj.macOsConfiguration)
           : undefined
       }
     };
@@ -73,6 +77,9 @@ export namespace FleetAgentConfiguration {
           : undefined,
         "windowsConfiguration": obj.windowsConfiguration
           ? model.FleetAgentOsConfiguration.getDeserializedJsonObj(obj.windowsConfiguration)
+          : undefined,
+        "macOsConfiguration": obj.macOsConfiguration
+          ? model.FleetAgentOsConfiguration.getDeserializedJsonObj(obj.macOsConfiguration)
           : undefined
       }
     };

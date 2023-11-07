@@ -54,6 +54,10 @@ export interface DatabaseConnectionStringProfile {
    *
    */
   "syntaxFormat": DatabaseConnectionStringProfile.SyntaxFormat;
+  /**
+   * True for a regional connection string, applicable to cross-region DG only.
+   */
+  "isRegional"?: boolean;
 }
 
 export namespace DatabaseConnectionStringProfile {

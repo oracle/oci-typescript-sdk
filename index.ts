@@ -216,3 +216,4 @@ export import fleetsoftwareupdate = require("oci-fleetsoftwareupdate");
 export import computecloudatcustomer = require("oci-computecloudatcustomer");
 export import marketplacepublisher = require("oci-marketplacepublisher");
 export import redis = require("oci-redis");
+export import jmsjavadownloads = require("oci-jmsjavadownloads");

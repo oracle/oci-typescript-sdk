@@ -23,6 +23,7 @@ describe("Test Region", () => {
       const regionMetadata = JSON.parse(fileContent) as RegionMetadataSchema[];
       expect(regionMetadata && regionMetadata.length > 0 && Array.isArray(regionMetadata)).to.be
         .true;
+      Region.resetAlloyConfig();
       const regionsList = Region.values();
       regionMetadata.forEach(metadata => {
         expect(RegionMetadataSchema.isValidSchema(metadata)).to.be.true;
@@ -40,6 +41,34 @@ describe("Test Region", () => {
 
   it("should register a region sucessfully ", function() {
     const region = Region.register(regionId, realm);
+    expect(region.regionId).equals(regionId);
+  });
+
+  it("all regions from alloy-config.json should be registered", function() {
+    const filePath = __dirname + "/resources/alloy-config.json";
+    expect(existsSync(filePath)).to.be.true;
+    try {
+      const fileContent = readFileSync(filePath, "utf8");
+      const regionMetadata = JSON.parse(fileContent) as RegionMetadataSchema[];
+      expect(regionMetadata && regionMetadata.length > 0 && Array.isArray(regionMetadata)).to.be
+        .true;
+      const regionsList = Region.values();
+      regionMetadata.forEach(metadata => {
+        expect(RegionMetadataSchema.isValidSchema(metadata)).to.be.true;
+        expect(regionsList.map(e => e.regionId)).to.include(metadata.regionIdentifier);
+        if (metadata != null) {
+          expect(metadata.regionIdentifier).equals(
+            Region.getRegionIdFromShortCode(metadata.regionKey)
+          );
+        }
+      });
+    } catch (error) {
+      throw error;
+    }
+  });
+
+  it("should register a alloy region sucessfully ", function() {
+    const region = Region.register(regionId, realm, undefined, true);
     expect(region.regionId).equals(regionId);
   });
 
@@ -75,6 +104,7 @@ describe("Test Region", () => {
   });
 
   it("should return all the regions registered in SDK", function() {
+    Region.resetAlloyConfig();
     const regionsList = Region.values();
     expect(regionsList).to.be.an("array");
     expect(regionsList.map(e => e.regionId)).to.include("us-phoenix-1");

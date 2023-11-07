@@ -72,6 +72,8 @@ import * as CompleteExternalBackupJobResponse from "./complete-external-backup-j
 export import CompleteExternalBackupJobResponse = CompleteExternalBackupJobResponse.CompleteExternalBackupJobResponse;
 import * as ConfigureAutonomousDatabaseVaultKeyResponse from "./configure-autonomous-database-vault-key-response";
 export import ConfigureAutonomousDatabaseVaultKeyResponse = ConfigureAutonomousDatabaseVaultKeyResponse.ConfigureAutonomousDatabaseVaultKeyResponse;
+import * as ConfigureSaasAdminUserResponse from "./configure-saas-admin-user-response";
+export import ConfigureSaasAdminUserResponse = ConfigureSaasAdminUserResponse.ConfigureSaasAdminUserResponse;
 import * as ConvertToPdbResponse from "./convert-to-pdb-response";
 export import ConvertToPdbResponse = ConvertToPdbResponse.ConvertToPdbResponse;
 import * as ConvertToRegularPluggableDatabaseResponse from "./convert-to-regular-pluggable-database-response";
@@ -80,6 +82,8 @@ import * as CreateApplicationVipResponse from "./create-application-vip-response
 export import CreateApplicationVipResponse = CreateApplicationVipResponse.CreateApplicationVipResponse;
 import * as CreateAutonomousContainerDatabaseResponse from "./create-autonomous-container-database-response";
 export import CreateAutonomousContainerDatabaseResponse = CreateAutonomousContainerDatabaseResponse.CreateAutonomousContainerDatabaseResponse;
+import * as CreateAutonomousContainerDatabaseDataguardAssociationResponse from "./create-autonomous-container-database-dataguard-association-response";
+export import CreateAutonomousContainerDatabaseDataguardAssociationResponse = CreateAutonomousContainerDatabaseDataguardAssociationResponse.CreateAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as CreateAutonomousDatabaseResponse from "./create-autonomous-database-response";
 export import CreateAutonomousDatabaseResponse = CreateAutonomousDatabaseResponse.CreateAutonomousDatabaseResponse;
 import * as CreateAutonomousDatabaseBackupResponse from "./create-autonomous-database-backup-response";
@@ -552,6 +556,8 @@ import * as RotateSslCertsResponse from "./rotate-ssl-certs-response";
 export import RotateSslCertsResponse = RotateSslCertsResponse.RotateSslCertsResponse;
 import * as RotateVaultKeyResponse from "./rotate-vault-key-response";
 export import RotateVaultKeyResponse = RotateVaultKeyResponse.RotateVaultKeyResponse;
+import * as SaasAdminUserStatusResponse from "./saas-admin-user-status-response";
+export import SaasAdminUserStatusResponse = SaasAdminUserStatusResponse.SaasAdminUserStatusResponse;
 import * as ScanExternalContainerDatabasePluggableDatabasesResponse from "./scan-external-container-database-pluggable-databases-response";
 export import ScanExternalContainerDatabasePluggableDatabasesResponse = ScanExternalContainerDatabasePluggableDatabasesResponse.ScanExternalContainerDatabasePluggableDatabasesResponse;
 import * as ShrinkAutonomousDatabaseResponse from "./shrink-autonomous-database-response";
