@@ -182,13 +182,58 @@ export interface MyRequest {
    *  - caseExact: true
    *  - idcsSearchable: true
    *  - multiValued: false
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: default
+   *  - type: string
+   *  - uniqueness: none
+   */
+  "status"?: MyRequest.Status;
+  /**
+   * Requestor can set action to CANCEL to cancel the request or to ESCALATE to escalate the request while the request status is IN_PROGRESS. Requestor can't escalate the request if canceling or escalation is in progress.
+   * <p>
+   **Added In:** 2307071836
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: true
+   *  - idcsSearchable: true
+   *  - multiValued: false
    *  - mutability: readWrite
    *  - required: false
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
    */
-  "status"?: string;
+  "action"?: MyRequest.Action;
+  /**
+   * Time by when Request expires
+   * <p>
+   **Added In:** 2307071836
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsSearchable: true
+   *  - multiValued: false
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: default
+   *  - type: dateTime
+   *  - uniqueness: none
+   */
+  "expires"?: string;
+  /**
+   * Approvals created for this request.
+   * <p>
+   **Added In:** 2307071836
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsSearchable: false
+   *  - multiValued: true
+   *  - mutability: readOnly
+   *  - returned: request
+   *  - type: complex
+   *  - uniqueness: none
+   */
+  "approvalDetails"?: Array<model.MyRequestApprovalDetails>;
   "requestor"?: model.MyRequestRequestor;
   "requesting": model.MyRequestRequesting;
 }
@@ -198,6 +243,32 @@ export namespace MyRequest {
     Replace = "replace",
     Update = "update",
     Delete = "delete",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Status {
+    Created = "CREATED",
+    Complete = "COMPLETE",
+    InProgress = "IN_PROGRESS",
+    Approved = "APPROVED",
+    Rejected = "REJECTED",
+    Canceled = "CANCELED",
+    Expired = "EXPIRED",
+    Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Action {
+    Cancel = "CANCEL",
+    Escalate = "ESCALATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -223,6 +294,11 @@ export namespace MyRequest {
             })
           : undefined,
 
+        "approvalDetails": obj.approvalDetails
+          ? obj.approvalDetails.map(item => {
+              return model.MyRequestApprovalDetails.getJsonObj(item);
+            })
+          : undefined,
         "requestor": obj.requestor ? model.MyRequestRequestor.getJsonObj(obj.requestor) : undefined,
         "requesting": obj.requesting
           ? model.MyRequestRequesting.getJsonObj(obj.requesting)
@@ -250,6 +326,11 @@ export namespace MyRequest {
             })
           : undefined,
 
+        "approvalDetails": obj.approvalDetails
+          ? obj.approvalDetails.map(item => {
+              return model.MyRequestApprovalDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "requestor": obj.requestor
           ? model.MyRequestRequestor.getDeserializedJsonObj(obj.requestor)
           : undefined,

@@ -100,6 +100,22 @@ export interface ExtensionSocialIdentityProvider {
    */
   "accessTokenUrl"?: string;
   /**
+   * Relay Param variable for Social IDP
+   * <p>
+   **Added In:** 2305190132
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsCompositeKey: [relayParamKey]
+   *  - idcsSearchable: true
+   *  - multiValued: true
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: complex
+   *  - uniqueness: none
+   */
+  "relayIdpParamMappings"?: Array<model.IdentityProviderRelayIdpParamMappings>;
+  /**
    * Social IDP User profile URL
    * <p>
    **Added In:** 20.1.3
@@ -289,12 +305,30 @@ export namespace ExtensionSocialIdentityProvider {
   }
 
   export function getJsonObj(obj: ExtensionSocialIdentityProvider): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "relayIdpParamMappings": obj.relayIdpParamMappings
+          ? obj.relayIdpParamMappings.map(item => {
+              return model.IdentityProviderRelayIdpParamMappings.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ExtensionSocialIdentityProvider): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "relayIdpParamMappings": obj.relayIdpParamMappings
+          ? obj.relayIdpParamMappings.map(item => {
+              return model.IdentityProviderRelayIdpParamMappings.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

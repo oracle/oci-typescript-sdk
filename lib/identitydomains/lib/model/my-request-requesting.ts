@@ -70,6 +70,21 @@ export interface MyRequestRequesting {
    */
   "display"?: string;
   /**
+   * Resource description
+   * <p>
+   **Added In:** 2307071836
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsSearchable: true
+   *  - multiValued: false
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: default
+   *  - type: string
+   *  - uniqueness: none
+   */
+  "description"?: string;
+  /**
    * Requestable type. Allowed values are Group and App.
    * <p>
    **SCIM++ Properties:**

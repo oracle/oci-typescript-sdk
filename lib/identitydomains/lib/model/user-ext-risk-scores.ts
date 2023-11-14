@@ -108,7 +108,9 @@ export interface UserExtRiskScores {
    *  - required: true
    *  - returned: always
    *  - type: integer
-   *  - uniqueness: none Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   *  - uniqueness: none
+   *  - idcsMaxValue: 100
+   *  - idcsMinValue: 0 Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "score": number;
   /**

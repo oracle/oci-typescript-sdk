@@ -59,6 +59,32 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forChangeComputeCapacityTopologyCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeComputeCapacityTopologyCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeComputeCapacityTopologyCompartment(
+    request: serviceRequests.ChangeComputeCapacityTopologyCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeComputeCapacityTopologyCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeComputeCapacityTopologyCompartmentResponse = await this.client.changeComputeCapacityTopologyCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeComputeCapacityTopologyCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeComputeCapacityTopologyCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeDedicatedVmHostCompartment
    *
    * @param request the request to send
@@ -135,6 +161,32 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forCreateComputeCapacityTopology
+   *
+   * @param request the request to send
+   * @return response returns CreateComputeCapacityTopologyResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateComputeCapacityTopology(
+    request: serviceRequests.CreateComputeCapacityTopologyRequest
+  ): Promise<{
+    response: serviceResponses.CreateComputeCapacityTopologyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createComputeCapacityTopologyResponse = await this.client.createComputeCapacityTopology(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createComputeCapacityTopologyResponse.opcWorkRequestId
+    );
+    return {
+      response: createComputeCapacityTopologyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateDedicatedVmHost
    *
    * @param request the request to send
@@ -198,6 +250,32 @@ export class ComputeWaiter {
     );
     return {
       response: deleteComputeCapacityReservationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteComputeCapacityTopology
+   *
+   * @param request the request to send
+   * @return response returns DeleteComputeCapacityTopologyResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteComputeCapacityTopology(
+    request: serviceRequests.DeleteComputeCapacityTopologyRequest
+  ): Promise<{
+    response: serviceResponses.DeleteComputeCapacityTopologyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteComputeCapacityTopologyResponse = await this.client.deleteComputeCapacityTopology(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteComputeCapacityTopologyResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteComputeCapacityTopologyResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -278,6 +356,25 @@ export class ComputeWaiter {
       () => this.client.getComputeCapacityReservation(request),
       response => targetStates.includes(response.computeCapacityReservation.lifecycleState!),
       targetStates.includes(models.ComputeCapacityReservation.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forComputeCapacityTopology till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetComputeCapacityTopologyResponse | null (null in case of 404 response)
+   */
+  public async forComputeCapacityTopology(
+    request: serviceRequests.GetComputeCapacityTopologyRequest,
+    ...targetStates: models.ComputeCapacityTopology.LifecycleState[]
+  ): Promise<serviceResponses.GetComputeCapacityTopologyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getComputeCapacityTopology(request),
+      response => targetStates.includes(response.computeCapacityTopology.lifecycleState!),
+      targetStates.includes(models.ComputeCapacityTopology.LifecycleState.Deleted)
     );
   }
 
@@ -473,6 +570,32 @@ export class ComputeWaiter {
     );
     return {
       response: updateComputeCapacityReservationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateComputeCapacityTopology
+   *
+   * @param request the request to send
+   * @return response returns UpdateComputeCapacityTopologyResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateComputeCapacityTopology(
+    request: serviceRequests.UpdateComputeCapacityTopologyRequest
+  ): Promise<{
+    response: serviceResponses.UpdateComputeCapacityTopologyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateComputeCapacityTopologyResponse = await this.client.updateComputeCapacityTopology(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateComputeCapacityTopologyResponse.opcWorkRequestId
+    );
+    return {
+      response: updateComputeCapacityTopologyResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

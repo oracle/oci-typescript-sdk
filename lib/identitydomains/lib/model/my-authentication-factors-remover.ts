@@ -175,6 +175,19 @@ export interface MyAuthenticationFactorsRemover {
    *  - idcsSearchable: false
    */
   "type"?: MyAuthenticationFactorsRemover.Type;
+  /**
+   * Specifies the token to be removed
+   * <p>
+   **SCIM++ Properties:**
+   *  - type: string
+   *  - multiValued: false
+   *  - required: false
+   *  - mutability: readWrite
+   *  - returned: request
+   *  - uniqueness: none
+   *  - idcsSearchable: false
+   */
+  "token"?: string;
 }
 
 export namespace MyAuthenticationFactorsRemover {

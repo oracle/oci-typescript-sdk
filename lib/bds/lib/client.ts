@@ -838,6 +838,90 @@ export class BdsClient {
   }
 
   /**
+   * A list of services and their certificate details.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CertificateServiceInfoRequest
+   * @return CertificateServiceInfoResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CertificateServiceInfo.ts.html |here} to see how to use CertificateServiceInfo API.
+   */
+  public async certificateServiceInfo(
+    certificateServiceInfoRequest: requests.CertificateServiceInfoRequest
+  ): Promise<responses.CertificateServiceInfoResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#certificateServiceInfo.");
+    const operationName = "certificateServiceInfo";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/CertificateServiceInfo";
+    const pathParams = {
+      "{bdsInstanceId}": certificateServiceInfoRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": certificateServiceInfoRequest.opcRequestId,
+      "if-match": certificateServiceInfoRequest.ifMatch,
+      "opc-retry-token": certificateServiceInfoRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      certificateServiceInfoRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/fetchOdhServiceCertificate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        certificateServiceInfoRequest.certificateServiceInfoDetails,
+        "CertificateServiceInfoDetails",
+        model.CertificateServiceInfoDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CertificateServiceInfoResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.CertificateServiceInfoSummary,
+        type: "Array<model.CertificateServiceInfoSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a Big Data Service cluster into a different compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1435,6 +1519,166 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disabling TLS/SSL for various ODH services running on the BDS cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableCertificateRequest
+   * @return DisableCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DisableCertificate.ts.html |here} to see how to use DisableCertificate API.
+   */
+  public async disableCertificate(
+    disableCertificateRequest: requests.DisableCertificateRequest
+  ): Promise<responses.DisableCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#disableCertificate.");
+    const operationName = "disableCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/DisableCertificate";
+    const pathParams = {
+      "{bdsInstanceId}": disableCertificateRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableCertificateRequest.opcRequestId,
+      "if-match": disableCertificateRequest.ifMatch,
+      "opc-retry-token": disableCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/disableOdhServiceCertificate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableCertificateRequest.disableCertificateDetails,
+        "DisableCertificateDetails",
+        model.DisableCertificateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Configuring TLS/SSL for various ODH services running on the BDS cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableCertificateRequest
+   * @return EnableCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/EnableCertificate.ts.html |here} to see how to use EnableCertificate API.
+   */
+  public async enableCertificate(
+    enableCertificateRequest: requests.EnableCertificateRequest
+  ): Promise<responses.EnableCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#enableCertificate.");
+    const operationName = "enableCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/EnableCertificate";
+    const pathParams = {
+      "{bdsInstanceId}": enableCertificateRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableCertificateRequest.opcRequestId,
+      "if-match": enableCertificateRequest.ifMatch,
+      "opc-retry-token": enableCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/enableOdhServiceCertificate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableCertificateRequest.enableCertificateDetails,
+        "EnableCertificateDetails",
+        model.EnableCertificateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableCertificateResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3823,6 +4067,86 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Renewing TLS/SSL for various ODH services running on the BDS cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RenewCertificateRequest
+   * @return RenewCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RenewCertificate.ts.html |here} to see how to use RenewCertificate API.
+   */
+  public async renewCertificate(
+    renewCertificateRequest: requests.RenewCertificateRequest
+  ): Promise<responses.RenewCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#renewCertificate.");
+    const operationName = "renewCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RenewCertificate";
+    const pathParams = {
+      "{bdsInstanceId}": renewCertificateRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": renewCertificateRequest.opcRequestId,
+      "if-match": renewCertificateRequest.ifMatch,
+      "opc-retry-token": renewCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      renewCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/renewOdhServiceCertificate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        renewCertificateRequest.renewCertificateDetails,
+        "RenewCertificateDetails",
+        model.RenewCertificateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RenewCertificateResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

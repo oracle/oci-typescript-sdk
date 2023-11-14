@@ -175,7 +175,7 @@ export interface MePasswordChanger {
    */
   "externalId"?: string;
   /**
-   * Password attribute. Max length for password is controlled via Password Policy.
+   * Password attribute. The maximum length for a password is controlled by a password policy.
    * <p>
    **SCIM++ Properties:**
    *  - type: string

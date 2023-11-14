@@ -37,6 +37,7 @@ export interface TranscriptionModelDetails {
    *
    */
   "languageCode"?: TranscriptionModelDetails.LanguageCode;
+  "transcriptionSettings"?: model.TranscriptionSettings;
 }
 
 export namespace TranscriptionModelDetails {
@@ -68,12 +69,26 @@ export namespace TranscriptionModelDetails {
   }
 
   export function getJsonObj(obj: TranscriptionModelDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "transcriptionSettings": obj.transcriptionSettings
+          ? model.TranscriptionSettings.getJsonObj(obj.transcriptionSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: TranscriptionModelDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "transcriptionSettings": obj.transcriptionSettings
+          ? model.TranscriptionSettings.getDeserializedJsonObj(obj.transcriptionSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

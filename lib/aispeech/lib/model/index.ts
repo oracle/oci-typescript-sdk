@@ -17,6 +17,8 @@ import * as ChangeTranscriptionJobCompartmentDetails from "./change-transcriptio
 export import ChangeTranscriptionJobCompartmentDetails = ChangeTranscriptionJobCompartmentDetails.ChangeTranscriptionJobCompartmentDetails;
 import * as CreateTranscriptionJobDetails from "./create-transcription-job-details";
 export import CreateTranscriptionJobDetails = CreateTranscriptionJobDetails.CreateTranscriptionJobDetails;
+import * as Diarization from "./diarization";
+export import Diarization = Diarization.Diarization;
 import * as InputLocation from "./input-location";
 export import InputLocation = InputLocation.InputLocation;
 import * as ObjectLocation from "./object-location";
@@ -37,6 +39,8 @@ import * as TranscriptionModelDetails from "./transcription-model-details";
 export import TranscriptionModelDetails = TranscriptionModelDetails.TranscriptionModelDetails;
 import * as TranscriptionNormalization from "./transcription-normalization";
 export import TranscriptionNormalization = TranscriptionNormalization.TranscriptionNormalization;
+import * as TranscriptionSettings from "./transcription-settings";
+export import TranscriptionSettings = TranscriptionSettings.TranscriptionSettings;
 import * as TranscriptionTask from "./transcription-task";
 export import TranscriptionTask = TranscriptionTask.TranscriptionTask;
 import * as TranscriptionTaskCollection from "./transcription-task-collection";
