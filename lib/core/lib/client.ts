@@ -6307,6 +6307,91 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   }
 
   /**
+   * Moves a compute capacity topology into a different compartment. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeComputeCapacityTopologyCompartmentRequest
+   * @return ChangeComputeCapacityTopologyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeCapacityTopologyCompartment.ts.html |here} to see how to use ChangeComputeCapacityTopologyCompartment API.
+   */
+  public async changeComputeCapacityTopologyCompartment(
+    changeComputeCapacityTopologyCompartmentRequest: requests.ChangeComputeCapacityTopologyCompartmentRequest
+  ): Promise<responses.ChangeComputeCapacityTopologyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#changeComputeCapacityTopologyCompartment."
+      );
+    const operationName = "changeComputeCapacityTopologyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/ChangeComputeCapacityTopologyCompartment";
+    const pathParams = {
+      "{computeCapacityTopologyId}":
+        changeComputeCapacityTopologyCompartmentRequest.computeCapacityTopologyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeComputeCapacityTopologyCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeCapacityTopologyCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeCapacityTopologyCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeCapacityTopologyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies/{computeCapacityTopologyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeCapacityTopologyCompartmentRequest.changeComputeCapacityTopologyCompartmentDetails,
+        "ChangeComputeCapacityTopologyCompartmentDetails",
+        model.ChangeComputeCapacityTopologyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeCapacityTopologyCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Moves a compute cluster into a different compartment within the same tenancy.
 * A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
 * <p>
@@ -6985,6 +7070,102 @@ Use the capacity report to determine whether sufficient capacity is available fo
   }
 
   /**
+     * Creates a new compute capacity topology in the specified compartment and availability domain.
+* <p>
+Compute capacity topologies provide the RDMA network topology of your bare metal hosts so that you can launch
+* instances on your bare metal hosts with targeted network locations.
+* <p>
+Compute capacity topologies report the health status of your bare metal hosts.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateComputeCapacityTopologyRequest
+     * @return CreateComputeCapacityTopologyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityTopology.ts.html |here} to see how to use CreateComputeCapacityTopology API.
+     */
+  public async createComputeCapacityTopology(
+    createComputeCapacityTopologyRequest: requests.CreateComputeCapacityTopologyRequest
+  ): Promise<responses.CreateComputeCapacityTopologyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeCapacityTopology.");
+    const operationName = "createComputeCapacityTopology";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createComputeCapacityTopologyRequest.opcRequestId,
+      "opc-retry-token": createComputeCapacityTopologyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeCapacityTopologyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeCapacityTopologyRequest.createComputeCapacityTopologyDetails,
+        "CreateComputeCapacityTopologyDetails",
+        model.CreateComputeCapacityTopologyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeCapacityTopologyResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCapacityTopology",
+        bodyModel: model.ComputeCapacityTopology,
+        type: "model.ComputeCapacityTopology",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates an empty [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
 * is a remote direct memory access (RDMA) network group.
 * <p>
@@ -7561,6 +7742,80 @@ For more information about instance console connections, see [Troubleshooting In
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteComputeCapacityReservationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified compute capacity topology.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteComputeCapacityTopologyRequest
+   * @return DeleteComputeCapacityTopologyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCapacityTopology.ts.html |here} to see how to use DeleteComputeCapacityTopology API.
+   */
+  public async deleteComputeCapacityTopology(
+    deleteComputeCapacityTopologyRequest: requests.DeleteComputeCapacityTopologyRequest
+  ): Promise<responses.DeleteComputeCapacityTopologyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteComputeCapacityTopology.");
+    const operationName = "deleteComputeCapacityTopology";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/DeleteComputeCapacityTopology";
+    const pathParams = {
+      "{computeCapacityTopologyId}": deleteComputeCapacityTopologyRequest.computeCapacityTopologyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteComputeCapacityTopologyRequest.ifMatch,
+      "opc-request-id": deleteComputeCapacityTopologyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteComputeCapacityTopologyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies/{computeCapacityTopologyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteComputeCapacityTopologyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8679,6 +8934,83 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         bodyKey: "computeCapacityReservation",
         bodyModel: model.ComputeCapacityReservation,
         type: "model.ComputeCapacityReservation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified compute capacity topology.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetComputeCapacityTopologyRequest
+   * @return GetComputeCapacityTopologyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCapacityTopology.ts.html |here} to see how to use GetComputeCapacityTopology API.
+   */
+  public async getComputeCapacityTopology(
+    getComputeCapacityTopologyRequest: requests.GetComputeCapacityTopologyRequest
+  ): Promise<responses.GetComputeCapacityTopologyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeCapacityTopology.");
+    const operationName = "getComputeCapacityTopology";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/GetComputeCapacityTopology";
+    const pathParams = {
+      "{computeCapacityTopologyId}": getComputeCapacityTopologyRequest.computeCapacityTopologyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeCapacityTopologyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeCapacityTopologyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies/{computeCapacityTopologyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeCapacityTopologyResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCapacityTopology",
+        bodyModel: model.ComputeCapacityTopology,
+        type: "model.ComputeCapacityTopology",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11125,6 +11457,362 @@ You can limit the list by specifying a compute capacity reservation display name
     request: requests.ListComputeCapacityReservationsRequest
   ): AsyncIterableIterator<responses.ListComputeCapacityReservationsResponse> {
     return paginateResponses(request, req => this.listComputeCapacityReservations(req));
+  }
+
+  /**
+   * Lists the compute capacity topologies in the specified compartment. You can filter the list by a compute
+   * capacity topology display name.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeCapacityTopologiesRequest
+   * @return ListComputeCapacityTopologiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologies.ts.html |here} to see how to use ListComputeCapacityTopologies API.
+   */
+  public async listComputeCapacityTopologies(
+    listComputeCapacityTopologiesRequest: requests.ListComputeCapacityTopologiesRequest
+  ): Promise<responses.ListComputeCapacityTopologiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeCapacityTopologies.");
+    const operationName = "listComputeCapacityTopologies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/ListComputeCapacityTopologies";
+    const pathParams = {};
+
+    const queryParams = {
+      "availabilityDomain": listComputeCapacityTopologiesRequest.availabilityDomain,
+      "compartmentId": listComputeCapacityTopologiesRequest.compartmentId,
+      "displayName": listComputeCapacityTopologiesRequest.displayName,
+      "limit": listComputeCapacityTopologiesRequest.limit,
+      "page": listComputeCapacityTopologiesRequest.page,
+      "sortBy": listComputeCapacityTopologiesRequest.sortBy,
+      "sortOrder": listComputeCapacityTopologiesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeCapacityTopologiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeCapacityTopologiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeCapacityTopologiesResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCapacityTopologyCollection",
+        bodyModel: model.ComputeCapacityTopologyCollection,
+        type: "model.ComputeCapacityTopologyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists compute bare metal hosts in the specified compute capacity topology.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeCapacityTopologyComputeBareMetalHostsRequest
+   * @return ListComputeCapacityTopologyComputeBareMetalHostsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeBareMetalHosts.ts.html |here} to see how to use ListComputeCapacityTopologyComputeBareMetalHosts API.
+   */
+  public async listComputeCapacityTopologyComputeBareMetalHosts(
+    listComputeCapacityTopologyComputeBareMetalHostsRequest: requests.ListComputeCapacityTopologyComputeBareMetalHostsRequest
+  ): Promise<responses.ListComputeCapacityTopologyComputeBareMetalHostsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeCapacityTopologyComputeBareMetalHosts."
+      );
+    const operationName = "listComputeCapacityTopologyComputeBareMetalHosts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeBareMetalHost/ListComputeCapacityTopologyComputeBareMetalHosts";
+    const pathParams = {
+      "{computeCapacityTopologyId}":
+        listComputeCapacityTopologyComputeBareMetalHostsRequest.computeCapacityTopologyId
+    };
+
+    const queryParams = {
+      "availabilityDomain":
+        listComputeCapacityTopologyComputeBareMetalHostsRequest.availabilityDomain,
+      "compartmentId": listComputeCapacityTopologyComputeBareMetalHostsRequest.compartmentId,
+      "computeHpcIslandId":
+        listComputeCapacityTopologyComputeBareMetalHostsRequest.computeHpcIslandId,
+      "computeNetworkBlockId":
+        listComputeCapacityTopologyComputeBareMetalHostsRequest.computeNetworkBlockId,
+      "computeLocalBlockId":
+        listComputeCapacityTopologyComputeBareMetalHostsRequest.computeLocalBlockId,
+      "limit": listComputeCapacityTopologyComputeBareMetalHostsRequest.limit,
+      "page": listComputeCapacityTopologyComputeBareMetalHostsRequest.page,
+      "sortBy": listComputeCapacityTopologyComputeBareMetalHostsRequest.sortBy,
+      "sortOrder": listComputeCapacityTopologyComputeBareMetalHostsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeCapacityTopologyComputeBareMetalHostsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeCapacityTopologyComputeBareMetalHostsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies/{computeCapacityTopologyId}/computeBareMetalHosts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeCapacityTopologyComputeBareMetalHostsResponse>{},
+        body: await response.json(),
+        bodyKey: "computeBareMetalHostCollection",
+        bodyModel: model.ComputeBareMetalHostCollection,
+        type: "model.ComputeBareMetalHostCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists compute HPC islands in the specified compute capacity topology.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeCapacityTopologyComputeHpcIslandsRequest
+   * @return ListComputeCapacityTopologyComputeHpcIslandsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeHpcIslands.ts.html |here} to see how to use ListComputeCapacityTopologyComputeHpcIslands API.
+   */
+  public async listComputeCapacityTopologyComputeHpcIslands(
+    listComputeCapacityTopologyComputeHpcIslandsRequest: requests.ListComputeCapacityTopologyComputeHpcIslandsRequest
+  ): Promise<responses.ListComputeCapacityTopologyComputeHpcIslandsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeCapacityTopologyComputeHpcIslands."
+      );
+    const operationName = "listComputeCapacityTopologyComputeHpcIslands";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHpcIsland/ListComputeCapacityTopologyComputeHpcIslands";
+    const pathParams = {
+      "{computeCapacityTopologyId}":
+        listComputeCapacityTopologyComputeHpcIslandsRequest.computeCapacityTopologyId
+    };
+
+    const queryParams = {
+      "availabilityDomain": listComputeCapacityTopologyComputeHpcIslandsRequest.availabilityDomain,
+      "compartmentId": listComputeCapacityTopologyComputeHpcIslandsRequest.compartmentId,
+      "limit": listComputeCapacityTopologyComputeHpcIslandsRequest.limit,
+      "page": listComputeCapacityTopologyComputeHpcIslandsRequest.page,
+      "sortBy": listComputeCapacityTopologyComputeHpcIslandsRequest.sortBy,
+      "sortOrder": listComputeCapacityTopologyComputeHpcIslandsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeCapacityTopologyComputeHpcIslandsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeCapacityTopologyComputeHpcIslandsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies/{computeCapacityTopologyId}/computeHpcIslands",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeCapacityTopologyComputeHpcIslandsResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHpcIslandCollection",
+        bodyModel: model.ComputeHpcIslandCollection,
+        type: "model.ComputeHpcIslandCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists compute network blocks in the specified compute capacity topology.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeCapacityTopologyComputeNetworkBlocksRequest
+   * @return ListComputeCapacityTopologyComputeNetworkBlocksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeNetworkBlocks.ts.html |here} to see how to use ListComputeCapacityTopologyComputeNetworkBlocks API.
+   */
+  public async listComputeCapacityTopologyComputeNetworkBlocks(
+    listComputeCapacityTopologyComputeNetworkBlocksRequest: requests.ListComputeCapacityTopologyComputeNetworkBlocksRequest
+  ): Promise<responses.ListComputeCapacityTopologyComputeNetworkBlocksResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeCapacityTopologyComputeNetworkBlocks."
+      );
+    const operationName = "listComputeCapacityTopologyComputeNetworkBlocks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeNetworkBlock/ListComputeCapacityTopologyComputeNetworkBlocks";
+    const pathParams = {
+      "{computeCapacityTopologyId}":
+        listComputeCapacityTopologyComputeNetworkBlocksRequest.computeCapacityTopologyId
+    };
+
+    const queryParams = {
+      "availabilityDomain":
+        listComputeCapacityTopologyComputeNetworkBlocksRequest.availabilityDomain,
+      "compartmentId": listComputeCapacityTopologyComputeNetworkBlocksRequest.compartmentId,
+      "computeHpcIslandId":
+        listComputeCapacityTopologyComputeNetworkBlocksRequest.computeHpcIslandId,
+      "limit": listComputeCapacityTopologyComputeNetworkBlocksRequest.limit,
+      "page": listComputeCapacityTopologyComputeNetworkBlocksRequest.page,
+      "sortBy": listComputeCapacityTopologyComputeNetworkBlocksRequest.sortBy,
+      "sortOrder": listComputeCapacityTopologyComputeNetworkBlocksRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeCapacityTopologyComputeNetworkBlocksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeCapacityTopologyComputeNetworkBlocksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies/{computeCapacityTopologyId}/computeNetworkBlocks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeCapacityTopologyComputeNetworkBlocksResponse>{},
+        body: await response.json(),
+        bodyKey: "computeNetworkBlockCollection",
+        bodyModel: model.ComputeNetworkBlockCollection,
+        type: "model.ComputeNetworkBlockCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -13607,6 +14295,86 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateComputeCapacityReservationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified compute capacity topology. Fields that are not provided in the request will not be updated.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateComputeCapacityTopologyRequest
+   * @return UpdateComputeCapacityTopologyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCapacityTopology.ts.html |here} to see how to use UpdateComputeCapacityTopology API.
+   */
+  public async updateComputeCapacityTopology(
+    updateComputeCapacityTopologyRequest: requests.UpdateComputeCapacityTopologyRequest
+  ): Promise<responses.UpdateComputeCapacityTopologyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateComputeCapacityTopology.");
+    const operationName = "updateComputeCapacityTopology";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/UpdateComputeCapacityTopology";
+    const pathParams = {
+      "{computeCapacityTopologyId}": updateComputeCapacityTopologyRequest.computeCapacityTopologyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateComputeCapacityTopologyRequest.ifMatch,
+      "opc-request-id": updateComputeCapacityTopologyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeCapacityTopologyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityTopologies/{computeCapacityTopologyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeCapacityTopologyRequest.updateComputeCapacityTopologyDetails,
+        "UpdateComputeCapacityTopologyDetails",
+        model.UpdateComputeCapacityTopologyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeCapacityTopologyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

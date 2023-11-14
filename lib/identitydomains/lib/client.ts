@@ -27,7 +27,7 @@ export enum IdentityDomainsApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class IdentityDomainsClient {
-  protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://idcs-guid.identity.oraclecloud.com";
   protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
@@ -359,6 +359,261 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Create ApprovalWorkflow
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateApprovalWorkflowRequest
+   * @return CreateApprovalWorkflowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflow.ts.html |here} to see how to use CreateApprovalWorkflow API.
+   */
+  public async createApprovalWorkflow(
+    createApprovalWorkflowRequest: requests.CreateApprovalWorkflowRequest
+  ): Promise<responses.CreateApprovalWorkflowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createApprovalWorkflow.");
+    const operationName = "createApprovalWorkflow";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createApprovalWorkflowRequest.attributes,
+      "attributeSets": createApprovalWorkflowRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createApprovalWorkflowRequest.authorization,
+      "resource_type_schema_version": createApprovalWorkflowRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createApprovalWorkflowRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApprovalWorkflowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflows",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createApprovalWorkflowRequest.approvalWorkflow,
+        "ApprovalWorkflow",
+        model.ApprovalWorkflow.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateApprovalWorkflowResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflow",
+        bodyModel: model.ApprovalWorkflow,
+        type: "model.ApprovalWorkflow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create Approval Workflow Assignment
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateApprovalWorkflowAssignmentRequest
+   * @return CreateApprovalWorkflowAssignmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflowAssignment.ts.html |here} to see how to use CreateApprovalWorkflowAssignment API.
+   */
+  public async createApprovalWorkflowAssignment(
+    createApprovalWorkflowAssignmentRequest: requests.CreateApprovalWorkflowAssignmentRequest
+  ): Promise<responses.CreateApprovalWorkflowAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#createApprovalWorkflowAssignment."
+      );
+    const operationName = "createApprovalWorkflowAssignment";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createApprovalWorkflowAssignmentRequest.attributes,
+      "attributeSets": createApprovalWorkflowAssignmentRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createApprovalWorkflowAssignmentRequest.authorization,
+      "resource_type_schema_version":
+        createApprovalWorkflowAssignmentRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createApprovalWorkflowAssignmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApprovalWorkflowAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowAssignments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createApprovalWorkflowAssignmentRequest.approvalWorkflowAssignment,
+        "ApprovalWorkflowAssignment",
+        model.ApprovalWorkflowAssignment.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateApprovalWorkflowAssignmentResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflowAssignment",
+        bodyModel: model.ApprovalWorkflowAssignment,
+        type: "model.ApprovalWorkflowAssignment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create ApprovalWorkflowStep
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateApprovalWorkflowStepRequest
+   * @return CreateApprovalWorkflowStepResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflowStep.ts.html |here} to see how to use CreateApprovalWorkflowStep API.
+   */
+  public async createApprovalWorkflowStep(
+    createApprovalWorkflowStepRequest: requests.CreateApprovalWorkflowStepRequest
+  ): Promise<responses.CreateApprovalWorkflowStepResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createApprovalWorkflowStep.");
+    const operationName = "createApprovalWorkflowStep";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createApprovalWorkflowStepRequest.attributes,
+      "attributeSets": createApprovalWorkflowStepRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createApprovalWorkflowStepRequest.authorization,
+      "resource_type_schema_version": createApprovalWorkflowStepRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createApprovalWorkflowStepRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApprovalWorkflowStepRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowSteps",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createApprovalWorkflowStepRequest.approvalWorkflowStep,
+        "ApprovalWorkflowStep",
+        model.ApprovalWorkflowStep.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateApprovalWorkflowStepResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflowStep",
+        bodyModel: model.ApprovalWorkflowStep,
+        type: "model.ApprovalWorkflowStep",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a user's Auth token.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAuthTokenRequest
@@ -505,6 +760,340 @@ export class IdentityDomainsClient {
         bodyKey: "authenticationFactorsRemover",
         bodyModel: model.AuthenticationFactorsRemover,
         type: "model.AuthenticationFactorsRemover",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Cloud Gate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateCloudGateRequest
+   * @return CreateCloudGateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGate.ts.html |here} to see how to use CreateCloudGate API.
+   */
+  public async createCloudGate(
+    createCloudGateRequest: requests.CreateCloudGateRequest
+  ): Promise<responses.CreateCloudGateResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createCloudGate.");
+    const operationName = "createCloudGate";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createCloudGateRequest.attributes,
+      "attributeSets": createCloudGateRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createCloudGateRequest.authorization,
+      "resource_type_schema_version": createCloudGateRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createCloudGateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudGateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudGateRequest.cloudGate,
+        "CloudGate",
+        model.CloudGate.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudGateResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGate",
+        bodyModel: model.CloudGate,
+        type: "model.CloudGate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Cloud Gate mapping
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateCloudGateMappingRequest
+   * @return CreateCloudGateMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGateMapping.ts.html |here} to see how to use CreateCloudGateMapping API.
+   */
+  public async createCloudGateMapping(
+    createCloudGateMappingRequest: requests.CreateCloudGateMappingRequest
+  ): Promise<responses.CreateCloudGateMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createCloudGateMapping.");
+    const operationName = "createCloudGateMapping";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createCloudGateMappingRequest.attributes,
+      "attributeSets": createCloudGateMappingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createCloudGateMappingRequest.authorization,
+      "resource_type_schema_version": createCloudGateMappingRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createCloudGateMappingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudGateMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateMappings",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudGateMappingRequest.cloudGateMapping,
+        "CloudGateMapping",
+        model.CloudGateMapping.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudGateMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateMapping",
+        bodyModel: model.CloudGateMapping,
+        type: "model.CloudGateMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Cloud Gate server
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateCloudGateServerRequest
+   * @return CreateCloudGateServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGateServer.ts.html |here} to see how to use CreateCloudGateServer API.
+   */
+  public async createCloudGateServer(
+    createCloudGateServerRequest: requests.CreateCloudGateServerRequest
+  ): Promise<responses.CreateCloudGateServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createCloudGateServer.");
+    const operationName = "createCloudGateServer";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createCloudGateServerRequest.attributes,
+      "attributeSets": createCloudGateServerRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createCloudGateServerRequest.authorization,
+      "resource_type_schema_version": createCloudGateServerRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createCloudGateServerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudGateServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateServers",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudGateServerRequest.cloudGateServer,
+        "CloudGateServer",
+        model.CloudGateServer.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudGateServerResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateServer",
+        bodyModel: model.CloudGateServer,
+        type: "model.CloudGateServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Condition
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateConditionRequest
+   * @return CreateConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCondition.ts.html |here} to see how to use CreateCondition API.
+   */
+  public async createCondition(
+    createConditionRequest: requests.CreateConditionRequest
+  ): Promise<responses.CreateConditionResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createCondition.");
+    const operationName = "createCondition";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createConditionRequest.attributes,
+      "attributeSets": createConditionRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createConditionRequest.authorization,
+      "resource_type_schema_version": createConditionRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createConditionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Conditions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createConditionRequest.condition,
+        "Condition",
+        model.Condition.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateConditionResponse>{},
+        body: await response.json(),
+        bodyKey: "condition",
+        bodyModel: model.Condition,
+        type: "model.Condition",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1925,6 +2514,90 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Create a NetworkPerimeter
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateNetworkPerimeterRequest
+   * @return CreateNetworkPerimeterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateNetworkPerimeter.ts.html |here} to see how to use CreateNetworkPerimeter API.
+   */
+  public async createNetworkPerimeter(
+    createNetworkPerimeterRequest: requests.CreateNetworkPerimeterRequest
+  ): Promise<responses.CreateNetworkPerimeterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createNetworkPerimeter.");
+    const operationName = "createNetworkPerimeter";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createNetworkPerimeterRequest.attributes,
+      "attributeSets": createNetworkPerimeterRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createNetworkPerimeterRequest.authorization,
+      "resource_type_schema_version": createNetworkPerimeterRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createNetworkPerimeterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNetworkPerimeterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NetworkPerimeters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createNetworkPerimeterRequest.networkPerimeter,
+        "NetworkPerimeter",
+        model.NetworkPerimeter.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateNetworkPerimeterResponse>{},
+        body: await response.json(),
+        bodyKey: "networkPerimeter",
+        bodyModel: model.NetworkPerimeter,
+        type: "model.NetworkPerimeter",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Add a user's OAuth2 client credentials.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateOAuth2ClientCredentialRequest
@@ -1988,6 +2661,169 @@ export class IdentityDomainsClient {
         bodyKey: "oAuth2ClientCredential",
         bodyModel: model.OAuth2ClientCredential,
         type: "model.OAuth2ClientCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create an OAuth Client Certificate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateOAuthClientCertificateRequest
+   * @return CreateOAuthClientCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateOAuthClientCertificate.ts.html |here} to see how to use CreateOAuthClientCertificate API.
+   */
+  public async createOAuthClientCertificate(
+    createOAuthClientCertificateRequest: requests.CreateOAuthClientCertificateRequest
+  ): Promise<responses.CreateOAuthClientCertificateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createOAuthClientCertificate.");
+    const operationName = "createOAuthClientCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createOAuthClientCertificateRequest.authorization,
+      "resource_type_schema_version": createOAuthClientCertificateRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createOAuthClientCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOAuthClientCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthClientCertificates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOAuthClientCertificateRequest.oAuthClientCertificate,
+        "OAuthClientCertificate",
+        model.OAuthClientCertificate.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOAuthClientCertificateResponse>{},
+        body: await response.json(),
+        bodyKey: "oAuthClientCertificate",
+        bodyModel: model.OAuthClientCertificate,
+        type: "model.OAuthClientCertificate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create an OAuth Partner Certificate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateOAuthPartnerCertificateRequest
+   * @return CreateOAuthPartnerCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateOAuthPartnerCertificate.ts.html |here} to see how to use CreateOAuthPartnerCertificate API.
+   */
+  public async createOAuthPartnerCertificate(
+    createOAuthPartnerCertificateRequest: requests.CreateOAuthPartnerCertificateRequest
+  ): Promise<responses.CreateOAuthPartnerCertificateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createOAuthPartnerCertificate.");
+    const operationName = "createOAuthPartnerCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createOAuthPartnerCertificateRequest.authorization,
+      "resource_type_schema_version":
+        createOAuthPartnerCertificateRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createOAuthPartnerCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOAuthPartnerCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthPartnerCertificates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOAuthPartnerCertificateRequest.oAuthPartnerCertificate,
+        "OAuthPartnerCertificate",
+        model.OAuthPartnerCertificate.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOAuthPartnerCertificateResponse>{},
+        body: await response.json(),
+        bodyKey: "oAuthPartnerCertificate",
+        bodyModel: model.OAuthPartnerCertificate,
+        type: "model.OAuthPartnerCertificate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2093,6 +2929,172 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Create a Policy
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreatePolicyRequest
+   * @return CreatePolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreatePolicy.ts.html |here} to see how to use CreatePolicy API.
+   */
+  public async createPolicy(
+    createPolicyRequest: requests.CreatePolicyRequest
+  ): Promise<responses.CreatePolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createPolicy.");
+    const operationName = "createPolicy";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createPolicyRequest.attributes,
+      "attributeSets": createPolicyRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createPolicyRequest.authorization,
+      "resource_type_schema_version": createPolicyRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createPolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Policies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPolicyRequest.policy,
+        "Policy",
+        model.Policy.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "policy",
+        bodyModel: model.Policy,
+        type: "model.Policy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Rule
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateRuleRequest
+   * @return CreateRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateRule.ts.html |here} to see how to use CreateRule API.
+   */
+  public async createRule(
+    createRuleRequest: requests.CreateRuleRequest
+  ): Promise<responses.CreateRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createRule.");
+    const operationName = "createRule";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createRuleRequest.attributes,
+      "attributeSets": createRuleRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createRuleRequest.authorization,
+      "resource_type_schema_version": createRuleRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createRuleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Rules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRuleRequest.rule,
+        "Rule",
+        model.Rule.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "rule",
+        bodyModel: model.Rule,
+        type: "model.Rule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a security question.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSecurityQuestionRequest
@@ -2156,6 +3158,91 @@ export class IdentityDomainsClient {
         bodyKey: "securityQuestion",
         bodyModel: model.SecurityQuestion,
         type: "model.SecurityQuestion",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a self-registration profile.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSelfRegistrationProfileRequest
+   * @return CreateSelfRegistrationProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSelfRegistrationProfile.ts.html |here} to see how to use CreateSelfRegistrationProfile API.
+   */
+  public async createSelfRegistrationProfile(
+    createSelfRegistrationProfileRequest: requests.CreateSelfRegistrationProfileRequest
+  ): Promise<responses.CreateSelfRegistrationProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createSelfRegistrationProfile.");
+    const operationName = "createSelfRegistrationProfile";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createSelfRegistrationProfileRequest.attributes,
+      "attributeSets": createSelfRegistrationProfileRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createSelfRegistrationProfileRequest.authorization,
+      "resource_type_schema_version":
+        createSelfRegistrationProfileRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createSelfRegistrationProfileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSelfRegistrationProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SelfRegistrationProfiles",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSelfRegistrationProfileRequest.selfRegistrationProfile,
+        "SelfRegistrationProfile",
+        model.SelfRegistrationProfile.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSelfRegistrationProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "selfRegistrationProfile",
+        bodyModel: model.SelfRegistrationProfile,
+        type: "model.SelfRegistrationProfile",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2641,6 +3728,226 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Delete ApprovalWorkflow
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteApprovalWorkflowRequest
+   * @return DeleteApprovalWorkflowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflow.ts.html |here} to see how to use DeleteApprovalWorkflow API.
+   */
+  public async deleteApprovalWorkflow(
+    deleteApprovalWorkflowRequest: requests.DeleteApprovalWorkflowRequest
+  ): Promise<responses.DeleteApprovalWorkflowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteApprovalWorkflow.");
+    const operationName = "deleteApprovalWorkflow";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowId}": deleteApprovalWorkflowRequest.approvalWorkflowId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteApprovalWorkflowRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteApprovalWorkflowRequest.authorization,
+      "resource_type_schema_version": deleteApprovalWorkflowRequest.resourceTypeSchemaVersion,
+      "if-match": deleteApprovalWorkflowRequest.ifMatch,
+      "opc-retry-token": deleteApprovalWorkflowRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApprovalWorkflowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflows/{approvalWorkflowId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteApprovalWorkflowResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete Approval Workflow Assignment
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteApprovalWorkflowAssignmentRequest
+   * @return DeleteApprovalWorkflowAssignmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflowAssignment.ts.html |here} to see how to use DeleteApprovalWorkflowAssignment API.
+   */
+  public async deleteApprovalWorkflowAssignment(
+    deleteApprovalWorkflowAssignmentRequest: requests.DeleteApprovalWorkflowAssignmentRequest
+  ): Promise<responses.DeleteApprovalWorkflowAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#deleteApprovalWorkflowAssignment."
+      );
+    const operationName = "deleteApprovalWorkflowAssignment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowAssignmentId}":
+        deleteApprovalWorkflowAssignmentRequest.approvalWorkflowAssignmentId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteApprovalWorkflowAssignmentRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteApprovalWorkflowAssignmentRequest.authorization,
+      "resource_type_schema_version":
+        deleteApprovalWorkflowAssignmentRequest.resourceTypeSchemaVersion,
+      "if-match": deleteApprovalWorkflowAssignmentRequest.ifMatch,
+      "opc-retry-token": deleteApprovalWorkflowAssignmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApprovalWorkflowAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowAssignments/{approvalWorkflowAssignmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteApprovalWorkflowAssignmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete ApprovalWorkflowStep
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteApprovalWorkflowStepRequest
+   * @return DeleteApprovalWorkflowStepResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflowStep.ts.html |here} to see how to use DeleteApprovalWorkflowStep API.
+   */
+  public async deleteApprovalWorkflowStep(
+    deleteApprovalWorkflowStepRequest: requests.DeleteApprovalWorkflowStepRequest
+  ): Promise<responses.DeleteApprovalWorkflowStepResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteApprovalWorkflowStep.");
+    const operationName = "deleteApprovalWorkflowStep";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowStepId}": deleteApprovalWorkflowStepRequest.approvalWorkflowStepId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteApprovalWorkflowStepRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteApprovalWorkflowStepRequest.authorization,
+      "resource_type_schema_version": deleteApprovalWorkflowStepRequest.resourceTypeSchemaVersion,
+      "if-match": deleteApprovalWorkflowStepRequest.ifMatch,
+      "opc-retry-token": deleteApprovalWorkflowStepRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApprovalWorkflowStepRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowSteps/{approvalWorkflowStepId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteApprovalWorkflowStepResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a user's Auth token.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAuthTokenRequest
@@ -2696,6 +4003,292 @@ export class IdentityDomainsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAuthTokenResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a Cloud Gate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudGateRequest
+   * @return DeleteCloudGateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGate.ts.html |here} to see how to use DeleteCloudGate API.
+   */
+  public async deleteCloudGate(
+    deleteCloudGateRequest: requests.DeleteCloudGateRequest
+  ): Promise<responses.DeleteCloudGateResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteCloudGate.");
+    const operationName = "deleteCloudGate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateId}": deleteCloudGateRequest.cloudGateId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteCloudGateRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteCloudGateRequest.authorization,
+      "resource_type_schema_version": deleteCloudGateRequest.resourceTypeSchemaVersion,
+      "if-match": deleteCloudGateRequest.ifMatch,
+      "opc-retry-token": deleteCloudGateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudGateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGates/{cloudGateId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudGateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a Cloud Gate mapping
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudGateMappingRequest
+   * @return DeleteCloudGateMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGateMapping.ts.html |here} to see how to use DeleteCloudGateMapping API.
+   */
+  public async deleteCloudGateMapping(
+    deleteCloudGateMappingRequest: requests.DeleteCloudGateMappingRequest
+  ): Promise<responses.DeleteCloudGateMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteCloudGateMapping.");
+    const operationName = "deleteCloudGateMapping";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateMappingId}": deleteCloudGateMappingRequest.cloudGateMappingId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteCloudGateMappingRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteCloudGateMappingRequest.authorization,
+      "resource_type_schema_version": deleteCloudGateMappingRequest.resourceTypeSchemaVersion,
+      "if-match": deleteCloudGateMappingRequest.ifMatch,
+      "opc-retry-token": deleteCloudGateMappingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudGateMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateMappings/{cloudGateMappingId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudGateMappingResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a Cloud Gate server
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudGateServerRequest
+   * @return DeleteCloudGateServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGateServer.ts.html |here} to see how to use DeleteCloudGateServer API.
+   */
+  public async deleteCloudGateServer(
+    deleteCloudGateServerRequest: requests.DeleteCloudGateServerRequest
+  ): Promise<responses.DeleteCloudGateServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteCloudGateServer.");
+    const operationName = "deleteCloudGateServer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateServerId}": deleteCloudGateServerRequest.cloudGateServerId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteCloudGateServerRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteCloudGateServerRequest.authorization,
+      "resource_type_schema_version": deleteCloudGateServerRequest.resourceTypeSchemaVersion,
+      "if-match": deleteCloudGateServerRequest.ifMatch,
+      "opc-retry-token": deleteCloudGateServerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudGateServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateServers/{cloudGateServerId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudGateServerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a Condition
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteConditionRequest
+   * @return DeleteConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCondition.ts.html |here} to see how to use DeleteCondition API.
+   */
+  public async deleteCondition(
+    deleteConditionRequest: requests.DeleteConditionRequest
+  ): Promise<responses.DeleteConditionResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteCondition.");
+    const operationName = "deleteCondition";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{conditionId}": deleteConditionRequest.conditionId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteConditionRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteConditionRequest.authorization,
+      "resource_type_schema_version": deleteConditionRequest.resourceTypeSchemaVersion,
+      "if-match": deleteConditionRequest.ifMatch,
+      "opc-retry-token": deleteConditionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Conditions/{conditionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteConditionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3718,6 +5311,78 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Delete a NetworkPerimeter
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteNetworkPerimeterRequest
+   * @return DeleteNetworkPerimeterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteNetworkPerimeter.ts.html |here} to see how to use DeleteNetworkPerimeter API.
+   */
+  public async deleteNetworkPerimeter(
+    deleteNetworkPerimeterRequest: requests.DeleteNetworkPerimeterRequest
+  ): Promise<responses.DeleteNetworkPerimeterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteNetworkPerimeter.");
+    const operationName = "deleteNetworkPerimeter";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkPerimeterId}": deleteNetworkPerimeterRequest.networkPerimeterId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteNetworkPerimeterRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteNetworkPerimeterRequest.authorization,
+      "resource_type_schema_version": deleteNetworkPerimeterRequest.resourceTypeSchemaVersion,
+      "if-match": deleteNetworkPerimeterRequest.ifMatch,
+      "opc-retry-token": deleteNetworkPerimeterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNetworkPerimeterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NetworkPerimeters/{networkPerimeterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNetworkPerimeterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a user's OAuth2 client credentials.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteOAuth2ClientCredentialRequest
@@ -3774,6 +5439,151 @@ export class IdentityDomainsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOAuth2ClientCredentialResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete an OAuth Client Certificate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteOAuthClientCertificateRequest
+   * @return DeleteOAuthClientCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteOAuthClientCertificate.ts.html |here} to see how to use DeleteOAuthClientCertificate API.
+   */
+  public async deleteOAuthClientCertificate(
+    deleteOAuthClientCertificateRequest: requests.DeleteOAuthClientCertificateRequest
+  ): Promise<responses.DeleteOAuthClientCertificateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteOAuthClientCertificate.");
+    const operationName = "deleteOAuthClientCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oAuthClientCertificateId}": deleteOAuthClientCertificateRequest.oAuthClientCertificateId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteOAuthClientCertificateRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteOAuthClientCertificateRequest.authorization,
+      "resource_type_schema_version": deleteOAuthClientCertificateRequest.resourceTypeSchemaVersion,
+      "if-match": deleteOAuthClientCertificateRequest.ifMatch,
+      "opc-retry-token": deleteOAuthClientCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOAuthClientCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthClientCertificates/{oAuthClientCertificateId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOAuthClientCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete an OAuth Partner Certificate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteOAuthPartnerCertificateRequest
+   * @return DeleteOAuthPartnerCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteOAuthPartnerCertificate.ts.html |here} to see how to use DeleteOAuthPartnerCertificate API.
+   */
+  public async deleteOAuthPartnerCertificate(
+    deleteOAuthPartnerCertificateRequest: requests.DeleteOAuthPartnerCertificateRequest
+  ): Promise<responses.DeleteOAuthPartnerCertificateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteOAuthPartnerCertificate.");
+    const operationName = "deleteOAuthPartnerCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oAuthPartnerCertificateId}": deleteOAuthPartnerCertificateRequest.oAuthPartnerCertificateId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteOAuthPartnerCertificateRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteOAuthPartnerCertificateRequest.authorization,
+      "resource_type_schema_version":
+        deleteOAuthPartnerCertificateRequest.resourceTypeSchemaVersion,
+      "if-match": deleteOAuthPartnerCertificateRequest.ifMatch,
+      "opc-retry-token": deleteOAuthPartnerCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOAuthPartnerCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthPartnerCertificates/{oAuthPartnerCertificateId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOAuthPartnerCertificateResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3862,6 +5672,148 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Delete a Policy
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeletePolicyRequest
+   * @return DeletePolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeletePolicy.ts.html |here} to see how to use DeletePolicy API.
+   */
+  public async deletePolicy(
+    deletePolicyRequest: requests.DeletePolicyRequest
+  ): Promise<responses.DeletePolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deletePolicy.");
+    const operationName = "deletePolicy";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{policyId}": deletePolicyRequest.policyId
+    };
+
+    const queryParams = {
+      "forceDelete": deletePolicyRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deletePolicyRequest.authorization,
+      "resource_type_schema_version": deletePolicyRequest.resourceTypeSchemaVersion,
+      "if-match": deletePolicyRequest.ifMatch,
+      "opc-retry-token": deletePolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Policies/{policyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a Rule
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteRuleRequest
+   * @return DeleteRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteRule.ts.html |here} to see how to use DeleteRule API.
+   */
+  public async deleteRule(
+    deleteRuleRequest: requests.DeleteRuleRequest
+  ): Promise<responses.DeleteRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteRule.");
+    const operationName = "deleteRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{ruleId}": deleteRuleRequest.ruleId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteRuleRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteRuleRequest.authorization,
+      "resource_type_schema_version": deleteRuleRequest.resourceTypeSchemaVersion,
+      "if-match": deleteRuleRequest.ifMatch,
+      "opc-retry-token": deleteRuleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Rules/{ruleId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a security question.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSecurityQuestionRequest
@@ -3918,6 +5870,79 @@ export class IdentityDomainsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSecurityQuestionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a self-registration profile.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSelfRegistrationProfileRequest
+   * @return DeleteSelfRegistrationProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSelfRegistrationProfile.ts.html |here} to see how to use DeleteSelfRegistrationProfile API.
+   */
+  public async deleteSelfRegistrationProfile(
+    deleteSelfRegistrationProfileRequest: requests.DeleteSelfRegistrationProfileRequest
+  ): Promise<responses.DeleteSelfRegistrationProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteSelfRegistrationProfile.");
+    const operationName = "deleteSelfRegistrationProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{selfRegistrationProfileId}": deleteSelfRegistrationProfileRequest.selfRegistrationProfileId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteSelfRegistrationProfileRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteSelfRegistrationProfileRequest.authorization,
+      "resource_type_schema_version":
+        deleteSelfRegistrationProfileRequest.resourceTypeSchemaVersion,
+      "if-match": deleteSelfRegistrationProfileRequest.ifMatch,
+      "opc-retry-token": deleteSelfRegistrationProfileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSelfRegistrationProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SelfRegistrationProfiles/{selfRegistrationProfileId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSelfRegistrationProfileResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4524,6 +6549,236 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Get ApprovalWorkflow
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetApprovalWorkflowRequest
+   * @return GetApprovalWorkflowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflow.ts.html |here} to see how to use GetApprovalWorkflow API.
+   */
+  public async getApprovalWorkflow(
+    getApprovalWorkflowRequest: requests.GetApprovalWorkflowRequest
+  ): Promise<responses.GetApprovalWorkflowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflow.");
+    const operationName = "getApprovalWorkflow";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowId}": getApprovalWorkflowRequest.approvalWorkflowId
+    };
+
+    const queryParams = {
+      "attributes": getApprovalWorkflowRequest.attributes,
+      "attributeSets": getApprovalWorkflowRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getApprovalWorkflowRequest.authorization,
+      "resource_type_schema_version": getApprovalWorkflowRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getApprovalWorkflowRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApprovalWorkflowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflows/{approvalWorkflowId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetApprovalWorkflowResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflow",
+        bodyModel: model.ApprovalWorkflow,
+        type: "model.ApprovalWorkflow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get an Approval Workflow Assignment
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetApprovalWorkflowAssignmentRequest
+   * @return GetApprovalWorkflowAssignmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflowAssignment.ts.html |here} to see how to use GetApprovalWorkflowAssignment API.
+   */
+  public async getApprovalWorkflowAssignment(
+    getApprovalWorkflowAssignmentRequest: requests.GetApprovalWorkflowAssignmentRequest
+  ): Promise<responses.GetApprovalWorkflowAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflowAssignment.");
+    const operationName = "getApprovalWorkflowAssignment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowAssignmentId}":
+        getApprovalWorkflowAssignmentRequest.approvalWorkflowAssignmentId
+    };
+
+    const queryParams = {
+      "attributes": getApprovalWorkflowAssignmentRequest.attributes,
+      "attributeSets": getApprovalWorkflowAssignmentRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getApprovalWorkflowAssignmentRequest.authorization,
+      "resource_type_schema_version":
+        getApprovalWorkflowAssignmentRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getApprovalWorkflowAssignmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApprovalWorkflowAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowAssignments/{approvalWorkflowAssignmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetApprovalWorkflowAssignmentResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflowAssignment",
+        bodyModel: model.ApprovalWorkflowAssignment,
+        type: "model.ApprovalWorkflowAssignment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get ApprovalWorkflowStep
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetApprovalWorkflowStepRequest
+   * @return GetApprovalWorkflowStepResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflowStep.ts.html |here} to see how to use GetApprovalWorkflowStep API.
+   */
+  public async getApprovalWorkflowStep(
+    getApprovalWorkflowStepRequest: requests.GetApprovalWorkflowStepRequest
+  ): Promise<responses.GetApprovalWorkflowStepResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflowStep.");
+    const operationName = "getApprovalWorkflowStep";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowStepId}": getApprovalWorkflowStepRequest.approvalWorkflowStepId
+    };
+
+    const queryParams = {
+      "attributes": getApprovalWorkflowStepRequest.attributes,
+      "attributeSets": getApprovalWorkflowStepRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getApprovalWorkflowStepRequest.authorization,
+      "resource_type_schema_version": getApprovalWorkflowStepRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getApprovalWorkflowStepRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApprovalWorkflowStepRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowSteps/{approvalWorkflowStepId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetApprovalWorkflowStepResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflowStep",
+        bodyModel: model.ApprovalWorkflowStep,
+        type: "model.ApprovalWorkflowStep",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get a user's Auth token.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAuthTokenRequest
@@ -4661,6 +6916,384 @@ export class IdentityDomainsClient {
         bodyKey: "authenticationFactorSetting",
         bodyModel: model.AuthenticationFactorSetting,
         type: "model.AuthenticationFactorSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Branding Settings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBrandingSettingRequest
+   * @return GetBrandingSettingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetBrandingSetting.ts.html |here} to see how to use GetBrandingSetting API.
+   */
+  public async getBrandingSetting(
+    getBrandingSettingRequest: requests.GetBrandingSettingRequest
+  ): Promise<responses.GetBrandingSettingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getBrandingSetting.");
+    const operationName = "getBrandingSetting";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{brandingSettingId}": getBrandingSettingRequest.brandingSettingId
+    };
+
+    const queryParams = {
+      "attributes": getBrandingSettingRequest.attributes,
+      "attributeSets": getBrandingSettingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getBrandingSettingRequest.authorization,
+      "resource_type_schema_version": getBrandingSettingRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getBrandingSettingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBrandingSettingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/BrandingSettings/{brandingSettingId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBrandingSettingResponse>{},
+        body: await response.json(),
+        bodyKey: "brandingSetting",
+        bodyModel: model.BrandingSetting,
+        type: "model.BrandingSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a Cloud Gate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCloudGateRequest
+   * @return GetCloudGateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGate.ts.html |here} to see how to use GetCloudGate API.
+   */
+  public async getCloudGate(
+    getCloudGateRequest: requests.GetCloudGateRequest
+  ): Promise<responses.GetCloudGateResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getCloudGate.");
+    const operationName = "getCloudGate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateId}": getCloudGateRequest.cloudGateId
+    };
+
+    const queryParams = {
+      "attributes": getCloudGateRequest.attributes,
+      "attributeSets": getCloudGateRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getCloudGateRequest.authorization,
+      "resource_type_schema_version": getCloudGateRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getCloudGateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudGateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGates/{cloudGateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudGateResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGate",
+        bodyModel: model.CloudGate,
+        type: "model.CloudGate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a Cloud Gate mapping
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCloudGateMappingRequest
+   * @return GetCloudGateMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGateMapping.ts.html |here} to see how to use GetCloudGateMapping API.
+   */
+  public async getCloudGateMapping(
+    getCloudGateMappingRequest: requests.GetCloudGateMappingRequest
+  ): Promise<responses.GetCloudGateMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getCloudGateMapping.");
+    const operationName = "getCloudGateMapping";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateMappingId}": getCloudGateMappingRequest.cloudGateMappingId
+    };
+
+    const queryParams = {
+      "attributes": getCloudGateMappingRequest.attributes,
+      "attributeSets": getCloudGateMappingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getCloudGateMappingRequest.authorization,
+      "resource_type_schema_version": getCloudGateMappingRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getCloudGateMappingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudGateMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateMappings/{cloudGateMappingId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudGateMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateMapping",
+        bodyModel: model.CloudGateMapping,
+        type: "model.CloudGateMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a Cloud Gate server
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCloudGateServerRequest
+   * @return GetCloudGateServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGateServer.ts.html |here} to see how to use GetCloudGateServer API.
+   */
+  public async getCloudGateServer(
+    getCloudGateServerRequest: requests.GetCloudGateServerRequest
+  ): Promise<responses.GetCloudGateServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getCloudGateServer.");
+    const operationName = "getCloudGateServer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateServerId}": getCloudGateServerRequest.cloudGateServerId
+    };
+
+    const queryParams = {
+      "attributes": getCloudGateServerRequest.attributes,
+      "attributeSets": getCloudGateServerRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getCloudGateServerRequest.authorization,
+      "resource_type_schema_version": getCloudGateServerRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getCloudGateServerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudGateServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateServers/{cloudGateServerId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudGateServerResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateServer",
+        bodyModel: model.CloudGateServer,
+        type: "model.CloudGateServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a Condition
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetConditionRequest
+   * @return GetConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCondition.ts.html |here} to see how to use GetCondition API.
+   */
+  public async getCondition(
+    getConditionRequest: requests.GetConditionRequest
+  ): Promise<responses.GetConditionResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getCondition.");
+    const operationName = "getCondition";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{conditionId}": getConditionRequest.conditionId
+    };
+
+    const queryParams = {
+      "attributes": getConditionRequest.attributes,
+      "attributeSets": getConditionRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getConditionRequest.authorization,
+      "resource_type_schema_version": getConditionRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getConditionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Conditions/{conditionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConditionResponse>{},
+        body: await response.json(),
+        bodyKey: "condition",
+        bodyModel: model.Condition,
+        type: "model.Condition",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5421,6 +8054,79 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Get My MyCompletedApproval
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMyCompletedApprovalRequest
+   * @return GetMyCompletedApprovalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyCompletedApproval.ts.html |here} to see how to use GetMyCompletedApproval API.
+   */
+  public async getMyCompletedApproval(
+    getMyCompletedApprovalRequest: requests.GetMyCompletedApprovalRequest
+  ): Promise<responses.GetMyCompletedApprovalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getMyCompletedApproval.");
+    const operationName = "getMyCompletedApproval";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{myCompletedApprovalId}": getMyCompletedApprovalRequest.myCompletedApprovalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getMyCompletedApprovalRequest.authorization,
+      "resource_type_schema_version": getMyCompletedApprovalRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getMyCompletedApprovalRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMyCompletedApprovalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MyCompletedApprovals/{myCompletedApprovalId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMyCompletedApprovalResponse>{},
+        body: await response.json(),
+        bodyKey: "myCompletedApproval",
+        bodyModel: model.MyCompletedApproval,
+        type: "model.MyCompletedApproval",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get a user's own customer secret key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMyCustomerSecretKeyRequest
@@ -5626,6 +8332,154 @@ export class IdentityDomainsClient {
         bodyKey: "myOAuth2ClientCredential",
         bodyModel: model.MyOAuth2ClientCredential,
         type: "model.MyOAuth2ClientCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get My MyPendingApproval
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMyPendingApprovalRequest
+   * @return GetMyPendingApprovalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyPendingApproval.ts.html |here} to see how to use GetMyPendingApproval API.
+   */
+  public async getMyPendingApproval(
+    getMyPendingApprovalRequest: requests.GetMyPendingApprovalRequest
+  ): Promise<responses.GetMyPendingApprovalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getMyPendingApproval.");
+    const operationName = "getMyPendingApproval";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{myPendingApprovalId}": getMyPendingApprovalRequest.myPendingApprovalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getMyPendingApprovalRequest.authorization,
+      "resource_type_schema_version": getMyPendingApprovalRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getMyPendingApprovalRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMyPendingApprovalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MyPendingApprovals/{myPendingApprovalId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMyPendingApprovalResponse>{},
+        body: await response.json(),
+        bodyKey: "myPendingApproval",
+        bodyModel: model.MyPendingApproval,
+        type: "model.MyPendingApproval",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get My Requests
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMyRequestRequest
+   * @return GetMyRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyRequest.ts.html |here} to see how to use GetMyRequest API.
+   */
+  public async getMyRequest(
+    getMyRequestRequest: requests.GetMyRequestRequest
+  ): Promise<responses.GetMyRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getMyRequest.");
+    const operationName = "getMyRequest";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{myRequestId}": getMyRequestRequest.myRequestId
+    };
+
+    const queryParams = {
+      "attributes": getMyRequestRequest.attributes,
+      "attributeSets": getMyRequestRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getMyRequestRequest.authorization,
+      "resource_type_schema_version": getMyRequestRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getMyRequestRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMyRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MyRequests/{myRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMyRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "myRequest",
+        bodyModel: model.MyRequest,
+        type: "model.MyRequest",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5937,6 +8791,158 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Get a NetworkPerimeter
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetNetworkPerimeterRequest
+   * @return GetNetworkPerimeterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetNetworkPerimeter.ts.html |here} to see how to use GetNetworkPerimeter API.
+   */
+  public async getNetworkPerimeter(
+    getNetworkPerimeterRequest: requests.GetNetworkPerimeterRequest
+  ): Promise<responses.GetNetworkPerimeterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getNetworkPerimeter.");
+    const operationName = "getNetworkPerimeter";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkPerimeterId}": getNetworkPerimeterRequest.networkPerimeterId
+    };
+
+    const queryParams = {
+      "attributes": getNetworkPerimeterRequest.attributes,
+      "attributeSets": getNetworkPerimeterRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getNetworkPerimeterRequest.authorization,
+      "resource_type_schema_version": getNetworkPerimeterRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getNetworkPerimeterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNetworkPerimeterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NetworkPerimeters/{networkPerimeterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNetworkPerimeterResponse>{},
+        body: await response.json(),
+        bodyKey: "networkPerimeter",
+        bodyModel: model.NetworkPerimeter,
+        type: "model.NetworkPerimeter",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Notification Settings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetNotificationSettingRequest
+   * @return GetNotificationSettingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetNotificationSetting.ts.html |here} to see how to use GetNotificationSetting API.
+   */
+  public async getNotificationSetting(
+    getNotificationSettingRequest: requests.GetNotificationSettingRequest
+  ): Promise<responses.GetNotificationSettingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getNotificationSetting.");
+    const operationName = "getNotificationSetting";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{notificationSettingId}": getNotificationSettingRequest.notificationSettingId
+    };
+
+    const queryParams = {
+      "attributes": getNotificationSettingRequest.attributes,
+      "attributeSets": getNotificationSettingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getNotificationSettingRequest.authorization,
+      "resource_type_schema_version": getNotificationSettingRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getNotificationSettingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNotificationSettingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NotificationSettings/{notificationSettingId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNotificationSettingResponse>{},
+        body: await response.json(),
+        bodyKey: "notificationSetting",
+        bodyModel: model.NotificationSetting,
+        type: "model.NotificationSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get a user's OAuth2 client credentials.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOAuth2ClientCredentialRequest
@@ -6013,6 +9019,152 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Get OAuth Client Certificates
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOAuthClientCertificateRequest
+   * @return GetOAuthClientCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOAuthClientCertificate.ts.html |here} to see how to use GetOAuthClientCertificate API.
+   */
+  public async getOAuthClientCertificate(
+    getOAuthClientCertificateRequest: requests.GetOAuthClientCertificateRequest
+  ): Promise<responses.GetOAuthClientCertificateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getOAuthClientCertificate.");
+    const operationName = "getOAuthClientCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oAuthClientCertificateId}": getOAuthClientCertificateRequest.oAuthClientCertificateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getOAuthClientCertificateRequest.authorization,
+      "resource_type_schema_version": getOAuthClientCertificateRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getOAuthClientCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOAuthClientCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthClientCertificates/{oAuthClientCertificateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOAuthClientCertificateResponse>{},
+        body: await response.json(),
+        bodyKey: "oAuthClientCertificate",
+        bodyModel: model.OAuthClientCertificate,
+        type: "model.OAuthClientCertificate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get an OAuth Partner Certificate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOAuthPartnerCertificateRequest
+   * @return GetOAuthPartnerCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOAuthPartnerCertificate.ts.html |here} to see how to use GetOAuthPartnerCertificate API.
+   */
+  public async getOAuthPartnerCertificate(
+    getOAuthPartnerCertificateRequest: requests.GetOAuthPartnerCertificateRequest
+  ): Promise<responses.GetOAuthPartnerCertificateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getOAuthPartnerCertificate.");
+    const operationName = "getOAuthPartnerCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oAuthPartnerCertificateId}": getOAuthPartnerCertificateRequest.oAuthPartnerCertificateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getOAuthPartnerCertificateRequest.authorization,
+      "resource_type_schema_version": getOAuthPartnerCertificateRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getOAuthPartnerCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOAuthPartnerCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthPartnerCertificates/{oAuthPartnerCertificateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOAuthPartnerCertificateResponse>{},
+        body: await response.json(),
+        bodyKey: "oAuthPartnerCertificate",
+        bodyModel: model.OAuthPartnerCertificate,
+        type: "model.OAuthPartnerCertificate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get a password policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPasswordPolicyRequest
@@ -6073,6 +9225,228 @@ export class IdentityDomainsClient {
         bodyKey: "passwordPolicy",
         bodyModel: model.PasswordPolicy,
         type: "model.PasswordPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a Policy
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetPolicyRequest
+   * @return GetPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetPolicy.ts.html |here} to see how to use GetPolicy API.
+   */
+  public async getPolicy(
+    getPolicyRequest: requests.GetPolicyRequest
+  ): Promise<responses.GetPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getPolicy.");
+    const operationName = "getPolicy";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{policyId}": getPolicyRequest.policyId
+    };
+
+    const queryParams = {
+      "attributes": getPolicyRequest.attributes,
+      "attributeSets": getPolicyRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getPolicyRequest.authorization,
+      "resource_type_schema_version": getPolicyRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getPolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Policies/{policyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "policy",
+        bodyModel: model.Policy,
+        type: "model.Policy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a Rule
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetRuleRequest
+   * @return GetRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetRule.ts.html |here} to see how to use GetRule API.
+   */
+  public async getRule(
+    getRuleRequest: requests.GetRuleRequest
+  ): Promise<responses.GetRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getRule.");
+    const operationName = "getRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{ruleId}": getRuleRequest.ruleId
+    };
+
+    const queryParams = {
+      "attributes": getRuleRequest.attributes,
+      "attributeSets": getRuleRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getRuleRequest.authorization,
+      "resource_type_schema_version": getRuleRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getRuleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Rules/{ruleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "rule",
+        bodyModel: model.Rule,
+        type: "model.Rule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a Schema
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSchemaRequest
+   * @return GetSchemaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSchema.ts.html |here} to see how to use GetSchema API.
+   */
+  public async getSchema(
+    getSchemaRequest: requests.GetSchemaRequest
+  ): Promise<responses.GetSchemaResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getSchema.");
+    const operationName = "getSchema";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{schemaId}": getSchemaRequest.schemaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getSchemaRequest.authorization,
+      "resource_type_schema_version": getSchemaRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getSchemaRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSchemaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Schemas/{schemaId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSchemaResponse>{},
+        body: await response.json(),
+        bodyKey: "schema",
+        bodyModel: model.Schema,
+        type: "model.Schema",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6225,6 +9599,157 @@ export class IdentityDomainsClient {
         bodyKey: "securityQuestionSetting",
         bodyModel: model.SecurityQuestionSetting,
         type: "model.SecurityQuestionSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a self-registration profile.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSelfRegistrationProfileRequest
+   * @return GetSelfRegistrationProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSelfRegistrationProfile.ts.html |here} to see how to use GetSelfRegistrationProfile API.
+   */
+  public async getSelfRegistrationProfile(
+    getSelfRegistrationProfileRequest: requests.GetSelfRegistrationProfileRequest
+  ): Promise<responses.GetSelfRegistrationProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getSelfRegistrationProfile.");
+    const operationName = "getSelfRegistrationProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{selfRegistrationProfileId}": getSelfRegistrationProfileRequest.selfRegistrationProfileId
+    };
+
+    const queryParams = {
+      "attributes": getSelfRegistrationProfileRequest.attributes,
+      "attributeSets": getSelfRegistrationProfileRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getSelfRegistrationProfileRequest.authorization,
+      "resource_type_schema_version": getSelfRegistrationProfileRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getSelfRegistrationProfileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSelfRegistrationProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SelfRegistrationProfiles/{selfRegistrationProfileId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSelfRegistrationProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "selfRegistrationProfile",
+        bodyModel: model.SelfRegistrationProfile,
+        type: "model.SelfRegistrationProfile",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Settings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSettingRequest
+   * @return GetSettingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSetting.ts.html |here} to see how to use GetSetting API.
+   */
+  public async getSetting(
+    getSettingRequest: requests.GetSettingRequest
+  ): Promise<responses.GetSettingResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getSetting.");
+    const operationName = "getSetting";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{settingId}": getSettingRequest.settingId
+    };
+
+    const queryParams = {
+      "attributes": getSettingRequest.attributes,
+      "attributeSets": getSettingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getSettingRequest.authorization,
+      "resource_type_schema_version": getSettingRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getSettingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSettingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Settings/{settingId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSettingResponse>{},
+        body: await response.json(),
+        bodyKey: "setting",
+        bodyModel: model.Setting,
+        type: "model.Setting",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6881,6 +10406,265 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search Approval Workflow Assignments
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListApprovalWorkflowAssignmentsRequest
+   * @return ListApprovalWorkflowAssignmentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflowAssignments.ts.html |here} to see how to use ListApprovalWorkflowAssignments API.
+   */
+  public async listApprovalWorkflowAssignments(
+    listApprovalWorkflowAssignmentsRequest: requests.ListApprovalWorkflowAssignmentsRequest
+  ): Promise<responses.ListApprovalWorkflowAssignmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflowAssignments.");
+    const operationName = "listApprovalWorkflowAssignments";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listApprovalWorkflowAssignmentsRequest.filter,
+      "sortBy": listApprovalWorkflowAssignmentsRequest.sortBy,
+      "sortOrder": listApprovalWorkflowAssignmentsRequest.sortOrder,
+      "startIndex": listApprovalWorkflowAssignmentsRequest.startIndex,
+      "count": listApprovalWorkflowAssignmentsRequest.count,
+      "attributes": listApprovalWorkflowAssignmentsRequest.attributes,
+      "attributeSets": listApprovalWorkflowAssignmentsRequest.attributeSets,
+      "page": listApprovalWorkflowAssignmentsRequest.page,
+      "limit": listApprovalWorkflowAssignmentsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listApprovalWorkflowAssignmentsRequest.authorization,
+      "resource_type_schema_version":
+        listApprovalWorkflowAssignmentsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listApprovalWorkflowAssignmentsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApprovalWorkflowAssignmentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowAssignments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListApprovalWorkflowAssignmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflowAssignments",
+        bodyModel: model.ApprovalWorkflowAssignments,
+        type: "model.ApprovalWorkflowAssignments",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search ApprovalWorkflowStep
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListApprovalWorkflowStepsRequest
+   * @return ListApprovalWorkflowStepsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflowSteps.ts.html |here} to see how to use ListApprovalWorkflowSteps API.
+   */
+  public async listApprovalWorkflowSteps(
+    listApprovalWorkflowStepsRequest: requests.ListApprovalWorkflowStepsRequest
+  ): Promise<responses.ListApprovalWorkflowStepsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflowSteps.");
+    const operationName = "listApprovalWorkflowSteps";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listApprovalWorkflowStepsRequest.filter,
+      "sortBy": listApprovalWorkflowStepsRequest.sortBy,
+      "sortOrder": listApprovalWorkflowStepsRequest.sortOrder,
+      "startIndex": listApprovalWorkflowStepsRequest.startIndex,
+      "count": listApprovalWorkflowStepsRequest.count,
+      "attributes": listApprovalWorkflowStepsRequest.attributes,
+      "attributeSets": listApprovalWorkflowStepsRequest.attributeSets,
+      "page": listApprovalWorkflowStepsRequest.page,
+      "limit": listApprovalWorkflowStepsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listApprovalWorkflowStepsRequest.authorization,
+      "resource_type_schema_version": listApprovalWorkflowStepsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listApprovalWorkflowStepsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApprovalWorkflowStepsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowSteps",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListApprovalWorkflowStepsResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflowSteps",
+        bodyModel: model.ApprovalWorkflowSteps,
+        type: "model.ApprovalWorkflowSteps",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search ApprovalWorkflow
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListApprovalWorkflowsRequest
+   * @return ListApprovalWorkflowsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflows.ts.html |here} to see how to use ListApprovalWorkflows API.
+   */
+  public async listApprovalWorkflows(
+    listApprovalWorkflowsRequest: requests.ListApprovalWorkflowsRequest
+  ): Promise<responses.ListApprovalWorkflowsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflows.");
+    const operationName = "listApprovalWorkflows";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listApprovalWorkflowsRequest.filter,
+      "sortBy": listApprovalWorkflowsRequest.sortBy,
+      "sortOrder": listApprovalWorkflowsRequest.sortOrder,
+      "startIndex": listApprovalWorkflowsRequest.startIndex,
+      "count": listApprovalWorkflowsRequest.count,
+      "attributes": listApprovalWorkflowsRequest.attributes,
+      "attributeSets": listApprovalWorkflowsRequest.attributeSets,
+      "page": listApprovalWorkflowsRequest.page,
+      "limit": listApprovalWorkflowsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listApprovalWorkflowsRequest.authorization,
+      "resource_type_schema_version": listApprovalWorkflowsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listApprovalWorkflowsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApprovalWorkflowsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflows",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListApprovalWorkflowsResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflows",
+        bodyModel: model.ApprovalWorkflows,
+        type: "model.ApprovalWorkflows",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search Apps
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAppsRequest
@@ -7114,6 +10898,429 @@ export class IdentityDomainsClient {
         bodyKey: "authenticationFactorSettings",
         bodyModel: model.AuthenticationFactorSettings,
         type: "model.AuthenticationFactorSettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Branding Settings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBrandingSettingsRequest
+   * @return ListBrandingSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListBrandingSettings.ts.html |here} to see how to use ListBrandingSettings API.
+   */
+  public async listBrandingSettings(
+    listBrandingSettingsRequest: requests.ListBrandingSettingsRequest
+  ): Promise<responses.ListBrandingSettingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listBrandingSettings.");
+    const operationName = "listBrandingSettings";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": listBrandingSettingsRequest.attributes,
+      "attributeSets": listBrandingSettingsRequest.attributeSets,
+      "page": listBrandingSettingsRequest.page,
+      "limit": listBrandingSettingsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listBrandingSettingsRequest.authorization,
+      "resource_type_schema_version": listBrandingSettingsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listBrandingSettingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBrandingSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/BrandingSettings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBrandingSettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "brandingSettings",
+        bodyModel: model.BrandingSettings,
+        type: "model.BrandingSettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Cloud Gate mappings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCloudGateMappingsRequest
+   * @return ListCloudGateMappingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGateMappings.ts.html |here} to see how to use ListCloudGateMappings API.
+   */
+  public async listCloudGateMappings(
+    listCloudGateMappingsRequest: requests.ListCloudGateMappingsRequest
+  ): Promise<responses.ListCloudGateMappingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listCloudGateMappings.");
+    const operationName = "listCloudGateMappings";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listCloudGateMappingsRequest.filter,
+      "sortBy": listCloudGateMappingsRequest.sortBy,
+      "sortOrder": listCloudGateMappingsRequest.sortOrder,
+      "startIndex": listCloudGateMappingsRequest.startIndex,
+      "count": listCloudGateMappingsRequest.count,
+      "attributes": listCloudGateMappingsRequest.attributes,
+      "attributeSets": listCloudGateMappingsRequest.attributeSets,
+      "page": listCloudGateMappingsRequest.page,
+      "limit": listCloudGateMappingsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listCloudGateMappingsRequest.authorization,
+      "resource_type_schema_version": listCloudGateMappingsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listCloudGateMappingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudGateMappingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateMappings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudGateMappingsResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateMappings",
+        bodyModel: model.CloudGateMappings,
+        type: "model.CloudGateMappings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Cloud Gate servers
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCloudGateServersRequest
+   * @return ListCloudGateServersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGateServers.ts.html |here} to see how to use ListCloudGateServers API.
+   */
+  public async listCloudGateServers(
+    listCloudGateServersRequest: requests.ListCloudGateServersRequest
+  ): Promise<responses.ListCloudGateServersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listCloudGateServers.");
+    const operationName = "listCloudGateServers";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listCloudGateServersRequest.filter,
+      "sortBy": listCloudGateServersRequest.sortBy,
+      "sortOrder": listCloudGateServersRequest.sortOrder,
+      "startIndex": listCloudGateServersRequest.startIndex,
+      "count": listCloudGateServersRequest.count,
+      "attributes": listCloudGateServersRequest.attributes,
+      "attributeSets": listCloudGateServersRequest.attributeSets,
+      "page": listCloudGateServersRequest.page,
+      "limit": listCloudGateServersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listCloudGateServersRequest.authorization,
+      "resource_type_schema_version": listCloudGateServersRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listCloudGateServersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudGateServersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateServers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudGateServersResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateServers",
+        bodyModel: model.CloudGateServers,
+        type: "model.CloudGateServers",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Cloud Gates
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCloudGatesRequest
+   * @return ListCloudGatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGates.ts.html |here} to see how to use ListCloudGates API.
+   */
+  public async listCloudGates(
+    listCloudGatesRequest: requests.ListCloudGatesRequest
+  ): Promise<responses.ListCloudGatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listCloudGates.");
+    const operationName = "listCloudGates";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listCloudGatesRequest.filter,
+      "sortBy": listCloudGatesRequest.sortBy,
+      "sortOrder": listCloudGatesRequest.sortOrder,
+      "startIndex": listCloudGatesRequest.startIndex,
+      "count": listCloudGatesRequest.count,
+      "attributes": listCloudGatesRequest.attributes,
+      "attributeSets": listCloudGatesRequest.attributeSets,
+      "page": listCloudGatesRequest.page,
+      "limit": listCloudGatesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listCloudGatesRequest.authorization,
+      "resource_type_schema_version": listCloudGatesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listCloudGatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudGatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudGatesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGates",
+        bodyModel: model.CloudGates,
+        type: "model.CloudGates",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Conditions
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListConditionsRequest
+   * @return ListConditionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListConditions.ts.html |here} to see how to use ListConditions API.
+   */
+  public async listConditions(
+    listConditionsRequest: requests.ListConditionsRequest
+  ): Promise<responses.ListConditionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listConditions.");
+    const operationName = "listConditions";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listConditionsRequest.filter,
+      "sortBy": listConditionsRequest.sortBy,
+      "sortOrder": listConditionsRequest.sortOrder,
+      "startIndex": listConditionsRequest.startIndex,
+      "count": listConditionsRequest.count,
+      "attributes": listConditionsRequest.attributes,
+      "attributeSets": listConditionsRequest.attributeSets,
+      "page": listConditionsRequest.page,
+      "limit": listConditionsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listConditionsRequest.authorization,
+      "resource_type_schema_version": listConditionsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listConditionsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConditionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Conditions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListConditionsResponse>{},
+        body: await response.json(),
+        bodyKey: "conditions",
+        bodyModel: model.Conditions,
+        type: "model.Conditions",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7973,6 +12180,90 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search My MyCompletedApproval
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMyCompletedApprovalsRequest
+   * @return ListMyCompletedApprovalsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyCompletedApprovals.ts.html |here} to see how to use ListMyCompletedApprovals API.
+   */
+  public async listMyCompletedApprovals(
+    listMyCompletedApprovalsRequest: requests.ListMyCompletedApprovalsRequest
+  ): Promise<responses.ListMyCompletedApprovalsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listMyCompletedApprovals.");
+    const operationName = "listMyCompletedApprovals";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listMyCompletedApprovalsRequest.filter,
+      "sortBy": listMyCompletedApprovalsRequest.sortBy,
+      "sortOrder": listMyCompletedApprovalsRequest.sortOrder,
+      "startIndex": listMyCompletedApprovalsRequest.startIndex,
+      "count": listMyCompletedApprovalsRequest.count,
+      "page": listMyCompletedApprovalsRequest.page,
+      "limit": listMyCompletedApprovalsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listMyCompletedApprovalsRequest.authorization,
+      "resource_type_schema_version": listMyCompletedApprovalsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listMyCompletedApprovalsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMyCompletedApprovalsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MyCompletedApprovals",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMyCompletedApprovalsResponse>{},
+        body: await response.json(),
+        bodyKey: "myCompletedApprovals",
+        bodyModel: model.MyCompletedApprovals,
+        type: "model.MyCompletedApprovals",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search for a user's own customer secret key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListMyCustomerSecretKeysRequest
@@ -8291,6 +12582,90 @@ export class IdentityDomainsClient {
         bodyKey: "myOAuth2ClientCredentials",
         bodyModel: model.MyOAuth2ClientCredentials,
         type: "model.MyOAuth2ClientCredentials",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search My Approvals
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMyPendingApprovalsRequest
+   * @return ListMyPendingApprovalsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyPendingApprovals.ts.html |here} to see how to use ListMyPendingApprovals API.
+   */
+  public async listMyPendingApprovals(
+    listMyPendingApprovalsRequest: requests.ListMyPendingApprovalsRequest
+  ): Promise<responses.ListMyPendingApprovalsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listMyPendingApprovals.");
+    const operationName = "listMyPendingApprovals";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listMyPendingApprovalsRequest.filter,
+      "sortBy": listMyPendingApprovalsRequest.sortBy,
+      "sortOrder": listMyPendingApprovalsRequest.sortOrder,
+      "startIndex": listMyPendingApprovalsRequest.startIndex,
+      "count": listMyPendingApprovalsRequest.count,
+      "page": listMyPendingApprovalsRequest.page,
+      "limit": listMyPendingApprovalsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listMyPendingApprovalsRequest.authorization,
+      "resource_type_schema_version": listMyPendingApprovalsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listMyPendingApprovalsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMyPendingApprovalsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MyPendingApprovals",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMyPendingApprovalsResponse>{},
+        body: await response.json(),
+        bodyKey: "myPendingApprovals",
+        bodyModel: model.MyPendingApprovals,
+        type: "model.MyPendingApprovals",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8819,6 +13194,173 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search NetworkPerimeters
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListNetworkPerimetersRequest
+   * @return ListNetworkPerimetersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListNetworkPerimeters.ts.html |here} to see how to use ListNetworkPerimeters API.
+   */
+  public async listNetworkPerimeters(
+    listNetworkPerimetersRequest: requests.ListNetworkPerimetersRequest
+  ): Promise<responses.ListNetworkPerimetersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listNetworkPerimeters.");
+    const operationName = "listNetworkPerimeters";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listNetworkPerimetersRequest.filter,
+      "sortBy": listNetworkPerimetersRequest.sortBy,
+      "sortOrder": listNetworkPerimetersRequest.sortOrder,
+      "startIndex": listNetworkPerimetersRequest.startIndex,
+      "count": listNetworkPerimetersRequest.count,
+      "attributes": listNetworkPerimetersRequest.attributes,
+      "attributeSets": listNetworkPerimetersRequest.attributeSets,
+      "page": listNetworkPerimetersRequest.page,
+      "limit": listNetworkPerimetersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listNetworkPerimetersRequest.authorization,
+      "resource_type_schema_version": listNetworkPerimetersRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listNetworkPerimetersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNetworkPerimetersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NetworkPerimeters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNetworkPerimetersResponse>{},
+        body: await response.json(),
+        bodyKey: "networkPerimeters",
+        bodyModel: model.NetworkPerimeters,
+        type: "model.NetworkPerimeters",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Notification Settings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListNotificationSettingsRequest
+   * @return ListNotificationSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListNotificationSettings.ts.html |here} to see how to use ListNotificationSettings API.
+   */
+  public async listNotificationSettings(
+    listNotificationSettingsRequest: requests.ListNotificationSettingsRequest
+  ): Promise<responses.ListNotificationSettingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listNotificationSettings.");
+    const operationName = "listNotificationSettings";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": listNotificationSettingsRequest.attributes,
+      "attributeSets": listNotificationSettingsRequest.attributeSets,
+      "page": listNotificationSettingsRequest.page,
+      "limit": listNotificationSettingsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listNotificationSettingsRequest.authorization,
+      "resource_type_schema_version": listNotificationSettingsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listNotificationSettingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNotificationSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NotificationSettings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNotificationSettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "notificationSettings",
+        bodyModel: model.NotificationSettings,
+        type: "model.NotificationSettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search for a user's OAuth2 client credentials.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOAuth2ClientCredentialsRequest
@@ -8884,6 +13426,174 @@ export class IdentityDomainsClient {
         bodyKey: "oAuth2ClientCredentials",
         bodyModel: model.OAuth2ClientCredentials,
         type: "model.OAuth2ClientCredentials",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search OAuth Client Certificates
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOAuthClientCertificatesRequest
+   * @return ListOAuthClientCertificatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOAuthClientCertificates.ts.html |here} to see how to use ListOAuthClientCertificates API.
+   */
+  public async listOAuthClientCertificates(
+    listOAuthClientCertificatesRequest: requests.ListOAuthClientCertificatesRequest
+  ): Promise<responses.ListOAuthClientCertificatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listOAuthClientCertificates.");
+    const operationName = "listOAuthClientCertificates";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listOAuthClientCertificatesRequest.filter,
+      "sortBy": listOAuthClientCertificatesRequest.sortBy,
+      "sortOrder": listOAuthClientCertificatesRequest.sortOrder,
+      "startIndex": listOAuthClientCertificatesRequest.startIndex,
+      "count": listOAuthClientCertificatesRequest.count,
+      "page": listOAuthClientCertificatesRequest.page,
+      "limit": listOAuthClientCertificatesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listOAuthClientCertificatesRequest.authorization,
+      "resource_type_schema_version": listOAuthClientCertificatesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listOAuthClientCertificatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOAuthClientCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthClientCertificates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOAuthClientCertificatesResponse>{},
+        body: await response.json(),
+        bodyKey: "oAuthClientCertificates",
+        bodyModel: model.OAuthClientCertificates,
+        type: "model.OAuthClientCertificates",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search OAuth Partner Certificates
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOAuthPartnerCertificatesRequest
+   * @return ListOAuthPartnerCertificatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOAuthPartnerCertificates.ts.html |here} to see how to use ListOAuthPartnerCertificates API.
+   */
+  public async listOAuthPartnerCertificates(
+    listOAuthPartnerCertificatesRequest: requests.ListOAuthPartnerCertificatesRequest
+  ): Promise<responses.ListOAuthPartnerCertificatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listOAuthPartnerCertificates.");
+    const operationName = "listOAuthPartnerCertificates";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listOAuthPartnerCertificatesRequest.filter,
+      "sortBy": listOAuthPartnerCertificatesRequest.sortBy,
+      "sortOrder": listOAuthPartnerCertificatesRequest.sortOrder,
+      "startIndex": listOAuthPartnerCertificatesRequest.startIndex,
+      "count": listOAuthPartnerCertificatesRequest.count,
+      "page": listOAuthPartnerCertificatesRequest.page,
+      "limit": listOAuthPartnerCertificatesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listOAuthPartnerCertificatesRequest.authorization,
+      "resource_type_schema_version": listOAuthPartnerCertificatesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listOAuthPartnerCertificatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOAuthPartnerCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthPartnerCertificates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOAuthPartnerCertificatesResponse>{},
+        body: await response.json(),
+        bodyKey: "oAuthPartnerCertificates",
+        bodyModel: model.OAuthPartnerCertificates,
+        type: "model.OAuthPartnerCertificates",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8991,6 +13701,91 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search Policies
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListPoliciesRequest
+   * @return ListPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListPolicies.ts.html |here} to see how to use ListPolicies API.
+   */
+  public async listPolicies(
+    listPoliciesRequest: requests.ListPoliciesRequest
+  ): Promise<responses.ListPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listPolicies.");
+    const operationName = "listPolicies";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listPoliciesRequest.filter,
+      "sortBy": listPoliciesRequest.sortBy,
+      "sortOrder": listPoliciesRequest.sortOrder,
+      "startIndex": listPoliciesRequest.startIndex,
+      "count": listPoliciesRequest.count,
+      "attributes": listPoliciesRequest.attributes,
+      "attributeSets": listPoliciesRequest.attributeSets,
+      "page": listPoliciesRequest.page,
+      "limit": listPoliciesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listPoliciesRequest.authorization,
+      "resource_type_schema_version": listPoliciesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listPoliciesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Policies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "policies",
+        bodyModel: model.Policies,
+        type: "model.Policies",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search Resource Type Schema Attributes
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourceTypeSchemaAttributesRequest
@@ -9059,6 +13854,173 @@ export class IdentityDomainsClient {
         bodyKey: "resourceTypeSchemaAttributes",
         bodyModel: model.ResourceTypeSchemaAttributes,
         type: "model.ResourceTypeSchemaAttributes",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Rules
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRulesRequest
+   * @return ListRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListRules.ts.html |here} to see how to use ListRules API.
+   */
+  public async listRules(
+    listRulesRequest: requests.ListRulesRequest
+  ): Promise<responses.ListRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listRules.");
+    const operationName = "listRules";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listRulesRequest.filter,
+      "sortBy": listRulesRequest.sortBy,
+      "sortOrder": listRulesRequest.sortOrder,
+      "startIndex": listRulesRequest.startIndex,
+      "count": listRulesRequest.count,
+      "attributes": listRulesRequest.attributes,
+      "attributeSets": listRulesRequest.attributeSets,
+      "page": listRulesRequest.page,
+      "limit": listRulesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listRulesRequest.authorization,
+      "resource_type_schema_version": listRulesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listRulesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Rules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "rules",
+        bodyModel: model.Rules,
+        type: "model.Rules",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Schemas
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSchemasRequest
+   * @return ListSchemasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSchemas.ts.html |here} to see how to use ListSchemas API.
+   */
+  public async listSchemas(
+    listSchemasRequest: requests.ListSchemasRequest
+  ): Promise<responses.ListSchemasResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listSchemas.");
+    const operationName = "listSchemas";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "sortBy": listSchemasRequest.sortBy,
+      "sortOrder": listSchemasRequest.sortOrder,
+      "startIndex": listSchemasRequest.startIndex,
+      "count": listSchemasRequest.count,
+      "page": listSchemasRequest.page,
+      "limit": listSchemasRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listSchemasRequest.authorization,
+      "resource_type_schema_version": listSchemasRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listSchemasRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSchemasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Schemas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "schemas",
+        bodyModel: model.Schemas,
+        type: "model.Schemas",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9226,6 +14188,172 @@ export class IdentityDomainsClient {
         bodyKey: "securityQuestions",
         bodyModel: model.SecurityQuestions,
         type: "model.SecurityQuestions",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search for self-registration profiles.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSelfRegistrationProfilesRequest
+   * @return ListSelfRegistrationProfilesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSelfRegistrationProfiles.ts.html |here} to see how to use ListSelfRegistrationProfiles API.
+   */
+  public async listSelfRegistrationProfiles(
+    listSelfRegistrationProfilesRequest: requests.ListSelfRegistrationProfilesRequest
+  ): Promise<responses.ListSelfRegistrationProfilesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listSelfRegistrationProfiles.");
+    const operationName = "listSelfRegistrationProfiles";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listSelfRegistrationProfilesRequest.filter,
+      "sortBy": listSelfRegistrationProfilesRequest.sortBy,
+      "sortOrder": listSelfRegistrationProfilesRequest.sortOrder,
+      "startIndex": listSelfRegistrationProfilesRequest.startIndex,
+      "count": listSelfRegistrationProfilesRequest.count,
+      "attributes": listSelfRegistrationProfilesRequest.attributes,
+      "attributeSets": listSelfRegistrationProfilesRequest.attributeSets,
+      "page": listSelfRegistrationProfilesRequest.page,
+      "limit": listSelfRegistrationProfilesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listSelfRegistrationProfilesRequest.authorization,
+      "resource_type_schema_version": listSelfRegistrationProfilesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listSelfRegistrationProfilesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSelfRegistrationProfilesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SelfRegistrationProfiles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSelfRegistrationProfilesResponse>{},
+        body: await response.json(),
+        bodyKey: "selfRegistrationProfiles",
+        bodyModel: model.SelfRegistrationProfiles,
+        type: "model.SelfRegistrationProfiles",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Settings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSettingsRequest
+   * @return ListSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSettings.ts.html |here} to see how to use ListSettings API.
+   */
+  public async listSettings(
+    listSettingsRequest: requests.ListSettingsRequest
+  ): Promise<responses.ListSettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listSettings.");
+    const operationName = "listSettings";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": listSettingsRequest.attributes,
+      "attributeSets": listSettingsRequest.attributeSets,
+      "page": listSettingsRequest.page,
+      "limit": listSettingsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listSettingsRequest.authorization,
+      "resource_type_schema_version": listSettingsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listSettingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Settings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "settings",
+        bodyModel: model.Settings,
+        type: "model.Settings",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9930,6 +15058,180 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Update ApprovalWorkflow
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchApprovalWorkflowRequest
+   * @return PatchApprovalWorkflowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApprovalWorkflow.ts.html |here} to see how to use PatchApprovalWorkflow API.
+   */
+  public async patchApprovalWorkflow(
+    patchApprovalWorkflowRequest: requests.PatchApprovalWorkflowRequest
+  ): Promise<responses.PatchApprovalWorkflowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchApprovalWorkflow.");
+    const operationName = "patchApprovalWorkflow";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowId}": patchApprovalWorkflowRequest.approvalWorkflowId
+    };
+
+    const queryParams = {
+      "attributes": patchApprovalWorkflowRequest.attributes,
+      "attributeSets": patchApprovalWorkflowRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchApprovalWorkflowRequest.authorization,
+      "resource_type_schema_version": patchApprovalWorkflowRequest.resourceTypeSchemaVersion,
+      "if-match": patchApprovalWorkflowRequest.ifMatch,
+      "opc-retry-token": patchApprovalWorkflowRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchApprovalWorkflowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflows/{approvalWorkflowId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchApprovalWorkflowRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchApprovalWorkflowResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflow",
+        bodyModel: model.ApprovalWorkflow,
+        type: "model.ApprovalWorkflow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update ApprovalWorkflowStep
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchApprovalWorkflowStepRequest
+   * @return PatchApprovalWorkflowStepResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApprovalWorkflowStep.ts.html |here} to see how to use PatchApprovalWorkflowStep API.
+   */
+  public async patchApprovalWorkflowStep(
+    patchApprovalWorkflowStepRequest: requests.PatchApprovalWorkflowStepRequest
+  ): Promise<responses.PatchApprovalWorkflowStepResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchApprovalWorkflowStep.");
+    const operationName = "patchApprovalWorkflowStep";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowStepId}": patchApprovalWorkflowStepRequest.approvalWorkflowStepId
+    };
+
+    const queryParams = {
+      "attributes": patchApprovalWorkflowStepRequest.attributes,
+      "attributeSets": patchApprovalWorkflowStepRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchApprovalWorkflowStepRequest.authorization,
+      "resource_type_schema_version": patchApprovalWorkflowStepRequest.resourceTypeSchemaVersion,
+      "if-match": patchApprovalWorkflowStepRequest.ifMatch,
+      "opc-retry-token": patchApprovalWorkflowStepRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchApprovalWorkflowStepRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflowSteps/{approvalWorkflowStepId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchApprovalWorkflowStepRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchApprovalWorkflowStepResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflowStep",
+        bodyModel: model.ApprovalWorkflowStep,
+        type: "model.ApprovalWorkflowStep",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update a user's Auth token.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchAuthTokenRequest
@@ -9995,6 +15297,352 @@ export class IdentityDomainsClient {
         bodyKey: "authToken",
         bodyModel: model.AuthToken,
         type: "model.AuthToken",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Cloud Gate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchCloudGateRequest
+   * @return PatchCloudGateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGate.ts.html |here} to see how to use PatchCloudGate API.
+   */
+  public async patchCloudGate(
+    patchCloudGateRequest: requests.PatchCloudGateRequest
+  ): Promise<responses.PatchCloudGateResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchCloudGate.");
+    const operationName = "patchCloudGate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateId}": patchCloudGateRequest.cloudGateId
+    };
+
+    const queryParams = {
+      "attributes": patchCloudGateRequest.attributes,
+      "attributeSets": patchCloudGateRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchCloudGateRequest.authorization,
+      "resource_type_schema_version": patchCloudGateRequest.resourceTypeSchemaVersion,
+      "if-match": patchCloudGateRequest.ifMatch,
+      "opc-retry-token": patchCloudGateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchCloudGateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGates/{cloudGateId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchCloudGateRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchCloudGateResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGate",
+        bodyModel: model.CloudGate,
+        type: "model.CloudGate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Cloud Gate mapping
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchCloudGateMappingRequest
+   * @return PatchCloudGateMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGateMapping.ts.html |here} to see how to use PatchCloudGateMapping API.
+   */
+  public async patchCloudGateMapping(
+    patchCloudGateMappingRequest: requests.PatchCloudGateMappingRequest
+  ): Promise<responses.PatchCloudGateMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchCloudGateMapping.");
+    const operationName = "patchCloudGateMapping";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateMappingId}": patchCloudGateMappingRequest.cloudGateMappingId
+    };
+
+    const queryParams = {
+      "attributes": patchCloudGateMappingRequest.attributes,
+      "attributeSets": patchCloudGateMappingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchCloudGateMappingRequest.authorization,
+      "resource_type_schema_version": patchCloudGateMappingRequest.resourceTypeSchemaVersion,
+      "if-match": patchCloudGateMappingRequest.ifMatch,
+      "opc-retry-token": patchCloudGateMappingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchCloudGateMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateMappings/{cloudGateMappingId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchCloudGateMappingRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchCloudGateMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateMapping",
+        bodyModel: model.CloudGateMapping,
+        type: "model.CloudGateMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Cloud Gate server
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchCloudGateServerRequest
+   * @return PatchCloudGateServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGateServer.ts.html |here} to see how to use PatchCloudGateServer API.
+   */
+  public async patchCloudGateServer(
+    patchCloudGateServerRequest: requests.PatchCloudGateServerRequest
+  ): Promise<responses.PatchCloudGateServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchCloudGateServer.");
+    const operationName = "patchCloudGateServer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateServerId}": patchCloudGateServerRequest.cloudGateServerId
+    };
+
+    const queryParams = {
+      "attributes": patchCloudGateServerRequest.attributes,
+      "attributeSets": patchCloudGateServerRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchCloudGateServerRequest.authorization,
+      "resource_type_schema_version": patchCloudGateServerRequest.resourceTypeSchemaVersion,
+      "if-match": patchCloudGateServerRequest.ifMatch,
+      "opc-retry-token": patchCloudGateServerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchCloudGateServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateServers/{cloudGateServerId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchCloudGateServerRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchCloudGateServerResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateServer",
+        bodyModel: model.CloudGateServer,
+        type: "model.CloudGateServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Condition
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchConditionRequest
+   * @return PatchConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCondition.ts.html |here} to see how to use PatchCondition API.
+   */
+  public async patchCondition(
+    patchConditionRequest: requests.PatchConditionRequest
+  ): Promise<responses.PatchConditionResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchCondition.");
+    const operationName = "patchCondition";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{conditionId}": patchConditionRequest.conditionId
+    };
+
+    const queryParams = {
+      "attributes": patchConditionRequest.attributes,
+      "attributeSets": patchConditionRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchConditionRequest.authorization,
+      "resource_type_schema_version": patchConditionRequest.resourceTypeSchemaVersion,
+      "if-match": patchConditionRequest.ifMatch,
+      "opc-retry-token": patchConditionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Conditions/{conditionId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchConditionRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchConditionResponse>{},
+        body: await response.json(),
+        bodyKey: "condition",
+        bodyModel: model.Condition,
+        type: "model.Condition",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11128,6 +16776,176 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Update MyPendingApproval
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchMyPendingApprovalRequest
+   * @return PatchMyPendingApprovalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyPendingApproval.ts.html |here} to see how to use PatchMyPendingApproval API.
+   */
+  public async patchMyPendingApproval(
+    patchMyPendingApprovalRequest: requests.PatchMyPendingApprovalRequest
+  ): Promise<responses.PatchMyPendingApprovalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchMyPendingApproval.");
+    const operationName = "patchMyPendingApproval";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{myPendingApprovalId}": patchMyPendingApprovalRequest.myPendingApprovalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchMyPendingApprovalRequest.authorization,
+      "resource_type_schema_version": patchMyPendingApprovalRequest.resourceTypeSchemaVersion,
+      "if-match": patchMyPendingApprovalRequest.ifMatch,
+      "opc-retry-token": patchMyPendingApprovalRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchMyPendingApprovalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MyPendingApprovals/{myPendingApprovalId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchMyPendingApprovalRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchMyPendingApprovalResponse>{},
+        body: await response.json(),
+        bodyKey: "myPendingApproval",
+        bodyModel: model.MyPendingApproval,
+        type: "model.MyPendingApproval",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update My Requests
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchMyRequestRequest
+   * @return PatchMyRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyRequest.ts.html |here} to see how to use PatchMyRequest API.
+   */
+  public async patchMyRequest(
+    patchMyRequestRequest: requests.PatchMyRequestRequest
+  ): Promise<responses.PatchMyRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchMyRequest.");
+    const operationName = "patchMyRequest";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{myRequestId}": patchMyRequestRequest.myRequestId
+    };
+
+    const queryParams = {
+      "attributes": patchMyRequestRequest.attributes,
+      "attributeSets": patchMyRequestRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchMyRequestRequest.authorization,
+      "resource_type_schema_version": patchMyRequestRequest.resourceTypeSchemaVersion,
+      "if-match": patchMyRequestRequest.ifMatch,
+      "opc-retry-token": patchMyRequestRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchMyRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MyRequests/{myRequestId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchMyRequestRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchMyRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "myRequest",
+        bodyModel: model.MyRequest,
+        type: "model.MyRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update a user's own SMTP credential.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchMySmtpCredentialRequest
@@ -11191,6 +17009,93 @@ export class IdentityDomainsClient {
         bodyKey: "mySmtpCredential",
         bodyModel: model.MySmtpCredential,
         type: "model.MySmtpCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a NetworkPerimeter
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchNetworkPerimeterRequest
+   * @return PatchNetworkPerimeterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchNetworkPerimeter.ts.html |here} to see how to use PatchNetworkPerimeter API.
+   */
+  public async patchNetworkPerimeter(
+    patchNetworkPerimeterRequest: requests.PatchNetworkPerimeterRequest
+  ): Promise<responses.PatchNetworkPerimeterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchNetworkPerimeter.");
+    const operationName = "patchNetworkPerimeter";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkPerimeterId}": patchNetworkPerimeterRequest.networkPerimeterId
+    };
+
+    const queryParams = {
+      "attributes": patchNetworkPerimeterRequest.attributes,
+      "attributeSets": patchNetworkPerimeterRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchNetworkPerimeterRequest.authorization,
+      "resource_type_schema_version": patchNetworkPerimeterRequest.resourceTypeSchemaVersion,
+      "if-match": patchNetworkPerimeterRequest.ifMatch,
+      "opc-retry-token": patchNetworkPerimeterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchNetworkPerimeterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NetworkPerimeters/{networkPerimeterId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchNetworkPerimeterRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchNetworkPerimeterResponse>{},
+        body: await response.json(),
+        bodyKey: "networkPerimeter",
+        bodyModel: model.NetworkPerimeter,
+        type: "model.NetworkPerimeter",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11386,6 +17291,261 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Update a Policy
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchPolicyRequest
+   * @return PatchPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchPolicy.ts.html |here} to see how to use PatchPolicy API.
+   */
+  public async patchPolicy(
+    patchPolicyRequest: requests.PatchPolicyRequest
+  ): Promise<responses.PatchPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchPolicy.");
+    const operationName = "patchPolicy";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{policyId}": patchPolicyRequest.policyId
+    };
+
+    const queryParams = {
+      "attributes": patchPolicyRequest.attributes,
+      "attributeSets": patchPolicyRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchPolicyRequest.authorization,
+      "resource_type_schema_version": patchPolicyRequest.resourceTypeSchemaVersion,
+      "if-match": patchPolicyRequest.ifMatch,
+      "opc-retry-token": patchPolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Policies/{policyId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchPolicyRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "policy",
+        bodyModel: model.Policy,
+        type: "model.Policy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Rule
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchRuleRequest
+   * @return PatchRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchRule.ts.html |here} to see how to use PatchRule API.
+   */
+  public async patchRule(
+    patchRuleRequest: requests.PatchRuleRequest
+  ): Promise<responses.PatchRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchRule.");
+    const operationName = "patchRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{ruleId}": patchRuleRequest.ruleId
+    };
+
+    const queryParams = {
+      "attributes": patchRuleRequest.attributes,
+      "attributeSets": patchRuleRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchRuleRequest.authorization,
+      "resource_type_schema_version": patchRuleRequest.resourceTypeSchemaVersion,
+      "if-match": patchRuleRequest.ifMatch,
+      "opc-retry-token": patchRuleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Rules/{ruleId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchRuleRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "rule",
+        bodyModel: model.Rule,
+        type: "model.Rule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Schema Def
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchSchemaRequest
+   * @return PatchSchemaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSchema.ts.html |here} to see how to use PatchSchema API.
+   */
+  public async patchSchema(
+    patchSchemaRequest: requests.PatchSchemaRequest
+  ): Promise<responses.PatchSchemaResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchSchema.");
+    const operationName = "patchSchema";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{schemaId}": patchSchemaRequest.schemaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchSchemaRequest.authorization,
+      "resource_type_schema_version": patchSchemaRequest.resourceTypeSchemaVersion,
+      "if-match": patchSchemaRequest.ifMatch,
+      "opc-retry-token": patchSchemaRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSchemaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Schemas/{schemaId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSchemaRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSchemaResponse>{},
+        body: await response.json(),
+        bodyKey: "schema",
+        bodyModel: model.Schema,
+        type: "model.Schema",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update a security question.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchSecurityQuestionRequest
@@ -11539,6 +17699,179 @@ export class IdentityDomainsClient {
         bodyKey: "securityQuestionSetting",
         bodyModel: model.SecurityQuestionSetting,
         type: "model.SecurityQuestionSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a self-registration profile.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchSelfRegistrationProfileRequest
+   * @return PatchSelfRegistrationProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSelfRegistrationProfile.ts.html |here} to see how to use PatchSelfRegistrationProfile API.
+   */
+  public async patchSelfRegistrationProfile(
+    patchSelfRegistrationProfileRequest: requests.PatchSelfRegistrationProfileRequest
+  ): Promise<responses.PatchSelfRegistrationProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchSelfRegistrationProfile.");
+    const operationName = "patchSelfRegistrationProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{selfRegistrationProfileId}": patchSelfRegistrationProfileRequest.selfRegistrationProfileId
+    };
+
+    const queryParams = {
+      "attributes": patchSelfRegistrationProfileRequest.attributes,
+      "attributeSets": patchSelfRegistrationProfileRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchSelfRegistrationProfileRequest.authorization,
+      "resource_type_schema_version": patchSelfRegistrationProfileRequest.resourceTypeSchemaVersion,
+      "if-match": patchSelfRegistrationProfileRequest.ifMatch,
+      "opc-retry-token": patchSelfRegistrationProfileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSelfRegistrationProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SelfRegistrationProfiles/{selfRegistrationProfileId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSelfRegistrationProfileRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSelfRegistrationProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "selfRegistrationProfile",
+        bodyModel: model.SelfRegistrationProfile,
+        type: "model.SelfRegistrationProfile",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Setting
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchSettingRequest
+   * @return PatchSettingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSetting.ts.html |here} to see how to use PatchSetting API.
+   */
+  public async patchSetting(
+    patchSettingRequest: requests.PatchSettingRequest
+  ): Promise<responses.PatchSettingResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchSetting.");
+    const operationName = "patchSetting";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{settingId}": patchSettingRequest.settingId
+    };
+
+    const queryParams = {
+      "attributes": patchSettingRequest.attributes,
+      "attributeSets": patchSettingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchSettingRequest.authorization,
+      "resource_type_schema_version": patchSettingRequest.resourceTypeSchemaVersion,
+      "if-match": patchSettingRequest.ifMatch,
+      "opc-retry-token": patchSettingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSettingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Settings/{settingId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSettingRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSettingResponse>{},
+        body: await response.json(),
+        bodyKey: "setting",
+        bodyModel: model.Setting,
+        type: "model.Setting",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12078,6 +18411,93 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Replace ApprovalWorkflow
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutApprovalWorkflowRequest
+   * @return PutApprovalWorkflowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutApprovalWorkflow.ts.html |here} to see how to use PutApprovalWorkflow API.
+   */
+  public async putApprovalWorkflow(
+    putApprovalWorkflowRequest: requests.PutApprovalWorkflowRequest
+  ): Promise<responses.PutApprovalWorkflowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putApprovalWorkflow.");
+    const operationName = "putApprovalWorkflow";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{approvalWorkflowId}": putApprovalWorkflowRequest.approvalWorkflowId
+    };
+
+    const queryParams = {
+      "attributes": putApprovalWorkflowRequest.attributes,
+      "attributeSets": putApprovalWorkflowRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putApprovalWorkflowRequest.authorization,
+      "resource_type_schema_version": putApprovalWorkflowRequest.resourceTypeSchemaVersion,
+      "if-match": putApprovalWorkflowRequest.ifMatch,
+      "opc-retry-token": putApprovalWorkflowRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putApprovalWorkflowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/ApprovalWorkflows/{approvalWorkflowId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putApprovalWorkflowRequest.approvalWorkflow,
+        "ApprovalWorkflow",
+        model.ApprovalWorkflow.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutApprovalWorkflowResponse>{},
+        body: await response.json(),
+        bodyKey: "approvalWorkflow",
+        bodyModel: model.ApprovalWorkflow,
+        type: "model.ApprovalWorkflow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Replace Authentication Factor Settings
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutAuthenticationFactorSettingRequest
@@ -12146,6 +18566,352 @@ export class IdentityDomainsClient {
         bodyKey: "authenticationFactorSetting",
         bodyModel: model.AuthenticationFactorSetting,
         type: "model.AuthenticationFactorSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace a Cloud Gate
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutCloudGateRequest
+   * @return PutCloudGateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGate.ts.html |here} to see how to use PutCloudGate API.
+   */
+  public async putCloudGate(
+    putCloudGateRequest: requests.PutCloudGateRequest
+  ): Promise<responses.PutCloudGateResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putCloudGate.");
+    const operationName = "putCloudGate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateId}": putCloudGateRequest.cloudGateId
+    };
+
+    const queryParams = {
+      "attributes": putCloudGateRequest.attributes,
+      "attributeSets": putCloudGateRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putCloudGateRequest.authorization,
+      "resource_type_schema_version": putCloudGateRequest.resourceTypeSchemaVersion,
+      "if-match": putCloudGateRequest.ifMatch,
+      "opc-retry-token": putCloudGateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putCloudGateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGates/{cloudGateId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putCloudGateRequest.cloudGate,
+        "CloudGate",
+        model.CloudGate.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutCloudGateResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGate",
+        bodyModel: model.CloudGate,
+        type: "model.CloudGate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace a Cloud Gate mapping
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutCloudGateMappingRequest
+   * @return PutCloudGateMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGateMapping.ts.html |here} to see how to use PutCloudGateMapping API.
+   */
+  public async putCloudGateMapping(
+    putCloudGateMappingRequest: requests.PutCloudGateMappingRequest
+  ): Promise<responses.PutCloudGateMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putCloudGateMapping.");
+    const operationName = "putCloudGateMapping";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateMappingId}": putCloudGateMappingRequest.cloudGateMappingId
+    };
+
+    const queryParams = {
+      "attributes": putCloudGateMappingRequest.attributes,
+      "attributeSets": putCloudGateMappingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putCloudGateMappingRequest.authorization,
+      "resource_type_schema_version": putCloudGateMappingRequest.resourceTypeSchemaVersion,
+      "if-match": putCloudGateMappingRequest.ifMatch,
+      "opc-retry-token": putCloudGateMappingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putCloudGateMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateMappings/{cloudGateMappingId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putCloudGateMappingRequest.cloudGateMapping,
+        "CloudGateMapping",
+        model.CloudGateMapping.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutCloudGateMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateMapping",
+        bodyModel: model.CloudGateMapping,
+        type: "model.CloudGateMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace a Cloud Gate server
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutCloudGateServerRequest
+   * @return PutCloudGateServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGateServer.ts.html |here} to see how to use PutCloudGateServer API.
+   */
+  public async putCloudGateServer(
+    putCloudGateServerRequest: requests.PutCloudGateServerRequest
+  ): Promise<responses.PutCloudGateServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putCloudGateServer.");
+    const operationName = "putCloudGateServer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{cloudGateServerId}": putCloudGateServerRequest.cloudGateServerId
+    };
+
+    const queryParams = {
+      "attributes": putCloudGateServerRequest.attributes,
+      "attributeSets": putCloudGateServerRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putCloudGateServerRequest.authorization,
+      "resource_type_schema_version": putCloudGateServerRequest.resourceTypeSchemaVersion,
+      "if-match": putCloudGateServerRequest.ifMatch,
+      "opc-retry-token": putCloudGateServerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putCloudGateServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateServers/{cloudGateServerId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putCloudGateServerRequest.cloudGateServer,
+        "CloudGateServer",
+        model.CloudGateServer.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutCloudGateServerResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateServer",
+        bodyModel: model.CloudGateServer,
+        type: "model.CloudGateServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace a Condition
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutConditionRequest
+   * @return PutConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCondition.ts.html |here} to see how to use PutCondition API.
+   */
+  public async putCondition(
+    putConditionRequest: requests.PutConditionRequest
+  ): Promise<responses.PutConditionResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putCondition.");
+    const operationName = "putCondition";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{conditionId}": putConditionRequest.conditionId
+    };
+
+    const queryParams = {
+      "attributes": putConditionRequest.attributes,
+      "attributeSets": putConditionRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putConditionRequest.authorization,
+      "resource_type_schema_version": putConditionRequest.resourceTypeSchemaVersion,
+      "if-match": putConditionRequest.ifMatch,
+      "opc-retry-token": putConditionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Conditions/{conditionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putConditionRequest.condition,
+        "Condition",
+        model.Condition.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutConditionResponse>{},
+        body: await response.json(),
+        bodyKey: "condition",
+        bodyModel: model.Condition,
+        type: "model.Condition",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12760,6 +19526,180 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Replace a NetworkPerimeter
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutNetworkPerimeterRequest
+   * @return PutNetworkPerimeterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutNetworkPerimeter.ts.html |here} to see how to use PutNetworkPerimeter API.
+   */
+  public async putNetworkPerimeter(
+    putNetworkPerimeterRequest: requests.PutNetworkPerimeterRequest
+  ): Promise<responses.PutNetworkPerimeterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putNetworkPerimeter.");
+    const operationName = "putNetworkPerimeter";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkPerimeterId}": putNetworkPerimeterRequest.networkPerimeterId
+    };
+
+    const queryParams = {
+      "attributes": putNetworkPerimeterRequest.attributes,
+      "attributeSets": putNetworkPerimeterRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putNetworkPerimeterRequest.authorization,
+      "resource_type_schema_version": putNetworkPerimeterRequest.resourceTypeSchemaVersion,
+      "if-match": putNetworkPerimeterRequest.ifMatch,
+      "opc-retry-token": putNetworkPerimeterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putNetworkPerimeterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NetworkPerimeters/{networkPerimeterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putNetworkPerimeterRequest.networkPerimeter,
+        "NetworkPerimeter",
+        model.NetworkPerimeter.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutNetworkPerimeterResponse>{},
+        body: await response.json(),
+        bodyKey: "networkPerimeter",
+        bodyModel: model.NetworkPerimeter,
+        type: "model.NetworkPerimeter",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace Notification Settings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutNotificationSettingRequest
+   * @return PutNotificationSettingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutNotificationSetting.ts.html |here} to see how to use PutNotificationSetting API.
+   */
+  public async putNotificationSetting(
+    putNotificationSettingRequest: requests.PutNotificationSettingRequest
+  ): Promise<responses.PutNotificationSettingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putNotificationSetting.");
+    const operationName = "putNotificationSetting";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{notificationSettingId}": putNotificationSettingRequest.notificationSettingId
+    };
+
+    const queryParams = {
+      "attributes": putNotificationSettingRequest.attributes,
+      "attributeSets": putNotificationSettingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putNotificationSettingRequest.authorization,
+      "resource_type_schema_version": putNotificationSettingRequest.resourceTypeSchemaVersion,
+      "if-match": putNotificationSettingRequest.ifMatch,
+      "opc-retry-token": putNotificationSettingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putNotificationSettingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NotificationSettings/{notificationSettingId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putNotificationSettingRequest.notificationSetting,
+        "NotificationSetting",
+        model.NotificationSetting.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutNotificationSettingResponse>{},
+        body: await response.json(),
+        bodyKey: "notificationSetting",
+        bodyModel: model.NotificationSetting,
+        type: "model.NotificationSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Replace a password policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutPasswordPolicyRequest
@@ -12847,6 +19787,261 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Replace a Policy
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutPolicyRequest
+   * @return PutPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutPolicy.ts.html |here} to see how to use PutPolicy API.
+   */
+  public async putPolicy(
+    putPolicyRequest: requests.PutPolicyRequest
+  ): Promise<responses.PutPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putPolicy.");
+    const operationName = "putPolicy";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{policyId}": putPolicyRequest.policyId
+    };
+
+    const queryParams = {
+      "attributes": putPolicyRequest.attributes,
+      "attributeSets": putPolicyRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putPolicyRequest.authorization,
+      "resource_type_schema_version": putPolicyRequest.resourceTypeSchemaVersion,
+      "if-match": putPolicyRequest.ifMatch,
+      "opc-retry-token": putPolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Policies/{policyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putPolicyRequest.policy,
+        "Policy",
+        model.Policy.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "policy",
+        bodyModel: model.Policy,
+        type: "model.Policy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace a Rule
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutRuleRequest
+   * @return PutRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutRule.ts.html |here} to see how to use PutRule API.
+   */
+  public async putRule(
+    putRuleRequest: requests.PutRuleRequest
+  ): Promise<responses.PutRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putRule.");
+    const operationName = "putRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{ruleId}": putRuleRequest.ruleId
+    };
+
+    const queryParams = {
+      "attributes": putRuleRequest.attributes,
+      "attributeSets": putRuleRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putRuleRequest.authorization,
+      "resource_type_schema_version": putRuleRequest.resourceTypeSchemaVersion,
+      "if-match": putRuleRequest.ifMatch,
+      "opc-retry-token": putRuleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Rules/{ruleId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putRuleRequest.rule,
+        "Rule",
+        model.Rule.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "rule",
+        bodyModel: model.Rule,
+        type: "model.Rule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace a Schema Def
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutSchemaRequest
+   * @return PutSchemaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSchema.ts.html |here} to see how to use PutSchema API.
+   */
+  public async putSchema(
+    putSchemaRequest: requests.PutSchemaRequest
+  ): Promise<responses.PutSchemaResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putSchema.");
+    const operationName = "putSchema";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{schemaId}": putSchemaRequest.schemaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putSchemaRequest.authorization,
+      "resource_type_schema_version": putSchemaRequest.resourceTypeSchemaVersion,
+      "if-match": putSchemaRequest.ifMatch,
+      "opc-retry-token": putSchemaRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putSchemaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Schemas/{schemaId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putSchemaRequest.schema,
+        "Schema",
+        model.Schema.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutSchemaResponse>{},
+        body: await response.json(),
+        bodyKey: "schema",
+        bodyModel: model.Schema,
+        type: "model.Schema",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Replace a security question setting.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutSecurityQuestionSettingRequest
@@ -12913,6 +20108,179 @@ export class IdentityDomainsClient {
         bodyKey: "securityQuestionSetting",
         bodyModel: model.SecurityQuestionSetting,
         type: "model.SecurityQuestionSetting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace a self-registration profile.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutSelfRegistrationProfileRequest
+   * @return PutSelfRegistrationProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSelfRegistrationProfile.ts.html |here} to see how to use PutSelfRegistrationProfile API.
+   */
+  public async putSelfRegistrationProfile(
+    putSelfRegistrationProfileRequest: requests.PutSelfRegistrationProfileRequest
+  ): Promise<responses.PutSelfRegistrationProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putSelfRegistrationProfile.");
+    const operationName = "putSelfRegistrationProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{selfRegistrationProfileId}": putSelfRegistrationProfileRequest.selfRegistrationProfileId
+    };
+
+    const queryParams = {
+      "attributes": putSelfRegistrationProfileRequest.attributes,
+      "attributeSets": putSelfRegistrationProfileRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putSelfRegistrationProfileRequest.authorization,
+      "resource_type_schema_version": putSelfRegistrationProfileRequest.resourceTypeSchemaVersion,
+      "if-match": putSelfRegistrationProfileRequest.ifMatch,
+      "opc-retry-token": putSelfRegistrationProfileRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putSelfRegistrationProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SelfRegistrationProfiles/{selfRegistrationProfileId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putSelfRegistrationProfileRequest.selfRegistrationProfile,
+        "SelfRegistrationProfile",
+        model.SelfRegistrationProfile.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutSelfRegistrationProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "selfRegistrationProfile",
+        bodyModel: model.SelfRegistrationProfile,
+        type: "model.SelfRegistrationProfile",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace Settings
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutSettingRequest
+   * @return PutSettingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSetting.ts.html |here} to see how to use PutSetting API.
+   */
+  public async putSetting(
+    putSettingRequest: requests.PutSettingRequest
+  ): Promise<responses.PutSettingResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putSetting.");
+    const operationName = "putSetting";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{settingId}": putSettingRequest.settingId
+    };
+
+    const queryParams = {
+      "attributes": putSettingRequest.attributes,
+      "attributeSets": putSettingRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putSettingRequest.authorization,
+      "resource_type_schema_version": putSettingRequest.resourceTypeSchemaVersion,
+      "if-match": putSettingRequest.ifMatch,
+      "opc-retry-token": putSettingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putSettingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Settings/{settingId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putSettingRequest.setting,
+        "Setting",
+        model.Setting.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutSettingResponse>{},
+        body: await response.json(),
+        bodyKey: "setting",
+        bodyModel: model.Setting,
+        type: "model.Setting",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13443,7 +20811,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Search ApiKeys Using POST
+   * Search for API keys using POST.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchApiKeysRequest
    * @return SearchApiKeysResponse
@@ -13841,6 +21209,340 @@ export class IdentityDomainsClient {
         bodyKey: "authenticationFactorSettings",
         bodyModel: model.AuthenticationFactorSettings,
         type: "model.AuthenticationFactorSettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Cloud Gate mappings Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchCloudGateMappingsRequest
+   * @return SearchCloudGateMappingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGateMappings.ts.html |here} to see how to use SearchCloudGateMappings API.
+   */
+  public async searchCloudGateMappings(
+    searchCloudGateMappingsRequest: requests.SearchCloudGateMappingsRequest
+  ): Promise<responses.SearchCloudGateMappingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchCloudGateMappings.");
+    const operationName = "searchCloudGateMappings";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchCloudGateMappingsRequest.page,
+      "limit": searchCloudGateMappingsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchCloudGateMappingsRequest.authorization,
+      "resource_type_schema_version": searchCloudGateMappingsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchCloudGateMappingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchCloudGateMappingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateMappings/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchCloudGateMappingsRequest.cloudGateMappingSearchRequest,
+        "CloudGateMappingSearchRequest",
+        model.CloudGateMappingSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchCloudGateMappingsResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateMappings",
+        bodyModel: model.CloudGateMappings,
+        type: "model.CloudGateMappings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Cloud Gate servers Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchCloudGateServersRequest
+   * @return SearchCloudGateServersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGateServers.ts.html |here} to see how to use SearchCloudGateServers API.
+   */
+  public async searchCloudGateServers(
+    searchCloudGateServersRequest: requests.SearchCloudGateServersRequest
+  ): Promise<responses.SearchCloudGateServersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchCloudGateServers.");
+    const operationName = "searchCloudGateServers";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchCloudGateServersRequest.page,
+      "limit": searchCloudGateServersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchCloudGateServersRequest.authorization,
+      "resource_type_schema_version": searchCloudGateServersRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchCloudGateServersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchCloudGateServersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGateServers/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchCloudGateServersRequest.cloudGateServerSearchRequest,
+        "CloudGateServerSearchRequest",
+        model.CloudGateServerSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchCloudGateServersResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGateServers",
+        bodyModel: model.CloudGateServers,
+        type: "model.CloudGateServers",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Cloud Gates Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchCloudGatesRequest
+   * @return SearchCloudGatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGates.ts.html |here} to see how to use SearchCloudGates API.
+   */
+  public async searchCloudGates(
+    searchCloudGatesRequest: requests.SearchCloudGatesRequest
+  ): Promise<responses.SearchCloudGatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchCloudGates.");
+    const operationName = "searchCloudGates";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchCloudGatesRequest.page,
+      "limit": searchCloudGatesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchCloudGatesRequest.authorization,
+      "resource_type_schema_version": searchCloudGatesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchCloudGatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchCloudGatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/CloudGates/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchCloudGatesRequest.cloudGateSearchRequest,
+        "CloudGateSearchRequest",
+        model.CloudGateSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchCloudGatesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudGates",
+        bodyModel: model.CloudGates,
+        type: "model.CloudGates",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Conditions Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchConditionsRequest
+   * @return SearchConditionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchConditions.ts.html |here} to see how to use SearchConditions API.
+   */
+  public async searchConditions(
+    searchConditionsRequest: requests.SearchConditionsRequest
+  ): Promise<responses.SearchConditionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchConditions.");
+    const operationName = "searchConditions";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchConditionsRequest.page,
+      "limit": searchConditionsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchConditionsRequest.authorization,
+      "resource_type_schema_version": searchConditionsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchConditionsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchConditionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Conditions/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchConditionsRequest.conditionSearchRequest,
+        "ConditionSearchRequest",
+        model.ConditionSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchConditionsResponse>{},
+        body: await response.json(),
+        bodyKey: "conditions",
+        bodyModel: model.Conditions,
+        type: "model.Conditions",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -14781,6 +22483,174 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search NetworkPerimeters Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchNetworkPerimetersRequest
+   * @return SearchNetworkPerimetersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchNetworkPerimeters.ts.html |here} to see how to use SearchNetworkPerimeters API.
+   */
+  public async searchNetworkPerimeters(
+    searchNetworkPerimetersRequest: requests.SearchNetworkPerimetersRequest
+  ): Promise<responses.SearchNetworkPerimetersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchNetworkPerimeters.");
+    const operationName = "searchNetworkPerimeters";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchNetworkPerimetersRequest.page,
+      "limit": searchNetworkPerimetersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchNetworkPerimetersRequest.authorization,
+      "resource_type_schema_version": searchNetworkPerimetersRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchNetworkPerimetersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchNetworkPerimetersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NetworkPerimeters/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchNetworkPerimetersRequest.networkPerimeterSearchRequest,
+        "NetworkPerimeterSearchRequest",
+        model.NetworkPerimeterSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchNetworkPerimetersResponse>{},
+        body: await response.json(),
+        bodyKey: "networkPerimeters",
+        bodyModel: model.NetworkPerimeters,
+        type: "model.NetworkPerimeters",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Notification Settings Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchNotificationSettingsRequest
+   * @return SearchNotificationSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchNotificationSettings.ts.html |here} to see how to use SearchNotificationSettings API.
+   */
+  public async searchNotificationSettings(
+    searchNotificationSettingsRequest: requests.SearchNotificationSettingsRequest
+  ): Promise<responses.SearchNotificationSettingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchNotificationSettings.");
+    const operationName = "searchNotificationSettings";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchNotificationSettingsRequest.page,
+      "limit": searchNotificationSettingsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchNotificationSettingsRequest.authorization,
+      "resource_type_schema_version": searchNotificationSettingsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchNotificationSettingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchNotificationSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/NotificationSettings/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchNotificationSettingsRequest.notificationSettingsSearchRequest,
+        "NotificationSettingsSearchRequest",
+        model.NotificationSettingsSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchNotificationSettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "notificationSettings",
+        bodyModel: model.NotificationSettings,
+        type: "model.NotificationSettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search for OAuth2 client credentials using POST.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchOAuth2ClientCredentialsRequest
@@ -14845,6 +22715,176 @@ export class IdentityDomainsClient {
         bodyKey: "oAuth2ClientCredentials",
         bodyModel: model.OAuth2ClientCredentials,
         type: "model.OAuth2ClientCredentials",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search OAuth Client Certificates Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchOAuthClientCertificatesRequest
+   * @return SearchOAuthClientCertificatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuthClientCertificates.ts.html |here} to see how to use SearchOAuthClientCertificates API.
+   */
+  public async searchOAuthClientCertificates(
+    searchOAuthClientCertificatesRequest: requests.SearchOAuthClientCertificatesRequest
+  ): Promise<responses.SearchOAuthClientCertificatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchOAuthClientCertificates.");
+    const operationName = "searchOAuthClientCertificates";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchOAuthClientCertificatesRequest.page,
+      "limit": searchOAuthClientCertificatesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchOAuthClientCertificatesRequest.authorization,
+      "resource_type_schema_version":
+        searchOAuthClientCertificatesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchOAuthClientCertificatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchOAuthClientCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthClientCertificates/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchOAuthClientCertificatesRequest.oAuthClientCertificateSearchRequest,
+        "OAuthClientCertificateSearchRequest",
+        model.OAuthClientCertificateSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchOAuthClientCertificatesResponse>{},
+        body: await response.json(),
+        bodyKey: "oAuthClientCertificates",
+        bodyModel: model.OAuthClientCertificates,
+        type: "model.OAuthClientCertificates",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search OAuth Partner Certificates Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchOAuthPartnerCertificatesRequest
+   * @return SearchOAuthPartnerCertificatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuthPartnerCertificates.ts.html |here} to see how to use SearchOAuthPartnerCertificates API.
+   */
+  public async searchOAuthPartnerCertificates(
+    searchOAuthPartnerCertificatesRequest: requests.SearchOAuthPartnerCertificatesRequest
+  ): Promise<responses.SearchOAuthPartnerCertificatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchOAuthPartnerCertificates.");
+    const operationName = "searchOAuthPartnerCertificates";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchOAuthPartnerCertificatesRequest.page,
+      "limit": searchOAuthPartnerCertificatesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchOAuthPartnerCertificatesRequest.authorization,
+      "resource_type_schema_version":
+        searchOAuthPartnerCertificatesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchOAuthPartnerCertificatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchOAuthPartnerCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OAuthPartnerCertificates/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchOAuthPartnerCertificatesRequest.oAuthPartnerCertificateSearchRequest,
+        "OAuthPartnerCertificateSearchRequest",
+        model.OAuthPartnerCertificateSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchOAuthPartnerCertificatesResponse>{},
+        body: await response.json(),
+        bodyKey: "oAuthPartnerCertificates",
+        bodyModel: model.OAuthPartnerCertificates,
+        type: "model.OAuthPartnerCertificates",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -14950,6 +22990,89 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search Policies Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchPoliciesRequest
+   * @return SearchPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchPolicies.ts.html |here} to see how to use SearchPolicies API.
+   */
+  public async searchPolicies(
+    searchPoliciesRequest: requests.SearchPoliciesRequest
+  ): Promise<responses.SearchPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchPolicies.");
+    const operationName = "searchPolicies";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchPoliciesRequest.page,
+      "limit": searchPoliciesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchPoliciesRequest.authorization,
+      "resource_type_schema_version": searchPoliciesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchPoliciesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Policies/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchPoliciesRequest.policySearchRequest,
+        "PolicySearchRequest",
+        model.PolicySearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "policies",
+        bodyModel: model.Policies,
+        type: "model.Policies",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search Resource Type Schema Attributes Using POST
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchResourceTypeSchemaAttributesRequest
@@ -15016,6 +23139,172 @@ export class IdentityDomainsClient {
         bodyKey: "resourceTypeSchemaAttributes",
         bodyModel: model.ResourceTypeSchemaAttributes,
         type: "model.ResourceTypeSchemaAttributes",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Rules Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchRulesRequest
+   * @return SearchRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchRules.ts.html |here} to see how to use SearchRules API.
+   */
+  public async searchRules(
+    searchRulesRequest: requests.SearchRulesRequest
+  ): Promise<responses.SearchRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchRules.");
+    const operationName = "searchRules";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchRulesRequest.page,
+      "limit": searchRulesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchRulesRequest.authorization,
+      "resource_type_schema_version": searchRulesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchRulesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Rules/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchRulesRequest.ruleSearchRequest,
+        "RuleSearchRequest",
+        model.RuleSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "rules",
+        bodyModel: model.Rules,
+        type: "model.Rules",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Schemas Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchSchemasRequest
+   * @return SearchSchemasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSchemas.ts.html |here} to see how to use SearchSchemas API.
+   */
+  public async searchSchemas(
+    searchSchemasRequest: requests.SearchSchemasRequest
+  ): Promise<responses.SearchSchemasResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchSchemas.");
+    const operationName = "searchSchemas";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchSchemasRequest.page,
+      "limit": searchSchemasRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchSchemasRequest.authorization,
+      "resource_type_schema_version": searchSchemasRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchSchemasRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchSchemasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Schemas/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchSchemasRequest.schemaSearchRequest,
+        "SchemaSearchRequest",
+        model.SchemaSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchSchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "schemas",
+        bodyModel: model.Schemas,
+        type: "model.Schemas",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -15185,6 +23474,174 @@ export class IdentityDomainsClient {
         bodyKey: "securityQuestions",
         bodyModel: model.SecurityQuestions,
         type: "model.SecurityQuestions",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search for self-registration profile using POST.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchSelfRegistrationProfilesRequest
+   * @return SearchSelfRegistrationProfilesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSelfRegistrationProfiles.ts.html |here} to see how to use SearchSelfRegistrationProfiles API.
+   */
+  public async searchSelfRegistrationProfiles(
+    searchSelfRegistrationProfilesRequest: requests.SearchSelfRegistrationProfilesRequest
+  ): Promise<responses.SearchSelfRegistrationProfilesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchSelfRegistrationProfiles.");
+    const operationName = "searchSelfRegistrationProfiles";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchSelfRegistrationProfilesRequest.page,
+      "limit": searchSelfRegistrationProfilesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchSelfRegistrationProfilesRequest.authorization,
+      "resource_type_schema_version":
+        searchSelfRegistrationProfilesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchSelfRegistrationProfilesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchSelfRegistrationProfilesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SelfRegistrationProfiles/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchSelfRegistrationProfilesRequest.selfRegistrationProfileSearchRequest,
+        "SelfRegistrationProfileSearchRequest",
+        model.SelfRegistrationProfileSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchSelfRegistrationProfilesResponse>{},
+        body: await response.json(),
+        bodyKey: "selfRegistrationProfiles",
+        bodyModel: model.SelfRegistrationProfiles,
+        type: "model.SelfRegistrationProfiles",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Settings Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchSettingsRequest
+   * @return SearchSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSettings.ts.html |here} to see how to use SearchSettings API.
+   */
+  public async searchSettings(
+    searchSettingsRequest: requests.SearchSettingsRequest
+  ): Promise<responses.SearchSettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchSettings.");
+    const operationName = "searchSettings";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchSettingsRequest.page,
+      "limit": searchSettingsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchSettingsRequest.authorization,
+      "resource_type_schema_version": searchSettingsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchSettingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/Settings/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchSettingsRequest.settingsSearchRequest,
+        "SettingsSearchRequest",
+        model.SettingsSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchSettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "settings",
+        bodyModel: model.Settings,
+        type: "model.Settings",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
