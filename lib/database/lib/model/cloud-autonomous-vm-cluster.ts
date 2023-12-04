@@ -263,6 +263,18 @@ Example: `{\"Department\": \"Finance\"}`
    * The number of non-provisionable Autonomous Container Databases in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nonProvisionableAutonomousContainerDatabases"?: number;
+  /**
+   * The lowest value to which exadataStorage in TBs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "exadataStorageInTBsLowestScaledValue"?: number;
+  /**
+   * The lowest value to which ocpus can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "ocpusLowestScaledValue"?: number;
+  /**
+   * The lowest value to which ACDs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxAcdsLowestScaledValue"?: number;
 }
 
 export namespace CloudAutonomousVmCluster {

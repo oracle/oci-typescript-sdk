@@ -33,11 +33,19 @@ export interface DbSystemUpgradeHistoryEntry {
   /**
    * A valid Oracle Grid Infrastructure (GI) software version.
    */
-  "newGiVersion": string;
+  "newGiVersion"?: string;
   /**
    * A valid Oracle Grid Infrastructure (GI) software version.
    */
-  "oldGiVersion": string;
+  "oldGiVersion"?: string;
+  /**
+   * A valid Oracle Software (OS) version eg. Oracle Linux Server release 8
+   */
+  "oldOsVersion"?: string;
+  /**
+   * A valid Oracle Software (OS) version eg. Oracle Linux Server release 8
+   */
+  "newOsVersion"?: string;
   /**
    * The retention period, in days, for the snapshot that allows you to perform a rollback of the upgrade operation. After this number of days passes, you cannot roll back the upgrade. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

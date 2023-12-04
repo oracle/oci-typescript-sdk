@@ -61,7 +61,7 @@ export interface CreateMicrosoftSqlserverConnectionDetails extends model.CreateC
    */
   "securityProtocol": string;
   /**
-   * Database Certificate - The base64 encoded content of pem file
+   * Database Certificate - The base64 encoded content of a .pem or .crt file.
    * containing the server public key (for 1-way SSL).
    *
    */

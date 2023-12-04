@@ -1,8 +1,7 @@
 /**
  * Compute Cloud@Customer API
- * Use the Compute Cloud@Customer API to manage Compute Cloud@Customer Infrastructure deployments
-and scheduled upgrades. For more information see 
-[Compute Cloud@Customer documentation](/iaas/Content/compute-cloud-at-customer/home.htm).
+ * Use the Compute Cloud@Customer API to manage Compute Cloud@Customer infrastructures and upgrade schedules.
+For more information see [Compute Cloud@Customer documentation](/iaas/compute-cloud-at-customer/home.htm).
 
  * OpenAPI spec version: 20221208
  * 

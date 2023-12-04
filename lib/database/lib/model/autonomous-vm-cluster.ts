@@ -220,6 +220,18 @@ Example: `{\"Department\": \"Finance\"}`
    * The date and time of the ORDS certificate expiration.
    */
   "timeOrdsCertificateExpires"?: Date;
+  /**
+   * The lowest value to which exadataStorage in TBs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "exadataStorageInTBsLowestScaledValue"?: number;
+  /**
+   * The lowest value to which cpus can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpusLowestScaledValue"?: number;
+  /**
+   * The lowest value to which ACDs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxAcdsLowestScaledValue"?: number;
 }
 
 export namespace AutonomousVmCluster {

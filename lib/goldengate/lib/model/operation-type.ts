@@ -48,6 +48,8 @@ export enum OperationType {
   GoldengateDeploymentUpgradeUpgrade = "GOLDENGATE_DEPLOYMENT_UPGRADE_UPGRADE",
   GoldengateDeploymentUpgradeRollback = "GOLDENGATE_DEPLOYMENT_UPGRADE_ROLLBACK",
   GoldengateDeploymentUpgradeSnooze = "GOLDENGATE_DEPLOYMENT_UPGRADE_SNOOZE",
+  GoldengateDeploymentCertificateCreate = "GOLDENGATE_DEPLOYMENT_CERTIFICATE_CREATE",
+  GoldengateDeploymentCertificateDelete = "GOLDENGATE_DEPLOYMENT_CERTIFICATE_DELETE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

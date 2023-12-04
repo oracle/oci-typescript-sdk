@@ -172,6 +172,10 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "dataCollectionOptions"?: model.DataCollectionOptions;
+  /**
+   * Operating system version of the image.
+   */
+  "systemVersion"?: string;
 }
 
 export namespace CreateCloudVmClusterDetails {

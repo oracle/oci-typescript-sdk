@@ -57,26 +57,25 @@ export interface UpdateMysqlConnectionDetails extends model.UpdateConnectionDeta
    */
   "sslMode"?: string;
   /**
-   * Database Certificate - The base64 encoded content of mysql.pem file
+   * Database Certificate - The base64 encoded content of a .pem or .crt file.
    * containing the server public key (for 1 and 2-way SSL).
    *
    */
   "sslCa"?: string;
   /**
-   * Certificates revoked by certificate authorities (CA).
-   * Server certificate must not be on this list (for 1 and 2-way SSL).
-   * Note: This is an optional and that too only applicable if TLS/MTLS option is selected.
+   * The base64 encoded list of certificates revoked by the trusted certificate authorities (Trusted CA).
+   * Note: This is an optional property and only applicable if TLS/MTLS option is selected.
    *
    */
   "sslCrl"?: string;
   /**
-   * Client Certificate - The base64 encoded content of client-cert.pem file
+   * Client Certificate - The base64 encoded content of a .pem or .crt file.
    * containing the client public key (for 2-way SSL).
    *
    */
   "sslCert"?: string;
   /**
-   * Client Key - The client-key.pem containing the client private key (for 2-way SSL).
+   * Client Key \u2013 The base64 encoded content of a .pem or .crt file containing the client private key (for 2-way SSL).
    *
    */
   "sslKey"?: string;

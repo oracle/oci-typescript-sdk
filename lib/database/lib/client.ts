@@ -4114,6 +4114,94 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Captures the most recent serial console data (up to a megabyte) for the specified database node.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateConsoleHistoryRequest
+   * @return CreateConsoleHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateConsoleHistory.ts.html |here} to see how to use CreateConsoleHistory API.
+   */
+  public async createConsoleHistory(
+    createConsoleHistoryRequest: requests.CreateConsoleHistoryRequest
+  ): Promise<responses.CreateConsoleHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createConsoleHistory.");
+    const operationName = "createConsoleHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/CreateConsoleHistory";
+    const pathParams = {
+      "{dbNodeId}": createConsoleHistoryRequest.dbNodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createConsoleHistoryRequest.opcRetryToken,
+      "opc-request-id": createConsoleHistoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConsoleHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}/consoleHistories",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createConsoleHistoryRequest.createConsoleHistoryDetails,
+        "CreateConsoleHistoryDetails",
+        model.CreateConsoleHistoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateConsoleHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "consoleHistory",
+        bodyModel: model.ConsoleHistory,
+        type: "model.ConsoleHistory",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates a new Data Guard association.  A Data Guard association represents the replication relationship between the
 * specified database and a peer database. For more information, see [Using Oracle Data Guard](https://docs.cloud.oracle.com/Content/Database/Tasks/usingdataguard.htm).
 * <p>
@@ -6328,6 +6416,81 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified database node console history.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteConsoleHistoryRequest
+   * @return DeleteConsoleHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteConsoleHistory.ts.html |here} to see how to use DeleteConsoleHistory API.
+   */
+  public async deleteConsoleHistory(
+    deleteConsoleHistoryRequest: requests.DeleteConsoleHistoryRequest
+  ): Promise<responses.DeleteConsoleHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteConsoleHistory.");
+    const operationName = "deleteConsoleHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/DeleteConsoleHistory";
+    const pathParams = {
+      "{dbNodeId}": deleteConsoleHistoryRequest.dbNodeId,
+      "{consoleHistoryId}": deleteConsoleHistoryRequest.consoleHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteConsoleHistoryRequest.ifMatch,
+      "opc-request-id": deleteConsoleHistoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConsoleHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}/consoleHistories/{consoleHistoryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteConsoleHistoryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -12166,6 +12329,163 @@ A failover might result in data loss depending on the protection mode in effect 
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified database node console history.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetConsoleHistoryRequest
+   * @return GetConsoleHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleHistory.ts.html |here} to see how to use GetConsoleHistory API.
+   */
+  public async getConsoleHistory(
+    getConsoleHistoryRequest: requests.GetConsoleHistoryRequest
+  ): Promise<responses.GetConsoleHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getConsoleHistory.");
+    const operationName = "getConsoleHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/GetConsoleHistory";
+    const pathParams = {
+      "{dbNodeId}": getConsoleHistoryRequest.dbNodeId,
+      "{consoleHistoryId}": getConsoleHistoryRequest.consoleHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getConsoleHistoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConsoleHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}/consoleHistories/{consoleHistoryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConsoleHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "consoleHistory",
+        bodyModel: model.ConsoleHistory,
+        type: "model.ConsoleHistory",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the specified database node console history contents upto a megabyte.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetConsoleHistoryContentRequest
+   * @return GetConsoleHistoryContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleHistoryContent.ts.html |here} to see how to use GetConsoleHistoryContent API.
+   */
+  public async getConsoleHistoryContent(
+    getConsoleHistoryContentRequest: requests.GetConsoleHistoryContentRequest
+  ): Promise<responses.GetConsoleHistoryContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getConsoleHistoryContent.");
+    const operationName = "getConsoleHistoryContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/GetConsoleHistoryContent";
+    const pathParams = {
+      "{dbNodeId}": getConsoleHistoryContentRequest.dbNodeId,
+      "{consoleHistoryId}": getConsoleHistoryContentRequest.consoleHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getConsoleHistoryContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConsoleHistoryContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}/consoleHistories/{consoleHistoryId}/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConsoleHistoryContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -18437,6 +18757,90 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * Lists the console histories for the specified database node.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListConsoleHistoriesRequest
+   * @return ListConsoleHistoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListConsoleHistories.ts.html |here} to see how to use ListConsoleHistories API.
+   */
+  public async listConsoleHistories(
+    listConsoleHistoriesRequest: requests.ListConsoleHistoriesRequest
+  ): Promise<responses.ListConsoleHistoriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listConsoleHistories.");
+    const operationName = "listConsoleHistories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/ListConsoleHistories";
+    const pathParams = {
+      "{dbNodeId}": listConsoleHistoriesRequest.dbNodeId
+    };
+
+    const queryParams = {
+      "limit": listConsoleHistoriesRequest.limit,
+      "page": listConsoleHistoriesRequest.page,
+      "sortBy": listConsoleHistoriesRequest.sortBy,
+      "sortOrder": listConsoleHistoriesRequest.sortOrder,
+      "lifecycleState": listConsoleHistoriesRequest.lifecycleState,
+      "displayName": listConsoleHistoriesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listConsoleHistoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConsoleHistoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}/consoleHistories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListConsoleHistoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "consoleHistoryCollection",
+        bodyModel: model.ConsoleHistoryCollection,
+        type: "model.ConsoleHistoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the patches applicable to the requested container database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -22458,6 +22862,87 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     request: requests.ListPluggableDatabasesRequest
   ): AsyncIterableIterator<responses.ListPluggableDatabasesResponse> {
     return paginateResponses(request, req => this.listPluggableDatabases(req));
+  }
+
+  /**
+   * Gets a list of supported Exadata system versions for a given shape and GI version.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSystemVersionsRequest
+   * @return ListSystemVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSystemVersions.ts.html |here} to see how to use ListSystemVersions API.
+   */
+  public async listSystemVersions(
+    listSystemVersionsRequest: requests.ListSystemVersionsRequest
+  ): Promise<responses.ListSystemVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listSystemVersions.");
+    const operationName = "listSystemVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SystemVersionCollection/ListSystemVersions";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSystemVersionsRequest.compartmentId,
+      "limit": listSystemVersionsRequest.limit,
+      "page": listSystemVersionsRequest.page,
+      "sortOrder": listSystemVersionsRequest.sortOrder,
+      "shape": listSystemVersionsRequest.shape,
+      "giVersion": listSystemVersionsRequest.giVersion
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSystemVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSystemVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/systemVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSystemVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "systemVersionCollection",
+        bodyModel: model.SystemVersionCollection,
+        type: "model.SystemVersionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -27944,6 +28429,95 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified database node console history.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateConsoleHistoryRequest
+   * @return UpdateConsoleHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateConsoleHistory.ts.html |here} to see how to use UpdateConsoleHistory API.
+   */
+  public async updateConsoleHistory(
+    updateConsoleHistoryRequest: requests.UpdateConsoleHistoryRequest
+  ): Promise<responses.UpdateConsoleHistoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateConsoleHistory.");
+    const operationName = "updateConsoleHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/UpdateConsoleHistory";
+    const pathParams = {
+      "{dbNodeId}": updateConsoleHistoryRequest.dbNodeId,
+      "{consoleHistoryId}": updateConsoleHistoryRequest.consoleHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateConsoleHistoryRequest.ifMatch,
+      "opc-request-id": updateConsoleHistoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConsoleHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}/consoleHistories/{consoleHistoryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateConsoleHistoryRequest.updateConsoleHistoryDetails,
+        "UpdateConsoleHistoryDetails",
+        model.UpdateConsoleHistoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateConsoleHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "consoleHistory",
+        bodyModel: model.ConsoleHistory,
+        type: "model.ConsoleHistory",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

@@ -33,6 +33,10 @@ export interface UpgradeDbSystemDetails {
    */
   "newGiVersion"?: string;
   /**
+   * A valid Oracle Software (OS) version eg. Oracle Linux Server release 8
+   */
+  "newOsVersion"?: string;
+  /**
    * If true, rollback time is updated even if operating system upgrade history contains errors.
    */
   "isSnapshotRetentionDaysForceUpdated"?: boolean;

@@ -361,6 +361,88 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Moves an AwrHubSource resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeAwrHubSourceCompartmentRequest
+   * @return ChangeAwrHubSourceCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeAwrHubSourceCompartment.ts.html |here} to see how to use ChangeAwrHubSourceCompartment API.
+   */
+  public async changeAwrHubSourceCompartment(
+    changeAwrHubSourceCompartmentRequest: requests.ChangeAwrHubSourceCompartmentRequest
+  ): Promise<responses.ChangeAwrHubSourceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeAwrHubSourceCompartment."
+      );
+    const operationName = "changeAwrHubSourceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/ChangeAwrHubSourceCompartment";
+    const pathParams = {
+      "{awrHubSourceId}": changeAwrHubSourceCompartmentRequest.awrHubSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeAwrHubSourceCompartmentRequest.ifMatch,
+      "opc-request-id": changeAwrHubSourceCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeAwrHubSourceCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAwrHubSourceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubSources/{awrHubSourceId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAwrHubSourceCompartmentRequest.changeAwrHubSourceCompartmentDetails,
+        "ChangeAwrHubSourceCompartmentDetails",
+        model.ChangeAwrHubSourceCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAwrHubSourceCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a DatabaseInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDatabaseInsightCompartmentRequest
@@ -851,6 +933,90 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Moves a Operations Insights Warehouse resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeOperationsInsightsWarehouseCompartmentRequest
+   * @return ChangeOperationsInsightsWarehouseCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOperationsInsightsWarehouseCompartment.ts.html |here} to see how to use ChangeOperationsInsightsWarehouseCompartment API.
+   */
+  public async changeOperationsInsightsWarehouseCompartment(
+    changeOperationsInsightsWarehouseCompartmentRequest: requests.ChangeOperationsInsightsWarehouseCompartmentRequest
+  ): Promise<responses.ChangeOperationsInsightsWarehouseCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeOperationsInsightsWarehouseCompartment."
+      );
+    const operationName = "changeOperationsInsightsWarehouseCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/ChangeOperationsInsightsWarehouseCompartment";
+    const pathParams = {
+      "{operationsInsightsWarehouseId}":
+        changeOperationsInsightsWarehouseCompartmentRequest.operationsInsightsWarehouseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeOperationsInsightsWarehouseCompartmentRequest.ifMatch,
+      "opc-request-id": changeOperationsInsightsWarehouseCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeOperationsInsightsWarehouseCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOperationsInsightsWarehouseCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/operationsInsightsWarehouses/{operationsInsightsWarehouseId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeOperationsInsightsWarehouseCompartmentRequest.changeOperationsInsightsWarehouseCompartmentDetails,
+        "ChangeOperationsInsightsWarehouseCompartmentDetails",
+        model.ChangeOperationsInsightsWarehouseCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeOperationsInsightsWarehouseCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an OpsiConfiguration resource from one compartment to another.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeOpsiConfigurationCompartmentRequest
@@ -1095,6 +1261,93 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("content-location"),
             key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Register Awr Hub source
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateAwrHubSourceRequest
+   * @return CreateAwrHubSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateAwrHubSource.ts.html |here} to see how to use CreateAwrHubSource API.
+   */
+  public async createAwrHubSource(
+    createAwrHubSourceRequest: requests.CreateAwrHubSourceRequest
+  ): Promise<responses.CreateAwrHubSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#createAwrHubSource.");
+    const operationName = "createAwrHubSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/CreateAwrHubSource";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAwrHubSourceRequest.opcRetryToken,
+      "opc-request-id": createAwrHubSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAwrHubSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubSources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAwrHubSourceRequest.createAwrHubSourceDetails,
+        "CreateAwrHubSourceDetails",
+        model.CreateAwrHubSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAwrHubSourceResponse>{},
+        body: await response.json(),
+        bodyKey: "awrHubSource",
+        bodyModel: model.AwrHubSource,
+        type: "model.AwrHubSource",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -2065,6 +2318,170 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Deletes an Awr Hub object.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteAwrHubObjectRequest
+   * @return DeleteAwrHubObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHubObject.ts.html |here} to see how to use DeleteAwrHubObject API.
+   */
+  public async deleteAwrHubObject(
+    deleteAwrHubObjectRequest: requests.DeleteAwrHubObjectRequest
+  ): Promise<responses.DeleteAwrHubObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHubObject.");
+    const operationName = "deleteAwrHubObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/DeleteAwrHubObject";
+    const pathParams = {
+      "{awrHubSourceId}": deleteAwrHubObjectRequest.awrHubSourceId,
+      "{objectName}": deleteAwrHubObjectRequest.objectName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAwrHubObjectRequest.ifMatch,
+      "opc-request-id": deleteAwrHubObjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAwrHubObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubObjects/awrHubSources/{awrHubSourceId}/o/{objectName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAwrHubObjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("version-id"),
+            key: "versionId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("is-delete-marker"),
+            key: "isDeleteMarker",
+            dataType: "boolean"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an Awr Hub source object.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteAwrHubSourceRequest
+   * @return DeleteAwrHubSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHubSource.ts.html |here} to see how to use DeleteAwrHubSource API.
+   */
+  public async deleteAwrHubSource(
+    deleteAwrHubSourceRequest: requests.DeleteAwrHubSourceRequest
+  ): Promise<responses.DeleteAwrHubSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHubSource.");
+    const operationName = "deleteAwrHubSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/DeleteAwrHubSource";
+    const pathParams = {
+      "{awrHubSourceId}": deleteAwrHubSourceRequest.awrHubSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAwrHubSourceRequest.ifMatch,
+      "opc-request-id": deleteAwrHubSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAwrHubSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubSources/{awrHubSourceId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAwrHubSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a database insight. The database insight will be deleted and cannot be enabled again.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDatabaseInsightRequest
@@ -2825,6 +3242,81 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Disables a Awr Hub source database in Operations Insights. This will stop the Awr data flow for the given Awr Hub source.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableAwrHubSourceRequest
+   * @return DisableAwrHubSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableAwrHubSource.ts.html |here} to see how to use DisableAwrHubSource API.
+   */
+  public async disableAwrHubSource(
+    disableAwrHubSourceRequest: requests.DisableAwrHubSourceRequest
+  ): Promise<responses.DisableAwrHubSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#disableAwrHubSource.");
+    const operationName = "disableAwrHubSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/DisableAwrHubSource";
+    const pathParams = {
+      "{awrHubSourceId}": disableAwrHubSourceRequest.awrHubSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableAwrHubSourceRequest.ifMatch,
+      "opc-request-id": disableAwrHubSourceRequest.opcRequestId,
+      "opc-retry-token": disableAwrHubSourceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAwrHubSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubSources/{awrHubSourceId}/actions/disable",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAwrHubSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables a database in Operations Insights. Database metric collection and analysis will be stopped.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableDatabaseInsightRequest
@@ -3210,6 +3702,81 @@ export class OperationsInsightsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableAutonomousDatabaseInsightAdvancedFeaturesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a Awr Hub source database in Operations Insights. This will resume the Awr data flow for the given Awr Hub source if it was stopped earlier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableAwrHubSourceRequest
+   * @return EnableAwrHubSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableAwrHubSource.ts.html |here} to see how to use EnableAwrHubSource API.
+   */
+  public async enableAwrHubSource(
+    enableAwrHubSourceRequest: requests.EnableAwrHubSourceRequest
+  ): Promise<responses.EnableAwrHubSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#enableAwrHubSource.");
+    const operationName = "enableAwrHubSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/EnableAwrHubSource";
+    const pathParams = {
+      "{awrHubSourceId}": enableAwrHubSourceRequest.awrHubSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableAwrHubSourceRequest.ifMatch,
+      "opc-request-id": enableAwrHubSourceRequest.opcRequestId,
+      "opc-retry-token": enableAwrHubSourceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAwrHubSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubSources/{awrHubSourceId}/actions/enable",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAwrHubSourceResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3694,6 +4261,249 @@ export class OperationsInsightsClient {
         bodyKey: "awrHub",
         bodyModel: model.AwrHub,
         type: "model.AwrHub",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the Awr Hub object metadata and body.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAwrHubObjectRequest
+   * @return GetAwrHubObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHubObject.ts.html |here} to see how to use GetAwrHubObject API.
+   */
+  public async getAwrHubObject(
+    getAwrHubObjectRequest: requests.GetAwrHubObjectRequest
+  ): Promise<responses.GetAwrHubObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getAwrHubObject.");
+    const operationName = "getAwrHubObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/GetAwrHubObject";
+    const pathParams = {
+      "{awrHubSourceId}": getAwrHubObjectRequest.awrHubSourceId,
+      "{objectName}": getAwrHubObjectRequest.objectName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAwrHubObjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAwrHubObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubObjects/awrHubSources/{awrHubSourceId}/o/{objectName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAwrHubObjectResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-range"),
+            key: "contentRange",
+            dataType: "common.Range"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-multipart-md5"),
+            key: "opcMultipartMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-language"),
+            key: "contentLanguage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-encoding"),
+            key: "contentEncoding",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("cache-control"),
+            key: "cacheControl",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("storage-tier"),
+            key: "storageTier",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("archival-state"),
+            key: "archivalState",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("time-of-archival"),
+            key: "timeOfArchival",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("version-id"),
+            key: "versionId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("expires"),
+            key: "expires",
+            dataType: "Date"
+          }
+        ]
+      });
+      const opcMeta = {};
+      const pattern: string = "opc-meta-";
+      response.headers.forEach((v, k) => {
+        if (k.startsWith(pattern)) {
+          Object.assign(opcMeta, { [k]: v });
+        }
+      });
+      sdkResponse.opcMeta = opcMeta;
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the Awr Hub source object.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAwrHubSourceRequest
+   * @return GetAwrHubSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHubSource.ts.html |here} to see how to use GetAwrHubSource API.
+   */
+  public async getAwrHubSource(
+    getAwrHubSourceRequest: requests.GetAwrHubSourceRequest
+  ): Promise<responses.GetAwrHubSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getAwrHubSource.");
+    const operationName = "getAwrHubSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/GetAwrHubSource";
+    const pathParams = {
+      "{awrHubSourceId}": getAwrHubSourceRequest.awrHubSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAwrHubSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAwrHubSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubSources/{awrHubSourceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAwrHubSourceResponse>{},
+        body: await response.json(),
+        bodyKey: "awrHubSource",
+        bodyModel: model.AwrHubSource,
+        type: "model.AwrHubSource",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4657,6 +5467,159 @@ export class OperationsInsightsClient {
           }
         ]
       });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the Awr Hub object's user-defined metadata and entity tag (ETag).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param HeadAwrHubObjectRequest
+   * @return HeadAwrHubObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/HeadAwrHubObject.ts.html |here} to see how to use HeadAwrHubObject API.
+   */
+  public async headAwrHubObject(
+    headAwrHubObjectRequest: requests.HeadAwrHubObjectRequest
+  ): Promise<responses.HeadAwrHubObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#headAwrHubObject.");
+    const operationName = "headAwrHubObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/HeadAwrHubObject";
+    const pathParams = {
+      "{awrHubSourceId}": headAwrHubObjectRequest.awrHubSourceId,
+      "{objectName}": headAwrHubObjectRequest.objectName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": headAwrHubObjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      headAwrHubObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubObjects/awrHubSources/{awrHubSourceId}/o/{objectName}",
+      method: "HEAD",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.HeadAwrHubObjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-multipart-md5"),
+            key: "opcMultipartMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-language"),
+            key: "contentLanguage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-encoding"),
+            key: "contentEncoding",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("cache-control"),
+            key: "cacheControl",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("storage-tier"),
+            key: "storageTier",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("archival-state"),
+            key: "archivalState",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("time-of-archival"),
+            key: "timeOfArchival",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("version-id"),
+            key: "versionId",
+            dataType: "string"
+          }
+        ]
+      });
+      const opcMeta = {};
+      const pattern: string = "opc-meta-";
+      response.headers.forEach((v, k) => {
+        if (k.startsWith(pattern)) {
+          Object.assign(opcMeta, { [k]: v });
+        }
+      });
+      sdkResponse.opcMeta = opcMeta;
 
       return sdkResponse;
     } catch (err) {
@@ -6065,6 +7028,185 @@ export class OperationsInsightsClient {
         bodyKey: "awrDatabaseCollection",
         bodyModel: model.AwrDatabaseCollection,
         type: "model.AwrDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Awr Hub objects. Awr Hub id needs to specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAwrHubObjectsRequest
+   * @return ListAwrHubObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubObjects.ts.html |here} to see how to use ListAwrHubObjects API.
+   */
+  public async listAwrHubObjects(
+    listAwrHubObjectsRequest: requests.ListAwrHubObjectsRequest
+  ): Promise<responses.ListAwrHubObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubObjects.");
+    const operationName = "listAwrHubObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/ListAwrHubObjects";
+    const pathParams = {
+      "{awrHubSourceId}": listAwrHubObjectsRequest.awrHubSourceId
+    };
+
+    const queryParams = {
+      "prefix": listAwrHubObjectsRequest.prefix,
+      "start": listAwrHubObjectsRequest.start,
+      "end": listAwrHubObjectsRequest.end,
+      "delimiter": listAwrHubObjectsRequest.delimiter,
+      "startAfter": listAwrHubObjectsRequest.startAfter,
+      "page": listAwrHubObjectsRequest.page,
+      "limit": listAwrHubObjectsRequest.limit,
+      "fields": listAwrHubObjectsRequest.fields
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAwrHubObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAwrHubObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubObjects/awrHubSources/{awrHubSourceId}/o",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAwrHubObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "listObjects",
+        bodyModel: model.ListObjects,
+        type: "model.ListObjects",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Awr Hub source objects.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAwrHubSourcesRequest
+   * @return ListAwrHubSourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubSources.ts.html |here} to see how to use ListAwrHubSources API.
+   */
+  public async listAwrHubSources(
+    listAwrHubSourcesRequest: requests.ListAwrHubSourcesRequest
+  ): Promise<responses.ListAwrHubSourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubSources.");
+    const operationName = "listAwrHubSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/ListAwrHubSources";
+    const pathParams = {};
+
+    const queryParams = {
+      "awrHubId": listAwrHubSourcesRequest.awrHubId,
+      "compartmentId": listAwrHubSourcesRequest.compartmentId,
+      "awrHubSourceId": listAwrHubSourcesRequest.awrHubSourceId,
+      "sourceType": listAwrHubSourcesRequest.sourceType,
+      "name": listAwrHubSourcesRequest.name,
+      "status": listAwrHubSourcesRequest.status,
+      "lifecycleState": listAwrHubSourcesRequest.lifecycleState,
+      "limit": listAwrHubSourcesRequest.limit,
+      "page": listAwrHubSourcesRequest.page,
+      "sortOrder": listAwrHubSourcesRequest.sortOrder,
+      "sortBy": listAwrHubSourcesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAwrHubSourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAwrHubSourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubSources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAwrHubSourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "awrHubSourceSummaryCollection",
+        bodyModel: model.AwrHubSourceSummaryCollection,
+        type: "model.AwrHubSourceSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8397,6 +9539,99 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new object or overwrites an existing object with the same name to the Awr Hub.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PutAwrHubObjectRequest
+   * @return PutAwrHubObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/PutAwrHubObject.ts.html |here} to see how to use PutAwrHubObject API.
+   */
+  public async putAwrHubObject(
+    putAwrHubObjectRequest: requests.PutAwrHubObjectRequest
+  ): Promise<responses.PutAwrHubObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#putAwrHubObject.");
+    const operationName = "putAwrHubObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/PutAwrHubObject";
+    const pathParams = {
+      "{awrHubSourceId}": putAwrHubObjectRequest.awrHubSourceId,
+      "{objectName}": putAwrHubObjectRequest.objectName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": putAwrHubObjectRequest.ifMatch,
+      "opc-request-id": putAwrHubObjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putAwrHubObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubObjects/awrHubSources/{awrHubSourceId}/o/{objectName}",
+      method: "PUT",
+      bodyContent: putAwrHubObjectRequest.putAwrHubObjectBody,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutAwrHubObjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-md5"),
+            key: "opcContentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("version-id"),
+            key: "versionId",
             dataType: "string"
           }
         ]
@@ -13626,6 +14861,85 @@ Note that this API does not return information on the number of times each datab
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAwrHubResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update Awr Hub Source object.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAwrHubSourceRequest
+   * @return UpdateAwrHubSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateAwrHubSource.ts.html |here} to see how to use UpdateAwrHubSource API.
+   */
+  public async updateAwrHubSource(
+    updateAwrHubSourceRequest: requests.UpdateAwrHubSourceRequest
+  ): Promise<responses.UpdateAwrHubSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#updateAwrHubSource.");
+    const operationName = "updateAwrHubSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/UpdateAwrHubSource";
+    const pathParams = {
+      "{awrHubSourceId}": updateAwrHubSourceRequest.awrHubSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAwrHubSourceRequest.ifMatch,
+      "opc-request-id": updateAwrHubSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAwrHubSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubSources/{awrHubSourceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAwrHubSourceRequest.updateAwrHubSourceDetails,
+        "UpdateAwrHubSourceDetails",
+        model.UpdateAwrHubSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAwrHubSourceResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

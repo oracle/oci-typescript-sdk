@@ -14567,6 +14567,93 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Accepts discovery data for processing by Logging Analytics.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UploadDiscoveryDataRequest
+   * @return UploadDiscoveryDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadDiscoveryData.ts.html |here} to see how to use UploadDiscoveryData API.
+   */
+  public async uploadDiscoveryData(
+    uploadDiscoveryDataRequest: requests.UploadDiscoveryDataRequest
+  ): Promise<responses.UploadDiscoveryDataResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#uploadDiscoveryData.");
+    const operationName = "uploadDiscoveryData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/UploadDiscoveryData";
+    const pathParams = {
+      "{namespaceName}": uploadDiscoveryDataRequest.namespaceName
+    };
+
+    const queryParams = {
+      "discoveryDataType": uploadDiscoveryDataRequest.discoveryDataType,
+      "payloadType": uploadDiscoveryDataRequest.payloadType
+    };
+
+    let headerParams = {
+      "opc-request-id": uploadDiscoveryDataRequest.opcRequestId,
+      "opc-meta-properties": uploadDiscoveryDataRequest.opcMetaProperties,
+      "content-type": uploadDiscoveryDataRequest.contentType,
+      "opc-retry-token": uploadDiscoveryDataRequest.opcRetryToken,
+      "expect": uploadDiscoveryDataRequest.expect
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadDiscoveryDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/actions/uploadDiscoveryData",
+      method: "POST",
+      bodyContent: uploadDiscoveryDataRequest.uploadDiscoveryDataDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UploadDiscoveryDataResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-object-id"),
+            key: "opcObjectId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("timeCreated"),
+            key: "timeCreated",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Accepts log events for processing by Logging Analytics.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

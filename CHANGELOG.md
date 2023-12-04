@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.75.0 - 2023-12-04
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the eu-dcc-zurich-1 and the sa-bogota-1 region
+- Support for managing certificates of target Servers in the Golden Gate service
+- Support for AWR Hub Snapshot ingest endpoints in the Operations Insights service
+- Support for reducing false positives in the Application Dependency Management service
+- Support for ARM shapes in the Data Science service
+- Support for new optional parameters in the upload discovery data API in the Usage service
+- Support for multiple clusters in a Software-Defined Data Centers (SDDCs) in the VMWare Solution service
+- Support for No/Zero days backup in Autonomous Container Database in the Database service
+- Support for provisioning a VM Cluster with a choice of Exadata image version in the Database service
+- Support for updating ocpu/ecpu count, local storage, ACD count and Exadata storage on Cloud Autonomous VM Cluster and Autonomous VM Cluster in the Database service
+- Support for serial console history in the Database service
+- Support for Oracle Linux 8 version database system in the Database service
+ 
+### Breaking Changes
+- Fields `sddcId`, `currentSku`, `nextSku`, were renamed to `clusterId`, `currentCommitment`, `nextCommitment` in models `CreateEsxiHostDetails`, `EsxiHost` and `EsxiHostSummary` in the VMWare Solution service
+- Field `failedEsxiHostId` was removed from `CreateEsxiHostDetails` model in the VMWare Solution service
+- Field `nonUpgradedEsxiHostId` was renamed to `EsxiSoftwareVersion` in `CreateEsxiHostDetails` model in the VMWare Solution service
+- Field `esxiHostsCount` was removed from `CreateEsxiHostDetails` model in the VMWare Solution service
+- Fields `provisioningSubnetId`, `vsphereVlanId`, `vmotionVlanId`, `vsanVlanId`, `nsxVTepVlanId`, `nsxEdgeVTepVlanId`, `nsxEdgeUplink1VlanId`, `nsxEdgeUplink2VlanId`, `instanceDisplayNamePrefix`, `initialSku`, `isHcxEnabled`, `hcxVlanId`, `isHcxEnterpriseEnabled` were removed from `CreateSddcDetails` model in the VMWare Solution service
+- Fields `vsphereVlanId`, `vmotionVlanId`, `vsanVlanId`, `nsxVTepVlanId`, `nsxEdgeVTepVlanId`, `nsxEdgeUplink1VlanId`, `nsxEdgeUplink2VlanId`, `replicationVlanId`, `provisioningVlanId`, `hcxVlanId` were removed from `UpdateSddcDetails` model in the VMWare Solution service
+- Fields `supportedSddcTypes` and `isSupportMonthlySku` were removed from `SupportedHostShapeSummary` model in the VMWare Solution service
+- Field `computeAvailabilityDomain` was removed from `Sddc` and `SddcSummary` models in the VMWare Solution service
+- Field `sddcType` was removed from `ListSupportedHostShapesRequest` model in the VMWare Solution service
+
+
 ## 2.74.0 - 2023-11-14
 ### Added
 - Support for the PostgreSQL service
@@ -128,6 +155,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for additional parameters in vaults and keys for external key managers in Key Management service
 - Support for domains while creating integration instances in Oracle Integration Cloud service
 
+### Fixed
+- Fixed an issue that causes http request failures when requesting certificates from the server in `URLBasedX509CertificateSupplier` with NodeJS 20
+
 ## 2.70.1 - 2023-09-12
 
 ### Added
@@ -215,6 +245,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for support field in class metric in the AI Language service
 - Support for Compute Cloud at Customer resource type in the Operator Access Control service
 - Support for managing account management info, account recovery settings, app roles, apps, app status changers, grants, identity propagation trusts and settings, request-able groups, requests, security questions, OAuth tokens, and user attribute settings in the Identity Domains service
+- Added support for NodeJS 20
+
 
 ### Breaking Changes
 
