@@ -1122,6 +1122,27 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateConsoleHistory
+   *
+   * @param request the request to send
+   * @return response returns CreateConsoleHistoryResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateConsoleHistory(
+    request: serviceRequests.CreateConsoleHistoryRequest
+  ): Promise<{
+    response: serviceResponses.CreateConsoleHistoryResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createConsoleHistoryResponse = await this.client.createConsoleHistory(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createConsoleHistoryResponse.opcWorkRequestId
+    );
+    return { response: createConsoleHistoryResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forCreateDataGuardAssociation
    *
    * @param request the request to send
@@ -1691,6 +1712,27 @@ export class DatabaseWaiter {
       response: deleteConsoleConnectionResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forDeleteConsoleHistory
+   *
+   * @param request the request to send
+   * @return response returns DeleteConsoleHistoryResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteConsoleHistory(
+    request: serviceRequests.DeleteConsoleHistoryRequest
+  ): Promise<{
+    response: serviceResponses.DeleteConsoleHistoryResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteConsoleHistoryResponse = await this.client.deleteConsoleHistory(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteConsoleHistoryResponse.opcWorkRequestId
+    );
+    return { response: deleteConsoleHistoryResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -3029,6 +3071,25 @@ export class DatabaseWaiter {
       () => this.client.getConsoleConnection(request),
       response => targetStates.includes(response.consoleConnection.lifecycleState!),
       targetStates.includes(models.ConsoleConnection.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forConsoleHistory till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetConsoleHistoryResponse | null (null in case of 404 response)
+   */
+  public async forConsoleHistory(
+    request: serviceRequests.GetConsoleHistoryRequest,
+    ...targetStates: models.ConsoleHistory.LifecycleState[]
+  ): Promise<serviceResponses.GetConsoleHistoryResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getConsoleHistory(request),
+      response => targetStates.includes(response.consoleHistory.lifecycleState!),
+      targetStates.includes(models.ConsoleHistory.LifecycleState.Deleted)
     );
   }
 
@@ -4815,6 +4876,27 @@ export class DatabaseWaiter {
       response: updateConsoleConnectionResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forUpdateConsoleHistory
+   *
+   * @param request the request to send
+   * @return response returns UpdateConsoleHistoryResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateConsoleHistory(
+    request: serviceRequests.UpdateConsoleHistoryRequest
+  ): Promise<{
+    response: serviceResponses.UpdateConsoleHistoryResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateConsoleHistoryResponse = await this.client.updateConsoleHistory(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateConsoleHistoryResponse.opcWorkRequestId
+    );
+    return { response: updateConsoleHistoryResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

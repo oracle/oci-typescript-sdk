@@ -1,6 +1,6 @@
 {
   "name": "oci-dns",
-  "version": "2.74.0",
+  "version": "2.75.0",
   "description": "OCI NodeJS client for DNS",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
   },
   "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {
-    "oci-common": "../common"
+    "oci-common": "../common",
+    "oci-workrequests": "../workrequests"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

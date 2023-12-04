@@ -39,6 +39,18 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The new scaled up/down value for autonomous data storage in TBs for Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autonomousDataStorageSizeInTBs"?: number;
+  /**
+   * The new scaled up/down value for cpus per Autonomous VM cluster per node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuCoreCountPerNode"?: number;
+  /**
+   * The new scaled up/down value for maxACD count for Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalContainerDatabases"?: number;
 }
 
 export namespace UpdateAutonomousVmClusterDetails {

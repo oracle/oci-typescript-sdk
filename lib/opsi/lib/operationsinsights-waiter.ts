@@ -46,6 +46,25 @@ export class OperationsInsightsWaiter {
   }
 
   /**
+   * Waits forAwrHubSource till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAwrHubSourceResponse | null (null in case of 404 response)
+   */
+  public async forAwrHubSource(
+    request: serviceRequests.GetAwrHubSourceRequest,
+    ...targetStates: models.AwrHubSourceLifecycleState[]
+  ): Promise<serviceResponses.GetAwrHubSourceResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAwrHubSource(request),
+      response => targetStates.includes(response.awrHubSource.lifecycleState!),
+      targetStates.includes(models.AwrHubSourceLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDatabaseInsight till it reaches any of the provided states
    *
    * @param request the request to send

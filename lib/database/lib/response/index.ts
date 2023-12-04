@@ -102,6 +102,8 @@ import * as CreateCloudVmClusterResponse from "./create-cloud-vm-cluster-respons
 export import CreateCloudVmClusterResponse = CreateCloudVmClusterResponse.CreateCloudVmClusterResponse;
 import * as CreateConsoleConnectionResponse from "./create-console-connection-response";
 export import CreateConsoleConnectionResponse = CreateConsoleConnectionResponse.CreateConsoleConnectionResponse;
+import * as CreateConsoleHistoryResponse from "./create-console-history-response";
+export import CreateConsoleHistoryResponse = CreateConsoleHistoryResponse.CreateConsoleHistoryResponse;
 import * as CreateDataGuardAssociationResponse from "./create-data-guard-association-response";
 export import CreateDataGuardAssociationResponse = CreateDataGuardAssociationResponse.CreateDataGuardAssociationResponse;
 import * as CreateDatabaseResponse from "./create-database-response";
@@ -156,6 +158,8 @@ import * as DeleteCloudVmClusterResponse from "./delete-cloud-vm-cluster-respons
 export import DeleteCloudVmClusterResponse = DeleteCloudVmClusterResponse.DeleteCloudVmClusterResponse;
 import * as DeleteConsoleConnectionResponse from "./delete-console-connection-response";
 export import DeleteConsoleConnectionResponse = DeleteConsoleConnectionResponse.DeleteConsoleConnectionResponse;
+import * as DeleteConsoleHistoryResponse from "./delete-console-history-response";
+export import DeleteConsoleHistoryResponse = DeleteConsoleHistoryResponse.DeleteConsoleHistoryResponse;
 import * as DeleteDatabaseResponse from "./delete-database-response";
 export import DeleteDatabaseResponse = DeleteDatabaseResponse.DeleteDatabaseResponse;
 import * as DeleteDatabaseSoftwareImageResponse from "./delete-database-software-image-response";
@@ -300,6 +304,10 @@ import * as GetCloudVmClusterUpdateHistoryEntryResponse from "./get-cloud-vm-clu
 export import GetCloudVmClusterUpdateHistoryEntryResponse = GetCloudVmClusterUpdateHistoryEntryResponse.GetCloudVmClusterUpdateHistoryEntryResponse;
 import * as GetConsoleConnectionResponse from "./get-console-connection-response";
 export import GetConsoleConnectionResponse = GetConsoleConnectionResponse.GetConsoleConnectionResponse;
+import * as GetConsoleHistoryResponse from "./get-console-history-response";
+export import GetConsoleHistoryResponse = GetConsoleHistoryResponse.GetConsoleHistoryResponse;
+import * as GetConsoleHistoryContentResponse from "./get-console-history-content-response";
+export import GetConsoleHistoryContentResponse = GetConsoleHistoryContentResponse.GetConsoleHistoryContentResponse;
 import * as GetDataGuardAssociationResponse from "./get-data-guard-association-response";
 export import GetDataGuardAssociationResponse = GetDataGuardAssociationResponse.GetDataGuardAssociationResponse;
 import * as GetDatabaseResponse from "./get-database-response";
@@ -426,6 +434,8 @@ import * as ListCloudVmClustersResponse from "./list-cloud-vm-clusters-response"
 export import ListCloudVmClustersResponse = ListCloudVmClustersResponse.ListCloudVmClustersResponse;
 import * as ListConsoleConnectionsResponse from "./list-console-connections-response";
 export import ListConsoleConnectionsResponse = ListConsoleConnectionsResponse.ListConsoleConnectionsResponse;
+import * as ListConsoleHistoriesResponse from "./list-console-histories-response";
+export import ListConsoleHistoriesResponse = ListConsoleHistoriesResponse.ListConsoleHistoriesResponse;
 import * as ListContainerDatabasePatchesResponse from "./list-container-database-patches-response";
 export import ListContainerDatabasePatchesResponse = ListContainerDatabasePatchesResponse.ListContainerDatabasePatchesResponse;
 import * as ListDataGuardAssociationsResponse from "./list-data-guard-associations-response";
@@ -488,6 +498,8 @@ import * as ListPdbConversionHistoryEntriesResponse from "./list-pdb-conversion-
 export import ListPdbConversionHistoryEntriesResponse = ListPdbConversionHistoryEntriesResponse.ListPdbConversionHistoryEntriesResponse;
 import * as ListPluggableDatabasesResponse from "./list-pluggable-databases-response";
 export import ListPluggableDatabasesResponse = ListPluggableDatabasesResponse.ListPluggableDatabasesResponse;
+import * as ListSystemVersionsResponse from "./list-system-versions-response";
+export import ListSystemVersionsResponse = ListSystemVersionsResponse.ListSystemVersionsResponse;
 import * as ListVmClusterNetworksResponse from "./list-vm-cluster-networks-response";
 export import ListVmClusterNetworksResponse = ListVmClusterNetworksResponse.ListVmClusterNetworksResponse;
 import * as ListVmClusterPatchHistoryEntriesResponse from "./list-vm-cluster-patch-history-entries-response";
@@ -610,6 +622,8 @@ import * as UpdateCloudVmClusterIormConfigResponse from "./update-cloud-vm-clust
 export import UpdateCloudVmClusterIormConfigResponse = UpdateCloudVmClusterIormConfigResponse.UpdateCloudVmClusterIormConfigResponse;
 import * as UpdateConsoleConnectionResponse from "./update-console-connection-response";
 export import UpdateConsoleConnectionResponse = UpdateConsoleConnectionResponse.UpdateConsoleConnectionResponse;
+import * as UpdateConsoleHistoryResponse from "./update-console-history-response";
+export import UpdateConsoleHistoryResponse = UpdateConsoleHistoryResponse.UpdateConsoleHistoryResponse;
 import * as UpdateDataGuardAssociationResponse from "./update-data-guard-association-response";
 export import UpdateDataGuardAssociationResponse = UpdateDataGuardAssociationResponse.UpdateDataGuardAssociationResponse;
 import * as UpdateDatabaseResponse from "./update-database-response";

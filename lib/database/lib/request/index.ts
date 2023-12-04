@@ -102,6 +102,8 @@ import * as CreateCloudVmClusterRequest from "./create-cloud-vm-cluster-request"
 export import CreateCloudVmClusterRequest = CreateCloudVmClusterRequest.CreateCloudVmClusterRequest;
 import * as CreateConsoleConnectionRequest from "./create-console-connection-request";
 export import CreateConsoleConnectionRequest = CreateConsoleConnectionRequest.CreateConsoleConnectionRequest;
+import * as CreateConsoleHistoryRequest from "./create-console-history-request";
+export import CreateConsoleHistoryRequest = CreateConsoleHistoryRequest.CreateConsoleHistoryRequest;
 import * as CreateDataGuardAssociationRequest from "./create-data-guard-association-request";
 export import CreateDataGuardAssociationRequest = CreateDataGuardAssociationRequest.CreateDataGuardAssociationRequest;
 import * as CreateDatabaseRequest from "./create-database-request";
@@ -156,6 +158,8 @@ import * as DeleteCloudVmClusterRequest from "./delete-cloud-vm-cluster-request"
 export import DeleteCloudVmClusterRequest = DeleteCloudVmClusterRequest.DeleteCloudVmClusterRequest;
 import * as DeleteConsoleConnectionRequest from "./delete-console-connection-request";
 export import DeleteConsoleConnectionRequest = DeleteConsoleConnectionRequest.DeleteConsoleConnectionRequest;
+import * as DeleteConsoleHistoryRequest from "./delete-console-history-request";
+export import DeleteConsoleHistoryRequest = DeleteConsoleHistoryRequest.DeleteConsoleHistoryRequest;
 import * as DeleteDatabaseRequest from "./delete-database-request";
 export import DeleteDatabaseRequest = DeleteDatabaseRequest.DeleteDatabaseRequest;
 import * as DeleteDatabaseSoftwareImageRequest from "./delete-database-software-image-request";
@@ -300,6 +304,10 @@ import * as GetCloudVmClusterUpdateHistoryEntryRequest from "./get-cloud-vm-clus
 export import GetCloudVmClusterUpdateHistoryEntryRequest = GetCloudVmClusterUpdateHistoryEntryRequest.GetCloudVmClusterUpdateHistoryEntryRequest;
 import * as GetConsoleConnectionRequest from "./get-console-connection-request";
 export import GetConsoleConnectionRequest = GetConsoleConnectionRequest.GetConsoleConnectionRequest;
+import * as GetConsoleHistoryRequest from "./get-console-history-request";
+export import GetConsoleHistoryRequest = GetConsoleHistoryRequest.GetConsoleHistoryRequest;
+import * as GetConsoleHistoryContentRequest from "./get-console-history-content-request";
+export import GetConsoleHistoryContentRequest = GetConsoleHistoryContentRequest.GetConsoleHistoryContentRequest;
 import * as GetDataGuardAssociationRequest from "./get-data-guard-association-request";
 export import GetDataGuardAssociationRequest = GetDataGuardAssociationRequest.GetDataGuardAssociationRequest;
 import * as GetDatabaseRequest from "./get-database-request";
@@ -426,6 +434,8 @@ import * as ListCloudVmClustersRequest from "./list-cloud-vm-clusters-request";
 export import ListCloudVmClustersRequest = ListCloudVmClustersRequest.ListCloudVmClustersRequest;
 import * as ListConsoleConnectionsRequest from "./list-console-connections-request";
 export import ListConsoleConnectionsRequest = ListConsoleConnectionsRequest.ListConsoleConnectionsRequest;
+import * as ListConsoleHistoriesRequest from "./list-console-histories-request";
+export import ListConsoleHistoriesRequest = ListConsoleHistoriesRequest.ListConsoleHistoriesRequest;
 import * as ListContainerDatabasePatchesRequest from "./list-container-database-patches-request";
 export import ListContainerDatabasePatchesRequest = ListContainerDatabasePatchesRequest.ListContainerDatabasePatchesRequest;
 import * as ListDataGuardAssociationsRequest from "./list-data-guard-associations-request";
@@ -488,6 +498,8 @@ import * as ListPdbConversionHistoryEntriesRequest from "./list-pdb-conversion-h
 export import ListPdbConversionHistoryEntriesRequest = ListPdbConversionHistoryEntriesRequest.ListPdbConversionHistoryEntriesRequest;
 import * as ListPluggableDatabasesRequest from "./list-pluggable-databases-request";
 export import ListPluggableDatabasesRequest = ListPluggableDatabasesRequest.ListPluggableDatabasesRequest;
+import * as ListSystemVersionsRequest from "./list-system-versions-request";
+export import ListSystemVersionsRequest = ListSystemVersionsRequest.ListSystemVersionsRequest;
 import * as ListVmClusterNetworksRequest from "./list-vm-cluster-networks-request";
 export import ListVmClusterNetworksRequest = ListVmClusterNetworksRequest.ListVmClusterNetworksRequest;
 import * as ListVmClusterPatchHistoryEntriesRequest from "./list-vm-cluster-patch-history-entries-request";
@@ -610,6 +622,8 @@ import * as UpdateCloudVmClusterIormConfigRequest from "./update-cloud-vm-cluste
 export import UpdateCloudVmClusterIormConfigRequest = UpdateCloudVmClusterIormConfigRequest.UpdateCloudVmClusterIormConfigRequest;
 import * as UpdateConsoleConnectionRequest from "./update-console-connection-request";
 export import UpdateConsoleConnectionRequest = UpdateConsoleConnectionRequest.UpdateConsoleConnectionRequest;
+import * as UpdateConsoleHistoryRequest from "./update-console-history-request";
+export import UpdateConsoleHistoryRequest = UpdateConsoleHistoryRequest.UpdateConsoleHistoryRequest;
 import * as UpdateDataGuardAssociationRequest from "./update-data-guard-association-request";
 export import UpdateDataGuardAssociationRequest = UpdateDataGuardAssociationRequest.UpdateDataGuardAssociationRequest;
 import * as UpdateDatabaseRequest from "./update-database-request";

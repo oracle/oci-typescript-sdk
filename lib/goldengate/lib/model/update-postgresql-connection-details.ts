@@ -64,21 +64,22 @@ export interface UpdatePostgresqlConnectionDetails extends model.UpdateConnectio
   "sslMode"?: string;
   /**
    * The base64 encoded certificate of the trusted certificate authorities (Trusted CA) for PostgreSQL.
+   * The supported file formats are .pem and .crt.
    *
    */
   "sslCa"?: string;
   /**
-   * The base64 encoded list of certificates revoked by the trusted certificate authorities (Trusted CA) for PostgreSQL.
+   * The base64 encoded list of certificates revoked by the trusted certificate authorities (Trusted CA).
    *
    */
   "sslCrl"?: string;
   /**
-   * The base64 encoded certificate of the PostgreSQL server.
+   * The base64 encoded certificate of the PostgreSQL server. The supported file formats are .pem and .crt.
    *
    */
   "sslCert"?: string;
   /**
-   * The base64 encoded private key of the PostgreSQL server.
+   * The base64 encoded private key of the PostgreSQL server. The supported file formats are .pem and .crt.
    *
    */
   "sslKey"?: string;

@@ -214,6 +214,10 @@ Example: `{\"Department\": \"Finance\"}`
    * The largest Autonomous Database (CPU) that can be created in a new Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "largestProvisionableAutonomousDatabaseInCpus"?: number;
+  /**
+   * The timestamp of last successful backup. Here NULL value represents either there are no successful backups or backups are not configured for this Autonomous Container Database.
+   */
+  "timeOfLastBackup"?: Date;
 }
 
 export namespace AutonomousContainerDatabaseSummary {

@@ -1,6 +1,6 @@
 {
   "name": "oci-streaming",
-  "version": "2.74.0",
+  "version": "2.75.0",
   "description": "OCI NodeJS client for Streaming",
   "repository": {
     "type": "git",

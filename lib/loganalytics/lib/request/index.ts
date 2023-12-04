@@ -366,6 +366,8 @@ import * as UpdateScheduledTaskRequest from "./update-scheduled-task-request";
 export import UpdateScheduledTaskRequest = UpdateScheduledTaskRequest.UpdateScheduledTaskRequest;
 import * as UpdateStorageRequest from "./update-storage-request";
 export import UpdateStorageRequest = UpdateStorageRequest.UpdateStorageRequest;
+import * as UploadDiscoveryDataRequest from "./upload-discovery-data-request";
+export import UploadDiscoveryDataRequest = UploadDiscoveryDataRequest.UploadDiscoveryDataRequest;
 import * as UploadLogEventsFileRequest from "./upload-log-events-file-request";
 export import UploadLogEventsFileRequest = UploadLogEventsFileRequest.UploadLogEventsFileRequest;
 import * as UploadLogFileRequest from "./upload-log-file-request";

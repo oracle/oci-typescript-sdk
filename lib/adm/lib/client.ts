@@ -2410,7 +2410,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Returns a list of Vulnerability Audits based on the specified query parameters.
-   * At least one of id, compartmentId or knowledgeBaseId query parameter must be provided.
+   * At least one of id, compartmentId query parameter must be provided.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListVulnerabilityAuditsRequest

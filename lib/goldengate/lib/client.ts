@@ -935,6 +935,85 @@ export class GoldenGateClient {
   }
 
   /**
+   * Creates a new certificate to truststore.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateCertificateRequest
+   * @return CreateCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateCertificate.ts.html |here} to see how to use CreateCertificate API.
+   */
+  public async createCertificate(
+    createCertificateRequest: requests.CreateCertificateRequest
+  ): Promise<responses.CreateCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#createCertificate.");
+    const operationName = "createCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/CertificateCollection/CreateCertificate";
+    const pathParams = {
+      "{deploymentId}": createCertificateRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createCertificateRequest.opcRetryToken,
+      "opc-request-id": createCertificateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/certificates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCertificateRequest.createCertificateDetails,
+        "CreateCertificateDetails",
+        model.CreateCertificateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Connection.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1342,6 +1421,81 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeploymentBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the certificate from truststore.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteCertificateRequest
+   * @return DeleteCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteCertificate.ts.html |here} to see how to use DeleteCertificate API.
+   */
+  public async deleteCertificate(
+    deleteCertificateRequest: requests.DeleteCertificateRequest
+  ): Promise<responses.DeleteCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#deleteCertificate.");
+    const operationName = "deleteCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Certificate/DeleteCertificate";
+    const pathParams = {
+      "{deploymentId}": deleteCertificateRequest.deploymentId,
+      "{certificateKey}": deleteCertificateRequest.certificateKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCertificateRequest.ifMatch,
+      "opc-request-id": deleteCertificateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/certificates/{certificateKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCertificateResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1890,6 +2044,84 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a Certificate.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCertificateRequest
+   * @return GetCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetCertificate.ts.html |here} to see how to use GetCertificate API.
+   */
+  public async getCertificate(
+    getCertificateRequest: requests.GetCertificateRequest
+  ): Promise<responses.GetCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getCertificate.");
+    const operationName = "getCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Certificate/GetCertificate";
+    const pathParams = {
+      "{deploymentId}": getCertificateRequest.deploymentId,
+      "{certificateKey}": getCertificateRequest.certificateKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCertificateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/certificates/{certificateKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCertificateResponse>{},
+        body: await response.json(),
+        bodyKey: "certificate",
+        bodyModel: model.Certificate,
+        type: "model.Certificate",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -2523,6 +2755,88 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of certificates from truststore.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCertificatesRequest
+   * @return ListCertificatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListCertificates.ts.html |here} to see how to use ListCertificates API.
+   */
+  public async listCertificates(
+    listCertificatesRequest: requests.ListCertificatesRequest
+  ): Promise<responses.ListCertificatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listCertificates.");
+    const operationName = "listCertificates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/CertificateCollection/ListCertificates";
+    const pathParams = {
+      "{deploymentId}": listCertificatesRequest.deploymentId
+    };
+
+    const queryParams = {
+      "lifecycleState": listCertificatesRequest.lifecycleState,
+      "limit": listCertificatesRequest.limit,
+      "page": listCertificatesRequest.page,
+      "sortOrder": listCertificatesRequest.sortOrder,
+      "sortBy": listCertificatesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCertificatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/certificates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCertificatesResponse>{},
+        body: await response.json(),
+        bodyKey: "certificateCollection",
+        bodyModel: model.CertificateCollection,
+        type: "model.CertificateCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

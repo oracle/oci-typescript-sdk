@@ -366,6 +366,8 @@ import * as UpdateScheduledTaskResponse from "./update-scheduled-task-response";
 export import UpdateScheduledTaskResponse = UpdateScheduledTaskResponse.UpdateScheduledTaskResponse;
 import * as UpdateStorageResponse from "./update-storage-response";
 export import UpdateStorageResponse = UpdateStorageResponse.UpdateStorageResponse;
+import * as UploadDiscoveryDataResponse from "./upload-discovery-data-response";
+export import UploadDiscoveryDataResponse = UploadDiscoveryDataResponse.UploadDiscoveryDataResponse;
 import * as UploadLogEventsFileResponse from "./upload-log-events-file-response";
 export import UploadLogEventsFileResponse = UploadLogEventsFileResponse.UploadLogEventsFileResponse;
 import * as UploadLogFileResponse from "./upload-log-file-response";
