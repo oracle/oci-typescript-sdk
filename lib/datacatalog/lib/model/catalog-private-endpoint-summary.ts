@@ -61,6 +61,15 @@ export interface CatalogPrivateEndpointSummary {
    */
   "freeformTags"?: { [key: string]: string };
   /**
+    * System tags for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* System tags can be viewed by users, but can only be created by the system.
+* <p>
+Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+* 
+    */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    *
@@ -74,16 +83,38 @@ export interface CatalogPrivateEndpointSummary {
    * The list of catalogs using the private reverse connection endpoint
    */
   "attachedCatalogs"?: Array<string>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace CatalogPrivateEndpointSummary {
   export function getJsonObj(obj: CatalogPrivateEndpointSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CatalogPrivateEndpointSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

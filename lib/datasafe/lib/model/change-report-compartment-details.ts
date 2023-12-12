@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for moving the audit report to a different compartment.
+ * The details of the compartment that the audit report is moving to.
  */
 export interface ChangeReportCompartmentDetails {
   /**

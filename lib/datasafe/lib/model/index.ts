@@ -780,6 +780,8 @@ import * as PatchMergeInstruction from "./patch-merge-instruction";
 export import PatchMergeInstruction = PatchMergeInstruction.PatchMergeInstruction;
 import * as PatchRemoveInstruction from "./patch-remove-instruction";
 export import PatchRemoveInstruction = PatchRemoveInstruction.PatchRemoveInstruction;
+import * as PatternFormatEntry from "./pattern-format-entry";
+export import PatternFormatEntry = PatternFormatEntry.PatternFormatEntry;
 import * as PreserveOriginalDataFormatEntry from "./preserve-original-data-format-entry";
 export import PreserveOriginalDataFormatEntry = PreserveOriginalDataFormatEntry.PreserveOriginalDataFormatEntry;
 import * as PrivateEndpoint from "./private-endpoint";

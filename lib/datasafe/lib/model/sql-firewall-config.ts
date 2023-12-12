@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The SQL firewall related configurations.
+ * The SQL Firewall related configurations.
  *
  */
 export interface SqlFirewallConfig {

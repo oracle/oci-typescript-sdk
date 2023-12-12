@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The dimensions available for SQL firewall allow SQL analytics.
+ * The dimensions available for SQL Firewall allow SQL analytics.
  */
 export interface SqlFirewallAllowedSqlDimensions {
   /**
-   * The OCID of the SQL firewall policy corresponding to the SQL firewall allowed SQL.
+   * The OCID of the SQL Firewall policy corresponding to the SQL Firewall allowed SQL.
    */
   "sqlFirewallPolicyId"?: string;
   /**
-   * Specifies the level of SQL included for this SQL firewall policy.
+   * Specifies the level of SQL included for this SQL Firewall policy.
    * USER_ISSUED_SQL - User issued SQL statements only.
    * ALL_SQL - Includes all SQL statements including SQL statement issued inside PL/SQL units.
    *
@@ -34,7 +34,7 @@ export interface SqlFirewallAllowedSqlDimensions {
    */
   "dbUserName"?: string;
   /**
-   * The current state of the SQL firewall allowed SQL.
+   * The current state of the SQL Firewall allowed SQL.
    */
   "lifecycleState"?: model.SqlFirewallAllowedSqlLifecycleState;
 }

@@ -13,6 +13,8 @@ For more information, see [Data Catalog](https://docs.oracle.com/iaas/data-catal
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddResourceLockDetails from "./add-resource-lock-details";
+export import AddResourceLockDetails = AddResourceLockDetails.AddResourceLockDetails;
 import * as AsynchronousExportGlossaryDetails from "./asynchronous-export-glossary-details";
 export import AsynchronousExportGlossaryDetails = AsynchronousExportGlossaryDetails.AsynchronousExportGlossaryDetails;
 import * as AsynchronousExportGlossaryResult from "./asynchronous-export-glossary-result";
@@ -297,6 +299,10 @@ import * as RecommendationStatus from "./recommendation-status";
 export import RecommendationStatus = RecommendationStatus.RecommendationStatus;
 import * as RecommendationType from "./recommendation-type";
 export import RecommendationType = RecommendationType.RecommendationType;
+import * as RemoveResourceLockDetails from "./remove-resource-lock-details";
+export import RemoveResourceLockDetails = RemoveResourceLockDetails.RemoveResourceLockDetails;
+import * as ResourceLock from "./resource-lock";
+export import ResourceLock = ResourceLock.ResourceLock;
 import * as RuleAttribute from "./rule-attribute";
 export import RuleAttribute = RuleAttribute.RuleAttribute;
 import * as RuleCollection from "./rule-collection";

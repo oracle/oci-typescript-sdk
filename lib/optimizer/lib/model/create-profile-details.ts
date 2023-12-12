@@ -54,6 +54,12 @@ Example: `{\"bar-key\": \"value\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: `{ \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }`
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
   "levelsConfiguration": model.LevelsConfiguration;
   "targetCompartments"?: model.TargetCompartments;
   "targetTags"?: model.TargetTags;

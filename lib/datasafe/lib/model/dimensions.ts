@@ -26,6 +26,10 @@ export interface Dimensions {
    * The OCID of the sensitive data model.
    */
   "sensitiveDataModelId"?: string;
+  /**
+   * The OCID of the sensitive type.
+   */
+  "sensitiveTypeId"?: string;
 }
 
 export namespace Dimensions {

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetBackupRequest extends common.BaseRequest {
   /**
-   * unique Backup identifier
+   * A unique identifier for the backup.
    */
   "backupId": string;
   /**

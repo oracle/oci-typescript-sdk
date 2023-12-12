@@ -39,4 +39,8 @@ export interface ChangeCatalogPrivateEndpointCompartmentRequest extends common.B
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

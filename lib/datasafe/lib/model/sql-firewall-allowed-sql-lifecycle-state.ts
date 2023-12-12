@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The current state of SQL firewall allowed SQL.
+ * The current state of SQL Firewall allowed SQL.
  **/
 export enum SqlFirewallAllowedSqlLifecycleState {
   Active = "ACTIVE",

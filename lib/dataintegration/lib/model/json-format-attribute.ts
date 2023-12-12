@@ -22,6 +22,10 @@ export interface JsonFormatAttribute extends model.AbstractFormatAttribute {
    * The encoding for the file.
    */
   "encoding"?: string;
+  /**
+   * Sample JSON with all fields of JSON schema specified in it for the JSON data files used in Data Flow, Data Loader or Data Preview and should be specified in Base64 encoded format. Maximum size is 2 MB.
+   */
+  "sampleEntityData"?: string;
 
   "modelType": string;
 }

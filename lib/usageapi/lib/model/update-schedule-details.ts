@@ -24,7 +24,7 @@ export interface UpdateScheduleDetails {
    */
   "description"?: string;
   /**
-   * Specifies supported output file format.
+   * Specifies the supported output file format.
    */
   "outputFileFormat"?: UpdateScheduleDetails.OutputFileFormat;
   "resultLocation"?: model.ObjectStorageLocation;

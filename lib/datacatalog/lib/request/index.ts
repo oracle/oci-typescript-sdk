@@ -13,8 +13,14 @@ For more information, see [Data Catalog](https://docs.oracle.com/iaas/data-catal
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddCatalogLockRequest from "./add-catalog-lock-request";
+export import AddCatalogLockRequest = AddCatalogLockRequest.AddCatalogLockRequest;
+import * as AddCatalogPrivateEndpointLockRequest from "./add-catalog-private-endpoint-lock-request";
+export import AddCatalogPrivateEndpointLockRequest = AddCatalogPrivateEndpointLockRequest.AddCatalogPrivateEndpointLockRequest;
 import * as AddDataSelectorPatternsRequest from "./add-data-selector-patterns-request";
 export import AddDataSelectorPatternsRequest = AddDataSelectorPatternsRequest.AddDataSelectorPatternsRequest;
+import * as AddMetastoreLockRequest from "./add-metastore-lock-request";
+export import AddMetastoreLockRequest = AddMetastoreLockRequest.AddMetastoreLockRequest;
 import * as AssociateCustomPropertyRequest from "./associate-custom-property-request";
 export import AssociateCustomPropertyRequest = AssociateCustomPropertyRequest.AssociateCustomPropertyRequest;
 import * as AsynchronousExportGlossaryRequest from "./asynchronous-export-glossary-request";
@@ -245,8 +251,14 @@ import * as ProcessRecommendationRequest from "./process-recommendation-request"
 export import ProcessRecommendationRequest = ProcessRecommendationRequest.ProcessRecommendationRequest;
 import * as RecommendationsRequest from "./recommendations-request";
 export import RecommendationsRequest = RecommendationsRequest.RecommendationsRequest;
+import * as RemoveCatalogLockRequest from "./remove-catalog-lock-request";
+export import RemoveCatalogLockRequest = RemoveCatalogLockRequest.RemoveCatalogLockRequest;
+import * as RemoveCatalogPrivateEndpointLockRequest from "./remove-catalog-private-endpoint-lock-request";
+export import RemoveCatalogPrivateEndpointLockRequest = RemoveCatalogPrivateEndpointLockRequest.RemoveCatalogPrivateEndpointLockRequest;
 import * as RemoveDataSelectorPatternsRequest from "./remove-data-selector-patterns-request";
 export import RemoveDataSelectorPatternsRequest = RemoveDataSelectorPatternsRequest.RemoveDataSelectorPatternsRequest;
+import * as RemoveMetastoreLockRequest from "./remove-metastore-lock-request";
+export import RemoveMetastoreLockRequest = RemoveMetastoreLockRequest.RemoveMetastoreLockRequest;
 import * as SearchCriteriaRequest from "./search-criteria-request";
 export import SearchCriteriaRequest = SearchCriteriaRequest.SearchCriteriaRequest;
 import * as SuggestMatchesRequest from "./suggest-matches-request";

@@ -379,7 +379,7 @@ export interface User {
    *  - uniqueness: none
    */
   "password"?: string;
-  "name": model.UserName;
+  "name"?: model.UserName;
   /**
    * A complex attribute representing emails
    * <p>

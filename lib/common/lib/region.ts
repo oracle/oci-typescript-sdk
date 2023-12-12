@@ -8,7 +8,7 @@ import { ConfigFileReader } from "./config-file-reader";
 import { readFileSync } from "fs";
 import { RegionMetadataSchema } from "./region-metadata-schema";
 import { FetchHttpClient } from "./http";
-import  * as AlloyConfiguration from "./alloyConfiguration";
+import  * as developerToolConfiguration from "./developertoolconfiguration";
 
 export class Region {
     /**
@@ -37,10 +37,10 @@ export class Region {
     }
 
     private static KNOWN_REGIONS: Map<string, Region> = new Map();
-    private static ALLOY_REGIONS: Map<string, Region> = new Map();
+    private static DEVELOPER_TOOL_CONFIGURATION_REGIONS: Map<string, Region> = new Map();
     private static hasCalledForImds: boolean = false;
     private static _hasUsedConfigFile: boolean = false;
-    private static _hasUsedAlloyConfigFile: boolean = false;
+    private static _hasUsedDeveloperToolConfigFile: boolean = false;
     private static hasUsedEnvVar: boolean = false;
     private static imdsRegionMetadata: RegionMetadataSchema | undefined;
     private static hasWarnedAboutValuesWithoutInstanceMetadataService: boolean = false;
@@ -57,14 +57,14 @@ export class Region {
   
 
 
-    private constructor(regionId: string, realm: Realm, regionCode?: string, isAlloyRegion: boolean =false) {
+    private constructor(regionId: string, realm: Realm, regionCode?: string, isDeveloperToolConfigurationRegion: boolean =false) {
         this._realm = realm;
         this._regionId = regionId;
         if (regionCode) this._regionCode = regionCode;
-        AlloyConfiguration.alloyConfiguration();
-        if(isAlloyRegion)
+        developerToolConfiguration.developerToolConfiguration();
+        if(isDeveloperToolConfigurationRegion)
         {
-            Region.ALLOY_REGIONS.set(regionId, this);
+            Region.DEVELOPER_TOOL_CONFIGURATION_REGIONS.set(regionId, this);
         }
         else
         {
@@ -166,12 +166,12 @@ export class Region {
             Region.hasWarnedAboutValuesWithoutInstanceMetadataService = true;
         }
         Region.registerAllRegions();
-        if(AlloyConfiguration.useOnlyAlloyRegions())
+        if(developerToolConfiguration.useOnlyDeveloperToolConfigurationRegions())
         {
-        return Array.from(this.ALLOY_REGIONS.values());
+        return Array.from(this.DEVELOPER_TOOL_CONFIGURATION_REGIONS.values());
         }
         var allowedRegions=Array.from(this.KNOWN_REGIONS.values());
-        allowedRegions.concat(Array.from(this.ALLOY_REGIONS.values()));
+        allowedRegions.concat(Array.from(this.DEVELOPER_TOOL_CONFIGURATION_REGIONS.values()));
         return allowedRegions;
     }
 
@@ -180,8 +180,8 @@ export class Region {
    */
     private static registerAllRegions(): void {
 
-        if (!Region._hasUsedAlloyConfigFile) {
-            Region.addRegionsFromAlloyConfigFile();
+      if (!Region._hasUsedDeveloperToolConfigFile) {
+        Region.addRegionsFromDeveloperToolConfigFile();
         }
         if (!Region._hasUsedConfigFile) {
             Region.addRegionsFromConfigFile();
@@ -202,9 +202,9 @@ export class Region {
         if (!regionId) throw Error("RegionId can not be empty or undefined");
         regionId = (regionId.trim() as any).toLocaleLowerCase("en-US");
 
-        if(!this._hasUsedAlloyConfigFile && AlloyConfiguration.doesAlloyConfigFileExist()) {
-            Region.addRegionsFromAlloyConfigFile();
-            let foundRegion = Region.ALLOY_REGIONS.get(regionId);
+        if(!this._hasUsedDeveloperToolConfigFile && developerToolConfiguration.doesDeveloperToolConfigurationFileExist()) {
+          Region.addRegionsFromDeveloperToolConfigFile();
+            let foundRegion = Region.DEVELOPER_TOOL_CONFIGURATION_REGIONS.get(regionId);
             if(foundRegion) return foundRegion;
         }
         let foundRegion = Region.KNOWN_REGIONS.get(regionId);
@@ -226,11 +226,11 @@ export class Region {
     }
 
     // Adds regions from the alloy config file
-    private static addRegionsFromAlloyConfigFile(): void {
-        if (!Region._hasUsedAlloyConfigFile) {
-            Region._hasUsedAlloyConfigFile = true;
+    private static addRegionsFromDeveloperToolConfigFile(): void {
+        if (!Region._hasUsedDeveloperToolConfigFile) {
+            Region._hasUsedDeveloperToolConfigFile = true;
             const expandedRegionConfigFilePath = ConfigFileReader.expandUserHome(
-              AlloyConfiguration.getAlloyConfigFilePath()
+              developerToolConfiguration.getDeveloperToolConfigurationFilePath()
             );
             if (ConfigFileReader.fileExists(expandedRegionConfigFilePath)) {
                 try {
@@ -248,7 +248,7 @@ export class Region {
                         });
                     }
                 } catch (error) {
-                    console.log("error reading or parsing region alloy config file");
+                    console.log("error reading or parsing region developertoolConfiguration file");
                 }
             }
         }
@@ -352,10 +352,10 @@ export class Region {
         }
     }
 
-    public static register(regionId: string, realm: Realm, regionCode?: string ,isAlloyRegion: boolean =false): Region {
+    public static register(regionId: string, realm: Realm, regionCode?: string ,isDeveloperToolConfigurationRegion: boolean =false): Region {
         if (!regionId) throw Error("RegionId can not be empty or undefined");
         regionId = (regionId.trim() as any).toLocaleLowerCase("en-US");
-        const region = isAlloyRegion? Region.ALLOY_REGIONS.get(regionId): Region.KNOWN_REGIONS.get(regionId);
+        const region = isDeveloperToolConfigurationRegion? Region.DEVELOPER_TOOL_CONFIGURATION_REGIONS.get(regionId): Region.KNOWN_REGIONS.get(regionId);
         if (region) {
             if (region.realm.secondLevelDomain !== realm.secondLevelDomain) {
                 throw Error(
@@ -371,7 +371,7 @@ export class Region {
         if (regionCode) {
             regionCode = (regionCode.trim() as any).toLocaleLowerCase("en-US");
         }
-        return new Region(regionId, realm, regionCode,isAlloyRegion);
+        return new Region(regionId, realm, regionCode,isDeveloperToolConfigurationRegion);
     }
 
     /**
@@ -409,7 +409,7 @@ export class Region {
         }
 
         // else add regions from the regions alloy config file
-        Region.addRegionsFromAlloyConfigFile();
+        Region.addRegionsFromDeveloperToolConfigFile();
         region = Region.values().find(r => r.regionCode === regionStr);
         if (region) {
             return region.regionId;
@@ -422,13 +422,13 @@ export class Region {
         Region._hasUsedConfigFile = bool;
     }
 
-    public static set hasUsedAlloyConfigFile(bool: boolean) {
-      Region._hasUsedAlloyConfigFile = bool;
+    public static set hasUsedDeveloperToolConfigFile(bool: boolean) {
+      Region._hasUsedDeveloperToolConfigFile = bool;
   }
 
-    public static resetAlloyConfig()
+    public static resetDeveloperToolConfiguration()
     {
-        this._hasUsedAlloyConfigFile = false;
-        Region.ALLOY_REGIONS.clear();
+      this._hasUsedDeveloperToolConfigFile = false;
+      Region.DEVELOPER_TOOL_CONFIGURATION_REGIONS.clear();
     }
 }

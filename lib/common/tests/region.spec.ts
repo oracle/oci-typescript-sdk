@@ -23,7 +23,7 @@ describe("Test Region", () => {
       const regionMetadata = JSON.parse(fileContent) as RegionMetadataSchema[];
       expect(regionMetadata && regionMetadata.length > 0 && Array.isArray(regionMetadata)).to.be
         .true;
-      Region.resetAlloyConfig();
+      Region.resetDeveloperToolConfiguration();
       const regionsList = Region.values();
       regionMetadata.forEach(metadata => {
         expect(RegionMetadataSchema.isValidSchema(metadata)).to.be.true;
@@ -44,8 +44,8 @@ describe("Test Region", () => {
     expect(region.regionId).equals(regionId);
   });
 
-  it("all regions from alloy-config.json should be registered", function() {
-    const filePath = __dirname + "/resources/alloy-config.json";
+  it("all regions from developer-tool-configuration.json should be registered", function() {
+    const filePath = __dirname + "/resources/developer-tool-configuration.json";
     expect(existsSync(filePath)).to.be.true;
     try {
       const fileContent = readFileSync(filePath, "utf8");
@@ -67,7 +67,7 @@ describe("Test Region", () => {
     }
   });
 
-  it("should register a alloy region sucessfully ", function() {
+  it("should register a developer tool configuration region sucessfully ", function() {
     const region = Region.register(regionId, realm, undefined, true);
     expect(region.regionId).equals(regionId);
   });
@@ -104,7 +104,7 @@ describe("Test Region", () => {
   });
 
   it("should return all the regions registered in SDK", function() {
-    Region.resetAlloyConfig();
+    Region.resetDeveloperToolConfiguration();
     const regionsList = Region.values();
     expect(regionsList).to.be.an("array");
     expect(regionsList.map(e => e.regionId)).to.include("us-phoenix-1");

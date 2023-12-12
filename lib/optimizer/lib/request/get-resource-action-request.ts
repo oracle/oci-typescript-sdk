@@ -23,6 +23,10 @@ export interface GetResourceActionRequest extends common.BaseRequest {
    */
   "resourceActionId": string;
   /**
+   * Supplement additional resource information in extended metadata response.
+   */
+  "includeResourceMetadata"?: boolean;
+  /**
    * Unique Oracle-assigned identifier for the request.
    * If you need to contact Oracle about a particular request, please provide the request ID.
    *

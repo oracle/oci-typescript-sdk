@@ -18,9 +18,278 @@ import * as serviceResponses from "./response";
 import * as models from "./model";
 import { DnsClient } from "./client";
 import { genericWaiter, genericTerminalConditionWaiter, WaiterConfiguration } from "oci-common";
+import { waitForWorkRequest, WorkRequestClient, responses } from "oci-workrequests";
 
 export class DnsWaiter {
-  public constructor(private client: DnsClient, private readonly config?: WaiterConfiguration) {}
+  public constructor(
+    private client: DnsClient,
+    private workRequestClient: WorkRequestClient,
+    private readonly config?: WaiterConfiguration
+  ) {}
+
+  /**
+   * Waits forChangeResolverCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeResolverCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeResolverCompartment(
+    request: serviceRequests.ChangeResolverCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeResolverCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeResolverCompartmentResponse = await this.client.changeResolverCompartment(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeResolverCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeResolverCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeViewCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeViewCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeViewCompartment(
+    request: serviceRequests.ChangeViewCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeViewCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeViewCompartmentResponse = await this.client.changeViewCompartment(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeViewCompartmentResponse.opcWorkRequestId
+    );
+    return { response: changeViewCompartmentResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forChangeZoneCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeZoneCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeZoneCompartment(
+    request: serviceRequests.ChangeZoneCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeZoneCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeZoneCompartmentResponse = await this.client.changeZoneCompartment(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeZoneCompartmentResponse.opcWorkRequestId
+    );
+    return { response: changeZoneCompartmentResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateResolverEndpoint
+   *
+   * @param request the request to send
+   * @return response returns CreateResolverEndpointResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateResolverEndpoint(
+    request: serviceRequests.CreateResolverEndpointRequest
+  ): Promise<{
+    response: serviceResponses.CreateResolverEndpointResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createResolverEndpointResponse = await this.client.createResolverEndpoint(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createResolverEndpointResponse.opcWorkRequestId
+    );
+    return {
+      response: createResolverEndpointResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateTsigKey
+   *
+   * @param request the request to send
+   * @return response returns CreateTsigKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateTsigKey(
+    request: serviceRequests.CreateTsigKeyRequest
+  ): Promise<{
+    response: serviceResponses.CreateTsigKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createTsigKeyResponse = await this.client.createTsigKey(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createTsigKeyResponse.opcWorkRequestId
+    );
+    return { response: createTsigKeyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateView
+   *
+   * @param request the request to send
+   * @return response returns CreateViewResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateView(
+    request: serviceRequests.CreateViewRequest
+  ): Promise<{
+    response: serviceResponses.CreateViewResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createViewResponse = await this.client.createView(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createViewResponse.opcWorkRequestId
+    );
+    return { response: createViewResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateZone
+   *
+   * @param request the request to send
+   * @return response returns CreateZoneResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateZone(
+    request: serviceRequests.CreateZoneRequest
+  ): Promise<{
+    response: serviceResponses.CreateZoneResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createZoneResponse = await this.client.createZone(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createZoneResponse.opcWorkRequestId
+    );
+    return { response: createZoneResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateZoneFromZoneFile
+   *
+   * @param request the request to send
+   * @return response returns CreateZoneFromZoneFileResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateZoneFromZoneFile(
+    request: serviceRequests.CreateZoneFromZoneFileRequest
+  ): Promise<{
+    response: serviceResponses.CreateZoneFromZoneFileResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createZoneFromZoneFileResponse = await this.client.createZoneFromZoneFile(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createZoneFromZoneFileResponse.opcWorkRequestId
+    );
+    return {
+      response: createZoneFromZoneFileResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteResolverEndpoint
+   *
+   * @param request the request to send
+   * @return response returns DeleteResolverEndpointResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteResolverEndpoint(
+    request: serviceRequests.DeleteResolverEndpointRequest
+  ): Promise<{
+    response: serviceResponses.DeleteResolverEndpointResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteResolverEndpointResponse = await this.client.deleteResolverEndpoint(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteResolverEndpointResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteResolverEndpointResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteTsigKey
+   *
+   * @param request the request to send
+   * @return response returns DeleteTsigKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteTsigKey(
+    request: serviceRequests.DeleteTsigKeyRequest
+  ): Promise<{
+    response: serviceResponses.DeleteTsigKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteTsigKeyResponse = await this.client.deleteTsigKey(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteTsigKeyResponse.opcWorkRequestId
+    );
+    return { response: deleteTsigKeyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteView
+   *
+   * @param request the request to send
+   * @return response returns DeleteViewResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteView(
+    request: serviceRequests.DeleteViewRequest
+  ): Promise<{
+    response: serviceResponses.DeleteViewResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteViewResponse = await this.client.deleteView(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteViewResponse.opcWorkRequestId
+    );
+    return { response: deleteViewResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteZone
+   *
+   * @param request the request to send
+   * @return response returns DeleteZoneResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteZone(
+    request: serviceRequests.DeleteZoneRequest
+  ): Promise<{
+    response: serviceResponses.DeleteZoneResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteZoneResponse = await this.client.deleteZone(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteZoneResponse.opcWorkRequestId
+    );
+    return { response: deleteZoneResponse, workRequestResponse: getWorkRequestResponse };
+  }
 
   /**
    * Waits forResolver till it reaches any of the provided states
@@ -152,5 +421,113 @@ export class DnsWaiter {
       response => targetStates.includes(response.zone.lifecycleState!),
       targetStates.includes(models.Zone.LifecycleState.Deleted)
     );
+  }
+
+  /**
+   * Waits forUpdateResolver
+   *
+   * @param request the request to send
+   * @return response returns UpdateResolverResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateResolver(
+    request: serviceRequests.UpdateResolverRequest
+  ): Promise<{
+    response: serviceResponses.UpdateResolverResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateResolverResponse = await this.client.updateResolver(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateResolverResponse.opcWorkRequestId
+    );
+    return { response: updateResolverResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateResolverEndpoint
+   *
+   * @param request the request to send
+   * @return response returns UpdateResolverEndpointResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateResolverEndpoint(
+    request: serviceRequests.UpdateResolverEndpointRequest
+  ): Promise<{
+    response: serviceResponses.UpdateResolverEndpointResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateResolverEndpointResponse = await this.client.updateResolverEndpoint(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateResolverEndpointResponse.opcWorkRequestId
+    );
+    return {
+      response: updateResolverEndpointResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateTsigKey
+   *
+   * @param request the request to send
+   * @return response returns UpdateTsigKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateTsigKey(
+    request: serviceRequests.UpdateTsigKeyRequest
+  ): Promise<{
+    response: serviceResponses.UpdateTsigKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateTsigKeyResponse = await this.client.updateTsigKey(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateTsigKeyResponse.opcWorkRequestId
+    );
+    return { response: updateTsigKeyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateView
+   *
+   * @param request the request to send
+   * @return response returns UpdateViewResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateView(
+    request: serviceRequests.UpdateViewRequest
+  ): Promise<{
+    response: serviceResponses.UpdateViewResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateViewResponse = await this.client.updateView(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateViewResponse.opcWorkRequestId
+    );
+    return { response: updateViewResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateZone
+   *
+   * @param request the request to send
+   * @return response returns UpdateZoneResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateZone(
+    request: serviceRequests.UpdateZoneRequest
+  ): Promise<{
+    response: serviceResponses.UpdateZoneResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateZoneResponse = await this.client.updateZone(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateZoneResponse.opcWorkRequestId
+    );
+    return { response: updateZoneResponse, workRequestResponse: getWorkRequestResponse };
   }
 }

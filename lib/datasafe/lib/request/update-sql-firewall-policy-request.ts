@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateSqlFirewallPolicyRequest extends common.BaseRequest {
   /**
-   * The OCID of the SQL firewall policy resource.
+   * The OCID of the SQL Firewall policy resource.
    */
   "sqlFirewallPolicyId": string;
   /**
-   * Details to update the SQL firewall policy.
+   * Details to update the SQL Firewall policy.
    */
   "updateSqlFirewallPolicyDetails": model.UpdateSqlFirewallPolicyDetails;
   /**

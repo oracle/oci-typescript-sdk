@@ -51,11 +51,11 @@ export interface ReportDefinition {
    */
   "displayOrder"?: number;
   /**
-   * Specifies the data and time the report definition was created.
+   * Specifies the date and time the report definition was created.
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the report definition was update.
+   * The date and time the report definition was updated.
    */
   "timeUpdated"?: Date;
   /**
@@ -105,7 +105,7 @@ Allowed version strings - \"v1\"
     */
   "schedule"?: string;
   /**
-   * Specifies the format of the report ( either XLS or PDF )
+   * Specifies the format of the report ( either .xls or .pdf )
    */
   "scheduledReportMimeType"?: ReportDefinition.ScheduledReportMimeType;
   /**
@@ -117,7 +117,7 @@ Allowed version strings - \"v1\"
    */
   "scheduledReportName"?: string;
   /**
-   * The OCID of the compartment in which the scheduled resource should be created.
+   * The OCID of the compartment in which the scheduled resource will be created.
    *
    */
   "scheduledReportCompartmentId"?: string;

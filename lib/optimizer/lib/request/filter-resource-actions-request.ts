@@ -74,6 +74,10 @@ When using this parameter, please make sure to set the compartmentId with the pa
  */
   "includeOrganization"?: boolean;
   /**
+   * Supplement additional resource information in extended metadata response.
+   */
+  "includeResourceMetadata"?: boolean;
+  /**
    * The maximum number of items to return in a paginated \"List\" call.
    */
   "limit"?: number;

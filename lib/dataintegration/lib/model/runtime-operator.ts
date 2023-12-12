@@ -35,7 +35,7 @@ export interface RuntimeOperator {
    */
   "endTimeInMillis"?: number;
   /**
-   * status
+   * Status of RuntimeOperator. This field is deprecated, use RuntimeOperator's executionState field instead.
    */
   "status"?: RuntimeOperator.Status;
   /**

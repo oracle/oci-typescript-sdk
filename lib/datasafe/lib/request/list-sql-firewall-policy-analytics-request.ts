@@ -45,11 +45,11 @@ export interface ListSqlFirewallPolicyAnalyticsRequest extends common.BaseReques
    */
   "page"?: string;
   /**
-   * The group by parameter to summarize SQL firewall policy aggregation.
+   * The group by parameter to summarize SQL Firewall policy aggregation.
    */
   "groupBy"?: Array<ListSqlFirewallPolicyAnalyticsRequest.GroupBy>;
   /**
-   * The current state of the SQL firewall policy.
+   * The current state of the SQL Firewall policy.
    */
   "lifecycleState"?: model.SqlFirewallPolicyLifecycleState;
   /**
@@ -57,13 +57,13 @@ export interface ListSqlFirewallPolicyAnalyticsRequest extends common.BaseReques
    */
   "securityPolicyId"?: string;
   /**
-   * An optional filter to return the summary of the SQL firewall policies created after the date-time specified,
+   * An optional filter to return the summary of the SQL Firewall policies created after the date-time specified,
    * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeStarted"?: Date;
   /**
-   * An optional filter to return the summary of the SQL firewall policies created before the date-time specified,
+   * An optional filter to return the summary of the SQL Firewall policies created before the date-time specified,
    * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */

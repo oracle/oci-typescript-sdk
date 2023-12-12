@@ -39,7 +39,7 @@ export interface AuditEventAggregationDimensions {
    */
   "targetClass"?: Array<AuditEventAggregationDimensions.TargetClass>;
   /**
-   * Type of object in the source database affected by the action. i.e PL/SQL, SYNONYM, PACKAGE BODY.
+   * Type of object in the source database affected by the action. For example PL/SQL, SYNONYM or PACKAGE BODY.
    */
   "objectType"?: Array<string>;
   /**
@@ -47,7 +47,7 @@ export interface AuditEventAggregationDimensions {
    */
   "clientHostname"?: Array<string>;
   /**
-   * The application from which the audit event was generated. Examples SQL Plus or SQL Developer.
+   * The application from which the audit event was generated. For example SQL Plus or SQL Developer.
    */
   "clientProgram"?: Array<string>;
   /**
@@ -59,7 +59,7 @@ export interface AuditEventAggregationDimensions {
    */
   "auditType"?: Array<AuditEventAggregationDimensions.AuditType>;
   /**
-   * The name of the event executed by the user on the target database. i.e ALTER SEQUENCE, CREATE TRIGGER, CREATE INDEX.
+   * The name of the event executed by the user on the target database. For example ALTER SEQUENCE, CREATE TRIGGER or CREATE INDEX.
    */
   "eventName"?: Array<string>;
 }

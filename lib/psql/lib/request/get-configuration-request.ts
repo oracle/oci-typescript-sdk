@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetConfigurationRequest extends common.BaseRequest {
   /**
-   * unique Configuration identifier
+   * A unique identifier for the configuration.
    */
   "configurationId": string;
   /**

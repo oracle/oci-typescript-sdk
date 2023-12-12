@@ -23,15 +23,15 @@ export interface ListBackupsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * The start date for getting  backups. An RFC3339 formatted datetime string
+   * The start date for getting backups. An [RFC 3339](https://tools.ietf.org/rfc/rfc3339) formatted datetime string.
    */
   "timeStarted"?: Date;
   /**
-   * The End date for getting  backups. An RFC3339 formatted datetime string.
+   * The end date for getting backups. An [RFC 3339](https://tools.ietf.org/rfc/rfc3339) formatted datetime string.
    */
   "timeEnded"?: Date;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources if their `lifecycleState` matches the given `lifecycleState`.
    */
   "lifecycleState"?: string;
   /**
@@ -39,11 +39,11 @@ export interface ListBackupsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * unique Backup identifier
+   * A unique identifier for the backup.
    */
   "backupId"?: string;
   /**
-   * unique DbSystem identifier
+   * A unique identifier for the database system.
    */
   "id"?: string;
   /**

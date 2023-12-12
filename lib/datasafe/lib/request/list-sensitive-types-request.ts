@@ -106,6 +106,12 @@ export interface ListSensitiveTypesRequest extends common.BaseRequest {
    * A filter to return only the resources that match the specified lifecycle state.
    */
   "lifecycleState"?: model.DiscoveryLifecycleState;
+  /**
+   * A filter to return only the common sensitive type resources. Common sensitive types belong to
+   * library sensitive types which are frequently used to perform sensitive data discovery.
+   *
+   */
+  "isCommon"?: boolean;
 }
 
 export namespace ListSensitiveTypesRequest {

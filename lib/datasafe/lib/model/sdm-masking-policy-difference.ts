@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A SDM masking policy difference resource. It helps track the difference between sensitive columns of SDM and masking columns of the masking policy.
+ * A resource that tracks the differences between sensitive columns in the sensitive data model and masking columns in the masking policy
  */
 export interface SdmMaskingPolicyDifference {
   /**
-   * The OCID of the SDM masking policy difference.
+   * The OCID of the Sensitive data model and masking policy difference resource.
    */
   "id": string;
   /**
-   * The OCID of the compartment that contains the SDM masking policy difference.
+   * The OCID of the compartment that contains the Sensitive data model and masking policy difference resource.
    */
   "compartmentId": string;
   /**

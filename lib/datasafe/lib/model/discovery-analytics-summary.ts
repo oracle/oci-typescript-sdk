@@ -37,6 +37,7 @@ export namespace DiscoveryAnalyticsSummary {
     SensitiveTable = "SENSITIVE_TABLE",
     SensitiveColumn = "SENSITIVE_COLUMN",
     SensitiveDataValue = "SENSITIVE_DATA_VALUE",
+    TargetDatabase = "TARGET_DATABASE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -16,18 +16,9 @@ import common = require("oci-common");
 
 export interface ChangeConfigurationCompartmentResponse {
   /**
-   * For optimistic concurrency control. See `if-match`.
-   *
-   */
-  "etag": string;
-  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
-  /**
-   * The returned model.Configuration instance.
-   */
-  "configuration": model.Configuration;
 }

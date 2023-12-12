@@ -39,7 +39,7 @@ export interface Report {
    */
   "compartmentId": string;
   /**
-   * Specifies the format of report to be excel or pdf
+   * Specifies the format of report to be .xls or .pdf
    */
   "mimeType"?: Report.MimeType;
   /**

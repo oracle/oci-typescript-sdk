@@ -15,28 +15,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The SQL firewall policy resource contains the firewall policy metadata for a single user.
+ * The SQL Firewall policy resource contains the firewall policy metadata for a single user.
  *
  */
 export interface SqlFirewallPolicySummary {
   /**
-   * The OCID of the SQL firewall policy.
+   * The OCID of the SQL Firewall policy.
    */
   "id": string;
   /**
-   * The OCID of the compartment containing the SQL firewall policy.
+   * The OCID of the compartment containing the SQL Firewall policy.
    */
   "compartmentId": string;
   /**
-   * The display name of the SQL firewall policy.
+   * The display name of the SQL Firewall policy.
    */
   "displayName": string;
   /**
-   * The description of the SQL firewall policy.
+   * The description of the SQL Firewall policy.
    */
   "description"?: string;
   /**
-   * The OCID of the security policy corresponding to the SQL firewall policy.
+   * The OCID of the security policy corresponding to the SQL Firewall policy.
    */
   "securityPolicyId": string;
   /**
@@ -44,42 +44,42 @@ export interface SqlFirewallPolicySummary {
    */
   "dbUserName": string;
   /**
-   * Specifies the level of SQL included for this SQL firewall policy.
+   * Specifies the level of SQL included for this SQL Firewall policy.
    * USER_ISSUED_SQL - User issued SQL statements only.
    * ALL_SQL - Includes all SQL statements including SQL statement issued inside PL/SQL units.
    *
    */
   "sqlLevel"?: SqlFirewallPolicySummary.SqlLevel;
   /**
-   * Specifies whether the SQL firewall policy is enabled or disabled.
+   * Specifies whether the SQL Firewall policy is enabled or disabled.
    */
   "status": SqlFirewallPolicySummary.Status;
   /**
-   * Specifies the SQL firewall policy enforcement option.
+   * Specifies the SQL Firewall policy enforcement option.
    */
   "enforcementScope"?: SqlFirewallPolicySummary.EnforcementScope;
   /**
-   * Specifies the SQL firewall action based on detection of SQL firewall violations.
+   * Specifies the SQL Firewall action based on detection of SQL Firewall violations.
    */
   "violationAction"?: SqlFirewallPolicySummary.ViolationAction;
   /**
-   * Specifies whether a unified audit policy should be enabled for auditing the SQL firewall policy violations.
+   * Specifies whether a unified audit policy should be enabled for auditing the SQL Firewall policy violations.
    */
   "violationAudit"?: SqlFirewallPolicySummary.ViolationAudit;
   /**
-   * The time that the SQL firewall policy was created, in the format defined by RFC3339.
+   * The time that the SQL Firewall policy was created, in the format defined by RFC3339.
    */
   "timeCreated": Date;
   /**
-   * The date and time the SQL firewall policy was last updated, in the format defined by RFC3339.
+   * The date and time the SQL Firewall policy was last updated, in the format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the SQL firewall policy.
+   * The current state of the SQL Firewall policy.
    */
   "lifecycleState": model.SqlFirewallPolicyLifecycleState;
   /**
-   * Details about the current state of the SQL firewall policy in Data Safe.
+   * Details about the current state of the SQL Firewall policy in Data Safe.
    */
   "lifecycleDetails"?: string;
   /**

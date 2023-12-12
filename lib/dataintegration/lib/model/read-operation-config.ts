@@ -38,6 +38,7 @@ export interface ReadOperationConfig extends model.AbstractDataOperationConfig {
     | model.BiccReadAttributes
     | model.BipReadAttributes
     | model.OracleReadAttribute;
+  "incrementalReadConfig"?: model.IncrementalReadConfig;
   /**
    * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -65,6 +66,9 @@ export namespace ReadOperationConfig {
           : undefined,
         "readAttribute": obj.readAttribute
           ? model.AbstractReadAttribute.getJsonObj(obj.readAttribute)
+          : undefined,
+        "incrementalReadConfig": obj.incrementalReadConfig
+          ? model.IncrementalReadConfig.getJsonObj(obj.incrementalReadConfig)
           : undefined
       }
     };
@@ -97,6 +101,9 @@ export namespace ReadOperationConfig {
           : undefined,
         "readAttribute": obj.readAttribute
           ? model.AbstractReadAttribute.getDeserializedJsonObj(obj.readAttribute)
+          : undefined,
+        "incrementalReadConfig": obj.incrementalReadConfig
+          ? model.IncrementalReadConfig.getDeserializedJsonObj(obj.incrementalReadConfig)
           : undefined
       }
     };

@@ -57,6 +57,10 @@ export interface CreateTaskDetails {
   "parameters"?: Array<model.Parameter>;
   "opConfigValues"?: model.ConfigValues;
   "configProviderDelegate"?: model.CreateConfigProvider;
+  /**
+   * Whether the same task can be executed concurrently.
+   */
+  "isConcurrentAllowed"?: boolean;
   "registryMetadata": model.RegistryMetadata;
 
   "modelType": string;
@@ -90,6 +94,7 @@ export namespace CreateTaskDetails {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.CreateConfigProvider.getJsonObj(obj.configProviderDelegate)
           : undefined,
+
         "registryMetadata": obj.registryMetadata
           ? model.RegistryMetadata.getJsonObj(obj.registryMetadata)
           : undefined
@@ -163,6 +168,7 @@ export namespace CreateTaskDetails {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.CreateConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
           : undefined,
+
         "registryMetadata": obj.registryMetadata
           ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
           : undefined

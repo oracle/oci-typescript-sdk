@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetDbSystemRequest extends common.BaseRequest {
   /**
-   * unique DbSystem identifier
+   * A unique identifier for the database system.
    */
   "dbSystemId": string;
   /**
@@ -27,7 +27,7 @@ export interface GetDbSystemRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A filter to exclude DB config  when this query param is set to OverrideDbConfig
+   * A filter to exclude database configuration when this query parameter is set to OverrideDbConfig.
    */
   "excludedFields"?: Array<GetDbSystemRequest.ExcludedFields>;
 }

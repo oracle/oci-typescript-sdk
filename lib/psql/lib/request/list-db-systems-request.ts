@@ -23,7 +23,7 @@ export interface ListDbSystemsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources if their `lifecycleState` matches the given `lifecycleState`.
    */
   "lifecycleState"?: string;
   /**
@@ -31,7 +31,7 @@ export interface ListDbSystemsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * unique DbSystem identifier
+   * A unique identifier for the database system.
    */
   "id"?: string;
   /**

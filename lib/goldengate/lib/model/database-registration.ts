@@ -91,7 +91,7 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    */
   "ipAddress": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the target subnet of the dedicated connection.
    *
    */
   "subnetId"?: string;

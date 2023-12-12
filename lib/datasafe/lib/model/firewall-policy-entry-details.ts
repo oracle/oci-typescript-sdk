@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * SQL firewall policy details.
+ * SQL Firewall policy details.
  */
 export interface FirewallPolicyEntryDetails extends model.EntryDetails {
   /**
-   * The time the the SQL firewall policy was generated on the target database, in the format defined by RFC3339.
+   * The time the the SQL Firewall policy was generated on the target database, in the format defined by RFC3339.
    */
   "timeGenerated": Date;
   /**
-   * The last date and time the status of the SQL firewall policy was updated on the target database, in the format defined by RFC3339.
+   * The last date and time the status of the SQL Firewall policy was updated on the target database, in the format defined by RFC3339.
    */
   "timeStatusUpdated"?: Date;
 

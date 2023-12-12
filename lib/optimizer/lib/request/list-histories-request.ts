@@ -74,6 +74,10 @@ Can only be set to true when performing ListCompartments on the tenancy (root co
    */
   "status"?: model.Status;
   /**
+   * Supplement additional resource information in extended metadata response.
+   */
+  "includeResourceMetadata"?: boolean;
+  /**
    * Unique Oracle-assigned identifier for the request.
    * If you need to contact Oracle about a particular request, please provide the request ID.
    *

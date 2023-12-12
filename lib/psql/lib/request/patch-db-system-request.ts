@@ -19,15 +19,16 @@ import common = require("oci-common");
  */
 export interface PatchDbSystemRequest extends common.BaseRequest {
   /**
-   * unique DbSystem identifier
+   * A unique identifier for the database system.
    */
   "dbSystemId": string;
   /**
-   * The information to be patched.
+   * The information to be modified.
    */
   "patchDbSystemDetails": model.PatchDbSystemDetails;
   /**
-   * For optimistic concurrency control. In the PUT or DELETE call
+   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource.
+   * The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
    *
    */
   "ifMatch"?: string;

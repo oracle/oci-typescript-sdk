@@ -23,7 +23,7 @@ export interface AuditEventSummary {
    */
   "id": string;
   /**
-   * The OCID of the compartment containing the audit event. This is the same as that of audit profile of the target database resource compartment.
+   * The OCID of the compartment containing the audit event. The compartment is the same as that of audit profile of the target database resource.
    */
   "compartmentId": string;
   /**
@@ -51,7 +51,7 @@ export interface AuditEventSummary {
    */
   "targetClass"?: AuditEventSummary.TargetClass;
   /**
-   * The time of the audit event occurrence in the target database.
+   * The time that the audit event occurs in the target database.
    */
   "auditEventTime": Date;
   /**
@@ -63,7 +63,7 @@ export interface AuditEventSummary {
    */
   "osUserName"?: string;
   /**
-   * The name of the action executed by the user on the target database. i.e ALTER, CREATE, DROP.
+   * The name of the action executed by the user on the target database. For example ALTER, CREATE or DROP.
    */
   "operation"?: string;
   /**
@@ -71,7 +71,7 @@ export interface AuditEventSummary {
    */
   "operationStatus"?: AuditEventSummary.OperationStatus;
   /**
-   * The name of the detail action executed by the user on the target database. i.e ALTER SEQUENCE, CREATE TRIGGER, CREATE INDEX.
+   * The name of the detail action executed by the user on the target database. For example ALTER SEQUENCE, CREATE TRIGGER or CREATE INDEX.
    */
   "eventName"?: string;
   /**
@@ -79,11 +79,11 @@ export interface AuditEventSummary {
    */
   "errorCode"?: string;
   /**
-   * The detailed message on why the Error occurred.
+   * The detailed message on why the error occurred.
    */
   "errorMessage"?: string;
   /**
-   * The type of the object in the source database affected by the action. i.e PL/SQL, SYNONYM, PACKAGE BODY.
+   * The type of the object in the source database affected by the action. For example PL/SQL, SYNONYM or PACKAGE BODY.
    */
   "objectType"?: string;
   /**
@@ -115,7 +115,7 @@ export interface AuditEventSummary {
    */
   "actionTaken"?: string;
   /**
-   * The application from which the audit event was generated. Examples SQL Plus or SQL Developer.
+   * The application from which the audit event was generated. For example SQL Plus or SQL Developer.
    */
   "clientProgram"?: string;
   /**
