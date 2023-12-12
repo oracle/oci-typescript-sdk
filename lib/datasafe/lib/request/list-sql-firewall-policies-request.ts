@@ -54,11 +54,11 @@ export interface ListSqlFirewallPoliciesRequest extends common.BaseRequest {
    */
   "securityPolicyId"?: string;
   /**
-   * The current state of the SQL firewall policy.
+   * The current state of the SQL Firewall policy.
    */
   "lifecycleState"?: model.SqlFirewallPolicyLifecycleState;
   /**
-   * An optional filter to return only resources that match the specified OCID of the SQL firewall policy resource.
+   * An optional filter to return only resources that match the specified OCID of the SQL Firewall policy resource.
    */
   "sqlFirewallPolicyId"?: string;
   /**

@@ -184,6 +184,8 @@ import * as RollbackDeploymentUpgradeDetails from "./rollback-deployment-upgrade
 export import RollbackDeploymentUpgradeDetails = RollbackDeploymentUpgradeDetails.RollbackDeploymentUpgradeDetails;
 import * as RollbackDeploymentUpgradeType from "./rollback-deployment-upgrade-type";
 export import RollbackDeploymentUpgradeType = RollbackDeploymentUpgradeType.RollbackDeploymentUpgradeType;
+import * as RoutingMethod from "./routing-method";
+export import RoutingMethod = RoutingMethod.RoutingMethod;
 import * as SnoozeDeploymentUpgradeDetails from "./snooze-deployment-upgrade-details";
 export import SnoozeDeploymentUpgradeDetails = SnoozeDeploymentUpgradeDetails.SnoozeDeploymentUpgradeDetails;
 import * as SnoozeDeploymentUpgradeType from "./snooze-deployment-upgrade-type";

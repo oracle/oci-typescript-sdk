@@ -5,13 +5,13 @@
 
 import { RegionMetadataSchema } from "./region-metadata-schema";
 
-export interface AlloyConfigFileSchema {
+export interface DeveloperToolConfigurationFileSchema {
   /**
-   * Class representing AlloyConfigFileSchema blob that can be used for parsing out alloy regions, enabled services,
-   * and the alloy provider name
+   * Class representing DeveloperToolConfigurationFileSchema blob that can be used for parsing out developer tool configuration regions, enabled services,
+   * and the developer tool configuration provider name
    */
   regions: RegionMetadataSchema[];
   services: string[];
-  alloyProvider: string;
-  ociRegionCoexist: string;
+  developerToolConfigurationProvider: string;
+  allowOnlyDeveloperToolConfigurationRegions: string;
 }

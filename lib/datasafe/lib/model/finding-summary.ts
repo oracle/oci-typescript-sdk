@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface FindingSummary {
   /**
-   * The severity of the finding.
+   * The severity of the finding as determined by security assessment and is same as oracleDefinedSeverity, unless modified by user.
    */
   "severity"?: FindingSummary.Severity;
   /**

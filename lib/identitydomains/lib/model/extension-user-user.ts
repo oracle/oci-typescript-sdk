@@ -251,6 +251,24 @@ export interface ExtensionUserUser {
    */
   "notificationEmailTemplateId"?: string;
   /**
+   * Indicates if User is a Service User
+   * <p>
+   **Added In:** 2306131901
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsCsvAttributeName: Service User
+   *  - idcsCsvAttributeNameMappings: [[columnHeaderName:Service User]]
+   *  - idcsSearchable: true
+   *  - multiValued: false
+   *  - mutability: immutable
+   *  - required: false
+   *  - returned: default
+   *  - type: boolean
+   *  - uniqueness: none
+   */
+  "serviceUser"?: boolean;
+  /**
    * A list of Support Accounts corresponding to user.
    * <p>
    **Added In:** 2103141444

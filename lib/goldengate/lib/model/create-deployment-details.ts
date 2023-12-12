@@ -61,10 +61,17 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    */
   "deploymentBackupId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
    *
    */
   "subnetId": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
+   * Can be provided only for public deployments. If provided, the loadbalancer will be created in this subnet instead of the service tenancy.
+   * For backward compatiblity this is an optional property for now, but it will become mandatory (for public deployments only) after October 1, 2024.
+   *
+   */
+  "loadBalancerSubnetId"?: string;
   /**
    * A three-label Fully Qualified Domain Name (FQDN) for a resource.
    *

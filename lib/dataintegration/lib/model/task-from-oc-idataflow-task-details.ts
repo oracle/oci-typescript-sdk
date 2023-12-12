@@ -19,6 +19,8 @@ import common = require("oci-common");
  */
 export interface TaskFromOCIDataflowTaskDetails extends model.Task {
   "dataflowApplication"?: model.DataflowApplication;
+  "driverShapeDetails"?: model.ShapeDetails;
+  "executorShapeDetails"?: model.ShapeDetails;
 
   "modelType": string;
 }
@@ -33,6 +35,12 @@ export namespace TaskFromOCIDataflowTaskDetails {
       ...{
         "dataflowApplication": obj.dataflowApplication
           ? model.DataflowApplication.getJsonObj(obj.dataflowApplication)
+          : undefined,
+        "driverShapeDetails": obj.driverShapeDetails
+          ? model.ShapeDetails.getJsonObj(obj.driverShapeDetails)
+          : undefined,
+        "executorShapeDetails": obj.executorShapeDetails
+          ? model.ShapeDetails.getJsonObj(obj.executorShapeDetails)
           : undefined
       }
     };
@@ -51,6 +59,12 @@ export namespace TaskFromOCIDataflowTaskDetails {
       ...{
         "dataflowApplication": obj.dataflowApplication
           ? model.DataflowApplication.getDeserializedJsonObj(obj.dataflowApplication)
+          : undefined,
+        "driverShapeDetails": obj.driverShapeDetails
+          ? model.ShapeDetails.getDeserializedJsonObj(obj.driverShapeDetails)
+          : undefined,
+        "executorShapeDetails": obj.executorShapeDetails
+          ? model.ShapeDetails.getDeserializedJsonObj(obj.executorShapeDetails)
           : undefined
       }
     };

@@ -41,7 +41,7 @@ Allowed version strings - \"v1\"
     */
   "schedule": string;
   /**
-   * Specifies if the report will be in Excel or PDF format
+   * Specifies if the report will be in .xls or .pdf format
    */
   "mimeType": ScheduleReportDetails.MimeType;
   /**

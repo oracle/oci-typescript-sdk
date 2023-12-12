@@ -41,6 +41,10 @@ export interface ListDiscoveryAnalyticsRequest extends common.BaseRequest {
    */
   "sensitiveDataModelId"?: string;
   /**
+   * A filter to return only items related to a specific sensitive type OCID.
+   */
+  "sensitiveTypeId"?: string;
+  /**
    * For list pagination. The maximum number of items to return per page in a paginated \"List\" call. For details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;
@@ -52,11 +56,21 @@ export interface ListDiscoveryAnalyticsRequest extends common.BaseRequest {
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only the common sensitive type resources. Common sensitive types belong to
+   * library sensitive types which are frequently used to perform sensitive data discovery.
+   *
+   */
+  "isCommon"?: boolean;
 }
 
 export namespace ListDiscoveryAnalyticsRequest {
   export enum GroupBy {
     TargetId = "targetId",
-    SensitiveDataModelId = "sensitiveDataModelId"
+    SensitiveDataModelId = "sensitiveDataModelId",
+    SensitiveTypeId = "sensitiveTypeId",
+    TargetIdAndSensitiveDataModelId = "targetIdAndSensitiveDataModelId",
+    SensitiveTypeIdAndTargetId = "sensitiveTypeIdAndTargetId",
+    SensitiveTypeIdAndSensitiveDataModelId = "sensitiveTypeIdAndSensitiveDataModelId"
   }
 }

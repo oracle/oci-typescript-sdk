@@ -5,13 +5,15 @@ import { Realm } from "oci-common";
 import { expect } from "chai";
 import { error } from "console";
 
-describe("AlloyConfigTest", () => {
+describe("DeveloperToolConfigTest", () => {
   beforeEach(() => {
-    Region.resetAlloyConfig();
+    Region.resetDeveloperToolConfiguration();
   });
 
-  it("testAlloyConfigFile_regionExists", () => {
-    const file = ConfigFileReader.expandUserHome("~/lib/common/tests/resources/alloy-config.json");
+  it("testDeveloperToolConfigFile_regionExists", () => {
+    const file = ConfigFileReader.expandUserHome(
+      "~/lib/common/tests/resources/developer-tool-configuration.json"
+    );
     if (ConfigFileReader.fileExists(file)) {
       const region = Region.fromRegionId("phx");
       const US_PHOENIX_1 = Region.register(
@@ -23,10 +25,10 @@ describe("AlloyConfigTest", () => {
     }
   });
 
-  it("testAlloyConfigFile_regionDoesNotExists", () => {
+  it("testDeveloperToolConfigFile_regionDoesNotExists", () => {
     try {
       const file = ConfigFileReader.expandUserHome(
-        "~/lib/common/tests/resources/alloy-config.json"
+        "~/lib/common/tests/resources/developer-tool-configuration.json"
       );
       expect(ConfigFileReader.fileExists(file)).to.be.false;
     } catch (error) {
@@ -34,9 +36,10 @@ describe("AlloyConfigTest", () => {
     }
   });
 
-  it("testAlloyConfigUsingEnvVar_regionExists", () => {
-    const alloyFile = "lib/common/tests/resources/alloy-config.json";
-    process.env.OCI_ALLOY_CONFIG_FILE_PATH = alloyFile;
+  it("testDeveloperToolConfigUsingEnvVar_regionExists", () => {
+    const developertoolConfigurationFile =
+      "lib/common/tests/resources/developer-tool-configuration.json";
+    process.env.OCI_DEVELOPER_TOOL_CONFIGURATION_FILE_PATH = developertoolConfigurationFile;
     const region = Region.fromRegionId("us-phoenix-1");
     const US_PHOENIX_1 = Region.register(
       "us-phoenix-1",
@@ -47,15 +50,17 @@ describe("AlloyConfigTest", () => {
     expect(US_PHOENIX_1.realm.realmId).equals(region.realm.realmId);
   });
 
-  it("testAlloyConfigUsingEnvVar_regionDoesNotExists", () => {
-    const alloyFile = "lib/common/tests/resources/alloy-config.json";
-    process.env.OCI_ALLOY_CONFIG_FILE_PATH = alloyFile;
+  it("testDeveloperToolConfigUsingEnvVar_regionDoesNotExists", () => {
+    const developertoolConfigurationFile =
+      "lib/common/tests/resources/developer-tool-configuration.json";
+    process.env.OCI_DEVELOPER_TOOL_CONFIGURATION_FILE_PATH = developertoolConfigurationFile;
     expect(Region.fromRegionId("unknown")).equals(undefined);
   });
 
-  it("testAlloyConfigUsingEnvVar_RegisterNewRegion", () => {
-    const alloyFile = "lib/common/tests/resources/alloy-config.json";
-    process.env.OCI_ALLOY_CONFIG_FILE_PATH = alloyFile;
+  it("testDeveloperToolConfigUsingEnvVar_RegisterNewRegion", () => {
+    const developertoolConfigurationFile =
+      "lib/common/tests/resources/developer-tool-configuration.json";
+    process.env.OCI_DEVELOPER_TOOL_CONFIGURATION_FILE_PATH = developertoolConfigurationFile;
     const region = Region.fromRegionId("us-phoenix-1");
     const US_PHOENIX_1 = Region.register(
       "us-phoenix-1",
@@ -67,9 +72,10 @@ describe("AlloyConfigTest", () => {
     expect(Object.values(Region).some(region => region === "us-phoenix-1")).to.be.false;
   });
 
-  it("testAlloyConfigEnvVar_withoutRegionCoexist", () => {
-    const alloyFile = "lib/common/tests/resources/alloy-config.json";
-    process.env.OCI_ALLOY_CONFIG_FILE_PATH = alloyFile;
+  it("testDeveloperToolConfigEnvVar_withoutRegionCoexist", () => {
+    const developertoolConfigurationFile =
+      "lib/common/tests/resources/developer-tool-configuration.json";
+    process.env.OCI_DEVELOPER_TOOL_CONFIGURATION_FILE_PATH = developertoolConfigurationFile;
     const region = Region.fromRegionId("us-chicago-1");
     expect(region.regionId).equals("us-chicago-1");
     expect(Array.from(Region.values()).some(region => region === Region.US_CHICAGO_1)).to.be.false;

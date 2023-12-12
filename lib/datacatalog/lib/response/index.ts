@@ -13,8 +13,14 @@ For more information, see [Data Catalog](https://docs.oracle.com/iaas/data-catal
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddCatalogLockResponse from "./add-catalog-lock-response";
+export import AddCatalogLockResponse = AddCatalogLockResponse.AddCatalogLockResponse;
+import * as AddCatalogPrivateEndpointLockResponse from "./add-catalog-private-endpoint-lock-response";
+export import AddCatalogPrivateEndpointLockResponse = AddCatalogPrivateEndpointLockResponse.AddCatalogPrivateEndpointLockResponse;
 import * as AddDataSelectorPatternsResponse from "./add-data-selector-patterns-response";
 export import AddDataSelectorPatternsResponse = AddDataSelectorPatternsResponse.AddDataSelectorPatternsResponse;
+import * as AddMetastoreLockResponse from "./add-metastore-lock-response";
+export import AddMetastoreLockResponse = AddMetastoreLockResponse.AddMetastoreLockResponse;
 import * as AssociateCustomPropertyResponse from "./associate-custom-property-response";
 export import AssociateCustomPropertyResponse = AssociateCustomPropertyResponse.AssociateCustomPropertyResponse;
 import * as AsynchronousExportGlossaryResponse from "./asynchronous-export-glossary-response";
@@ -245,8 +251,14 @@ import * as ProcessRecommendationResponse from "./process-recommendation-respons
 export import ProcessRecommendationResponse = ProcessRecommendationResponse.ProcessRecommendationResponse;
 import * as RecommendationsResponse from "./recommendations-response";
 export import RecommendationsResponse = RecommendationsResponse.RecommendationsResponse;
+import * as RemoveCatalogLockResponse from "./remove-catalog-lock-response";
+export import RemoveCatalogLockResponse = RemoveCatalogLockResponse.RemoveCatalogLockResponse;
+import * as RemoveCatalogPrivateEndpointLockResponse from "./remove-catalog-private-endpoint-lock-response";
+export import RemoveCatalogPrivateEndpointLockResponse = RemoveCatalogPrivateEndpointLockResponse.RemoveCatalogPrivateEndpointLockResponse;
 import * as RemoveDataSelectorPatternsResponse from "./remove-data-selector-patterns-response";
 export import RemoveDataSelectorPatternsResponse = RemoveDataSelectorPatternsResponse.RemoveDataSelectorPatternsResponse;
+import * as RemoveMetastoreLockResponse from "./remove-metastore-lock-response";
+export import RemoveMetastoreLockResponse = RemoveMetastoreLockResponse.RemoveMetastoreLockResponse;
 import * as SearchCriteriaResponse from "./search-criteria-response";
 export import SearchCriteriaResponse = SearchCriteriaResponse.SearchCriteriaResponse;
 import * as SuggestMatchesResponse from "./suggest-matches-response";

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of SQL firewall allow SQL aggregate.
+ * The details of SQL Firewall allow SQL aggregate.
  */
 export interface SqlFirewallAllowedSqlAggregation {
   "dimensions": model.SqlFirewallAllowedSqlDimensions;

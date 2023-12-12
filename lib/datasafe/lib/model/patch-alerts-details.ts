@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The alert details to update the status of one or more alert specified by the alert IDs.
+ * The alert details to update the status of one or more alerts specified by the alert IDs.
  */
 export interface PatchAlertsDetails {
   /**

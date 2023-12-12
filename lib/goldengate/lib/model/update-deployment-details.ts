@@ -56,7 +56,7 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    */
   "nsgIds"?: Array<string>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet being referenced.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
    *
    */
   "subnetId"?: string;

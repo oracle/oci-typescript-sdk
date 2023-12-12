@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ResetMasterUserPasswordRequest extends common.BaseRequest {
   /**
-   * unique DbSystem identifier
+   * A unique identifier for the database system.
    */
   "dbSystemId": string;
   /**
@@ -27,7 +27,8 @@ export interface ResetMasterUserPasswordRequest extends common.BaseRequest {
    */
   "resetMasterUserPasswordDetails": model.ResetMasterUserPasswordDetails;
   /**
-   * For optimistic concurrency control. In the PUT or DELETE call
+   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource.
+   * The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
    *
    */
   "ifMatch"?: string;
@@ -37,6 +38,9 @@ export interface ResetMasterUserPasswordRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
+   * server error without risk of executing that same action again. Retry tokens expire after 24
+   * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
+   * has been deleted and purged from the system, `retrytoken` could be expired or invalidated.
    *
    */
   "opcRetryToken"?: string;

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteSqlFirewallPolicyRequest extends common.BaseRequest {
   /**
-   * The OCID of the SQL firewall policy resource.
+   * The OCID of the SQL Firewall policy resource.
    */
   "sqlFirewallPolicyId": string;
   /**

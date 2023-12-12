@@ -52,6 +52,7 @@ export namespace DiscoveryDetails {
     Host = "HOST",
     OraclePsft = "ORACLE_PSFT",
     OracleMft = "ORACLE_MFT",
+    ApacheHttpServer = "APACHE_HTTP_SERVER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

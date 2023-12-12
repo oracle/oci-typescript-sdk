@@ -23,7 +23,7 @@ import common = require("oci-common");
  *  - idcsPii: true
  *  - multiValued: false
  *  - mutability: readWrite
- *  - required: true
+ *  - required: false
  *  - returned: default
  *  - type: complex
  *  - uniqueness: none
@@ -52,12 +52,12 @@ export interface UserName {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
-   *  - required: true
+   *  - required: false
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
    */
-  "familyName": string;
+  "familyName"?: string;
   /**
    * First name
    * <p>

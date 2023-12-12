@@ -59,7 +59,7 @@ export interface SqlFirewallViolationAggregationDimensions {
    */
   "violationAction"?: Array<string>;
   /**
-   * Specifies the level of SQL included for this SQL firewall policy.
+   * Specifies the level of SQL included for this SQL Firewall policy.
    * USER_ISSUED_SQL - User issued SQL statements only.
    * ALL_SQL - Includes all SQL statements including SQL statement issued inside PL/SQL units.
    *

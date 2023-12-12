@@ -15,28 +15,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The resource represents a SQL firewall allowed SQL in Data Safe.
+ * The resource represents a SQL Firewall allowed SQL in Data Safe.
  *
  */
 export interface SqlFirewallAllowedSqlSummary {
   /**
-   * The OCID of the SQL firewall allowed SQL.
+   * The OCID of the SQL Firewall allowed SQL.
    */
   "id": string;
   /**
-   * The OCID of the compartment containing the SQL firewall allowed SQL.
+   * The OCID of the compartment containing the SQL Firewall allowed SQL.
    */
   "compartmentId": string;
   /**
-   * The display name of the SQL firewall allowed SQL.
+   * The display name of the SQL Firewall allowed SQL.
    */
   "displayName": string;
   /**
-   * The description of the SQL firewall allowed SQL.
+   * The description of the SQL Firewall allowed SQL.
    */
   "description"?: string;
   /**
-   * The OCID of the SQL firewall policy corresponding to the SQL firewall allowed SQL.
+   * The OCID of the SQL Firewall policy corresponding to the SQL Firewall allowed SQL.
    */
   "sqlFirewallPolicyId": string;
   /**
@@ -48,11 +48,11 @@ export interface SqlFirewallAllowedSqlSummary {
    */
   "dbUserName": string;
   /**
-   * The SQL text of the SQL firewall allowed SQL.
+   * The SQL text of the SQL Firewall allowed SQL.
    */
   "sqlText": string;
   /**
-   * Specifies the level of SQL included for this SQL firewall policy.
+   * Specifies the level of SQL included for this SQL Firewall policy.
    * USER_ISSUED_SQL - User issued SQL statements only.
    * ALL_SQL - Includes all SQL statements including SQL statement issued inside PL/SQL units.
    *
@@ -63,19 +63,19 @@ export interface SqlFirewallAllowedSqlSummary {
    */
   "sqlAccessedObjects"?: Array<string>;
   /**
-   * Version of the associated SQL firewall policy. This identifies whether the allowed SQLs were added in the same batch or not. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Version of the associated SQL Firewall policy. This identifies whether the allowed SQLs were added in the same batch or not. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version": number;
   /**
-   * The time the the SQL firewall allowed SQL was collected from the target database, in the format defined by RFC3339.
+   * The time the the SQL Firewall allowed SQL was collected from the target database, in the format defined by RFC3339.
    */
   "timeCollected": Date;
   /**
-   * The last date and time the SQL firewall allowed SQL was updated, in the format defined by RFC3339.
+   * The last date and time the SQL Firewall allowed SQL was updated, in the format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the SQL firewall allowed SQL.
+   * The current state of the SQL Firewall allowed SQL.
    */
   "lifecycleState": model.SqlFirewallAllowedSqlLifecycleState;
   /**

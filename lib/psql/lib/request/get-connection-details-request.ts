@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetConnectionDetailsRequest extends common.BaseRequest {
   /**
-   * unique DbSystem identifier
+   * A unique identifier for the database system.
    */
   "dbSystemId": string;
   /**

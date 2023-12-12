@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AverageCarbonEmission from "./average-carbon-emission";
+export import AverageCarbonEmission = AverageCarbonEmission.AverageCarbonEmission;
+import * as CleanEnergyUsage from "./clean-energy-usage";
+export import CleanEnergyUsage = CleanEnergyUsage.CleanEnergyUsage;
 import * as Configuration from "./configuration";
 export import Configuration = Configuration.Configuration;
 import * as ConfigurationAggregation from "./configuration-aggregation";
@@ -23,6 +27,8 @@ import * as CreateQueryDetails from "./create-query-details";
 export import CreateQueryDetails = CreateQueryDetails.CreateQueryDetails;
 import * as CreateScheduleDetails from "./create-schedule-details";
 export import CreateScheduleDetails = CreateScheduleDetails.CreateScheduleDetails;
+import * as CreateUsageCarbonEmissionsQueryDetails from "./create-usage-carbon-emissions-query-details";
+export import CreateUsageCarbonEmissionsQueryDetails = CreateUsageCarbonEmissionsQueryDetails.CreateUsageCarbonEmissionsQueryDetails;
 import * as CustomTable from "./custom-table";
 export import CustomTable = CustomTable.CustomTable;
 import * as CustomTableCollection from "./custom-table-collection";
@@ -51,6 +57,8 @@ import * as ReportQuery from "./report-query";
 export import ReportQuery = ReportQuery.ReportQuery;
 import * as RequestSummarizedUsagesDetails from "./request-summarized-usages-details";
 export import RequestSummarizedUsagesDetails = RequestSummarizedUsagesDetails.RequestSummarizedUsagesDetails;
+import * as RequestUsageCarbonEmissionsDetails from "./request-usage-carbon-emissions-details";
+export import RequestUsageCarbonEmissionsDetails = RequestUsageCarbonEmissionsDetails.RequestUsageCarbonEmissionsDetails;
 import * as ResultLocation from "./result-location";
 export import ResultLocation = ResultLocation.ResultLocation;
 import * as SavedCustomTable from "./saved-custom-table";
@@ -75,8 +83,24 @@ import * as UpdateQueryDetails from "./update-query-details";
 export import UpdateQueryDetails = UpdateQueryDetails.UpdateQueryDetails;
 import * as UpdateScheduleDetails from "./update-schedule-details";
 export import UpdateScheduleDetails = UpdateScheduleDetails.UpdateScheduleDetails;
+import * as UpdateUsageCarbonEmissionsQueryDetails from "./update-usage-carbon-emissions-query-details";
+export import UpdateUsageCarbonEmissionsQueryDetails = UpdateUsageCarbonEmissionsQueryDetails.UpdateUsageCarbonEmissionsQueryDetails;
 import * as UsageAggregation from "./usage-aggregation";
 export import UsageAggregation = UsageAggregation.UsageAggregation;
+import * as UsageCarbonEmissionAggregation from "./usage-carbon-emission-aggregation";
+export import UsageCarbonEmissionAggregation = UsageCarbonEmissionAggregation.UsageCarbonEmissionAggregation;
+import * as UsageCarbonEmissionSummary from "./usage-carbon-emission-summary";
+export import UsageCarbonEmissionSummary = UsageCarbonEmissionSummary.UsageCarbonEmissionSummary;
+import * as UsageCarbonEmissionsQuery from "./usage-carbon-emissions-query";
+export import UsageCarbonEmissionsQuery = UsageCarbonEmissionsQuery.UsageCarbonEmissionsQuery;
+import * as UsageCarbonEmissionsQueryCollection from "./usage-carbon-emissions-query-collection";
+export import UsageCarbonEmissionsQueryCollection = UsageCarbonEmissionsQueryCollection.UsageCarbonEmissionsQueryCollection;
+import * as UsageCarbonEmissionsQueryDefinition from "./usage-carbon-emissions-query-definition";
+export import UsageCarbonEmissionsQueryDefinition = UsageCarbonEmissionsQueryDefinition.UsageCarbonEmissionsQueryDefinition;
+import * as UsageCarbonEmissionsQuerySummary from "./usage-carbon-emissions-query-summary";
+export import UsageCarbonEmissionsQuerySummary = UsageCarbonEmissionsQuerySummary.UsageCarbonEmissionsQuerySummary;
+import * as UsageCarbonEmissionsReportQuery from "./usage-carbon-emissions-report-query";
+export import UsageCarbonEmissionsReportQuery = UsageCarbonEmissionsReportQuery.UsageCarbonEmissionsReportQuery;
 import * as UsageSummary from "./usage-summary";
 export import UsageSummary = UsageSummary.UsageSummary;
 

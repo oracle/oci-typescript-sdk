@@ -61,6 +61,10 @@ export interface UpdateTaskDetails {
   "parameters"?: Array<model.Parameter>;
   "opConfigValues"?: model.ConfigValues;
   "configProviderDelegate"?: model.ConfigProvider;
+  /**
+   * Whether the same task can be executed concurrently.
+   */
+  "isConcurrentAllowed"?: boolean;
   "registryMetadata"?: model.RegistryMetadata;
 
   "modelType": string;
@@ -94,6 +98,7 @@ export namespace UpdateTaskDetails {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.ConfigProvider.getJsonObj(obj.configProviderDelegate)
           : undefined,
+
         "registryMetadata": obj.registryMetadata
           ? model.RegistryMetadata.getJsonObj(obj.registryMetadata)
           : undefined
@@ -167,6 +172,7 @@ export namespace UpdateTaskDetails {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
           : undefined,
+
         "registryMetadata": obj.registryMetadata
           ? model.RegistryMetadata.getDeserializedJsonObj(obj.registryMetadata)
           : undefined

@@ -157,6 +157,14 @@ Example: `2018-05-25T21:10:29.600Z`
 * 
     */
   "timeMaintenanceRebootDue"?: Date;
+  /**
+   * The OCID of the dedicated virtual machine host to place the instance on.
+   * Supported only if this VM instance was already placed on a dedicated virtual machine host
+   * - that is, you can't move an instance from on-demand capacity to dedicated capacity,
+   * nor can you move an instance from dedicated capacity to on-demand capacity.
+   *
+   */
+  "dedicatedVmHostId"?: string;
 }
 
 export namespace UpdateInstanceDetails {

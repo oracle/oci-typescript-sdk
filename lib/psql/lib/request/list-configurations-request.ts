@@ -23,7 +23,7 @@ export interface ListConfigurationsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources if their `lifecycleState` matches the given `lifecycleState`.
    */
   "lifecycleState"?: string;
   /**
@@ -31,15 +31,17 @@ export interface ListConfigurationsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * Verison of the Postgresql DB like 14.5
+   * Verison of the PostgreSQL database, such as 14.9.
    */
   "dbVersion"?: string;
   /**
-   * Shape name of the compute like VM.Standard.E4.Flex or VM.Standard3.Flex
+   * The name of the shape for the configuration.
+   * Example: `VM.Standard.E4.Flex`
+   *
    */
   "shape"?: string;
   /**
-   * unique Configuration identifier
+   * A unique identifier for the configuration.
    */
   "configurationId"?: string;
   /**

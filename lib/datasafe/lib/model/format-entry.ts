@@ -125,6 +125,11 @@ export namespace FormatEntry {
             <model.SubstringFormatEntry>(<object>jsonObj),
             true
           );
+        case "PATTERN":
+          return model.PatternFormatEntry.getJsonObj(
+            <model.PatternFormatEntry>(<object>jsonObj),
+            true
+          );
         case "RANDOM_NUMBER":
           return model.RandomNumberFormatEntry.getJsonObj(
             <model.RandomNumberFormatEntry>(<object>jsonObj),
@@ -249,6 +254,11 @@ export namespace FormatEntry {
         case "SUBSTRING":
           return model.SubstringFormatEntry.getDeserializedJsonObj(
             <model.SubstringFormatEntry>(<object>jsonObj),
+            true
+          );
+        case "PATTERN":
+          return model.PatternFormatEntry.getDeserializedJsonObj(
+            <model.PatternFormatEntry>(<object>jsonObj),
             true
           );
         case "RANDOM_NUMBER":

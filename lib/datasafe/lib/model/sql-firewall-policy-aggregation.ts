@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of SQL firewall policy.
+ * The details of SQL Firewall policy.
  */
 export interface SqlFirewallPolicyAggregation {
   "dimensions": model.SqlFirewallPolicyDimensions;

@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The dimensions available for SQL firewall policy analytics.
+ * The dimensions available for SQL Firewall policy analytics.
  */
 export interface SqlFirewallPolicyDimensions {
   /**
-   * The OCID of the security policy corresponding to the SQL firewall policy.
+   * The OCID of the security policy corresponding to the SQL Firewall policy.
    */
   "securityPolicyId"?: string;
   /**
-   * Specifies the SQL firewall policy enforcement option.
+   * Specifies the SQL Firewall policy enforcement option.
    */
   "enforcementScope"?: SqlFirewallPolicyDimensions.EnforcementScope;
   /**
-   * Specifies the mode in which the SQL firewall policy is enabled.
+   * Specifies the mode in which the SQL Firewall policy is enabled.
    */
   "violationAction"?: SqlFirewallPolicyDimensions.ViolationAction;
   /**
-   * The current state of the SQL firewall policy.
+   * The current state of the SQL Firewall policy.
    */
   "lifecycleState"?: model.SqlFirewallPolicyLifecycleState;
 }

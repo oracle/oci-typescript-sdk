@@ -26,6 +26,7 @@ export enum FormatEntryType {
   FixedString = "FIXED_STRING",
   LibraryMaskingFormat = "LIBRARY_MASKING_FORMAT",
   NullValue = "NULL_VALUE",
+  Pattern = "PATTERN",
   PostProcessingFunction = "POST_PROCESSING_FUNCTION",
   PreserveOriginalData = "PRESERVE_ORIGINAL_DATA",
   RandomDate = "RANDOM_DATE",

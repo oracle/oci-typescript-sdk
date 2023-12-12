@@ -61,6 +61,10 @@ export interface TaskSummary {
   "parameters"?: Array<model.Parameter>;
   "opConfigValues"?: model.ConfigValues;
   "configProviderDelegate"?: model.ConfigProvider;
+  /**
+   * Whether the same task can be executed concurrently.
+   */
+  "isConcurrentAllowed"?: boolean;
   "metadata"?: model.ObjectMetadata;
   /**
    * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
@@ -98,6 +102,7 @@ export namespace TaskSummary {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.ConfigProvider.getJsonObj(obj.configProviderDelegate)
           : undefined,
+
         "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined
       }
     };
@@ -169,6 +174,7 @@ export namespace TaskSummary {
         "configProviderDelegate": obj.configProviderDelegate
           ? model.ConfigProvider.getDeserializedJsonObj(obj.configProviderDelegate)
           : undefined,
+
         "metadata": obj.metadata
           ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
           : undefined

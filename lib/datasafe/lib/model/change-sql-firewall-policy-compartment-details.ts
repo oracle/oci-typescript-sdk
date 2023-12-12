@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeSqlFirewallPolicyCompartmentDetails {
   /**
-   * The OCID of the compartment where you want to move the SQL firewall policy.
+   * The OCID of the compartment where you want to move the SQL Firewall policy.
    */
   "compartmentId": string;
 }

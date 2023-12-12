@@ -57,7 +57,7 @@ import getChunk from "./lib/chunker";
 import { ConfigFileReader } from "./lib/config-file-reader";
 import { Method, composeRequest, Params } from "./lib/request-generator";
 import { composeResponse } from "./lib/response-generator";
-import { isServiceEnabled } from "./lib/alloyConfiguration";
+import * as developerToolConfiguration from "./lib/developertoolconfiguration";
 export import AuthenticationDetailsProvider = auth.AuthenticationDetailsProvider;
 export import SimpleAuthenticationDetailsProvider = auth.SimpleAuthenticationDetailsProvider;
 export import RegionProvider = auth.RegionProvider;
@@ -124,5 +124,5 @@ export {
   getChunk,
   utils,
   OkeWorkloadIdentityAuthenticationDetailsProvider,
-  isServiceEnabled
+  developerToolConfiguration
 };

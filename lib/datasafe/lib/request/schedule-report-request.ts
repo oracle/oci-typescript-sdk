@@ -23,7 +23,7 @@ export interface ScheduleReportRequest extends common.BaseRequest {
    */
   "reportDefinitionId": string;
   /**
-   * The details for the audit report schedule. It contains details such as schedule, PDF/XLS and number of rows.
+   * The details for the audit report schedule. It contains details such as schedule, MIME type .xls/.pdf and number of rows.
    */
   "scheduleReportDetails": model.ScheduleReportDetails;
   /**

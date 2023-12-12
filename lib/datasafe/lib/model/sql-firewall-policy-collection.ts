@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of SQL firewall policy summary.
+ * Collection of SQL Firewall policy summary.
  */
 export interface SqlFirewallPolicyCollection {
   /**
-   * Array of SQL firewall policy summary.
+   * Array of SQL Firewall policy summary.
    */
   "items": Array<model.SqlFirewallPolicySummary>;
 }

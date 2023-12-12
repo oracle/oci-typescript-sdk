@@ -31,11 +31,11 @@ export interface CreateScheduleDetails {
    */
   "description"?: string;
   /**
-   * Specifies supported output file format.
+   * Specifies the supported output file format.
    */
   "outputFileFormat"?: CreateScheduleDetails.OutputFileFormat;
   /**
-   * The saved report id which can also be used to generate query.
+   * The saved report ID which can also be used to generate a query.
    */
   "savedReportId"?: string;
   "resultLocation": model.ObjectStorageLocation;

@@ -27,7 +27,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "workRequestId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given OperationStatus.
+   * A filter to return only resources if their `lifecycleState` matches the given OperationStatus.
    */
   "status"?: model.OperationStatus;
   /**

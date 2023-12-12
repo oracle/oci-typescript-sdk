@@ -15,43 +15,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to update the SQL firewall policy.
+ * Details to update the SQL Firewall policy.
  */
 export interface UpdateSqlFirewallPolicyDetails {
   /**
-   * The display name of the SQL firewall policy. The name does not have to be unique, and it is changeable.
+   * The display name of the SQL Firewall policy. The name does not have to be unique, and it is changeable.
    */
   "displayName"?: string;
   /**
-   * The description of the SQL firewall policy.
+   * The description of the SQL Firewall policy.
    */
   "description"?: string;
   /**
-   * Specifies whether the SQL firewall policy is enabled or disabled.
+   * Specifies whether the SQL Firewall policy is enabled or disabled.
    */
   "status"?: UpdateSqlFirewallPolicyDetails.Status;
   /**
-   * Specifies the SQL firewall policy enforcement option.
+   * Specifies the SQL Firewall policy enforcement option.
    */
   "enforcementScope"?: UpdateSqlFirewallPolicyDetails.EnforcementScope;
   /**
-   * Specifies the SQL firewall action based on detection of SQL firewall violations.
+   * Specifies the SQL Firewall action based on detection of SQL Firewall violations.
    */
   "violationAction"?: UpdateSqlFirewallPolicyDetails.ViolationAction;
   /**
-   * Specifies whether a unified audit policy should be enabled for auditing the SQL firewall policy violations.
+   * Specifies whether a unified audit policy should be enabled for auditing the SQL Firewall policy violations.
    */
   "violationAudit"?: UpdateSqlFirewallPolicyDetails.ViolationAudit;
   /**
-   * List of allowed ip addresses for the SQL firewall policy.
+   * List of allowed ip addresses for the SQL Firewall policy.
    */
   "allowedClientIps"?: Array<string>;
   /**
-   * List of allowed operating system user names for the SQL firewall policy.
+   * List of allowed operating system user names for the SQL Firewall policy.
    */
   "allowedClientOsUsernames"?: Array<string>;
   /**
-   * List of allowed client programs for the SQL firewall policy.
+   * List of allowed client programs for the SQL Firewall policy.
    */
   "allowedClientPrograms"?: Array<string>;
   /**
