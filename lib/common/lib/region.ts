@@ -110,6 +110,7 @@ export class Region {
     public static MX_MONTERREY_1: Region = Region.register("mx-monterrey-1", Realm.OC1, "mty");
     public static US_SALTLAKE_2: Region = Region.register("us-saltlake-2", Realm.OC1, "aga");
     public static SA_BOGOTA_1: Region = Region.register("sa-bogota-1", Realm.OC1, "bog");
+    public static SA_VALPARAISO_1: Region = Region.register("sa-valparaiso-1", Realm.OC1, "vap");
 
     // OC2
     public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2, "lfi");
