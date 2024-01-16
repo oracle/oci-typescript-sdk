@@ -19,7 +19,7 @@ import common = require("oci-common");
 /**
 * For use with Oracle Cloud Infrastructure FastConnect. Each
 * {@link VirtualCircuit} runs on one or
-* more cross-connects or cross-connect groups. A `CrossConnectMapping`
+* more cross-connects or cross-connect groups. A {@code CrossConnectMapping}
 * contains the properties for an individual cross-connect or cross-connect group
 * associated with a given virtual circuit.
 * <p>
@@ -43,7 +43,7 @@ Who specifies the BGP peering information in the case of customer connection via
 * peering information. There's one exception: for a public virtual circuit, Oracle
 * specifies the BGP IPv4 addresses.
 * <p>
-Every `CrossConnectMapping` must have BGP IPv4 peering addresses. BGP IPv6 peering
+Every {@code CrossConnectMapping} must have BGP IPv4 peering addresses. BGP IPv6 peering
 * addresses are optional. If BGP IPv6 addresses are provided, the customer can
 * exchange IPv6 routes with Oracle.
 * 
@@ -73,7 +73,7 @@ export interface CrossConnectMapping {
 * <p>
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv4 addresses.
 * <p>
-Example: `10.0.0.18/31`
+Example: {@code 10.0.0.18/31}
 * 
     */
   "customerBgpPeeringIp"?: string;
@@ -85,7 +85,7 @@ Example: `10.0.0.18/31`
 * <p>
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv4 addresses.
 * <p>
-Example: `10.0.0.19/31`
+Example: {@code 10.0.0.19/31}
 * 
     */
   "oracleBgpPeeringIp"?: string;
@@ -101,7 +101,7 @@ There's one exception: for a public virtual circuit, Oracle specifies the BGP IP
 IPv6 addressing is supported for all commercial and government regions. See
 * [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-Example: `2001:db8::1/64`
+Example: {@code 2001:db8::1/64}
 * 
     */
   "customerBgpPeeringIpv6"?: string;
@@ -116,7 +116,7 @@ There's one exception: for a public virtual circuit, Oracle specifies the BGP IP
 Note that IPv6 addressing is currently supported only in certain regions. See
 * [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-Example: `2001:db8::2/64`
+Example: {@code 2001:db8::2/64}
 * 
     */
   "oracleBgpPeeringIpv6"?: string;
@@ -126,7 +126,7 @@ Example: `2001:db8::2/64`
 * or cross-connect group (the customer if the customer is colocated with Oracle, or
 * the provider if the customer is connecting via provider).
 * <p>
-Example: `200`
+Example: {@code 200}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vlan"?: number;

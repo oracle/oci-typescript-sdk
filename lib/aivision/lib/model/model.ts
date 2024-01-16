@@ -107,19 +107,19 @@ export interface Model {
   "metrics"?: string;
   /**
    * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
-   * For example: `{\"bar-key\": \"value\"}`
+   * For example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * For example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * For example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * For example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

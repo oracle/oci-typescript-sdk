@@ -25,7 +25,7 @@ import common = require("oci-common");
 export interface ObjectStorageConfigSourceRecord extends model.ConfigSourceRecord {
   /**
    * The name of the bucket's region.
-   * Example: `us-phoenix-1`
+   * Example: {@code us-phoenix-1}
    *
    */
   "region": string;

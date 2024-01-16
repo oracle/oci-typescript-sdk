@@ -35,7 +35,7 @@ export interface CreateOperationsInsightsWarehouseUserResponse {
    */
   "contentLocation": string;
   /**
-   * For optimistic concurrency control. See `if-match`.
+   * For optimistic concurrency control. See {@code if-match}.
    *
    */
   "etag": string;

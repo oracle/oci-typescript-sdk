@@ -28,7 +28,7 @@ export interface CreateSaml2IdentityProviderDetails extends model.CreateIdentity
   "metadata": string;
   /**
    * Extra name value pairs associated with this identity provider.
-   * Example: `{\"clientId\": \"app_sf3kdjf3\"}`
+   * Example: {@code {\"clientId\": \"app_sf3kdjf3\"}}
    *
    */
   "freeformAttributes"?: { [key: string]: string };

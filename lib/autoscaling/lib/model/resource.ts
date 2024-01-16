@@ -21,7 +21,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* A resource that is managed by an autoscaling configuration. The only supported type is `instancePool`.
+* A resource that is managed by an autoscaling configuration. The only supported type is {@code instancePool}.
 * <p>
 Each instance pool can have one autoscaling configuration.
 * 

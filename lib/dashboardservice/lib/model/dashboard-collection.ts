@@ -23,7 +23,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a dashboard search. Contains `DashboardSummary` items.
+ * Results of a dashboard search. Contains {@code DashboardSummary} items.
  */
 export interface DashboardCollection {
   /**

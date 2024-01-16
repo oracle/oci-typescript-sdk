@@ -76,14 +76,14 @@ export interface AutonomousContainerDatabaseDataguardAssociation {
     * The lag time between updates to the primary Autonomous Container Database and application of the redo data on the standby Autonomous Container Database,
 * as computed by the reporting database.
 * <p>
-Example: `9 seconds`
+Example: {@code 9 seconds}
 * 
     */
   "applyLag"?: string;
   /**
     * The rate at which redo logs are synchronized between the associated Autonomous Container Databases.
 * <p>
-Example: `180 Mb per second`
+Example: {@code 180 Mb per second}
 * 
     */
   "applyRate"?: string;
@@ -96,7 +96,7 @@ Example: `180 Mb per second`
     * The approximate number of seconds of redo data not yet available on the standby Autonomous Container Database,
 * as computed by the reporting database.
 * <p>
-Example: `7 seconds`
+Example: {@code 7 seconds}
 * 
     */
   "transportLag"?: string;

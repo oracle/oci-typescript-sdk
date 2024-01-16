@@ -43,7 +43,7 @@ To get a list of Fault Domains, use the
 * {@link #listFaultDomains(ListFaultDomainsRequest) listFaultDomains} operation in the
 * Identity and Access Management Service API.
 * <p>
-Example: `FAULT-DOMAIN-1`
+Example: {@code FAULT-DOMAIN-1}
 * 
     */
   "faultDomains"?: Array<string>;
@@ -102,7 +102,7 @@ To get a list of shapes, use the {@link #listDbSystemShapes(ListDbSystemShapesRe
   "timeZone"?: string;
   "dbSystemOptions"?: model.DbSystemOptions;
   /**
-   * The block storage volume performance level. Valid values are `BALANCED` and `HIGH_PERFORMANCE`. See [Block Volume Performance](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumeperformance.htm) for more information.
+   * The block storage volume performance level. Valid values are {@code BALANCED} and {@code HIGH_PERFORMANCE}. See [Block Volume Performance](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumeperformance.htm) for more information.
    *
    */
   "storageVolumePerformanceMode"?: LaunchDbSystemBase.StorageVolumePerformanceMode;
@@ -187,7 +187,7 @@ This parameter is not used for INTEL virtual machine DB systems because virtual 
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

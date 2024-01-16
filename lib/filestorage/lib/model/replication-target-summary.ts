@@ -23,7 +23,7 @@ import common = require("oci-common");
 export interface ReplicationTargetSummary {
   /**
    * The availability domain the replication target is in. Must be in the same availability domain as the target file system.
-   * Example: `Uocm:PHX-AD-1`
+   * Example: {@code Uocm:PHX-AD-1}
    *
    */
   "availabilityDomain"?: string;
@@ -41,14 +41,14 @@ export interface ReplicationTargetSummary {
   "lifecycleState": ReplicationTargetSummary.LifecycleState;
   /**
    * A user-friendly name. This name is the same as the associated replication name.
-   * Example: `My replication`
+   * Example: {@code My replication}
    *
    */
   "displayName": string;
   /**
    * The date and time the replication was created
    * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
-   * Example: `2021-02-02T21:10:29.600Z`
+   * Example: {@code 2021-02-02T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
@@ -56,14 +56,14 @@ export interface ReplicationTargetSummary {
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -74,7 +74,7 @@ export interface ReplicationTargetSummary {
   /**
    * The snapshotTime of the most recent recoverable replication snapshot
    * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
-   * Example: `2021-04-04T20:01:29.100Z`
+   * Example: {@code 2021-04-04T20:01:29.100Z}
    *
    */
   "recoveryPointTime"?: Date;

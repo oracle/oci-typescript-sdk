@@ -35,7 +35,7 @@ export interface ListDbServersRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListDbServersRequest.SortOrder;
   /**

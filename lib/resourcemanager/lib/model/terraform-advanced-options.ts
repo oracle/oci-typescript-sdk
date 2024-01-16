@@ -25,8 +25,8 @@ import common = require("oci-common");
 export interface TerraformAdvancedOptions {
   /**
    * Specifies whether to refresh the state for each resource before running the job (operation).
-   * Refreshing the state can affect performance. Consider setting to `false` if the configuration includes several resources.
-   * Used with the following operations: `PLAN`, `APPLY`, `DESTROY`.
+   * Refreshing the state can affect performance. Consider setting to {@code false} if the configuration includes several resources.
+   * Used with the following operations: {@code PLAN}, {@code APPLY}, {@code DESTROY}.
    *
    */
   "isRefreshRequired"?: boolean;
@@ -34,7 +34,7 @@ export interface TerraformAdvancedOptions {
    * Limits the number of concurrent Terraform operations when [walking the graph](https://www.terraform.io/docs/internals/graph.html#walking-the-graph).
    * Use this parameter to help debug Terraform issues or to accomplish certain special use cases.
    * A higher value might cause resources to be throttled.
-   * Used with the following operations: `PLAN`, `APPLY`, `DESTROY`.
+   * Used with the following operations: {@code PLAN}, {@code APPLY}, {@code DESTROY}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parallelism"?: number;

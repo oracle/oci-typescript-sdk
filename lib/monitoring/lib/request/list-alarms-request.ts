@@ -23,7 +23,7 @@ export interface ListAlarmsRequest extends common.BaseRequest {
 * resources monitored by the metric that you are searching for. Use tenancyId to search in
 * the root compartment.
 * <p>
-Example: `ocid1.compartment.oc1..exampleuniqueID`
+Example: {@code ocid1.compartment.oc1..exampleuniqueID}
 * 
  */
   "compartmentId": string;
@@ -34,7 +34,7 @@ Example: `ocid1.compartment.oc1..exampleuniqueID`
    */
   "opcRequestId"?: string;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call.
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
    * For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -65,14 +65,14 @@ Example: 500
   /**
  * The field to use when sorting returned alarm definitions. Only one sorting level is provided.
 * <p>
-Example: `severity`
+Example: {@code severity}
 * 
  */
   "sortBy"?: ListAlarmsRequest.SortBy;
   /**
  * The sort order to use when sorting returned alarm definitions. Ascending (ASC) or descending (DESC).
 * <p>
-Example: `ASC`
+Example: {@code ASC}
 * 
  */
   "sortOrder"?: ListAlarmsRequest.SortOrder;

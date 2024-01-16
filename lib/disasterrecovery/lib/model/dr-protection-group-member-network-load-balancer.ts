@@ -27,7 +27,7 @@ export interface DrProtectionGroupMemberNetworkLoadBalancer extends model.DrProt
     * The OCID of the destination network load balancer.
 * The backend sets in this destination network load balancer are updated during DR.              
 * <p>
-Example: `ocid1.networkloadbalancer.oc1..uniqueID`
+Example: {@code ocid1.networkloadbalancer.oc1..uniqueID}
 * 
     */
   "destinationNetworkLoadBalancerId"?: string;

@@ -41,19 +41,19 @@ export interface LoadSqlPlanBaselinesFromAwrDetails {
   /**
    * A filter applied to AWR to select only qualifying plans to be loaded.
    * By default all plans in AWR are selected. The filter can take the form of
-   * any `WHERE` clause predicate that can be specified against the column
-   * `DBA_HIST_SQLTEXT.SQL_TEXT`. An example is `sql_text like 'SELECT %'`.
+   * any {@code WHERE} clause predicate that can be specified against the column
+   * {@code DBA_HIST_SQLTEXT.SQL_TEXT}. An example is {@code sql_text like 'SELECT %'}.
    *
    */
   "sqlTextFilter"?: string;
   /**
-   * Indicates whether the plans are loaded as fixed plans (`true`) or non-fixed plans (`false`).
+   * Indicates whether the plans are loaded as fixed plans ({@code true}) or non-fixed plans ({@code false}).
    * By default, they are loaded as non-fixed plans.
    *
    */
   "isFixed"?: boolean;
   /**
-   * Indicates whether the loaded plans are enabled (`true`) or not (`false`).
+   * Indicates whether the loaded plans are enabled ({@code true}) or not ({@code false}).
    * By default, they are enabled.
    *
    */

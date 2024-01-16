@@ -40,7 +40,7 @@ export interface ListAutoAssociationsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListAutoAssociationsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListAutoAssociationsRequest.SortOrder;

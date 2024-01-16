@@ -25,21 +25,21 @@ export interface DrPlanGroup {
   /**
     * The unique id of the group. Must not be modified by user.
 * <p>
-Example: `sgid1.group..uniqueID`
+Example: {@code sgid1.group..uniqueID}
 * 
     */
   "id": string;
   /**
     * The group type.
 * <p>
-Example: `BUILT_IN`
+Example: {@code BUILT_IN}
 * 
     */
   "type": model.DrPlanGroupType;
   /**
     * The display name of the group.
 * <p>
-Example: `DATABASE_SWITCHOVER`
+Example: {@code DATABASE_SWITCHOVER}
 * 
     */
   "displayName": string;

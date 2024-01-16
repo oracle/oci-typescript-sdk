@@ -40,7 +40,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * For list pagination. The value of the `opc-next-page` or `opc-previous-page` response header from the previous \"List\" call.
+   * For list pagination. The value of the {@code opc-next-page} or {@code opc-previous-page} response header from the previous \"List\" call.
    * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */

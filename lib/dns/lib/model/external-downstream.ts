@@ -18,7 +18,7 @@ import common = require("oci-common");
 
 /**
  * External downstream nameserver for the zone.
- * This field is currently not supported when `zoneType` is `SECONDARY` or `scope` is `PRIVATE`.
+ * This field is currently not supported when {@code zoneType} is {@code SECONDARY} or {@code scope} is {@code PRIVATE}.
  *
  */
 export interface ExternalDownstream {

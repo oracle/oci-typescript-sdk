@@ -29,9 +29,9 @@ export interface GetHttpMonitorRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The `If-None-Match` header field makes the request method conditional on
+   * The {@code If-None-Match} header field makes the request method conditional on
    * the absence of any current representation of the target resource, when
-   * the field-value is `*`, or having a selected representation with an
+   * the field-value is {@code *}, or having a selected representation with an
    * entity-tag that does not match any of those listed in the field-value.
    *
    */

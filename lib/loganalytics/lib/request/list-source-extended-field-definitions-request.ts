@@ -40,7 +40,7 @@ export interface ListSourceExtendedFieldDefinitionsRequest extends common.BaseRe
    */
   "sortBy"?: ListSourceExtendedFieldDefinitionsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListSourceExtendedFieldDefinitionsRequest.SortOrder;

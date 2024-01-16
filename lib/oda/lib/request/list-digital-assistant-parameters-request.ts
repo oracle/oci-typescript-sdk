@@ -41,19 +41,19 @@ export interface ListDigitalAssistantParametersRequest extends common.BaseReques
   /**
  * The page at which to start retrieving results.
 * <p>
-You get this value from the `opc-next-page` header in a previous list request.
+You get this value from the {@code opc-next-page} header in a previous list request.
 * To retireve the first page, omit this query parameter.
 * <p>
-Example: `MToxMA==`
+Example: {@code MToxMA==}
 * 
  */
   "page"?: string;
   /**
-   * Sort the results in this order, use either `ASC` (ascending) or `DESC` (descending).
+   * Sort the results in this order, use either {@code ASC} (ascending) or {@code DESC} (descending).
    */
   "sortOrder"?: ListDigitalAssistantParametersRequest.SortOrder;
   /**
- * Sort on this field. You can specify one sort order only. The default sort field is `name`.
+ * Sort on this field. You can specify one sort order only. The default sort field is {@code name}.
 * <p>
 The default sort order is ascending.
 * 

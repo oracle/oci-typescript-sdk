@@ -23,9 +23,9 @@ import common = require("oci-common");
  */
 export interface MonitoringSourceSelectedNamespace {
   /**
-    * The source service or application to use when querying for metric data points. Must begin with `oci_`.
+    * The source service or application to use when querying for metric data points. Must begin with {@code oci_}.
 * <p>
-Example: `oci_computeagent`
+Example: {@code oci_computeagent}
 * 
     */
   "namespace": string;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for updating a connection of the type `BITBUCKET_SERVER_ACCESS_TOKEN`.
+ * The details for updating a connection of the type {@code BITBUCKET_SERVER_ACCESS_TOKEN}.
  * This type corresponds to a connection in Bitbucket that is authenticated with a personal access token.
  *
  */

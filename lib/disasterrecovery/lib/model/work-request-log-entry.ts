@@ -25,14 +25,14 @@ export interface WorkRequestLogEntry {
   /**
     * A human-readable log message.
 * <p>
-Example: `DR plan execution is in progress`
+Example: {@code DR plan execution is in progress}
 * 
     */
   "message": string;
   /**
     * The time the log message was written. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timestamp": Date;

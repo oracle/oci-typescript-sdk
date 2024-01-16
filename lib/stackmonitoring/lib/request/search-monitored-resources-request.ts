@@ -31,7 +31,7 @@ export interface SearchMonitoredResourcesRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the
+   * For list pagination. The value of the {@code opc-next-page} response header from the
    * previous \"List\" call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -82,7 +82,7 @@ export interface SearchMonitoredResourcesRequest extends common.BaseRequest {
   "opcRetryToken"?: string;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
    * The resource will be updated or deleted only if the etag you
    * provide matches the resource's current etag value.

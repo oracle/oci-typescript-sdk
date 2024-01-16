@@ -25,14 +25,14 @@ export interface RetryDrPlanExecutionDetails {
   /**
     * The unique id of the group to retry as a whole, or the group containing the step being retried.
 * <p>
-Example: `sgid1.group..uniqueID`
+Example: {@code sgid1.group..uniqueID}
 * 
     */
   "groupId": string;
   /**
     * The unique id of the step to retry (optional). Only needed when retrying a step.
 * <p>
-Example: `sgid1.step..uniqueID`
+Example: {@code sgid1.step..uniqueID}
 * 
     */
   "stepId"?: string;

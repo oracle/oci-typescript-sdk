@@ -28,7 +28,7 @@ export interface LoadBalancerShape {
   /**
     * The name of the shape.
 * <p>
-Example: `100Mbps`
+Example: {@code 100Mbps}
 * 
     */
   "name": string;

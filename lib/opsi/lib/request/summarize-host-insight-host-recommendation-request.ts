@@ -68,7 +68,7 @@ export interface SummarizeHostInsightHostRecommendationRequest extends common.Ba
    * return in a paginated \"List\" call.
    * For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
-   * Example: `50`
+   * Example: {@code 50}
    *
    */
   "limit"?: number;

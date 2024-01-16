@@ -29,7 +29,7 @@ export interface Category {
    */
   "categoryKey"?: string;
   /**
-   * The name of the service category. For example, `Compute` or `Identity`.
+   * The name of the service category. For example, {@code Compute} or {@code Identity}.
    */
   "name"?: string;
 }

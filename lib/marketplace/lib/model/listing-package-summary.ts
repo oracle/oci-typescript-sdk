@@ -44,7 +44,7 @@ export interface ListingPackageSummary {
     * The date and time this listing package was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;

@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to update a `PathAnalyzerTest` resource.
+ * Details to update a {@code PathAnalyzerTest} resource.
  */
 export interface UpdatePathAnalyzerTestDetails {
   /**
@@ -27,7 +27,7 @@ export interface UpdatePathAnalyzerTestDetails {
    */
   "displayName"?: string;
   /**
-   * The IP protocol to use in the `PathAnalyzerTest` resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The IP protocol to use in the {@code PathAnalyzerTest} resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "protocol"?: number;
   "sourceEndpoint"?:
@@ -57,13 +57,13 @@ export interface UpdatePathAnalyzerTestDetails {
   "queryOptions"?: model.QueryOptions;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

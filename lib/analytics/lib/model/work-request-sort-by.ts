@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The supported work request `sort by` columns.
+ * The supported work request {@code sort by} columns.
  *
  **/
 export enum WorkRequestSortBy {

@@ -34,8 +34,8 @@ export interface ListSuppressionsRequest extends common.BaseRequest {
    * Search for suppressions that were created within a specific date range,
    * using this parameter to specify the earliest creation date for the
    * returned list (inclusive). Specifying this parameter without the
-   * corresponding `timeCreatedLessThan` parameter will retrieve suppressions created from the
-   * given `timeCreatedGreaterThanOrEqualTo` to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
+   * corresponding {@code timeCreatedLessThan} parameter will retrieve suppressions created from the
+   * given {@code timeCreatedGreaterThanOrEqualTo} to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
    * Z offset, as defined by RFC 3339.
    * <p>
    **Example:** 2016-12-19T16:39:57.600Z
@@ -46,7 +46,7 @@ export interface ListSuppressionsRequest extends common.BaseRequest {
    * Search for suppressions that were created within a specific date range,
    * using this parameter to specify the latest creation date for the returned
    * list (exclusive). Specifying this parameter without the corresponding
-   * `timeCreatedGreaterThanOrEqualTo` parameter will retrieve all suppressions created before the
+   * {@code timeCreatedGreaterThanOrEqualTo} parameter will retrieve all suppressions created before the
    * specified end date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
    * defined by RFC 3339.
    * <p>
@@ -63,15 +63,15 @@ export interface ListSuppressionsRequest extends common.BaseRequest {
   "page"?: string;
   /**
    * For list pagination. The maximum number of results per page, or items to return in a
-   * paginated \"List\" call. `1` is the minimum, `1000` is the maximum. For important details about
+   * paginated \"List\" call. {@code 1} is the minimum, {@code 1000} is the maximum. For important details about
    * how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
-   * The field to sort by. The `TIMECREATED` value returns the list in in
-   * descending order by default. The `EMAILADDRESS` value returns the list in
-   * ascending order by default. Use the `SortOrderQueryParam` to change the
+   * The field to sort by. The {@code TIMECREATED} value returns the list in in
+   * descending order by default. The {@code EMAILADDRESS} value returns the list in
+   * ascending order by default. Use the {@code SortOrderQueryParam} to change the
    * direction of the returned list of items.
    *
    */

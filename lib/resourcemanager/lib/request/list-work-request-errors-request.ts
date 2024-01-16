@@ -28,19 +28,19 @@ export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * The number of items returned in a paginated `List` call. For information about pagination, see
+   * The number of items returned in a paginated {@code List} call. For information about pagination, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the preceding `List` call.
+   * The value of the {@code opc-next-page} response header from the preceding {@code List} call.
    * For information about pagination, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
-   * The sort order to use when sorting returned resources. Ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use when sorting returned resources. Ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListWorkRequestErrorsRequest.SortOrder;

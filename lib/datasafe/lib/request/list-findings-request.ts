@@ -27,9 +27,17 @@ export interface ListFindingsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * A filter to return only the findings that are marked as top findings.
+   */
+  "isTopFinding"?: boolean;
+  /**
    * A filter to return only findings of a particular risk level.
    */
   "severity"?: ListFindingsRequest.Severity;
+  /**
+   * A filter to return only the findings that match the specified lifecycle states.
+   */
+  "lifecycleState"?: model.FindingLifecycleState;
   /**
    * An optional filter to return only findings that match the specified reference.
    */
@@ -71,7 +79,8 @@ export namespace ListFindingsRequest {
     Low = "LOW",
     Evaluate = "EVALUATE",
     Advisory = "ADVISORY",
-    Pass = "PASS"
+    Pass = "PASS",
+    Deferred = "DEFERRED"
   }
 
   export enum AccessLevel {

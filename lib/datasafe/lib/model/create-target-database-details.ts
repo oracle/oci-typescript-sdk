@@ -38,16 +38,20 @@ export interface CreateTargetDatabaseDetails {
   "tlsConfig"?: model.TlsConfig;
   "connectionOption"?: model.PrivateEndpoint | model.OnPremiseConnector;
   /**
+   * The details of the database to be registered as a peer target database.
+   */
+  "peerTargetDatabaseDetails"?: Array<model.CreatePeerTargetDatabaseDetails>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -65,6 +69,11 @@ export namespace CreateTargetDatabaseDetails {
         "tlsConfig": obj.tlsConfig ? model.TlsConfig.getJsonObj(obj.tlsConfig) : undefined,
         "connectionOption": obj.connectionOption
           ? model.ConnectionOption.getJsonObj(obj.connectionOption)
+          : undefined,
+        "peerTargetDatabaseDetails": obj.peerTargetDatabaseDetails
+          ? obj.peerTargetDatabaseDetails.map(item => {
+              return model.CreatePeerTargetDatabaseDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -86,6 +95,11 @@ export namespace CreateTargetDatabaseDetails {
           : undefined,
         "connectionOption": obj.connectionOption
           ? model.ConnectionOption.getDeserializedJsonObj(obj.connectionOption)
+          : undefined,
+        "peerTargetDatabaseDetails": obj.peerTargetDatabaseDetails
+          ? obj.peerTargetDatabaseDetails.map(item => {
+              return model.CreatePeerTargetDatabaseDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

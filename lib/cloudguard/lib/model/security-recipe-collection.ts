@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a security zone recipe search. Contains `SecurityRecipeSummary` items.
+ * Results of a security zone recipe search. Contains {@code SecurityRecipeSummary} items.
  */
 export interface SecurityRecipeCollection {
   /**

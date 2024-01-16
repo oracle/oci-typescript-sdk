@@ -24,7 +24,7 @@ export interface ListOsnsRequest extends common.BaseRequest {
   "blockchainPlatformId": string;
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
-   * Example: `My new resource`
+   * Example: {@code My new resource}
    *
    */
   "displayName"?: string;

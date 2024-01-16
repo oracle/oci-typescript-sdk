@@ -24,7 +24,7 @@ import common = require("oci-common");
 /**
 * For use with Oracle Cloud Infrastructure FastConnect. Each
 * {@link VirtualCircuit} runs on one or
-* more cross-connects or cross-connect groups. A `CrossConnectMappingDetails`
+* more cross-connects or cross-connect groups. A {@code CrossConnectMappingDetails}
 * contains the properties for an individual cross-connect or cross-connect group
 * associated with a given virtual circuit.
 * <p>
@@ -57,7 +57,7 @@ export interface CrossConnectMappingDetails {
 * <p>
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv4 addresses.
 * <p>
-Example: `10.0.0.18/31`
+Example: {@code 10.0.0.18/31}
 * 
     */
   "customerBgpPeeringIp"?: string;
@@ -69,7 +69,7 @@ Example: `10.0.0.18/31`
 * <p>
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv4 addresses.
 * <p>
-Example: `10.0.0.19/31`
+Example: {@code 10.0.0.19/31}
 * 
     */
   "oracleBgpPeeringIp"?: string;
@@ -82,7 +82,7 @@ Example: `10.0.0.19/31`
 * <p>
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv6 addresses.
 * <p>
-Example: `2001:db8::1/64`
+Example: {@code 2001:db8::1/64}
 * 
     */
   "customerBgpPeeringIpv6"?: string;
@@ -94,7 +94,7 @@ Example: `2001:db8::1/64`
 * <p>
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv6 addresses.
 * <p>
-Example: `2001:db8::2/64`
+Example: {@code 2001:db8::2/64}
 * 
     */
   "oracleBgpPeeringIpv6"?: string;
@@ -104,7 +104,7 @@ Example: `2001:db8::2/64`
 * or cross-connect group (the customer if the customer is colocated with Oracle, or
 * the provider if the customer is connecting via provider).
 * <p>
-Example: `200`
+Example: {@code 200}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vlan"?: number;

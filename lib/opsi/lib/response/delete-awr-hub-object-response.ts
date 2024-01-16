@@ -34,7 +34,7 @@ export interface DeleteAwrHubObjectResponse {
    */
   "versionId": string;
   /**
-   * This is `true` if the deleted object is a delete marker, otherwise `false`
+   * This is {@code true} if the deleted object is a delete marker, otherwise {@code false}
    */
   "isDeleteMarker": boolean;
 }

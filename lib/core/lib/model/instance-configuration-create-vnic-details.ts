@@ -30,20 +30,20 @@ export interface InstanceConfigurationCreateVnicDetails {
   /**
    * Whether to allocate an IPv6 address at instance and VNIC creation from an IPv6 enabled
    * subnet. Default: False. When provided you may optionally provide an IPv6 prefix
-   * (`ipv6SubnetCidr`) of your choice to assign the IPv6 address from. If `ipv6SubnetCidr`
+   * ({@code ipv6SubnetCidr}) of your choice to assign the IPv6 address from. If {@code ipv6SubnetCidr}
    * is not provided then an IPv6 prefix is chosen
    * for you.
    *
    */
   "assignIpv6Ip"?: boolean;
   /**
-   * Whether the VNIC should be assigned a public IP address. See the `assignPublicIp` attribute of {@link CreateVnicDetails}
+   * Whether the VNIC should be assigned a public IP address. See the {@code assignPublicIp} attribute of {@link CreateVnicDetails}
    * for more information.
    *
    */
   "assignPublicIp"?: boolean;
   /**
-   * Whether the VNIC should be assigned a private DNS record. See the `assignPrivateDnsRecord` attribute of {@link CreateVnicDetails}
+   * Whether the VNIC should be assigned a private DNS record. See the {@code assignPrivateDnsRecord} attribute of {@link CreateVnicDetails}
    * for more information.
    *
    */
@@ -52,7 +52,7 @@ export interface InstanceConfigurationCreateVnicDetails {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -66,7 +66,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -82,7 +82,7 @@ Example: `{\"Department\": \"Finance\"}`
   >;
   /**
    * The hostname for the VNIC's primary private IP.
-   * See the `hostnameLabel` attribute of {@link CreateVnicDetails} for more information.
+   * See the {@code hostnameLabel} attribute of {@link CreateVnicDetails} for more information.
    *
    */
   "hostnameLabel"?: string;
@@ -95,19 +95,19 @@ Example: `{\"Department\": \"Finance\"}`
   "nsgIds"?: Array<string>;
   /**
    * A private IP address of your choice to assign to the VNIC.
-   * See the `privateIp` attribute of {@link CreateVnicDetails} for more information.
+   * See the {@code privateIp} attribute of {@link CreateVnicDetails} for more information.
    *
    */
   "privateIp"?: string;
   /**
    * Whether the source/destination check is disabled on the VNIC.
-   * See the `skipSourceDestCheck` attribute of {@link CreateVnicDetails} for more information.
+   * See the {@code skipSourceDestCheck} attribute of {@link CreateVnicDetails} for more information.
    *
    */
   "skipSourceDestCheck"?: boolean;
   /**
    * The OCID of the subnet to create the VNIC in.
-   * See the `subnetId` attribute of {@link CreateVnicDetails} for more information.
+   * See the {@code subnetId} attribute of {@link CreateVnicDetails} for more information.
    *
    */
   "subnetId"?: string;

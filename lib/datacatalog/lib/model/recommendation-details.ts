@@ -64,14 +64,14 @@ export interface RecommendationDetails {
   /**
    * A map of maps that contains additional properties which are specific to the associated objects.
    * Each associated object defines it's set of required and optional properties.
-   * Example: `{
+   * Example: {@code {
    *             \"DataEntity\": {
    *               \"parentId\": \"entityId\"
    *             },
    *             \"Term\": {
    *               \"parentId\": \"glossaryId\"
    *             }
-   *           }`
+   *           }}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

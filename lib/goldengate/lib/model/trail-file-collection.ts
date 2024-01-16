@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface TrailFileCollection {
   /**
    * The time the data was last fetched from the deployment. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeLastFetched": Date;

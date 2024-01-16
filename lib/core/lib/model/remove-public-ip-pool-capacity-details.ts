@@ -27,7 +27,7 @@ import common = require("oci-common");
 export interface RemovePublicIpPoolCapacityDetails {
   /**
    * The CIDR block to remove from the  public IP pool.
-   * Example: `10.0.1.0/24`
+   * Example: {@code 10.0.1.0/24}
    *
    */
   "cidrBlock": string;

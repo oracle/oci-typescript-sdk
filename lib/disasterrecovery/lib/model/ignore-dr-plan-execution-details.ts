@@ -25,14 +25,14 @@ export interface IgnoreDrPlanExecutionDetails {
   /**
     * The unique id of the group to ignore as a whole, or the group containing the step to ignore.
 * <p>
-Example: `sgid1.group..uniqueID`
+Example: {@code sgid1.group..uniqueID}
 * 
     */
   "groupId": string;
   /**
     * The unique id of the step to ignore (optional). Only needed when ignoring a step.
 * <p>
-Example: `sgid1.step..uniqueID`
+Example: {@code sgid1.step..uniqueID}
 * 
     */
   "stepId"?: string;

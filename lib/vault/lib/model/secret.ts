@@ -29,7 +29,7 @@ export interface Secret {
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -40,7 +40,7 @@ export interface Secret {
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -78,19 +78,19 @@ export interface Secret {
   "secretRules"?: Array<model.SecretRule>;
   /**
    * A property indicating when the secret was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
    * An optional property indicating when the current secret version will expire, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeOfCurrentVersionExpiry"?: Date;
   /**
    * An optional property indicating when to delete the secret, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeOfDeletion"?: Date;

@@ -26,14 +26,14 @@ export interface ListServiceConnectorsRequest extends common.BaseRequest {
   /**
  * A filter to return only resources that match the given lifecycle state.
 * <p>
-Example: `ACTIVE`
+Example: {@code ACTIVE}
 * 
  */
   "lifecycleState"?: model.LifecycleState;
   /**
  * A filter to return only resources that match the given display name exactly.
 * <p>
-Example: `example_service_connector`
+Example: {@code example_service_connector}
 * 
  */
   "displayName"?: string;
@@ -57,8 +57,8 @@ Example: `example_service_connector`
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for `timeCreated` is descending.
-   * Default order for `displayName` is ascending. If no value is specified `timeCreated` is default.
+   * The field to sort by. Only one sort order may be provided. Default order for {@code timeCreated} is descending.
+   * Default order for {@code displayName} is ascending. If no value is specified {@code timeCreated} is default.
    *
    */
   "sortBy"?: ListServiceConnectorsRequest.SortBy;

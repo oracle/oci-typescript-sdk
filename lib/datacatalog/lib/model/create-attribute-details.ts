@@ -101,7 +101,7 @@ export interface CreateAttributeDetails {
    * optional properties for an attribute type, a query can be done on '/types?type=attribute' that returns a
    * collection of all attribute types. The appropriate attribute type, which will include definitions of all
    * of it's properties, can be identified from this collection.
-   * Example: `{\"properties\": { \"default\": { \"key1\": \"value1\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"key1\": \"value1\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

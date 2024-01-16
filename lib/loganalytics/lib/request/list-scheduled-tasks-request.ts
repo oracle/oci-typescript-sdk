@@ -49,7 +49,7 @@ export interface ListScheduledTasksRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListScheduledTasksRequest.SortOrder;

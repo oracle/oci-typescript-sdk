@@ -36,26 +36,26 @@ export interface ScriptSummary {
   /**
    * The time the resource was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
    * timestamp format.
-   * Example: `2020-02-12T22:47:12.613Z`
+   * Example: {@code 2020-02-12T22:47:12.613Z}
    *
    */
   "timeCreated"?: Date;
   /**
    * The time the resource was updated, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
    * timestamp format.
-   * Example: `2020-02-13T22:47:12.613Z`
+   * Example: {@code 2020-02-13T22:47:12.613Z}
    *
    */
   "timeUpdated"?: Date;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

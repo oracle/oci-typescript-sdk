@@ -32,7 +32,7 @@ export interface PathRoute {
 * <p>
 *  Regular expressions are not supported.
 * <p>
-Example: `/example/video/123`
+Example: {@code /example/video/123}
 * 
     */
   "path": string;
@@ -43,7 +43,7 @@ Example: `/example/video/123`
   /**
     * The name of the target backend set for requests where the incoming URI matches the specified path.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
     */
   "backendSetName": string;

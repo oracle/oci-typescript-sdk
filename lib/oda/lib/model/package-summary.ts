@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of `Package` object.
+ * Summary of {@code Package} object.
  */
 export interface PackageSummary {
   /**
@@ -61,13 +61,13 @@ export interface PackageSummary {
   "publisherMetadata": Array<model.MetadataProperty>;
   /**
    * Simple key-value pair that is applied without any predefined name, type, or scope.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

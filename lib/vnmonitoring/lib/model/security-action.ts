@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface SecurityAction {
   /**
-   * Type of the `SecurityAction`.
+   * Type of the {@code SecurityAction}.
    */
   "actionType": SecurityAction.ActionType;
 

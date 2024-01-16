@@ -36,7 +36,7 @@ export interface ListWorkersRequest extends common.BaseRequest {
 * \"List\" call. For information on how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "page"?: string;
@@ -49,7 +49,7 @@ Example: `50`
    */
   "capability"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). Default sort order is ascending.
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). Default sort order is ascending.
    *
    */
   "sortOrder"?: model.SortOrders;

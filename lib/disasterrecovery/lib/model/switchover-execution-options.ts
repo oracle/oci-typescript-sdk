@@ -25,14 +25,14 @@ export interface SwitchoverExecutionOptions extends model.DrPlanExecutionOptions
   /**
     * A flag indicating whether prechecks should be executed before the plan execution.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "arePrechecksEnabled"?: boolean;
   /**
     * A flag indicating whether warnings should be ignored during the plan execution.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "areWarningsIgnored"?: boolean;

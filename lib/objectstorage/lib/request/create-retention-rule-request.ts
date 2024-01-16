@@ -24,7 +24,7 @@ export interface CreateRetentionRuleRequest extends common.BaseRequest {
   "namespaceName": string;
   /**
    * The name of the bucket. Avoid entering confidential information.
-   * Example: `my-new-bucket1`
+   * Example: {@code my-new-bucket1}
    *
    */
   "bucketName": string;

@@ -24,10 +24,10 @@ export interface GenerateAutonomousDatabaseWalletDetails {
    * The type of wallet to generate.
    * <p>
    **Serverless instance usage:**
-   * * `SINGLE` - used to generate a wallet for a single database
-   * * `ALL` - used to generate wallet for all databases in the region
+   * * {@code SINGLE} - used to generate a wallet for a single database
+   * * {@code ALL} - used to generate wallet for all databases in the region
    * <p>
-   **Dedicated Exadata infrastructure usage:** Value must be `NULL` if attribute is used.
+   **Dedicated Exadata infrastructure usage:** Value must be {@code NULL} if attribute is used.
    *
    */
   "generateType"?: GenerateAutonomousDatabaseWalletDetails.GenerateType;

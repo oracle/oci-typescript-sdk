@@ -53,13 +53,13 @@ export interface CreateIPSecConnectionTunnelDetails {
    */
   "oracleInitiation"?: CreateIPSecConnectionTunnelDetails.OracleInitiation;
   /**
-    * By default (the `AUTO` setting), IKE sends packets with a source and destination port set to 500,
+    * By default (the {@code AUTO} setting), IKE sends packets with a source and destination port set to 500,
 * and when it detects that the port used to forward packets has changed (most likely because a NAT device
 * is between the CPE device and the Oracle VPN headend) it will try to negotiate the use of NAT-T.
 * <p>
-The `ENABLED` option sets the IKE protocol to use port 4500 instead of 500 and forces encapsulating traffic with the ESP protocol inside UDP packets.
+The {@code ENABLED} option sets the IKE protocol to use port 4500 instead of 500 and forces encapsulating traffic with the ESP protocol inside UDP packets.
 * <p>
-The `DISABLED` option directs IKE to completely refuse to negotiate NAT-T
+The {@code DISABLED} option directs IKE to completely refuse to negotiate NAT-T
 * even if it senses there may be a NAT device in use.
 * 
     */

@@ -21,7 +21,7 @@ export interface GetDrProtectionGroupRequest extends common.BaseRequest {
   /**
  * The OCID of the DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
  */
   "drProtectionGroupId": string;

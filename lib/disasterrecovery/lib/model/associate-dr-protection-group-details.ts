@@ -25,21 +25,21 @@ export interface AssociateDrProtectionGroupDetails {
   /**
     * The OCID of the peer DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
     */
   "peerId"?: string;
   /**
     * The region of the peer DR protection group.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "peerRegion"?: string;
   /**
     * The role of the DR protection group.
 * <p>
-Example: `STANDBY`
+Example: {@code STANDBY}
 * 
     */
   "role": model.DrProtectionGroupRole;

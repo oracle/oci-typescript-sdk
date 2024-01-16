@@ -28,7 +28,7 @@ Oracle recommends you create each cross-connect in a
 * <p>
 **Note:** If you're a provider who is setting up a physical connection to Oracle so customers
 * can use FastConnect over the connection, be aware that your connection is modeled the
-* same way as a colocated customer's (with `CrossConnect` and `CrossConnectGroup` objects, and so on).
+* same way as a colocated customer's (with {@code CrossConnect} and {@code CrossConnectGroup} objects, and so on).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
@@ -47,7 +47,7 @@ export interface CrossConnect {
   "crossConnectGroupId"?: string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -59,7 +59,7 @@ export interface CrossConnect {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -83,7 +83,7 @@ export interface CrossConnect {
   /**
     * The port speed for this cross-connect.
 * <p>
-Example: `10 Gbps`
+Example: {@code 10 Gbps}
 * 
     */
   "portSpeedShapeName"?: string;
@@ -96,7 +96,7 @@ Example: `10 Gbps`
   /**
     * The date and time the cross-connect was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;

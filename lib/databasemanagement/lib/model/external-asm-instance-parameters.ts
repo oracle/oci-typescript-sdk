@@ -35,7 +35,7 @@ export interface ExternalAsmInstanceParameters {
    */
   "diskDiscoveryPath": string;
   /**
-   * The list of disk group names that an ASM instance mounts at startup or when the `ALTER DISKGROUP ALL MOUNT` statement is issued.
+   * The list of disk group names that an ASM instance mounts at startup or when the {@code ALTER DISKGROUP ALL MOUNT} statement is issued.
    *
    */
   "autoMountDiskGroups": Array<string>;

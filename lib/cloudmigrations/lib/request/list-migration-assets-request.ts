@@ -35,7 +35,7 @@ export interface ListMigrationAssetsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * A token representing the position at which to start retrieving results. This must come from the `opc-next-page` header field of the previous response.
+   * A token representing the position at which to start retrieving results. This must come from the {@code opc-next-page} header field of the previous response.
    */
   "page"?: string;
   /**

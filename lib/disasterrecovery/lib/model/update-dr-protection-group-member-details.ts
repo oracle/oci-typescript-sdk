@@ -25,7 +25,7 @@ export interface UpdateDrProtectionGroupMemberDetails {
   /**
     * The OCID of the member.
 * <p>
-Example: `ocid1.database.oc1..uniqueID`
+Example: {@code ocid1.database.oc1..uniqueID}
 * 
     */
   "memberId": string;

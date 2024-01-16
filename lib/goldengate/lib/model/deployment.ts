@@ -47,13 +47,13 @@ export interface Deployment {
   "deploymentBackupId"?: string;
   /**
    * The time the resource was created. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeCreated"?: Date;
   /**
    * The time the resource was last updated. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeUpdated"?: Date;
@@ -77,14 +77,14 @@ export interface Deployment {
     * A simple key-value pair that is applied without any predefined name, type, or scope. Exists
 * for cross-compatibility only.
 * <p>
-Example: `{\"bar-key\": \"value\"}`
+Example: {@code {\"bar-key\": \"value\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Tags defined for this resource. Each key is predefined and scoped to a namespace.
 * <p>
-Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -162,7 +162,7 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
 * Cloud Infrastructure services. Each key is predefined and scoped to namespaces.  For more
 * information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{orcl-cloud: {free-tier-retain: true}}`
+Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
@@ -178,7 +178,7 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    * The date the existing version in use will no longer be considered as usable
    * and an upgrade will be required.  This date is typically 6 months after the
    * version was released for use by GGS.  The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeUpgradeRequired"?: Date;
@@ -204,7 +204,7 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
   "maintenanceWindow"?: model.MaintenanceWindow;
   /**
    * The time of next maintenance schedule. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeOfNextMaintenance"?: Date;
@@ -221,7 +221,7 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
   "maintenanceConfiguration"?: model.MaintenanceConfiguration;
   /**
    * The time until OGG version is supported. After this date has passed OGG version will not be available anymore. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeOggVersionSupportedUntil"?: Date;

@@ -77,13 +77,13 @@ export interface Certificate {
   "subject": string;
   /**
    * The time the certificate is valid from. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeValidFrom": Date;
   /**
    * The time the certificate is valid to. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeValidTo": Date;
@@ -119,7 +119,7 @@ export interface Certificate {
   "lifecycleState": model.CertificateLifecycleState;
   /**
    * The time the resource was created. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeCreated": Date;

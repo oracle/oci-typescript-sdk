@@ -16,9 +16,9 @@ import common = require("oci-common");
 
 export interface GetFunctionResponse {
   /**
-   * For optimistic concurrency control. Add this value to the `if-match` parameter
+   * For optimistic concurrency control. Add this value to the {@code if-match} parameter
    * in a PUT or DELETE operation. The resource will be updated only if the value you
-   * provide matches the `etag` on the resource.
+   * provide matches the {@code etag} on the resource.
    *
    */
   "etag": string;

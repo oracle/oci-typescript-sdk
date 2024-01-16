@@ -16,14 +16,14 @@ import common = require("oci-common");
 
 /**
  * Instance launch details.
- * Use the `sourceDetails` parameter to specify whether a boot volume or an image should be used to launch a new instance.
+ * Use the {@code sourceDetails} parameter to specify whether a boot volume or an image should be used to launch a new instance.
  *
  */
 export interface LaunchInstanceDetails {
   /**
     * The availability domain of the instance.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain"?: string;
@@ -46,7 +46,7 @@ Example: `Uocm:PHX-AD-1`
   "dedicatedVmHostId"?: string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -70,18 +70,18 @@ If you do not specify the fault domain, the system selects one for you.
 * {@link #listFaultDomains(ListFaultDomainsRequest) listFaultDomains} operation in the
 * Identity and Access Management Service API.
 * <p>
-Example: `FAULT-DOMAIN-1`
+Example: {@code FAULT-DOMAIN-1}
 * 
     */
   "faultDomain"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. It exists only for cross-compatibility.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Deprecated. Instead use `hostnameLabel` in
+   * Deprecated. Instead use {@code hostnameLabel} in
    * {@link CreateVnicDetails}.
    * If you provide both, the values must match.
    *

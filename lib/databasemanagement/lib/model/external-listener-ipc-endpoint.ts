@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An `IPC`-based protocol address.
+ * An {@code IPC}-based protocol address.
  */
 export interface ExternalListenerIpcEndpoint extends model.ExternalListenerEndpoint {
   /**

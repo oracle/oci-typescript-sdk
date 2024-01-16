@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of categories that match filter criteria, if any. Results contain `CategorySummary` objects.
+ * A list of categories that match filter criteria, if any. Results contain {@code CategorySummary} objects.
  *
  */
 export interface CategoryCollection {

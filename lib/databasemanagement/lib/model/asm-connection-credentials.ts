@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The credentials used to connect to the ASM instance. Currently only the `DETAILS` type
+ * The credentials used to connect to the ASM instance. Currently only the {@code DETAILS} type
  * is supported for creating MACS connector credentials.
  *
  */

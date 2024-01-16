@@ -23,7 +23,7 @@ export interface CertificateAuthoritySummary {
    */
   "id": string;
   /**
-   * The OCID of the parent CA which issued this CA. If this is the root CA, then this value is the same as the `id`.
+   * The OCID of the parent CA which issued this CA. If this is the root CA, then this value is the same as the {@code id}.
    *
    */
   "issuerCertificateAuthorityId"?: string;
@@ -37,13 +37,13 @@ export interface CertificateAuthoritySummary {
   "description"?: string;
   /**
    * A property indicating when the CA was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
    * An optional property indicating when to delete the CA version, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeOfDeletion"?: Date;
@@ -75,13 +75,13 @@ export interface CertificateAuthoritySummary {
   "signingAlgorithm"?: model.SignatureAlgorithm;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

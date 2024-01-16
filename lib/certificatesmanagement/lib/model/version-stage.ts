@@ -15,9 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of possible rotation states for the certificate version. A certificate version marked `CURRENT` is currently in use. A certificate version marked `PENDING` is staged and available for use, but has not been applied on the target system and, therefore, has not been rotated
- * into current, active use. The certificate most recently uploaded to the service is always marked `LATEST`. (The first version of a certificate is always marked as both `CURRENT` and `LATEST`.) A certificate version marked `PREVIOUS` is the certificate version that was most recently marked `CURRENT`, before the last certificate version rotation.
- * A certificate version marked `DEPRECATED` is neither current, pending, nor the previous one in use. Only certificate versions marked `DEPRECATED` can be scheduled for deletion.
+ * A list of possible rotation states for the certificate version. A certificate version marked {@code CURRENT} is currently in use. A certificate version marked {@code PENDING} is staged and available for use, but has not been applied on the target system and, therefore, has not been rotated
+ * into current, active use. The certificate most recently uploaded to the service is always marked {@code LATEST}. (The first version of a certificate is always marked as both {@code CURRENT} and {@code LATEST}.) A certificate version marked {@code PREVIOUS} is the certificate version that was most recently marked {@code CURRENT}, before the last certificate version rotation.
+ * A certificate version marked {@code DEPRECATED} is neither current, pending, nor the previous one in use. Only certificate versions marked {@code DEPRECATED} can be scheduled for deletion.
  *
  **/
 export enum VersionStage {

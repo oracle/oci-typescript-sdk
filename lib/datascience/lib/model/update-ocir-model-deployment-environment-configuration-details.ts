@@ -23,41 +23,41 @@ export interface UpdateOcirModelDeploymentEnvironmentConfigurationDetails
   /**
    * The full path to the Oracle Container Repository (OCIR) registry, image, and tag in a canonical format.
    * Acceptable format:
-   * `<region>.ocir.io/<registry>/<image>:<tag>`
-   * `<region>.ocir.io/<registry>/<image>:<tag>@digest`
+   * {@code <region>.ocir.io/<registry>/<image>:<tag>}
+   * {@code <region>.ocir.io/<registry>/<image>:<tag>@digest}
    *
    */
   "image"?: string;
   /**
    * The digest of the container image. For example,
-   * `sha256:881303a6b2738834d795a32b4a98eb0e5e3d1cad590a712d1e04f9b2fa90a030`
+   * {@code sha256:881303a6b2738834d795a32b4a98eb0e5e3d1cad590a712d1e04f9b2fa90a030}
    *
    */
   "imageDigest"?: string;
   /**
    * The container image run [CMD](https://docs.docker.com/engine/reference/builder/#cmd) as a list of strings.
-   * Use `CMD` as arguments to the `ENTRYPOINT` or the only command to run in the absence of an `ENTRYPOINT`.
-   * The combined size of `CMD` and `ENTRYPOINT` must be less than 2048 bytes.
+   * Use {@code CMD} as arguments to the {@code ENTRYPOINT} or the only command to run in the absence of an {@code ENTRYPOINT}.
+   * The combined size of {@code CMD} and {@code ENTRYPOINT} must be less than 2048 bytes.
    *
    */
   "cmd"?: Array<string>;
   /**
    * The container image run [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) as a list of strings.
-   * Accept the `CMD` as extra arguments.
-   * The combined size of `CMD` and `ENTRYPOINT` must be less than 2048 bytes.
-   * More information on how `CMD` and `ENTRYPOINT` interact are [here](https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact).
+   * Accept the {@code CMD} as extra arguments.
+   * The combined size of {@code CMD} and {@code ENTRYPOINT} must be less than 2048 bytes.
+   * More information on how {@code CMD} and {@code ENTRYPOINT} interact are [here](https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact).
    *
    */
   "entrypoint"?: Array<string>;
   /**
    * The port on which the web server serving the inference is running.
-   * The port can be anything between `1024` and `65535`. The following ports cannot be used `24224`, `8446`, `8447`.
+   * The port can be anything between {@code 1024} and {@code 65535}. The following ports cannot be used {@code 24224}, {@code 8446}, {@code 8447}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "serverPort"?: number;
   /**
    * The port on which the container [HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) would listen.
-   * The port can be anything between `1024` and `65535`. The following ports cannot be used `24224`, `8446`, `8447`.
+   * The port can be anything between {@code 1024} and {@code 65535}. The following ports cannot be used {@code 24224}, {@code 8446}, {@code 8447}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "healthCheckPort"?: number;
@@ -68,7 +68,7 @@ export interface UpdateOcirModelDeploymentEnvironmentConfigurationDetails
    * Key should contain only letters, digits and underscore (_)
    * Key should start with a letter.
    * Key should have at least 2 characters.
-   * Key should not end with underscore eg. `TEST_`
+   * Key should not end with underscore eg. {@code TEST_}
    * Key if added cannot be empty. Value can be empty.
    * No specific size limits on individual Values. But overall environment variables is limited to 2048 bytes.
    * Key can't be reserved Model Deployment environment variables.

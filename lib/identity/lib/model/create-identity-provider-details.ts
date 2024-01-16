@@ -20,14 +20,14 @@ export interface CreateIdentityProviderDetails {
    */
   "compartmentId": string;
   /**
-   * The name you assign to the `IdentityProvider` during creation.
-   * The name must be unique across all `IdentityProvider` objects in the
+   * The name you assign to the {@code IdentityProvider} during creation.
+   * The name must be unique across all {@code IdentityProvider} objects in the
    * tenancy and cannot be changed.
    *
    */
   "name": string;
   /**
-   * The description you assign to the `IdentityProvider` during creation.
+   * The description you assign to the {@code IdentityProvider} during creation.
    * Does not have to be unique, and it's changeable.
    *
    */
@@ -37,21 +37,21 @@ export interface CreateIdentityProviderDetails {
 * Supported identity providers are Oracle Identity Cloud Service (IDCS) and Microsoft
 * Active Directory Federation Services (ADFS).
 * <p>
-Example: `IDCS`
+Example: {@code IDCS}
 * 
     */
   "productType": CreateIdentityProviderDetails.ProductType;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

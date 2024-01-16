@@ -15,43 +15,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The challenge settings if `action` is set to `BLOCK`.
+ * The challenge settings if {@code action} is set to {@code BLOCK}.
  */
 export interface BlockChallengeSettings {
   /**
-   * The method used to block requests that fail the challenge, if `action` is set to `BLOCK`. If unspecified, defaults to `SHOW_ERROR_PAGE`.
+   * The method used to block requests that fail the challenge, if {@code action} is set to {@code BLOCK}. If unspecified, defaults to {@code SHOW_ERROR_PAGE}.
    */
   "blockAction"?: BlockChallengeSettings.BlockAction;
   /**
-   * The response status code to return when `action` is set to `BLOCK`, `blockAction` is set to `SET_RESPONSE_CODE` or `SHOW_ERROR_PAGE`, and the request is blocked. If unspecified, defaults to `403`. The list of available response codes: `200`, `201`, `202`, `204`, `206`, `300`, `301`, `302`, `303`, `304`, `307`, `400`, `401`, `403`, `404`, `405`, `408`, `409`, `411`, `412`, `413`, `414`, `415`, `416`, `422`, `444`, `494`, `495`, `496`, `497`, `499`, `500`, `501`, `502`, `503`, `504`, `507`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The response status code to return when {@code action} is set to {@code BLOCK}, {@code blockAction} is set to {@code SET_RESPONSE_CODE} or {@code SHOW_ERROR_PAGE}, and the request is blocked. If unspecified, defaults to {@code 403}. The list of available response codes: {@code 200}, {@code 201}, {@code 202}, {@code 204}, {@code 206}, {@code 300}, {@code 301}, {@code 302}, {@code 303}, {@code 304}, {@code 307}, {@code 400}, {@code 401}, {@code 403}, {@code 404}, {@code 405}, {@code 408}, {@code 409}, {@code 411}, {@code 412}, {@code 413}, {@code 414}, {@code 415}, {@code 416}, {@code 422}, {@code 444}, {@code 494}, {@code 495}, {@code 496}, {@code 497}, {@code 499}, {@code 500}, {@code 501}, {@code 502}, {@code 503}, {@code 504}, {@code 507}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockResponseCode"?: number;
   /**
-   * The message to show on the error page when `action` is set to `BLOCK`, `blockAction` is set to `SHOW_ERROR_PAGE`, and the request is blocked. If unspecified, defaults to `Access to the website is blocked`.
+   * The message to show on the error page when {@code action} is set to {@code BLOCK}, {@code blockAction} is set to {@code SHOW_ERROR_PAGE}, and the request is blocked. If unspecified, defaults to {@code Access to the website is blocked}.
    */
   "blockErrorPageMessage"?: string;
   /**
-   * The description text to show on the error page when `action` is set to `BLOCK`, `blockAction` is set to `SHOW_ERROR_PAGE`, and the request is blocked. If unspecified, defaults to `Access blocked by website owner. Please contact support.`
+   * The description text to show on the error page when {@code action} is set to {@code BLOCK}, {@code blockAction} is set to {@code SHOW_ERROR_PAGE}, and the request is blocked. If unspecified, defaults to {@code Access blocked by website owner. Please contact support.}
    */
   "blockErrorPageDescription"?: string;
   /**
-   * The error code to show on the error page when `action` is set to `BLOCK`, `blockAction` is set to `SHOW_ERROR_PAGE` and the request is blocked. If unspecified, defaults to `403`.
+   * The error code to show on the error page when {@code action} is set to {@code BLOCK}, {@code blockAction} is set to {@code SHOW_ERROR_PAGE} and the request is blocked. If unspecified, defaults to {@code 403}.
    */
   "blockErrorPageCode"?: string;
   /**
-   * The title used when showing a CAPTCHA challenge when `action` is set to `BLOCK`, `blockAction` is set to `SHOW_CAPTCHA`, and the request is blocked. If unspecified, defaults to `Are you human?`
+   * The title used when showing a CAPTCHA challenge when {@code action} is set to {@code BLOCK}, {@code blockAction} is set to {@code SHOW_CAPTCHA}, and the request is blocked. If unspecified, defaults to {@code Are you human?}
    */
   "captchaTitle"?: string;
   /**
-   * The text to show in the header when showing a CAPTCHA challenge when `action` is set to `BLOCK`, `blockAction` is set to `SHOW_CAPTCHA`, and the request is blocked. If unspecified, defaults to `We have detected an increased number of attempts to access this webapp. To help us keep this webapp secure, please let us know that you are not a robot by entering the text from captcha below.`
+   * The text to show in the header when showing a CAPTCHA challenge when {@code action} is set to {@code BLOCK}, {@code blockAction} is set to {@code SHOW_CAPTCHA}, and the request is blocked. If unspecified, defaults to {@code We have detected an increased number of attempts to access this webapp. To help us keep this webapp secure, please let us know that you are not a robot by entering the text from captcha below.}
    */
   "captchaHeader"?: string;
   /**
-   * The text to show in the footer when showing a CAPTCHA challenge when `action` is set to `BLOCK`, `blockAction` is set to `SHOW_CAPTCHA`, and the request is blocked. If unspecified, default to `Enter the letters and numbers as they are shown in image above`.
+   * The text to show in the footer when showing a CAPTCHA challenge when {@code action} is set to {@code BLOCK}, {@code blockAction} is set to {@code SHOW_CAPTCHA}, and the request is blocked. If unspecified, default to {@code Enter the letters and numbers as they are shown in image above}.
    */
   "captchaFooter"?: string;
   /**
-   * The text to show on the label of the CAPTCHA challenge submit button when `action` is set to `BLOCK`, `blockAction` is set to `SHOW_CAPTCHA`, and the request is blocked. If unspecified, defaults to `Yes, I am human`.
+   * The text to show on the label of the CAPTCHA challenge submit button when {@code action} is set to {@code BLOCK}, {@code blockAction} is set to {@code SHOW_CAPTCHA}, and the request is blocked. If unspecified, defaults to {@code Yes, I am human}.
    */
   "captchaSubmitLabel"?: string;
 }

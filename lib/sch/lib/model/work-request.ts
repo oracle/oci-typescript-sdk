@@ -64,21 +64,21 @@ export interface WorkRequest {
   /**
    * The date and time when the request was created.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeAccepted": Date;
   /**
    * The date and time when the request was started.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeStarted"?: Date;
   /**
    * The date and time when the object finished.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeFinished"?: Date;

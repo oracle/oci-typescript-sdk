@@ -34,7 +34,7 @@ export interface DrgRouteDistributionStatement {
    */
   "matchCriteria": Array<model.DrgRouteDistributionMatchCriteria>;
   /**
-   * `ACCEPT` indicates the route should be imported or exported as-is.
+   * {@code ACCEPT} indicates the route should be imported or exported as-is.
    *
    */
   "action": DrgRouteDistributionStatement.Action;

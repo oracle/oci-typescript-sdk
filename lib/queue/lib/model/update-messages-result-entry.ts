@@ -16,8 +16,8 @@ import common = require("oci-common");
 
 /**
  * Represents the result of a UpdateMessages request, whether it was successful or not.
- * If a message was successfully updated in the queue, the entry includes the `id` and `visibleAfter` fields.
- * If a message failed to be updated in the queue, the entry includes the `errorCode` and `errorMessage` fields.
+ * If a message was successfully updated in the queue, the entry includes the {@code id} and {@code visibleAfter} fields.
+ * If a message failed to be updated in the queue, the entry includes the {@code errorCode} and {@code errorMessage} fields.
  *
  */
 export interface UpdateMessagesResultEntry {
@@ -28,7 +28,7 @@ export interface UpdateMessagesResultEntry {
   /**
     * The time after which the message will be visible to other consumers, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2018-04-20T00:00:07.405Z`
+Example: {@code 2018-04-20T00:00:07.405Z}
 * 
     */
   "visibleAfter"?: Date;

@@ -34,7 +34,7 @@ export interface InstanceConfigurationBlockVolumeReplicaDetails {
   /**
     * The availability domain of the block volume replica.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;

@@ -28,7 +28,7 @@ To create a regional VLAN, omit this attribute. Resources created subsequently i
 To create an AD-specific VLAN, use this attribute to specify the availability domain.
 * Resources created in this VLAN must be in that availability domain.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain"?: string;
@@ -39,7 +39,7 @@ Example: `Uocm:PHX-AD-1`
 1. The CIDR block is valid and correctly formatted.
 * 2. The new range is within one of the parent VCN ranges.
 * <p>
-Example: `192.0.2.0/24`
+Example: {@code 192.0.2.0/24}
 * 
     */
   "cidrBlock": string;
@@ -49,7 +49,7 @@ Example: `192.0.2.0/24`
   "compartmentId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -61,7 +61,7 @@ Example: `192.0.2.0/24`
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };

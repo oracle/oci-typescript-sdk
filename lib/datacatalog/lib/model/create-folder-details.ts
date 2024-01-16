@@ -46,7 +46,7 @@ export interface CreateFolderDetails {
    * required properties for a folder type, a query can be done on '/types?type=folder' that returns a
    * collection of all folder types. The appropriate folder type, which includes definitions of all of
    * it's properties, can be identified from this collection.
-   * Example: `{\"properties\": { \"default\": { \"key1\": \"value1\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"key1\": \"value1\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

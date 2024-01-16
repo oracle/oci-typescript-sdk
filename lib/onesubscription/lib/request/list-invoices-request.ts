@@ -47,7 +47,7 @@ export interface ListInvoicesRequest extends common.BaseRequest {
    */
   "sortBy"?: ListInvoicesRequest.SortBy;
   /**
- * The maximum number of items to return in a paginated \"List\" call. Default: (`50`)
+ * The maximum number of items to return in a paginated \"List\" call. Default: ({@code 50})
 * <p>
 Example: '500'
 * 

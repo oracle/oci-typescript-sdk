@@ -57,12 +57,12 @@ export interface ListAnalyticsInstancesRequest extends common.BaseRequest {
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -70,12 +70,12 @@ Example: `50`
   "page"?: string;
   /**
    * The field to sort by (one column only). Default sort order is
-   * ascending exception of `timeCreated` column (descending).
+   * ascending exception of {@code timeCreated} column (descending).
    *
    */
   "sortBy"?: model.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: model.SortOrder;

@@ -37,7 +37,7 @@ export interface BootVolume {
   /**
     * The availability domain of the boot volume.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;
@@ -49,13 +49,13 @@ Example: `Uocm:PHX-AD-1`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
@@ -69,7 +69,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -94,11 +94,11 @@ Example: `{\"Department\": \"Finance\"}`
 * <p>
 Allowed values:
 * <p>
-  * `10`: Represents Balanced option.
+  * {@code 10}: Represents Balanced option.
 * <p>
-  * `20`: Represents Higher Performance option.
+  * {@code 20}: Represents Higher Performance option.
 * <p>
-  * `30`-`120`: Represents the Ultra High Performance option.
+  * {@code 30}-{@code 120}: Represents the Ultra High Performance option.
 * <p>
 For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -138,7 +138,7 @@ For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/
   "kmsKeyId"?: string;
   /**
    * Specifies whether the auto-tune performance is enabled for this boot volume. This field is deprecated.
-   * Use the `DetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
+   * Use the {@code DetachedVolumeAutotunePolicy} instead to enable the volume for detached autotune.
    *
    */
   "isAutoTuneEnabled"?: boolean;

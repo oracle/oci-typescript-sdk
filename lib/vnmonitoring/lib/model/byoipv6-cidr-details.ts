@@ -26,12 +26,12 @@ import common = require("oci-common");
  */
 export interface Byoipv6CidrDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource to which the CIDR block belongs.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code ByoipRange} resource to which the CIDR block belongs.
    */
   "byoipv6RangeId": string;
   /**
-   * An IPv6 CIDR block required to create a VCN with a BYOIP prefix. It could be the whole CIDR block identified in `byoipv6RangeId`, or a subrange.
-   * Example: `2001:0db8:0123::/48`
+   * An IPv6 CIDR block required to create a VCN with a BYOIP prefix. It could be the whole CIDR block identified in {@code byoipv6RangeId}, or a subrange.
+   * Example: {@code 2001:0db8:0123::/48}
    *
    */
   "ipv6CidrBlock": string;

@@ -33,11 +33,11 @@ export interface DbSystemShapeSummary {
    */
   "shapeFamily"?: string;
   /**
-   * The shape type for the virtual machine DB system. Shape type is determined by CPU hardware. Valid values are `AMD` , `INTEL`, `INTEL_FLEX_X9` or `AMPERE_FLEX_A1`.
+   * The shape type for the virtual machine DB system. Shape type is determined by CPU hardware. Valid values are {@code AMD} , {@code INTEL}, {@code INTEL_FLEX_X9} or {@code AMPERE_FLEX_A1}.
    */
   "shapeType"?: DbSystemShapeSummary.ShapeType;
   /**
-   * Deprecated. Use `name` instead of `shape`.
+   * Deprecated. Use {@code name} instead of {@code shape}.
    */
   "shape"?: string;
   /**

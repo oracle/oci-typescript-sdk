@@ -26,14 +26,14 @@ export interface GeneratedKey {
   /**
    * The plaintext data encryption key, a base64-encoded sequence of random bytes, which is
    * included if the [GenerateDataEncryptionKey](https://docs.cloud.oracle.com/api/#/en/key/latest/GeneratedKey/GenerateDataEncryptionKey)
-   * request includes the `includePlaintextKey` parameter and sets its value to \"true\".
+   * request includes the {@code includePlaintextKey} parameter and sets its value to \"true\".
    *
    */
   "plaintext"?: string;
   /**
    * The checksum of the plaintext data encryption key, which is included if the
    * [GenerateDataEncryptionKey](https://docs.cloud.oracle.com/api/#/en/key/latest/GeneratedKey/GenerateDataEncryptionKey)
-   * request includes the `includePlaintextKey` parameter and sets its value to \"true\".
+   * request includes the {@code includePlaintextKey} parameter and sets its value to \"true\".
    *
    */
   "plaintextChecksum"?: string;

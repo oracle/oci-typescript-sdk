@@ -29,7 +29,7 @@ export interface DatabaseToolsConnectionOracleDatabase extends model.DatabaseToo
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretId;
   /**
-   * The advanced connection properties key-value pair (for example, `oracle.net.ssl_server_dn_match`).
+   * The advanced connection properties key-value pair (for example, {@code oracle.net.ssl_server_dn_match}).
    */
   "advancedProperties"?: { [key: string]: string };
   /**

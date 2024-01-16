@@ -29,7 +29,7 @@ export interface GetDashboardRequest extends common.BaseRequest {
   /**
    * To identify if the call is cross-regional. In CRUD calls for a resource, to
    * identify that the call originates from different region, set the
-   * `CrossRegionIdentifierHeader` parameter to a region name (ex - `US-ASHBURN-1`)
+   * {@code CrossRegionIdentifierHeader} parameter to a region name (ex - {@code US-ASHBURN-1})
    * The call will be served from a Replicated bucket.
    * For same-region calls, the value is unassigned.
    *

@@ -36,20 +36,20 @@ export interface BodyValidationRequestPolicy {
 *           )
 * <p>
 For requests that match multiple keys, only the most specific key is applicable.
-* e.g. `text/plain` overrides `text/*`
+* e.g. {@code text/plain} overrides {@code text/*}
 * 
     */
   "content": { [key: string]: model.ContentValidation };
   /**
     * Validation behavior mode.
 * <p>
-In `ENFORCING` mode, upon a validation failure, the request will be rejected with a 4xx response
+In {@code ENFORCING} mode, upon a validation failure, the request will be rejected with a 4xx response
 * and not sent to the backend.
 * <p>
-In `PERMISSIVE` mode, the result of the validation will be exposed as metrics while the request
+In {@code PERMISSIVE} mode, the result of the validation will be exposed as metrics while the request
 * will follow the normal path.
 * <p>
-`DISABLED` type turns the validation off.
+{@code DISABLED} type turns the validation off.
 * 
     */
   "validationMode"?: BodyValidationRequestPolicy.ValidationMode;

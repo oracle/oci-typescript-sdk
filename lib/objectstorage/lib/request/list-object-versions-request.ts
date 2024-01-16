@@ -24,7 +24,7 @@ export interface ListObjectVersionsRequest extends common.BaseRequest {
   "namespaceName": string;
   /**
    * The name of the bucket. Avoid entering confidential information.
-   * Example: `my-new-bucket1`
+   * Example: {@code my-new-bucket1}
    *
    */
   "bucketName": string;
@@ -74,7 +74,7 @@ export interface ListObjectVersionsRequest extends common.BaseRequest {
    */
   "startAfter"?: string;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call. For important
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call. For important
    * details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */

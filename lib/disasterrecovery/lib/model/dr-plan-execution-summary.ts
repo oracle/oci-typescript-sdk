@@ -25,28 +25,28 @@ export interface DrPlanExecutionSummary {
   /**
     * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1..uniqueID`
+Example: {@code ocid1.drplanexecution.oc1..uniqueID}
 * 
     */
   "id": string;
   /**
     * The OCID of the compartment containing this plan execution.
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
     */
   "compartmentId": string;
   /**
     * The display name of the DR plan execution.
 * <p>
-Example: `Execution - EBS Switchover PHX to IAD`
+Example: {@code Execution - EBS Switchover PHX to IAD}
 * 
     */
   "displayName": string;
   /**
     * The OCID of the DR plan for this DR plan execution.
 * <p>
-Example: `ocid1.drplan.oc1..uniqueID`
+Example: {@code ocid1.drplan.oc1..uniqueID}
 * 
     */
   "planId": string;
@@ -58,7 +58,7 @@ Example: `ocid1.drplan.oc1..uniqueID`
   /**
     * The OCID of the DR protection group to which this DR plan execution belongs.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
     */
   "drProtectionGroupId": string;
@@ -66,7 +66,7 @@ Example: `ocid1.drprotectiongroup.oc1..uniqueID`
     * The OCID of peer DR protection group associated with this DR plan execution's
 * DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
     */
   "peerDrProtectionGroupId": string;
@@ -74,7 +74,7 @@ Example: `ocid1.drprotectiongroup.oc1..uniqueID`
     * The region of the peer DR protection group associated with this DR plan execution's
 * DR protection group.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "peerRegion": string;
@@ -82,21 +82,21 @@ Example: `us-ashburn-1`
   /**
     * The date and time at which DR plan execution was created. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeCreated": Date;
   /**
     * The date and time at which DR plan execution began. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeStarted"?: Date;
   /**
     * The time when this DR plan execution was last updated.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeUpdated": Date;
@@ -104,14 +104,14 @@ Example: `2019-03-29T09:36:42Z`
     * The date and time at which DR plan execution succeeded, failed, was paused, or canceled.
 * An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeEnded"?: Date;
   /**
     * The total duration in seconds taken to complete the DR plan execution.
 * <p>
-Example: `750`
+Example: {@code 750}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "executionDurationInSec"?: number;
@@ -128,21 +128,21 @@ Example: `750`
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
     * Usage of system tag keys. These predefined keys are scoped to namespaces.
 * <p>
-Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };

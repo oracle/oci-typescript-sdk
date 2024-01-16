@@ -35,14 +35,14 @@ export interface DbBackupConfig {
   /**
     * Time window selected for initiating automatic backup for the database system. There are twelve available two-hour time windows. If no option is selected, a start time between 12:00 AM to 7:00 AM in the region of the database is automatically chosen. For example, if the user selects SLOT_TWO from the enum list, the automatic backup job will start in between 2:00 AM (inclusive) to 4:00 AM (exclusive).
 * <p>
-Example: `SLOT_TWO`
+Example: {@code SLOT_TWO}
 * 
     */
   "autoBackupWindow"?: DbBackupConfig.AutoBackupWindow;
   /**
     * Time window selected for initiating full backup for the database system. There are twelve available two-hour time windows. If no option is selected, the value is null and a start time between 12:00 AM to 7:00 AM in the region of the database is automatically chosen. For example, if the user selects SLOT_TWO from the enum list, the automatic backup job will start in between 2:00 AM (inclusive) to 4:00 AM (exclusive).
 * <p>
-Example: `SLOT_TWO`
+Example: {@code SLOT_TWO}
 * 
     */
   "autoFullBackupWindow"?: DbBackupConfig.AutoFullBackupWindow;

@@ -23,15 +23,15 @@ import common = require("oci-common");
 export interface SqlPlanInsights {
   /**
    * SQL Plan Insight text.
-   * For example `Number of Plans Used`, `Most Executed Plan`,
-   *   `Best Performing Plan`, `Worst Performing Plan`,
-   *   `Plan With Most IO`,
-   *   `Plan with Most CPU`
+   * For example {@code Number of Plans Used}, {@code Most Executed Plan},
+   *   {@code Best Performing Plan}, {@code Worst Performing Plan},
+   *   {@code Plan With Most IO},
+   *   {@code Plan with Most CPU}
    *
    */
   "text": string;
   /**
-   * SQL execution plan hash value for a given insight. For example `Most Executed Plan` insight will have value as \"3975467901\"
+   * SQL execution plan hash value for a given insight. For example {@code Most Executed Plan} insight will have value as \"3975467901\"
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "value": number;

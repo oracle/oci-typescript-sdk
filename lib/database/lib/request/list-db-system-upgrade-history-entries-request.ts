@@ -31,11 +31,11 @@ export interface ListDbSystemUpgradeHistoryEntriesRequest extends common.BaseReq
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListDbSystemUpgradeHistoryEntriesRequest.SortOrder;
   /**
-   * The field to sort by.  You can provide one sort order (`sortOrder`).  Default order for TIMECREATED is ascending.
+   * The field to sort by.  You can provide one sort order ({@code sortOrder}).  Default order for TIMECREATED is ascending.
    *
    */
   "sortBy"?: ListDbSystemUpgradeHistoryEntriesRequest.SortBy;

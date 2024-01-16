@@ -31,7 +31,7 @@ export interface CreateLoadBalancerDetails {
     * A user-friendly name. It does not have to be unique, and it is changeable.
 * Avoid entering confidential information.
 * <p>
-Example: `example_load_balancer`
+Example: {@code example_load_balancer}
 * 
     */
   "displayName": string;
@@ -40,14 +40,14 @@ Example: `example_load_balancer`
 * To get a list of available shapes, use the {@link #listShapes(ListShapesRequest) listShapes}
 * operation.
 * <p>
-Example: `flexible`
+Example: {@code flexible}
 * NOTE: Starting May 2023, Fixed shapes - 10Mbps, 100Mbps, 400Mbps, 8000Mbps would be deprecated and only shape
-*       allowed would be `Flexible`
+*       allowed would be {@code Flexible}
 * 
     */
   "shapeName": string;
   /**
-   * The configuration details to create load balancer using Flexible shape. This is required only if shapeName is `Flexible`.
+   * The configuration details to create load balancer using Flexible shape. This is required only if shapeName is {@code Flexible}.
    *
    */
   "shapeDetails"?: model.ShapeDetails;
@@ -62,7 +62,7 @@ A public load balancer is accessible from the internet, depending on your VCN's
 * [security list rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securitylists.htm). For more information about public and
 * private load balancers, see [How Load Balancing Works](https://docs.cloud.oracle.com/Content/Balance/Concepts/balanceoverview.htm#how-load-balancing-works).
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isPrivate"?: boolean;
@@ -97,7 +97,7 @@ The benefits of using NSGs with the load balancer include:
 *  The network security rules of other resources can reference the NSGs associated with the load balancer
 *    to ensure access.
 * <p>
-Example: `[\"ocid1.nsg.oc1.phx.unique_ID\"]`
+Example: {@code [\"ocid1.nsg.oc1.phx.unique_ID\"]}
 * 
     */
   "networkSecurityGroupIds"?: Array<string>;
@@ -112,7 +112,7 @@ Example: `[\"ocid1.nsg.oc1.phx.unique_ID\"]`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -120,7 +120,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

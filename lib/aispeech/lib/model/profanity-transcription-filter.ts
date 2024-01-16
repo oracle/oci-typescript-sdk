@@ -19,9 +19,9 @@ import common = require("oci-common");
  */
 export interface ProfanityTranscriptionFilter extends model.TranscriptionFilter {
   /**
-   * - `MASK`: Will mask detected profanity in transcription.
-   * - `REMOVE`: Will replace profane word with * in transcription.
-   * - `TAG`: Will tag profane word as profanity but will show actual word.
+   * - {@code MASK}: Will mask detected profanity in transcription.
+   * - {@code REMOVE}: Will replace profane word with * in transcription.
+   * - {@code TAG}: Will tag profane word as profanity but will show actual word.
    *
    */
   "mode": ProfanityTranscriptionFilter.Mode;

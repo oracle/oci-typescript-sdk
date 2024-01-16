@@ -20,7 +20,7 @@ import common = require("oci-common");
  * ALLOW - Allows the traffic.
  *   * DROP - Silently drops the traffic, e.g. without sending a TCP reset.
  *   * REJECT - Rejects the traffic, sending a TCP reset to client and/or server as applicable.
- *   * INSPECT - Inspects traffic for vulnerability as specified in `inspection`, which may result in rejection.
+ *   * INSPECT - Inspects traffic for vulnerability as specified in {@code inspection}, which may result in rejection.
  *
  **/
 export enum TrafficActionType {

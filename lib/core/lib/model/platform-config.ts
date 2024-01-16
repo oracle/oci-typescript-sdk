@@ -42,7 +42,7 @@ export interface PlatformConfig {
    */
   "isMeasuredBootEnabled"?: boolean;
   /**
-   * Whether the instance is a confidential instance. If this value is `true`, the instance is a confidential instance. The default value is `false`.
+   * Whether the instance is a confidential instance. If this value is {@code true}, the instance is a confidential instance. The default value is {@code false}.
    *
    */
   "isMemoryEncryptionEnabled"?: boolean;

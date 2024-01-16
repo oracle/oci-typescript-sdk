@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface UpdateStorageDetailsParams {
   /**
    * Guaranteed input/output storage requests per second (IOPS) available to the database system.
-   * Only valid for `OCI_OPTIMIZED_STORAGE` database system type.
+   * Only valid for {@code OCI_OPTIMIZED_STORAGE} database system type.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "iops"?: number;

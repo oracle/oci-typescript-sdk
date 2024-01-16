@@ -37,7 +37,7 @@ export interface DatabaseConnectionStringProfile {
    */
   "protocol": DatabaseConnectionStringProfile.Protocol;
   /**
-   * Specifies whether the TLS handshake is using one-way (`SERVER`) or mutual (`MUTUAL`) authentication.
+   * Specifies whether the TLS handshake is using one-way ({@code SERVER}) or mutual ({@code MUTUAL}) authentication.
    */
   "tlsAuthentication"?: DatabaseConnectionStringProfile.TlsAuthentication;
   /**
@@ -45,11 +45,11 @@ export interface DatabaseConnectionStringProfile {
    */
   "hostFormat": DatabaseConnectionStringProfile.HostFormat;
   /**
-   * Specifies whether the listener performs a direct hand-off of the session, or redirects the session. In RAC deployments where SCAN is used, sessions are redirected to a Node VIP. Use `DIRECT` for direct hand-offs. Use `REDIRECT` to redirect the session.
+   * Specifies whether the listener performs a direct hand-off of the session, or redirects the session. In RAC deployments where SCAN is used, sessions are redirected to a Node VIP. Use {@code DIRECT} for direct hand-offs. Use {@code REDIRECT} to redirect the session.
    */
   "sessionMode": DatabaseConnectionStringProfile.SessionMode;
   /**
-   * Specifies whether the connection string is using the long (`LONG`), Easy Connect (`EZCONNECT`), or Easy Connect Plus (`EZCONNECTPLUS`) format.
+   * Specifies whether the connection string is using the long ({@code LONG}), Easy Connect ({@code EZCONNECT}), or Easy Connect Plus ({@code EZCONNECTPLUS}) format.
    * Autonomous Database Serverless instances always use the long format.
    *
    */

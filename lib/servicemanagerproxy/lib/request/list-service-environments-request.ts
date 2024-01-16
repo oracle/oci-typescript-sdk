@@ -47,7 +47,7 @@ export interface ListServiceEnvironmentsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
   /**
@@ -56,7 +56,7 @@ export interface ListServiceEnvironmentsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListServiceEnvironmentsRequest.SortBy;
   /**
-   * The sort order to use, either `ASC` or `DESC`.
+   * The sort order to use, either {@code ASC} or {@code DESC}.
    */
   "sortOrder"?: ListServiceEnvironmentsRequest.SortOrder;
   /**

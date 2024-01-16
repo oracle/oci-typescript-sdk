@@ -24,7 +24,7 @@ export interface CustomProtectionRuleSetting {
   "id"?: string;
   /**
    * The action to take when the custom protection rule is triggered.
-   * `DETECT` - Logs the request when the criteria of the custom protection rule are met. `BLOCK` - Blocks the request when the criteria of the custom protection rule are met.
+   * {@code DETECT} - Logs the request when the criteria of the custom protection rule are met. {@code BLOCK} - Blocks the request when the criteria of the custom protection rule are met.
    */
   "action"?: CustomProtectionRuleSetting.Action;
   "exclusions"?: Array<model.ProtectionRuleExclusion>;

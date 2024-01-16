@@ -27,7 +27,7 @@ export interface UpdateSkillParameterDetails {
    */
   "description"?: string;
   /**
-   * The current value.  The value will be interpreted based on the `type`.
+   * The current value.  The value will be interpreted based on the {@code type}.
    */
   "value"?: string;
 }

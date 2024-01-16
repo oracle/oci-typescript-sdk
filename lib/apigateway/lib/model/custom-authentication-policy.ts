@@ -38,7 +38,7 @@ export interface CustomAuthenticationPolicy extends model.AuthenticationPolicy {
   "tokenQueryParam"?: string;
   /**
    * A map where key is a user defined string and value is a context expressions whose values will be sent to the custom auth function. Values should contain an expression.
-   * Example: `{\"foo\": \"request.header[abc]\"}`
+   * Example: {@code {\"foo\": \"request.header[abc]\"}}
    *
    */
   "parameters"?: { [key: string]: string };

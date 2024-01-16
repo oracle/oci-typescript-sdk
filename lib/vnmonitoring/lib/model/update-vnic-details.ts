@@ -19,7 +19,7 @@ import common = require("oci-common");
 export interface UpdateVnicDetails {
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -31,14 +31,14 @@ export interface UpdateVnicDetails {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
     * The hostname for the VNIC's primary private IP. Used for DNS. The value is the hostname
 * portion of the primary private IP's fully qualified domain name (FQDN)
-* (for example, `bminstance1` in FQDN `bminstance1.subnet123.vcn1.oraclevcn.com`).
+* (for example, {@code bminstance1} in FQDN {@code bminstance1.subnet123.vcn1.oraclevcn.com}).
 * Must be unique across all VNICs in the subnet and comply with
 * [RFC 952](https://tools.ietf.org/html/rfc952) and
 * [RFC 1123](https://tools.ietf.org/html/rfc1123).
@@ -57,7 +57,7 @@ For more information, see
 * an empty array removes the VNIC from all network security groups.
 * <p>
 If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
-* belonging to a subnet), the value of the `nsgIds` attribute is ignored. Instead, the
+* belonging to a subnet), the value of the {@code nsgIds} attribute is ignored. Instead, the
 * VNIC belongs to the NSGs that are associated with the VLAN itself. See {@link Vlan}.
 * <p>
 For more information about NSGs, see
@@ -67,14 +67,14 @@ For more information about NSGs, see
   "nsgIds"?: Array<string>;
   /**
     * Whether the source/destination check is disabled on the VNIC.
-* Defaults to `false`, which means the check is performed. For information about why you would
+* Defaults to {@code false}, which means the check is performed. For information about why you would
 * skip the source/destination check, see
 * [Using a Private IP as a Route Target](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
 * <p>
 If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
-* belonging to a subnet), the value of the `skipSourceDestCheck` attribute is ignored.
+* belonging to a subnet), the value of the {@code skipSourceDestCheck} attribute is ignored.
 * This is because the source/destination check is always disabled for VNICs in a VLAN.
-* Example: `true`
+* Example: {@code true}
 * 
     */
   "skipSourceDestCheck"?: boolean;

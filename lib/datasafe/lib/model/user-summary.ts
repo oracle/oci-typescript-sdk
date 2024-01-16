@@ -76,6 +76,14 @@ export interface UserSummary {
    * The admin roles granted to the user.
    */
   "adminRoles"?: Array<UserSummary.AdminRoles>;
+  /**
+   * Indicates whether the user has access to all the schemas.
+   */
+  "areAllSchemasAccessible"?: boolean;
+  /**
+   * The list of database schemas current user can access.
+   */
+  "schemaList"?: Array<string>;
 }
 
 export namespace UserSummary {

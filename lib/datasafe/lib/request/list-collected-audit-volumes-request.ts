@@ -27,7 +27,7 @@ export interface ListCollectedAuditVolumesRequest extends common.BaseRequest {
    */
   "workRequestId": string;
   /**
-   * Specifying `monthInConsiderationGreaterThan` parameter
+   * Specifying {@code monthInConsiderationGreaterThan} parameter
    * will retrieve all items for which the event month is
    * greater than the date and time specified,
    * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
@@ -37,7 +37,7 @@ export interface ListCollectedAuditVolumesRequest extends common.BaseRequest {
    */
   "monthInConsiderationGreaterThan"?: Date;
   /**
-   * Specifying `monthInConsiderationLessThan` parameter
+   * Specifying {@code monthInConsiderationLessThan} parameter
    * will retrieve all items for which the event month is
    * less than the date and time specified,
    * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).

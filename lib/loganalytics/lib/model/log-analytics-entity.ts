@@ -104,7 +104,7 @@ export interface LogAnalyticsEntity {
   "cloudResourceId"?: string;
   /**
    * The hostname where the entity represented here is actually present. This would be the output one would get if
-   * they run `echo $HOSTNAME` on Linux or an equivalent OS command. This may be different from
+   * they run {@code echo $HOSTNAME} on Linux or an equivalent OS command. This may be different from
    * management agents host since logs may be collected remotely.
    *
    */
@@ -116,13 +116,13 @@ export interface LogAnalyticsEntity {
   "sourceId"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

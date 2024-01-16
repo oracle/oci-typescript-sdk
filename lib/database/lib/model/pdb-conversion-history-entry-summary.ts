@@ -26,16 +26,16 @@ export interface PdbConversionHistoryEntrySummary {
   "id": string;
   /**
    * The operations used to convert a non-container database to a pluggable database.
-   * - Use `PRECHECK` to run a pre-check operation on non-container database prior to converting it into a pluggable database.
-   * - Use `CONVERT` to convert a non-container database into a pluggable database.
-   * - Use `SYNC` if the non-container database was manually converted into a pluggable database using the dbcli command-line utility. Databases may need to be converted manually if the CONVERT action fails when converting a non-container database using the API.
-   * - Use `SYNC_ROLLBACK` if the conversion of a non-container database into a pluggable database was manually rolled back using the dbcli command line utility. Conversions may need to be manually rolled back if the CONVERT action fails when converting a non-container database using the API.
+   * - Use {@code PRECHECK} to run a pre-check operation on non-container database prior to converting it into a pluggable database.
+   * - Use {@code CONVERT} to convert a non-container database into a pluggable database.
+   * - Use {@code SYNC} if the non-container database was manually converted into a pluggable database using the dbcli command-line utility. Databases may need to be converted manually if the CONVERT action fails when converting a non-container database using the API.
+   * - Use {@code SYNC_ROLLBACK} if the conversion of a non-container database into a pluggable database was manually rolled back using the dbcli command line utility. Conversions may need to be manually rolled back if the CONVERT action fails when converting a non-container database using the API.
    *
    */
   "action": PdbConversionHistoryEntrySummary.Action;
   /**
    * The target container database of the pluggable database created by the database conversion operation. Currently, the database conversion operation only supports creating the pluggable database in a new container database.
-   *  - Use `NEW_DATABASE` to specify that the pluggable database be created within a new container database in the same database home.
+   *  - Use {@code NEW_DATABASE} to specify that the pluggable database be created within a new container database in the same database home.
    *
    */
   "target"?: PdbConversionHistoryEntrySummary.Target;

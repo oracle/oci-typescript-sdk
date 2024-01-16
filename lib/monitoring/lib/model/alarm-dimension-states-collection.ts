@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -31,13 +31,13 @@ export interface AlarmDimensionStatesCollection {
   /**
     * Whether the alarm is enabled.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isEnabled": boolean;
   /**
-   * When set to `true`, splits alarm notifications per metric stream.
-   * When set to `false`, groups alarm notifications across metric streams.
+   * When set to {@code true}, splits alarm notifications per metric stream.
+   * When set to {@code false}, groups alarm notifications across metric streams.
    *
    */
   "isNotificationsPerMetricDimensionEnabled": boolean;

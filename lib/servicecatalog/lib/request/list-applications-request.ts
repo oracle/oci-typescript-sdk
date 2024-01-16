@@ -42,7 +42,7 @@ export interface ListApplicationsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
   /**
@@ -70,12 +70,12 @@ export interface ListApplicationsRequest extends common.BaseRequest {
    */
   "pricing"?: Array<model.PricingTypeEnum>;
   /**
-   * Indicates whether to show only featured resources. If this is set to `false` or is omitted, then all resources will be returned.
+   * Indicates whether to show only featured resources. If this is set to {@code false} or is omitted, then all resources will be returned.
    *
    */
   "isFeatured"?: boolean;
   /**
-   * The sort order to apply, either `ASC` or `DESC`. Default is `ASC`.
+   * The sort order to apply, either {@code ASC} or {@code DESC}. Default is {@code ASC}.
    */
   "sortOrder"?: ListApplicationsRequest.SortOrder;
 }

@@ -23,31 +23,31 @@ import common = require("oci-common");
 export interface MySqlSqlText {
   /**
    * Name of Database Schema.
-   * Example: `\"performance_schema\"`
+   * Example: {@code \"performance_schema\"}
    *
    */
   "schemaName"?: string;
   /**
    * digest
-   * Example: `\"323k3k99ua09a90adf\"`
+   * Example: {@code \"323k3k99ua09a90adf\"}
    *
    */
   "digest": string;
   /**
    * Collection timestamp.
-   * Example: `\"2020-05-06T00:00:00.000Z\"`
+   * Example: {@code \"2020-05-06T00:00:00.000Z\"}
    *
    */
   "timeCollected": Date;
   /**
    * SQL event name
-   * Example: `\"SELECT\"`
+   * Example: {@code \"SELECT\"}
    *
    */
   "commandType"?: string;
   /**
    * The normalized statement string.
-   * Example: `\"SELECT username,profile,default_tablespace,temporary_tablespace FROM dba_users\"`
+   * Example: {@code \"SELECT username,profile,default_tablespace,temporary_tablespace FROM dba_users\"}
    *
    */
   "digestText": string;

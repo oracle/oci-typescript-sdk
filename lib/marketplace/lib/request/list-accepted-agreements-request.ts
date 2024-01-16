@@ -46,13 +46,13 @@ export interface ListAcceptedAgreementsRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * The field to use to sort listed results. You can only specify one field to sort by.
-   * `TIMEACCEPTED` displays results in descending order by default. You can change your
+   * {@code TIMEACCEPTED} displays results in descending order by default. You can change your
    * preference by specifying a different sort order.
    *
    */
   "sortBy"?: ListAcceptedAgreementsRequest.SortBy;
   /**
-   * The sort order to use, either `ASC` or `DESC`.
+   * The sort order to use, either {@code ASC} or {@code DESC}.
    */
   "sortOrder"?: ListAcceptedAgreementsRequest.SortOrder;
   /**
@@ -61,7 +61,7 @@ export interface ListAcceptedAgreementsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
 }

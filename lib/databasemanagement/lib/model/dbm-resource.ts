@@ -58,8 +58,8 @@ export interface DbmResource {
    */
   "lifecycleDetails"?: string;
   /**
-   * The additional details of the resource defined in `{\"key\": \"value\"}` format.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The additional details of the resource defined in {@code {\"key\": \"value\"}} format.
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "additionalDetails"?: { [key: string]: string };

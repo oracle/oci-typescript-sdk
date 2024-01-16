@@ -26,7 +26,7 @@ export interface Response {
   /**
     * The status code of the response.
 * <p>
-Example: `200`
+Example: {@code 200}
 * 
     */
   "status"?: string;
@@ -34,7 +34,7 @@ Example: `200`
     * The time of the response to the audited request, expressed in
 * [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
 * <p>
-Example: `2019-09-18T00:10:59.278Z`
+Example: {@code 2019-09-18T00:10:59.278Z}
 * 
     */
   "responseTime"?: Date;

@@ -25,21 +25,21 @@ export interface UpdateObjectStorageScriptLocationDetails {
   /**
     * The namespace in object storage (Note - this is usually the tenancy name).
 * <p>
-Example: `myocitenancy`
+Example: {@code myocitenancy}
 * 
     */
   "namespace": string;
   /**
     * The bucket name inside the object storage namespace.
 * <p>
-Example: `custom_dr_scripts`
+Example: {@code custom_dr_scripts}
 * 
     */
   "bucket": string;
   /**
     * The object name inside the object storage bucket.
 * <p>
-Example: `validate_app_start.sh`
+Example: {@code validate_app_start.sh}
 * 
     */
   "object": string;

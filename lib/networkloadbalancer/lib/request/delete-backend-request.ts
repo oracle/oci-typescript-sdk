@@ -25,7 +25,7 @@ export interface DeleteBackendRequest extends common.BaseRequest {
   /**
  * The name of the backend set associated with the backend server.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
  */
   "backendSetName": string;
@@ -35,7 +35,7 @@ Example: `example_backend_set`
 * If the backend was created without explicitly specifying the name, but was created using ipAddress, this is specified as <ipAddress>:<port>.
 * If the backend was created without explicitly specifying the name, but was created using targetId, this is specified as <targetId>:<port>.
 * <p>
-Example: `10.0.0.3:8080` or `ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>:8080`
+Example: {@code 10.0.0.3:8080} or {@code ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>:8080}
 * 
  */
   "backendName": string;
@@ -47,7 +47,7 @@ Example: `10.0.0.3:8080` or `ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>:8
   "opcRequestId"?: string;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
    * The resource will be updated or deleted only if the etag you
    * provide matches the current etag value of the resource.

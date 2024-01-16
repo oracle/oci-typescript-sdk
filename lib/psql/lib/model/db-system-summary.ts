@@ -36,7 +36,7 @@ export interface DbSystemSummary {
     * The date and time that the database system was created, expressed in
 * [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -44,7 +44,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * The date and time that the database system was updated, expressed in
 * [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeUpdated"?: Date;
@@ -66,7 +66,7 @@ Example: `2016-08-25T21:10:29.600Z`
   "instanceCount": number;
   /**
    * The name of the shape for the database instance node.
-   * Example: `VM.Standard.E4.Flex`
+   * Example: {@code VM.Standard.E4.Flex}
    *
    */
   "shape"?: string;
@@ -88,19 +88,19 @@ Example: `2016-08-25T21:10:29.600Z`
   "configId"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags": { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags": { [key: string]: { [key: string]: any } };
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

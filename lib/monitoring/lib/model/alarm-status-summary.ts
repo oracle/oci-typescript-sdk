@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -42,14 +42,14 @@ export interface AlarmStatusSummary {
   /**
     * The configured name of the alarm.
 * <p>
-Example: `High CPU Utilization`
+Example: {@code High CPU Utilization}
 * 
     */
   "displayName": string;
   /**
-    * The configured severity of the alarm.
+    * The perceived type of response required when the alarm is in the \"FIRING\" state.
 * <p>
-Example: `CRITICAL`
+Example: {@code CRITICAL}
 * 
     */
   "severity": AlarmStatusSummary.Severity;
@@ -57,7 +57,7 @@ Example: `CRITICAL`
     * Timestamp for the transition of the alarm state. For example, the time when the alarm transitioned from OK to Firing.
 * Note: A three-minute lag for this value accounts for any late-arriving metrics.
 * <p>
-Example: `2019-02-01T01:02:29.600Z`
+Example: {@code 2023-02-01T01:02:29.600Z}
 * 
     */
   "timestampTriggered": Date;
@@ -65,7 +65,7 @@ Example: `2019-02-01T01:02:29.600Z`
    * The status of this alarm.
    * Status is collective, across all metric streams in the alarm.
    * To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
-   * Example: `FIRING`
+   * Example: {@code FIRING}
    *
    */
   "status": AlarmStatusSummary.Status;

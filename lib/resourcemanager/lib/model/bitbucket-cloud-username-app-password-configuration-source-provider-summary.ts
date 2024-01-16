@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a configuration source provider of the type `BITBUCKET_CLOUD_USERNAME_APPPASSWORD`.
+ * Summary information for a configuration source provider of the type {@code BITBUCKET_CLOUD_USERNAME_APPPASSWORD}.
  * This type corresponds to a configuration source provider in Bitbucket cloud that is authenticated with a username and app password.
  *
  */
@@ -27,7 +27,7 @@ export interface BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSum
   extends model.ConfigurationSourceProviderSummary {
   /**
    * The Bitbucket cloud service endpoint.
-   * Example: `https://bitbucket.org/`
+   * Example: {@code https://bitbucket.org/}
    *
    */
   "apiEndpoint"?: string;

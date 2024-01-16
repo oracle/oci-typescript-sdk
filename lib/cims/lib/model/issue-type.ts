@@ -29,7 +29,7 @@ export interface IssueType {
    */
   "issueTypeKey"?: string;
   /**
-   * The label for the issue type. For example, `Instance Performance`.
+   * The label for the issue type. For example, {@code Instance Performance}.
    */
   "label"?: string;
   /**

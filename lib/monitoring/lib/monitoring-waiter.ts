@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -43,6 +43,25 @@ export class MonitoringWaiter {
       () => this.client.getAlarm(request),
       response => targetStates.includes(response.alarm.lifecycleState!),
       targetStates.includes(models.Alarm.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forAlarmSuppression till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAlarmSuppressionResponse | null (null in case of 404 response)
+   */
+  public async forAlarmSuppression(
+    request: serviceRequests.GetAlarmSuppressionRequest,
+    ...targetStates: models.AlarmSuppression.LifecycleState[]
+  ): Promise<serviceResponses.GetAlarmSuppressionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAlarmSuppression(request),
+      response => targetStates.includes(response.alarmSuppression.lifecycleState!),
+      targetStates.includes(models.AlarmSuppression.LifecycleState.Deleted)
     );
   }
 }

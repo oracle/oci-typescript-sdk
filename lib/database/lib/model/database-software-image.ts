@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Database software images are created by specifying a patch set, one-off patches and patches for the database home (listed by `ls inventory`).
+ * Database software images are created by specifying a patch set, one-off patches and patches for the database home (listed by {@code ls inventory}).
  *
  */
 export interface DatabaseSoftwareImage {
@@ -64,7 +64,7 @@ export interface DatabaseSoftwareImage {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

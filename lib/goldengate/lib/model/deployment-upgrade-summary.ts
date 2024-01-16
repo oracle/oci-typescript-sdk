@@ -52,13 +52,13 @@ export interface DeploymentUpgradeSummary {
   "deploymentUpgradeType": model.DeploymentUpgradeType;
   /**
    * The date and time the request was started. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeStarted"?: Date;
   /**
    * The date and time the request was finished. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeFinished"?: Date;
@@ -69,13 +69,13 @@ export interface DeploymentUpgradeSummary {
   "oggVersion"?: string;
   /**
    * The time the resource was created. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeCreated"?: Date;
   /**
    * The time the resource was last updated. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeUpdated"?: Date;
@@ -99,14 +99,14 @@ export interface DeploymentUpgradeSummary {
     * A simple key-value pair that is applied without any predefined name, type, or scope. Exists
 * for cross-compatibility only.
 * <p>
-Example: `{\"bar-key\": \"value\"}`
+Example: {@code {\"bar-key\": \"value\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Tags defined for this resource. Each key is predefined and scoped to a namespace.
 * <p>
-Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -115,7 +115,7 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
 * Cloud Infrastructure services. Each key is predefined and scoped to namespaces.  For more
 * information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{orcl-cloud: {free-tier-retain: true}}`
+Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
@@ -126,7 +126,7 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
   "previousOggVersion"?: string;
   /**
    * The time of upgrade schedule. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeSchedule"?: Date;
@@ -137,13 +137,13 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
   "isSnoozed"?: boolean;
   /**
    * The time the upgrade notifications are snoozed until. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeSnoozedUntil"?: Date;
   /**
    * The time the resource was released. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeReleased"?: Date;
@@ -166,7 +166,7 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
   "isRollbackAllowed"?: boolean;
   /**
    * The time until OGG version is supported. After this date has passed OGG version will not be available anymore. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeOggVersionSupportedUntil"?: Date;
@@ -183,7 +183,7 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
   "isRescheduleAllowed"?: boolean;
   /**
    * Indicates the latest time until the deployment upgrade could be rescheduled. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeScheduleMax"?: Date;

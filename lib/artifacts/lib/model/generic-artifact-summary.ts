@@ -23,14 +23,14 @@ export interface GenericArtifactSummary {
   /**
     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the artifact.
 * <p>
-Example: `ocid1.genericartifact.oc1..exampleuniqueID`
+Example: {@code ocid1.genericartifact.oc1..exampleuniqueID}
 * 
     */
   "id": string;
   /**
-    * The artifact name with the format of `<artifact-path>:<artifact-version>`. The artifact name is truncated to a maximum length of 255.
+    * The artifact name with the format of {@code <artifact-path>:<artifact-version>}. The artifact name is truncated to a maximum length of 255.
 * <p>
-Example: `project01/my-web-app/artifact-abc:1.0.0`
+Example: {@code project01/my-web-app/artifact-abc:1.0.0}
 * 
     */
   "displayName": string;
@@ -45,14 +45,14 @@ Example: `project01/my-web-app/artifact-abc:1.0.0`
   /**
     * A user-defined path to describe the location of an artifact. Slashes do not create a directory structure, but you can use slashes to organize the repository. An artifact path does not include an artifact version.
 * <p>
-Example: `project01/my-web-app/artifact-abc` 
+Example: {@code project01/my-web-app/artifact-abc} 
 * 
     */
   "artifactPath": string;
   /**
     * A user-defined string to describe the artifact version.
 * <p>
-Example: `1.1.0` or `1.2-beta-2`
+Example: {@code 1.1.0} or {@code 1.2-beta-2}
 * 
     */
   "version": string;
@@ -72,7 +72,7 @@ Example: `1.1.0` or `1.2-beta-2`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags": { [key: string]: string };
@@ -80,7 +80,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags": { [key: string]: { [key: string]: any } };

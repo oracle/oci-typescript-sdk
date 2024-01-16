@@ -25,25 +25,25 @@ export interface SavedCustomTable {
   /**
    * The row groupBy key list.
    * example:
-   *   `[\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
+   *   {@code [\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
    *     \"compartmentName\", \"compartmentPath\", \"compartmentId\", \"platform\", \"region\", \"logicalAd\",
-   *     \"resourceId\", \"tenantId\", \"tenantName\"]`
+   *     \"resourceId\", \"tenantId\", \"tenantName\"]}
    *
    */
   "rowGroupBy"?: Array<string>;
   /**
    * The column groupBy key list.
    * example:
-   *   `[\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
+   *   {@code [\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
    *     \"compartmentName\", \"compartmentPath\", \"compartmentId\", \"platform\", \"region\", \"logicalAd\",
-   *     \"resourceId\", \"tenantId\", \"tenantName\"]`
+   *     \"resourceId\", \"tenantId\", \"tenantName\"]}
    *
    */
   "columnGroupBy"?: Array<string>;
   /**
    * GroupBy a specific tagKey. Provide the tagNamespace and tagKey in the tag object. Only one tag in the list is supported.
    * For example:
-   *   `[{\"namespace\":\"oracle\", \"key\":\"createdBy\"]`
+   *   {@code [{\"namespace\":\"oracle\", \"key\":\"createdBy\"]}
    *
    */
   "groupByTag"?: Array<model.Tag>;

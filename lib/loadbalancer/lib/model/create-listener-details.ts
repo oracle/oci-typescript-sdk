@@ -28,14 +28,14 @@ export interface CreateListenerDetails {
   /**
     * The name of the associated backend set.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
     */
   "defaultBackendSetName": string;
   /**
     * The communication port for the listener.
 * <p>
-Example: `80`
+Example: {@code 80}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;
@@ -44,7 +44,7 @@ Example: `80`
 * To get a list of valid protocols, use the {@link #listProtocols(ListProtocolsRequest) listProtocols}
 * operation.
 * <p>
-Example: `HTTP`
+Example: {@code HTTP}
 * 
     */
   "protocol": string;
@@ -53,12 +53,12 @@ Example: `HTTP`
    */
   "hostnameNames"?: Array<string>;
   /**
-    * Deprecated. Please use `routingPolicies` instead.
+    * Deprecated. Please use {@code routingPolicies} instead.
 * <p>
 The name of the set of path-based routing rules, {@link PathRouteSet},
 * applied to this listener's traffic.
 * <p>
-Example: `example_path_route_set`
+Example: {@code example_path_route_set}
 * 
     */
   "pathRouteSetName"?: string;
@@ -68,14 +68,14 @@ Example: `example_path_route_set`
     * A friendly name for the listener. It must be unique and it cannot be changed.
 * Avoid entering confidential information.
 * <p>
-Example: `example_listener`
+Example: {@code example_listener}
 * 
     */
   "name": string;
   /**
     * The name of the routing policy applied to this listener's traffic.
 * <p>
-Example: `example_routing_policy`
+Example: {@code example_routing_policy}
 * 
     */
   "routingPolicyName"?: string;

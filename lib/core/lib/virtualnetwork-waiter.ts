@@ -657,25 +657,6 @@ export class VirtualNetworkWaiter {
   }
 
   /**
-   * Waits forRemotePeeringConnectiononLifecycleState till it reaches any of the provided states
-   *
-   * @param request the request to send
-   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetRemotePeeringConnectionResponse | null (null in case of 404 response)
-   */
-  public async forRemotePeeringConnectiononLifecycleState(
-    request: serviceRequests.GetRemotePeeringConnectionRequest,
-    ...targetStates: models.RemotePeeringConnection.LifecycleState[]
-  ): Promise<serviceResponses.GetRemotePeeringConnectionResponse | null> {
-    return genericTerminalConditionWaiter(
-      this.config,
-      () => this.client.getRemotePeeringConnection(request),
-      response => targetStates.includes(response.remotePeeringConnection.lifecycleState!),
-      targetStates.includes(models.RemotePeeringConnection.LifecycleState.Terminated)
-    );
-  }
-
-  /**
    * Waits forRemotePeeringConnectiononPeeringStatus till it reaches any of the provided states
    *
    * @param request the request to send
@@ -691,6 +672,25 @@ export class VirtualNetworkWaiter {
       () => this.client.getRemotePeeringConnection(request),
       response => targetStates.includes(response.remotePeeringConnection.peeringStatus!),
       targetStates.includes(models.RemotePeeringConnection.PeeringStatus.Revoked)
+    );
+  }
+
+  /**
+   * Waits forRemotePeeringConnectiononLifecycleState till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetRemotePeeringConnectionResponse | null (null in case of 404 response)
+   */
+  public async forRemotePeeringConnectiononLifecycleState(
+    request: serviceRequests.GetRemotePeeringConnectionRequest,
+    ...targetStates: models.RemotePeeringConnection.LifecycleState[]
+  ): Promise<serviceResponses.GetRemotePeeringConnectionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getRemotePeeringConnection(request),
+      response => targetStates.includes(response.remotePeeringConnection.lifecycleState!),
+      targetStates.includes(models.RemotePeeringConnection.LifecycleState.Terminated)
     );
   }
 

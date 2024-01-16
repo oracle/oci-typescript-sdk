@@ -48,30 +48,30 @@ Paths may not end in a slash (/). No path element can be a period (.)
 No two non-'DELETED' export resources in the same export set can
 * reference the same file system.
 * <p>
-Use `exportOptions` to control access to an export. For more information, see
+Use {@code exportOptions} to control access to an export. For more information, see
 * [Export Options](https://docs.cloud.oracle.com/Content/File/Tasks/exportoptions.htm).
 * 
 */
 export interface Export {
   /**
     * Policies that apply to NFS requests made through this
-* export. `exportOptions` contains a sequential list of
-* `ClientOptions`. Each `ClientOptions` item defines the
+* export. {@code exportOptions} contains a sequential list of
+* {@code ClientOptions}. Each {@code ClientOptions} item defines the
 * export options that are applied to a specified
 * set of clients.
 * <p>
-For each NFS request, the first `ClientOptions` option
-* in the list whose `source` attribute matches the source
+For each NFS request, the first {@code ClientOptions} option
+* in the list whose {@code source} attribute matches the source
 * IP address of the request is applied.
 * <p>
-If a client source IP address does not match the `source`
-* property of any `ClientOptions` in the list, then the
+If a client source IP address does not match the {@code source}
+* property of any {@code ClientOptions} in the list, then the
 * export will be invisible to that client. This export will
-* not be returned by `MOUNTPROC_EXPORT` calls made by the client
+* not be returned by {@code MOUNTPROC_EXPORT} calls made by the client
 * and any attempt to mount or access the file system through
 * this export will result in an error.
 * <p>
-**Exports without defined `ClientOptions` are invisible to all clients.**
+**Exports without defined {@code ClientOptions} are invisible to all clients.**
 * <p>
 If one export is invisible to a particular client, associated file
 * systems may still be accessible through other exports on the same
@@ -103,7 +103,7 @@ If one export is invisible to a particular client, associated file
 * <p>
 Avoid entering confidential information.
 * <p>
-Example: `/accounting`
+Example: {@code /accounting}
 * 
     */
   "path": string;
@@ -115,7 +115,7 @@ Example: `/accounting`
     * The date and time the export was created, expressed
 * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

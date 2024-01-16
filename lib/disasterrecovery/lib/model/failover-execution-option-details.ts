@@ -25,14 +25,14 @@ export interface FailoverExecutionOptionDetails extends model.DrPlanExecutionOpt
   /**
     * A flag indicating whether prechecks should be executed before the plan execution.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "arePrechecksEnabled"?: boolean;
   /**
     * A flag indicating whether warnings should be ignored during the failover.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "areWarningsIgnored"?: boolean;

@@ -18,16 +18,16 @@ import common = require("oci-common");
 
 /**
  * Event type:
- *   * `KERNEL_OOPS` - Used to identify a kernel panic condition event
- *   * `KERNEL_CRASH` - Used to identify an internal fatal kernel error that cannot be safely recovered from
- *   * `CRASH` - Used to identify when an application stopped functioning properly and exited
- *   * `EXPLOIT_ATTEMPT` - Used to identify a known exploit detection as identified by Ksplice
- *   * `COMPLIANCE` - Used to identify a compliance related events
- *   * `TUNING_SUGGESTION` - Used to identify autonomous tuning suggestion events
- *   * `TUNING_APPLIED` - Used to identify when a tuning suggestion has been applied
- *   * `SECURITY` - Used to identify security related events
- *   * `ERROR` - Used to identify error related events
- *   * `WARNING` - Used to identify warning related events
+ *   * {@code KERNEL_OOPS} - Used to identify a kernel panic condition event
+ *   * {@code KERNEL_CRASH} - Used to identify an internal fatal kernel error that cannot be safely recovered from
+ *   * {@code CRASH} - Used to identify when an application stopped functioning properly and exited
+ *   * {@code EXPLOIT_ATTEMPT} - Used to identify a known exploit detection as identified by Ksplice
+ *   * {@code COMPLIANCE} - Used to identify a compliance related events
+ *   * {@code TUNING_SUGGESTION} - Used to identify autonomous tuning suggestion events
+ *   * {@code TUNING_APPLIED} - Used to identify when a tuning suggestion has been applied
+ *   * {@code SECURITY} - Used to identify security related events
+ *   * {@code ERROR} - Used to identify error related events
+ *   * {@code WARNING} - Used to identify warning related events
  *
  **/
 export enum EventType {

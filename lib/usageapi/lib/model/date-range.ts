@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Static or dynamic date range `dateRangeType`,
+ * Static or dynamic date range {@code dateRangeType},
  * which corresponds with type-specific characteristics.
  *
  */

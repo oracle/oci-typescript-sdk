@@ -62,8 +62,8 @@ export interface ExternalListener {
    */
   "listenerType"?: ExternalListener.ListenerType;
   /**
-   * The additional details of the external listener defined in `{\"key\": \"value\"}` format.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The additional details of the external listener defined in {@code {\"key\": \"value\"}} format.
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "additionalDetails"?: { [key: string]: string };

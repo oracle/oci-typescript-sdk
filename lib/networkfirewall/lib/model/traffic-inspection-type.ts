@@ -18,7 +18,7 @@ import common = require("oci-common");
  * Type of inspection to affect the Traffic flow. This is only applicable if action is INSPECT.
  * <p>
  * INTRUSION_DETECTION - Intrusion Detection.
- *   * INTRUSION_PREVENTION - Intrusion Detection and Prevention. Traffic classified as potentially malicious will be rejected as described in `type`.
+ *   * INTRUSION_PREVENTION - Intrusion Detection and Prevention. Traffic classified as potentially malicious will be rejected as described in {@code type}.
  *
  **/
 export enum TrafficInspectionType {

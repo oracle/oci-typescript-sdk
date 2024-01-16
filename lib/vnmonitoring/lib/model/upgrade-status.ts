@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface UpgradeStatus {
   /**
-   * The `drgId` of the upgraded DRG.
+   * The {@code drgId} of the upgraded DRG.
    *
    */
   "drgId": string;

@@ -27,7 +27,7 @@ export interface CreateHostnameDetails {
     * A friendly name for the hostname resource. It must be unique and it cannot be changed. Avoid entering confidential
 * information.
 * <p>
-Example: `example_hostname_001`
+Example: {@code example_hostname_001}
 * 
     */
   "name": string;
@@ -35,7 +35,7 @@ Example: `example_hostname_001`
     * A virtual hostname. For more information about virtual hostname string construction, see
 * [Managing Request Routing](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrequest.htm#routing).
 * <p>
-Example: `app.example.com`
+Example: {@code app.example.com}
 * 
     */
   "hostname": string;

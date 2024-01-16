@@ -21,7 +21,7 @@ export interface ListDrProtectionGroupsRequest extends common.BaseRequest {
   /**
  * The ID (OCID) of the compartment in which to list resources.
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
  */
   "compartmentId": string;
@@ -33,14 +33,14 @@ Example: `ocid1.compartment.oc1..uniqueID`
   /**
  * The OCID of the DR protection group. Optional query param.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
  */
   "drProtectionGroupId"?: string;
   /**
  * A filter to return only resources that match the given display name.
 * <p>
-Example: `MyResourceDisplayName`
+Example: {@code MyResourceDisplayName}
 * 
  */
   "displayName"?: string;
@@ -52,12 +52,12 @@ Example: `MyResourceDisplayName`
 For important details about how pagination works,
 * see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `100`
+Example: {@code 100}
 * 
  */
   "limit"?: number;
   /**
- * For list pagination. The value of the `opc-next-page` response
+ * For list pagination. The value of the {@code opc-next-page} response
 * header from the previous \"List\" call.
 * <p>
 For important details about how pagination works,
@@ -74,7 +74,7 @@ For important details about how pagination works,
  * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending.
 * Default order for displayName is ascending. If no value is specified timeCreated is default.
 * <p>
-Example: `MyResourceDisplayName`
+Example: {@code MyResourceDisplayName}
 * 
  */
   "sortBy"?: ListDrProtectionGroupsRequest.SortBy;

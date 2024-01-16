@@ -21,7 +21,7 @@ export interface GetGenericArtifactRequest extends common.BaseRequest {
   /**
  * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the artifact.
 * <p>
-Example: `ocid1.genericartifact.oc1..exampleuniqueID`
+Example: {@code ocid1.genericartifact.oc1..exampleuniqueID}
 * 
  */
   "artifactId": string;

@@ -29,7 +29,7 @@ export interface RateLimit {
   "value": number;
   /**
    * The unit of time over which rate limits are calculated.
-   * Example: `SECOND`
+   * Example: {@code SECOND}
    *
    */
   "unit": RateLimit.Unit;

@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a `ListByoipAllocatedRanges` operation.
+ * Results of a {@code ListByoipAllocatedRanges} operation.
  */
 export interface ByoipAllocatedRangeCollection {
   /**

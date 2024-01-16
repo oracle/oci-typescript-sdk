@@ -26,14 +26,14 @@ export interface ComputeInstanceMovableVnicMappingDetails {
   /**
     * The OCID of the source VNIC.
 * <p>
-Example: `ocid1.vnic.oc1..uniqueID`
+Example: {@code ocid1.vnic.oc1..uniqueID}
 * 
     */
   "sourceVnicId": string;
   /**
     * The OCID of the destination subnet to which the source VNIC should connect.        
 * <p>
-Example: `ocid1.subnet.oc1..uniqueID`
+Example: {@code ocid1.subnet.oc1..uniqueID}
 * 
     */
   "destinationSubnetId": string;
@@ -41,7 +41,7 @@ Example: `ocid1.subnet.oc1..uniqueID`
     * The primary private IP address to be assigned to the source VNIC in the destination subnet. 
 * This IP address must belong to the destination subnet.
 * <p>
-Example: `10.0.3.3`
+Example: {@code 10.0.3.3}
 * 
     */
   "destinationPrimaryPrivateIpAddress"?: string;
@@ -50,7 +50,7 @@ Example: `10.0.3.3`
 * This label is the hostname portion of the private IP's fully qualified domain name (FQDN) 
 * (for example, 'myhost1' in the FQDN 'myhost1.subnet123.vcn1.oraclevcn.com').
 * <p>
-Example: `myhost1`
+Example: {@code myhost1}
 * 
     */
   "destinationPrimaryPrivateIpHostnameLabel"?: string;
@@ -58,7 +58,7 @@ Example: `myhost1`
     * A list of OCIDs of network security groups (NSG) in the destination region which should be assigned to
 * the source VNIC.
 * <p>
-Example: `[ ocid1.networksecuritygroup.oc1..uniqueID, ocid1.networksecuritygroup.oc1..uniqueID ]`
+Example: {@code [ ocid1.networksecuritygroup.oc1..uniqueID, ocid1.networksecuritygroup.oc1..uniqueID ]}
 * 
     */
   "destinationNsgIdList"?: Array<string>;

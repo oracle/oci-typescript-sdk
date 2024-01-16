@@ -28,7 +28,7 @@ export interface MultipathDevice {
   /**
     * The volume's iSCSI IP address.
 * <p>
-Example: `169.254.2.2`
+Example: {@code 169.254.2.2}
 * 
     */
   "ipv4": string;
@@ -36,14 +36,14 @@ Example: `169.254.2.2`
     * The target volume's iSCSI Qualified Name in the format defined
 * by [RFC 3720](https://tools.ietf.org/html/rfc3720#page-32).
 * <p>
-Example: `iqn.2015-12.com.oracleiaas:40b7ee03-883f-46c6-a951-63d2841d2195`
+Example: {@code iqn.2015-12.com.oracleiaas:40b7ee03-883f-46c6-a951-63d2841d2195}
 * 
     */
   "iqn": string;
   /**
     * The volume's iSCSI port, usually port 860 or 3260.
 * <p>
-Example: `3260`
+Example: {@code 3260}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port"?: number;

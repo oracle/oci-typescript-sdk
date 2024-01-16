@@ -19,8 +19,8 @@ import common = require("oci-common");
 /**
  * The Cluster information to be updated.
  * <p>
- **Important:** Only the `displayName`, `freeFormTags`, and `definedTags` attributes
- * affect the existing Cluster. Changing the other attributes affects the `Cluster` object, but not
+ **Important:** Only the {@code displayName}, {@code freeFormTags}, and {@code definedTags} attributes
+ * affect the existing Cluster. Changing the other attributes affects the {@code Cluster} object, but not
  * the VMware environment currently running on that Cluster. Those other attributes are used
  * by the Oracle Cloud VMware Solution *only* for new ESXi hosts that you add to this
  * Cluster in the future with {@link #createEsxiHost(CreateEsxiHostRequest) createEsxiHost}.
@@ -53,7 +53,7 @@ export interface UpdateClusterDetails {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -61,7 +61,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

@@ -25,7 +25,7 @@ export interface ListMountTargetsRequest extends common.BaseRequest {
   /**
  * The name of the availability domain.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
  */
   "availabilityDomain": string;
@@ -37,12 +37,12 @@ Example: `Uocm:PHX-AD-1`
 For important details about how pagination works,
 * see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `500`
+Example: {@code 500}
 * 
  */
   "limit"?: number;
   /**
- * For list pagination. The value of the `opc-next-page` response
+ * For list pagination. The value of the {@code opc-next-page} response
 * header from the previous \"List\" call.
 * <p>
 For important details about how pagination works,
@@ -53,7 +53,7 @@ For important details about how pagination works,
   /**
  * A user-friendly name. It does not have to be unique, and it is changeable.
 * <p>
-Example: `My resource`
+Example: {@code My resource}
 * 
  */
   "displayName"?: string;

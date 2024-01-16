@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 export interface CreateInstanceAgentCommandResponse {
   /**
-   * For optimistic concurrency control. See `if-match`.
+   * For optimistic concurrency control. See {@code if-match}.
    *
    */
   "etag": string;

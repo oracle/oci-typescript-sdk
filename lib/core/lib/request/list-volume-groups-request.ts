@@ -25,7 +25,7 @@ export interface ListVolumeGroupsRequest extends common.BaseRequest {
   /**
  * The name of the availability domain.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
  */
   "availabilityDomain"?: string;
@@ -34,12 +34,12 @@ Example: `Uocm:PHX-AD-1`
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -51,11 +51,11 @@ Example: `50`
    */
   "displayName"?: string;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`). Default order for
+   * The field to sort by. You can provide one sort order ({@code sortOrder}). Default order for
    * TIMECREATED is descending. Default order for DISPLAYNAME is ascending. The DISPLAYNAME
    * sort order is case sensitive.
    * <p>
-   **Note:** In general, some \"List\" operations (for example, `ListInstances`) let you
+   **Note:** In general, some \"List\" operations (for example, {@code ListInstances}) let you
    * optionally filter by availability domain if the scope of the resource type is within a
    * single availability domain. If you call one of these \"List\" operations without specifying
    * an availability domain, the resources are grouped by availability domain, then sorted.
@@ -63,7 +63,7 @@ Example: `50`
    */
   "sortBy"?: ListVolumeGroupsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The DISPLAYNAME sort order
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). The DISPLAYNAME sort order
    * is case sensitive.
    *
    */

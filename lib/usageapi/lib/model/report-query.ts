@@ -57,16 +57,16 @@ export interface ReportQuery {
   /**
    * Aggregate the result by.
    * example:
-   *   `[\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
+   *   {@code [\"tagNamespace\", \"tagKey\", \"tagValue\", \"service\", \"skuName\", \"skuPartNumber\", \"unit\",
    *     \"compartmentName\", \"compartmentPath\", \"compartmentId\", \"platform\", \"region\", \"logicalAd\",
-   *     \"resourceId\", \"tenantId\", \"tenantName\"]`
+   *     \"resourceId\", \"tenantId\", \"tenantName\"]}
    *
    */
   "groupBy"?: Array<string>;
   /**
    * GroupBy a specific tagKey. Provide the tagNamespace and tagKey in the tag object. Only supports one tag in the list.
    * For example:
-   *   `[{\"namespace\":\"oracle\", \"key\":\"createdBy\"]`
+   *   {@code [{\"namespace\":\"oracle\", \"key\":\"createdBy\"]}
    *
    */
   "groupByTag"?: Array<model.Tag>;

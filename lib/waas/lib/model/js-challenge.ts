@@ -23,19 +23,19 @@ export interface JsChallenge {
    */
   "isEnabled": boolean;
   /**
-   * The action to take against requests from detected bots. If unspecified, defaults to `DETECT`.
+   * The action to take against requests from detected bots. If unspecified, defaults to {@code DETECT}.
    */
   "action"?: JsChallenge.Action;
   /**
-   * The number of failed requests before taking action. If unspecified, defaults to `10`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of failed requests before taking action. If unspecified, defaults to {@code 10}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failureThreshold"?: number;
   /**
-   * The number of seconds between challenges from the same IP address. If unspecified, defaults to `60`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of seconds between challenges from the same IP address. If unspecified, defaults to {@code 60}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "actionExpirationInSeconds"?: number;
   /**
-   * Adds an additional HTTP header to requests that fail the challenge before being passed to the origin. Only applicable when the `action` is set to `DETECT`.
+   * Adds an additional HTTP header to requests that fail the challenge before being passed to the origin. Only applicable when the {@code action} is set to {@code DETECT}.
    */
   "setHttpHeader"?: model.Header;
   "challengeSettings"?: model.BlockChallengeSettings;

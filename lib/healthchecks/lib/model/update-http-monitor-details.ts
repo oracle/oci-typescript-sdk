@@ -37,7 +37,7 @@ export interface UpdateHttpMonitorDetails {
   "port"?: number;
   /**
    * The probe timeout in seconds. Valid values: 10, 20, 30, and 60.
-   * The probe timeout must be less than or equal to `intervalInSeconds` for monitors.
+   * The probe timeout must be less than or equal to {@code intervalInSeconds} for monitors.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeoutInSeconds"?: number;
@@ -50,7 +50,7 @@ export interface UpdateHttpMonitorDetails {
   /**
    * A dictionary of HTTP request headers.
    * <p>
-   *Note:* Monitors and probes do not support the use of the `Authorization` HTTP header.
+   *Note:* Monitors and probes do not support the use of the {@code Authorization} HTTP header.
    *
    */
   "headers"?: { [key: string]: string };
@@ -72,14 +72,14 @@ export interface UpdateHttpMonitorDetails {
    * Free-form tags for this resource. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace.  For more information,
    * see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

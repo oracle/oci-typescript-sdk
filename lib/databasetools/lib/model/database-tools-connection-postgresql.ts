@@ -29,7 +29,7 @@ export interface DatabaseToolsConnectionPostgresql extends model.DatabaseToolsCo
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretId;
   /**
-   * The advanced connection properties key-value pair (for example, `sslMode`).
+   * The advanced connection properties key-value pair (for example, {@code sslMode}).
    */
   "advancedProperties"?: { [key: string]: string };
   /**

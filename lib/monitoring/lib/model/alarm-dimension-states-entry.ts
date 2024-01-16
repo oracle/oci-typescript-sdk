@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -31,14 +31,14 @@ export interface AlarmDimensionStatesEntry {
   /**
     * Transition state (status value) associated with the alarm state entry.
 * <p>
-Example: `FIRING`
+Example: {@code FIRING}
 * 
     */
   "status": AlarmDimensionStatesEntry.Status;
   /**
     * Transition time associated with the alarm state entry. Format defined by RFC3339.
 * <p>
-Example: `2022-02-01T01:02:29.600Z`
+Example: {@code 2022-02-01T01:02:29.600Z}
 * 
     */
   "timestamp": Date;

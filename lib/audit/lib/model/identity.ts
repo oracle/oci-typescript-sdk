@@ -24,9 +24,9 @@ import common = require("oci-common");
  */
 export interface Identity {
   /**
-    * The name of the user or service. This value is the friendly name associated with `principalId`.
+    * The name of the user or service. This value is the friendly name associated with {@code principalId}.
 * <p>
-Example: `ExampleName`
+Example: {@code ExampleName}
 * 
     */
   "principalName"?: string;
@@ -38,12 +38,12 @@ Example: `ExampleName`
   /**
     * The type of authentication used.
 * <p>
-Example: `natv`
+Example: {@code natv}
 * 
     */
   "authType"?: string;
   /**
-   * The name of the user or service. This value is the friendly name associated with `callerId`.
+   * The name of the user or service. This value is the friendly name associated with {@code callerId}.
    *
    */
   "callerName"?: string;
@@ -61,7 +61,7 @@ Example: `natv`
   /**
     * The IP address of the source of the request.
 * <p>
-Example: `172.24.80.88`
+Example: {@code 172.24.80.88}
 * 
     */
   "ipAddress"?: string;
@@ -74,7 +74,7 @@ Example: `172.24.80.88`
   /**
     * The user agent of the client that made the request.
 * <p>
-Example: `Jersey/2.23 (HttpUrlConnection 1.8.0_212)`
+Example: {@code Jersey/2.23 (HttpUrlConnection 1.8.0_212)}
 * 
     */
   "userAgent"?: string;

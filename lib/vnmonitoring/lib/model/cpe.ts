@@ -18,7 +18,7 @@ import common = require("oci-common");
 
 /**
 * An object you create when setting up a Site-to-Site VPN between your on-premises network
-* and VCN. The `Cpe` is a virtual representation of your customer-premises equipment,
+* and VCN. The {@code Cpe} is a virtual representation of your customer-premises equipment,
 * which is the actual router on-premises at your site at your end of the Site-to-Site VPN IPSec connection.
 * For more information,
 * see [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
@@ -35,7 +35,7 @@ export interface Cpe {
   "compartmentId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -47,7 +47,7 @@ export interface Cpe {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -80,12 +80,12 @@ For information about how to generate CPE configuration content for a
   /**
     * The date and time the CPE was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
   /**
-   * Indicates whether this CPE is of type `private` or not.
+   * Indicates whether this CPE is of type {@code private} or not.
    *
    */
   "isPrivate"?: boolean;

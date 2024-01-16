@@ -47,7 +47,7 @@ export interface TsigKey {
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
 
-* **Example:** `{\"Department\": \"Finance\"}`
+* **Example:** {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags": { [key: string]: string };
@@ -56,7 +56,7 @@ export interface TsigKey {
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
 
-* **Example:** `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* **Example:** {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags": { [key: string]: { [key: string]: any } };
@@ -71,7 +71,7 @@ export interface TsigKey {
   /**
    * The date and time the resource was created, expressed in RFC 3339 timestamp format.
    * <p>
-   **Example:** `2016-07-22T17:23:59:60Z`
+   **Example:** {@code 2016-07-22T17:23:59:60Z}
    *
    */
   "timeCreated": Date;
@@ -82,7 +82,7 @@ export interface TsigKey {
   /**
    * The date and time the resource was last updated, expressed in RFC 3339 timestamp format.
    * <p>
-   **Example:** `2016-07-22T17:23:59:60Z`
+   **Example:** {@code 2016-07-22T17:23:59:60Z}
    *
    */
   "timeUpdated"?: Date;

@@ -25,14 +25,14 @@ export interface CreateDrPlanExecutionDetails {
   /**
     * The display name of the DR plan execution.
 * <p>
-Example: `Execution - EBS Switchover PHX to IAD`
+Example: {@code Execution - EBS Switchover PHX to IAD}
 * 
     */
   "displayName"?: string;
   /**
     * The OCID of the DR plan.
 * <p>
-Example: `ocid1.drplan.oc1..uniqueID`
+Example: {@code ocid1.drplan.oc1..uniqueID}
 * 
     */
   "planId": string;
@@ -48,14 +48,14 @@ Example: `ocid1.drplan.oc1..uniqueID`
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

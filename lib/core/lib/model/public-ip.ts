@@ -23,7 +23,7 @@ import common = require("oci-common");
 
 /**
 * A *public IP* is a conceptual term that refers to a public IP address and related properties.
-* The `publicIp` object is the API representation of a public IP.
+* The {@code publicIp} object is the API representation of a public IP.
 * <p>
 There are two types of public IPs:
 * 1. Ephemeral
@@ -48,10 +48,10 @@ export interface PublicIp {
   "assignedEntityType"?: PublicIp.AssignedEntityType;
   /**
     * The public IP's availability domain. This property is set only for ephemeral public IPs
-* that are assigned to a private IP (that is, when the `scope` of the public IP is set to
+* that are assigned to a private IP (that is, when the {@code scope} of the public IP is set to
 * AVAILABILITY_DOMAIN). The value is the availability domain of the assigned private IP.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain"?: string;
@@ -67,7 +67,7 @@ Example: `Uocm:PHX-AD-1`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -81,7 +81,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -90,9 +90,9 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "id"?: string;
   /**
-    * The public IP address of the `publicIp` object.
+    * The public IP address of the {@code publicIp} object.
 * <p>
-Example: `203.0.113.2`
+Example: {@code 203.0.113.2}
 * 
     */
   "ipAddress"?: string;
@@ -103,14 +103,14 @@ Example: `203.0.113.2`
   /**
     * Defines when the public IP is deleted and released back to Oracle's public IP pool.
 * <p>
-* `EPHEMERAL`: The lifetime is tied to the lifetime of its assigned entity. An ephemeral
+* {@code EPHEMERAL}: The lifetime is tied to the lifetime of its assigned entity. An ephemeral
 * public IP must always be assigned to an entity. If the assigned entity is a private IP,
 * the ephemeral public IP is automatically deleted when the private IP is deleted, when
 * the VNIC is terminated, or when the instance is terminated. If the assigned entity is a
 * {@link NatGateway}, the ephemeral public IP is automatically
 * deleted when the NAT gateway is terminated.
 * <p>
-* `RESERVED`: You control the public IP's lifetime. You can delete a reserved public IP
+* {@code RESERVED}: You control the public IP's lifetime. You can delete a reserved public IP
 * whenever you like. It does not need to be assigned to a private IP at all times.
 * <p>
 For more information and comparison of the two types,
@@ -119,12 +119,12 @@ For more information and comparison of the two types,
     */
   "lifetime"?: PublicIp.Lifetime;
   /**
-    * Deprecated. Use `assignedEntityId` instead.
+    * Deprecated. Use {@code assignedEntityId} instead.
 * <p>
 The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private IP that the public IP is currently assigned to, or in the
 * process of being assigned to.
 * <p>
-**Note:** This is `null` if the public IP is not assigned to a private IP, or is
+**Note:** This is {@code null} if the public IP is not assigned to a private IP, or is
 * in the process of being assigned to one.
 * 
     */
@@ -132,21 +132,21 @@ The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifie
   /**
    * Whether the public IP is regional or specific to a particular availability domain.
    * <p>
-   * `REGION`: The public IP exists within a region and is assigned to a regional entity
+   * {@code REGION}: The public IP exists within a region and is assigned to a regional entity
    * (such as a {@link NatGateway}), or can be assigned to a private
    * IP in any availability domain in the region. Reserved public IPs and ephemeral public IPs
-   * assigned to a regional entity have `scope` = `REGION`.
+   * assigned to a regional entity have {@code scope} = {@code REGION}.
    * <p>
-   * `AVAILABILITY_DOMAIN`: The public IP exists within the availability domain of the entity
-   * it's assigned to, which is specified by the `availabilityDomain` property of the public IP object.
-   * Ephemeral public IPs that are assigned to private IPs have `scope` = `AVAILABILITY_DOMAIN`.
+   * {@code AVAILABILITY_DOMAIN}: The public IP exists within the availability domain of the entity
+   * it's assigned to, which is specified by the {@code availabilityDomain} property of the public IP object.
+   * Ephemeral public IPs that are assigned to private IPs have {@code scope} = {@code AVAILABILITY_DOMAIN}.
    *
    */
   "scope"?: PublicIp.Scope;
   /**
     * The date and time the public IP was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;

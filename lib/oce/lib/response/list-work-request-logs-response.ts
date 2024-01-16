@@ -17,7 +17,7 @@ import common = require("oci-common");
 export interface ListWorkRequestLogsResponse {
   /**
    * For pagination of a list of items. When paging through a list, if this header appears in the response,
-   * then there might be additional items still to get. Include this value as the `page` parameter for the
+   * then there might be additional items still to get. Include this value as the {@code page} parameter for the
    * subsequent GET request.
    *
    */

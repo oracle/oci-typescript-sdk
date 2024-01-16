@@ -25,21 +25,21 @@ export interface ObjectStorageLogLocation {
   /**
     * The namespace in object storage (Note - this is usually the tenancy name).
 * <p>
-Example: `myocitenancy`
+Example: {@code myocitenancy}
 * 
     */
   "namespace": string;
   /**
     * The bucket name inside the object storage namespace.
 * <p>
-Example: `operation_logs`
+Example: {@code operation_logs}
 * 
     */
   "bucket": string;
   /**
     * The object name inside the object storage bucket.
 * <p>
-Example: `switchover_plan_executions`
+Example: {@code switchover_plan_executions}
 * 
     */
   "object"?: string;

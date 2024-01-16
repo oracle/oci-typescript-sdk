@@ -19,7 +19,7 @@ import common = require("oci-common");
 export interface CreateIpv6Details {
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -31,7 +31,7 @@ export interface CreateIpv6Details {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -39,9 +39,9 @@ export interface CreateIpv6Details {
     * An IPv6 address of your choice. Must be an available IP address within
 * the subnet's CIDR. If you don't specify a value, Oracle automatically
 * assigns an IPv6 address from the subnet. The subnet is the one that
-* contains the VNIC you specify in `vnicId`.
+* contains the VNIC you specify in {@code vnicId}.
 * <p>
-Example: `2001:DB8::`
+Example: {@code 2001:DB8::}
 * 
     */
   "ipAddress"?: string;

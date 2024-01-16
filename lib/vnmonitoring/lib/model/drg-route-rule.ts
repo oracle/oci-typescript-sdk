@@ -27,10 +27,10 @@ export interface DrgRouteRule {
     * Represents the range of IP addresses to match against when routing traffic.
 * <p>
 Potential values:
-*   * An IP address range (IPv4 or IPv6) in CIDR notation. For example: `192.168.1.0/24`
-*   or `2001:0db8:0123:45::/56`.
-*   * When you're setting up a security rule for traffic destined for a particular `Service` through
-*   a service gateway, this is the `cidrBlock` value associated with that {@link Service}. For example: `oci-phx-objectstorage`.
+*   * An IP address range (IPv4 or IPv6) in CIDR notation. For example: {@code 192.168.1.0/24}
+*   or {@code 2001:0db8:0123:45::/56}.
+*   * When you're setting up a security rule for traffic destined for a particular {@code Service} through
+*   a service gateway, this is the {@code cidrBlock} value associated with that {@link Service}. For example: {@code oci-phx-objectstorage}.
 * 
     */
   "destination": string;
@@ -39,10 +39,10 @@ Potential values:
 * <p>
 Allowed values:
 * <p>
-  * `CIDR_BLOCK`: If the rule's `destination` is an IP address range in CIDR notation.
-*   * `SERVICE_CIDR_BLOCK`: If the rule's `destination` is the `cidrBlock` value for a
+  * {@code CIDR_BLOCK}: If the rule's {@code destination} is an IP address range in CIDR notation.
+*   * {@code SERVICE_CIDR_BLOCK}: If the rule's {@code destination} is the {@code cidrBlock} value for a
 *     {@link Service} (the rule is for traffic destined for a
-*     particular `Service` through a service gateway).
+*     particular {@code Service} through a service gateway).
 * 
     */
   "destinationType": DrgRouteRule.DestinationType;
@@ -50,7 +50,7 @@ Allowed values:
     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the next hop DRG attachment responsible
 * for reaching the network destination.
 * <p>
-A value of `BLACKHOLE` means traffic for this route is discarded without notification.
+A value of {@code BLACKHOLE} means traffic for this route is discarded without notification.
 * 
     */
   "nextHopDrgAttachmentId": string;
@@ -77,10 +77,10 @@ A value of `BLACKHOLE` means traffic for this route is discarded without notific
   "id": string;
   /**
     * The earliest origin of a route. If a route is advertised to a DRG through an IPsec tunnel attachment,
-* and is propagated to peered DRGs via RPC attachments, the route's provenance in the peered DRGs remains `IPSEC_TUNNEL`,
+* and is propagated to peered DRGs via RPC attachments, the route's provenance in the peered DRGs remains {@code IPSEC_TUNNEL},
 * because that is the earliest origin.
 * <p>
-No routes with a provenance `IPSEC_TUNNEL` or `VIRTUAL_CIRCUIT` will be exported to IPsec tunnel or virtual circuit attachments,
+No routes with a provenance {@code IPSEC_TUNNEL} or {@code VIRTUAL_CIRCUIT} will be exported to IPsec tunnel or virtual circuit attachments,
 * regardless of the attachment's export distribution.
 * 
     */

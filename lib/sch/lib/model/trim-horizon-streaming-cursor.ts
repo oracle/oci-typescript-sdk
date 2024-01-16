@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * `TRIM_HORIZON` cursor type. Sets the starting point for consuming the stream at the oldest available message in the stream. For more information about Streaming cursors, see [Using Cursors](https://docs.cloud.oracle.com/iaas/Content/Streaming/Tasks/using_a_single_consumer.htm#usingcursors).
+ * {@code TRIM_HORIZON} cursor type. Sets the starting point for consuming the stream at the oldest available message in the stream. For more information about Streaming cursors, see [Using Cursors](https://docs.cloud.oracle.com/iaas/Content/Streaming/Tasks/using_a_single_consumer.htm#usingcursors).
  *
  */
 export interface TrimHorizonStreamingCursor extends model.StreamingCursorDetails {

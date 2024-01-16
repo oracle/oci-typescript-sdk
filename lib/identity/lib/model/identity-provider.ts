@@ -17,8 +17,8 @@ import common = require("oci-common");
 /**
 * The resulting base object when you add an identity provider to your tenancy. A
 * {@link Saml2IdentityProvider}
-* is a specific type of `IdentityProvider` that supports the SAML 2.0 protocol. Each
-* `IdentityProvider` object has its own OCID. For more information, see
+* is a specific type of {@code IdentityProvider} that supports the SAML 2.0 protocol. Each
+* {@code IdentityProvider} object has its own OCID. For more information, see
 * [Identity Providers and Federation](https://docs.cloud.oracle.com/Content/Identity/Concepts/federation.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
@@ -31,16 +31,16 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface IdentityProvider {
   /**
-   * The OCID of the `IdentityProvider`.
+   * The OCID of the {@code IdentityProvider}.
    */
   "id": string;
   /**
-   * The OCID of the tenancy containing the `IdentityProvider`.
+   * The OCID of the tenancy containing the {@code IdentityProvider}.
    */
   "compartmentId": string;
   /**
-   * The name you assign to the `IdentityProvider` during creation. The name
-   * must be unique across all `IdentityProvider` objects in the tenancy and
+   * The name you assign to the {@code IdentityProvider} during creation. The name
+   * must be unique across all {@code IdentityProvider} objects in the tenancy and
    * cannot be changed. This is the name federated users see when choosing
    * which identity provider to use when signing in to the Oracle Cloud Infrastructure
    * Console.
@@ -48,7 +48,7 @@ export interface IdentityProvider {
    */
   "name": string;
   /**
-   * The description you assign to the `IdentityProvider` during creation. Does
+   * The description you assign to the {@code IdentityProvider} during creation. Does
    * not have to be unique, and it's changeable.
    *
    */
@@ -59,23 +59,23 @@ export interface IdentityProvider {
 * Active Directory Federation Services (ADFS).
 * <p>
 Allowed values are:
-* - `ADFS`
-* - `IDCS`
+* - {@code ADFS}
+* - {@code IDCS}
 * <p>
-Example: `IDCS`
+Example: {@code IDCS}
 * 
     */
   "productType": string;
   /**
-    * Date and time the `IdentityProvider` was created, in the format defined by RFC3339.
+    * Date and time the {@code IdentityProvider} was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
-   * The current state. After creating an `IdentityProvider`, make sure its
-   * `lifecycleState` changes from CREATING to ACTIVE before using it.
+   * The current state. After creating an {@code IdentityProvider}, make sure its
+   * {@code lifecycleState} changes from CREATING to ACTIVE before using it.
    *
    */
   "lifecycleState": IdentityProvider.LifecycleState;
@@ -86,14 +86,14 @@ Example: `2016-08-25T21:10:29.600Z`
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

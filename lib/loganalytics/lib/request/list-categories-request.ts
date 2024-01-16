@@ -36,7 +36,7 @@ export interface ListCategoriesRequest extends common.BaseRequest {
    */
   "categoryDisplayText"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListCategoriesRequest.SortOrder;

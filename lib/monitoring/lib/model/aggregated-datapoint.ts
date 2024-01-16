@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -26,14 +26,14 @@ export interface AggregatedDatapoint {
   /**
     * The date and time associated with the value of this data point. Format defined by RFC3339.
 * <p>
-Example: `2019-02-01T01:02:29.600Z`
+Example: {@code 2023-02-01T01:02:29.600Z}
 * 
     */
   "timestamp": Date;
   /**
     * Numeric value of the metric.
 * <p>
-Example: `10.4`
+Example: {@code 10.4}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "value": number;

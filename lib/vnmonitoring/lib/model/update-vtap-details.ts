@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface UpdateVtapDetails {
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -34,7 +34,7 @@ export interface UpdateVtapDetails {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -69,10 +69,10 @@ export interface UpdateVtapDetails {
    */
   "vxlanNetworkIdentifier"?: number;
   /**
-   * Used to start or stop a `Vtap` resource.
+   * Used to start or stop a {@code Vtap} resource.
    * <p>
-   * `TRUE` directs the VTAP to start mirroring traffic.
-   * * `FALSE` (Default) directs the VTAP to stop mirroring traffic.
+   * {@code TRUE} directs the VTAP to start mirroring traffic.
+   * * {@code FALSE} (Default) directs the VTAP to stop mirroring traffic.
    *
    */
   "isVtapEnabled"?: boolean;

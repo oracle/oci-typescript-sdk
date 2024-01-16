@@ -26,14 +26,14 @@ export interface ComputeInstanceVnicMapping {
   /**
     * The OCID of the VNIC.
 * <p>
-Example: `ocid1.vnic.oc1..uniqueID`
+Example: {@code ocid1.vnic.oc1..uniqueID}
 * 
     */
   "sourceVnicId": string;
   /**
     * The OCID of the destination subnet to which the source VNIC should connect.
 * <p>
-Example: `ocid1.subnet.oc1..uniqueID`
+Example: {@code ocid1.subnet.oc1..uniqueID}
 * 
     */
   "destinationSubnetId": string;
@@ -41,7 +41,7 @@ Example: `ocid1.subnet.oc1..uniqueID`
     * A list of OCIDs of network security groups (NSG) in the destination region which should be assigned to
 * the source VNIC.
 * <p>
-Example: `[ ocid1.networksecuritygroup.oc1..uniqueID1, ocid1.networksecuritygroup.oc1..uniqueID2 ]`
+Example: {@code [ ocid1.networksecuritygroup.oc1..uniqueID1, ocid1.networksecuritygroup.oc1..uniqueID2 ]}
 * 
     */
   "destinationNsgIdList"?: Array<string>;

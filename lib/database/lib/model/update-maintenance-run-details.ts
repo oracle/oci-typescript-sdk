@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface UpdateMaintenanceRunDetails {
   /**
-   * If `FALSE`, skips the maintenance run.
+   * If {@code FALSE}, skips the maintenance run.
    */
   "isEnabled"?: boolean;
   /**
@@ -29,7 +29,7 @@ export interface UpdateMaintenanceRunDetails {
    */
   "timeScheduled"?: Date;
   /**
-   * If set to `TRUE`, starts patching immediately.
+   * If set to {@code TRUE}, starts patching immediately.
    */
   "isPatchNowEnabled"?: boolean;
   /**

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of strategies that match filter criteria, if any. Results contain `RecommendationStrategySummary` objects.
+ * A list of strategies that match filter criteria, if any. Results contain {@code RecommendationStrategySummary} objects.
  *
  */
 export interface RecommendationStrategyCollection {

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDbSystemStoragePerformancesRequest extends common.BaseRequest {
   /**
-   * The DB system storage management option. Used to list database versions available for that storage manager. Valid values are `ASM` and `LVM`.
+   * The DB system storage management option. Used to list database versions available for that storage manager. Valid values are {@code ASM} and {@code LVM}.
    * * ASM specifies Oracle Automatic Storage Management
    * * LVM specifies logical volume manager, sometimes called logical disk manager.
    *

@@ -53,7 +53,7 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "isAutoAssociated"?: boolean;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListSourcesRequest.SortOrder;

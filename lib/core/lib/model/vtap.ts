@@ -30,18 +30,18 @@ A *{@link CaptureFilter}* contains a set of *{@link #captureFilterRuleDetails(Ca
 */
 export interface Vtap {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the `Vtap` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the {@code Vtap} resource.
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN containing the `Vtap` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN containing the {@code Vtap} resource.
    */
   "vcnId": string;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -55,7 +55,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -74,7 +74,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * The date and time the VTAP was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2020-08-25T21:10:29.600Z`
+Example: {@code 2020-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
@@ -109,10 +109,10 @@ Example: `2020-08-25T21:10:29.600Z`
    */
   "vxlanNetworkIdentifier"?: number;
   /**
-   * Used to start or stop a `Vtap` resource.
+   * Used to start or stop a {@code Vtap} resource.
    * <p>
-   * `TRUE` directs the VTAP to start mirroring traffic.
-   * * `FALSE` (Default) directs the VTAP to stop mirroring traffic.
+   * {@code TRUE} directs the VTAP to start mirroring traffic.
+   * * {@code FALSE} (Default) directs the VTAP to stop mirroring traffic.
    *
    */
   "isVtapEnabled"?: boolean;

@@ -17,15 +17,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the `TrafficProtocolParameters` configuration for the UDP protocol.
+ * Defines the {@code TrafficProtocolParameters} configuration for the UDP protocol.
  */
 export interface UdpTrafficProtocolParameters extends model.TrafficProtocolParameters {
   /**
-   * The source port to use in a `PathAnalyzerTest`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source port to use in a {@code PathAnalyzerTest}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourcePort"?: number;
   /**
-   * The destination port to use in a `PathAnalyzerTest`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The destination port to use in a {@code PathAnalyzerTest}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "destinationPort": number;
 

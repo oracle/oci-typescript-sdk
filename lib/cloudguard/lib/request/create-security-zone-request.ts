@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateSecurityZoneRequest extends common.BaseRequest {
   /**
-   * Details for the new `SecurityZone`.
+   * Details for the new {@code SecurityZone}.
    */
   "createSecurityZoneDetails": model.CreateSecurityZoneDetails;
   /**

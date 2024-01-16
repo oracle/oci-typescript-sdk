@@ -24,13 +24,13 @@ import common = require("oci-common");
 export interface DropSqlPlanBaselinesDetails {
   /**
    * The SQL statement handle. It identifies plans associated with a SQL statement
-   * that are to be dropped. If `null` then `planName` must be specified.
+   * that are to be dropped. If {@code null} then {@code planName} must be specified.
    *
    */
   "sqlHandle"?: string;
   /**
-   * The plan name. It identifies a specific plan. If `null' then all plans
-   * associated with the SQL statement identified by `sqlHandle' are dropped.
+   * The plan name. It identifies a specific plan. If {@code null' then all plans
+   * associated with the SQL statement identified by }sqlHandle' are dropped.
    *
    */
   "planName"?: string;

@@ -29,20 +29,20 @@ export interface BackendSetSummary {
 Valid backend set names include only alphanumeric characters, dashes, and underscores. Backend set names cannot
 * contain spaces. Avoid entering confidential information.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
     */
   "name": string;
   /**
     * The network load balancer policy for the backend set.
 * <p>
-Example: `FIVE_TUPLE`
+Example: {@code FIVE_TUPLE}
 * 
     */
   "policy": model.NetworkLoadBalancingPolicy;
   /**
    * If this parameter is enabled, the network load balancer preserves the source IP of the packet forwarded to the backend servers.
-   * Backend servers see the original source IP. If the `isPreserveSourceDestination` parameter is enabled for the network load balancer resource, this parameter cannot be disabled.
+   * Backend servers see the original source IP. If the {@code isPreserveSourceDestination} parameter is enabled for the network load balancer resource, this parameter cannot be disabled.
    * The value is true by default.
    *
    */

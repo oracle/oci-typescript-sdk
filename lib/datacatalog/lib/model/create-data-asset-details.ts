@@ -46,7 +46,7 @@ export interface CreateDataAssetDetails {
    * required properties for a data asset type, a query can be done on '/types?type=dataAsset' that returns a
    * collection of all data asset types. The appropriate data asset type, which includes definitions of all of
    * it's properties, can be identified from this collection.
-   * Example: `{\"properties\": { \"default\": { \"host\": \"host1\", \"port\": \"1521\", \"database\": \"orcl\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"host\": \"host1\", \"port\": \"1521\", \"database\": \"orcl\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

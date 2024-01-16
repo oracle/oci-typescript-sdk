@@ -39,12 +39,12 @@ export interface InstanceShapeConfig {
   "memoryInGBs"?: number;
   /**
     * The baseline OCPU utilization for a subcore burstable VM instance. Leave this attribute blank for a
-* non-burstable instance, or explicitly specify non-burstable with `BASELINE_1_1`.
+* non-burstable instance, or explicitly specify non-burstable with {@code BASELINE_1_1}.
 * <p>
 The following values are supported:
-* - `BASELINE_1_8` - baseline usage is 1/8 of an OCPU.
-* - `BASELINE_1_2` - baseline usage is 1/2 of an OCPU.
-* - `BASELINE_1_1` - baseline usage is the entire OCPU. This represents a non-burstable instance.
+* - {@code BASELINE_1_8} - baseline usage is 1/8 of an OCPU.
+* - {@code BASELINE_1_2} - baseline usage is 1/2 of an OCPU.
+* - {@code BASELINE_1_1} - baseline usage is the entire OCPU. This represents a non-burstable instance.
 * 
     */
   "baselineOcpuUtilization"?: InstanceShapeConfig.BaselineOcpuUtilization;
@@ -71,7 +71,7 @@ The following values are supported:
   /**
     * A short description of the instance's graphics processing unit (GPU).
 * <p>
-If the instance does not have any GPUs, this field is `null`.
+If the instance does not have any GPUs, this field is {@code null}.
 * 
     */
   "gpuDescription"?: string;
@@ -83,14 +83,14 @@ If the instance does not have any GPUs, this field is `null`.
   /**
     * The aggregate size of all local disks, in gigabytes.
 * <p>
-If the instance does not have any local disks, this field is `null`.
+If the instance does not have any local disks, this field is {@code null}.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "localDisksTotalSizeInGBs"?: number;
   /**
     * A short description of the local disks available to this instance.
 * <p>
-If the instance does not have any local disks, this field is `null`.
+If the instance does not have any local disks, this field is {@code null}.
 * 
     */
   "localDiskDescription"?: string;

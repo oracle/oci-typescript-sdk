@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -36,7 +36,7 @@ export interface PostMetricDataDetails {
 * their error messages. A value of ATOMIC requires a full pass: all metric objects in
 * the request must pass input validation.
 * <p>
-Example: `NON_ATOMIC`
+Example: {@code NON_ATOMIC}
 * 
     */
   "batchAtomicity"?: PostMetricDataDetails.BatchAtomicity;

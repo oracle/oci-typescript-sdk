@@ -38,7 +38,7 @@ export interface ListEmailDomainsRequest extends common.BaseRequest {
   "name"?: string;
   /**
    * For list pagination. The maximum number of results per page, or items to return in a
-   * paginated \"List\" call. `1` is the minimum, `1000` is the maximum. For important details about
+   * paginated \"List\" call. {@code 1} is the minimum, {@code 1000} is the maximum. For important details about
    * how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
@@ -63,7 +63,7 @@ export interface ListEmailDomainsRequest extends common.BaseRequest {
   /**
  * Specifies the attribute with which to sort the email domains.
 * <p>
-Default: `TIMECREATED`
+Default: {@code TIMECREATED}
 * <p>
 * **TIMECREATED:** Sorts by timeCreated.
 * * **NAME:** Sorts by name.

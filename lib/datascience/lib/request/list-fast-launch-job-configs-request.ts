@@ -33,12 +33,12 @@ export interface ListFastLaunchJobConfigsRequest extends common.BaseRequest {
 * 1 is the minimum, 100 is the maximum.
 * See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
- * For list pagination. The value of the `opc-next-page` response
+ * For list pagination. The value of the {@code opc-next-page} response
 * header from the previous \"List\" call.
 * <p>
 See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).

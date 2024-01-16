@@ -34,7 +34,7 @@ export interface ListExternalAsmUsersRequest extends common.BaseRequest {
   "limit"?: number;
   /**
    * The field to sort information by. Only one sortOrder can be used. The
-   * default sort order for `NAME` is ascending and it is case-sensitive.
+   * default sort order for {@code NAME} is ascending and it is case-sensitive.
    *
    */
   "sortBy"?: ListExternalAsmUsersRequest.SortBy;

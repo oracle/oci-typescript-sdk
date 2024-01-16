@@ -28,7 +28,7 @@ export interface ClusterNetworkPlacementConfigurationDetails {
   /**
     * The availability domain to place instances.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;
@@ -38,7 +38,7 @@ Example: `Uocm:PHX-AD-1`
   "placementConstraint"?: ClusterNetworkPlacementConfigurationDetails.PlacementConstraint;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet to place instances. This field is deprecated.
-   * Use `primaryVnicSubnets` instead to set VNIC data for instances in the pool.
+   * Use {@code primaryVnicSubnets} instead to set VNIC data for instances in the pool.
    *
    */
   "primarySubnetId"?: string;

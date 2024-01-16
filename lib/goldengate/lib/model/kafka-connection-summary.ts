@@ -34,7 +34,7 @@ export interface KafkaConnectionSummary extends model.ConnectionSummary {
    * Kafka bootstrap. Equivalent of bootstrap.servers configuration property in Kafka:
    * list of KafkaBootstrapServer objects specified by host/port.
    * Used for establishing the initial connection to the Kafka cluster.
-   * Example: `\"server1.example.com:9092,server2.example.com:9092\"`
+   * Example: {@code \"server1.example.com:9092,server2.example.com:9092\"}
    *
    */
   "bootstrapServers"?: Array<model.KafkaBootstrapServer>;

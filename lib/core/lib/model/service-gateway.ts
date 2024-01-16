@@ -37,10 +37,10 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface ServiceGateway {
   /**
-    * Whether the service gateway blocks all traffic through it. The default is `false`. When
-* this is `true`, traffic is not routed to any services, regardless of route rules.
+    * Whether the service gateway blocks all traffic through it. The default is {@code false}. When
+* this is {@code true}, traffic is not routed to any services, regardless of route rules.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "blockTraffic": boolean;
@@ -54,7 +54,7 @@ Example: `true`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -68,7 +68,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -90,7 +90,7 @@ Example: `{\"Department\": \"Finance\"}`
   "routeTableId"?: string;
   /**
    * List of the {@link Service} objects enabled for this service gateway.
-   * The list can be empty. You can enable a particular `Service` by using
+   * The list can be empty. You can enable a particular {@code Service} by using
    * {@link #attachServiceId(AttachServiceIdRequest) attachServiceId} or
    * {@link #updateServiceGateway(UpdateServiceGatewayRequest) updateServiceGateway}.
    *
@@ -99,7 +99,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * The date and time the service gateway was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;

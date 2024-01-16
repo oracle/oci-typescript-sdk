@@ -34,7 +34,7 @@ export interface ListLogSavedSearchesRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
-   * For list pagination. The value of the `opc-next-page` or `opc-previous-page` response header from the previous \"List\" call.
+   * For list pagination. The value of the {@code opc-next-page} or {@code opc-previous-page} response header from the previous \"List\" call.
    * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
@@ -46,7 +46,7 @@ export interface ListLogSavedSearchesRequest extends common.BaseRequest {
   "limit"?: number;
   /**
    * The field to sort by (one column only). Default sort order is
-   * ascending exception of `timeCreated` and `timeLastModified` columns (descending).
+   * ascending exception of {@code timeCreated} and {@code timeLastModified} columns (descending).
    *
    */
   "sortBy"?: ListLogSavedSearchesRequest.SortBy;

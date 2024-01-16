@@ -23,11 +23,11 @@ export interface ProtectionRuleAction {
    */
   "key": string;
   /**
-   * The action to apply to the protection rule. If unspecified, defaults to `OFF`.
+   * The action to apply to the protection rule. If unspecified, defaults to {@code OFF}.
    */
   "action": ProtectionRuleAction.Action;
   /**
-   * The types of requests excluded from the protection rule action. If the requests matches the criteria in the `exclusions`, the protection rule action will not be executed.
+   * The types of requests excluded from the protection rule action. If the requests matches the criteria in the {@code exclusions}, the protection rule action will not be executed.
    */
   "exclusions"?: Array<model.ProtectionRuleExclusion>;
 }

@@ -44,7 +44,7 @@ export interface ComputeCapacityReservationSummary {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -52,7 +52,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -66,7 +66,7 @@ Example: `{\"Department\": \"Finance\"}`
   "availabilityDomain": string;
   /**
    * The number of instances for which capacity will be held in this
-   * compute capacity reservation. This number is the sum of the values of the `reservedCount` fields
+   * compute capacity reservation. This number is the sum of the values of the {@code reservedCount} fields
    * for all of the instance capacity configurations under this reservation.
    * The purpose of this field is to calculate the percentage usage of the reservation.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -74,7 +74,7 @@ Example: `{\"Department\": \"Finance\"}`
   "reservedInstanceCount"?: number;
   /**
    * The total number of instances currently consuming space in
-   * this compute capacity reservation. This number is the sum of the values of the `usedCount` fields
+   * this compute capacity reservation. This number is the sum of the values of the {@code usedCount} fields
    * for all of the instance capacity configurations under this reservation.
    * The purpose of this field is to calculate the percentage usage of the reservation.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -88,7 +88,7 @@ Example: `{\"Department\": \"Finance\"}`
   "isDefaultReservation"?: boolean;
   /**
    * The date and time the capacity reservation was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2016-08-25T21:10:29.600Z`
+   * Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timeCreated": Date;

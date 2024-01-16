@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a `ListPublicIpPool` operation.
+ * Results of a {@code ListPublicIpPool} operation.
  */
 export interface PublicIpPoolCollection {
   /**

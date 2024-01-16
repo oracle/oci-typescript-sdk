@@ -40,7 +40,7 @@ export interface PrivateApplicationPackage {
     * The date and time the private application package was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format.
 * <p>
-Example: `2021-05-27T21:10:29.600Z`
+Example: {@code 2021-05-27T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

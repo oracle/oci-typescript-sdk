@@ -25,21 +25,21 @@ export interface DrPlanStep {
   /**
     * The unique id of the step. Must not be modified by the user.
 * <p>
-Example: `sgid1.step..uniqueID`
+Example: {@code sgid1.step..uniqueID}
 * 
     */
   "id": string;
   /**
     * The unique id of the group to which this step belongs. Must not be modified by user.
 * <p>
-Example: `sgid1.group..uniqueID`
+Example: {@code sgid1.group..uniqueID}
 * 
     */
   "groupId": string;
   /**
     * The OCID of the member associated with this step.
 * <p>
-Example: `ocid1.database.oc1..uniqueID`
+Example: {@code ocid1.database.oc1..uniqueID}
 * 
     */
   "memberId"?: string;
@@ -51,7 +51,7 @@ Example: `ocid1.database.oc1..uniqueID`
   /**
     * The display name of the group.
 * <p>
-Example: `DATABASE_SWITCHOVER`
+Example: {@code DATABASE_SWITCHOVER}
 * 
     */
   "displayName": string;
@@ -63,14 +63,14 @@ Example: `DATABASE_SWITCHOVER`
   /**
     * The timeout in seconds for executing this step.
 * <p>
-Example: `600`
+Example: {@code 600}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "timeout": number;
   /**
     * A flag indicating whether this step should be enabled for execution.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isEnabled": boolean;

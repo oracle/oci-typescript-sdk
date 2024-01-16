@@ -43,11 +43,11 @@ export interface ListDashboardGroupsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`).
+   * The field to sort by. You can provide one sort order ({@code sortOrder}).
    * Default order for TIMECREATED is descending.
    * Default order for DISPLAYNAME is ascending.
    * The DISPLAYNAME sort order is case sensitive.
@@ -61,7 +61,7 @@ export interface ListDashboardGroupsRequest extends common.BaseRequest {
   /**
    * To identify if the call is cross-regional. In CRUD calls for a resource, to
    * identify that the call originates from different region, set the
-   * `CrossRegionIdentifierHeader` parameter to a region name (ex - `US-ASHBURN-1`)
+   * {@code CrossRegionIdentifierHeader} parameter to a region name (ex - {@code US-ASHBURN-1})
    * The call will be served from a Replicated bucket.
    * For same-region calls, the value is unassigned.
    *

@@ -56,7 +56,7 @@ export interface MigrationAssetSummary {
   "migrationId": string;
   /**
    * Key-value pair representing disk's ID that is mapped to the OCIDs of replicated/hydration server volume snapshots.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "snapshots"?: { [key: string]: model.HydratedVolume };
@@ -70,7 +70,7 @@ export interface MigrationAssetSummary {
   "snapshotInfo"?: string;
   /**
    * Key-value pair representing asset metadata keys and values scoped to a namespace.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "sourceAssetData"?: { [key: string]: any };

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The `TypedObject` class is a base class for any model object that has a type.
+ * The {@code TypedObject} class is a base class for any model object that has a type.
  */
 export interface TypedObject {
   /**

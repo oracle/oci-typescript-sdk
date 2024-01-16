@@ -42,7 +42,7 @@ export interface ExternalDbSystemConnector {
    */
   "connectionStatus"?: string;
   /**
-   * The error message indicating the reason for connection failure or `null` if
+   * The error message indicating the reason for connection failure or {@code null} if
    * the connection was successful.
    *
    */

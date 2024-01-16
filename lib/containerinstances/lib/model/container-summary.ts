@@ -33,19 +33,19 @@ export interface ContainerSummary {
   "compartmentId": string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}.
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
@@ -83,7 +83,7 @@ export interface ContainerSummary {
   /**
     * A URL identifying the image that the container runs in, such as docker.io/library/busybox:latest. If you do not provide a tag, the tag will default to latest.
 * <p>
-If no registry is provided, will default the registry to public docker hub `docker.io/library`.
+If no registry is provided, will default the registry to public docker hub {@code docker.io/library}.
 * The registry used for container image must be reachable over the Container Instance's VNIC.
 * 
     */

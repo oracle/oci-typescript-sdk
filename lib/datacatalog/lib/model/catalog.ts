@@ -66,7 +66,7 @@ export interface Catalog {
   "lifecycleDetails"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -75,13 +75,13 @@ export interface Catalog {
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * System tags can be viewed by users, but can only be created by the system.
 * <p>
-Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

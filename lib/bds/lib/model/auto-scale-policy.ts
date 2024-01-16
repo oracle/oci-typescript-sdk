@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This model for autoscaling policy is deprecated and not supported for ODH clusters. Use the `AutoScalePolicyDetails` model to manage autoscale policy details for ODH clusters.
+ * This model for autoscaling policy is deprecated and not supported for ODH clusters. Use the {@code AutoScalePolicyDetails} model to manage autoscale policy details for ODH clusters.
  *
  */
 export interface AutoScalePolicy {

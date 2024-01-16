@@ -30,12 +30,12 @@ export interface TcpConnection {
    */
   "port"?: number;
   /**
-   * Total connect duration, calculated using `connectEnd` minus `connectStart`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total connect duration, calculated using {@code connectEnd} minus {@code connectStart}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "connectDuration"?: number;
   /**
    * The duration to secure the connection.  This value will be zero for
-   * insecure connections.  Calculated using `connectEnd` minus `secureConnectionStart`.
+   * insecure connections.  Calculated using {@code connectEnd} minus {@code secureConnectionStart}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "secureConnectDuration"?: number;

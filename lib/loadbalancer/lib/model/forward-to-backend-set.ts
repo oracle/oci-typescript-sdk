@@ -24,7 +24,7 @@ export interface ForwardToBackendSet extends model.Action {
   /**
     * Name of the backend set the listener will forward the traffic to.
 * <p>
-Example: `backendSetForImages`
+Example: {@code backendSetForImages}
 * 
     */
   "backendSetName": string;

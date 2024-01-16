@@ -23,14 +23,14 @@ export interface BackendDetails {
   /**
     * The IP address of the backend server.
 * <p>
-Example: `10.0.0.3`
+Example: {@code 10.0.0.3}
 * 
     */
   "ipAddress": string;
   /**
     * The communication port for the backend server.
 * <p>
-Example: `8080`
+Example: {@code 8080}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;
@@ -41,17 +41,17 @@ Example: `8080`
 * For more information on load balancing policies, see
 * [How Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
 * <p>
-Example: `3`
+Example: {@code 3}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "weight"?: number;
   /**
-    * Whether the load balancer should treat this server as a backup unit. If `true`, the load balancer forwards no ingress
+    * Whether the load balancer should treat this server as a backup unit. If {@code true}, the load balancer forwards no ingress
 * traffic to this backend server unless all other backend servers not marked as \"backup\" fail the health check policy.
 * <p>
-**Note:** You cannot add a backend server marked as `backup` to a backend set that uses the IP Hash policy.
+**Note:** You cannot add a backend server marked as {@code backup} to a backend set that uses the IP Hash policy.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "backup"?: boolean;
@@ -59,7 +59,7 @@ Example: `false`
     * Whether the load balancer should drain this server. Servers marked \"drain\" receive no new
 * incoming traffic.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "drain"?: boolean;
@@ -67,7 +67,7 @@ Example: `false`
     * Whether the load balancer should treat this server as offline. Offline servers receive no incoming
 * traffic.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "offline"?: boolean;

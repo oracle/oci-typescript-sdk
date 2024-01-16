@@ -33,7 +33,7 @@ export interface MacsecKey {
    */
   "connectivityAssociationKeySecretId": string;
   /**
-   * The secret version of the `connectivityAssociationKey` secret in Vault. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The secret version of the {@code connectivityAssociationKey} secret in Vault. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "connectivityAssociationKeySecretVersion"?: number;
 }

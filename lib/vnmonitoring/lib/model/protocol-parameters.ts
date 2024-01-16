@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the IP protocol parameters for a `PathAnalyzerTest` resource.
+ * Defines the IP protocol parameters for a {@code PathAnalyzerTest} resource.
  */
 export interface ProtocolParameters {
   "type": string;

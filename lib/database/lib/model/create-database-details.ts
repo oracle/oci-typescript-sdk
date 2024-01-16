@@ -27,7 +27,7 @@ export interface CreateDatabaseDetails {
    */
   "dbName": string;
   /**
-   * The `DB_UNIQUE_NAME` of the Oracle Database being backed up.
+   * The {@code DB_UNIQUE_NAME} of the Oracle Database being backed up.
    */
   "dbUniqueName"?: string;
   /**
@@ -72,7 +72,7 @@ The database workload type.
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -96,7 +96,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "vaultId"?: string;
   /**
-   * Specifies a prefix for the `Oracle SID` of the database to be created.
+   * Specifies a prefix for the {@code Oracle SID} of the database to be created.
    *
    */
   "sidPrefix"?: string;

@@ -35,14 +35,14 @@ export interface IPSecConnectionTunnel {
   /**
     * The IP address of the Oracle VPN headend for the connection.
 * <p>
-Example: `203.0.113.21`
+Example: {@code 203.0.113.21}
 * 
     */
   "vpnIp"?: string;
   /**
     * The IP address of the CPE device's VPN headend.
 * <p>
-Example: `203.0.113.22`
+Example: {@code 203.0.113.22}
 * 
     */
   "cpeIp"?: string;
@@ -75,14 +75,14 @@ Example: `203.0.113.22`
   /**
     * The date and time the IPSec tunnel was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
   /**
     * When the status of the IPSec tunnel last changed, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeStatusUpdated"?: Date;
@@ -92,13 +92,13 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "oracleCanInitiate"?: IPSecConnectionTunnel.OracleCanInitiate;
   /**
-    * By default (the `AUTO` setting), IKE sends packets with a source and destination port set to 500,
+    * By default (the {@code AUTO} setting), IKE sends packets with a source and destination port set to 500,
 * and when it detects that the port used to forward packets has changed (most likely because a NAT device
 * is between the CPE device and the Oracle VPN headend) it will try to negotiate the use of NAT-T.
 * <p>
-The `ENABLED` option sets the IKE protocol to use port 4500 instead of 500 and forces encapsulating traffic with the ESP protocol inside UDP packets.
+The {@code ENABLED} option sets the IKE protocol to use port 4500 instead of 500 and forces encapsulating traffic with the ESP protocol inside UDP packets.
 * <p>
-The `DISABLED` option directs IKE to completely refuse to negotiate NAT-T
+The {@code DISABLED} option directs IKE to completely refuse to negotiate NAT-T
 * even if it senses there may be a NAT device in use.
 * <p>
 

@@ -55,35 +55,35 @@ export interface SqlPlanBaselineSummary {
    */
   "timeLastExecuted"?: Date;
   /**
-   * Indicates whether the plan baseline is enabled (`YES`) or disabled (`NO`).
+   * Indicates whether the plan baseline is enabled ({@code YES}) or disabled ({@code NO}).
    */
   "enabled"?: string;
   /**
-   * Indicates whether the plan baseline is accepted (`YES`) or not (`NO`).
+   * Indicates whether the plan baseline is accepted ({@code YES}) or not ({@code NO}).
    */
   "accepted"?: string;
   /**
-   * Indicates whether the plan baseline is fixed (`YES`) or not (`NO`).
+   * Indicates whether the plan baseline is fixed ({@code YES}) or not ({@code NO}).
    */
   "fixed"?: string;
   /**
-   * Indicates whether the optimizer was able to reproduce the plan (`YES`) or not (`NO`).
-   * The value is set to `YES` when a plan is initially added to the plan baseline.
+   * Indicates whether the optimizer was able to reproduce the plan ({@code YES}) or not ({@code NO}).
+   * The value is set to {@code YES} when a plan is initially added to the plan baseline.
    *
    */
   "reproduced"?: string;
   /**
-   * Indicates whether the plan baseline is auto-purged (`YES`) or not (`NO`).
+   * Indicates whether the plan baseline is auto-purged ({@code YES}) or not ({@code NO}).
    */
   "autoPurge"?: string;
   /**
     * Indicates whether a plan that is automatically captured by SQL plan management is marked adaptive or not.
 * <p>
 When a new adaptive plan is found for a SQL statement that has an existing SQL plan baseline, that new plan
-* will be added to the SQL plan baseline as an unaccepted plan, and the `ADAPTIVE` property will be marked `YES`.
+* will be added to the SQL plan baseline as an unaccepted plan, and the {@code ADAPTIVE} property will be marked {@code YES}.
 * When this new plan is verified (either manually or via the auto evolve task), the plan will be test executed
 * and the final plan determined at execution will become an accepted plan if its performance is better than
-* the existing plan baseline. At this point, the value of the `ADAPTIVE` property is set to `NO` since the plan
+* the existing plan baseline. At this point, the value of the {@code ADAPTIVE} property is set to {@code NO} since the plan
 * is no longer adaptive, but resolved.
 * 
     */

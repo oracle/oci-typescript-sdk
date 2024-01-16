@@ -35,7 +35,7 @@ export interface ListZonesRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;
@@ -52,7 +52,7 @@ export interface ListZonesRequest extends common.BaseRequest {
    */
   "nameContains"?: string;
   /**
-   * Search by zone type, `PRIMARY` or `SECONDARY`.
+   * Search by zone type, {@code PRIMARY} or {@code SECONDARY}.
    * Will match any zone whose type equals the provided value.
    *
    */

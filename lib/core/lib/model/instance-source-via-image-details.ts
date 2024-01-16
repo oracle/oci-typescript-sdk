@@ -42,11 +42,11 @@ export interface InstanceSourceViaImageDetails extends model.InstanceSourceDetai
 * <p>
 Allowed values:
 * <p>
-  * `10`: Represents Balanced option.
+  * {@code 10}: Represents Balanced option.
 * <p>
-  * `20`: Represents Higher Performance option.
+  * {@code 20}: Represents Higher Performance option.
 * <p>
-  * `30`-`120`: Represents the Ultra High Performance option.
+  * {@code 30}-{@code 120}: Represents the Ultra High Performance option.
 * <p>
 For volumes with the auto-tuned performance feature enabled, this is set to the default (minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

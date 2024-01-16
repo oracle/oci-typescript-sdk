@@ -23,7 +23,7 @@ export interface FilterResourceActionsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
- * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned depending on the the setting of `accessLevel`.
+ * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned depending on the the setting of {@code accessLevel}.
 * <p>
 Can only be set to true when performing ListCompartments on the tenancy (root compartment).
 * 
@@ -82,7 +82,7 @@ When using this parameter, please make sure to set the compartmentId with the pa
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;

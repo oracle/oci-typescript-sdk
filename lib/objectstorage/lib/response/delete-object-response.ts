@@ -30,13 +30,13 @@ export interface DeleteObjectResponse {
    */
   "lastModified": Date;
   /**
-   * The `versionId` of the delete marker created as a result of the DELETE Object.
-   * If the request contains a specific `versionId`, then this response header will be the same as the requested `versionId` of the object that was deleted.
+   * The {@code versionId} of the delete marker created as a result of the DELETE Object.
+   * If the request contains a specific {@code versionId}, then this response header will be the same as the requested {@code versionId} of the object that was deleted.
    *
    */
   "versionId": string;
   /**
-   * This is `true` if the deleted object is a delete marker, otherwise `false`
+   * This is {@code true} if the deleted object is a delete marker, otherwise {@code false}
    *
    */
   "isDeleteMarker": boolean;

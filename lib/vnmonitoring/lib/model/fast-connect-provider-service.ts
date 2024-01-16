@@ -27,7 +27,7 @@ export interface FastConnectProviderService {
 * about the provider service, create a virtual circuit connection from the provider to Oracle
 * Cloud Infrastructure, and retrieve your provider service key for that virtual circuit connection.
 * <p>
-Example: `https://example.com`
+Example: {@code https://example.com}
 * 
     */
   "description"?: string;

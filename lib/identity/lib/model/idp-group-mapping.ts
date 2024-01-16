@@ -21,8 +21,8 @@ import common = require("oci-common");
 * [Identity Providers and Federation](https://docs.cloud.oracle.com/Content/Identity/Concepts/federation.htm).
 * <p>
 A given IdP group can be mapped to zero, one, or multiple IAM Service groups, and vice versa.
-* But each `IdPGroupMapping` object is between only a single IdP group and IAM Service group.
-* Each `IdPGroupMapping` object has its own OCID.
+* But each {@code IdPGroupMapping} object is between only a single IdP group and IAM Service group.
+* Each {@code IdPGroupMapping} object has its own OCID.
 * <p>
 **Note:** Any users who are in more than 50 IdP groups cannot be authenticated to use the Oracle
 * Cloud Infrastructure Console.
@@ -30,11 +30,11 @@ A given IdP group can be mapped to zero, one, or multiple IAM Service groups, an
 */
 export interface IdpGroupMapping {
   /**
-   * The OCID of the `IdpGroupMapping`.
+   * The OCID of the {@code IdpGroupMapping}.
    */
   "id": string;
   /**
-   * The OCID of the `IdentityProvider` this mapping belongs to.
+   * The OCID of the {@code IdentityProvider} this mapping belongs to.
    */
   "idpId": string;
   /**
@@ -46,18 +46,18 @@ export interface IdpGroupMapping {
    */
   "groupId": string;
   /**
-   * The OCID of the tenancy containing the `IdentityProvider`.
+   * The OCID of the tenancy containing the {@code IdentityProvider}.
    */
   "compartmentId": string;
   /**
     * Date and time the mapping was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
-   * The mapping's current state.  After creating a mapping object, make sure its `lifecycleState` changes
+   * The mapping's current state.  After creating a mapping object, make sure its {@code lifecycleState} changes
    * from CREATING to ACTIVE before using it.
    *
    */

@@ -68,7 +68,7 @@ export interface UpdateMonitorDetails {
   /**
    * List of script parameters in the monitor.
    * This is valid only for SCRIPTED_BROWSER and SCRIPTED_REST monitor types. For other monitor types, it should be set to null.
-   * Example: `[{\"paramName\": \"userid\", \"paramValue\":\"testuser\"}]`
+   * Example: {@code [{\"paramName\": \"userid\", \"paramValue\":\"testuser\"}]}
    *
    */
   "scriptParameters"?: Array<model.MonitorScriptParameter>;
@@ -85,13 +85,13 @@ export interface UpdateMonitorDetails {
   "maintenanceWindowSchedule"?: model.MaintenanceWindowSchedule;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

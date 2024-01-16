@@ -29,7 +29,7 @@ export interface UpdateHealthCheckerRequest extends common.BaseRequest {
   /**
  * The name of the backend set associated with the health check policy to be retrieved.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
  */
   "backendSetName": string;
@@ -58,7 +58,7 @@ For example, the eTag returned by getListener can be specified as the ifMatch fo
 The resource is updated or deleted only if the ETag you provide matches the resource's current
 * ETag value.
 * <p>
-Example: `example-etag`
+Example: {@code example-etag}
 * 
  */
   "ifMatch"?: string;

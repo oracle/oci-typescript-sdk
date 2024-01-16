@@ -32,7 +32,7 @@ export interface HealthCheck {
    */
   "path"?: string;
   /**
-   * HTTP header fields to include in health check requests, expressed as `\"name\": \"value\"` properties. Because HTTP header field names are case-insensitive, any use of names that are case-insensitive equal to other names will be rejected. If Host is not specified, requests will include a Host header field with value matching the policy's protected domain. If User-Agent is not specified, requests will include a User-Agent header field with value \"waf health checks\".
+   * HTTP header fields to include in health check requests, expressed as {@code \"name\": \"value\"} properties. Because HTTP header field names are case-insensitive, any use of names that are case-insensitive equal to other names will be rejected. If Host is not specified, requests will include a Host header field with value matching the policy's protected domain. If User-Agent is not specified, requests will include a User-Agent header field with value \"waf health checks\".
    * <p>
    **Note:** The only currently-supported header fields are Host and User-Agent.
    */

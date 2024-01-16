@@ -48,7 +48,7 @@ export interface CreateTsigKeyDetails {
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
 
-* **Example:** `{\"Department\": \"Finance\"}`
+* **Example:** {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -57,7 +57,7 @@ export interface CreateTsigKeyDetails {
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
 
-* **Example:** `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* **Example:** {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

@@ -43,7 +43,7 @@ export interface Type {
    * category names and the values are arrays contiaing all property details. Every property is contained inside
    * of a category. Most types have required properties within the \"default\" category.
    * Example:
-   * `{
+   * {@code {
    *    \"properties\": {
    *      \"default\": {
    *        \"attributes:\": [
@@ -57,7 +57,7 @@ export interface Type {
    *        ]
    *      }
    *    }
-   *  }`
+   *  }}
    *
    */
   "properties"?: { [key: string]: Array<model.PropertyDefinition> };

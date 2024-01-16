@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a `WorkRequestLog` search.
+ * Results of a {@code WorkRequestLog} search.
  */
 export interface WorkRequestLogEntryCollection {
   /**

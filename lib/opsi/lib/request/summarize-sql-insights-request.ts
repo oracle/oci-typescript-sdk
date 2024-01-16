@@ -84,7 +84,7 @@ export interface SummarizeSqlInsightsRequest extends common.BaseRequest {
    */
   "timeIntervalEnd"?: Date;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from
+   * For list pagination. The value of the {@code opc-next-page} response header from
    * the previous \"List\" call. For important details about how pagination works,
    * see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
    *

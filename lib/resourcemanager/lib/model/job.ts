@@ -49,7 +49,7 @@ export interface Job {
    */
   "operation"?: Job.Operation;
   /**
-   * When `true`, the stack sources third-party Terraform providers from
+   * When {@code true}, the stack sources third-party Terraform providers from
    * [Terraform Registry](https://registry.terraform.io/browse/providers) and allows
    * {@link #customTerraformProvider(CustomTerraformProviderRequest) customTerraformProvider}.
    * For more information about stack sourcing of third-party Terraform providers, see
@@ -73,7 +73,7 @@ export interface Job {
     | model.DestroyJobOperationDetails;
   "applyJobPlanResolution"?: model.ApplyJobPlanResolution;
   /**
-   * Deprecated. Use the property `executionPlanJobId` in `jobOperationDetails` instead.
+   * Deprecated. Use the property {@code executionPlanJobId} in {@code jobOperationDetails} instead.
    * The plan job [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that was used (if this was an apply job and was not auto-approved).
    *
    */
@@ -81,14 +81,14 @@ export interface Job {
   /**
    * The date and time when the job was created.
    * Format is defined by RFC3339.
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;
   /**
    * The date and time when the job stopped running, irrespective of whether the job ran successfully.
    * Format is defined by RFC3339.
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeFinished"?: Date;
@@ -104,8 +104,8 @@ export interface Job {
   /**
    * File path to the directory to use for running Terraform.
    * If not specified, the root directory is used.
-   * Required when using a zip Terraform configuration (`configSourceType` value of `ZIP_UPLOAD`) that contains folders.
-   * Ignored for the `configSourceType` value of `COMPARTMENT_CONFIG_SOURCE`.
+   * Required when using a zip Terraform configuration ({@code configSourceType} value of {@code ZIP_UPLOAD}) that contains folders.
+   * Ignored for the {@code configSourceType} value of {@code COMPARTMENT_CONFIG_SOURCE}.
    * For more information about required and recommended file structure, see
    * [File Structure (Terraform Configurations for Resource Manager)](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#filestructure).
    *
@@ -115,7 +115,7 @@ export interface Job {
    * Terraform variables associated with this resource.
    * Maximum number of variables supported is 250.
    * The maximum size of each variable, including both name and value, is 8192 bytes.
-   * Example: `{\"CompartmentId\": \"compartment-id-value\"}`
+   * Example: {@code {\"CompartmentId\": \"compartment-id-value\"}}
    *
    */
   "variables"?: { [key: string]: string };
@@ -129,14 +129,14 @@ export interface Job {
   /**
    * Free-form tags associated with this resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

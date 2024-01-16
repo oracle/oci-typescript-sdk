@@ -21,14 +21,14 @@ export interface ListPublicIpsRequest extends common.BaseRequest {
   /**
    * Whether the public IP is regional or specific to a particular availability domain.
    * <p>
-   * `REGION`: The public IP exists within a region and is assigned to a regional entity
+   * {@code REGION}: The public IP exists within a region and is assigned to a regional entity
    * (such as a {@link NatGateway}), or can be assigned to a private IP
-   * in any availability domain in the region. Reserved public IPs have `scope` = `REGION`, as do
+   * in any availability domain in the region. Reserved public IPs have {@code scope} = {@code REGION}, as do
    * ephemeral public IPs assigned to a regional entity.
    * <p>
-   * `AVAILABILITY_DOMAIN`: The public IP exists within the availability domain of the entity
-   * it's assigned to, which is specified by the `availabilityDomain` property of the public IP object.
-   * Ephemeral public IPs that are assigned to private IPs have `scope` = `AVAILABILITY_DOMAIN`.
+   * {@code AVAILABILITY_DOMAIN}: The public IP exists within the availability domain of the entity
+   * it's assigned to, which is specified by the {@code availabilityDomain} property of the public IP object.
+   * Ephemeral public IPs that are assigned to private IPs have {@code scope} = {@code AVAILABILITY_DOMAIN}.
    *
    */
   "scope": ListPublicIpsRequest.Scope;
@@ -41,12 +41,12 @@ export interface ListPublicIpsRequest extends common.BaseRequest {
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -55,7 +55,7 @@ Example: `50`
   /**
  * The name of the availability domain.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
  */
   "availabilityDomain"?: string;

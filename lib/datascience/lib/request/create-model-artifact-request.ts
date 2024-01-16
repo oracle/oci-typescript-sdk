@@ -45,19 +45,19 @@ export interface CreateModelArtifactRequest extends common.BaseRequest {
    * This header allows you to specify a filename during upload. This file name is used to dispose of the file contents
    * while downloading the file. If this optional field is not populated in the request, then the OCID of the model is used for the file
    * name when downloading.
-   * Example: `{\"Content-Disposition\": \"attachment\"
+   * Example: {@code {\"Content-Disposition\": \"attachment\"
    *            \"filename\"=\"model.tar.gz\"
    *            \"Content-Length\": \"2347\"
-   *            \"Content-Type\": \"application/gzip\"}`
+   *            \"Content-Type\": \"application/gzip\"}}
    *
    */
   "contentDisposition"?: string;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
-   * The resource is updated or deleted only if the `etag` you
-   * provide matches the resource's current `etag` value.
+   * The resource is updated or deleted only if the {@code etag} you
+   * provide matches the resource's current {@code etag} value.
    *
    */
   "ifMatch"?: string;

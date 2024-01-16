@@ -30,7 +30,7 @@ export interface CreateDatabaseToolsConnectionMySqlDetails
   "userName": string;
   "userPassword": model.DatabaseToolsUserPasswordSecretIdDetails;
   /**
-   * The advanced connection properties key-value pair (e.g., `sslMode`).
+   * The advanced connection properties key-value pair (e.g., {@code sslMode}).
    */
   "advancedProperties"?: { [key: string]: string };
   /**

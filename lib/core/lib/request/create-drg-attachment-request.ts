@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDrgAttachmentRequest extends common.BaseRequest {
   /**
-   * Details for creating a `DrgAttachment`.
+   * Details for creating a {@code DrgAttachment}.
    */
   "createDrgAttachmentDetails": model.CreateDrgAttachmentDetails;
   /**

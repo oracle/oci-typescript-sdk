@@ -27,7 +27,7 @@ export interface ThreatFeed {
    */
   "name"?: string;
   /**
-   * The action to take when traffic is flagged as malicious by data from the threat intelligence feed. If unspecified, defaults to `OFF`.
+   * The action to take when traffic is flagged as malicious by data from the threat intelligence feed. If unspecified, defaults to {@code OFF}.
    */
   "action"?: ThreatFeed.Action;
   /**

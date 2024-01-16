@@ -39,7 +39,7 @@ export interface RequestAuthenticationDetails {
    */
   "authUrl"?: string;
   /**
-   * List of authentication headers. Example: `[{\"headerName\": \"content-type\", \"headerValue\":\"json\"}]`
+   * List of authentication headers. Example: {@code [{\"headerName\": \"content-type\", \"headerValue\":\"json\"}]}
    *
    */
   "authHeaders"?: Array<model.Header>;

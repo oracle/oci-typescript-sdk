@@ -27,7 +27,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The position at which to start retrieving results. This must come from the `opc-next-page` header field of a previous response.
+   * The position at which to start retrieving results. This must come from the {@code opc-next-page} header field of a previous response.
    */
   "page"?: string;
   /**

@@ -17,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The results of a `ListPathAnalyzerTests` call in the current compartment.
+ * The results of a {@code ListPathAnalyzerTests} call in the current compartment.
  */
 export interface PathAnalyzerTestCollection {
   /**
-   * A list of `PathAnalyzerTestSummary` items.
+   * A list of {@code PathAnalyzerTestSummary} items.
    */
   "items": Array<model.PathAnalyzerTestSummary>;
 }

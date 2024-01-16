@@ -20,13 +20,13 @@ import common = require("oci-common");
 export interface MaintenanceWindowSchedule {
   /**
    * Start time of the maintenance window, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2020-02-12T22:47:12.613Z`
+   * Example: {@code 2020-02-12T22:47:12.613Z}
    *
    */
   "timeStarted"?: Date;
   /**
    * End time of the maintenance window, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2020-02-12T22:47:12.613Z`
+   * Example: {@code 2020-02-12T22:47:12.613Z}
    *
    */
   "timeEnded"?: Date;

@@ -23,7 +23,7 @@ export interface BulkEditTagsResourceType {
   /**
     * The metadata keys required to identify the resource.
 * <p>
-For example, for a bucket, the value of `metadataKeys` will be [\"namespaceName\", \"bucketName\"].
+For example, for a bucket, the value of {@code metadataKeys} will be [\"namespaceName\", \"bucketName\"].
 * This information will match the API documentation.
 * See [UpdateBucket](https://docs.cloud.oracle.com/api/#/en/objectstorage/latest/Bucket/UpdateBucket) and
 * [DeleteBucket](https://docs.cloud.oracle.com/api/#/en/objectstorage/latest/Bucket/DeleteBucket).

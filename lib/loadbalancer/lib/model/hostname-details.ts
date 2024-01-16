@@ -23,7 +23,7 @@ export interface HostnameDetails {
   /**
     * The name of the hostname resource.
 * <p>
-Example: `example_hostname_001`
+Example: {@code example_hostname_001}
 * 
     */
   "name": string;
@@ -31,7 +31,7 @@ Example: `example_hostname_001`
     * A virtual hostname. For more information about virtual hostname string construction, see
 * [Managing Request Routing](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrequest.htm#routing).
 * <p>
-Example: `app.example.com`
+Example: {@code app.example.com}
 * 
     */
   "hostname": string;

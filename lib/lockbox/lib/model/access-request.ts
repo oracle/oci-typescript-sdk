@@ -65,25 +65,25 @@ export interface AccessRequest {
   "activityLogs": Array<model.ActivityLog>;
   /**
    * The time the access request was created. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
    * The time the access request was last updated. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeUpdated": Date;
   /**
    * The time the access request expired. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeExpired": Date;
   /**
    * The time the access request was last reminded. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeReminded": Date;
@@ -94,7 +94,7 @@ export interface AccessRequest {
   "reminderCount": number;
   /**
    * The location of the requestor. Format with be two letters indicatiog operator's country code defined by https://jira-sd.mc1.oracleiaas.com/browse/SSD-17880
-   * Example: `US`
+   * Example: {@code US}
    *
    */
   "requestorLocation": string;

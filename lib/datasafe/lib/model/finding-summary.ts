@@ -35,6 +35,10 @@ export interface FindingSummary {
    */
   "key"?: string;
   /**
+   * Indicates whether a given finding is marked as topFinding or not.
+   */
+  "isTopFinding"?: boolean;
+  /**
    * The short title for the finding.
    */
   "title"?: string;
@@ -54,6 +58,39 @@ export interface FindingSummary {
    * Provides information on whether the finding is related to a CIS Oracle Database Benchmark recommendation, a STIG rule, or a GDPR Article/Recital.
    */
   "references"?: model.References;
+  /**
+   * The severity of the finding as determined by security assessment. This cannot be modified by user.
+   */
+  "oracleDefinedSeverity"?: string;
+  /**
+   * Determines if this risk level was modified by user.
+   */
+  "isRiskModified"?: boolean;
+  /**
+   * Determines if this risk level has changed on the target database since the last time 'severity' was modified by user.
+   */
+  "hasTargetDbRiskLevelChanged"?: boolean;
+  /**
+   * User provided reason for accepting or modifying this finding if they choose to do so.
+   */
+  "justification"?: string;
+  /**
+   * The time until which the change in severity(deferred / modified) of this finding is valid.
+   */
+  "timeValidUntil"?: Date;
+  /**
+   * The date and time the risk level of finding was last updated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
+   */
+  "timeUpdated"?: Date;
+  /**
+   * The current state of the finding.
+   */
+  "lifecycleState"?: model.FindingLifecycleState;
+  /**
+   * Details about the current state of the finding.
+   */
+  "lifecycleDetails"?: string;
 }
 
 export namespace FindingSummary {
@@ -64,6 +101,7 @@ export namespace FindingSummary {
     Evaluate = "EVALUATE",
     Advisory = "ADVISORY",
     Pass = "PASS",
+    Deferred = "DEFERRED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

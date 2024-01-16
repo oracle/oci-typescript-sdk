@@ -48,7 +48,7 @@ If not defined, a window is selected from the following Region-based time-spans:
 * <p>
 Tags defined here will be copied verbatim as tags on the Backup resource created by this BackupPolicy.
 * <p>
-Example: `{\"bar-key\": \"value\"}`
+Example: {@code {\"bar-key\": \"value\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -57,7 +57,7 @@ Example: `{\"bar-key\": \"value\"}`
 * <p>
 Tags defined here will be copied verbatim as tags on the Backup resource created by this BackupPolicy.
 * <p>
-Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

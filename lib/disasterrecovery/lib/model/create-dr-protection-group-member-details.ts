@@ -25,7 +25,7 @@ export interface CreateDrProtectionGroupMemberDetails {
   /**
     * The OCID of the member.
 * <p>
-Example: `ocid1.instance.oc1..uniqueID`
+Example: {@code ocid1.instance.oc1..uniqueID}
 * 
     */
   "memberId": string;

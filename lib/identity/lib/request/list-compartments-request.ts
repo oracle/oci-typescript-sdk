@@ -24,7 +24,7 @@ export interface ListCompartmentsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;
@@ -34,13 +34,13 @@ export interface ListCompartmentsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
- * Valid values are `ANY` and `ACCESSIBLE`. Default is `ANY`.
-* Setting this to `ACCESSIBLE` returns only those compartments for which the
+ * Valid values are {@code ANY} and {@code ACCESSIBLE}. Default is {@code ANY}.
+* Setting this to {@code ACCESSIBLE} returns only those compartments for which the
 * user has INSPECT permissions directly or indirectly (permissions can be on a
 * resource in a subcompartment). For the compartments on which the user indirectly has
 * INSPECT permissions, a restricted set of fields is returned.
 * <p>
-When set to `ANY` permissions are not checked.
+When set to {@code ANY} permissions are not checked.
 * 
  */
   "accessLevel"?: ListCompartmentsRequest.AccessLevel;
@@ -49,7 +49,7 @@ When set to `ANY` permissions are not checked.
    * ListCompartments on the tenancy (root compartment).
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of `accessLevel`.
+   * returned depending on the the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -59,11 +59,11 @@ When set to `ANY` permissions are not checked.
    */
   "name"?: string;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`). Default order for
+   * The field to sort by. You can provide one sort order ({@code sortOrder}). Default order for
    * TIMECREATED is descending. Default order for NAME is ascending. The NAME
    * sort order is case sensitive.
    * <p>
-   **Note:** In general, some \"List\" operations (for example, `ListInstances`) let you
+   **Note:** In general, some \"List\" operations (for example, {@code ListInstances}) let you
    * optionally filter by Availability Domain if the scope of the resource type is within a
    * single Availability Domain. If you call one of these \"List\" operations without specifying
    * an Availability Domain, the resources are grouped by Availability Domain, then sorted.
@@ -71,7 +71,7 @@ When set to `ANY` permissions are not checked.
    */
   "sortBy"?: ListCompartmentsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The NAME sort order
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). The NAME sort order
    * is case sensitive.
    *
    */

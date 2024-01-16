@@ -15,7 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Reference to an object in Object Storage as a tuple.
+ * Reference to an object in object storage as a tuple. The usage data file uploaded to object storage must be a gzip archive
+ * of the JSON usage data returned from the GraalVM native-image-inspect tool after a native-image build.
+ *
  */
 export interface UsageDataViaObjectStorageTupleDetails extends model.UsageDataDetails {
   /**

@@ -36,8 +36,8 @@ export interface InstanceAgentPluginConfigDetails {
   /**
     * Whether the plugin should be enabled or disabled.
 * <p>
-To enable the monitoring and management plugins, the `isMonitoringDisabled` and
-* `isManagementDisabled` attributes must also be set to false.
+To enable the monitoring and management plugins, the {@code isMonitoringDisabled} and
+* {@code isManagementDisabled} attributes must also be set to false.
 * 
     */
   "desiredState": InstanceAgentPluginConfigDetails.DesiredState;

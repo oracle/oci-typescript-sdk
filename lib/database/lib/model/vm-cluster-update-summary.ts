@@ -50,7 +50,7 @@ export interface VmClusterUpdateSummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * The current state of the maintenance update. Dependent on value of `lastAction`.
+   * The current state of the maintenance update. Dependent on value of {@code lastAction}.
    */
   "lifecycleState"?: VmClusterUpdateSummary.LifecycleState;
   /**

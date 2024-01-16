@@ -25,12 +25,12 @@ import common = require("oci-common");
 * An individual answer to a CPE device question.
 * <p>
 The answers correlate to the questions that are specific to the CPE device type (see the
-* `parameters` attribute of {@link CpeDeviceShapeDetail}).
+* {@code parameters} attribute of {@link CpeDeviceShapeDetail}).
 * 
 */
 export interface CpeDeviceConfigAnswer {
   /**
-   * A string that identifies the question to be answered. See the `key` attribute in
+   * A string that identifies the question to be answered. See the {@code key} attribute in
    * {@link #cpeDeviceConfigQuestion(CpeDeviceConfigQuestionRequest) cpeDeviceConfigQuestion}.
    *
    */

@@ -47,7 +47,7 @@ export interface CreateDbSystemDetails {
   "storageDetails": model.OciOptimizedStorageDetails;
   /**
    * The name of the shape for the database instance node. Use the /shapes API for accepted shapes.
-   * Example: `VM.Standard.E4.Flex`
+   * Example: {@code VM.Standard.E4.Flex}
    *
    */
   "shape": string;
@@ -66,7 +66,7 @@ export interface CreateDbSystemDetails {
   "instanceCount"?: number;
   /**
    * Details of database instances nodes to be created. This parameter is optional.
-   * If specified, its size must match `instanceCount`.
+   * If specified, its size must match {@code instanceCount}.
    *
    */
   "instancesDetails"?: Array<model.CreateDbInstanceDetails>;
@@ -76,13 +76,13 @@ export interface CreateDbSystemDetails {
   "source"?: model.BackupSourceDetails | model.NoneSourceDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

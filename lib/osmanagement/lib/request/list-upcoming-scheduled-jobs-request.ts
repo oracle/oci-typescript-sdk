@@ -32,7 +32,7 @@ Example: 2017-07-14T02:40:00.000Z
   /**
  * A user-friendly name. Does not have to be unique, and it's changeable.
 * <p>
-Example: `My new resource`
+Example: {@code My new resource}
 * 
  */
   "displayName"?: string;

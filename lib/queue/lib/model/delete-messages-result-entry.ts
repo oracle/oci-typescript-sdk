@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * Represents the result of a DeleteMessages request, whether it was successful or not.
  * If a message was successfully deleted from the queue, the entry does not contain any fields.
- * If a message failed to be deleted from the queue, the entry includes the `errorCode` and `errorMessage` fields.
+ * If a message failed to be deleted from the queue, the entry includes the {@code errorCode} and {@code errorMessage} fields.
  *
  */
 export interface DeleteMessagesResultEntry {

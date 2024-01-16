@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface Origin {
   /**
-   * The URI of the origin. Does not support paths. Port numbers should be specified in the `httpPort` and `httpsPort` fields.
+   * The URI of the origin. Does not support paths. Port numbers should be specified in the {@code httpPort} and {@code httpsPort} fields.
    */
   "uri": string;
   /**
-   * The HTTP port on the origin that the web application listens on. If unspecified, defaults to `80`. If `0` is specified - the origin is not used for HTTP traffic. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The HTTP port on the origin that the web application listens on. If unspecified, defaults to {@code 80}. If {@code 0} is specified - the origin is not used for HTTP traffic. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "httpPort"?: number;
   /**
-   * The HTTPS port on the origin that the web application listens on. If unspecified, defaults to `443`. If `0` is specified - the origin is not used for HTTPS traffic. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The HTTPS port on the origin that the web application listens on. If unspecified, defaults to {@code 443}. If {@code 0} is specified - the origin is not used for HTTPS traffic. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "httpsPort"?: number;
   /**

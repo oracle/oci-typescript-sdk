@@ -35,7 +35,7 @@ export interface DeploymentSummary {
     * A user-friendly name. Does not have to be unique, and it's changeable.
 * Avoid entering confidential information.
 * <p>
-Example: `My new resource`
+Example: {@code My new resource}
 * 
     */
   "displayName"?: string;
@@ -81,7 +81,7 @@ Example: `My new resource`
 * with no predefined name, type, or namespace. For more information, see
 * [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -90,7 +90,7 @@ Example: `{\"Department\": \"Finance\"}`
 * namespace. For more information, see
 * [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

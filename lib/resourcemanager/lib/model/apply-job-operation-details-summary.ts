@@ -25,13 +25,13 @@ import common = require("oci-common");
 export interface ApplyJobOperationDetailsSummary extends model.JobOperationDetailsSummary {
   /**
    * Specifies the source of the execution plan to apply.
-   * Use `AUTO_APPROVED` to run the job without an execution plan.
+   * Use {@code AUTO_APPROVED} to run the job without an execution plan.
    *
    */
   "executionPlanStrategy": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the plan job that contains the execution plan used for this job,
-   * or `null` if no execution plan was used.
+   * or {@code null} if no execution plan was used.
    *
    */
   "executionPlanJobId"?: string;

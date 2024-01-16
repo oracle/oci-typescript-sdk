@@ -23,8 +23,8 @@ import common = require("oci-common");
 In terms of implementation, an ESXi host is a Compute instance that
 * is configured with the chosen bundle of VMware software.
 * <p>
-Notice that an `EsxiHost` object has its own OCID (`id`), and a separate
-* attribute for the OCID of the Compute instance (`computeInstanceId`).
+Notice that an {@code EsxiHost} object has its own OCID ({@code id}), and a separate
+* attribute for the OCID of the Compute instance ({@code computeInstanceId}).
 * 
 */
 export interface EsxiHost {
@@ -59,7 +59,7 @@ export interface EsxiHost {
   "compartmentId"?: string;
   /**
    * In terms of implementation, an ESXi host is a Compute instance that
-   * is configured with the chosen bundle of VMware software. The `computeInstanceId`
+   * is configured with the chosen bundle of VMware software. The {@code computeInstanceId}
    * is the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of that Compute instance.
    *
    */
@@ -68,7 +68,7 @@ export interface EsxiHost {
     * The date and time the ESXi host was created, in the format defined by
 * [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
@@ -110,15 +110,15 @@ Example: `2016-08-25T21:10:29.600Z`
   "currentCommitment": model.Commitment;
   /**
    * The billing option to switch to after the current billing cycle ends.
-   * If `nextCommitment` is null or empty, `currentCommitment` continues to the next billing cycle.
+   * If {@code nextCommitment} is null or empty, {@code currentCommitment} continues to the next billing cycle.
    * {@link #listSupportedCommitments(ListSupportedCommitmentsRequest) listSupportedCommitments}.
    *
    */
   "nextCommitment": model.Commitment;
   /**
-   * Current billing cycle end date. If the value in `currentCommitment` and `nextCommitment` are different, the value specified in `nextCommitment`
-   * becomes the new `currentCommitment` when the `contractEndDate` is reached.
-   * Example: `2016-08-25T21:10:29.600Z`
+   * Current billing cycle end date. If the value in {@code currentCommitment} and {@code nextCommitment} are different, the value specified in {@code nextCommitment}
+   * becomes the new {@code currentCommitment} when the {@code contractEndDate} is reached.
+   * Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "billingContractEndDate": Date;
@@ -136,7 +136,7 @@ Example: `2016-08-25T21:10:29.600Z`
   /**
    * The date and time when the new esxi host should start billing cycle.
    * [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2021-07-25T21:10:29.600Z`
+   * Example: {@code 2021-07-25T21:10:29.600Z}
    *
    */
   "gracePeriodEndDate"?: Date;
@@ -187,7 +187,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags": { [key: string]: string };
@@ -195,7 +195,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags": { [key: string]: { [key: string]: any } };

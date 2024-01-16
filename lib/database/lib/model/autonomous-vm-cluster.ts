@@ -153,7 +153,7 @@ export interface AutonomousVmCluster {
    */
   "dataStorageSizeInGBs"?: number;
   /**
-   * **Deprecated.** Use `availableAutonomousDataStorageSizeInTBs` for Autonomous Databases' data storage availability in TBs.
+   * **Deprecated.** Use {@code availableAutonomousDataStorageSizeInTBs} for Autonomous Databases' data storage availability in TBs.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableDataStorageSizeInTBs"?: number;
@@ -171,7 +171,7 @@ export interface AutonomousVmCluster {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

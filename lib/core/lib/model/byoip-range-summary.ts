@@ -22,11 +22,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information about a `ByoipRange` resource.
+ * Information about a {@code ByoipRange} resource.
  */
 export interface ByoipRangeSummary {
   /**
-   * A list of `ByoipRangeVcnIpv6AllocationSummary` objects.
+   * A list of {@code ByoipRangeVcnIpv6AllocationSummary} objects.
    *
    */
   "byoipRangeVcnIpv6Allocations"?: Array<model.ByoipRangeVcnIpv6AllocationSummary>;
@@ -35,7 +35,7 @@ export interface ByoipRangeSummary {
    */
   "cidrBlock"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the `ByoipRange` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the {@code ByoipRange} resource.
    *
    */
   "compartmentId"?: string;
@@ -43,7 +43,7 @@ export interface ByoipRangeSummary {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -57,12 +57,12 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code ByoipRange} resource.
    */
   "id"?: string;
   /**
@@ -73,7 +73,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "ipv6CidrBlock"?: string;
   /**
-   * The `ByoipRange` resource's current state.
+   * The {@code ByoipRange} resource's current state.
    */
   "lifecycleState"?: string;
   /**
@@ -81,9 +81,9 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "lifecycleDetails"?: string;
   /**
-    * The date and time the `ByoipRange` resource was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+    * The date and time the {@code ByoipRange} resource was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;

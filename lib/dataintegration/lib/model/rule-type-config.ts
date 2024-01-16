@@ -28,7 +28,7 @@ export interface RuleTypeConfig extends model.DynamicTypeHandler {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Deprecated - Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a `TypedObject` or a full `TypedObject` definition.
+   * Deprecated - Reference to a typed object, this can be either a key value to an object within the document, a shall referenced to a {@code TypedObject} or a full {@code TypedObject} definition.
    */
   "scope"?: any;
   "scopeReference"?: model.ScopeReference;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * (For tenancies that support identity domains) As the name suggests, a `DomainSummary` object contains information about a `Domain`.
+ * (For tenancies that support identity domains) As the name suggests, a {@code DomainSummary} object contains information about a {@code Domain}.
  *
  */
 export interface DomainSummary {
@@ -68,7 +68,7 @@ export interface DomainSummary {
   /**
     * Date and time the identity domain was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -85,14 +85,14 @@ Example: `2016-08-25T21:10:29.600Z`
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

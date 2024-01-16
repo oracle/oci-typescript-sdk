@@ -27,15 +27,15 @@ export interface GetDomainRecordsRequest extends common.BaseRequest {
    */
   "domain": string;
   /**
-   * The `If-None-Match` header field makes the request method conditional on
+   * The {@code If-None-Match} header field makes the request method conditional on
    * the absence of any current representation of the target resource, when
-   * the field-value is `*`, or having a selected representation with an
+   * the field-value is {@code *}, or having a selected representation with an
    * entity-tag that does not match any of those listed in the field-value.
    *
    */
   "ifNoneMatch"?: string;
   /**
-   * The `If-Modified-Since` header field makes a GET or HEAD request method
+   * The {@code If-Modified-Since} header field makes a GET or HEAD request method
    * conditional on the selected representation's modification date being more
    * recent than the date provided in the field-value.  Transfer of the
    * selected representation's data is avoided if that data has not changed.
@@ -55,7 +55,7 @@ export interface GetDomainRecordsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;

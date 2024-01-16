@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface BoundingPolygon {
   /**
    * An array of normalized points defining the polygon's perimeter, with an implicit segment between subsequent points and between the first and last point.
-   * Rectangles are defined with four points. For example, `[{\"x\": 0, \"y\": 0}, {\"x\": 1, \"y\": 0}, {\"x\": 1, \"y\": 0.5}, {\"x\": 0, \"y\": 0.5}]` represents the top half of an image.
+   * Rectangles are defined with four points. For example, {@code [{\"x\": 0, \"y\": 0}, {\"x\": 1, \"y\": 0}, {\"x\": 1, \"y\": 0.5}, {\"x\": 0, \"y\": 0.5}]} represents the top half of an image.
    *
    */
   "normalizedVertices": Array<model.NormalizedVertex>;

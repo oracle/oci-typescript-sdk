@@ -52,13 +52,13 @@ export interface WorkRequest {
    */
   "timeAccepted": Date;
   /**
-   * The date and time the work request transitioned from `ACCEPTED` to `IN_PROGRESS`,
+   * The date and time the work request transitioned from {@code ACCEPTED} to {@code IN_PROGRESS},
    * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the work request reached a terminal state, either `FAILED` or `SUCCEEDED`.
+   * The date and time the work request reached a terminal state, either {@code FAILED} or {@code SUCCEEDED}.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */

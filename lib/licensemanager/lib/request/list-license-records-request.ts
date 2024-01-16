@@ -27,7 +27,7 @@ export interface ListLicenseRecordsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * A token representing the position at which to start retrieving results. This must come from the `opc-next-page` header field of a previous response.
+   * A token representing the position at which to start retrieving results. This must come from the {@code opc-next-page} header field of a previous response.
    */
   "page"?: string;
   /**
@@ -37,13 +37,13 @@ export interface ListLicenseRecordsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The sort order to use, whether `ASC` or `DESC`.
+   * The sort order to use, whether {@code ASC} or {@code DESC}.
    */
   "sortOrder"?: ListLicenseRecordsRequest.SortOrder;
   /**
  * Specifies the attribute with which to sort the rules.
 * <p>
-Default: `expirationDate`
+Default: {@code expirationDate}
 * <p>
 * **expirationDate:** Sorts by expiration date of the license record.
 * 

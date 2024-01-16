@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An object that represents the `sticky-cookie` load balancing method and its properties.
+ * An object that represents the {@code sticky-cookie} load balancing method and its properties.
  *
  */
 export interface StickyCookieLoadBalancingMethod extends model.LoadBalancingMethod {

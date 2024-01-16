@@ -39,7 +39,7 @@ export interface NetworkLoadBalancer {
   /**
     * A user-friendly name, which does not have to be unique, and can be changed.
 * <p>
-Example: `example_load_balancer`
+Example: {@code example_load_balancer}
 * 
     */
   "displayName": string;
@@ -60,14 +60,14 @@ Example: `example_load_balancer`
   /**
     * The date and time the network load balancer was created, in the format defined by RFC3339.
 * <p>
-Example: `2020-05-01T21:10:29.600Z`
+Example: {@code 2020-05-01T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
     * The time the network load balancer was updated. An RFC3339 formatted date-time string.
 * <p>
-Example: `2020-05-01T22:10:29.600Z`
+Example: {@code 2020-05-01T22:10:29.600Z}
 * 
     */
   "timeUpdated"?: Date;
@@ -89,7 +89,7 @@ A public network load balancer is accessible from the internet, depending the
 * see [How Network Load Balancing Works](https://docs.cloud.oracle.com/Content/Balance/Concepts/balanceoverview.htm#how-network-load-balancing-works).
 * This value is true by default.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isPrivate"?: boolean;
@@ -132,7 +132,7 @@ Example: [\"ocid1.nsg.oc1.phx.unique_ID\"]
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -140,13 +140,13 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Key-value pair representing system tags' keys and values scoped to a namespace.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

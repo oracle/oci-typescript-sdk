@@ -26,7 +26,7 @@ export interface CreateFileSystemMountDetails {
   /**
     * The OCID of the mount target for this file system.
 * <p>
-Example: `ocid1.mounttarget.oc1..uniqueID`
+Example: {@code ocid1.mounttarget.oc1..uniqueID}
 * 
     */
   "mountTargetId"?: string;

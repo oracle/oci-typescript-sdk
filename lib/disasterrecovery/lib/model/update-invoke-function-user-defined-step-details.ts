@@ -27,14 +27,14 @@ export interface UpdateInvokeFunctionUserDefinedStepDetails
   /**
     * The OCID of function to be invoked.
 * <p>
-Example: `ocid1.fnfunc.oc1..uniqueID`
+Example: {@code ocid1.fnfunc.oc1..uniqueID}
 * 
     */
   "functionId": string;
   /**
     * The request body for the function.
 * <p>
-Example: `{ \"FnParam1\", \"FnParam2\" }`
+Example: {@code { \"FnParam1\", \"FnParam2\" }}
 * 
     */
   "requestBody"?: string;

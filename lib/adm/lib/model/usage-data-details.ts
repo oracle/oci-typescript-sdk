@@ -15,8 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The source details of the usage data on Object Storage.
- * Set `sourceType` to `objectStorageTuple`
+ * The source details of the usage data in object storage. The usage data file uploaded to object storage must be a gzip archive
+ * of the JSON usage data returned from the GraalVM native-image-inspect tool after a native-image build.
+ * Set {@code sourceType} to {@code objectStorageTuple}
  * and use {@link #usageDataViaObjectStorageTupleDetails(UsageDataViaObjectStorageTupleDetailsRequest) usageDataViaObjectStorageTupleDetails}
  * when specifying the namespace, bucket name, and object name.
  *

@@ -28,7 +28,7 @@ export interface CreateCrossConnectDetails {
   "crossConnectGroupId"?: string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -48,7 +48,7 @@ export interface CreateCrossConnectDetails {
   "farCrossConnectOrCrossConnectGroupId"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -57,7 +57,7 @@ export interface CreateCrossConnectDetails {
 * To get a list of the available locations, see
 * {@link #listCrossConnectLocations(ListCrossConnectLocationsRequest) listCrossConnectLocations}.
 * <p>
-Example: `CyrusOne, Chandler, AZ`
+Example: {@code CyrusOne, Chandler, AZ}
 * 
     */
   "locationName": string;
@@ -72,7 +72,7 @@ Example: `CyrusOne, Chandler, AZ`
     * The port speed for this cross-connect. To get a list of the available port speeds, see
 * {@link #listCrossconnectPortSpeedShapes(ListCrossconnectPortSpeedShapesRequest) listCrossconnectPortSpeedShapes}.
 * <p>
-Example: `10 Gbps`
+Example: {@code 10 Gbps}
 * 
     */
   "portSpeedShapeName": string;

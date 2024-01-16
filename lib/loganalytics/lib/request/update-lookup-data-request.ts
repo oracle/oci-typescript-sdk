@@ -55,7 +55,7 @@ export interface UpdateLookupDataRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
    * The resource will be updated or deleted only if the etag you
    * provide matches the resource's current etag value.
@@ -63,7 +63,7 @@ export interface UpdateLookupDataRequest extends common.BaseRequest {
    */
   "ifMatch"?: string;
   /**
-   * A value of `100-continue` requests preliminary verification of the request method, path, and headers before the request body is sent.
+   * A value of {@code 100-continue} requests preliminary verification of the request method, path, and headers before the request body is sent.
    * If no error results from such verification, the server will send a 100 (Continue) interim response to indicate readiness for the request body.
    * The only allowed value for this parameter is \"100-Continue\" (case-insensitive).
    *

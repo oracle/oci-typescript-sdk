@@ -25,7 +25,7 @@ export interface GetRoutingPolicyRequest extends common.BaseRequest {
   /**
  * The name of the routing policy to retrieve.
 * <p>
-Example: `example_routing_policy`
+Example: {@code example_routing_policy}
 * 
  */
   "routingPolicyName": string;
@@ -45,7 +45,7 @@ For example, the eTag returned by getListener can be specified as the ifMatch fo
 The resource is updated or deleted only if the ETag you provide matches the resource's current
 * ETag value.
 * <p>
-Example: `example-etag`
+Example: {@code example-etag}
 * 
  */
   "ifMatch"?: string;

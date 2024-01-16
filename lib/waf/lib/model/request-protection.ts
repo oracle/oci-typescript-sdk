@@ -27,7 +27,7 @@ export interface RequestProtection {
    */
   "rules"?: Array<model.ProtectionRule>;
   /**
-    * Maximum size of inspected HTTP message body in bytes. Actions to take if this limit is exceeded are defined in `bodyInspectionSizeLimitExceededActionName`.
+    * Maximum size of inspected HTTP message body in bytes. Actions to take if this limit is exceeded are defined in {@code bodyInspectionSizeLimitExceededActionName}.
 * <p>
 Body inspection maximum size allowed is defined with per-tenancy limit: 8192 bytes.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -35,9 +35,9 @@ Body inspection maximum size allowed is defined with per-tenancy limit: 8192 byt
   "bodyInspectionSizeLimitInBytes"?: number;
   /**
     * References action by name from actions defined in WebAppFirewallPolicy. Executed if HTTP message
-* body size exceeds limit set in field `bodyInspectionSizeLimitInBytes`.
+* body size exceeds limit set in field {@code bodyInspectionSizeLimitInBytes}.
 * <p>
-If this field is `null` HTTP message body will inspected up to `bodyInspectionSizeLimitInBytes` and the rest
+If this field is {@code null} HTTP message body will inspected up to {@code bodyInspectionSizeLimitInBytes} and the rest
 * will not be inspected by Protection Capabilities.
 * <p>
 Allowed action types:

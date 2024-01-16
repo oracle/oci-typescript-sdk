@@ -36,7 +36,7 @@ export interface ListParserMetaPluginsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListParserMetaPluginsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListParserMetaPluginsRequest.SortOrder;

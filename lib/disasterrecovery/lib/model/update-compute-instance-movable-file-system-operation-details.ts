@@ -26,14 +26,14 @@ export interface UpdateComputeInstanceMovableFileSystemOperationDetails {
   /**
     * The export path of the file system.
 * <p>
-Example: `/fs-export-path`
+Example: {@code /fs-export-path}
 * 
     */
   "exportPath": string;
   /**
     * The physical mount point of the file system on a host.
 * <p>
-Example: `/mnt/yourmountpoint`
+Example: {@code /mnt/yourmountpoint}
 * 
     */
   "mountPoint": string;

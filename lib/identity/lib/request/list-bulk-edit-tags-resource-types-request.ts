@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListBulkEditTagsResourceTypesRequest extends common.BaseRequest {
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;

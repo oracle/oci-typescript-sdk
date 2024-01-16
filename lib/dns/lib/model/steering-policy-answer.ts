@@ -26,8 +26,8 @@ import common = require("oci-common");
 export interface SteeringPolicyAnswer {
   /**
     * A user-friendly name for the answer, unique within the steering policy.
-* An answer's `name` property can be referenced in `answerCondition` properties
-* of rules using `answer.name`.
+* An answer's {@code name} property can be referenced in {@code answerCondition} properties
+* of rules using {@code answer.name}.
 * <p>
 **Example:**
 * <p>
@@ -61,8 +61,8 @@ export interface SteeringPolicyAnswer {
   "rdata": string;
   /**
     * The freeform name of a group of one or more records in which this record is included,
-* such as \"LAX data center\". An answer's `pool` property can be referenced in `answerCondition`
-* properties of rules using `answer.pool`.
+* such as \"LAX data center\". An answer's {@code pool} property can be referenced in {@code answerCondition}
+* properties of rules using {@code answer.pool}.
 * <p>
 **Example:**
 * <p>
@@ -81,9 +81,9 @@ export interface SteeringPolicyAnswer {
     */
   "pool"?: string;
   /**
-   * Set this property to `true` to indicate that the answer is administratively disabled,
-   * such as when the corresponding server is down for maintenance. An answer's `isDisabled`
-   * property can be referenced in `answerCondition` properties in rules using `answer.isDisabled`.
+   * Set this property to {@code true} to indicate that the answer is administratively disabled,
+   * such as when the corresponding server is down for maintenance. An answer's {@code isDisabled}
+   * property can be referenced in {@code answerCondition} properties in rules using {@code answer.isDisabled}.
    * <p>
    **Example:**
    *   \"rules\": [

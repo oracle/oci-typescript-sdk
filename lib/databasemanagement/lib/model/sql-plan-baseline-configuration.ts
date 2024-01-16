@@ -31,19 +31,19 @@ import common = require("oci-common");
 */
 export interface SqlPlanBaselineConfiguration {
   /**
-   * Indicates whether the automatic capture of SQL plan baselines is enabled (`true`) or not (`false`).
+   * Indicates whether the automatic capture of SQL plan baselines is enabled ({@code true}) or not ({@code false}).
    */
   "isAutomaticInitialPlanCaptureEnabled": boolean;
   /**
-   * Indicates whether the database uses SQL plan baselines (`true`) or not (`false`).
+   * Indicates whether the database uses SQL plan baselines ({@code true}) or not ({@code false}).
    */
   "isSqlPlanBaselinesUsageEnabled": boolean;
   /**
-   * Indicates whether the Automatic SPM Evolve Advisor task is enabled (`true`) or not (`false`).
+   * Indicates whether the Automatic SPM Evolve Advisor task is enabled ({@code true}) or not ({@code false}).
    */
   "isAutoSpmEvolveTaskEnabled": boolean;
   /**
-   * Indicates whether the high frequency Automatic SPM Evolve Advisor task is enabled (`true`) or not (`false`).
+   * Indicates whether the high frequency Automatic SPM Evolve Advisor task is enabled ({@code true}) or not ({@code false}).
    */
   "isHighFrequencyAutoSpmEvolveTaskEnabled": boolean;
   /**
@@ -51,11 +51,11 @@ export interface SqlPlanBaselineConfiguration {
    */
   "planRetentionWeeks": number;
   /**
-   * The maximum percent of `SYSAUX` space that can be used for SQL Management Base. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum percent of {@code SYSAUX} space that can be used for SQL Management Base. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "spaceBudgetPercent": number;
   /**
-   * The maximum `SYSAUX` space that can be used for SQL Management Base in MB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum {@code SYSAUX} space that can be used for SQL Management Base in MB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "spaceBudgetMB"?: number;
   /**

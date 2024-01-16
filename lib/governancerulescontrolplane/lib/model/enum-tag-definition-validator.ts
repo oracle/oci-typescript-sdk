@@ -15,10 +15,10 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* Used to validate the value set for a defined tag and contains the list of allowable `values`.
+* Used to validate the value set for a defined tag and contains the list of allowable {@code values}.
 * <p>
-You must specify at least one valid value in the `values` array. You can't have blank or
-* or empty strings (`\"\"`). Duplicate values are not allowed.
+You must specify at least one valid value in the {@code values} array. You can't have blank or
+* or empty strings ({@code \"\"}). Duplicate values are not allowed.
 * 
 */
 export interface EnumTagDefinitionValidator extends model.BaseTagDefinitionValidator {

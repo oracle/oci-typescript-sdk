@@ -26,13 +26,13 @@ export interface PatchInsertInstruction extends model.PatchInstruction {
    */
   "value": any;
   /**
-   * A selection to be evaluated against the array for identifying a particular reference item within it, with the same format and semantics as `selection`.
+   * A selection to be evaluated against the array for identifying a particular reference item within it, with the same format and semantics as {@code selection}.
    */
   "selectedItem"?: string;
   /**
-   * Where to insert the value, relative to the first item matched by `selectedItem`.
-   * If `selectedItem` is unspecified, then \"BEFORE\" specifies insertion at the first position in an array and \"AFTER\" specifies insertion at the last position.
-   * If `selectedItem` is specified but results in an empty selection, then both values specify insertion at the last position.
+   * Where to insert the value, relative to the first item matched by {@code selectedItem}.
+   * If {@code selectedItem} is unspecified, then \"BEFORE\" specifies insertion at the first position in an array and \"AFTER\" specifies insertion at the last position.
+   * If {@code selectedItem} is specified but results in an empty selection, then both values specify insertion at the last position.
    *
    */
   "position"?: PatchInsertInstruction.Position;

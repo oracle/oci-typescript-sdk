@@ -25,15 +25,15 @@ export interface UpdateBackendDetails {
 * For more information about load balancing policies, see
 * [How Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
 * <p>
-Example: `3`
+Example: {@code 3}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "weight"?: number;
   /**
-    * Whether the network load balancer should treat this server as a backup unit. If `true`, then the network load balancer forwards no ingress
+    * Whether the network load balancer should treat this server as a backup unit. If {@code true}, then the network load balancer forwards no ingress
 * traffic to this backend server unless all other backend servers not marked as \"isBackup\" fail the health check policy.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isBackup"?: boolean;
@@ -41,7 +41,7 @@ Example: `false`
     * Whether the network load balancer should drain this server. Servers marked \"isDrain\" receive no
 * incoming traffic.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isDrain"?: boolean;
@@ -49,7 +49,7 @@ Example: `false`
     * Whether the network load balancer should treat this server as offline. Offline servers receive no incoming
 * traffic.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isOffline"?: boolean;

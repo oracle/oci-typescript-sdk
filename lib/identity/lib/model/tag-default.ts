@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
 * Tag defaults let you specify a default tag (tagnamespace.tag=\"value\") to apply to all resource types
 * in a specified compartment. The tag default is applied at the time the resource is created. Resources
-* that exist in the compartment before you create the tag default are not tagged. The `TagDefault` object
+* that exist in the compartment before you create the tag default are not tagged. The {@code TagDefault} object
 * specifies the tag and compartment details.
 * <p>
 Tag defaults are inherited by child compartments. This means that if you set a tag default on the root compartment
@@ -60,14 +60,14 @@ export interface TagDefault {
    */
   "value": string;
   /**
-    * Date and time the `TagDefault` object was created, in the format defined by RFC3339.
+    * Date and time the {@code TagDefault} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
-   * The tag default's current state. After creating a `TagDefault`, make sure its `lifecycleState` is ACTIVE before using it.
+   * The tag default's current state. After creating a {@code TagDefault}, make sure its {@code lifecycleState} is ACTIVE before using it.
    *
    */
   "lifecycleState"?: TagDefault.LifecycleState;
@@ -76,10 +76,10 @@ Example: `2016-08-25T21:10:29.600Z`
 * user creating the resource or another tag defualt). If no value is set, resource creation is
 * blocked.
 * <p>
-* If the `isRequired` flag is set to \"true\", the value is set during resource creation.
-* * If the `isRequired` flag is set to \"false\", the value you enter is set during resource creation.
+* If the {@code isRequired} flag is set to \"true\", the value is set during resource creation.
+* * If the {@code isRequired} flag is set to \"false\", the value you enter is set during resource creation.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isRequired": boolean;

@@ -36,39 +36,39 @@ export interface ClientOptions {
    */
   "source": string;
   /**
-   * If `true`, clients accessing the file system through this
+   * If {@code true}, clients accessing the file system through this
    * export must connect from a privileged source port. If
-   * unspecified, defaults to `true`.
+   * unspecified, defaults to {@code true}.
    *
    */
   "requirePrivilegedSourcePort"?: boolean;
   /**
    * Type of access to grant clients using the file system
-   * through this export. If unspecified defaults to `READ_WRITE`.
+   * through this export. If unspecified defaults to {@code READ_WRITE}.
    *
    */
   "access"?: ClientOptions.Access;
   /**
    * Used when clients accessing the file system through this export
    * have their UID and GID remapped to 'anonymousUid' and
-   * 'anonymousGid'. If `ALL`, all users and groups are remapped;
-   * if `ROOT`, only the root user and group (UID/GID 0) are
-   * remapped; if `NONE`, no remapping is done. If unspecified,
-   * defaults to `ROOT`.
+   * 'anonymousGid'. If {@code ALL}, all users and groups are remapped;
+   * if {@code ROOT}, only the root user and group (UID/GID 0) are
+   * remapped; if {@code NONE}, no remapping is done. If unspecified,
+   * defaults to {@code ROOT}.
    *
    */
   "identitySquash"?: ClientOptions.IdentitySquash;
   /**
    * UID value to remap to when squashing a client UID (see
    * identitySquash for more details.) If unspecified, defaults
-   * to `65534`.
+   * to {@code 65534}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "anonymousUid"?: number;
   /**
    * GID value to remap to when squashing a client GID (see
    * identitySquash for more details.) If unspecified defaults
-   * to `65534`.
+   * to {@code 65534}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "anonymousGid"?: number;

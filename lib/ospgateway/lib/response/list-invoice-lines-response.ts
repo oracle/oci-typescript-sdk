@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 export interface ListInvoiceLinesResponse {
   /**
-   * For optimistic concurrency control. See `if-match`.
+   * For optimistic concurrency control. See {@code if-match}.
    */
   "etag": string;
   /**
@@ -27,7 +27,7 @@ export interface ListInvoiceLinesResponse {
   "opcRequestId": string;
   /**
    * For list pagination. If this header appears in the response, then this
-   * is a partial list of invoices. Include this value as the `page` parameter in a subsequent
+   * is a partial list of invoices. Include this value as the {@code page} parameter in a subsequent
    * GET request to get the next batch of invoices.
    *
    */

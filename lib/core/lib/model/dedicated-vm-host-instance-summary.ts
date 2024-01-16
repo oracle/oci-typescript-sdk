@@ -29,7 +29,7 @@ export interface DedicatedVmHostInstanceSummary {
   /**
     * The availability domain the virtual machine instance is running in.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;
@@ -51,7 +51,7 @@ Example: `Uocm:PHX-AD-1`
   /**
     * The date and time the virtual machine instance was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

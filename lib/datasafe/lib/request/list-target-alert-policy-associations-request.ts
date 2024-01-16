@@ -69,7 +69,7 @@ export interface ListTargetAlertPolicyAssociationsRequest extends common.BaseReq
   "timeCreatedGreaterThanOrEqualTo"?: Date;
   /**
    * Search for resources that were created before a specific date.
-   * Specifying this parameter corresponding `timeCreatedLessThan`
+   * Specifying this parameter corresponding {@code timeCreatedLessThan}
    * parameter will retrieve all resources created before the
    * specified created date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
    * defined by RFC 3339.

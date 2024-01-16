@@ -29,7 +29,7 @@ export interface DedicatedVmHostSummary {
   /**
     * The availability domain the dedicated VM host is running in.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;
@@ -58,7 +58,7 @@ If you do not specify the fault domain, the system selects one for you. To chang
 * <p>
 To get a list of fault domains, use the ListFaultDomains operation in the Identity and Access Management Service API.
 * <p>
-Example: `FAULT-DOMAIN-1`
+Example: {@code FAULT-DOMAIN-1}
 * 
     */
   "faultDomain"?: string;
@@ -75,7 +75,7 @@ Example: `FAULT-DOMAIN-1`
   /**
     * The date and time the dedicated VM host was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

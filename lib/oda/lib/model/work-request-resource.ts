@@ -31,7 +31,7 @@ export interface WorkRequestResource {
    */
   "resourceId": string;
   /**
-   * The current state of the work request. The `SUCCEEDED`, `FAILED`, AND `CANCELED` states
+   * The current state of the work request. The {@code SUCCEEDED}, {@code FAILED}, AND {@code CANCELED} states
    * correspond to the action being performed.
    *
    */

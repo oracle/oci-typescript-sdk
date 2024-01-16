@@ -42,7 +42,7 @@ This attribute is not guaranteed to reflect the vSphere VLAN
 Therefore, if you change the existing ESXi hosts in the Cluster to use a different VLAN
 * for the vSphere component of the VMware environment, you
 * should use {@link #updateSddc(UpdateSddcRequest) updateSddc} to update the Cluster's
-* `vsphereVlanId` with that new VLAN's OCID.
+* {@code vsphereVlanId} with that new VLAN's OCID.
 * 
     */
   "vsphereVlanId"?: string;
@@ -59,7 +59,7 @@ This attribute is not guaranteed to reflect the vMotion VLAN
 Therefore, if you change the existing ESXi hosts in the Cluster to use a different VLAN
 * for the vMotion component of the VMware environment, you
 * should use {@link #updateCluster(UpdateClusterRequest) updateCluster} to update the Cluster's
-* `vmotionVlanId` with that new VLAN's OCID.
+* {@code vmotionVlanId} with that new VLAN's OCID.
 * 
     */
   "vmotionVlanId": string;
@@ -76,7 +76,7 @@ This attribute is not guaranteed to reflect the vSAN VLAN
 Therefore, if you change the existing ESXi hosts in the Cluster to use a different VLAN
 * for the vSAN component of the VMware environment, you
 * should use {@link #updateCluster(UpdateClusterRequest) updateCluster} to update the Cluster's
-* `vsanVlanId` with that new VLAN's OCID.
+* {@code vsanVlanId} with that new VLAN's OCID.
 * 
     */
   "vsanVlanId": string;
@@ -93,7 +93,7 @@ This attribute is not guaranteed to reflect the NSX VTEP VLAN
 Therefore, if you change the existing ESXi hosts in the Cluster to use a different VLAN
 * for the NSX VTEP component of the VMware environment, you
 * should use {@link #updateCluster(UpdateClusterRequest) updateCluster} to update the Cluster's
-* `nsxVTepVlanId` with that new VLAN's OCID.
+* {@code nsxVTepVlanId} with that new VLAN's OCID.
 * 
     */
   "nsxVTepVlanId": string;
@@ -110,7 +110,7 @@ This attribute is not guaranteed to reflect the NSX Edge VTEP VLAN
 Therefore, if you change the existing ESXi hosts in the Cluster to use a different VLAN
 * for the NSX Edge VTEP component of the VMware environment, you
 * should use {@link #updateCluster(UpdateClusterRequest) updateCluster} to update the Cluster's
-* `nsxEdgeVTepVlanId` with that new VLAN's OCID.
+* {@code nsxEdgeVTepVlanId} with that new VLAN's OCID.
 * 
     */
   "nsxEdgeVTepVlanId": string;
@@ -128,7 +128,7 @@ This attribute is not guaranteed to reflect the NSX Edge Uplink 1 VLAN
 Therefore, if you change the existing ESXi hosts in the Cluster to use a different VLAN
 * for the NSX Edge Uplink 1 component of the VMware environment, you
 * should use {@link #updateCluster(UpdateClusterRequest) updateCluster} to update the Cluster's
-* `nsxEdgeUplink1VlanId` with that new VLAN's OCID.
+* {@code nsxEdgeUplink1VlanId} with that new VLAN's OCID.
 * 
     */
   "nsxEdgeUplink1VlanId"?: string;
@@ -146,7 +146,7 @@ This attribute is not guaranteed to reflect the NSX Edge Uplink 2 VLAN
 Therefore, if you change the existing ESXi hosts in the Cluster to use a different VLAN
 * for the NSX Edge Uplink 2 component of the VMware environment, you
 * should use {@link #updateCluster(UpdateClusterRequest) updateCluster} to update the Cluster's
-* `nsxEdgeUplink2VlanId` with that new VLAN's OCID.
+* {@code nsxEdgeUplink2VlanId} with that new VLAN's OCID.
 * 
     */
   "nsxEdgeUplink2VlanId"?: string;
@@ -176,7 +176,7 @@ This attribute is not guaranteed to reflect the HCX VLAN
 Therefore, if you change the existing ESXi hosts in the SDDC to use a different VLAN
 * for the HCX component of the VMware environment, you
 * should use {@link #updateSddc(UpdateSddcRequest) updateSddc} to update the SDDC's
-* `hcxVlanId` with that new VLAN's OCID.
+* {@code hcxVlanId} with that new VLAN's OCID.
 * 
     */
   "hcxVlanId"?: string;

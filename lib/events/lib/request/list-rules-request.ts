@@ -39,7 +39,7 @@ export interface ListRulesRequest extends common.BaseRequest {
   /**
  * A filter to return only rules that match the lifecycle state in this parameter.
 * <p>
-Example: `Creating`
+Example: {@code Creating}
 * 
  */
   "lifecycleState"?: string;
@@ -47,14 +47,14 @@ Example: `Creating`
  * A filter to return only rules with descriptions that match the displayName string
 * in this parameter.
 * <p>
-Example: `\"This rule sends a notification upon completion of DbaaS backup.\"`
+Example: {@code \"This rule sends a notification upon completion of DbaaS backup.\"}
 * 
  */
   "displayName"?: string;
   /**
  * Specifies the attribute with which to sort the rules.
 * <p>
-Default: `timeCreated`
+Default: {@code timeCreated}
 * <p>
 * **TIME_CREATED:** Sorts by timeCreated.
 * * **DISPLAY_NAME:** Sorts by displayName.

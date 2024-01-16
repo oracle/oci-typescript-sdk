@@ -34,7 +34,7 @@ export interface CreateInstanceAgentCommandDetails {
     * A user-friendly name for the command. It does not have to be unique.
 * Avoid entering confidential information.
 * <p>
-Example: `Database Backup Script`
+Example: {@code Database Backup Script}
 * 
     */
   "displayName"?: string;

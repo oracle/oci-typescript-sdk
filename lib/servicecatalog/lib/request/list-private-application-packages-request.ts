@@ -38,7 +38,7 @@ export interface ListPrivateApplicationPackagesRequest extends common.BaseReques
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
   /**
@@ -49,13 +49,13 @@ export interface ListPrivateApplicationPackagesRequest extends common.BaseReques
   "opcRequestId"?: string;
   /**
    * The field to use to sort listed results. You can only specify one field to sort by.
-   * `TIMECREATED` displays results in descending order by default. You can change your
+   * {@code TIMECREATED} displays results in descending order by default. You can change your
    * preference by specifying a different sort order.
    *
    */
   "sortBy"?: ListPrivateApplicationPackagesRequest.SortBy;
   /**
-   * The sort order to apply, either `ASC` or `DESC`. Default is `ASC`.
+   * The sort order to apply, either {@code ASC} or {@code DESC}. Default is {@code ASC}.
    */
   "sortOrder"?: ListPrivateApplicationPackagesRequest.SortOrder;
   /**

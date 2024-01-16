@@ -25,7 +25,7 @@ export interface WorkRequestResource {
   /**
     * The resource type the work request affects.
 * <p>
-Example: `DrPlanExecution`
+Example: {@code DrPlanExecution}
 * 
     */
   "entityType": string;
@@ -40,7 +40,7 @@ Example: `DrPlanExecution`
   /**
     * The identifier (OCID) of the resource the work request affects.
 * <p>
-Example: `ocid1.drplanexecution.oc1..uniqueID`
+Example: {@code ocid1.drplanexecution.oc1..uniqueID}
 * 
     */
   "identifier": string;

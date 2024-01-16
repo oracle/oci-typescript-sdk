@@ -24,6 +24,14 @@ export interface AvailableAuditVolumeSummary {
    */
   "auditProfileId": string;
   /**
+   * The OCID of the audit trail.
+   */
+  "auditTrailId"?: string;
+  /**
+   * Unique name of the database associated to the peer target database.
+   */
+  "databaseUniqueName"?: string;
+  /**
    * Audit trail location on the target database from where the audit data is being collected by Data Safe.
    */
   "trailLocation": string;

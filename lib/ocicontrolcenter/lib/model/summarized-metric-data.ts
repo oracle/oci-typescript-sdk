@@ -26,7 +26,7 @@ export interface SummarizedMetricData {
    */
   "sampleTime"?: Date;
   /**
-   * The duration over which the metric data is aggregated. Supported values: `1m`-`60m`, `1h`-`24h`, `1d`.
+   * The duration over which the metric data is aggregated. Supported values: {@code 1m}-{@code 60m}, {@code 1h}-{@code 24h}, {@code 1d}.
    *
    */
   "resolution"?: string;

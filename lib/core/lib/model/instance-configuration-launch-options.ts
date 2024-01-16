@@ -29,48 +29,48 @@ import common = require("oci-common");
 export interface InstanceConfigurationLaunchOptions {
   /**
    * Emulation type for the boot volume.
-   * * `ISCSI` - ISCSI attached block storage device.
-   * * `SCSI` - Emulated SCSI disk.
-   * * `IDE` - Emulated IDE disk.
-   * * `VFIO` - Direct attached Virtual Function storage. This is the default option for local data
+   * * {@code ISCSI} - ISCSI attached block storage device.
+   * * {@code SCSI} - Emulated SCSI disk.
+   * * {@code IDE} - Emulated IDE disk.
+   * * {@code VFIO} - Direct attached Virtual Function storage. This is the default option for local data
    * volumes on platform images.
-   * * `PARAVIRTUALIZED` - Paravirtualized disk. This is the default for boot volumes and remote block
+   * * {@code PARAVIRTUALIZED} - Paravirtualized disk. This is the default for boot volumes and remote block
    * storage volumes on platform images.
    *
    */
   "bootVolumeType"?: InstanceConfigurationLaunchOptions.BootVolumeType;
   /**
    * Firmware used to boot VM. Select the option that matches your operating system.
-   * * `BIOS` - Boot VM using BIOS style firmware. This is compatible with both 32 bit and 64 bit operating
+   * * {@code BIOS} - Boot VM using BIOS style firmware. This is compatible with both 32 bit and 64 bit operating
    * systems that boot using MBR style bootloaders.
-   * * `UEFI_64` - Boot VM using UEFI style firmware compatible with 64 bit operating systems. This is the
+   * * {@code UEFI_64} - Boot VM using UEFI style firmware compatible with 64 bit operating systems. This is the
    * default for platform images.
    *
    */
   "firmware"?: InstanceConfigurationLaunchOptions.Firmware;
   /**
    * Emulation type for the physical network interface card (NIC).
-   * * `E1000` - Emulated Gigabit ethernet controller. Compatible with Linux e1000 network driver.
-   * * `VFIO` - Direct attached Virtual Function network controller. This is the networking type
+   * * {@code E1000} - Emulated Gigabit ethernet controller. Compatible with Linux e1000 network driver.
+   * * {@code VFIO} - Direct attached Virtual Function network controller. This is the networking type
    * when you launch an instance using hardware-assisted (SR-IOV) networking.
-   * * `PARAVIRTUALIZED` - VM instances launch with paravirtualized devices using VirtIO drivers.
+   * * {@code PARAVIRTUALIZED} - VM instances launch with paravirtualized devices using VirtIO drivers.
    *
    */
   "networkType"?: InstanceConfigurationLaunchOptions.NetworkType;
   /**
    * Emulation type for volume.
-   * * `ISCSI` - ISCSI attached block storage device.
-   * * `SCSI` - Emulated SCSI disk.
-   * * `IDE` - Emulated IDE disk.
-   * * `VFIO` - Direct attached Virtual Function storage. This is the default option for local data
+   * * {@code ISCSI} - ISCSI attached block storage device.
+   * * {@code SCSI} - Emulated SCSI disk.
+   * * {@code IDE} - Emulated IDE disk.
+   * * {@code VFIO} - Direct attached Virtual Function storage. This is the default option for local data
    * volumes on platform images.
-   * * `PARAVIRTUALIZED` - Paravirtualized disk. This is the default for boot volumes and remote block
+   * * {@code PARAVIRTUALIZED} - Paravirtualized disk. This is the default for boot volumes and remote block
    * storage volumes on platform images.
    *
    */
   "remoteDataVolumeType"?: InstanceConfigurationLaunchOptions.RemoteDataVolumeType;
   /**
-   * Deprecated. Instead use `isPvEncryptionInTransitEnabled` in
+   * Deprecated. Instead use {@code isPvEncryptionInTransitEnabled} in
    * {@link #instanceConfigurationLaunchInstanceDetails(InstanceConfigurationLaunchInstanceDetailsRequest) instanceConfigurationLaunchInstanceDetails}.
    *
    */

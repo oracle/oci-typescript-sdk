@@ -29,7 +29,7 @@ export interface SubCategory {
    */
   "subCategoryKey"?: string;
   /**
-   * The name of the service subcategory. For example, `Backup Count` or `Custom Image Count`.
+   * The name of the service subcategory. For example, {@code Backup Count} or {@code Custom Image Count}.
    */
   "name"?: string;
 }

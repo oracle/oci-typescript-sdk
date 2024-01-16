@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetSecurityPolicyRequest extends common.BaseRequest {
   /**
-   * The unique identifier of the security zone policy (`SecurityPolicy`)
+   * The unique identifier of the security zone policy ({@code SecurityPolicy})
    */
   "securityPolicyId": string;
   /**

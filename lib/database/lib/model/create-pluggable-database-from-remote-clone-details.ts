@@ -17,7 +17,7 @@ import common = require("oci-common");
 
 /**
  * Specifies the creation type Remote Clone.
- * Additional input 'dblinkUsername` and `dblinkUserPassword` can be provided for RemoteClone/Create RefreshableClone Operation.
+ * Additional input 'dblinkUsername{@code  and }dblinkUserPassword can be provided for RemoteClone/Create RefreshableClone Operation.
  * If not provided, Backend will create a temporary user to perform RemoteClone operation. It is a required input parameter in case of creating Refreshable Clone PDB.
  *
  */

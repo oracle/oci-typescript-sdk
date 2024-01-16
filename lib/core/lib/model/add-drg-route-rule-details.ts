@@ -29,7 +29,7 @@ export interface AddDrgRouteRuleDetails {
   /**
    * Type of destination for the rule.
    * Allowed values:
-   *   * `CIDR_BLOCK`: If the rule's `destination` is an IP address range in CIDR notation.
+   *   * {@code CIDR_BLOCK}: If the rule's {@code destination} is an IP address range in CIDR notation.
    *
    */
   "destinationType": AddDrgRouteRuleDetails.DestinationType;
@@ -38,8 +38,8 @@ export interface AddDrgRouteRuleDetails {
 * traffic. Only CIDR_BLOCK values are allowed.
 * <p>
 Potential values:
-*   * IP address range in CIDR notation. This can be an IPv4 CIDR block or IPv6 prefix. For example: `192.168.1.0/24`
-*   or `2001:0db8:0123:45::/56`.
+*   * IP address range in CIDR notation. This can be an IPv4 CIDR block or IPv6 prefix. For example: {@code 192.168.1.0/24}
+*   or {@code 2001:0db8:0123:45::/56}.
 * 
     */
   "destination": string;

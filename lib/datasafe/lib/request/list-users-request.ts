@@ -139,6 +139,14 @@ export interface ListUsersRequest extends common.BaseRequest {
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return items that contain the specified schema list.
+   */
+  "schemaList"?: Array<string>;
+  /**
+   * A filter to return only items that match the criteria that all schemas can be accessed by a user.
+   */
+  "areAllSchemasAccessible"?: boolean;
 }
 
 export namespace ListUsersRequest {

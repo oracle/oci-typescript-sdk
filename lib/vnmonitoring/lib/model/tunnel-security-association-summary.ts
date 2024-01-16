@@ -34,7 +34,7 @@ export interface TunnelSecurityAssociationSummary {
    */
   "tunnelSaStatus"?: TunnelSecurityAssociationSummary.TunnelSaStatus;
   /**
-   * Current state if the IPSec tunnel status is not `UP`, including phase one and phase two details and a possible reason the tunnel is not `UP`.
+   * Current state if the IPSec tunnel status is not {@code UP}, including phase one and phase two details and a possible reason the tunnel is not {@code UP}.
    *
    */
   "tunnelSaErrorInfo"?: string;

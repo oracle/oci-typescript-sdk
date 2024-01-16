@@ -26,9 +26,9 @@ export interface PutMessagesResult {
   "failures": number;
   /**
    * An array of items representing the result of each message.
-   * The order is guaranteed to be the same as in the `PutMessagesDetails` object.
-   * If a message was successfully appended to the stream, the entry includes the `offset`, `partition`, and `timestamp`.
-   * If a message failed to be appended to the stream, the entry includes the `error` and `errorMessage`.
+   * The order is guaranteed to be the same as in the {@code PutMessagesDetails} object.
+   * If a message was successfully appended to the stream, the entry includes the {@code offset}, {@code partition}, and {@code timestamp}.
+   * If a message failed to be appended to the stream, the entry includes the {@code error} and {@code errorMessage}.
    *
    */
   "entries": Array<model.PutMessagesResultEntry>;

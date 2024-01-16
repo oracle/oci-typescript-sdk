@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the summary of a `PathAnalyzerTest` resource.
+ * Defines the summary of a {@code PathAnalyzerTest} resource.
  *
  */
 export interface PathAnalyzerTestSummary {
@@ -32,11 +32,11 @@ export interface PathAnalyzerTestSummary {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the `PathAnalyzerTest` resource's compartment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code PathAnalyzerTest} resource's compartment.
    */
   "compartmentId": string;
   /**
-   * The IP protocol to use for the `PathAnalyzerTest` resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The IP protocol to use for the {@code PathAnalyzerTest} resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "protocol": number;
   "sourceEndpoint":
@@ -65,34 +65,34 @@ export interface PathAnalyzerTestSummary {
     | model.IcmpProtocolParameters;
   "queryOptions": model.QueryOptions;
   /**
-   * The date and time the `PathAnalyzerTest` resource was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the {@code PathAnalyzerTest} resource was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeCreated": Date;
   /**
-   * The date and time the `PathAnalyzerTest` resource was last updated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the {@code PathAnalyzerTest} resource was last updated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeUpdated": Date;
   /**
-   * The current state of the `PathAnalyzerTest` resource.
+   * The current state of the {@code PathAnalyzerTest} resource.
    */
   "lifecycleState": string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

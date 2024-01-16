@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Deprecated. Use the property `executionPlanStrategy` in `jobOperationDetails` instead.
+ * Deprecated. Use the property {@code executionPlanStrategy} in {@code jobOperationDetails} instead.
  *
  */
 export interface ApplyJobPlanResolution {
@@ -30,13 +30,13 @@ export interface ApplyJobPlanResolution {
   "planJobId"?: string;
   /**
    * Specifies whether to use the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the most recently run plan job.
-   * `True` if using the latest job [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Must be a plan job that completed successfully.
+   * {@code True} if using the latest job [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Must be a plan job that completed successfully.
    *
    */
   "isUseLatestJobId"?: boolean;
   /**
    * Specifies whether to use the configuration directly, without reference to a Plan job.
-   * `True` if using the configuration directly. Note that it is not necessary
+   * {@code True} if using the configuration directly. Note that it is not necessary
    * for a Plan job to have run successfully.
    *
    */

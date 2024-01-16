@@ -25,21 +25,21 @@ export interface DrPlanGroupExecution {
   /**
     * The unique id of the group. Must not be modified by user.
 * <p>
-Example: `sgid1.group..uniqueID`
+Example: {@code sgid1.group..uniqueID}
 * 
     */
   "groupId": string;
   /**
     * The group type.
 * <p>
-Example: `BUILT_IN`
+Example: {@code BUILT_IN}
 * 
     */
   "type": model.DrPlanGroupType;
   /**
     * The display name of the group execution.
 * <p>
-Example: `DATABASE_SWITCHOVER`
+Example: {@code DATABASE_SWITCHOVER}
 * 
     */
   "displayName": string;
@@ -51,28 +51,28 @@ Example: `DATABASE_SWITCHOVER`
   /**
     * Additional details on the group execution status.
 * <p>
-Example: `A total of [3] steps failed in the group`
+Example: {@code A total of [3] steps failed in the group}
 * 
     */
   "statusDetails"?: string;
   /**
     * The time when group execution began. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeStarted"?: Date;
   /**
     * The time when group execution ended. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeEnded"?: Date;
   /**
     * The total duration in seconds taken to complete group execution.
 * <p>
-Example: `120`
+Example: {@code 120}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "executionDurationInSec"?: number;

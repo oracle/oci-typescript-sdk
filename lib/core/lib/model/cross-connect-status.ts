@@ -36,7 +36,7 @@ export interface CrossConnectStatus {
   /**
     * The light level of the cross-connect (in dBm).
 * <p>
-Example: `14.0`
+Example: {@code 14.0}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "lightLevelIndBm"?: number;
@@ -66,7 +66,7 @@ Possible values:
   /**
     * The light levels of the cross-connect (in dBm).
 * <p>
-Example: `[14.0, -14.0, 2.1, -10.1]`
+Example: {@code [14.0, -14.0, 2.1, -10.1]}
 * 
     */
   "lightLevelsInDBm"?: Array<number>;

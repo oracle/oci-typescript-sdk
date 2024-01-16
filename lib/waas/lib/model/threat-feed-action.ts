@@ -23,7 +23,7 @@ export interface ThreatFeedAction {
    */
   "key": string;
   /**
-   * The selected action. If unspecified, defaults to `OFF`.
+   * The selected action. If unspecified, defaults to {@code OFF}.
    */
   "action": ThreatFeedAction.Action;
 }

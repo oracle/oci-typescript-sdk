@@ -55,7 +55,7 @@ export interface HttpProbeResultSummary {
    */
   "vantagePointName"?: string;
   /**
-   * True if the probe did not complete before the configured `timeoutInSeconds` value.
+   * True if the probe did not complete before the configured {@code timeoutInSeconds} value.
    *
    */
   "isTimedOut"?: boolean;
@@ -69,7 +69,7 @@ export interface HttpProbeResultSummary {
   "isHealthy"?: boolean;
   /**
    * The category of error if an error occurs executing the probe.
-   * The `errorMessage` field provides a message with the error details.
+   * The {@code errorMessage} field provides a message with the error details.
    * * NONE - No error
    * * DNS - DNS errors
    * * TRANSPORT - Transport-related errors, for example a \"TLS certificate expired\" error.

@@ -23,9 +23,9 @@ export interface UpdateCertificateConfigDetails {
    */
   "versionName"?: string;
   /**
-   * The rotation state of the certificate. The default is `CURRENT`, meaning that the certificate is currently in use. A certificate version
-   * that you mark as `PENDING` is staged and available for use, but you don't yet want to rotate it into current, active use. For example,
-   * you might update a certificate and mark its rotation state as `PENDING` if you haven't yet updated the certificate on the target system.
+   * The rotation state of the certificate. The default is {@code CURRENT}, meaning that the certificate is currently in use. A certificate version
+   * that you mark as {@code PENDING} is staged and available for use, but you don't yet want to rotate it into current, active use. For example,
+   * you might update a certificate and mark its rotation state as {@code PENDING} if you haven't yet updated the certificate on the target system.
    *
    */
   "stage"?: UpdateCertificateConfigDetails.Stage;

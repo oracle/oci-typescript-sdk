@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a connection of the type `GITHUB_ACCESS_TOKEN`.
+ * Summary information for a connection of the type {@code GITHUB_ACCESS_TOKEN}.
  * This type corresponds to a connection in GitHub that is authenticated with a personal access token.
  *
  */

@@ -21,7 +21,7 @@ export interface GetRepositoryRequest extends common.BaseRequest {
   /**
  * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the repository.
 * <p>
-Example: `ocid1.artifactrepository.oc1..exampleuniqueID`
+Example: {@code ocid1.artifactrepository.oc1..exampleuniqueID}
 * 
  */
   "repositoryId": string;

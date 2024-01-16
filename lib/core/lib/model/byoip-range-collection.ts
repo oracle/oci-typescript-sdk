@@ -22,11 +22,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The results returned by a `ListByoipRange` operation.
+ * The results returned by a {@code ListByoipRange} operation.
  */
 export interface ByoipRangeCollection {
   /**
-   * A list of `ByoipRange` resource summaries.
+   * A list of {@code ByoipRange} resource summaries.
    */
   "items": Array<model.ByoipRangeSummary>;
 }

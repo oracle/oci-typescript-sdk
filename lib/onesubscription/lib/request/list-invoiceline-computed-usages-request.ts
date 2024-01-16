@@ -33,12 +33,12 @@ export interface ListInvoicelineComputedUsagesRequest extends common.BaseRequest
    */
   "sortOrder"?: ListInvoicelineComputedUsagesRequest.SortOrder;
   /**
-   * The field to sort by Invoiced Computed Usages. You can provide one sort order (`sortOrder`).
+   * The field to sort by Invoiced Computed Usages. You can provide one sort order ({@code sortOrder}).
    *
    */
   "sortBy"?: ListInvoicelineComputedUsagesRequest.SortBy;
   /**
- * The maximum number of items to return in a paginated \"List\" call. Default: (`50`)
+ * The maximum number of items to return in a paginated \"List\" call. Default: ({@code 50})
 * <p>
 Example: '500'
 * 

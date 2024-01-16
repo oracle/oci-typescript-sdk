@@ -83,7 +83,7 @@ export interface Shape {
   /**
     * A short description of the graphics processing unit (GPU) available for this shape.
 * <p>
-If the shape does not have any GPUs, this field is `null`.
+If the shape does not have any GPUs, this field is {@code null}.
 * 
     */
   "gpuDescription"?: string;
@@ -95,21 +95,21 @@ If the shape does not have any GPUs, this field is `null`.
   /**
     * The aggregate size of the local disks available for this shape, in gigabytes.
 * <p>
-If the shape does not have any local disks, this field is `null`.
+If the shape does not have any local disks, this field is {@code null}.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "localDisksTotalSizeInGBs"?: number;
   /**
     * A short description of the local disks available for this shape.
 * <p>
-If the shape does not have any local disks, this field is `null`.
+If the shape does not have any local disks, this field is {@code null}.
 * 
     */
   "localDiskDescription"?: string;
   /**
    * The number of networking ports available for the remote direct memory access (RDMA) network between nodes in
    * a high performance computing (HPC) cluster network. If the shape does not support cluster networks, this
-   * value is `0`.
+   * value is {@code 0}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rdmaPorts"?: number;

@@ -21,7 +21,7 @@ import common = require("oci-common");
  * For more information on backend set configuration, see
  * [Managing Backend Sets](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingbackendsets.htm).
  * <p>
- **Note:** The `sessionPersistenceConfiguration` (application cookie stickiness) and `lbCookieSessionPersistenceConfiguration`
+ **Note:** The {@code sessionPersistenceConfiguration} (application cookie stickiness) and {@code lbCookieSessionPersistenceConfiguration}
  * (LB cookie stickiness) attributes are mutually exclusive. To avoid returning an error, configure only one of these two
  * attributes per backend set.
  * <p>
@@ -35,7 +35,7 @@ export interface CreateBackendSetDetails {
 Valid backend set names include only alphanumeric characters, dashes, and underscores. Backend set names cannot
 * contain spaces. Avoid entering confidential information.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
     */
   "name": string;
@@ -43,7 +43,7 @@ Example: `example_backend_set`
     * The load balancer policy for the backend set. To get a list of available policies, use the
 * {@link #listPolicies(ListPoliciesRequest) listPolicies} operation.
 * <p>
-Example: `LEAST_CONNECTIONS`
+Example: {@code LEAST_CONNECTIONS}
 * 
     */
   "policy": string;

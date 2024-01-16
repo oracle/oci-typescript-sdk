@@ -20,7 +20,7 @@ import common = require("oci-common");
  * An object that represents the advance http header options that allow the setting of http header size and allow/disallow
  * invalid characters in the http headers.
  * For example httpLargeHeaderSizeInKB=32, the http header could have 4 buffers of 32KBs each
- * This rule applies only to HTTP listeners. No more than one `HttpHeaderRule` object can be present in
+ * This rule applies only to HTTP listeners. No more than one {@code HttpHeaderRule} object can be present in
  * a given listener.
  *
  */

@@ -93,13 +93,13 @@ export interface HistorySummary {
   "metadata"?: { [key: string]: string };
   /**
     * Additional metadata key/value pairs that you provide.
-* They serve the same purpose and functionality as fields in the `metadata` object.
+* They serve the same purpose and functionality as fields in the {@code metadata} object.
 * <p>
-They are distinguished from `metadata` fields in that these can be nested JSON objects (whereas `metadata` fields are string/string maps only).
+They are distinguished from {@code metadata} fields in that these can be nested JSON objects (whereas {@code metadata} fields are string/string maps only).
 * <p>
 For example:
 * <p>
-`{\"CurrentShape\": {\"name\":\"VM.Standard2.16\"}, \"RecommendedShape\": {\"name\":\"VM.Standard2.8\"}}`
+{@code {\"CurrentShape\": {\"name\":\"VM.Standard2.16\"}, \"RecommendedShape\": {\"name\":\"VM.Standard2.8\"}}}
 * 
     */
   "extendedMetadata"?: { [key: string]: any };

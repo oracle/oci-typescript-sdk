@@ -26,7 +26,7 @@ export interface GetSSLCipherSuiteRequest extends common.BaseRequest {
   /**
  * The name of the SSL cipher suite to retrieve.
 * <p>
-example: `example_cipher_suite`
+example: {@code example_cipher_suite}
 * 
  */
   "name": string;
@@ -46,7 +46,7 @@ For example, the eTag returned by getListener can be specified as the ifMatch fo
 The resource is updated or deleted only if the ETag you provide matches the resource's current
 * ETag value.
 * <p>
-Example: `example-etag`
+Example: {@code example-etag}
 * 
  */
   "ifMatch"?: string;

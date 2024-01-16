@@ -30,7 +30,7 @@ export interface WorkRequestLogEntry {
   /**
    * The date and time when the log message was written.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timestamp": Date;

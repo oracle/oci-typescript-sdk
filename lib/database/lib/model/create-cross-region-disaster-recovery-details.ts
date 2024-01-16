@@ -37,14 +37,14 @@ import common = require("oci-common");
  *   - whitelistedIps
  *   - isMtlsConnectionRequired
  * Example I - Creating a cross-region standby with required parameters only:
- *     `{
+ *     {@code {
  *       \"compartmentId\": \"ocid.compartment.oc1..<var>&lt;unique_ID&gt;</var>\",
  *       \"sourceId\": \"ocid1.autonomousdatabase.oc1.phx..<var>&lt;unique_ID&gt;</var>\",
  *       \"source\": \"CROSS_REGION_DISASTER_RECOVERY\",
  *       \"remoteDisasterRecoveryType\": \"BACKUP_BASED\"
- *     }`
+ *     }}
  * Example II - Creating a cross-region standby that specifies optional parameters in addition to the required parameters:
- *     `{
+ *     {@code {
  *       \"compartmentId\": \"ocid.compartment.oc1..<var>&lt;unique_ID&gt;</var>\",
  *       \"ecpuCount\": 2,
  *       \"dbName\": \"adatabasedb1\",
@@ -56,7 +56,7 @@ import common = require("oci-common");
  *       \"licenseModel\": \"LICENSE_INCLUDED\",
  *       \"isAutoScalingForStorageEnabled\": \"true\",
  *       \"remoteDisasterRecoveryType\": \"BACKUP_BASED\"
- *     }`
+ *     }}
  *
  */
 export interface CreateCrossRegionDisasterRecoveryDetails

@@ -47,17 +47,17 @@ export interface WorkRequest {
    */
   "percentComplete": number;
   /**
-   * Date and time the work was accepted, in the format defined by RFC3339. Example: `2016-08-25T21:10:29.600Z`
+   * Date and time the work was accepted, in the format defined by RFC3339. Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timeAccepted": Date;
   /**
-   * Date and time the work started, in the format defined by RFC3339. Example: `2016-08-25T21:10:29.600Z`
+   * Date and time the work started, in the format defined by RFC3339. Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timeStarted"?: Date;
   /**
-   * Date and time the work completed, in the format defined by RFC3339. Example: `2016-08-25T21:10:29.600Z`
+   * Date and time the work completed, in the format defined by RFC3339. Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timeFinished"?: Date;

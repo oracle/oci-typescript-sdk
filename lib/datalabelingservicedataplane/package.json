@@ -1,6 +1,6 @@
 {
   "name": "oci-datalabelingservicedataplane",
-  "version": "2.76.1",
+  "version": "2.77.0",
   "description": "OCI NodeJS client for Data Labeling Service Dataplane Service",
   "repository": {
     "type": "git",

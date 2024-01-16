@@ -23,7 +23,7 @@ import common = require("oci-common");
 export interface PlacementConfiguration {
   /**
    * The availability domain in which to place virtual nodes.
-   * Example: `Uocm:PHX-AD-1`
+   * Example: {@code Uocm:PHX-AD-1}
    *
    */
   "availabilityDomain"?: string;

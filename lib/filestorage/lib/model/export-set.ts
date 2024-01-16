@@ -26,7 +26,7 @@ export interface ExportSet {
     * The availability domain the export set is in. May be unset
 * as a blank or NULL value.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain"?: string;
@@ -38,7 +38,7 @@ Example: `Uocm:PHX-AD-1`
     * A user-friendly name. It does not have to be unique, and it is changeable.
 * Avoid entering confidential information.
 * <p>
-Example: `My export set`
+Example: {@code My export set}
 * 
     */
   "displayName": string;
@@ -51,28 +51,28 @@ Example: `My export set`
    */
   "lifecycleState": ExportSet.LifecycleState;
   /**
-   * Controls the maximum `tbytes`, `fbytes`, and `abytes`,
-   * values reported by `NFS FSSTAT` calls through any associated
+   * Controls the maximum {@code tbytes}, {@code fbytes}, and {@code abytes},
+   * values reported by {@code NFS FSSTAT} calls through any associated
    * mount targets. This is an advanced feature. For most
    * applications, use the default value. The
-   * `tbytes` value reported by `FSSTAT` will be
-   * `maxFsStatBytes`. The value of `fbytes` and `abytes` will be
-   * `maxFsStatBytes` minus the metered size of the file
-   * system. If the metered size is larger than `maxFsStatBytes`,
-   * then `fbytes` and `abytes` will both be '0'.
+   * {@code tbytes} value reported by {@code FSSTAT} will be
+   * {@code maxFsStatBytes}. The value of {@code fbytes} and {@code abytes} will be
+   * {@code maxFsStatBytes} minus the metered size of the file
+   * system. If the metered size is larger than {@code maxFsStatBytes},
+   * then {@code fbytes} and {@code abytes} will both be '0'.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxFsStatBytes"?: number;
   /**
-   * Controls the maximum `tfiles`, `ffiles`, and `afiles`
-   * values reported by `NFS FSSTAT` calls through any associated
+   * Controls the maximum {@code tfiles}, {@code ffiles}, and {@code afiles}
+   * values reported by {@code NFS FSSTAT} calls through any associated
    * mount targets. This is an advanced feature. For most
    * applications, use the default value. The
-   * `tfiles` value reported by `FSSTAT` will be
-   * `maxFsStatFiles`. The value of `ffiles` and `afiles` will be
-   * `maxFsStatFiles` minus the metered size of the file
-   * system. If the metered size is larger than `maxFsStatFiles`,
-   * then `ffiles` and `afiles` will both be '0'.
+   * {@code tfiles} value reported by {@code FSSTAT} will be
+   * {@code maxFsStatFiles}. The value of {@code ffiles} and {@code afiles} will be
+   * {@code maxFsStatFiles} minus the metered size of the file
+   * system. If the metered size is larger than {@code maxFsStatFiles},
+   * then {@code ffiles} and {@code afiles} will both be '0'.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxFsStatFiles"?: number;
@@ -80,7 +80,7 @@ Example: `My export set`
     * The date and time the export set was created, expressed
 * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

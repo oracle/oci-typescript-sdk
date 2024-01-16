@@ -26,13 +26,13 @@ export interface DatabaseParameterUpdateStatus {
    */
   "status"?: DatabaseParameterUpdateStatus.Status;
   /**
-   * An error code that defines the failure or `null` if the parameter
+   * An error code that defines the failure or {@code null} if the parameter
    * was updated successfully.
    *
    */
   "errorCode"?: string;
   /**
-   * The error message indicating the reason for failure or `null` if
+   * The error message indicating the reason for failure or {@code null} if
    * the parameter was updated successfully.
    *
    */

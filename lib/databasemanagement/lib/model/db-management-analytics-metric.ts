@@ -32,7 +32,7 @@ export interface DbManagementAnalyticsMetric {
   /**
     * The additional information about the metric.
 * <p>
-Example: `\"unit\": \"bytes\"`
+Example: {@code \"unit\": \"bytes\"}
 * 
     */
   "metadata"?: { [key: string]: string };

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The properties that define a connection of the type `VBS_ACCESS_TOKEN`.
+ * The properties that define a connection of the type {@code VBS_ACCESS_TOKEN}.
  * This type corresponds to a connection in Visual Builder Studio that is authenticated with a Personal Access Token.
  *
  */

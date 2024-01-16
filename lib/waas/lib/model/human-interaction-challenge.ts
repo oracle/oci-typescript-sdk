@@ -23,31 +23,31 @@ export interface HumanInteractionChallenge {
    */
   "isEnabled": boolean;
   /**
-   * The action to take against requests from detected bots. If unspecified, defaults to `DETECT`.
+   * The action to take against requests from detected bots. If unspecified, defaults to {@code DETECT}.
    */
   "action"?: HumanInteractionChallenge.Action;
   /**
-   * The number of failed requests before taking action. If unspecified, defaults to `10`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of failed requests before taking action. If unspecified, defaults to {@code 10}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failureThreshold"?: number;
   /**
-   * The number of seconds between challenges for the same IP address. If unspecified, defaults to `60`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of seconds between challenges for the same IP address. If unspecified, defaults to {@code 60}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "actionExpirationInSeconds"?: number;
   /**
-   * The number of seconds before the failure threshold resets. If unspecified, defaults to  `60`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of seconds before the failure threshold resets. If unspecified, defaults to  {@code 60}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failureThresholdExpirationInSeconds"?: number;
   /**
-   * The number of interactions required to pass the challenge. If unspecified, defaults to `3`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of interactions required to pass the challenge. If unspecified, defaults to {@code 3}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "interactionThreshold"?: number;
   /**
-   * The number of seconds to record the interactions from the user. If unspecified, defaults to `15`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of seconds to record the interactions from the user. If unspecified, defaults to {@code 15}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recordingPeriodInSeconds"?: number;
   /**
-   * Adds an additional HTTP header to requests that fail the challenge before being passed to the origin. Only applicable when the `action` is set to `DETECT`.
+   * Adds an additional HTTP header to requests that fail the challenge before being passed to the origin. Only applicable when the {@code action} is set to {@code DETECT}.
    */
   "setHttpHeader"?: model.Header;
   "challengeSettings"?: model.BlockChallengeSettings;

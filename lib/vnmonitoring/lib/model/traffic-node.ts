@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the configuration of the OCI entity that represents a traffic node in `PathAnalysisResult`.
+ * Defines the configuration of the OCI entity that represents a traffic node in {@code PathAnalysisResult}.
  *
  */
 export interface TrafficNode {

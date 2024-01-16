@@ -48,14 +48,14 @@ export interface ServiceConnector {
   /**
    * The date and time when the service connector was created.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
    * The date and time when the service connector was updated.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeUpdated": Date;
@@ -67,7 +67,7 @@ export interface ServiceConnector {
   /**
    * A message describing the current state in more detail.
    * For example, the message might provide actionable
-   * information for a resource in a `FAILED` state.
+   * information for a resource in a {@code FAILED} state.
    *
    */
   "lifecyleDetails"?: string;
@@ -89,20 +89,20 @@ export interface ServiceConnector {
     | model.StreamingTargetDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * The system tags associated with this resource, if any. The system tags are set by Oracle Cloud Infrastructure services. Each key is predefined and scoped to namespaces.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   * Example: `{orcl-cloud: {free-tier-retain: true}}`
+   * Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

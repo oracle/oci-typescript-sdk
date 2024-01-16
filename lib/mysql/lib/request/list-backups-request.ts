@@ -65,7 +65,7 @@ export interface ListBackupsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` or `opc-prev-page` response header from
+   * The value of the {@code opc-next-page} or {@code opc-prev-page} response header from
    * the previous list call. For information about pagination, see [List
    * Pagination](https://docs.cloud.oracle.com/#API/Concepts/usingapi.htm#List_Pagination).
    *

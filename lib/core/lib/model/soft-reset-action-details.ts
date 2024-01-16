@@ -22,24 +22,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parameters for the `softReset` {@link #instanceAction(InstanceActionRequest) instanceAction}. If omitted, default values are used.
+ * Parameters for the {@code softReset} {@link #instanceAction(InstanceActionRequest) instanceAction}. If omitted, default values are used.
  *
  */
 export interface SoftResetActionDetails extends model.InstancePowerActionDetails {
   /**
     * For instances that use a DenseIO shape, the flag denoting whether
 * [reboot migration](https://docs.cloud.oracle.com/iaas/Content/Compute/References/infrastructure-maintenance.htm#reboot)
-* is performed for the instance. The default value is `false`.
+* is performed for the instance. The default value is {@code false}.
 * <p>
-If the instance has a date in the Maintenance reboot field and you do nothing (or set this flag to `false`), the instance
+If the instance has a date in the Maintenance reboot field and you do nothing (or set this flag to {@code false}), the instance
 * will be rebuilt at the scheduled maintenance time. The instance will experience 2-6 hours of downtime during the
 * maintenance process. The local NVMe-based SSD will be preserved.
 * <p>
-If you want to minimize downtime and can delete the SSD, you can set this flag to `true` and proactively reboot the
+If you want to minimize downtime and can delete the SSD, you can set this flag to {@code true} and proactively reboot the
 * instance before the scheduled maintenance time. The instance will be reboot migrated to a healthy host and the SSD will be
 * deleted. A short downtime occurs during the migration.
 * <p>
-**Caution:** When `true`, the SSD is permanently deleted. We recommend that you create a backup of the SSD before proceeding.
+**Caution:** When {@code true}, the SSD is permanently deleted. We recommend that you create a backup of the SSD before proceeding.
 * 
     */
   "allowDenseRebootMigration"?: boolean;

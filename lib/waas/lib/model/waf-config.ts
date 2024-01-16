@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface WafConfig {
   /**
-   * The access rules applied to the Web Application Firewall. Used for defining custom access policies with the combination of `ALLOW`, `DETECT`, and `BLOCK` rules, based on different criteria.
+   * The access rules applied to the Web Application Firewall. Used for defining custom access policies with the combination of {@code ALLOW}, {@code DETECT}, and {@code BLOCK} rules, based on different criteria.
    */
   "accessRules"?: Array<model.AccessRule>;
   /**
@@ -47,7 +47,7 @@ export interface WafConfig {
    */
   "jsChallenge"?: model.JsChallenge;
   /**
-   * The key in the map of origins referencing the origin used for the Web Application Firewall. The origin must already be included in `Origins`. Required when creating the `WafConfig` resource, but not on update.
+   * The key in the map of origins referencing the origin used for the Web Application Firewall. The origin must already be included in {@code Origins}. Required when creating the {@code WafConfig} resource, but not on update.
    */
   "origin"?: string;
   /**
@@ -59,8 +59,8 @@ export interface WafConfig {
    */
   "customProtectionRules"?: Array<model.CustomProtectionRuleSetting>;
   /**
-   * The map of origin groups and their keys used to associate origins to the `wafConfig`. Origin groups allow you to apply weights to groups of origins for load balancing purposes. Origins with higher weights will receive larger proportions of client requests.
-   * To add additional origins to your WAAS policy, update the `origins` field of a `UpdateWaasPolicy` request.
+   * The map of origin groups and their keys used to associate origins to the {@code wafConfig}. Origin groups allow you to apply weights to groups of origins for load balancing purposes. Origins with higher weights will receive larger proportions of client requests.
+   * To add additional origins to your WAAS policy, update the {@code origins} field of a {@code UpdateWaasPolicy} request.
    */
   "originGroups"?: Array<string>;
   /**

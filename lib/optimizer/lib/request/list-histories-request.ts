@@ -23,7 +23,7 @@ export interface ListHistoriesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
- * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned depending on the the setting of `accessLevel`.
+ * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned depending on the the setting of {@code accessLevel}.
 * <p>
 Can only be set to true when performing ListCompartments on the tenancy (root compartment).
 * 
@@ -50,16 +50,16 @@ Can only be set to true when performing ListCompartments on the tenancy (root co
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`). Default order for TIMECREATED is descending. Default order for NAME is ascending. The NAME sort order is case sensitive.
+   * The field to sort by. You can provide one sort order ({@code sortOrder}). Default order for TIMECREATED is descending. Default order for NAME is ascending. The NAME sort order is case sensitive.
    *
    */
   "sortBy"?: ListHistoriesRequest.SortBy;

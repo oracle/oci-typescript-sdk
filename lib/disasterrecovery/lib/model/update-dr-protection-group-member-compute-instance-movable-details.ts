@@ -28,7 +28,7 @@ export interface UpdateDrProtectionGroupMemberComputeInstanceMovableDetails
 * The compute instance launch will fail if this flag is set to true and capacity is not available in the 
 * specified fault domain in the destination region.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isRetainFaultDomain"?: boolean;
@@ -36,7 +36,7 @@ Example: `false`
     * The OCID of a capacity reservation in the destination region which will be used to launch
 * the compute instance.
 * <p>
-Example: `ocid1.capacityreservation.oc1..uniqueID`
+Example: {@code ocid1.capacityreservation.oc1..uniqueID}
 * 
     */
   "destinationCapacityReservationId"?: string;
@@ -49,7 +49,7 @@ Example: `ocid1.capacityreservation.oc1..uniqueID`
     * The OCID of a compartment in the destination region in which the compute instance
 * should be launched.
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
     */
   "destinationCompartmentId"?: string;
@@ -57,7 +57,7 @@ Example: `ocid1.compartment.oc1..uniqueID`
     * The OCID of a dedicated VM host in the destination region where the compute instance
 * should be launched.
 * <p>
-Example: `ocid1.dedicatedvmhost.oc1..uniqueID`
+Example: {@code ocid1.dedicatedvmhost.oc1..uniqueID}
 * 
     */
   "destinationDedicatedVmHostId"?: string;

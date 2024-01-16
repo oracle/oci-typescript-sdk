@@ -29,7 +29,7 @@ export interface RequestRateLimitingConfiguration {
    */
   "requestsLimit": number;
   /**
-   * Duration of block action application in seconds when `requestsLimit` is reached. Optional and can be 0 (no block duration). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Duration of block action application in seconds when {@code requestsLimit} is reached. Optional and can be 0 (no block duration). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "actionDurationInSeconds"?: number;
 }

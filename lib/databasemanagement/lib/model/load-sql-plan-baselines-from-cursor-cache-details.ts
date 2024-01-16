@@ -39,7 +39,7 @@ export interface LoadSqlPlanBaselinesFromCursorCacheDetails {
   "sqlId"?: string;
   /**
    * The plan identifier. By default, all plans present in the cursor cache
-   * for the SQL statement identified by `sqlId` are captured.
+   * for the SQL statement identified by {@code sqlId} are captured.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "planHash"?: number;
@@ -67,18 +67,18 @@ export interface LoadSqlPlanBaselinesFromCursorCacheDetails {
   "filterName"?: LoadSqlPlanBaselinesFromCursorCacheDetails.FilterName;
   /**
    * The filter value. It is upper-cased except when it is enclosed in
-   * double quotes or filter name is `SQL_TEXT`.
+   * double quotes or filter name is {@code SQL_TEXT}.
    *
    */
   "filterValue"?: string;
   /**
-   * Indicates whether the plans are loaded as fixed plans (`true`) or non-fixed plans (`false`).
+   * Indicates whether the plans are loaded as fixed plans ({@code true}) or non-fixed plans ({@code false}).
    * By default, they are loaded as non-fixed plans.
    *
    */
   "isFixed"?: boolean;
   /**
-   * Indicates whether the loaded plans are enabled (`true`) or not (`false`).
+   * Indicates whether the loaded plans are enabled ({@code true}) or not ({@code false}).
    * By default, they are enabled.
    *
    */

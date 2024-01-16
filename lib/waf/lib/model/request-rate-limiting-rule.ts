@@ -26,7 +26,7 @@ import common = require("oci-common");
 export interface RequestRateLimitingRule extends model.WebAppFirewallPolicyRule {
   /**
    * Rate Limiting Configurations.
-   * Each configuration counts requests towards its own `requestsLimit`.
+   * Each configuration counts requests towards its own {@code requestsLimit}.
    *
    */
   "configurations": Array<model.RequestRateLimitingConfiguration>;

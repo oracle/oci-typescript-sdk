@@ -19,7 +19,7 @@ import common = require("oci-common");
 
 /**
  * Optional. The profile levels supported by a recommendation.
- * For example, profile level values could be `Low`, `Medium`, and `High`.
+ * For example, profile level values could be {@code Low}, {@code Medium}, and {@code High}.
  * Not all recommendations support this field.
  *
  */

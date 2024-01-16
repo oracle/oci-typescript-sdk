@@ -29,7 +29,7 @@ export interface ListChannelsRequest extends common.BaseRequest {
   /**
  * List only the information for Channels with this name. Channels names are unique and may not change.
 * <p>
-Example: `MyChannel`
+Example: {@code MyChannel}
 * 
  */
   "name"?: string;
@@ -52,21 +52,21 @@ Example: `MyChannel`
   /**
  * The page at which to start retrieving results.
 * <p>
-You get this value from the `opc-next-page` header in a previous list request.
+You get this value from the {@code opc-next-page} header in a previous list request.
 * To retireve the first page, omit this query parameter.
 * <p>
-Example: `MToxMA==`
+Example: {@code MToxMA==}
 * 
  */
   "page"?: string;
   /**
-   * Sort the results in this order, use either `ASC` (ascending) or `DESC` (descending).
+   * Sort the results in this order, use either {@code ASC} (ascending) or {@code DESC} (descending).
    */
   "sortOrder"?: ListChannelsRequest.SortOrder;
   /**
- * Sort on this field. You can specify one sort order only. The default sort field is `timeCreated`.
+ * Sort on this field. You can specify one sort order only. The default sort field is {@code timeCreated}.
 * <p>
-The default sort order for `timeCreated` and `timeUpdated` is descending, and the default sort order for `name` is ascending.
+The default sort order for {@code timeCreated} and {@code timeUpdated} is descending, and the default sort order for {@code name} is ascending.
 * 
  */
   "sortBy"?: ListChannelsRequest.SortBy;

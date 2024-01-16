@@ -24,12 +24,12 @@ export interface QueryRequest extends common.BaseRequest {
    */
   "apmDomainId": string;
   /**
-   * Include spans that have a `spanStartTime` equal to or greater than this value.
+   * Include spans that have a {@code spanStartTime} equal to or greater than this value.
    *
    */
   "timeSpanStartedGreaterThanOrEqualTo": Date;
   /**
-   * Include spans that have a `spanStartTime`less than this value.
+   * Include spans that have a {@code spanStartTime}less than this value.
    *
    */
   "timeSpanStartedLessThan": Date;

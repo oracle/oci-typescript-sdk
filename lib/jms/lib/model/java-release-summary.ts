@@ -58,7 +58,7 @@ export interface JavaReleaseSummary {
   "artifactContentTypes": Array<JavaReleaseSummary.ArtifactContentTypes>;
   /**
    * List of My Oracle Support(MoS) patches available for this release.
-   * This information is only available for `BPR` release type.
+   * This information is only available for {@code BPR} release type.
    *
    */
   "mosPatches"?: Array<model.PatchDetail>;

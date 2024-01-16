@@ -26,7 +26,7 @@ export interface ListHostnamesResponse {
 * The value only changes when the load balancer or an associated resource is created,
 * updated, or delete
 * <p>
-For optimistic concurrency control. See `if-match`.
+For optimistic concurrency control. See {@code if-match}.
 * 
      */
   "eTag": string;

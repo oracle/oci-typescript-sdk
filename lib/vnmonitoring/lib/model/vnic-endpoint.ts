@@ -17,12 +17,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the details required for a VNIC-type `Endpoint`.
+ * Defines the details required for a VNIC-type {@code Endpoint}.
  *
  */
 export interface VnicEndpoint extends model.Endpoint {
   /**
-   * The IPv4 address of a VNIC type `Endpoint`.
+   * The IPv4 address of a VNIC type {@code Endpoint}.
    *
    */
   "address": string;

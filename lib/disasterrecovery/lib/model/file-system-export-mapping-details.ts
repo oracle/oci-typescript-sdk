@@ -25,14 +25,14 @@ export interface FileSystemExportMappingDetails {
   /**
     * The OCID of the export path in the primary region used to mount or unmount the file system.
 * <p>
-Example: `ocid1.export.oc1..uniqueID`
+Example: {@code ocid1.export.oc1..uniqueID}
 * 
     */
   "exportId": string;
   /**
     * The OCID of the destination mount target in the destination region which is used to export the file system.
 * <p>
-Example: `ocid1.mounttarget.oc1..uniqueID`
+Example: {@code ocid1.mounttarget.oc1..uniqueID}
 * 
     */
   "destinationMountTargetId": string;

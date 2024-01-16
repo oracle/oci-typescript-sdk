@@ -27,10 +27,10 @@ export interface ListDatabaseParametersRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The source used to list database parameters. `CURRENT` is used to get the
+   * The source used to list database parameters. {@code CURRENT} is used to get the
    * database parameters that are currently in effect for the database
-   * instance. `SPFILE` is used to list parameters from the server parameter
-   * file. Default is `CURRENT`.
+   * instance. {@code SPFILE} is used to list parameters from the server parameter
+   * file. Default is {@code CURRENT}.
    *
    */
   "source"?: ListDatabaseParametersRequest.Source;
@@ -46,7 +46,7 @@ export interface ListDatabaseParametersRequest extends common.BaseRequest {
   "isAllowedValuesIncluded"?: boolean;
   /**
    * The field to sort information by. Only one sortOrder can be used. The
-   * default sort order for `NAME` is ascending and it is case-sensitive.
+   * default sort order for {@code NAME} is ascending and it is case-sensitive.
    *
    */
   "sortBy"?: ListDatabaseParametersRequest.SortBy;

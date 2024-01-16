@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the query options required for a `PathAnalyzerTest` resource.
+ * Defines the query options required for a {@code PathAnalyzerTest} resource.
  */
 export interface QueryOptions {
   /**

@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -44,7 +44,7 @@ export interface AlarmSummary {
 * <p>
 This value determines the title of each alarm notification.
 * <p>
-Example: `High CPU Utilization`
+Example: {@code High CPU Utilization}
 * 
     */
   "displayName": string;
@@ -62,7 +62,7 @@ Example: `High CPU Utilization`
   /**
     * The source service or application emitting the metric that is evaluated by the alarm.
 * <p>
-Example: `oci_computeagent`
+Example: {@code oci_computeagent}
 * 
     */
   "namespace": string;
@@ -72,7 +72,7 @@ Example: `oci_computeagent`
 * where zero represents false and a non-zero value represents true. A true value means that the trigger
 * rule condition has been met. The query must specify a metric, statistic, interval, and trigger
 * rule (threshold or absence). Supported values for interval depend on the specified time range. More
-* interval values are supported for smaller time ranges. Supported grouping functions: `grouping()`, `groupBy()`.
+* interval values are supported for smaller time ranges. Supported grouping functions: {@code grouping()}, {@code groupBy()}.
 * For information about writing MQL expressions, see
 * [Editing the MQL Expression for a Query](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/query-metric-mql.htm).
 * For details about MQL, see
@@ -99,9 +99,9 @@ Example of absence alarm:
     */
   "query": string;
   /**
-    * The perceived severity of the alarm with regard to the affected system.
+    * The perceived type of response required when the alarm is in the \"FIRING\" state.
 * <p>
-Example: `CRITICAL`
+Example: {@code CRITICAL}
 * 
     */
   "severity": AlarmSummary.Severity;
@@ -109,8 +109,7 @@ Example: `CRITICAL`
    * A list of destinations for alarm notifications.
    * Each destination is represented by the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    * of a related resource, such as a {@link NotificationTopic}.
-   * Supported destination services: Notifications
-   * , Streaming.
+   * Supported destination services: Notifications, Streaming.
    * Limit: One destination per supported destination service.
    *
    */
@@ -123,26 +122,33 @@ Example: `CRITICAL`
   /**
     * Whether the alarm is enabled.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isEnabled": boolean;
   /**
+   * Whether the alarm sends a separate message for each metric stream.
+   * See [Creating an Alarm That Splits Messages by Metric Stream](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/create-alarm-split.htm).
+   * Example: {@code true}
+   *
+   */
+  "isNotificationsPerMetricDimensionEnabled"?: boolean;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
     * The current lifecycle state of the alarm.
 * <p>
-Example: `DELETED`
+Example: {@code DELETED}
 * 
     */
   "lifecycleState": string;

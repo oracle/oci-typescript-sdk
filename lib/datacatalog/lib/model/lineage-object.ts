@@ -69,7 +69,7 @@ export interface LineageObject {
    * definition defines it's set of required and optional properties. The map keys are category names and the
    * values are maps of property name to property value. Every property is contained inside of a category. Most
    * data entities have required properties within the \"default\" category.
-   * Example: `{\"properties\": { \"default\": { \"key1\": \"value1\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"key1\": \"value1\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

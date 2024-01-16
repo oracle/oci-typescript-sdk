@@ -31,6 +31,8 @@ import * as ChangeRemediationRunCompartmentDetails from "./change-remediation-ru
 export import ChangeRemediationRunCompartmentDetails = ChangeRemediationRunCompartmentDetails.ChangeRemediationRunCompartmentDetails;
 import * as ChangeVulnerabilityAuditCompartmentDetails from "./change-vulnerability-audit-compartment-details";
 export import ChangeVulnerabilityAuditCompartmentDetails = ChangeVulnerabilityAuditCompartmentDetails.ChangeVulnerabilityAuditCompartmentDetails;
+import * as ConfigSeverity from "./config-severity";
+export import ConfigSeverity = ConfigSeverity.ConfigSeverity;
 import * as CreateKnowledgeBaseDetails from "./create-knowledge-base-details";
 export import CreateKnowledgeBaseDetails = CreateKnowledgeBaseDetails.CreateKnowledgeBaseDetails;
 import * as CreateRemediationRecipeDetails from "./create-remediation-recipe-details";
@@ -107,6 +109,8 @@ import * as VulnerabilityAuditSource from "./vulnerability-audit-source";
 export import VulnerabilityAuditSource = VulnerabilityAuditSource.VulnerabilityAuditSource;
 import * as VulnerabilityAuditSummary from "./vulnerability-audit-summary";
 export import VulnerabilityAuditSummary = VulnerabilityAuditSummary.VulnerabilityAuditSummary;
+import * as VulnerabilitySeverity from "./vulnerability-severity";
+export import VulnerabilitySeverity = VulnerabilitySeverity.VulnerabilitySeverity;
 import * as WorkRequest from "./work-request";
 export import WorkRequest = WorkRequest.WorkRequest;
 import * as WorkRequestError from "./work-request-error";

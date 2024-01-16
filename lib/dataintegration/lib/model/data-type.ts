@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A `DataType` object is a simple primitive type that describes the type of a single atomic unit of data.  For example, `INT`, `VARCHAR`, `NUMBER`, and so on.
+ * A {@code DataType} object is a simple primitive type that describes the type of a single atomic unit of data.  For example, {@code INT}, {@code VARCHAR}, {@code NUMBER}, and so on.
  */
 export interface DataType extends model.BaseType {
   /**

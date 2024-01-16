@@ -23,7 +23,7 @@ export interface ListCustomTablesResponse {
   "opcRequestId": string;
   /**
    * For pagination of a list of custom tables. If this header appears in the response, then this
-   * is a partial list of custom tables. Include this value as the `page` parameter in a subsequent
+   * is a partial list of custom tables. Include this value as the {@code page} parameter in a subsequent
    * GET request, to get the next batch of custom tables.
    *
    */

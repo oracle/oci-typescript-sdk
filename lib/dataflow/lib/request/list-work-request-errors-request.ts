@@ -24,7 +24,7 @@ export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
    */
   "workRequestId": string;
   /**
-   * The maximum number of results to return in a paginated `List` call.
+   * The maximum number of results to return in a paginated {@code List} call.
    *
    */
   "limit"?: number;
@@ -35,7 +35,7 @@ export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The value of the `opc-next-page` or `opc-prev-page` response header from the last `List` call
+   * The value of the {@code opc-next-page} or {@code opc-prev-page} response header from the last {@code List} call
    * to sent back to server for getting the next page of results.
    *
    */

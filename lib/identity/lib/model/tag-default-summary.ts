@@ -49,14 +49,14 @@ export interface TagDefaultSummary {
    */
   "value": string;
   /**
-    * Date and time the `TagDefault` object was created, in the format defined by RFC3339.
+    * Date and time the {@code TagDefault} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
-   * The tag default's current state. After creating a `TagDefault`, make sure its `lifecycleState` is ACTIVE before using it.
+   * The tag default's current state. After creating a {@code TagDefault}, make sure its {@code lifecycleState} is ACTIVE before using it.
    *
    */
   "lifecycleState"?: TagDefaultSummary.LifecycleState;
@@ -65,10 +65,10 @@ Example: `2016-08-25T21:10:29.600Z`
 * the user creating the resource or another tag defualt). If no value is set, resource
 * creation is blocked.
 * <p>
-* If the `isRequired` flag is set to \"true\", the value is set during resource creation.
-* * If the `isRequired` flag is set to \"false\", the value you enter is set during resource creation.
+* If the {@code isRequired} flag is set to \"true\", the value is set during resource creation.
+* * If the {@code isRequired} flag is set to \"false\", the value you enter is set during resource creation.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isRequired": boolean;

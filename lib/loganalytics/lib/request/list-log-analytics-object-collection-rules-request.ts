@@ -45,7 +45,7 @@ export interface ListLogAnalyticsObjectCollectionRulesRequest extends common.Bas
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListLogAnalyticsObjectCollectionRulesRequest.SortOrder;

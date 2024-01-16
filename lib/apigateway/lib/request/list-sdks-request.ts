@@ -25,14 +25,14 @@ export interface ListSdksRequest extends common.BaseRequest {
   /**
  * A user-friendly name. Does not have to be unique, and it's changeable.
 * <p>
-Example: `My new resource`
+Example: {@code My new resource}
 * 
  */
   "displayName"?: string;
   /**
  * A filter to return only resources that match the given lifecycle state.
 * <p>
-Example: `ACTIVE` or `DELETED`
+Example: {@code ACTIVE} or {@code DELETED}
 * 
  */
   "lifecycleState"?: string;
@@ -49,9 +49,9 @@ Example: `ACTIVE` or `DELETED`
    */
   "sortOrder"?: ListSdksRequest.SortOrder;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`).
-   * Default order for `timeCreated` is descending. Default order for
-   * `displayName` is ascending. The `displayName` sort order is case
+   * The field to sort by. You can provide one sort order ({@code sortOrder}).
+   * Default order for {@code timeCreated} is descending. Default order for
+   * {@code displayName} is ascending. The {@code displayName} sort order is case
    * sensitive.
    *
    */

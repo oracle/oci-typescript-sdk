@@ -34,17 +34,17 @@ export interface ListHttpProbeResultsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header
+   * The value of the {@code opc-next-page} response header
    * from the previous \"List\" call.
    *
    */
   "page"?: string;
   /**
-   * Returns results with a `startTime` equal to or greater than the specified value.
+   * Returns results with a {@code startTime} equal to or greater than the specified value.
    */
   "startTimeGreaterThanOrEqualTo"?: number;
   /**
-   * Returns results with a `startTime` equal to or less than the specified value.
+   * Returns results with a {@code startTime} equal to or less than the specified value.
    */
   "startTimeLessThanOrEqualTo"?: number;
   /**
@@ -52,7 +52,7 @@ export interface ListHttpProbeResultsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListHttpProbeResultsRequest.SortOrder;
   /**
-   * Filters results that match the `target`.
+   * Filters results that match the {@code target}.
    */
   "target"?: string;
 }

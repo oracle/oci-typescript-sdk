@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface BackoffRetryPolicy {
   /**
-   * The maximum retry duration in milliseconds. Default value is `7200000` (2 hours). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum retry duration in milliseconds. Default value is {@code 7200000} (2 hours). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxRetryDuration": number;
   /**

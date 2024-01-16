@@ -40,13 +40,13 @@ export interface SessionSummary {
     | model.PortForwardingSessionTargetResourceDetails;
   /**
    * The time the session was created. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
    * The time the session was updated. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeUpdated"?: Date;

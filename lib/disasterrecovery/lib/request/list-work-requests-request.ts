@@ -21,14 +21,14 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
  * The ID (OCID) of the compartment in which to list resources.
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
  */
   "compartmentId"?: string;
   /**
  * The ID (OCID) of the asynchronous work request.
 * <p>
-Example: `ocid1.workrequest.oc1..uniqueID`
+Example: {@code ocid1.workrequest.oc1..uniqueID}
 * 
  */
   "workRequestId"?: string;
@@ -40,7 +40,7 @@ Example: `ocid1.workrequest.oc1..uniqueID`
   /**
  * The ID (OCID) of the resource affected by the work request.
 * <p>
-Example: `ocid1.drplanexecution.oc1..uniqueID`
+Example: {@code ocid1.drplanexecution.oc1..uniqueID}
 * 
  */
   "resourceId"?: string;
@@ -50,7 +50,7 @@ Example: `ocid1.drplanexecution.oc1..uniqueID`
    */
   "opcRequestId"?: string;
   /**
- * For list pagination. The value of the `opc-next-page` response
+ * For list pagination. The value of the {@code opc-next-page} response
 * header from the previous \"List\" call.
 * <p>
 For important details about how pagination works,
@@ -66,7 +66,7 @@ For important details about how pagination works,
 For important details about how pagination works,
 * see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `100`
+Example: {@code 100}
 * 
  */
   "limit"?: number;

@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 export interface GetMigrationResponse {
   /**
-   * For optimistic concurrency control, see `if-match.`
+   * For optimistic concurrency control, see {@code if-match.}
    *
    */
   "etag": string;

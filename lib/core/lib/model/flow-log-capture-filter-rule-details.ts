@@ -37,7 +37,7 @@ export interface FlowLogCaptureFilterRuleDetails {
    */
   "priority"?: number;
   /**
-   * Sampling interval as `1` of `X`, where `X` is an integer not greater than `100000`.
+   * Sampling interval as {@code 1} of {@code X}, where {@code X} is an integer not greater than {@code 100000}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "samplingRate"?: number;
@@ -60,13 +60,13 @@ export interface FlowLogCaptureFilterRuleDetails {
   "tcpOptions"?: model.TcpOptions;
   "udpOptions"?: model.UdpOptions;
   /**
-   * Type or types of VCN flow logs to store. `ALL` includes records for both accepted traffic and
+   * Type or types of VCN flow logs to store. {@code ALL} includes records for both accepted traffic and
    * rejected traffic.
    *
    */
   "flowLogType"?: FlowLogCaptureFilterRuleDetails.FlowLogType;
   /**
-   * Include or exclude a `ruleAction` object.
+   * Include or exclude a {@code ruleAction} object.
    *
    */
   "ruleAction"?: FlowLogCaptureFilterRuleDetails.RuleAction;

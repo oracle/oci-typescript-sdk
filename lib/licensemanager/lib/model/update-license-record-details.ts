@@ -30,14 +30,14 @@ export interface UpdateLicenseRecordDetails {
   /**
    * The license record end date in [RFC 3339](https://tools.ietf.org/html/rfc3339)
    * date format.
-   * Example: `2018-09-12`
+   * Example: {@code 2018-09-12}
    *
    */
   "expirationDate"?: Date;
   /**
    * The license record support end date in [RFC 3339](https://tools.ietf.org/html/rfc3339)
    * date format.
-   * Example: `2018-09-12`
+   * Example: {@code 2018-09-12}
    *
    */
   "supportEndDate"?: Date;
@@ -57,13 +57,13 @@ export interface UpdateLicenseRecordDetails {
   "productId"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

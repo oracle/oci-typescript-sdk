@@ -35,7 +35,7 @@ export interface RemotePeeringConnection {
   "compartmentId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -51,7 +51,7 @@ export interface RemotePeeringConnection {
   "drgId": string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -62,7 +62,7 @@ export interface RemotePeeringConnection {
   /**
     * Whether the VCN at the other end of the peering is in a different tenancy.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isCrossTenancyPeering": boolean;
@@ -78,7 +78,7 @@ Example: `false`
   /**
     * If this RPC is peered, this value is the region that contains the other RPC.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "peerRegionName"?: string;
@@ -88,8 +88,8 @@ Example: `us-ashburn-1`
    */
   "peerTenancyId"?: string;
   /**
-   * Whether the RPC is peered with another RPC. `NEW` means the RPC has not yet been
-   * peered. `PENDING` means the peering is being established. `REVOKED` means the
+   * Whether the RPC is peered with another RPC. {@code NEW} means the RPC has not yet been
+   * peered. {@code PENDING} means the peering is being established. {@code REVOKED} means the
    * RPC at the other end of the peering has been deleted.
    *
    */
@@ -97,7 +97,7 @@ Example: `us-ashburn-1`
   /**
     * The date and time the RPC was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

@@ -19,7 +19,7 @@ import common = require("oci-common");
 /**
 * A route distribution establishes how routes get imported into DRG route tables and exported through the DRG attachments.
 * <p>
-A route distribution is a list of statements. Each statement consists of a set of matches, all of which must be `True` in order for
+A route distribution is a list of statements. Each statement consists of a set of matches, all of which must be {@code True} in order for
 * the statement's action to take place. Each statement determines which routes are propagated.
 * <p>
 You can assign a route distribution as a route table's import distribution. The statements in an import
@@ -52,7 +52,7 @@ export interface DrgRouteDistribution {
   "compartmentId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -64,7 +64,7 @@ export interface DrgRouteDistribution {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -79,7 +79,7 @@ export interface DrgRouteDistribution {
   /**
     * The date and time the route distribution was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

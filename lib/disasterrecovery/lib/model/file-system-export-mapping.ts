@@ -26,14 +26,14 @@ export interface FileSystemExportMapping {
   /**
     * The OCID of the export path.
 * <p>
-Example: `ocid1.export.oc1..uniqueID`
+Example: {@code ocid1.export.oc1..uniqueID}
 * 
     */
   "exportId": string;
   /**
     * The OCID of the destination mount target on which this file system export should be created.
 * <p>
-Example: `ocid1.mounttarget.oc1..uniqueID`
+Example: {@code ocid1.mounttarget.oc1..uniqueID}
 * 
     */
   "destinationMountTargetId": string;

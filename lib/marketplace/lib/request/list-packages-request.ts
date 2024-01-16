@@ -43,18 +43,18 @@ export interface ListPackagesRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
   /**
    * The field to use to sort listed results. You can only specify one field to sort by.
-   * `TIMERELEASED` displays results in descending order by default.
+   * {@code TIMERELEASED} displays results in descending order by default.
    * You can change your preference by specifying a different sort order.
    *
    */
   "sortBy"?: ListPackagesRequest.SortBy;
   /**
-   * The sort order to use, either `ASC` or `DESC`.
+   * The sort order to use, either {@code ASC} or {@code DESC}.
    */
   "sortOrder"?: ListPackagesRequest.SortOrder;
   /**

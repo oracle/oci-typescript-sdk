@@ -25,14 +25,14 @@ export interface UpdateObjectStorageLogLocationDetails {
   /**
     * The namespace in object storage (Note - this is usually the tenancy name).
 * <p>
-Example: `myocitenancy`
+Example: {@code myocitenancy}
 * 
     */
   "namespace": string;
   /**
     * The bucket name inside the object storage namespace.
 * <p>
-Example: `operation_logs`
+Example: {@code operation_logs}
 * 
     */
   "bucket": string;

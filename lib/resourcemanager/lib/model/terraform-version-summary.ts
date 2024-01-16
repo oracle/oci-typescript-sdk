@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface TerraformVersionSummary {
   /**
-   * A supported Terraform version. Example: `0.12.x`
+   * A supported Terraform version. Example: {@code 0.12.x}
    *
    */
   "name"?: string;

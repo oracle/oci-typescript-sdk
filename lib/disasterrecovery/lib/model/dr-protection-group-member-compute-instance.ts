@@ -25,7 +25,7 @@ export interface DrProtectionGroupMemberComputeInstance extends model.DrProtecti
   /**
     * A flag indicating if the compute instance should be moved during DR operations.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isMovable"?: boolean;
@@ -38,7 +38,7 @@ Example: `false`
     * The OCID of a compartment in the destination region in which the compute instance
 * should be launched.
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
     */
   "destinationCompartmentId"?: string;
@@ -46,7 +46,7 @@ Example: `ocid1.compartment.oc1..uniqueID`
     * The OCID of a dedicated VM host in the destination region where the compute instance
 * should be launched.
 * <p>
-Example: `ocid1.dedicatedvmhost.oc1..uniqueID`
+Example: {@code ocid1.dedicatedvmhost.oc1..uniqueID}
 * 
     */
   "destinationDedicatedVmHostId"?: string;

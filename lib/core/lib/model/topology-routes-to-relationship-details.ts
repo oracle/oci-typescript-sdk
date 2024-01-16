@@ -22,20 +22,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines route rule details for a `routesTo` relationship.
+ * Defines route rule details for a {@code routesTo} relationship.
  */
 export interface TopologyRoutesToRelationshipDetails {
   /**
    * The destinationType can be set to one of two values:
    * <p>
-   * Use `CIDR_BLOCK` if the rule's `destination` is an IP address range in CIDR notation.
+   * Use {@code CIDR_BLOCK} if the rule's {@code destination} is an IP address range in CIDR notation.
    * <p>
-   * Use `SERVICE_CIDR_BLOCK` if the rule's `destination` is the `cidrBlock` value for a {@link Service}.
+   * Use {@code SERVICE_CIDR_BLOCK} if the rule's {@code destination} is the {@code cidrBlock} value for a {@link Service}.
    *
    */
   "destinationType": string;
   /**
-   * An IP address range in CIDR notation or the `cidrBlock` value for a {@link Service}.
+   * An IP address range in CIDR notation or the {@code cidrBlock} value for a {@link Service}.
    */
   "destination": string;
   /**
@@ -43,7 +43,7 @@ export interface TopologyRoutesToRelationshipDetails {
    */
   "routeTableId": string;
   /**
-   * A route rule can be `STATIC` if manually added to the route table or `DYNAMIC` if imported from another route table.
+   * A route rule can be {@code STATIC} if manually added to the route table or {@code DYNAMIC} if imported from another route table.
    *
    */
   "routeType"?: TopologyRoutesToRelationshipDetails.RouteType;

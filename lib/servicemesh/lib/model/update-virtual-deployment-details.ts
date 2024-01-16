@@ -22,7 +22,7 @@ export interface UpdateVirtualDeploymentDetails {
     * Description of the resource. It can be changed after creation.
 * Avoid entering confidential information.
 * <p>
-Example: `This is my new resource`
+Example: {@code This is my new resource}
 * 
     */
   "description"?: string;
@@ -36,13 +36,13 @@ Example: `This is my new resource`
   "accessLogging"?: model.AccessLoggingConfiguration;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

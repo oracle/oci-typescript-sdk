@@ -17,12 +17,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information used to update a `ByoipRange` resource.
+ * The information used to update a {@code ByoipRange} resource.
  */
 export interface UpdateByoipRangeDetails {
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -34,7 +34,7 @@ export interface UpdateByoipRangeDetails {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };

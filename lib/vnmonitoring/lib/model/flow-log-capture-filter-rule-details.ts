@@ -55,7 +55,7 @@ export interface FlowLogCaptureFilterRuleDetails {
   "tcpOptions"?: model.TcpOptions;
   "udpOptions"?: model.UdpOptions;
   /**
-   * Type or types of flow logs to store. `ALL` includes records for both accepted traffic and
+   * Type or types of flow logs to store. {@code ALL} includes records for both accepted traffic and
    * rejected traffic.
    *
    */

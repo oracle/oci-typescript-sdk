@@ -23,7 +23,7 @@ import common = require("oci-common");
 * The routing decision for a packet entering a DRG is determined by the rules in the DRG route table
 * assigned to the attachment-of-entry.
 * <p>
-Each DRG attachment can inject routes in any DRG route table, provided there is a statement corresponding to the attachment in the route table's `importDrgRouteDistribution`.
+Each DRG attachment can inject routes in any DRG route table, provided there is a statement corresponding to the attachment in the route table's {@code importDrgRouteDistribution}.
 * You can also insert static routes into the DRG route tables.
 * <p>
 The DRG route table is always in the same compartment as the DRG. There must always be a default
@@ -50,7 +50,7 @@ export interface DrgRouteTable {
   "drgId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -62,14 +62,14 @@ export interface DrgRouteTable {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
     * The date and time the DRG route table was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

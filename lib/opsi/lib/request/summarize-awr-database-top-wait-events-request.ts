@@ -66,7 +66,7 @@ export interface SummarizeAwrDatabaseTopWaitEventsRequest extends common.BaseReq
    */
   "sortBy"?: SummarizeAwrDatabaseTopWaitEventsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: model.SortOrder;

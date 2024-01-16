@@ -23,7 +23,7 @@ export interface MonitoredResourcesCountAggregation {
 * Available dimensions vary based on groupBy parameter.
 * Each dimension takes the form of a key-value pair.
 * <p>
-Example: `\"resourceType\": \"oci_autonomous_database\"`
+Example: {@code \"resourceType\": \"oci_autonomous_database\"}
 * 
     */
   "dimensions": { [key: string]: string };

@@ -26,12 +26,12 @@ export interface CreateApplyJobOperationDetails extends model.CreateJobOperation
   "terraformAdvancedOptions"?: model.TerraformAdvancedOptions;
   /**
    * Specifies the source of the execution plan to apply.
-   * Use `AUTO_APPROVED` to run the job without an execution plan.
+   * Use {@code AUTO_APPROVED} to run the job without an execution plan.
    *
    */
   "executionPlanStrategy"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a plan job, for use when specifying `FROM_PLAN_JOB_ID` as the `executionPlanStrategy`.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a plan job, for use when specifying {@code FROM_PLAN_JOB_ID} as the {@code executionPlanStrategy}.
    *
    */
   "executionPlanJobId"?: string;

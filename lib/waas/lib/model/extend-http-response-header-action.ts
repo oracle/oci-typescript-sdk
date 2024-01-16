@@ -25,14 +25,14 @@ export interface ExtendHttpResponseHeaderAction extends model.HeaderManipulation
   /**
     * A header field name that conforms to RFC 7230.
 * <p>
-Example: `example_header_name`
+Example: {@code example_header_name}
 * 
     */
   "header": string;
   /**
     * A header field value that conforms to RFC 7230.
 * <p>
-Example: `example_value`
+Example: {@code example_value}
 * 
     */
   "value": string;

@@ -30,7 +30,7 @@ export interface DatabaseToolsConnectionOracleDatabaseSummary
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretIdSummary;
   /**
-   * The advanced connection properties key-value pair (e.g., `oracle.net.ssl_server_dn_match`).
+   * The advanced connection properties key-value pair (e.g., {@code oracle.net.ssl_server_dn_match}).
    */
   "advancedProperties"?: { [key: string]: string };
   /**
@@ -40,7 +40,7 @@ export interface DatabaseToolsConnectionOracleDatabaseSummary
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStoreSummary>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `DatabaseToolsPrivateEndpoint` used to access the database in the customer VCN.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsPrivateEndpoint} used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
   "proxyClient"?:

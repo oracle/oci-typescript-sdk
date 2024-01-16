@@ -23,19 +23,19 @@ export interface UpdateModelDeploymentRequest extends common.BaseRequest {
    */
   "modelDeploymentId": string;
   /**
-   * Details for updating a model deployment. Some of the properties of `modelDeploymentConfigurationDetails` or `CategoryLogDetails` can also be updated with zero down time
-   * when the model deployment's lifecycle state is ACTIVE or NEEDS_ATTENTION i.e `instanceShapeName`, `instanceCount` and `modelId`, separately `loadBalancerShape` or
-   * `CategoryLogDetails` can also be updated independently. All of the fields can be updated when the deployment is in the INACTIVE lifecycle state. Changes will take effect the next
+   * Details for updating a model deployment. Some of the properties of {@code modelDeploymentConfigurationDetails} or {@code CategoryLogDetails} can also be updated with zero down time
+   * when the model deployment's lifecycle state is ACTIVE or NEEDS_ATTENTION i.e {@code instanceShapeName}, {@code instanceCount} and {@code modelId}, separately {@code loadBalancerShape} or
+   * {@code CategoryLogDetails} can also be updated independently. All of the fields can be updated when the deployment is in the INACTIVE lifecycle state. Changes will take effect the next
    * time the model deployment is activated.
    *
    */
   "updateModelDeploymentDetails": model.UpdateModelDeploymentDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
-   * The resource is updated or deleted only if the `etag` you
-   * provide matches the resource's current `etag` value.
+   * The resource is updated or deleted only if the {@code etag} you
+   * provide matches the resource's current {@code etag} value.
    *
    */
   "ifMatch"?: string;

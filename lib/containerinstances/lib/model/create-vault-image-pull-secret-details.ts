@@ -17,12 +17,12 @@ import common = require("oci-common");
 /**
  * A CreateVaultImagePullSecretDetails is a ImagePullSecret which accepts secretId as credentials information.
  * **Sample Format for username and password in Vault Secret**
- * ```
+ * {@code
  * {
  *   \"username\": \"this-is-not-the-secret\",
  *   \"password\": \"example-password\"
  * }
- * ```
+ * }
  *
  */
 export interface CreateVaultImagePullSecretDetails extends model.CreateImagePullSecretDetails {

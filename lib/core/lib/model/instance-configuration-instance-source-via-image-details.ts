@@ -44,11 +44,11 @@ export interface InstanceConfigurationInstanceSourceViaImageDetails
 * <p>
 Allowed values:
 * <p>
-  * `10`: Represents Balanced option.
+  * {@code 10}: Represents Balanced option.
 * <p>
-  * `20`: Represents Higher Performance option.
+  * {@code 20}: Represents Higher Performance option.
 * <p>
-  * `30`-`120`: Represents the Ultra High Performance option.
+  * {@code 30}-{@code 120}: Represents the Ultra High Performance option.
 * <p>
 For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

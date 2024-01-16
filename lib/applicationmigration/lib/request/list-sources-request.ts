@@ -34,26 +34,26 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "id"?: string;
   /**
-   * The number of items returned in a paginated `List` call. For information about pagination, see
+   * The number of items returned in a paginated {@code List} call. For information about pagination, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the preceding `List` call.
+   * The value of the {@code opc-next-page} response header from the preceding {@code List} call.
    * For information about pagination, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
-   * The sort order, either `ASC` (ascending) or `DESC` (descending).
+   * The sort order, either {@code ASC} (ascending) or {@code DESC} (descending).
    *
    */
   "sortOrder"?: model.SortOrders;
   /**
    * Specifies the field on which to sort.
-   * By default, `TIMECREATED` is ordered descending.
-   * By default, `DISPLAYNAME` is ordered ascending. Note that you can sort only on one field.
+   * By default, {@code TIMECREATED} is ordered descending.
+   * By default, {@code DISPLAYNAME} is ordered ascending. Note that you can sort only on one field.
    *
    */
   "sortBy"?: ListSourcesRequest.SortBy;

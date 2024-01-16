@@ -18,13 +18,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies which tag value types in the `tagValues` field result in overrides of the recommendation criteria. Allowed values are `ANY` and `VALUE`.
+ * Specifies which tag value types in the {@code tagValues} field result in overrides of the recommendation criteria. Allowed values are {@code ANY} and {@code VALUE}.
 * <p>
-When the `tagValueType` field value is `ANY`, the `tagValues` field should be empty, which enforces overrides to the recommendation for resources with any tag values attached to them.
-* When the `tagValueType` field value is `VALUE`, the `tagValues` field must include a specific value or list of values. Overrides to the recommendation criteria only occur for resources that match the values in the `tagKey` and the `tagValues` fields.
+When the {@code tagValueType} field value is {@code ANY}, the {@code tagValues} field should be empty, which enforces overrides to the recommendation for resources with any tag values attached to them.
+* When the {@code tagValueType} field value is {@code VALUE}, the {@code tagValues} field must include a specific value or list of values. Overrides to the recommendation criteria only occur for resources that match the values in the {@code tagKey} and the {@code tagValues} fields.
 * <p>
-For example, if the `tagKey` value is `B`, the `tagValueType` value is `ANY`, and the `tagValues` field is empty, overrides to the recommendation criteria occur for any resources that have the tag key B.
-* If the `tagKey` value is `B`, the `tagValueType` value is `VALUE`, and the `tagValues` value is `s1`, overrides to the recommendation criteria only occur for resources that have the tag key B with the associated tag value s1.
+For example, if the {@code tagKey} value is {@code B}, the {@code tagValueType} value is {@code ANY}, and the {@code tagValues} field is empty, overrides to the recommendation criteria occur for any resources that have the tag key B.
+* If the {@code tagKey} value is {@code B}, the {@code tagValueType} value is {@code VALUE}, and the {@code tagValues} value is {@code s1}, overrides to the recommendation criteria only occur for resources that have the tag key B with the associated tag value s1.
 * 
 **/
 export enum TagValueType {

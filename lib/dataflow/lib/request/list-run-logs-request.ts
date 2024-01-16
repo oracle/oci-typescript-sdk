@@ -35,7 +35,7 @@ export interface ListRunLogsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` or `opc-prev-page` response header from the last `List` call
+   * The value of the {@code opc-next-page} or {@code opc-prev-page} response header from the last {@code List} call
    * to sent back to server for getting the next page of results.
    *
    */

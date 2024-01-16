@@ -22,10 +22,10 @@ import common = require("oci-common");
 export interface UpdateGenericConnectionDetails extends model.UpdateConnectionDetails {
   /**
     * Host and port separated by colon.
-* Example: `\"server.example.com:1234\"`
+* Example: {@code \"server.example.com:1234\"}
 * <p>
 For multiple hosts, provide a comma separated list.
-* Example: `\"server1.example.com:1000,server1.example.com:2000\"`
+* Example: {@code \"server1.example.com:1000,server1.example.com:2000\"}
 * 
     */
   "host"?: string;

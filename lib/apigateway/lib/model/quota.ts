@@ -29,20 +29,20 @@ export interface Quota {
   "value": number;
   /**
    * The unit of time over which quotas are calculated.
-   * Example: `MINUTE` or `MONTH`
+   * Example: {@code MINUTE} or {@code MONTH}
    *
    */
   "unit": Quota.Unit;
   /**
    * The policy that controls when quotas will reset.
-   * Example: `CALENDAR`
+   * Example: {@code CALENDAR}
    *
    */
   "resetPolicy": Quota.ResetPolicy;
   /**
    * What the usage plan will do when a quota is breached:
-   * `REJECT` will allow no further requests
-   * `ALLOW` will continue to allow further requests
+   * {@code REJECT} will allow no further requests
+   * {@code ALLOW} will continue to allow further requests
    *
    */
   "operationOnBreach": Quota.OperationOnBreach;

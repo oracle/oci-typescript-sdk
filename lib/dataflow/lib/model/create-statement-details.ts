@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface CreateStatementDetails {
   /**
    * The statement code to execute.
-   * Example: `println(sc.version)`
+   * Example: {@code println(sc.version)}
    *
    */
   "code": string;

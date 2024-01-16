@@ -26,12 +26,12 @@ These are the monitoring plugins: Compute instance monitoring
 * and Custom logs monitoring.
 * <p>
 The monitoring plugins are controlled by this parameter and by the per-plugin
-* configuration in the `pluginsConfig` object.
+* configuration in the {@code pluginsConfig} object.
 * <p>
-- If `isMonitoringDisabled` is true, all the monitoring plugins are disabled, regardless of
+- If {@code isMonitoringDisabled} is true, all the monitoring plugins are disabled, regardless of
 * the per-plugin configuration.
-* - If `isMonitoringDisabled` is false, all the monitoring plugins are enabled. You
-* can optionally disable individual monitoring plugins by providing a value in the `pluginsConfig`
+* - If {@code isMonitoringDisabled} is false, all the monitoring plugins are enabled. You
+* can optionally disable individual monitoring plugins by providing a value in the {@code pluginsConfig}
 * object.
 * 
     */
@@ -44,12 +44,12 @@ These are the management plugins: OS Management Service Agent and Compute instan
 * run command.
 * <p>
 The management plugins are controlled by this parameter and the per-plugin
-* configuration in the `pluginsConfig` object.
+* configuration in the {@code pluginsConfig} object.
 * <p>
-- If `isManagementDisabled` is true, all the management plugins are disabled, regardless of
+- If {@code isManagementDisabled} is true, all the management plugins are disabled, regardless of
 * the per-plugin configuration.
-* - If `isManagementDisabled` is false, all the management plugins are enabled. You
-* can optionally disable individual management plugins by providing a value in the `pluginsConfig`
+* - If {@code isManagementDisabled} is false, all the management plugins are enabled. You
+* can optionally disable individual management plugins by providing a value in the {@code pluginsConfig}
 * object.
 * 
     */

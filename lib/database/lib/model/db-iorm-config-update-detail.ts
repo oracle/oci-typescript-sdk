@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface DbIormConfigUpdateDetail {
   /**
-   * The database name. For the default `DbPlan`, the `dbName` is `default`.
+   * The database name. For the default {@code DbPlan}, the {@code dbName} is {@code default}.
    *
    */
   "dbName"?: string;

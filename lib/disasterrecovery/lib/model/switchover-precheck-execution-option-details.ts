@@ -26,7 +26,7 @@ export interface SwitchoverPrecheckExecutionOptionDetails
   /**
     * A flag indicating whether warnings should be ignored during the switchover precheck.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "areWarningsIgnored"?: boolean;

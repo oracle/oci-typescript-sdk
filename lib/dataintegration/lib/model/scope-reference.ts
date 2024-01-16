@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The `ScopeReference` class is a base class for any model object that wraps a scope reference to a TypedObject.
+ * The {@code ScopeReference} class is a base class for any model object that wraps a scope reference to a TypedObject.
  */
 export interface ScopeReference {
   /**

@@ -29,7 +29,7 @@ export interface AnnouncementUserStatusDetails {
   "userId": string;
   /**
    * The date and time the announcement was acknowledged, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-01-01T17:43:01.389+0000`
+   * Example: {@code 2019-01-01T17:43:01.389+0000}
    *
    */
   "timeAcknowledged"?: Date;

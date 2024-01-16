@@ -46,7 +46,7 @@ export interface Pattern {
   "lifecycleState"?: model.LifecycleState;
   /**
    * The date and time the pattern was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2019-03-25T21:10:29.600Z`
+   * Example: {@code 2019-03-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;
@@ -101,7 +101,7 @@ export interface Pattern {
   /**
    * A map of maps that contains the properties which are specific to the pattern type. Each pattern type
    * definition defines it's set of required and optional properties.
-   * Example: `{\"properties\": { \"default\": { \"tbd\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"tbd\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

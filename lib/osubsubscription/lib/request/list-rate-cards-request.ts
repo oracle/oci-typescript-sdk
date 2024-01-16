@@ -39,24 +39,24 @@ export interface ListRateCardsRequest extends common.BaseRequest {
    */
   "partNumber"?: string;
   /**
- * The maximum number of items to return in a paginated \"List\" call. Default: (`50`)
+ * The maximum number of items to return in a paginated \"List\" call. Default: ({@code 50})
 * <p>
-Example: `500`
+Example: {@code 500}
 * 
  */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListRateCardsRequest.SortOrder;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`).
+   * The field to sort by. You can provide one sort order ({@code sortOrder}).
    *
    */
   "sortBy"?: ListRateCardsRequest.SortBy;

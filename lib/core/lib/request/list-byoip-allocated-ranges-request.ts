@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListByoipAllocatedRangesRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource containing the BYOIP CIDR block.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code ByoipRange} resource containing the BYOIP CIDR block.
    */
   "byoipRangeId": string;
   /**
@@ -33,12 +33,12 @@ export interface ListByoipAllocatedRangesRequest extends common.BaseRequest {
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *

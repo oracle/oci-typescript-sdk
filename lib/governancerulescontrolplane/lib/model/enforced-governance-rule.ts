@@ -33,7 +33,7 @@ export interface EnforcedGovernanceRule {
   /**
     * Type of the governance rule, can be one of QUOTA, TAG, ALLOWED_REGIONS.
 * <p>
-Example: `QUOTA`
+Example: {@code QUOTA}
 * 
     */
   "type": model.GovernanceRuleType;
@@ -45,14 +45,14 @@ Example: `QUOTA`
   /**
     * Date and time the governance rule was created. An RFC3339 formatted datetime string.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
     * Date and time the governance rule was updated. An RFC3339 formatted datetime string.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeUpdated": Date;

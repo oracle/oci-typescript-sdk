@@ -32,25 +32,25 @@ export interface SqlStats {
   "planHashValue": number;
   /**
    * Collection timestamp
-   * Example: `\"2020-03-31T00:00:00.000Z\"`
+   * Example: {@code \"2020-03-31T00:00:00.000Z\"}
    *
    */
   "timeCollected": Date;
   /**
    * Name of Database Instance
-   * Example: `\"DB10902_1\"`
+   * Example: {@code \"DB10902_1\"}
    *
    */
   "instanceName": string;
   /**
    * last_active_time
-   * Example: `\"0000000099CCE300\"`
+   * Example: {@code \"0000000099CCE300\"}
    *
    */
   "lastActiveTime"?: string;
   /**
    * Total integer of parse calls
-   *  Example: `60`
+   *  Example: {@code 60}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parseCalls"?: number;
@@ -192,13 +192,13 @@ export interface SqlStats {
   "physicalWriteBytes"?: number;
   /**
    * exact_matching_signature
-   * Example: `\"18067345456756876713\"`
+   * Example: {@code \"18067345456756876713\"}
    *
    */
   "exactMatchingSignature"?: string;
   /**
    * force_matching_signature
-   * Example: `\"18067345456756876713\"`
+   * Example: {@code \"18067345456756876713\"}
    *
    */
   "forceMatchingSignature"?: string;

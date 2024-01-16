@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -26,14 +26,14 @@ import common = require("oci-common");
 export interface RetrieveDimensionStatesDetails {
   /**
    * A filter to return only alarm state entries that match the exact set of specified dimension key-value pairs.
-   * If you specify `\"availabilityDomain\": \"phx-ad-1\"` but the alarm state entry corresponds to the set `\"availabilityDomain\": \"phx-ad-1\"`
-   * and `\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"`, then no results are returned.
+   * If you specify {@code \"availabilityDomain\": \"phx-ad-1\"} but the alarm state entry corresponds to the set {@code \"availabilityDomain\": \"phx-ad-1\"}
+   * and {@code \"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"}, then no results are returned.
    *
    */
   "dimensionFilters"?: { [key: string]: string };
   /**
    * A filter to return only alarm state entries that match the status value.
-   * Example: `FIRING`
+   * Example: {@code FIRING}
    *
    */
   "status"?: string;

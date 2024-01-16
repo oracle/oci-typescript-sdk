@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the `routesTo` relationship between virtual network topology entities. A `RoutesTo` relationship
+ * Defines the {@code routesTo} relationship between virtual network topology entities. A {@code RoutesTo} relationship
  * is defined when a routing table and a routing rule  are used to govern how to route traffic
  * from one entity to another. For example, a DRG might have a routing rule to send certain traffic to an LPG.
  *

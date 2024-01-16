@@ -25,21 +25,21 @@ export interface UpdateDrPlanGroupDetails {
   /**
     * The unique id of the group. Must not be modified by user.
 * <p>
-Example: `sgid1.group..uniqueID`
+Example: {@code sgid1.group..uniqueID}
 * 
     */
   "id"?: string;
   /**
     * The display name of the group.
 * <p>
-Example: `My_GROUP_3 - EBS Start`
+Example: {@code My_GROUP_3 - EBS Start}
 * 
     */
   "displayName"?: string;
   /**
     * The group type.
 * <p>
-Example: `BUILT_IN`
+Example: {@code BUILT_IN}
 * 
     */
   "type"?: model.DrPlanGroupType;

@@ -25,21 +25,21 @@ export interface DrPlan {
   /**
     * The OCID of the DR plan.
 * <p>
-Example: `ocid1.drplan.oc1..uniqueID`
+Example: {@code ocid1.drplan.oc1..uniqueID}
 * 
     */
   "id": string;
   /**
     * The display name of the DR plan.
 * <p>
-Example: `EBS Switchover PHX to IAD`
+Example: {@code EBS Switchover PHX to IAD}
 * 
     */
   "displayName": string;
   /**
     * The OCID of the compartment containing the DR plan.
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
     */
   "compartmentId": string;
@@ -51,21 +51,21 @@ Example: `ocid1.compartment.oc1..uniqueID`
   /**
     * The date and time the DR plan was created. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeCreated": Date;
   /**
     * The date and time the DR plan was updated. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeUpdated": Date;
   /**
     * The OCID of the DR protection group to which this DR plan belongs.
 * <p>
-Example: `ocid1.drplan.oc1..uniqueID`
+Example: {@code ocid1.drplan.oc1..uniqueID}
 * 
     */
   "drProtectionGroupId": string;
@@ -73,7 +73,7 @@ Example: `ocid1.drplan.oc1..uniqueID`
     * The OCID of the peer DR protection group associated with this plan's
 * DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
     */
   "peerDrProtectionGroupId": string;
@@ -81,7 +81,7 @@ Example: `ocid1.drprotectiongroup.oc1..uniqueID`
     * The region of the peer DR protection group associated with this plan's
 * DR protection group.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "peerRegion": string;
@@ -103,21 +103,21 @@ Example: `us-ashburn-1`
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
     * Usage of system tag keys. These predefined keys are scoped to namespaces.
 * <p>
-Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };

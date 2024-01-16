@@ -17,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the details required for a VLAN-type `Endpoint`.
+ * Defines the details required for a VLAN-type {@code Endpoint}.
  */
 export interface VlanEndpoint extends model.Endpoint {
   /**
-   * The IPv4 address of the `Endpoint`.
+   * The IPv4 address of the {@code Endpoint}.
    */
   "address": string;
   /**

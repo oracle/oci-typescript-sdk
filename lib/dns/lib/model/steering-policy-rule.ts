@@ -21,7 +21,7 @@ import common = require("oci-common");
 * filter and sort answers based on weight, priority, endpoint health, and other data.
 * <p>
 
-* A rule may optionally include a sequence of cases, each with an optional `caseCondition`
+* A rule may optionally include a sequence of cases, each with an optional {@code caseCondition}
 * expression. Cases allow a sequence of conditions to be defined that will apply different
 * parameters to the rule when the conditions are met. For more information about cases,
 * see [Traffic Management API Guide](https://docs.cloud.oracle.com/iaas/Content/TrafficManagement/Concepts/trafficmanagementapi.htm).

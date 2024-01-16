@@ -29,7 +29,7 @@ export interface UpdateVtapDetails {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -43,7 +43,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -78,10 +78,10 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "vxlanNetworkIdentifier"?: number;
   /**
-   * Used to start or stop a `Vtap` resource.
+   * Used to start or stop a {@code Vtap} resource.
    * <p>
-   * `TRUE` directs the VTAP to start mirroring traffic.
-   * * `FALSE` (Default) directs the VTAP to stop mirroring traffic.
+   * {@code TRUE} directs the VTAP to start mirroring traffic.
+   * * {@code FALSE} (Default) directs the VTAP to stop mirroring traffic.
    *
    */
   "isVtapEnabled"?: boolean;

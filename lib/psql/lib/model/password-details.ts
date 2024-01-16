@@ -18,7 +18,7 @@ import common = require("oci-common");
 
 /**
  * Details for the database system password.
- * Password can be passed as `VaultSecretPasswordDetails` or `PlainTextPasswordDetails`.
+ * Password can be passed as {@code VaultSecretPasswordDetails} or {@code PlainTextPasswordDetails}.
  *
  */
 export interface PasswordDetails {

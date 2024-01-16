@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -19,12 +19,20 @@ import * as ChangeAlarmCompartmentResponse from "./change-alarm-compartment-resp
 export import ChangeAlarmCompartmentResponse = ChangeAlarmCompartmentResponse.ChangeAlarmCompartmentResponse;
 import * as CreateAlarmResponse from "./create-alarm-response";
 export import CreateAlarmResponse = CreateAlarmResponse.CreateAlarmResponse;
+import * as CreateAlarmSuppressionResponse from "./create-alarm-suppression-response";
+export import CreateAlarmSuppressionResponse = CreateAlarmSuppressionResponse.CreateAlarmSuppressionResponse;
 import * as DeleteAlarmResponse from "./delete-alarm-response";
 export import DeleteAlarmResponse = DeleteAlarmResponse.DeleteAlarmResponse;
+import * as DeleteAlarmSuppressionResponse from "./delete-alarm-suppression-response";
+export import DeleteAlarmSuppressionResponse = DeleteAlarmSuppressionResponse.DeleteAlarmSuppressionResponse;
 import * as GetAlarmResponse from "./get-alarm-response";
 export import GetAlarmResponse = GetAlarmResponse.GetAlarmResponse;
 import * as GetAlarmHistoryResponse from "./get-alarm-history-response";
 export import GetAlarmHistoryResponse = GetAlarmHistoryResponse.GetAlarmHistoryResponse;
+import * as GetAlarmSuppressionResponse from "./get-alarm-suppression-response";
+export import GetAlarmSuppressionResponse = GetAlarmSuppressionResponse.GetAlarmSuppressionResponse;
+import * as ListAlarmSuppressionsResponse from "./list-alarm-suppressions-response";
+export import ListAlarmSuppressionsResponse = ListAlarmSuppressionsResponse.ListAlarmSuppressionsResponse;
 import * as ListAlarmsResponse from "./list-alarms-response";
 export import ListAlarmsResponse = ListAlarmsResponse.ListAlarmsResponse;
 import * as ListAlarmsStatusResponse from "./list-alarms-status-response";
@@ -37,6 +45,8 @@ import * as RemoveAlarmSuppressionResponse from "./remove-alarm-suppression-resp
 export import RemoveAlarmSuppressionResponse = RemoveAlarmSuppressionResponse.RemoveAlarmSuppressionResponse;
 import * as RetrieveDimensionStatesResponse from "./retrieve-dimension-states-response";
 export import RetrieveDimensionStatesResponse = RetrieveDimensionStatesResponse.RetrieveDimensionStatesResponse;
+import * as SummarizeAlarmSuppressionHistoryResponse from "./summarize-alarm-suppression-history-response";
+export import SummarizeAlarmSuppressionHistoryResponse = SummarizeAlarmSuppressionHistoryResponse.SummarizeAlarmSuppressionHistoryResponse;
 import * as SummarizeMetricsDataResponse from "./summarize-metrics-data-response";
 export import SummarizeMetricsDataResponse = SummarizeMetricsDataResponse.SummarizeMetricsDataResponse;
 import * as UpdateAlarmResponse from "./update-alarm-response";

@@ -47,7 +47,7 @@ export interface Recommendation {
    */
   "importance": model.Importance;
   /**
-   * An array of `ResourceCount` objects grouped by the status of the resource actions.
+   * An array of {@code ResourceCount} objects grouped by the status of the resource actions.
    */
   "resourceCounts": Array<model.ResourceCount>;
   /**
@@ -65,14 +65,14 @@ export interface Recommendation {
   /**
     * The date and time that the recommendation entered its current status. The format is defined by RFC3339.
 * <p>
-For example, \"The status of the recommendation changed from `pending` to `current(ignored)` on this date and time.\"
+For example, \"The status of the recommendation changed from {@code pending} to {@code current(ignored)} on this date and time.\"
 * 
     */
   "timeStatusBegin": Date;
   /**
     * The date and time the current status will change. The format is defined by RFC3339.
 * <p>
-For example, \"The current `postponed` status of the recommendation will end and change to `pending` on this
+For example, \"The current {@code postponed} status of the recommendation will end and change to {@code pending} on this
 * date and time.\"
 * 
     */
@@ -91,7 +91,7 @@ For example, \"The current `postponed` status of the recommendation will end and
 * <p>
 For example:
 * <p>
-`{\"EstimatedSaving\": \"200\"}`
+{@code {\"EstimatedSaving\": \"200\"}}
 * 
     */
   "extendedMetadata"?: { [key: string]: string };

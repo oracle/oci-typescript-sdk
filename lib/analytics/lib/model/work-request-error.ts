@@ -33,7 +33,7 @@ export interface WorkRequestError {
   /**
     * The date and time the error occured, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timestamp": Date;

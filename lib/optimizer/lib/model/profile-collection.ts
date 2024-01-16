@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of profiles that match filter criteria, if any. Results contain `ProfileSummary` objects.
+ * A list of profiles that match filter criteria, if any. Results contain {@code ProfileSummary} objects.
  *
  */
 export interface ProfileCollection {

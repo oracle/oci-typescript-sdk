@@ -27,7 +27,7 @@ export interface PathRouteSet {
   /**
     * The unique name for this set of path route rules. Avoid entering confidential information.
 * <p>
-Example: `example_path_route_set`
+Example: {@code example_path_route_set}
 * 
     */
   "name": string;

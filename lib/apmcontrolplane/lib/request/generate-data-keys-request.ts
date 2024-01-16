@@ -27,7 +27,7 @@ export interface GenerateDataKeysRequest extends common.BaseRequest {
    */
   "apmDomainId": string;
   /**
-   * For optimistic concurrency control. Set the `if-match` parameter
+   * For optimistic concurrency control. Set the {@code if-match} parameter
    * to the value of the etag from a previous GET or POST response for that resource.
    * The resource will be updated or deleted only if the etag you
    * provide matches the resource's current etag value.

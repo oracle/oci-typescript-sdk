@@ -17,10 +17,10 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the `contains` relationship between virtual network topology entities. A `Contains` relationship
+ * Defines the {@code contains} relationship between virtual network topology entities. A {@code Contains} relationship
  * is defined when an entity fully owns, contains or manages another entity.
  * For example, a subnet is contained and managed in the scope of a VCN, therefore a VCN has a
- * `contains` relationship to a subnet.
+ * {@code contains} relationship to a subnet.
  *
  */
 export interface TopologyContainsEntityRelationship extends model.TopologyEntityRelationship {

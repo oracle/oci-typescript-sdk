@@ -17,8 +17,8 @@ import common = require("oci-common");
 /**
  * Type of the secrets mapped based on the policy.
  * <p>
- * `SSL_INBOUND_INSPECTION`: For Inbound inspection of SSL traffic.
- *   * `SSL_FORWARD_PROXY`: For forward proxy certificates for SSL inspection.
+ * {@code SSL_INBOUND_INSPECTION}: For Inbound inspection of SSL traffic.
+ *   * {@code SSL_FORWARD_PROXY}: For forward proxy certificates for SSL inspection.
  *
  **/
 export enum InspectionType {

@@ -102,7 +102,7 @@ The database workload type.
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -143,7 +143,7 @@ Example: `{\"Department\": \"Finance\"}`
   "isCdb"?: boolean;
   "databaseManagementConfig"?: model.CloudDatabaseManagementConfig;
   /**
-   * Specifies a prefix for the `Oracle SID` of the database to be created.
+   * Specifies a prefix for the {@code Oracle SID} of the database to be created.
    *
    */
   "sidPrefix"?: string;

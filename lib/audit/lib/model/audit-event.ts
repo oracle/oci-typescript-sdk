@@ -27,10 +27,10 @@ export interface AuditEvent {
     * The type of event that happened. 
 * <p>
 The service that produces the event can also add, remove, or change the meaning of a field.
-* A service implementing these type changes would publish a new version of an `eventType` and
-* revise the `eventTypeVersion` field.
+* A service implementing these type changes would publish a new version of an {@code eventType} and
+* revise the {@code eventTypeVersion} field.
 * <p>
-Example: `com.oraclecloud.ComputeApi.GetInstance`
+Example: {@code com.oraclecloud.ComputeApi.GetInstance}
 * 
     */
   "eventType": string;
@@ -41,22 +41,22 @@ Example: `com.oraclecloud.ComputeApi.GetInstance`
 * <p>
 Audit uses version 0.1 specification of the CloudEvents event envelope. 
 * <p>
-Example: `0.1`
+Example: {@code 0.1}
 * 
     */
   "cloudEventsVersion": string;
   /**
     * The version of the event type. This version applies to the payload of the event, not the envelope.
-* Use `cloudEventsVersion` to determine the version of the envelope.
+* Use {@code cloudEventsVersion} to determine the version of the envelope.
 * <p>
-Example: `2.0`
+Example: {@code 2.0}
 * 
     */
   "eventTypeVersion": string;
   /**
     * The source of the event.
 * <p>
-Example: `ComputeApi`
+Example: {@code ComputeApi}
 * 
     */
   "source": string;
@@ -68,14 +68,14 @@ Example: `ComputeApi`
   /**
     * The time the event occurred, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
 * <p>
-Example: `2019-09-18T00:10:59.252Z`
+Example: {@code 2019-09-18T00:10:59.252Z}
 * 
     */
   "eventTime": Date;
   /**
-    * The content type of the data contained in `data`.
+    * The content type of the data contained in {@code data}.
 * <p>
-Example: `application/json`
+Example: {@code application/json}
 * 
     */
   "contentType": string;

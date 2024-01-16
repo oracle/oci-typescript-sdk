@@ -28,7 +28,7 @@ export interface CreateInstancePoolPlacementConfigurationDetails {
   /**
     * The availability domain to place instances.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;
@@ -46,13 +46,13 @@ To get a list of fault domains, use the
 * {@link #listFaultDomains(ListFaultDomainsRequest) listFaultDomains} operation
 * in the Identity and Access Management Service API.
 * <p>
-Example: `[FAULT-DOMAIN-1, FAULT-DOMAIN-2, FAULT-DOMAIN-3]`
+Example: {@code [FAULT-DOMAIN-1, FAULT-DOMAIN-2, FAULT-DOMAIN-3]}
 * 
     */
   "faultDomains"?: Array<string>;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet in which to place instances. This field is deprecated.
-   * Use `primaryVnicSubnets` instead to set VNIC data for instances in the pool.
+   * Use {@code primaryVnicSubnets} instead to set VNIC data for instances in the pool.
    *
    */
   "primarySubnetId"?: string;

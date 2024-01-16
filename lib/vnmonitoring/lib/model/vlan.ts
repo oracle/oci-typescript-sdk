@@ -34,7 +34,7 @@ export interface Vlan {
     * The VLAN's availability domain. This attribute will be null if this is a regional VLAN
 * rather than an AD-specific VLAN.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain"?: string;
@@ -42,7 +42,7 @@ Example: `Uocm:PHX-AD-1`
     * The range of IPv4 addresses that will be used for layer 3 communication with
 * hosts outside the VLAN.
 * <p>
-Example: `192.168.1.0/24`
+Example: {@code 192.168.1.0/24}
 * 
     */
   "cidrBlock": string;
@@ -52,7 +52,7 @@ Example: `192.168.1.0/24`
   "compartmentId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -64,7 +64,7 @@ Example: `192.168.1.0/24`
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -87,7 +87,7 @@ Example: `192.168.1.0/24`
   /**
     * The IEEE 802.1Q VLAN tag of this VLAN.
 * <p>
-Example: `100`
+Example: {@code 100}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vlanTag"?: number;
@@ -98,7 +98,7 @@ Example: `100`
   /**
     * The date and time the VLAN was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;

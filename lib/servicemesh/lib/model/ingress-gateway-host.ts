@@ -22,7 +22,7 @@ export interface IngressGatewayHost {
     * A user-friendly name for the host. The name must be unique within the same ingress gateway.
 * This name can be used in the ingress gateway route table resource to attach a route to this host.
 * <p>
-Example: `MyExampleHost`
+Example: {@code MyExampleHost}
 * 
     */
   "name": string;

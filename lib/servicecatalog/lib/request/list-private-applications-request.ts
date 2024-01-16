@@ -38,17 +38,17 @@ export interface ListPrivateApplicationsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
   /**
    * The field to use to sort listed results. You can only specify one field to sort by.
-   * Default is `TIMECREATED`.
+   * Default is {@code TIMECREATED}.
    *
    */
   "sortBy"?: ListPrivateApplicationsRequest.SortBy;
   /**
-   * The sort order to apply, either `ASC` or `DESC`. Default is `ASC`.
+   * The sort order to apply, either {@code ASC} or {@code DESC}. Default is {@code ASC}.
    */
   "sortOrder"?: ListPrivateApplicationsRequest.SortOrder;
   /**

@@ -40,14 +40,14 @@ export interface TagSummary {
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -58,12 +58,12 @@ export interface TagSummary {
    */
   "isRetired"?: boolean;
   /**
-   * The tag's current state. After creating a tag, make sure its `lifecycleState` is ACTIVE before using it. After retiring a tag, make sure its `lifecycleState` is INACTIVE before using it. If you delete a tag, you cannot delete another tag until the deleted tag's `lifecycleState` changes from DELETING to DELETED.
+   * The tag's current state. After creating a tag, make sure its {@code lifecycleState} is ACTIVE before using it. After retiring a tag, make sure its {@code lifecycleState} is INACTIVE before using it. If you delete a tag, you cannot delete another tag until the deleted tag's {@code lifecycleState} changes from DELETING to DELETED.
    */
   "lifecycleState"?: string;
   /**
    * Date and time the tag was created, in the format defined by RFC3339.
-   * Example: `2016-08-25T21:10:29.600Z`
+   * Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;

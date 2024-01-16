@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A `TCPS`-based protocol address.
+ * A {@code TCPS}-based protocol address.
  */
 export interface ExternalListenerTcpsEndpoint extends model.ExternalListenerEndpoint {
   /**

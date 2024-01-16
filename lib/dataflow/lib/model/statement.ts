@@ -27,7 +27,7 @@ export interface Statement {
   "id": number;
   /**
    * The statement code to execute.
-   * Example: `println(sc.version)`
+   * Example: {@code println(sc.version)}
    *
    */
   "code": string;
@@ -49,13 +49,13 @@ export interface Statement {
   "runId"?: string;
   /**
    * The date and time the resource was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2018-04-03T21:10:29.600Z`
+   * Example: {@code 2018-04-03T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
    * The date and time a statement execution was completed, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2022-05-31T21:10:29.600Z`
+   * Example: {@code 2022-05-31T21:10:29.600Z}
    *
    */
   "timeCompleted"?: Date;

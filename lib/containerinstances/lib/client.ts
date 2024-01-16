@@ -1107,7 +1107,8 @@ export class ContainerInstanceClient {
       "availabilityDomain": listWorkRequestsRequest.availabilityDomain,
       "status": listWorkRequestsRequest.status,
       "sortBy": listWorkRequestsRequest.sortBy,
-      "sortOrder": listWorkRequestsRequest.sortOrder
+      "sortOrder": listWorkRequestsRequest.sortOrder,
+      "resourceId": listWorkRequestsRequest.resourceId
     };
 
     let headerParams = {

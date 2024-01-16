@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines association details for an `associatedWith` relationship.
+ * Defines association details for an {@code associatedWith} relationship.
  */
 export interface TopologyAssociatedWithRelationshipDetails {
   /**

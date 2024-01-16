@@ -26,7 +26,7 @@ export interface UpdateIPSecConnectionDetails {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -40,27 +40,27 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Your identifier for your CPE device. Can be either an IP address or a hostname (specifically, the
 * fully qualified domain name (FQDN)). The type of identifier you provide here must correspond
-* to the value for `cpeLocalIdentifierType`.
+* to the value for {@code cpeLocalIdentifierType}.
 * <p>
 For information about why you'd provide this value, see
 * [If Your CPE Is Behind a NAT Device](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm#nat).
 * <p>
-Example IP address: `10.0.3.3`
+Example IP address: {@code 10.0.3.3}
 * <p>
-Example hostname: `cpe.example.com`
+Example hostname: {@code cpe.example.com}
 * 
     */
   "cpeLocalIdentifier"?: string;
   /**
    * The type of identifier for your CPE device. The value you provide here must correspond to the value
-   * for `cpeLocalIdentifier`.
+   * for {@code cpeLocalIdentifier}.
    *
    */
   "cpeLocalIdentifierType"?: UpdateIPSecConnectionDetails.CpeLocalIdentifierType;
@@ -71,9 +71,9 @@ Example hostname: `cpe.example.com`
 * IPv6 addressing is supported for all commercial and government regions.
 * See [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-Example: `10.0.1.0/24`
+Example: {@code 10.0.1.0/24}
 * <p>
-Example: `2001:db8::/32`
+Example: {@code 2001:db8::/32}
 * 
     */
   "staticRoutes"?: Array<string>;

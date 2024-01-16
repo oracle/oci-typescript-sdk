@@ -41,21 +41,21 @@ export interface TenancyAttachment {
   /**
     * Date and time the tenancy attachment was created. An RFC3339 formatted datetime string.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
     * Date and time the tenancy attachment was updated. An RFC3339 formatted datetime string.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeUpdated": Date;
   /**
     * Date and time the tenancy attachment was last attempted. An RFC3339 formatted datetime string.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeLastAttempted"?: Date;

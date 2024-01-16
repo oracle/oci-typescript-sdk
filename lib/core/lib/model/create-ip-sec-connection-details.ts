@@ -34,7 +34,7 @@ export interface CreateIPSecConnectionDetails {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -52,30 +52,30 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Your identifier for your CPE device. Can be either an IP address or a hostname (specifically, the
 * fully qualified domain name (FQDN)). The type of identifier you provide here must correspond
-* to the value for `cpeLocalIdentifierType`.
+* to the value for {@code cpeLocalIdentifierType}.
 * <p>
-If you don't provide a value, the `ipAddress` attribute for the {@link Cpe}
-* object specified by `cpeId` is used as the `cpeLocalIdentifier`.
+If you don't provide a value, the {@code ipAddress} attribute for the {@link Cpe}
+* object specified by {@code cpeId} is used as the {@code cpeLocalIdentifier}.
 * <p>
 For information about why you'd provide this value, see
 * [If Your CPE Is Behind a NAT Device](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm#nat).
 * <p>
-Example IP address: `10.0.3.3`
+Example IP address: {@code 10.0.3.3}
 * <p>
-Example hostname: `cpe.example.com`
+Example hostname: {@code cpe.example.com}
 * 
     */
   "cpeLocalIdentifier"?: string;
   /**
    * The type of identifier for your CPE device. The value you provide here must correspond to the value
-   * for `cpeLocalIdentifier`.
+   * for {@code cpeLocalIdentifier}.
    *
    */
   "cpeLocalIdentifierType"?: CreateIPSecConnectionDetails.CpeLocalIdentifierType;
@@ -92,15 +92,15 @@ Used for routing a given IPSec tunnel's traffic only if the tunnel
 The CIDR can be either IPv4 or IPv6. IPv6 addressing is supported for all commercial and government regions.
 * See [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-Example: `10.0.1.0/24`
+Example: {@code 10.0.1.0/24}
 * <p>
-Example: `2001:db8::/32`
+Example: {@code 2001:db8::/32}
 * 
     */
   "staticRoutes": Array<string>;
   /**
    * Information for creating the individual tunnels in the IPSec connection. You can provide a
-   * maximum of 2 `tunnelConfiguration` objects in the array (one for each of the
+   * maximum of 2 {@code tunnelConfiguration} objects in the array (one for each of the
    * two tunnels).
    *
    */

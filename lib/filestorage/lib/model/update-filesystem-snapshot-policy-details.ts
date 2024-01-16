@@ -24,14 +24,14 @@ export interface UpdateFilesystemSnapshotPolicyDetails {
     * A user-friendly name. It does not have to be unique, and it is changeable.
 * Avoid entering confidential information.
 * <p>
-Example: `policy1`
+Example: {@code policy1}
 * 
     */
   "displayName"?: string;
   /**
     * The prefix to apply to all snapshots created by this policy.
 * <p>
-Example: `acme`
+Example: {@code acme}
 * 
     */
   "policyPrefix"?: string;
@@ -40,9 +40,9 @@ Example: `acme`
 * <p>
 If using the CLI, provide the schedule as a list of JSON strings, with the list wrapped in
 * quotation marks, i.e.
-* ```
+* {@code 
 *   --schedules '[{\"timeZone\":\"UTC\",\"period\":\"DAILY\",\"hourOfDay\":18},{\"timeZone\":\"UTC\",\"period\":\"HOURLY\"}]'
-* ```
+* }
 * 
     */
   "schedules"?: Array<model.SnapshotSchedule>;
@@ -50,14 +50,14 @@ If using the CLI, provide the schedule as a list of JSON strings, with the list 
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * An object that represents the membership of a user in a group. When you add a user to a group, the result is a
- * `UserGroupMembership` with its own OCID. To remove a user from a group, you delete the `UserGroupMembership` object.
+ * {@code UserGroupMembership} with its own OCID. To remove a user from a group, you delete the {@code UserGroupMembership} object.
  *
  */
 export interface UserGroupMembership {
@@ -39,12 +39,12 @@ export interface UserGroupMembership {
   /**
     * Date and time the membership was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
-   * The membership's current state.  After creating a membership object, make sure its `lifecycleState` changes
+   * The membership's current state.  After creating a membership object, make sure its {@code lifecycleState} changes
    * from CREATING to ACTIVE before using it.
    *
    */

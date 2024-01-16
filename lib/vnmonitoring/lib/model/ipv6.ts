@@ -18,7 +18,7 @@ import common = require("oci-common");
 
 /**
 * An *IPv6* is a conceptual term that refers to an IPv6 address and related properties.
-* The `IPv6` object is the API representation of an IPv6.
+* The {@code IPv6} object is the API representation of an IPv6.
 * <p>
 You can create and assign an IPv6 to any VNIC that is in an IPv6-enabled subnet in an
 * IPv6-enabled VCN.
@@ -36,7 +36,7 @@ export interface Ipv6 {
   "compartmentId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -48,7 +48,7 @@ export interface Ipv6 {
   "displayName": string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -57,10 +57,10 @@ export interface Ipv6 {
    */
   "id": string;
   /**
-    * The IPv6 address of the `IPv6` object. The address is within the IPv6 CIDR block of the VNIC's subnet
-* (see the `ipv6CidrBlock` attribute for the {@link Subnet} object.
+    * The IPv6 address of the {@code IPv6} object. The address is within the IPv6 CIDR block of the VNIC's subnet
+* (see the {@code ipv6CidrBlock} attribute for the {@link Subnet} object.
 * <p>
-Example: `2001:0db8:0123:1111:abcd:ef01:2345:6789`
+Example: {@code 2001:0db8:0123:1111:abcd:ef01:2345:6789}
 * 
     */
   "ipAddress": string;
@@ -75,7 +75,7 @@ Example: `2001:0db8:0123:1111:abcd:ef01:2345:6789`
   /**
     * The date and time the IPv6 was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

@@ -15,8 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * As the name suggests, a `CustomerSecretKeySummary` object contains information about a `CustomerSecretKey`.
- * A `CustomerSecretKey` is an Oracle-provided key for using the Object Storage Service's Amazon S3 compatible API.
+ * As the name suggests, a {@code CustomerSecretKeySummary} object contains information about a {@code CustomerSecretKey}.
+ * A {@code CustomerSecretKey} is an Oracle-provided key for using the Object Storage Service's Amazon S3 compatible API.
  *
  */
 export interface CustomerSecretKeySummary {
@@ -33,9 +33,9 @@ export interface CustomerSecretKeySummary {
    */
   "displayName"?: string;
   /**
-    * Date and time the `CustomerSecretKey` object was created, in the format defined by RFC3339.
+    * Date and time the {@code CustomerSecretKey} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
@@ -43,12 +43,12 @@ Example: `2016-08-25T21:10:29.600Z`
     * Date and time when this password will expire, in the format defined by RFC3339.
 * Null if it never expires.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeExpires"?: Date;
   /**
-   * The secret key's current state. After creating a secret key, make sure its `lifecycleState` changes from
+   * The secret key's current state. After creating a secret key, make sure its {@code lifecycleState} changes from
    * CREATING to ACTIVE before using it.
    *
    */

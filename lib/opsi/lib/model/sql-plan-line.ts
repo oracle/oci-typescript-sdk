@@ -23,7 +23,7 @@ import common = require("oci-common");
 export interface SqlPlanLine {
   /**
    * Version
-   * Example: `1`
+   * Example: {@code 1}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
@@ -38,205 +38,205 @@ export interface SqlPlanLine {
   "planHash": number;
   /**
    * Collection time stamp
-   * Example: `\"2020-05-06T00:00:00.000Z\"`
+   * Example: {@code \"2020-05-06T00:00:00.000Z\"}
    *
    */
   "timeCollected": Date;
   /**
    * Operation
-   * Example: `\"SELECT STATEMENT\"`
+   * Example: {@code \"SELECT STATEMENT\"}
    *
    */
   "operation": string;
   /**
    * Remark
-   * Example: `\"\"`
+   * Example: {@code \"\"}
    *
    */
   "remark"?: string;
   /**
    * Options
-   * Example: `\"RANGE SCAN\"`
+   * Example: {@code \"RANGE SCAN\"}
    *
    */
   "options"?: string;
   /**
    * Object Node
-   * Example: `\"Q4000\"`
+   * Example: {@code \"Q4000\"}
    *
    */
   "objectNode"?: string;
   /**
    * Object Owner
-   * Example: `\"TENANT_A#SCHEMA\"`
+   * Example: {@code \"TENANT_A#SCHEMA\"}
    *
    */
   "objectOwner"?: string;
   /**
    * Object Name
-   * Example: `\"PLAN_LINES_PK\"`
+   * Example: {@code \"PLAN_LINES_PK\"}
    *
    */
   "objectName"?: string;
   /**
    * Object Alias
-   * Example: `\"PLAN_LINES@SEL$1\"`
+   * Example: {@code \"PLAN_LINES@SEL$1\"}
    *
    */
   "objectAlias"?: string;
   /**
    * Object Instance
-   * Example: `37472`
+   * Example: {@code 37472}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "objectInstance"?: number;
   /**
    * Object Type
-   * Example: `\"INDEX (UNIQUE)\"`
+   * Example: {@code \"INDEX (UNIQUE)\"}
    *
    */
   "objectType"?: string;
   /**
    * Optimizer
-   * Example: `\"CLUSTER\"`
+   * Example: {@code \"CLUSTER\"}
    *
    */
   "optimizer"?: string;
   /**
    * Search Columns
-   * Example: `3`
+   * Example: {@code 3}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "searchColumns"?: number;
   /**
    * Identifier
-   * Example: `3`
+   * Example: {@code 3}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "identifier": number;
   /**
    * Parent Identifier
-   * Example: `2`
+   * Example: {@code 2}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parentIdentifier"?: number;
   /**
    * Depth
-   * Example: `3`
+   * Example: {@code 3}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "depth"?: number;
   /**
    * Position
-   * Example: `1`
+   * Example: {@code 1}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "position"?: number;
   /**
    * Cost
-   * Example: `1`
+   * Example: {@code 1}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cost"?: number;
   /**
    * Cardinality
-   * Example: `1`
+   * Example: {@code 1}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cardinality"?: number;
   /**
    * Bytes
-   * Example: `150`
+   * Example: {@code 150}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bytes"?: number;
   /**
    * Other
-   * Example: ``
+   * Example:
    *
    */
   "other"?: string;
   /**
    * Other Tag
-   * Example: `\"PARALLEL_COMBINED_WITH_PARENT\"`
+   * Example: {@code \"PARALLEL_COMBINED_WITH_PARENT\"}
    *
    */
   "otherTag"?: string;
   /**
    * Partition start
-   * Example: `1`
+   * Example: {@code 1}
    *
    */
   "partitionStart"?: string;
   /**
    * Partition stop
-   * Example: `2`
+   * Example: {@code 2}
    *
    */
   "partitionStop"?: string;
   /**
    * Partition identifier
-   * Example: `8`
+   * Example: {@code 8}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "partitionIdentifier"?: number;
   /**
    * Distribution
-   * Example: `\"QC (RANDOM)\"`
+   * Example: {@code \"QC (RANDOM)\"}
    *
    */
   "distribution"?: string;
   /**
    * CPU cost
-   * Example: `7321`
+   * Example: {@code 7321}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCost"?: number;
   /**
    * IO cost
-   * Example: `1`
+   * Example: {@code 1}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ioCost"?: number;
   /**
    * Time space
-   * Example: `15614000`
+   * Example: {@code 15614000}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "tempSpace"?: number;
   /**
    * Access predicates
-   * Example: `\"\\\"RESOURCE_ID\\\"=:1 AND \\\"QUERY_ID\\\"=:2\"`
+   * Example: {@code \"\\\"RESOURCE_ID\\\"=:1 AND \\\"QUERY_ID\\\"=:2\"}
    *
    */
   "accessPredicates"?: string;
   /**
    * Filter predicates
-   * Example: `\"(INTERNAL_FUNCTION(\\\"J\\\".\\\"DATABASE_ROLE\\\") OR (\\\"J\\\".\\\"DATABASE_ROLE\\\" IS NULL AND SYS_CONTEXT('userenv','database_role')='PRIMARY'))\"`
+   * Example: {@code \"(INTERNAL_FUNCTION(\\\"J\\\".\\\"DATABASE_ROLE\\\") OR (\\\"J\\\".\\\"DATABASE_ROLE\\\" IS NULL AND SYS_CONTEXT('userenv','database_role')='PRIMARY'))\"}
    *
    */
   "filterPredicates"?: string;
   /**
    * Projection
-   * Example: `\"COUNT(*)[22]\"`
+   * Example: {@code \"COUNT(*)[22]\"}
    *
    */
   "projection"?: string;
   /**
    * Qblock Name
-   * Example: `\"SEL$1\"`
+   * Example: {@code \"SEL$1\"}
    *
    */
   "qblockName"?: string;
   /**
    * Total elapsed time
-   * Example: `1.2`
+   * Example: {@code 1.2}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "elapsedTimeInSec"?: number;
   /**
    * Other SQL
-   * Example: `\"<other_xml><info type=\\\"db_version\\\">18.0.0.0</info><info type=\\\"parse_schema\\\"><![CDATA[\\\"SYS\\\"]]></info><info type=\\\"plan_hash_full\\\">483892784</info><info type=\\\"plan_hash\\\">2709293936</info><info type=\\\"plan_hash_2\\\">483892784</info><outline_data><hint><![CDATA[IGNORE_OPTIM_EMBEDDED_HINTS]]></hint><hint><![CDATA[OPTIMIZER_FEATURES_ENABLE('18.1.0')]]></hint><hint><![CDATA[DB_VERSION('18.1.0')]]></hint><hint><![CDATA[OPT_PARAM('_b_tree_bitmap_plans' 'false')]]></hint><hint><![CDATA[OPT_PARAM('_optim_peek_user_binds' 'false')]]></hint><hint><![CDATA[OPT_PARAM('result_cache_mode' 'FORCE')]]></hint><hint><![CDATA[OPT_PARAM('_fix_control' '20648883:0 27745220:1 30001331:1 30142527:1 30539126:1')]]></hint><hint><![CDATA[OUTLINE_LEAF(@\\\"SEL$1\\\")]]></hint><hint><![CDATA[INDEX(@\\\"SEL$1\\\" \\\"USER$\\\"@\\\"SEL$1\\\" \\\"I_USER#\\\")]]></hint></outline_data></other_xml>\"`
+   * Example: {@code \"<other_xml><info type=\\\"db_version\\\">18.0.0.0</info><info type=\\\"parse_schema\\\"><![CDATA[\\\"SYS\\\"]]></info><info type=\\\"plan_hash_full\\\">483892784</info><info type=\\\"plan_hash\\\">2709293936</info><info type=\\\"plan_hash_2\\\">483892784</info><outline_data><hint><![CDATA[IGNORE_OPTIM_EMBEDDED_HINTS]]></hint><hint><![CDATA[OPTIMIZER_FEATURES_ENABLE('18.1.0')]]></hint><hint><![CDATA[DB_VERSION('18.1.0')]]></hint><hint><![CDATA[OPT_PARAM('_b_tree_bitmap_plans' 'false')]]></hint><hint><![CDATA[OPT_PARAM('_optim_peek_user_binds' 'false')]]></hint><hint><![CDATA[OPT_PARAM('result_cache_mode' 'FORCE')]]></hint><hint><![CDATA[OPT_PARAM('_fix_control' '20648883:0 27745220:1 30001331:1 30142527:1 30539126:1')]]></hint><hint><![CDATA[OUTLINE_LEAF(@\\\"SEL$1\\\")]]></hint><hint><![CDATA[INDEX(@\\\"SEL$1\\\" \\\"USER$\\\"@\\\"SEL$1\\\" \\\"I_USER#\\\")]]></hint></outline_data></other_xml>\"}
    *
    */
   "otherXML"?: string;

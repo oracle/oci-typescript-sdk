@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of `OdaServiceInstance` object.
+ * Description of {@code OdaServiceInstance} object.
  */
 export interface OdaInstance {
   /**
@@ -66,19 +66,19 @@ export interface OdaInstance {
   "lifecycleSubState"?: OdaInstance.LifecycleSubState;
   /**
    * A message that describes the current state in more detail.
-   * For example, actionable information about an instance that's in the `FAILED` state.
+   * For example, actionable information about an instance that's in the {@code FAILED} state.
    *
    */
   "stateMessage"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type, or scope.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

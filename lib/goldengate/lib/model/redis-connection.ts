@@ -28,7 +28,7 @@ export interface RedisConnection extends model.Connection {
    * Comma separated list of Redis server addresses, specified as host:port entries, where :port is optional.
    * If port is not specified, it defaults to 6379.
    * Used for establishing the initial connection to the Redis cluster.
-   * Example: `\"server1.example.com:6379,server2.example.com:6379\"`
+   * Example: {@code \"server1.example.com:6379,server2.example.com:6379\"}
    *
    */
   "servers": string;

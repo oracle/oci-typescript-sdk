@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface CreateZoneDetails extends model.CreateZoneBaseDetails {
   /**
-   * The type of the zone. Must be either `PRIMARY` or `SECONDARY`. `SECONDARY` is only supported for GLOBAL
+   * The type of the zone. Must be either {@code PRIMARY} or {@code SECONDARY}. {@code SECONDARY} is only supported for GLOBAL
    * zones.
    *
    */
@@ -39,14 +39,14 @@ export interface CreateZoneDetails extends model.CreateZoneBaseDetails {
    */
   "scope"?: model.Scope;
   /**
-   * External master servers for the zone. `externalMasters` becomes a
-   * required parameter when the `zoneType` value is `SECONDARY`.
+   * External master servers for the zone. {@code externalMasters} becomes a
+   * required parameter when the {@code zoneType} value is {@code SECONDARY}.
    *
    */
   "externalMasters"?: Array<model.ExternalMaster>;
   /**
    * External secondary servers for the zone.
-   * This field is currently not supported when `zoneType` is `SECONDARY` or `scope` is `PRIVATE`.
+   * This field is currently not supported when {@code zoneType} is {@code SECONDARY} or {@code scope} is {@code PRIVATE}.
    *
    */
   "externalDownstreams"?: Array<model.ExternalDownstream>;

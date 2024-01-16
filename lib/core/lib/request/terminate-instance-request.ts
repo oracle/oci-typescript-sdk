@@ -23,7 +23,7 @@ export interface TerminateInstanceRequest extends common.BaseRequest {
    */
   "instanceId": string;
   /**
-   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match`
+   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match}
    * parameter to the value of the etag from a previous GET or POST response for that resource. The resource
    * will be updated or deleted only if the etag you provide matches the resource's current etag value.
    *
@@ -31,7 +31,7 @@ export interface TerminateInstanceRequest extends common.BaseRequest {
   "ifMatch"?: string;
   /**
    * Specifies whether to delete or preserve the boot volume when terminating an instance.
-   * When set to `true`, the boot volume is preserved. The default value is `false`.
+   * When set to {@code true}, the boot volume is preserved. The default value is {@code false}.
    *
    */
   "preserveBootVolume"?: boolean;

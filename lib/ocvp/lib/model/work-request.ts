@@ -50,19 +50,19 @@ export interface WorkRequest {
     * The date and time the work request was created, in the format defined by
 * [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeAccepted": Date;
   /**
-   * The date and time the work request transitioned from `ACCEPTED` to `IN_PROGRESS`,
+   * The date and time the work request transitioned from {@code ACCEPTED} to {@code IN_PROGRESS},
    * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the work request reached a terminal state, either `FAILED` OR
-   * `SUCCEEDED`. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * The date and time the work request reached a terminal state, either {@code FAILED} OR
+   * {@code SUCCEEDED}. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeFinished"?: Date;

@@ -23,8 +23,8 @@ export interface ListNetworkSecurityGroupSecurityRulesRequest extends common.Bas
    */
   "networkSecurityGroupId": string;
   /**
-   * Direction of the security rule. Set to `EGRESS` for rules that allow outbound IP packets,
-   * or `INGRESS` for rules that allow inbound IP packets.
+   * Direction of the security rule. Set to {@code EGRESS} for rules that allow outbound IP packets,
+   * or {@code INGRESS} for rules that allow inbound IP packets.
    *
    */
   "direction"?: ListNetworkSecurityGroupSecurityRulesRequest.Direction;
@@ -33,12 +33,12 @@ export interface ListNetworkSecurityGroupSecurityRulesRequest extends common.Bas
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -49,7 +49,7 @@ Example: `50`
    */
   "sortBy"?: ListNetworkSecurityGroupSecurityRulesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The DISPLAYNAME sort order
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). The DISPLAYNAME sort order
    * is case sensitive.
    *
    */

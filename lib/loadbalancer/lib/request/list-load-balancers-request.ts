@@ -32,47 +32,47 @@ export interface ListLoadBalancersRequest extends common.BaseRequest {
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
- * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call.
+ * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `3`
+Example: {@code 3}
 * 
  */
   "page"?: string;
   /**
- * The level of detail to return for each result. Can be `full` or `simple`.
+ * The level of detail to return for each result. Can be {@code full} or {@code simple}.
 * <p>
-Example: `full`
+Example: {@code full}
 * 
  */
   "detail"?: string;
   /**
-   * The field to sort by.  You can provide one sort order (`sortOrder`). Default order for TIMECREATED is descending.
+   * The field to sort by.  You can provide one sort order ({@code sortOrder}). Default order for TIMECREATED is descending.
    * Default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
    *
    */
   "sortBy"?: ListLoadBalancersRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The DISPLAYNAME sort order is case sensitive.
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). The DISPLAYNAME sort order is case sensitive.
    *
    */
   "sortOrder"?: ListLoadBalancersRequest.SortOrder;
   /**
  * A filter to return only resources that match the given display name exactly.
 * <p>
-Example: `example_load_balancer`
+Example: {@code example_load_balancer}
 * 
  */
   "displayName"?: string;
   /**
  * A filter to return only resources that match the given lifecycle state.
 * <p>
-Example: `SUCCEEDED`
+Example: {@code SUCCEEDED}
 * 
  */
   "lifecycleState"?: string;
