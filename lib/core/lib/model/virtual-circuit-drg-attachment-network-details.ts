@@ -29,7 +29,7 @@ export interface VirtualCircuitDrgAttachmentNetworkDetails
   /**
     * Boolean flag that determines wether all traffic over the virtual circuits is encrypted.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "transportOnlyMode"?: boolean;

@@ -26,7 +26,7 @@ export interface RemoveVcnIpv6CidrDetails {
 * from a VCN's IPv6 address space.
 * See[IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-Example: `2001:0db8:0123::/56`
+Example: {@code 2001:0db8:0123::/56}
 * 
     */
   "ipv6CidrBlock"?: string;

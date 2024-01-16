@@ -57,7 +57,7 @@ export interface SdkLanguageOptionalParameters {
   "inputType"?: SdkLanguageOptionalParameters.InputType;
   /**
    * List of allowed input values.
-   * Example: `[{\"name\": \"name1\", \"description\": \"description1\"}, ...]`
+   * Example: {@code [{\"name\": \"name1\", \"description\": \"description1\"}, ...]}
    *
    */
   "allowedValues"?: Array<model.SdkLanguageOptionalParametersAllowedValue>;

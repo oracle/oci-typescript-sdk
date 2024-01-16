@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface RevocationStatus {
   /**
    * The time when the entity was revoked, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeOfRevocation": Date;

@@ -41,20 +41,20 @@ export interface ListAutoScalingConfigurationsRequest extends common.BaseRequest
    */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call. For important
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call. For important
    * details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`). Default order for
+   * The field to sort by. You can provide one sort order ({@code sortOrder}). Default order for
    * TIMECREATED is descending. Default order for DISPLAYNAME is ascending. The DISPLAYNAME
    * sort order is case sensitive.
    *
    */
   "sortBy"?: ListAutoScalingConfigurationsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The DISPLAYNAME sort order
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). The DISPLAYNAME sort order
    * is case sensitive.
    *
    */

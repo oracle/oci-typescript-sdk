@@ -25,13 +25,13 @@ export interface UploadPartRequest extends common.BaseRequest {
   "namespaceName": string;
   /**
    * The name of the bucket. Avoid entering confidential information.
-   * Example: `my-new-bucket1`
+   * Example: {@code my-new-bucket1}
    *
    */
   "bucketName": string;
   /**
    * The name of the object. Avoid entering confidential information.
-   * Example: `test/object1.log`
+   * Example: {@code test/object1.log}
    *
    */
   "objectName": string;
@@ -69,7 +69,7 @@ export interface UploadPartRequest extends common.BaseRequest {
    */
   "ifNoneMatch"?: string;
   /**
-   * A value of `100-continue` requests preliminary verification of the request method, path, and headers before the request body is sent.
+   * A value of {@code 100-continue} requests preliminary verification of the request method, path, and headers before the request body is sent.
    * If no error results from such verification, the server will send a 100 (Continue) interim response to indicate readiness for the request body.
    * The only allowed value for this parameter is \"100-Continue\" (case-insensitive).
    *

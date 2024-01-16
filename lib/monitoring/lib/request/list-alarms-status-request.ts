@@ -23,7 +23,7 @@ export interface ListAlarmsStatusRequest extends common.BaseRequest {
 * resources monitored by the metric that you are searching for. Use tenancyId to search in
 * the root compartment.
 * <p>
-Example: `ocid1.compartment.oc1..exampleuniqueID`
+Example: {@code ocid1.compartment.oc1..exampleuniqueID}
 * 
  */
   "compartmentId": string;
@@ -43,7 +43,7 @@ Example: `ocid1.compartment.oc1..exampleuniqueID`
    */
   "compartmentIdInSubtree"?: boolean;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call.
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
    * For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -69,22 +69,22 @@ Example: 500
   /**
  * The field to use when sorting returned alarm definitions. Only one sorting level is provided.
 * <p>
-Example: `severity`
+Example: {@code severity}
 * 
  */
   "sortBy"?: ListAlarmsStatusRequest.SortBy;
   /**
  * The sort order to use when sorting returned alarm definitions. Ascending (ASC) or descending (DESC).
 * <p>
-Example: `ASC`
+Example: {@code ASC}
 * 
  */
   "sortOrder"?: ListAlarmsStatusRequest.SortOrder;
   /**
- * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a resource that is monitored by the
-* metric that you are searching for.
+ * A filter to return only the resource with the specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* The resource must be monitored by the metric that you are searching for.
 * <p>
-Example: `ocid1.instance.oc1.phx.exampleuniqueID`
+Example: {@code ocid1.instance.oc1.phx.exampleuniqueID}
 * 
  */
   "resourceId"?: string;
@@ -92,24 +92,23 @@ Example: `ocid1.instance.oc1.phx.exampleuniqueID`
  * A filter to return only resources that match the given service name exactly.
 * Use this filter to list all alarms containing metric streams that match the *exact* service-name dimension.
 * <p>
-Example: `logging-analytics`
+Example: {@code logging-analytics}
 * 
  */
   "serviceName"?: string;
   /**
- * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the entity monitored by the
-* metric that you are searching for.
+ * A filter to return only resources that match the given entity [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) exactly.
+* The resource (entity) must be monitored by the metric that you are searching for.
 * <p>
-Example: `ocid1.instance.oc1.phx.exampleuniqueID`
+Example: {@code ocid1.instance.oc1.phx.exampleuniqueID}
 * 
  */
   "entityId"?: string;
   /**
- * The status of the metric stream to use for alarm filtering. For example, set `StatusQueryParam` to
-* \"FIRING\" to filter results to metric streams of the alarm with that status. Default behaviour is to return
-* alarms irrespective of metric streams' status.
+ * A filter to return only metric streams that match the specified status.
+* For example, the value \"FIRING\" returns only firing metric streams.
 * <p>
-Example: `FIRING`
+Example: {@code FIRING}
 * 
  */
   "status"?: ListAlarmsStatusRequest.Status;

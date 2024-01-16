@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The payload of the event. Information within `data` comes from the resource emitting the event.
+ * The payload of the event. Information within {@code data} comes from the resource emitting the event.
  *
  */
 export interface Data {
@@ -33,7 +33,7 @@ export interface Data {
   /**
     * Name of the API operation that generated this event.
 * <p>
-Example: `GetInstance`
+Example: {@code GetInstance}
 * 
     */
   "eventName"?: string;
@@ -48,7 +48,7 @@ Example: `GetInstance`
 * This value can change, but the service logs the value that appeared at the time of the audit
 * event.
 * <p>
-Example: `CompartmentA`
+Example: {@code CompartmentA}
 * 
     */
   "compartmentName"?: string;
@@ -73,7 +73,7 @@ Example: `CompartmentA`
 * type, or namespace. Exists for cross-compatibility only. For more information, 
 * see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -81,7 +81,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more
 * information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

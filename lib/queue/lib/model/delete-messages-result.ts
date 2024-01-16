@@ -28,9 +28,9 @@ export interface DeleteMessagesResult {
   "clientFailures": number;
   /**
    * An array of items representing the result of each action.
-   * The order is guaranteed to be the same as in the `DeleteMessagesDetails` object.
+   * The order is guaranteed to be the same as in the {@code DeleteMessagesDetails} object.
    * If a message was successfully deleted from the queue, the entry does not contain any fields.
-   * If a message failed to be deleted from the queue, the entry includes the `errorCode` and `errorMessage` fields.
+   * If a message failed to be deleted from the queue, the entry includes the {@code errorCode} and {@code errorMessage} fields.
    *
    */
   "entries": Array<model.DeleteMessagesResultEntry>;

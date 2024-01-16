@@ -25,7 +25,7 @@ export interface DrPlanStepExecution {
   /**
     * The unique id of the step. Must not be modified by user.
 * <p>
-Example: `sgid1.step..uniqueID`
+Example: {@code sgid1.step..uniqueID}
 * 
     */
   "stepId": string;
@@ -37,14 +37,14 @@ Example: `sgid1.step..uniqueID`
   /**
     * The unique id of the group to which this step belongs. Must not be modified by user.
 * <p>
-Example: `sgid1.group..uniqueID`
+Example: {@code sgid1.group..uniqueID}
 * 
     */
   "groupId": string;
   /**
     * The display name of the step execution.
 * <p>
-Example: `DATABASE_SWITCHOVER`
+Example: {@code DATABASE_SWITCHOVER}
 * 
     */
   "displayName": string;
@@ -57,28 +57,28 @@ Example: `DATABASE_SWITCHOVER`
   /**
     * Additional details on the step execution status.
 * <p>
-Example: `This step failed to complete due to a timeout`
+Example: {@code This step failed to complete due to a timeout}
 * 
     */
   "statusDetails"?: string;
   /**
     * The time when step execution began. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeStarted"?: Date;
   /**
     * The time when execution ended. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeEnded"?: Date;
   /**
     * The total duration in seconds taken to complete the step execution.
 * <p>
-Example: `35`
+Example: {@code 35}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "executionDurationInSec"?: number;

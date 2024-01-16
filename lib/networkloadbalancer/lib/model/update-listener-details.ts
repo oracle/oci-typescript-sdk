@@ -24,14 +24,14 @@ export interface UpdateListenerDetails {
   /**
     * The name of the associated backend set.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
     */
   "defaultBackendSetName"?: string;
   /**
     * The communication port for the listener.
 * <p>
-Example: `80`
+Example: {@code 80}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port"?: number;
@@ -42,7 +42,7 @@ Example: `80`
 * To get a list of valid protocols, use the {@link #listNetworkLoadBalancersProtocols(ListNetworkLoadBalancersProtocolsRequest) listNetworkLoadBalancersProtocols}
 * operation.
 * <p>
-Example: `TCP`
+Example: {@code TCP}
 * 
     */
   "protocol"?: model.ListenerProtocols;

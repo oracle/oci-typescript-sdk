@@ -26,12 +26,12 @@ export interface ListSnapshotsRequest extends common.BaseRequest {
 For important details about how pagination works,
 * see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `100`
+Example: {@code 100}
 * 
  */
   "limit"?: number;
   /**
- * For list pagination. The value of the `opc-next-page` response
+ * For list pagination. The value of the {@code opc-next-page} response
 * header from the previous \"List\" call.
 * <p>
 For important details about how pagination works,

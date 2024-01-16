@@ -27,7 +27,7 @@ import common = require("oci-common");
  */
 export interface BootVolumeKmsKey {
   /**
-   * The OCID of the Vault service key assigned to this volume. If the volume is not using Vault service, then the `kmsKeyId` will be a null string.
+   * The OCID of the Vault service key assigned to this volume. If the volume is not using Vault service, then the {@code kmsKeyId} will be a null string.
    *
    */
   "kmsKeyId"?: string;

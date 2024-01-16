@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of `WorkRequestSummary` items.
+ * List of {@code WorkRequestSummary} items.
  */
 export interface WorkRequestCollection {
   /**
-   * Array of `WorkRequestSummary` items.
+   * Array of {@code WorkRequestSummary} items.
    */
   "items": Array<model.WorkRequestSummary>;
 }

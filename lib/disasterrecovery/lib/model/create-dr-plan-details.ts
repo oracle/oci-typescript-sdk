@@ -25,7 +25,7 @@ export interface CreateDrPlanDetails {
   /**
     * The display name of the DR plan being created.
 * <p>
-Example: `EBS Switchover PHX to IAD`
+Example: {@code EBS Switchover PHX to IAD}
 * 
     */
   "displayName": string;
@@ -37,21 +37,21 @@ Example: `EBS Switchover PHX to IAD`
   /**
     * The OCID of the DR protection group to which this DR plan belongs.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
     */
   "drProtectionGroupId": string;
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

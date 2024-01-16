@@ -34,7 +34,7 @@ export interface CreateImageDetails {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -44,7 +44,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * <p>
 You cannot use a platform image name as a custom image name.
 * <p>
-Example: `My Oracle Linux image`
+Example: {@code My Oracle Linux image}
 * 
     */
   "displayName"?: string;
@@ -52,7 +52,7 @@ Example: `My Oracle Linux image`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -66,10 +66,10 @@ Example: `{\"Department\": \"Finance\"}`
   "instanceId"?: string;
   /**
    * Specifies the configuration mode for launching virtual machine (VM) instances. The configuration modes are:
-   * * `NATIVE` - VM instances launch with paravirtualized boot and VFIO devices. The default value for platform images.
-   * * `EMULATED` - VM instances launch with emulated devices, such as the E1000 network driver and emulated SCSI disk controller.
-   * * `PARAVIRTUALIZED` - VM instances launch with paravirtualized devices using VirtIO drivers.
-   * * `CUSTOM` - VM instances launch with custom configuration settings specified in the `LaunchOptions` parameter.
+   * * {@code NATIVE} - VM instances launch with paravirtualized boot and VFIO devices. The default value for platform images.
+   * * {@code EMULATED} - VM instances launch with emulated devices, such as the E1000 network driver and emulated SCSI disk controller.
+   * * {@code PARAVIRTUALIZED} - VM instances launch with paravirtualized devices using VirtIO drivers.
+   * * {@code CUSTOM} - VM instances launch with custom configuration settings specified in the {@code LaunchOptions} parameter.
    *
    */
   "launchMode"?: CreateImageDetails.LaunchMode;

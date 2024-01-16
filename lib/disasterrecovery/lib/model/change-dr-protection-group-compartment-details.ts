@@ -25,7 +25,7 @@ export interface ChangeDrProtectionGroupCompartmentDetails {
   /**
     * The OCID of the compartment to which the DR protection group should be moved.
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
     */
   "compartmentId": string;

@@ -86,7 +86,7 @@ export interface CreateEntityDetails {
    * optional properties for an entity type, a query can be done on '/types?type=dataEntity' that returns a
    * collection of all entity types. The appropriate entity type, which includes definitions of all of
    * it's properties, can be identified from this collection.
-   * Example: `{\"properties\": { \"default\": { \"key1\": \"value1\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"key1\": \"value1\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

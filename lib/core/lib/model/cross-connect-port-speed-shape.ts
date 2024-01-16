@@ -29,14 +29,14 @@ export interface CrossConnectPortSpeedShape {
   /**
     * The name of the port speed shape.
 * <p>
-Example: `10 Gbps`
+Example: {@code 10 Gbps}
 * 
     */
   "name": string;
   /**
     * The port speed in Gbps.
 * <p>
-Example: `10`
+Example: {@code 10}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "portSpeedInGbps": number;

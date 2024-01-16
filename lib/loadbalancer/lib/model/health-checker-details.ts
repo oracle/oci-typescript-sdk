@@ -23,29 +23,29 @@ export interface HealthCheckerDetails {
   /**
     * The protocol the health check must use; either HTTP or TCP.
 * <p>
-Example: `HTTP`
+Example: {@code HTTP}
 * 
     */
   "protocol": string;
   /**
     * The path against which to run the health check.
 * <p>
-Example: `/healthcheck`
+Example: {@code /healthcheck}
 * 
     */
   "urlPath"?: string;
   /**
     * The backend server port against which to run the health check. If the port is not specified, the load balancer uses the
-* port information from the `Backend` object.
+* port information from the {@code Backend} object.
 * <p>
-Example: `8080`
+Example: {@code 8080}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port"?: number;
   /**
     * The status code a healthy backend server should return.
 * <p>
-Example: `200`
+Example: {@code 200}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "returnCode"?: number;
@@ -53,7 +53,7 @@ Example: `200`
     * The number of retries to attempt before a backend server is considered \"unhealthy\". This number also applies
 * when recovering a server to the \"healthy\" state.
 * <p>
-Example: `3`
+Example: {@code 3}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "retries"?: number;
@@ -61,21 +61,21 @@ Example: `3`
     * The maximum time, in milliseconds, to wait for a reply to a health check. A health check is successful only if a reply
 * returns within this timeout period.
 * <p>
-Example: `3000`
+Example: {@code 3000}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "timeoutInMillis"?: number;
   /**
     * The interval between health checks, in milliseconds.
 * <p>
-Example: `10000`
+Example: {@code 10000}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "intervalInMillis"?: number;
   /**
     * A regular expression for parsing the response body from the backend server.
 * <p>
-Example: `^((?!false).|\\s)*$`
+Example: {@code ^((?!false).|\\s)*$}
 * 
     */
   "responseBodyRegex"?: string;
@@ -89,7 +89,7 @@ If \"true\", health checks will be done using plain text even if the associated 
 If \"false\", health checks will be done using SSL encryption if the associated backend set is configured
 * to use SSL. If the backend set is not so configured the health checks will be done using plain text.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isForcePlainText"?: boolean;

@@ -41,7 +41,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
  * The name of the availability domain.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
  */
   "availabilityDomain"?: string;
@@ -57,6 +57,10 @@ Example: `Uocm:PHX-AD-1`
    * The sort order to use, either ascending (ASC) or descending (DESC).
    */
   "sortOrder"?: model.SortOrder;
+  /**
+   * The OCID of the resource affected by the work request.
+   */
+  "resourceId"?: string;
 }
 
 export namespace ListWorkRequestsRequest {

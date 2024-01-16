@@ -33,14 +33,14 @@ export interface CreateGovernanceRuleDetails {
   /**
     * Type of the governance rule, can be one of QUOTA, TAG, ALLOWED_REGIONS.
 * <p>
-Example: `QUOTA`
+Example: {@code QUOTA}
 * 
     */
   "type": model.GovernanceRuleType;
   /**
     * The type of option used to create the governance rule, could be one of TEMPLATE or CLONE.
 * <p>
-Example: `TEMPLATE`
+Example: {@code TEMPLATE}
 * 
     */
   "creationOption": model.CreationOption;
@@ -51,13 +51,13 @@ Example: `TEMPLATE`
   "relatedResourceId"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

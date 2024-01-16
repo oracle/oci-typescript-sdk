@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -27,7 +27,7 @@ export interface SummarizeMetricsDataDetails {
   /**
     * The source service or application to use when searching for metric data points to aggregate.
 * <p>
-Example: `oci_computeagent`
+Example: {@code oci_computeagent}
 * 
     */
   "namespace": string;
@@ -35,7 +35,7 @@ Example: `oci_computeagent`
     * Resource group that you want to match. A null value returns only metric data that has no resource groups. The specified resource group must exist in the definition of the posted metric. Only one resource group can be applied per metric.
 * A valid resourceGroup value starts with an alphabetical character and includes only alphanumeric characters, periods (.), underscores (_), hyphens (-), and dollar signs ($).
 * <p>
-Example: `frontend-fleet`
+Example: {@code frontend-fleet}
 * 
     */
   "resourceGroup"?: string;
@@ -44,7 +44,8 @@ Example: `frontend-fleet`
 * aggregate. The query must specify a metric, statistic, and interval.
 * Supported values for interval depend on the specified time range. More interval values are supported for smaller time ranges.
 * You can optionally specify dimensions and grouping functions.
-* Supported grouping functions: `grouping()`, `groupBy()`.
+* When specifying a dimension value, surround it with double quotes, and escape each double quote with a backslash ({@code \\}) character.
+* Supported grouping functions: {@code grouping()}, {@code groupBy()}.
 * <p>
 Construct your query to avoid exceeding limits on returned data. See {@link MetricData}.
 * <p>
@@ -53,7 +54,9 @@ For details about Monitoring Query Language (MQL), see
 * For available dimensions, review the metric definition for the supported service. See
 * [Supported Services](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#SupportedServices).
 * <p>
-Example: `CpuUtilization[1m].sum()`
+Example 1: {@code CpuUtilization[1m].sum()}
+* <p>
+Example 2 (escaped double quotes for value string): {@code CpuUtilization[1m]{resourceId = \\\"<var>&lt;instance_OCID&gt;</var>\\\"}.max()}
 * 
     */
   "query": string;
@@ -62,7 +65,7 @@ Example: `CpuUtilization[1m].sum()`
 * Format is defined by RFC3339. The response includes metric data points for the startTime.
 * Default value: the timestamp 3 hours before the call was sent.
 * <p>
-Example: `2019-02-01T01:02:29.600Z`
+Example: {@code 2023-02-01T01:02:29.600Z}
 * 
     */
   "startTime"?: Date;
@@ -71,7 +74,7 @@ Example: `2019-02-01T01:02:29.600Z`
 * Format is defined by RFC3339. The response excludes metric data points for the endTime.
 * Default value: the timestamp representing when the call was sent.
 * <p>
-Example: `2019-02-01T02:02:29.600Z`
+Example: {@code 2023-02-01T02:02:29.600Z}
 * 
     */
   "endTime"?: Date;
@@ -80,9 +83,9 @@ Example: `2019-02-01T02:02:29.600Z`
 * frequency for returning aggregated data points. For example, use a query interval of
 * 5 minutes with a resolution of 1 minute to retrieve five-minute aggregations at a one-minute
 * frequency. The resolution must be equal or less than the interval in the query. The default
-* resolution is 1m (one minute). Supported values: `1m`-`60m`, `1h`-`24h`, `1d`.
+* resolution is 1m (one minute). Supported values: {@code 1m}-{@code 60m}, {@code 1h}-{@code 24h}, {@code 1d}.
 * <p>
-Example: `5m`
+Example: {@code 5m}
 * 
     */
   "resolution"?: string;

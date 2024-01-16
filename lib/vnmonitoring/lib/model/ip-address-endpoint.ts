@@ -17,12 +17,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the details required for an IP_ADDRESS-type `Endpoint`.
+ * Defines the details required for an IP_ADDRESS-type {@code Endpoint}.
  *
  */
 export interface IpAddressEndpoint extends model.Endpoint {
   /**
-   * The IPv4 address of the `Endpoint`.
+   * The IPv4 address of the {@code Endpoint}.
    *
    */
   "address": string;

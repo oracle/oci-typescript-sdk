@@ -31,14 +31,14 @@ export interface Request {
   /**
     * The full path of the API request.
 * <p>
-Example: `/20160918/instances/ocid1.instance.oc1.phx.<unique_ID>`
+Example: {@code /20160918/instances/ocid1.instance.oc1.phx.<unique_ID>}
 * 
     */
   "path"?: string;
   /**
     * The HTTP method of the request.
 * <p>
-Example: `GET`
+Example: {@code GET}
 * 
     */
   "action"?: string;

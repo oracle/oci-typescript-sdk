@@ -29,21 +29,21 @@ export interface LoadBalancerBackendSetMappingDetails {
 * Backend sets that point to movable instances are emptied and their contents are transferred to the 
 * destination region load balancer.  For movable instances this flag should be set to 'false'. 
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isBackendSetForNonMovable": boolean;
   /**
     * The name of the source backend set.
 * <p>
-Example: `Source-BackendSet-1`
+Example: {@code Source-BackendSet-1}
 * 
     */
   "sourceBackendSetName": string;
   /**
     * The name of the destination backend set.
 * <p>
-Example: `Destination-BackendSet-1`
+Example: {@code Destination-BackendSet-1}
 * 
     */
   "destinationBackendSetName": string;

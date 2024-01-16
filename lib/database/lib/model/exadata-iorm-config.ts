@@ -26,13 +26,13 @@ export interface ExadataIormConfig {
    */
   "lifecycleState"?: ExadataIormConfig.LifecycleState;
   /**
-   * Additional information about the current `lifecycleState`.
+   * Additional information about the current {@code lifecycleState}.
    *
    */
   "lifecycleDetails"?: string;
   /**
    * The current value for the IORM objective.
-   * The default is `AUTO`.
+   * The default is {@code AUTO}.
    *
    */
   "objective"?: ExadataIormConfig.Objective;

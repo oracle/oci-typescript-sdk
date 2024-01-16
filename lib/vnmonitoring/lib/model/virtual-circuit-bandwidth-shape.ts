@@ -24,14 +24,14 @@ export interface VirtualCircuitBandwidthShape {
   /**
     * The bandwidth in Mbps.
 * <p>
-Example: `10000`
+Example: {@code 10000}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "bandwidthInMbps"?: number;
   /**
     * The name of the bandwidth shape.
 * <p>
-Example: `10 Gbps`
+Example: {@code 10 Gbps}
 * 
     */
   "name": string;

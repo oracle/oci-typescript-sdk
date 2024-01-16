@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface UpdateRoutingPolicyDetails {
   /**
-   * The version of the language in which `condition` of `rules` are composed.
+   * The version of the language in which {@code condition} of {@code rules} are composed.
    *
    */
   "conditionLanguageVersion"?: UpdateRoutingPolicyDetails.ConditionLanguageVersion;

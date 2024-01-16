@@ -23,7 +23,7 @@ import common = require("oci-common");
 export interface SqlBucket {
   /**
    * Version
-   * Example: `1`
+   * Example: {@code 1}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
@@ -33,7 +33,7 @@ export interface SqlBucket {
   "databaseType"?: string;
   /**
    * Collection timestamp
-   * Example: `\"2020-03-31T00:00:00.000Z\"`
+   * Example: {@code \"2020-03-31T00:00:00.000Z\"}
    *
    */
   "timeCollected": Date;
@@ -48,37 +48,37 @@ export interface SqlBucket {
   "planHash": number;
   /**
    * SQL Bucket ID, examples <= 3 secs, 3-10 secs, 10-60 secs, 1-5 min, > 5 min
-   * Example: `\"<= 3 secs\"`
+   * Example: {@code \"<= 3 secs\"}
    *
    */
   "bucketId": string;
   /**
    * Total number of executions
-   * Example: `60`
+   * Example: {@code 60}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "executionsCount"?: number;
   /**
    * Total CPU time
-   * Example: `1046`
+   * Example: {@code 1046}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuTimeInSec"?: number;
   /**
    * Total IO time
-   * Example: `5810`
+   * Example: {@code 5810}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ioTimeInSec"?: number;
   /**
    * Total other wait time
-   * Example: `24061`
+   * Example: {@code 24061}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "otherWaitTimeInSec"?: number;
   /**
    * Total time
-   * Example: `30917`
+   * Example: {@code 30917}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalTimeInSec"?: number;

@@ -31,7 +31,7 @@ export interface SpmEvolveTaskParameters {
   "alternatePlanBaselines"?: Array<SpmEvolveTaskParameters.AlternatePlanBaselines>;
   /**
    * Specifies the maximum number of plans to load in total (that is, not
-   * the limit for each SQL statement). A value of zero indicates `UNLIMITED`
+   * the limit for each SQL statement). A value of zero indicates {@code UNLIMITED}
    * number of plans.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

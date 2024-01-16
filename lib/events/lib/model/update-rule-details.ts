@@ -35,7 +35,7 @@ export interface UpdateRuleDetails {
   /**
     * Whether or not this rule is currently enabled.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isEnabled"?: boolean;
@@ -44,7 +44,7 @@ Example: `true`
 * important things to remember about filters:
 * <p>
 * Fields not mentioned in the condition are ignored. You can create a valid filter that matches
-* all events with two curly brackets: `{}` 
+* all events with two curly brackets: {@code {}} 
 * <p>
   For more examples, see 
 * [Matching Events with Filters](https://docs.cloud.oracle.com/iaas/Content/Events/Concepts/filterevents.htm).       
@@ -62,7 +62,7 @@ Example: `true`
   For examples of wildcard matching, see 
 * [Matching Events with Filters](https://docs.cloud.oracle.com/iaas/Content/Events/Concepts/filterevents.htm)
 * <p>
-Example: `\\\"eventType\\\": \\\"com.oraclecloud.databaseservice.autonomous.database.backup.end\\\"`
+Example: {@code \\\"eventType\\\": \\\"com.oraclecloud.databaseservice.autonomous.database.backup.end\\\"}
 * 
     */
   "condition"?: string;
@@ -71,14 +71,14 @@ Example: `\\\"eventType\\\": \\\"com.oraclecloud.databaseservice.autonomous.data
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. Exists for cross-compatibility only.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

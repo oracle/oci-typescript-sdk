@@ -26,7 +26,7 @@ export interface UpdateBlockVolumeMountDetails {
   /**
     * The physical mount point used for mounting the file system on a block volume.
 * <p>
-Example: `/mnt/yourmountpoint`
+Example: {@code /mnt/yourmountpoint}
 * 
     */
   "mountPoint"?: string;

@@ -36,10 +36,10 @@ export interface TagDefault {
 * the user creating the resource or another tag default). If no value is set, resource
 * creation is blocked.
 * <p>
-* If the `isRequired` flag is set to \"true\", the value is set during resource creation.
-* * If the `isRequired` flag is set to \"false\", the value you enter is set during resource creation.
+* If the {@code isRequired} flag is set to \"true\", the value is set during resource creation.
+* * If the {@code isRequired} flag is set to \"false\", the value you enter is set during resource creation.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isRequired": boolean;

@@ -38,8 +38,8 @@ export interface ListExternalDbSystemsRequest extends common.BaseRequest {
   "limit"?: number;
   /**
    * The field to sort information by. Only one sortOrder can be used. The default sort order
-   * for `TIMECREATED` is descending and the default sort order for `DISPLAYNAME` is ascending.
-   * The `DISPLAYNAME` sort order is case-sensitive.
+   * for {@code TIMECREATED} is descending and the default sort order for {@code DISPLAYNAME} is ascending.
+   * The {@code DISPLAYNAME} sort order is case-sensitive.
    *
    */
   "sortBy"?: ListExternalDbSystemsRequest.SortBy;

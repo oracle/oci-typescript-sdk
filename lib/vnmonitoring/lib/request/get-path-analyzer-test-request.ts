@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetPathAnalyzerTestRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `PathAnalyzerTest` resource.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PathAnalyzerTest} resource.
    */
   "pathAnalyzerTestId": string;
   /**

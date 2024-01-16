@@ -27,7 +27,7 @@ export interface KeyPhrase {
   "text": string;
   /**
    * Score or confidence of the key phrase.
-   * Example: `0.9999856066867399`
+   * Example: {@code 0.9999856066867399}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "score": number;

@@ -27,19 +27,19 @@ export interface ListCertificatesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The maximum number of items to return in a paginated call. If unspecified, defaults to `10`.
+   * The maximum number of items to return in a paginated call. If unspecified, defaults to {@code 10}.
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous paginated call.
+   * The value of the {@code opc-next-page} response header from the previous paginated call.
    */
   "page"?: string;
   /**
-   * The value by which certificate summaries are sorted in a paginated 'List' call. If unspecified, defaults to `timeCreated`.
+   * The value by which certificate summaries are sorted in a paginated 'List' call. If unspecified, defaults to {@code timeCreated}.
    */
   "sortBy"?: ListCertificatesRequest.SortBy;
   /**
-   * The value of the sorting direction of resources in a paginated 'List' call. If unspecified, defaults to `DESC`.
+   * The value of the sorting direction of resources in a paginated 'List' call. If unspecified, defaults to {@code DESC}.
    */
   "sortOrder"?: ListCertificatesRequest.SortOrder;
   /**

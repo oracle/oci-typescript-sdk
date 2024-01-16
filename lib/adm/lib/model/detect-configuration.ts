@@ -27,7 +27,7 @@ export interface DetectConfiguration {
   "exclusions"?: Array<string>;
   /**
    * The upgrade policy for recommendations.
-   * The `Nearest` upgrade policy upgrades a dependency to the oldest version that meets both of the following criteria: it is newer than the current version and it is not affected by a vulnerability.
+   * The {@code Nearest} upgrade policy upgrades a dependency to the oldest version that meets both of the following criteria: it is newer than the current version and it is not affected by a vulnerability.
    *
    */
   "upgradePolicy"?: DetectConfiguration.UpgradePolicy;
@@ -39,6 +39,10 @@ export interface DetectConfiguration {
    * The maximum Common Vulnerability Scoring System Version 3 (CVSS V3) score. An artifact with a CVSS V3 score below this value is not considered for patching. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxPermissibleCvssV3Score"?: number;
+  /**
+   * The maximum ADM Severity. An artifact with an ADM Severity below this value is not considered for patching.
+   */
+  "maxPermissibleSeverity"?: model.ConfigSeverity;
 }
 
 export namespace DetectConfiguration {

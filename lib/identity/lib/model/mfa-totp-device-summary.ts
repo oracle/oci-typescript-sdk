@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * As the name suggests, a `MfaTotpDeviceSummary` object contains information about a `MfaTotpDevice`.
+ * As the name suggests, a {@code MfaTotpDeviceSummary} object contains information about a {@code MfaTotpDevice}.
  *
  */
 export interface MfaTotpDeviceSummary {
@@ -28,9 +28,9 @@ export interface MfaTotpDeviceSummary {
    */
   "userId": string;
   /**
-    * Date and time the `MfaTotpDevice` object was created, in the format defined by RFC3339.
+    * Date and time the {@code MfaTotpDevice} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -38,7 +38,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * Date and time when this MFA TOTP device will expire, in the format defined by RFC3339.
 * Null if it never expires.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeExpires"?: Date;

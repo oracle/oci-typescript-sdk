@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -44,7 +44,7 @@ export interface MetricData {
     * The reference provided in a metric definition to indicate the source service or
 * application that emitted the metric.
 * <p>
-Example: `oci_computeagent`
+Example: {@code oci_computeagent}
 * 
     */
   "namespace": string;
@@ -52,7 +52,7 @@ Example: `oci_computeagent`
     * Resource group provided with the posted metric. A resource group is a custom string that you can match when retrieving custom metrics. Only one resource group can be applied per metric.
 * A valid resourceGroup value starts with an alphabetical character and includes only alphanumeric characters, periods (.), underscores (_), hyphens (-), and dollar signs ($).
 * <p>
-Example: `frontend-fleet`
+Example: {@code frontend-fleet}
 * 
     */
   "resourceGroup"?: string;
@@ -65,7 +65,7 @@ Example: `frontend-fleet`
   /**
     * The name of the metric.
 * <p>
-Example: `CpuUtilization`
+Example: {@code CpuUtilization}
 * 
     */
   "name": string;
@@ -73,14 +73,14 @@ Example: `CpuUtilization`
     * Qualifiers provided in the definition of the returned metric.
 * Available dimensions vary by metric namespace. Each dimension takes the form of a key-value pair.
 * <p>
-Example: `\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"`
+Example: {@code {\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"}}
 * 
     */
   "dimensions": { [key: string]: string };
   /**
     * The references provided in a metric definition to indicate extra information about the metric.
 * <p>
-Example: `\"unit\": \"bytes\"`
+Example: {@code \"unit\": \"bytes\"}
 * 
     */
   "metadata"?: { [key: string]: string };
@@ -89,9 +89,9 @@ Example: `\"unit\": \"bytes\"`
 * frequency for returning aggregated data points. For example, use a query interval of
 * 5 minutes with a resolution of 1 minute to retrieve five-minute aggregations at a one-minute
 * frequency. The resolution must be equal or less than the interval in the query. The default
-* resolution is 1m (one minute). Supported values: `1m`-`60m`, `1h`-`24h`, `1d`.
+* resolution is 1m (one minute). Supported values: {@code 1m}-{@code 60m}, {@code 1h}-{@code 24h}, {@code 1d}.
 * <p>
-Example: `5m`
+Example: {@code 5m}
 * 
     */
   "resolution"?: string;

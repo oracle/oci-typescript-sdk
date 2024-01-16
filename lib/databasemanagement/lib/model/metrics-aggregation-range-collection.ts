@@ -27,13 +27,13 @@ export interface MetricsAggregationRangeCollection {
   "items": Array<model.MetricsAggregationRange>;
   /**
    * The beginning of the metric data query time range. Expressed in UTC in
-   * ISO-8601 format, which is `yyyy-MM-dd'T'hh:mm:ss.sss'Z'`.
+   * ISO-8601 format, which is {@code yyyy-MM-dd'T'hh:mm:ss.sss'Z'}.
    *
    */
   "startTime"?: string;
   /**
    * The end of the metric data query time range. Expressed in UTC in
-   * ISO-8601 format, which is `yyyy-MM-dd'T'hh:mm:ss.sss'Z'`.
+   * ISO-8601 format, which is {@code yyyy-MM-dd'T'hh:mm:ss.sss'Z'}.
    *
    */
   "endTime"?: string;

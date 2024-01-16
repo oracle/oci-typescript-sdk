@@ -18,7 +18,7 @@ import common = require("oci-common");
  * Users can enable multi-factor authentication (MFA) for their own user accounts. After MFA is enabled, the
  * user is prompted for a time-based one-time password (TOTP) to authenticate before they can sign in to the
  * Console. To enable multi-factor authentication, the user must register a mobile device with a TOTP authenticator app
- * installed. The registration process creates the `MfaTotpDevice` object. The registration process requires
+ * installed. The registration process creates the {@code MfaTotpDevice} object. The registration process requires
  * interaction with the Console and cannot be completed programmatically. For more information, see
  * [Managing Multi-Factor Authentication](https://docs.cloud.oracle.com/Content/Identity/mfa/understand-multi-factor-authentication.htm).
  *
@@ -38,9 +38,9 @@ export interface MfaTotpDevice {
    */
   "userId": string;
   /**
-    * Date and time the `MfaTotpDevice` object was created, in the format defined by RFC3339.
+    * Date and time the {@code MfaTotpDevice} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -48,12 +48,12 @@ Example: `2016-08-25T21:10:29.600Z`
     * Date and time when this MFA TOTP device will expire, in the format defined by RFC3339.
 * Null if it never expires.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeExpires"?: Date;
   /**
-   * The MFA TOTP device's current state. After creating the MFA TOTP device, make sure its `lifecycleState` changes from
+   * The MFA TOTP device's current state. After creating the MFA TOTP device, make sure its {@code lifecycleState} changes from
    * CREATING to ACTIVE before using it.
    *
    */

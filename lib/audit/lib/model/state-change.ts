@@ -26,14 +26,14 @@ export interface StateChange {
   /**
    * Provides the previous state of fields that may have changed during an operation. To determine
    * how the current operation changed a resource, compare the information in this attribute to
-   * `current`.
+   * {@code current}.
    *
    */
   "previous"?: { [key: string]: any };
   /**
    * Provides the current state of fields that may have changed during an operation. To determine
    * how the current operation changed a resource, compare the information in this attribute to
-   * `previous`.
+   * {@code previous}.
    *
    */
   "current"?: { [key: string]: any };

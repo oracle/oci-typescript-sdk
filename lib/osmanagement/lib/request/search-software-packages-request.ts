@@ -25,13 +25,13 @@ export interface SearchSoftwarePackagesRequest extends common.BaseRequest {
   /**
  * A user-friendly name. Does not have to be unique, and it's changeable.
 * <p>
-Example: `My new resource`
+Example: {@code My new resource}
 * 
  */
   "displayName"?: string;
   /**
    * The name of the CVE as published.
-   * Example: `CVE-2006-4535`
+   * Example: {@code CVE-2006-4535}
    *
    */
   "cveName"?: string;

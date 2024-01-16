@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Base type for how fields are projected. There are many different mechanisms for doing this such as by a name pattern, datatype and so on. See the `modelType` property for the types.
+ * Base type for how fields are projected. There are many different mechanisms for doing this such as by a name pattern, datatype and so on. See the {@code modelType} property for the types.
  */
 export interface ProjectionRule {
   /**

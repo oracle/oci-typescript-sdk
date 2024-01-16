@@ -23,7 +23,7 @@ export interface ListResourceActionQueryableFieldsRequest extends common.BaseReq
    */
   "compartmentId": string;
   /**
- * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned depending on the the setting of `accessLevel`.
+ * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned depending on the the setting of {@code accessLevel}.
 * <p>
 Can only be set to true when performing ListCompartments on the tenancy (root compartment).
 * 
@@ -34,7 +34,7 @@ Can only be set to true when performing ListCompartments on the tenancy (root co
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;

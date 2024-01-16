@@ -39,14 +39,14 @@ export interface InstanceConfigurationInstanceSourceImageFilterDetails {
   /**
     * The image's operating system.
 * <p>
-Example: `Oracle Linux`
+Example: {@code Oracle Linux}
 * 
     */
   "operatingSystem"?: string;
   /**
     * The image's operating system version.
 * <p>
-Example: `7.2`
+Example: {@code 7.2}
 * 
     */
   "operatingSystemVersion"?: string;

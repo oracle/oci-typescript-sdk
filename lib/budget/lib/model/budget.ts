@@ -61,11 +61,11 @@ export interface Budget {
    */
   "processingPeriodType"?: model.ProcessingPeriodType;
   /**
-   * The date when the one-time budget begins. For example, `2023-03-23`. The date-time format conforms to RFC 3339, and will be truncated to the starting point of the date provided after being converted to UTC time.
+   * The date when the one-time budget begins. For example, {@code 2023-03-23}. The date-time format conforms to RFC 3339, and will be truncated to the starting point of the date provided after being converted to UTC time.
    */
   "startDate"?: Date;
   /**
-   * The time when the one-time budget concludes. For example, `2023-03-23`. The date-time format conforms to RFC 3339, and will be truncated to the starting point of the date provided after being converted to UTC time.
+   * The time when the one-time budget concludes. For example, {@code 2023-03-23}. The date-time format conforms to RFC 3339, and will be truncated to the starting point of the date provided after being converted to UTC time.
    */
   "endDate"?: Date;
   /**
@@ -116,7 +116,7 @@ export interface Budget {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -124,7 +124,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

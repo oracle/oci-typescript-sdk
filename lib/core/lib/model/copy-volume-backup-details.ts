@@ -25,7 +25,7 @@ export interface CopyVolumeBackupDetails {
   /**
     * The name of the destination region.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "destinationRegion": string;

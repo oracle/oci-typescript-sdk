@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the configuration of the traffic path in `PathAnalysisResult`.
+ * Defines the configuration of the traffic path in {@code PathAnalysisResult}.
  */
 export interface Path {
   "forwardRoute": model.TrafficRoute;

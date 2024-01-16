@@ -33,21 +33,21 @@ export interface ListDigitalAssistantsRequest extends common.BaseRequest {
   /**
  * List only Bot resources with this name. Names are unique and may not change.
 * <p>
-Example: `MySkill`
+Example: {@code MySkill}
 * 
  */
   "name"?: string;
   /**
  * List only Bot resources with this version. Versions are unique and may not change.
 * <p>
-Example: `1.0`
+Example: {@code 1.0}
 * 
  */
   "version"?: string;
   /**
  * List only Bot resources with this namespace. Namespaces may not change.
 * <p>
-Example: `MyNamespace`
+Example: {@code MyNamespace}
 * 
  */
   "namespace"?: string;
@@ -72,21 +72,21 @@ Example: `MyNamespace`
   /**
  * The page at which to start retrieving results.
 * <p>
-You get this value from the `opc-next-page` header in a previous list request.
+You get this value from the {@code opc-next-page} header in a previous list request.
 * To retireve the first page, omit this query parameter.
 * <p>
-Example: `MToxMA==`
+Example: {@code MToxMA==}
 * 
  */
   "page"?: string;
   /**
-   * Sort the results in this order, use either `ASC` (ascending) or `DESC` (descending).
+   * Sort the results in this order, use either {@code ASC} (ascending) or {@code DESC} (descending).
    */
   "sortOrder"?: ListDigitalAssistantsRequest.SortOrder;
   /**
- * Sort on this field. You can specify one sort order only. The default sort field is `timeCreated`.
+ * Sort on this field. You can specify one sort order only. The default sort field is {@code timeCreated}.
 * <p>
-The default sort order for `timeCreated` and `timeUpdated` is descending.
+The default sort order for {@code timeCreated} and {@code timeUpdated} is descending.
 * For all other sort fields the default sort order is ascending.
 * 
  */

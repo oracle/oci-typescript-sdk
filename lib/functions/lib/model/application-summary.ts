@@ -46,11 +46,11 @@ export interface ApplicationSummary {
    */
   "subnetIds"?: Array<string>;
   /**
-   * Valid values are `GENERIC_X86`, `GENERIC_ARM` and `GENERIC_X86_ARM`. Default is `GENERIC_X86`. Setting this to `GENERIC_X86`, will run the functions in the application on X86 processor architecture.
-   * Setting this to `GENERIC_ARM`, will run the functions in the application on ARM processor architecture.
-   * When set to `GENERIC_X86_ARM`, functions in the application are run on either X86 or ARM processor architecture.
+   * Valid values are {@code GENERIC_X86}, {@code GENERIC_ARM} and {@code GENERIC_X86_ARM}. Default is {@code GENERIC_X86}. Setting this to {@code GENERIC_X86}, will run the functions in the application on X86 processor architecture.
+   * Setting this to {@code GENERIC_ARM}, will run the functions in the application on ARM processor architecture.
+   * When set to {@code GENERIC_X86_ARM}, functions in the application are run on either X86 or ARM processor architecture.
    * Accepted values are:
-   * `GENERIC_X86`, `GENERIC_ARM`, `GENERIC_X86_ARM`
+   * {@code GENERIC_X86}, {@code GENERIC_ARM}, {@code GENERIC_X86_ARM}
    *
    */
   "shape"?: ApplicationSummary.Shape;
@@ -64,14 +64,14 @@ export interface ApplicationSummary {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -79,14 +79,14 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * The time the application was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format.
 * <p>
-Example: `2018-09-12T22:47:12.613Z`
+Example: {@code 2018-09-12T22:47:12.613Z}
 * 
     */
   "timeCreated"?: Date;
   /**
    * The time the application was updated, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
    * timestamp format.
-   * Example: `2018-09-12T22:47:12.613Z`
+   * Example: {@code 2018-09-12T22:47:12.613Z}
    *
    */
   "timeUpdated"?: Date;

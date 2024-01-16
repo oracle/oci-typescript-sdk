@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
 * **Deprecated. Use {@link AuthToken} instead.**
 * <p>
-Swift is the OpenStack object storage service. A `SwiftPassword` is an Oracle-provided password for using a
+Swift is the OpenStack object storage service. A {@code SwiftPassword} is an Oracle-provided password for using a
 * Swift client with the Object Storage Service. This password is associated with
 * the user's Console login. Swift passwords never expire. A user can have up to two Swift passwords at a time.
 * <p>
@@ -28,8 +28,8 @@ For more information, see [Managing User Credentials](https://docs.cloud.oracle.
 */
 export interface SwiftPassword {
   /**
-   * The Swift password. The value is available only in the response for `CreateSwiftPassword`, and not
-   * for `ListSwiftPasswords` or `UpdateSwiftPassword`.
+   * The Swift password. The value is available only in the response for {@code CreateSwiftPassword}, and not
+   * for {@code ListSwiftPasswords} or {@code UpdateSwiftPassword}.
    *
    */
   "password"?: string;
@@ -46,9 +46,9 @@ export interface SwiftPassword {
    */
   "description"?: string;
   /**
-    * Date and time the `SwiftPassword` object was created, in the format defined by RFC3339.
+    * Date and time the {@code SwiftPassword} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
@@ -56,12 +56,12 @@ Example: `2016-08-25T21:10:29.600Z`
     * Date and time when this password will expire, in the format defined by RFC3339.
 * Null if it never expires.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "expiresOn"?: Date;
   /**
-   * The password's current state. After creating a password, make sure its `lifecycleState` changes from
+   * The password's current state. After creating a password, make sure its {@code lifecycleState} changes from
    * CREATING to ACTIVE before using it.
    *
    */

@@ -27,7 +27,7 @@ export interface CreateClusterDetails {
    */
   "sddcId": string;
   /**
-   * The availability domain to create the Cluster's ESXi hosts in. For multi-AD Cluster deployment, set to `multi-AD`.
+   * The availability domain to create the Cluster's ESXi hosts in. For multi-AD Cluster deployment, set to {@code multi-AD}.
    *
    */
   "computeAvailabilityDomain": string;
@@ -40,10 +40,10 @@ export interface CreateClusterDetails {
   "displayName"?: string;
   /**
     * A prefix used in the name of each ESXi host and Compute instance in the Cluster.
-* If this isn't set, the Cluster's `displayName` is used as the prefix.
+* If this isn't set, the Cluster's {@code displayName} is used as the prefix.
 * <p>
-For example, if the value is `myCluster`, the ESXi hosts are named `myCluster-1`,
-* `myCluster-2`, and so on.
+For example, if the value is {@code myCluster}, the ESXi hosts are named {@code myCluster-1},
+* {@code myCluster-2}, and so on.
 * 
     */
   "instanceDisplayNamePrefix"?: string;
@@ -94,7 +94,7 @@ For example, if the value is `myCluster`, the ESXi hosts are named `myCluster-1`
   "capacityReservationId"?: string;
   /**
    * A list of datastore info for the Cluster.
-   * This value is required only when `initialHostShapeName` is a standard shape.
+   * This value is required only when {@code initialHostShapeName} is a standard shape.
    *
    */
   "datastores"?: Array<model.DatastoreInfo>;
@@ -116,7 +116,7 @@ For example, if the value is `myCluster`, the ESXi hosts are named `myCluster-1`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -124,7 +124,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

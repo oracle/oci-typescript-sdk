@@ -49,21 +49,21 @@ export interface WorkRequestSummary {
   /**
    * The date and time when the work request was created.
    * Format is defined by RFC3339.
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeAccepted": Date;
   /**
    * The date and time when the work request transitioned from ACCEPTED to IN_PROGRESS.
    * Format is defined by RFC3339.
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeStarted"?: Date;
   /**
    * The date and time when the work request reached a terminal state (FAILED or SUCCEEDED).
    * Format is defined by RFC3339.
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeFinished"?: Date;

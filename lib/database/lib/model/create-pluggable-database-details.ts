@@ -17,7 +17,7 @@ import common = require("oci-common");
 
 /**
  * Parameters for creating a pluggable database in a specified container database (CDB).
- * Additional option `pdbCreationTypeDetails` can be used for creating Pluggable Database using different operations, e.g. LocalClone, Remote Clone, Relocate.
+ * Additional option {@code pdbCreationTypeDetails} can be used for creating Pluggable Database using different operations, e.g. LocalClone, Remote Clone, Relocate.
  * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
  */
@@ -60,7 +60,7 @@ export interface CreatePluggableDatabaseDetails {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

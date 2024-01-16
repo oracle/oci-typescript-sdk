@@ -41,7 +41,7 @@ export interface LoadBalancer {
   /**
     * A user-friendly name. It does not have to be unique, and it is changeable.
 * <p>
-Example: `example_load_balancer`
+Example: {@code example_load_balancer}
 * 
     */
   "displayName": string;
@@ -53,7 +53,7 @@ Example: `example_load_balancer`
   /**
     * The date and time the load balancer was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -67,7 +67,7 @@ Example: `2016-08-25T21:10:29.600Z`
 * To get a list of available shapes, use the {@link #listShapes(ListShapesRequest) listShapes}
 * operation.
 * <p>
-Example: `100Mbps`
+Example: {@code 100Mbps}
 * 
     */
   "shapeName": string;
@@ -83,7 +83,7 @@ A public load balancer is accessible from the internet, depending on your VCN's
 * [security list rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securitylists.htm). For more information about public and
 * private load balancers, see [How Load Balancing Works](https://docs.cloud.oracle.com/Content/Balance/Concepts/balanceoverview.htm#how-load-balancing-works).
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isPrivate"?: boolean;
@@ -118,7 +118,7 @@ Example: [\"ocid1.nsg.oc1.phx.unique_ID\"]
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -126,7 +126,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -135,7 +135,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * System tags can be viewed by users, but can only be created by the system.
 * <p>
-Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };

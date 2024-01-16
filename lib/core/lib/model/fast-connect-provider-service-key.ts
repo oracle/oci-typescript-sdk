@@ -29,7 +29,7 @@ import common = require("oci-common");
 export interface FastConnectProviderServiceKey {
   /**
    * The service key that the provider gives you when you set up a virtual circuit connection
-   * from the provider to Oracle Cloud Infrastructure. Use this value as the `providerServiceKeyName`
+   * from the provider to Oracle Cloud Infrastructure. Use this value as the {@code providerServiceKeyName}
    * query parameter for
    * {@link #getFastConnectProviderServiceKey(GetFastConnectProviderServiceKeyRequest) getFastConnectProviderServiceKey}.
    *
@@ -40,7 +40,7 @@ export interface FastConnectProviderServiceKey {
 * available bandwidth levels (that is, shapes), see
 * {@link #listFastConnectProviderVirtualCircuitBandwidthShapes(ListFastConnectProviderVirtualCircuitBandwidthShapesRequest) listFastConnectProviderVirtualCircuitBandwidthShapes}.
 * <p>
-Example: `10 Gbps`
+Example: {@code 10 Gbps}
 * 
     */
   "bandwidthShapeName"?: string;

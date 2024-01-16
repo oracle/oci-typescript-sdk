@@ -25,14 +25,14 @@ export interface UpdateDrPlanStepDetails {
   /**
     * The unique id of the step.
 * <p>
-Example: `sgid1.step..uniqueID`
+Example: {@code sgid1.step..uniqueID}
 * 
     */
   "id"?: string;
   /**
     * The display name of the step in a group.
 * <p>
-Example: `My_STEP_3A - EBS Start - STAGE A`
+Example: {@code My_STEP_3A - EBS Start - STAGE A}
 * 
     */
   "displayName"?: string;
@@ -44,14 +44,14 @@ Example: `My_STEP_3A - EBS Start - STAGE A`
   /**
     * The timeout in seconds for executing this step.
 * <p>
-Example: `600`
+Example: {@code 600}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "timeout"?: number;
   /**
     * A flag indicating whether this step should be enabled for execution.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isEnabled"?: boolean;

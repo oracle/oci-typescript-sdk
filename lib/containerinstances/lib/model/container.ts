@@ -36,19 +36,19 @@ export interface Container {
   "compartmentId": string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}.
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
@@ -94,9 +94,9 @@ export interface Container {
     * The container image information. Currently only supports public Docker registry.
 * <p>
 You can provide either the image name (containerImage), image name with version (containerImagev1), or complete Docker image URL
-* `docker.io/library/containerImage:latest`.
+* {@code docker.io/library/containerImage:latest}.
 * <p>
-If you do not provide a registry, the registry defaults to public Docker hub `docker.io/library`.
+If you do not provide a registry, the registry defaults to public Docker hub {@code docker.io/library}.
 * The registry used for the container image must be reachable over the VNIC of the container instance.
 * 
     */
@@ -111,7 +111,7 @@ If you do not provide a registry, the registry defaults to public Docker hub `do
     * A list of string arguments for the ENTRYPOINT process of the container.
 * <p>
 Many containers use an ENTRYPOINT process pointing to a shell
-* `/bin/bash`. For those containers, you can use the argument list to specify the main command in the container process.
+* {@code /bin/bash}. For those containers, you can use the argument list to specify the main command in the container process.
 * 
     */
   "arguments"?: Array<string>;

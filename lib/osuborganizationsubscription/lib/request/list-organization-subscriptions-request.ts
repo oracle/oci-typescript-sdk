@@ -27,24 +27,24 @@ export interface ListOrganizationSubscriptionsRequest extends common.BaseRequest
    */
   "subscriptionIds": string;
   /**
- * The maximum number of items to return in a paginated \"List\" call. Default: (`50`)
+ * The maximum number of items to return in a paginated \"List\" call. Default: ({@code 50})
 * <p>
-Example: `500`
+Example: {@code 500}
 * 
  */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListOrganizationSubscriptionsRequest.SortOrder;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`).
+   * The field to sort by. You can provide one sort order ({@code sortOrder}).
    *
    */
   "sortBy"?: ListOrganizationSubscriptionsRequest.SortBy;

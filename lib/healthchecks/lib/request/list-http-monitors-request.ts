@@ -34,7 +34,7 @@ export interface ListHttpMonitorsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header
+   * The value of the {@code opc-next-page} response header
    * from the previous \"List\" call.
    *
    */
@@ -48,11 +48,11 @@ export interface ListHttpMonitorsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListHttpMonitorsRequest.SortOrder;
   /**
-   * Filters results that exactly match the `displayName` field.
+   * Filters results that exactly match the {@code displayName} field.
    */
   "displayName"?: string;
   /**
-   * Filters results that match the `homeRegion`.
+   * Filters results that match the {@code homeRegion}.
    */
   "homeRegion"?: string;
 }

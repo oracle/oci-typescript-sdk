@@ -25,7 +25,7 @@ export interface UpdatedMessage {
   /**
     * The time after which the message will be visible to other consumers, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2018-04-20T00:00:07.405Z`
+Example: {@code 2018-04-20T00:00:07.405Z}
 * 
     */
   "visibleAfter": Date;

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* The configuration details for creating a Data Guard association for a bare metal or Exadata DB system database. For these types of DB system databases, the `creationType` should be `ExistingDbSystem`. A standby database will be created in the DB system you specify.
+* The configuration details for creating a Data Guard association for a bare metal or Exadata DB system database. For these types of DB system databases, the {@code creationType} should be {@code ExistingDbSystem}. A standby database will be created in the DB system you specify.
 * <p>
 To create a Data Guard association for a database in a virtual machine DB system, use the {@link #createDataGuardAssociationWithNewDbSystemDetails(CreateDataGuardAssociationWithNewDbSystemDetailsRequest) createDataGuardAssociationWithNewDbSystemDetails} subtype instead.
 * 
@@ -25,7 +25,7 @@ export interface CreateDataGuardAssociationToExistingDbSystemDetails
   extends model.CreateDataGuardAssociationDetails {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DB system in which to create the standby database.
-   * You must supply this value if creationType is `ExistingDbSystem`.
+   * You must supply this value if creationType is {@code ExistingDbSystem}.
    *
    */
   "peerDbSystemId"?: string;

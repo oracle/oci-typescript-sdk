@@ -25,7 +25,7 @@ export interface RemoveSubnetIpv6CidrDetails {
 * from a subnet's IPv6 address space.
 * See[IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-Example: `2001:0db8:0123::/64`
+Example: {@code 2001:0db8:0123::/64}
 * 
     */
   "ipv6CidrBlock": string;

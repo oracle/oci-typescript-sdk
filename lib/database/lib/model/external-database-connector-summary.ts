@@ -30,7 +30,7 @@ export interface ExternalDatabaseConnectorSummary {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -74,7 +74,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "connectionStatus": string;
   /**
-   * The date and time the `connectionStatus` of this external connector was last updated.
+   * The date and time the {@code connectionStatus} of this external connector was last updated.
    */
   "timeConnectionStatusLastUpdated": Date;
 

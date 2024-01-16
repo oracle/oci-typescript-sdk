@@ -20,12 +20,12 @@ import common = require("oci-common");
  * An operation that \"puts\" values from elsewhere in the target, functionally equivalent to a single add and then a remove.
  * The first item of the selection is replaced, or created if the selection is empty.
  * NOT_FOUND exceptions in the selection are handled by creating the implied containing structure.
- * This operation fails if the `from` selection yields any exceptions, or if an item is moved to any of its descendants.
+ * This operation fails if the {@code from} selection yields any exceptions, or if an item is moved to any of its descendants.
  *
  */
 export interface PatchMoveInstruction extends model.PatchInstruction {
   /**
-   * The selection that is to be moved, with the same format and semantics as `selection`.
+   * The selection that is to be moved, with the same format and semantics as {@code selection}.
    */
   "from": string;
   /**

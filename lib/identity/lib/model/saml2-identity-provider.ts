@@ -46,7 +46,7 @@ export interface Saml2IdentityProvider extends model.IdentityProvider {
   "redirectUrl": string;
   /**
    * Extra name value pairs associated with this identity provider.
-   * Example: `{\"clientId\": \"app_sf3kdjf3\"}`
+   * Example: {@code {\"clientId\": \"app_sf3kdjf3\"}}
    *
    */
   "freeformAttributes"?: { [key: string]: string };

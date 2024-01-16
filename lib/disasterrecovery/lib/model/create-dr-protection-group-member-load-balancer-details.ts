@@ -26,7 +26,7 @@ export interface CreateDrProtectionGroupMemberLoadBalancerDetails
   /**
     * The OCID of the destination load balancer.
 * <p>
-Example: `ocid1.loadbalancer.oc1..uniqueID`
+Example: {@code ocid1.loadbalancer.oc1..uniqueID}
 * 
     */
   "destinationLoadBalancerId"?: string;

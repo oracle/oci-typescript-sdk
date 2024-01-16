@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the traffic route taken in the path in `PathAnalysisResult`.
+ * Defines the traffic route taken in the path in {@code PathAnalysisResult}.
  */
 export interface TrafficRoute {
   /**

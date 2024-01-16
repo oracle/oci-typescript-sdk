@@ -29,7 +29,7 @@ export interface UpdateListenerRequest extends common.BaseRequest {
   /**
  * The name of the listener to update.
 * <p>
-Example: `example_listener`
+Example: {@code example_listener}
 * 
  */
   "listenerName": string;
@@ -58,7 +58,7 @@ For example, the eTag returned by getListener can be specified as the ifMatch fo
 The resource is updated or deleted only if the ETag you provide matches the resource's current
 * ETag value.
 * <p>
-Example: `example-etag`
+Example: {@code example-etag}
 * 
  */
   "ifMatch"?: string;

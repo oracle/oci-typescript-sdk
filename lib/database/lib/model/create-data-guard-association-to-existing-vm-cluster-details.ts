@@ -16,14 +16,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for creating a Data Guard association for a ExaCC Vmcluster database. For these types of vm cluster databases, the `creationType` should be `ExistingVmCluster`. A standby database will be created in the VM cluster you specify.
+ * The configuration details for creating a Data Guard association for a ExaCC Vmcluster database. For these types of vm cluster databases, the {@code creationType} should be {@code ExistingVmCluster}. A standby database will be created in the VM cluster you specify.
  *
  */
 export interface CreateDataGuardAssociationToExistingVmClusterDetails
   extends model.CreateDataGuardAssociationDetails {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VM Cluster in which to create the standby database.
-   * You must supply this value if creationType is `ExistingVmCluster`.
+   * You must supply this value if creationType is {@code ExistingVmCluster}.
    *
    */
   "peerVmClusterId"?: string;

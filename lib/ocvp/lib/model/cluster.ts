@@ -35,9 +35,9 @@ export interface Cluster {
    */
   "id": string;
   /**
-    * The availability domain the ESXi hosts are running in. For Multi-AD Cluster, it is `multi-AD`.
+    * The availability domain the ESXi hosts are running in. For Multi-AD Cluster, it is {@code multi-AD}.
 * <p>
-Example: `Uocm:PHX-AD-1`, `multi-AD`
+Example: {@code Uocm:PHX-AD-1}, {@code multi-AD}
 * 
     */
   "computeAvailabilityDomain": string;
@@ -50,10 +50,10 @@ Example: `Uocm:PHX-AD-1`, `multi-AD`
   "displayName": string;
   /**
     * A prefix used in the name of each ESXi host and Compute instance in the Cluster.
-* If this isn't set, the Cluster's `displayName` is used as the prefix.
+* If this isn't set, the Cluster's {@code displayName} is used as the prefix.
 * <p>
-For example, if the value is `MyCluster`, the ESXi hosts are named `MyCluster-1`,
-* `MyCluster-2`, and so on.
+For example, if the value is {@code MyCluster}, the ESXi hosts are named {@code MyCluster-1},
+* {@code MyCluster-2}, and so on.
 * 
     */
   "instanceDisplayNamePrefix"?: string;
@@ -71,7 +71,7 @@ This attribute is not guaranteed to reflect the version of
 Therefore, if you upgrade the existing ESXi hosts in the Cluster to use a newer
 * version of bundled VMware software supported by the Oracle Cloud VMware Solution, you
 * should use {@link #updateCluster(UpdateClusterRequest) updateCluster} to update the Cluster's
-* `vmwareSoftwareVersion` with that new version.
+* {@code vmwareSoftwareVersion} with that new version.
 * 
     */
   "vmwareSoftwareVersion": string;
@@ -90,7 +90,7 @@ This attribute is not guaranteed to reflect the version of
 Therefore, if you upgrade the existing ESXi hosts in the Cluster to use a newer
 * version of bundled ESXi software supported by the Oracle Cloud VMware Solution, you
 * should use {@link #updateCluster(UpdateClusterRequest) updateCluster} to update the Cluster's
-* `esxiSoftwareVersion` with that new version.
+* {@code esxiSoftwareVersion} with that new version.
 * 
     */
   "esxiSoftwareVersion"?: string;
@@ -127,7 +127,7 @@ Therefore, if you upgrade the existing ESXi hosts in the Cluster to use a newer
     * The date and time the Cluster was created, in the format defined by
 * [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -186,7 +186,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags": { [key: string]: string };
@@ -194,7 +194,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags": { [key: string]: { [key: string]: any } };

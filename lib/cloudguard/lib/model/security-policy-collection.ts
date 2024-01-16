@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a security policy search. Contains `SecurityPolicySummary` items.
+ * Results of a security policy search. Contains {@code SecurityPolicySummary} items.
  */
 export interface SecurityPolicyCollection {
   /**

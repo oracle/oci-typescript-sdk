@@ -27,7 +27,7 @@ export interface UpdateVolumeGroupRequest extends common.BaseRequest {
    */
   "updateVolumeGroupDetails": model.UpdateVolumeGroupDetails;
   /**
-   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match`
+   * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match}
    * parameter to the value of the etag from a previous GET or POST response for that resource. The resource
    * will be updated or deleted only if the etag you provide matches the resource's current etag value.
    *
@@ -35,8 +35,8 @@ export interface UpdateVolumeGroupRequest extends common.BaseRequest {
   "ifMatch"?: string;
   /**
    * Specifies whether to disable or preserve the individual volume replication when removing a volume from the
-   * replication enabled volume group. When set to `true`, the individual volume replica is preserved. The default
-   * value is `true`.
+   * replication enabled volume group. When set to {@code true}, the individual volume replica is preserved. The default
+   * value is {@code true}.
    *
    */
   "preserveVolumeReplica"?: boolean;

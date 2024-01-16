@@ -26,26 +26,26 @@ export interface EgressSecurityRule {
 * <p>
 Allowed values:
 * <p>
-  * IP address range in CIDR notation. For example: `192.168.1.0/24` or `2001:0db8:0123:45::/56`
+  * IP address range in CIDR notation. For example: {@code 192.168.1.0/24} or {@code 2001:0db8:0123:45::/56}
 *     Note that IPv6 addressing is currently supported only in certain regions. See
 *     [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-  * The `cidrBlock` value for a {@link Service}, if you're
-*     setting up a security list rule for traffic destined for a particular `Service` through
-*     a service gateway. For example: `oci-phx-objectstorage`.
+  * The {@code cidrBlock} value for a {@link Service}, if you're
+*     setting up a security list rule for traffic destined for a particular {@code Service} through
+*     a service gateway. For example: {@code oci-phx-objectstorage}.
 * 
     */
   "destination": string;
   /**
-    * Type of destination for the rule. The default is `CIDR_BLOCK`.
+    * Type of destination for the rule. The default is {@code CIDR_BLOCK}.
 * <p>
 Allowed values:
 * <p>
-  * `CIDR_BLOCK`: If the rule's `destination` is an IP address range in CIDR notation.
+  * {@code CIDR_BLOCK}: If the rule's {@code destination} is an IP address range in CIDR notation.
 * <p>
-  * `SERVICE_CIDR_BLOCK`: If the rule's `destination` is the `cidrBlock` value for a
+  * {@code SERVICE_CIDR_BLOCK}: If the rule's {@code destination} is the {@code cidrBlock} value for a
 *     {@link Service} (the rule is for traffic destined for a
-*     particular `Service` through a service gateway).
+*     particular {@code Service} through a service gateway).
 * 
     */
   "destinationType"?: EgressSecurityRule.DestinationType;
@@ -60,7 +60,7 @@ Allowed values:
    */
   "isStateless"?: boolean;
   /**
-   * The transport protocol. Specify either `all` or an IPv4 protocol number as
+   * The transport protocol. Specify either {@code all} or an IPv4 protocol number as
    * defined in
    * [Protocol Numbers](http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
    * Options are supported only for ICMP (\"1\"), TCP (\"6\"), UDP (\"17\"), and ICMPv6 (\"58\").

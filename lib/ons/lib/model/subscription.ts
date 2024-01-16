@@ -36,13 +36,13 @@ export interface Subscription {
     * The protocol used for the subscription.
 * <p>
 Allowed values:
-*   * `CUSTOM_HTTPS`
-*   * `EMAIL`
-*   * `HTTPS` (deprecated; for PagerDuty endpoints, use `PAGERDUTY`)
-*   * `ORACLE_FUNCTIONS`
-*   * `PAGERDUTY`
-*   * `SLACK`
-*   * `SMS`
+*   * {@code CUSTOM_HTTPS}
+*   * {@code EMAIL}
+*   * {@code HTTPS} (deprecated; for PagerDuty endpoints, use {@code PAGERDUTY})
+*   * {@code ORACLE_FUNCTIONS}
+*   * {@code PAGERDUTY}
+*   * {@code SLACK}
+*   * {@code SMS}
 * <p>
 For information about subscription protocols, see
 * [To create a subscription](https://docs.cloud.oracle.com/iaas/Content/Notification/Tasks/managingtopicsandsubscriptions.htm#createSub).
@@ -51,7 +51,7 @@ For information about subscription protocols, see
   "protocol": string;
   /**
    * A locator that corresponds to the subscription protocol.
-   * For example, an email address for a subscription that uses the `EMAIL` protocol, or a URL for a subscription that uses an HTTP-based protocol.
+   * For example, an email address for a subscription that uses the {@code EMAIL} protocol, or a URL for a subscription that uses an HTTP-based protocol.
    *
    */
   "endpoint": string;
@@ -75,21 +75,21 @@ For information about subscription protocols, see
    */
   "deliverPolicy"?: string;
   /**
-   * For optimistic concurrency control. See `if-match`.
+   * For optimistic concurrency control. See {@code if-match}.
    *
    */
   "etag"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

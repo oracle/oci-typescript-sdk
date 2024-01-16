@@ -33,7 +33,7 @@ export interface Template {
   "compartmentId"?: string;
   /**
    * Unique identifier for the category where the template is located.
-   * Possible values are `0` (Quick Starts), `1` (Service), `2` (Architecture), and `3` (Private).
+   * Possible values are {@code 0} (Quick Starts), {@code 1} (Service), {@code 2} (Architecture), and {@code 3} (Private).
    *
    */
   "categoryId"?: string;
@@ -56,7 +56,7 @@ export interface Template {
   /**
    * The date and time at which the template was created.
    * Format is defined by RFC3339.
-   * Example: `2020-11-25T21:10:29.600Z`
+   * Example: {@code 2020-11-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;
@@ -69,14 +69,14 @@ export interface Template {
   /**
    * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

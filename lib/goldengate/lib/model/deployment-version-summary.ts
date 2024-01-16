@@ -34,7 +34,7 @@ export interface DeploymentVersionSummary {
   "deploymentType": model.DeploymentType;
   /**
    * The time the resource was released. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeReleased"?: Date;
@@ -50,7 +50,7 @@ export interface DeploymentVersionSummary {
   "isSecurityFix"?: boolean;
   /**
    * The time until OGG version is supported. After this date has passed OGG version will not be available anymore. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeSupportedUntil"?: Date;

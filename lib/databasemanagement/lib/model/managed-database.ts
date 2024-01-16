@@ -117,8 +117,8 @@ export interface ManagedDatabase {
    */
   "pdbStatus"?: Array<model.PdbStatusDetails>;
   /**
-   * The additional details specific to a type of database defined in `{\"key\": \"value\"}` format.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The additional details specific to a type of database defined in {@code {\"key\": \"value\"}} format.
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "additionalDetails"?: { [key: string]: string };

@@ -24,7 +24,7 @@ export interface DeleteReplicationRequest extends common.BaseRequest {
   "replicationId": string;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
    * The resource will be updated or deleted only if the etag you
    * provide matches the resource's current etag value.
@@ -39,9 +39,9 @@ export interface DeleteReplicationRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * You can choose a mode for deleting the replication resource.
-   * - `FINISH_CYCLE_IF_CAPTURING_OR_APPLYING` Before deleting, complete the current delta cycle. If cycle is idle, delete immediately. Safest option.
-   * - `ONE_MORE_CYCLE` Before deleting, complete the current delta cycle, and initiate one more cycle. If cycle is idle, initiate one more cycle. Use for lossless failover.
-   * - `FINISH_CYCLE_IF_APPLYING` Before deleting, finish applying. If cycle is idle or capturing, delete immediately. Fastest option.
+   * - {@code FINISH_CYCLE_IF_CAPTURING_OR_APPLYING} Before deleting, complete the current delta cycle. If cycle is idle, delete immediately. Safest option.
+   * - {@code ONE_MORE_CYCLE} Before deleting, complete the current delta cycle, and initiate one more cycle. If cycle is idle, initiate one more cycle. Use for lossless failover.
+   * - {@code FINISH_CYCLE_IF_APPLYING} Before deleting, finish applying. If cycle is idle or capturing, delete immediately. Fastest option.
    *
    */
   "deleteMode"?: DeleteReplicationRequest.DeleteMode;

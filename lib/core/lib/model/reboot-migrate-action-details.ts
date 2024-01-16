@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parameters for the `rebootMigrate` {@link #instanceAction(InstanceActionRequest) instanceAction}.
+ * Parameters for the {@code rebootMigrate} {@link #instanceAction(InstanceActionRequest) instanceAction}.
  *
  */
 export interface RebootMigrateActionDetails extends model.InstancePowerActionDetails {
@@ -35,7 +35,7 @@ export interface RebootMigrateActionDetails extends model.InstancePowerActionDet
   /**
     * If present, this parameter will set (or reset) the scheduled time that the instance will be reboot
 * migrated in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).  This will also change
-* the `timeMaintenanceRebootDue` field on the instance.
+* the {@code timeMaintenanceRebootDue} field on the instance.
 * <p>
 If not present, the reboot migration will be triggered immediately.
 * 

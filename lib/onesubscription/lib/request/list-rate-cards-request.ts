@@ -39,7 +39,7 @@ export interface ListRateCardsRequest extends common.BaseRequest {
    */
   "partNumber"?: string;
   /**
- * The maximum number of items to return in a paginated \"List\" call. Default: (`50`)
+ * The maximum number of items to return in a paginated \"List\" call. Default: ({@code 50})
 * <p>
 Example: '500'
 * 

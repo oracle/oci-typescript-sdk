@@ -26,7 +26,7 @@ export interface CreateDestroyJobOperationDetails extends model.CreateJobOperati
   "terraformAdvancedOptions"?: model.TerraformAdvancedOptions;
   /**
    * Specifies the source of the execution plan to apply.
-   * Currently, only `AUTO_APPROVED` is allowed, which indicates that the job
+   * Currently, only {@code AUTO_APPROVED} is allowed, which indicates that the job
    * will be run without an execution plan.
    *
    */

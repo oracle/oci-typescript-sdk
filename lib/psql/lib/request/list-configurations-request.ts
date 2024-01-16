@@ -23,7 +23,7 @@ export interface ListConfigurationsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources if their `lifecycleState` matches the given `lifecycleState`.
+   * A filter to return only resources if their {@code lifecycleState} matches the given {@code lifecycleState}.
    */
   "lifecycleState"?: string;
   /**
@@ -36,7 +36,7 @@ export interface ListConfigurationsRequest extends common.BaseRequest {
   "dbVersion"?: string;
   /**
    * The name of the shape for the configuration.
-   * Example: `VM.Standard.E4.Flex`
+   * Example: {@code VM.Standard.E4.Flex}
    *
    */
   "shape"?: string;
@@ -49,7 +49,7 @@ export interface ListConfigurationsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * A token representing the position at which to start retrieving results. This must come from the `opc-next-page` header field of a previous response.
+   * A token representing the position at which to start retrieving results. This must come from the {@code opc-next-page} header field of a previous response.
    */
   "page"?: string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The properties that define a connection of the type `BITBUCKET_CLOUD_APP_PASSWORD`.
+ * The properties that define a connection of the type {@code BITBUCKET_CLOUD_APP_PASSWORD}.
  * This type corresponds to a connection in Bitbucket Cloud that is authenticated with a App Password along with username.
  *
  */

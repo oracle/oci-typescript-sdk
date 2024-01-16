@@ -37,21 +37,21 @@ export interface AssociatedResourceSummary {
   "resourceType"?: string;
   /**
    * Resource attribute values. Each value is represented as a key-value pair.
-   * Example: `{\"state\": \"AVAILABLE\"}`
+   * Example: {@code {\"state\": \"AVAILABLE\"}}
    *
    */
   "attributes"?: { [key: string]: string };
   /**
    * The date and time when the stack was created.
    * Format is defined by RFC3339.
-   * Example: `2022-07-25T21:10:29.600Z`
+   * Example: {@code 2022-07-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;
   /**
    * Resource region.
    * For information about regions, see [Regions and Availability Domains](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm).
-   * Example: `us-phoenix-1`
+   * Example: {@code us-phoenix-1}
    *
    */
   "region"?: string;

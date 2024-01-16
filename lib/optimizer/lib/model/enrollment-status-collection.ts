@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of enrollment statuses that match filter criteria, if any. Results contain `EnrollmentStatusSummary` objects.
+ * A list of enrollment statuses that match filter criteria, if any. Results contain {@code EnrollmentStatusSummary} objects.
  *
  */
 export interface EnrollmentStatusCollection {

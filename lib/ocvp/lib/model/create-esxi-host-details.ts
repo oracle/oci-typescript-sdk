@@ -30,10 +30,10 @@ export interface CreateEsxiHostDetails {
 * Esxi Host name requirements are 1-16 character length limit, Must start with a letter, 
 * Must be English letters, numbers, - only, No repeating hyphens, Must be unique within the Cluster.
 * <p>
-If this attribute is not specified, the Cluster's `instanceDisplayNamePrefix` attribute is used
+If this attribute is not specified, the Cluster's {@code instanceDisplayNamePrefix} attribute is used
 * to name and incrementally number the ESXi host. For example, if you're creating the fourth
-* ESXi host in the Cluster, and `instanceDisplayNamePrefix` is `MyCluster`, the host's display
-* name is `MyCluster-4`.
+* ESXi host in the Cluster, and {@code instanceDisplayNamePrefix} is {@code MyCluster}, the host's display
+* name is {@code MyCluster-4}.
 * <p>
 Avoid entering confidential information.
 * 
@@ -52,7 +52,7 @@ Avoid entering confidential information.
   "currentCommitment"?: model.Commitment;
   /**
    * The billing option to switch to after the existing billing cycle ends.
-   * If `nextCommitment` is null or empty, `currentCommitment` continues to the next billing cycle.
+   * If {@code nextCommitment} is null or empty, {@code currentCommitment} continues to the next billing cycle.
    * {@link #listSupportedCommitments(ListSupportedCommitmentsRequest) listSupportedCommitments}.
    *
    */
@@ -92,7 +92,7 @@ Avoid entering confidential information.
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -100,7 +100,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

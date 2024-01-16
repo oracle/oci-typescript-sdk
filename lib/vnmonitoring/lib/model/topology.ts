@@ -31,7 +31,7 @@ export interface Topology {
   /**
    * Lists entities that are limited during ingestion.
    * The values for the items in the list are the entity type names of the limitedEntities.
-   * Example: `vcn`
+   * Example: {@code vcn}
    *
    */
   "limitedEntities": Array<string>;

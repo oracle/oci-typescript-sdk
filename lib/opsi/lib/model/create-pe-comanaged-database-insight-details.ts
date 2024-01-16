@@ -50,7 +50,7 @@ export interface CreatePeComanagedDatabaseInsightDetails
   "deploymentType": CreatePeComanagedDatabaseInsightDetails.DeploymentType;
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

@@ -43,7 +43,7 @@ export interface AccessRequestSummary {
   "requestorId": string;
   /**
    * The two-char country code of the requestor while creating the access request
-   * Example: `US`
+   * Example: {@code US}
    *
    */
   "requestorLocation"?: string;
@@ -57,19 +57,19 @@ export interface AccessRequestSummary {
   "accessDuration"?: string;
   /**
    * The time the access request was created. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
    * The time the access request was last updated. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeUpdated": Date;
   /**
    * The time the access request expired. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeExpired": Date;

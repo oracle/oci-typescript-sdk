@@ -35,14 +35,14 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The field to sort by.  You can provide one sort order (`sortOrder`).  Default order for TIMECREATED is descending.  Default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
+   * The field to sort by.  You can provide one sort order ({@code sortOrder}).  Default order for TIMECREATED is descending.  Default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
    * <p>
    **Note:** If you do not include the availability domain filter, the resources are grouped by availability domain, then sorted.
    *
    */
   "sortBy"?: ListAutonomousDatabasesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListAutonomousDatabasesRequest.SortOrder;
   /**
@@ -62,8 +62,8 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "dbVersion"?: string;
   /**
-   * Filter on the value of the resource's 'isFreeTier' property. A value of `true` returns only Always Free resources.
-   * A value of `false` excludes Always Free resources from the returned results. Omitting this parameter returns both Always Free and paid resources.
+   * Filter on the value of the resource's 'isFreeTier' property. A value of {@code true} returns only Always Free resources.
+   * A value of {@code false} excludes Always Free resources from the returned results. Omitting this parameter returns both Always Free and paid resources.
    *
    */
   "isFreeTier"?: boolean;
@@ -77,8 +77,8 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Filter on the value of the resource's 'isRefreshableClone' property. A value of `true` returns only refreshable clones.
-   * A value of `false` excludes refreshable clones from the returned results. Omitting this parameter returns both refreshable clones and databases that are not refreshable clones.
+   * Filter on the value of the resource's 'isRefreshableClone' property. A value of {@code true} returns only refreshable clones.
+   * A value of {@code false} excludes refreshable clones from the returned results. Omitting this parameter returns both refreshable clones and databases that are not refreshable clones.
    *
    */
   "isRefreshableClone"?: boolean;
@@ -87,7 +87,7 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "isDataGuardEnabled"?: boolean;
   /**
-   * Filter if the resource is the resource pool leader. A value of `true` returns only resource pool leader.
+   * Filter if the resource is the resource pool leader. A value of {@code true} returns only resource pool leader.
    *
    */
   "isResourcePoolLeader"?: boolean;

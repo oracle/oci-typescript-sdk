@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of the fields that are indexed for querying and their associated value types. Results contain `QueryableFieldSummary` objects.
+ * List of the fields that are indexed for querying and their associated value types. Results contain {@code QueryableFieldSummary} objects.
  *
  */
 export interface QueryableFieldCollection {

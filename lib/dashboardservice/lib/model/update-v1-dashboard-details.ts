@@ -24,8 +24,8 @@ import common = require("oci-common");
 
 /**
  * Details for updating a version 1 dashboard.
- * The interpretation of the `config` and `widgets` fields depends on the runtime behavior of the Oracle Cloud Infrastructure Console.
- * The sum of the `config` and `widget` fields JSON text representation cannot exceed 200 KB.
+ * The interpretation of the {@code config} and {@code widgets} fields depends on the runtime behavior of the Oracle Cloud Infrastructure Console.
+ * The sum of the {@code config} and {@code widget} fields JSON text representation cannot exceed 200 KB.
  *
  */
 export interface UpdateV1DashboardDetails extends model.UpdateDashboardDetails {

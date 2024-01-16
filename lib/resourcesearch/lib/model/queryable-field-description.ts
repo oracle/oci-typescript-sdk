@@ -24,7 +24,7 @@ export interface QueryableFieldDescription {
    */
   "fieldType": QueryableFieldDescription.FieldType;
   /**
-   * The name of the field to use when constructing the query. Field names are present for all types except `OBJECT`.
+   * The name of the field to use when constructing the query. Field names are present for all types except {@code OBJECT}.
    *
    */
   "fieldName": string;
@@ -34,7 +34,7 @@ export interface QueryableFieldDescription {
    */
   "isArray"?: boolean;
   /**
-   * If the field type is `OBJECT`, then this property will provide all the individual properties of the object that can
+   * If the field type is {@code OBJECT}, then this property will provide all the individual properties of the object that can
    * be queried.
    *
    */

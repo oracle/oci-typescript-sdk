@@ -23,19 +23,19 @@ import common = require("oci-common");
 export interface DetectedLanguage {
   /**
    * Full language name.
-   * Example: `English, Hindi, and so on`
+   * Example: {@code English, Hindi, and so on}
    *
    */
   "name": string;
   /**
    * Detected language code as per [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard.
-   * Example: `en, fr, hi etc`.
+   * Example: {@code en, fr, hi etc}.
    *
    */
   "code": string;
   /**
    * Score or confidence of detected language code.
-   * Example: `0.9999856066867399`
+   * Example: {@code 0.9999856066867399}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "score": number;

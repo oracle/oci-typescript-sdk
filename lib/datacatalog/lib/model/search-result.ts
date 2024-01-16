@@ -37,13 +37,13 @@ export interface SearchResult {
   "description"?: string;
   /**
    * The date and time the result object was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2019-03-25T21:10:29.600Z`
+   * Example: {@code 2019-03-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;
   /**
    * The date and time the result object was updated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2019-03-25T21:10:29.600Z`
+   * Example: {@code 2019-03-25T21:10:29.600Z}
    *
    */
   "timeUpdated"?: Date;
@@ -155,7 +155,7 @@ export interface SearchResult {
    * A map of maps that contains the properties which are specific to the element type in the search result.
    * The map keys are category names and the values are maps of property name to property value. Every property
    * is contained inside of a category. Most element types have required properties within the \"default\" category.
-   * Example: `{\"properties\": { \"default\": { \"key1\": \"value1\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"key1\": \"value1\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

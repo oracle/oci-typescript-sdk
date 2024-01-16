@@ -26,12 +26,12 @@ export interface RoutingPolicy {
   /**
     * The unique name for this list of routing rules. Avoid entering confidential information.
 * <p>
-Example: `example_routing_policy`
+Example: {@code example_routing_policy}
 * 
     */
   "name": string;
   /**
-   * The version of the language in which `condition` of `rules` are composed.
+   * The version of the language in which {@code condition} of {@code rules} are composed.
    *
    */
   "conditionLanguageVersion": RoutingPolicy.ConditionLanguageVersion;

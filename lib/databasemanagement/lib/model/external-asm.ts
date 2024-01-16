@@ -70,8 +70,8 @@ export interface ExternalAsm {
    */
   "servicedDatabases"?: Array<model.ExternalAsmServicedDatabase>;
   /**
-   * The additional details of the external ASM defined in `{\"key\": \"value\"}` format.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The additional details of the external ASM defined in {@code {\"key\": \"value\"}} format.
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "additionalDetails"?: { [key: string]: string };

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of work requests that match filter criteria, if any. Results contain `WorkRequest` objects.
+ * A list of work requests that match filter criteria, if any. Results contain {@code WorkRequest} objects.
  *
  */
 export interface WorkRequestCollection {

@@ -17,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information about a `ByoipRange` resource.
+ * Information about a {@code ByoipRange} resource.
  */
 export interface ByoipRangeSummary {
   /**
-   * A list of `ByoipRangeVcnIpv6AllocationSummary` objects.
+   * A list of {@code ByoipRangeVcnIpv6AllocationSummary} objects.
    *
    */
   "byoipRangeVcnIpv6Allocations"?: Array<model.ByoipRangeVcnIpv6AllocationSummary>;
@@ -30,13 +30,13 @@ export interface ByoipRangeSummary {
    */
   "cidrBlock"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the `ByoipRange` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the {@code ByoipRange} resource.
    *
    */
   "compartmentId"?: string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -48,12 +48,12 @@ export interface ByoipRangeSummary {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the `ByoipRange` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code ByoipRange} resource.
    */
   "id"?: string;
   /**
@@ -64,7 +64,7 @@ export interface ByoipRangeSummary {
    */
   "ipv6CidrBlock"?: string;
   /**
-   * The `ByoipRange` resource's current state.
+   * The {@code ByoipRange} resource's current state.
    */
   "lifecycleState"?: string;
   /**
@@ -72,9 +72,9 @@ export interface ByoipRangeSummary {
    */
   "lifecycleDetails"?: string;
   /**
-    * The date and time the `ByoipRange` resource was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+    * The date and time the {@code ByoipRange} resource was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;

@@ -33,10 +33,10 @@ export interface ListOdaInstanceAttachmentsRequest extends common.BaseRequest {
   /**
  * The page at which to start retrieving results.
 * <p>
-You get this value from the `opc-next-page` header in a previous list request.
+You get this value from the {@code opc-next-page} header in a previous list request.
 * To retireve the first page, omit this query parameter.
 * <p>
-Example: `MToxMA==`
+Example: {@code MToxMA==}
 * 
  */
   "page"?: string;
@@ -45,12 +45,12 @@ Example: `MToxMA==`
    */
   "lifecycleState"?: ListOdaInstanceAttachmentsRequest.LifecycleState;
   /**
-   * Sort the results in this order, use either `ASC` (ascending) or `DESC` (descending).
+   * Sort the results in this order, use either {@code ASC} (ascending) or {@code DESC} (descending).
    */
   "sortOrder"?: ListOdaInstanceAttachmentsRequest.SortOrder;
   /**
-   * Sort on this field. You can specify one sort order only. The default sort field is `TIMECREATED`.
-   * The default sort order for `TIMECREATED` is descending.
+   * Sort on this field. You can specify one sort order only. The default sort field is {@code TIMECREATED}.
+   * The default sort order for {@code TIMECREATED} is descending.
    *
    */
   "sortBy"?: ListOdaInstanceAttachmentsRequest.SortBy;

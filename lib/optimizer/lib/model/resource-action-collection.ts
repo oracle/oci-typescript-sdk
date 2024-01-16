@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of resource actions that match filter criteria, if any. Results contain `ResourceActionSummary` objects.
+ * A list of resource actions that match filter criteria, if any. Results contain {@code ResourceActionSummary} objects.
  *
  */
 export interface ResourceActionCollection {

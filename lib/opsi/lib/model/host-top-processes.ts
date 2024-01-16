@@ -56,7 +56,7 @@ export interface HostTopProcesses extends model.HostPerformanceMetricGroup {
   "physicalMemoryInMBs"?: number;
   /**
    * Process Start Time
-   * Example: `\"2020-03-31T00:00:00.000Z\"`
+   * Example: {@code \"2020-03-31T00:00:00.000Z\"}
    *
    */
   "startTime"?: Date;

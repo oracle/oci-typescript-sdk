@@ -32,7 +32,7 @@ export interface UpdateRunObjectStoreScriptUserDefinedStepDetails
 * <p>
 **For non-moving instances:** *runOnInstanceId* must be the OCID of the non-moving instance.  
 * <p>
-Example: `ocid1.instance.oc1..uniqueID`
+Example: {@code ocid1.instance.oc1..uniqueID}
 * 
     */
   "runOnInstanceId": string;

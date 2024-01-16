@@ -28,7 +28,7 @@ export interface ListAnnouncementsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
   /**
@@ -49,16 +49,16 @@ export interface ListAnnouncementsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListAnnouncementsRequest.SortBy;
   /**
-   * The sort order to use. (Sorting by `announcementType` orders the announcements list according to importance.)
+   * The sort order to use. (Sorting by {@code announcementType} orders the announcements list according to importance.)
    *
    */
   "sortOrder"?: ListAnnouncementsRequest.SortOrder;
   /**
-   * The boundary for the earliest `timeOneValue` date on announcements that you want to see.
+   * The boundary for the earliest {@code timeOneValue} date on announcements that you want to see.
    */
   "timeOneEarliestTime"?: Date;
   /**
-   * The boundary for the latest `timeOneValue` date on announcements that you want to see.
+   * The boundary for the latest {@code timeOneValue} date on announcements that you want to see.
    */
   "timeOneLatestTime"?: Date;
   /**

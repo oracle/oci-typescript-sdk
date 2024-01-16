@@ -47,7 +47,7 @@ export interface Stack {
   /**
    * The date and time at which the stack was created.
    * Format is defined by RFC3339.
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;
@@ -68,7 +68,7 @@ export interface Stack {
     | model.ZipUploadConfigSource;
   "customTerraformProvider"?: model.CustomTerraformProvider;
   /**
-   * When `true`, the stack sources third-party Terraform providers from
+   * When {@code true}, the stack sources third-party Terraform providers from
    * [Terraform Registry](https://registry.terraform.io/browse/providers) and allows
    * {@link #customTerraformProvider(CustomTerraformProviderRequest) customTerraformProvider}.
    * For more information about stack sourcing of third-party Terraform providers, see
@@ -80,12 +80,12 @@ export interface Stack {
    * Terraform variables associated with this resource.
    * Maximum number of variables supported is 250.
    * The maximum size of each variable, including both name and value, is 8192 bytes.
-   * Example: `{\"CompartmentId\": \"compartment-id-value\"}`
+   * Example: {@code {\"CompartmentId\": \"compartment-id-value\"}}
    *
    */
   "variables"?: { [key: string]: string };
   /**
-   * The version of Terraform specified for the stack. Example: `0.12.x`
+   * The version of Terraform specified for the stack. Example: {@code 0.12.x}
    *
    */
   "terraformVersion"?: string;
@@ -98,21 +98,21 @@ export interface Stack {
   /**
    * The date and time when the drift detection was last executed.
    * Format is defined by RFC3339.
-   * Example: `2020-01-25T21:10:29.600Z`
+   * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeDriftLastChecked"?: Date;
   /**
    * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

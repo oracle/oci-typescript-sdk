@@ -33,25 +33,25 @@ export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The DISPLAYNAME sort order
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). The DISPLAYNAME sort order
    * is case sensitive.
    *
    */
   "sortOrder"?: ListWorkRequestErrorsRequest.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. The default order for `timeCreated` is descending.
+   * The field to sort by. Only one sort order may be provided. The default order for {@code timeCreated} is descending.
    *
    */
   "sortBy"?: ListWorkRequestErrorsRequest.SortBy;

@@ -46,13 +46,13 @@ export interface ListAssociationsRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
-   * The field to sort by. You can specify only one sort order. The default order for `TIMECREATED` is descending.
-   * The default order for `NAME` is ascending.
+   * The field to sort by. You can specify only one sort order. The default order for {@code TIMECREATED} is descending.
+   * The default order for {@code NAME} is ascending.
    *
    */
   "sortBy"?: ListAssociationsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListAssociationsRequest.SortOrder;
@@ -62,7 +62,7 @@ export interface ListAssociationsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header
+   * The value of the {@code opc-next-page} response header
    * from the previous \"List\" call.
    *
    */

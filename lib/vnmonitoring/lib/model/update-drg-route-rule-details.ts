@@ -30,15 +30,15 @@ export interface UpdateDrgRouteRuleDetails {
     * The range of IP addresses used for matching when routing traffic.
 * <p>
 Potential values:
-*   * IP address range in CIDR notation. Can be an IPv4 or IPv6 CIDR. For example: `192.168.1.0/24`
-*   or `2001:0db8:0123:45::/56`.
+*   * IP address range in CIDR notation. Can be an IPv4 or IPv6 CIDR. For example: {@code 192.168.1.0/24}
+*   or {@code 2001:0db8:0123:45::/56}.
 * 
     */
   "destination"?: string;
   /**
    * Type of destination for the rule.
    * Allowed values:
-   *   * `CIDR_BLOCK`: If the rule's `destination` is an IP address range in CIDR notation.
+   *   * {@code CIDR_BLOCK}: If the rule's {@code destination} is an IP address range in CIDR notation.
    *
    */
   "destinationType"?: UpdateDrgRouteRuleDetails.DestinationType;

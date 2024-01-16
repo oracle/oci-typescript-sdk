@@ -48,7 +48,7 @@ export interface ListAwrHubObjectsRequest extends common.BaseRequest {
    */
   "startAfter"?: string;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from
+   * For list pagination. The value of the {@code opc-next-page} response header from
    * the previous \"List\" call. For important details about how pagination works,
    * see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -59,7 +59,7 @@ export interface ListAwrHubObjectsRequest extends common.BaseRequest {
    * return in a paginated \"List\" call.
    * For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
-   * Example: `50`
+   * Example: {@code 50}
    *
    */
   "limit"?: number;

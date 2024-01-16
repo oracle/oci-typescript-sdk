@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface UpdateAutonomousDatabaseWalletDetails {
   /**
-   * Indicates whether to rotate the wallet or not. If `false`, the wallet will not be rotated. The default is `false`.
+   * Indicates whether to rotate the wallet or not. If {@code false}, the wallet will not be rotated. The default is {@code false}.
    */
   "shouldRotate"?: boolean;
   /**

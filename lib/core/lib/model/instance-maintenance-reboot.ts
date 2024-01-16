@@ -29,7 +29,7 @@ export interface InstanceMaintenanceReboot {
    * The maximum extension date and time for the maintenance reboot, in the format defined by
    * [RFC3339](https://tools.ietf.org/html/rfc3339).
    * The range for the maintenance extension is between 1 and 14 days from the initial scheduled maintenance date.
-   * Example: `2018-05-25T21:10:29.600Z`
+   * Example: {@code 2018-05-25T21:10:29.600Z}
    *
    */
   "timeMaintenanceRebootDueMax": Date;

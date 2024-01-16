@@ -24,7 +24,7 @@ export interface ScanExternalContainerDatabasePluggableDatabasesRequest extends 
   "externalContainerDatabaseId": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the
-   * external database connector resource (`ExternalDatabaseConnectorId`).
+   * external database connector resource ({@code ExternalDatabaseConnectorId}).
    *
    */
   "externalDatabaseConnectorId": string;

@@ -23,8 +23,8 @@ export interface ListAlertRulesResponse {
    */
   "opcRequestId": string;
   /**
-   * For pagination of a list of `AlertRuleSummary`. If this header appears in the response, then this
-   * is a partial list of AlertRuleSummaries. Include this value as the `page` parameter in a subsequent
+   * For pagination of a list of {@code AlertRuleSummary}. If this header appears in the response, then this
+   * is a partial list of AlertRuleSummaries. Include this value as the {@code page} parameter in a subsequent
    * GET request to get the next batch of AlertRuleSummaries.
    *
    */

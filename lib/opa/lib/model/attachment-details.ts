@@ -20,14 +20,14 @@ import common = require("oci-common");
 export interface AttachmentDetails {
   /**
    * The role of the target attachment.
-   *    * `PARENT` - The target instance is the parent of this attachment.
-   *    * `CHILD` - The target instance is the child of this attachment.
+   *    * {@code PARENT} - The target instance is the parent of this attachment.
+   *    * {@code CHILD} - The target instance is the child of this attachment.
    *
    */
   "targetRole": AttachmentDetails.TargetRole;
   /**
-   * * If role == `PARENT`, the attached instance was created by this service instance
-   * * If role == `CHILD`, this instance was created from attached instance on behalf of a user
+   * * If role == {@code PARENT}, the attached instance was created by this service instance
+   * * If role == {@code CHILD}, this instance was created from attached instance on behalf of a user
    *
    */
   "isImplicit": boolean;

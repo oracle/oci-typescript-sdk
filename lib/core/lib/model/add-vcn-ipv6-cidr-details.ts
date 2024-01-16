@@ -29,7 +29,7 @@ export interface AddVcnIpv6CidrDetails {
     * This field is not required and should only be specified if a ULA or private IPv6 prefix is desired for VCN's private IP address space.
 * See[IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-Example: `2001:0db8:0123::/48` or `fd00:1000:0:1::/64`
+Example: {@code 2001:0db8:0123::/48} or {@code fd00:1000:0:1::/64}
 * 
     */
   "ipv6PrivateCidrBlock"?: string;

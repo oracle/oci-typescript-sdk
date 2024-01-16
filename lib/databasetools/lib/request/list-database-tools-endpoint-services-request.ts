@@ -44,7 +44,7 @@ export interface ListDatabaseToolsEndpointServicesRequest extends common.BaseReq
    */
   "opcRequestId"?: string;
   /**
-   * A filter to return only resources their `lifecycleState` matches the specified `lifecycleState`.
+   * A filter to return only resources their {@code lifecycleState} matches the specified {@code lifecycleState}.
    */
   "lifecycleState"?: model.LifecycleState;
   /**

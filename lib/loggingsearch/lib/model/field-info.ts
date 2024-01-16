@@ -24,10 +24,10 @@ export interface FieldInfo {
   "fieldName": string;
   /**
    * Field type -
-   * * `STRING`: A sequence of characters.
-   * * `NUMBER`: Numeric type which can be an integer or floating point.
-   * * `BOOLEAN`: Either true or false.
-   * * `ARRAY`: An ordered collection of values.
+   * * {@code STRING}: A sequence of characters.
+   * * {@code NUMBER}: Numeric type which can be an integer or floating point.
+   * * {@code BOOLEAN}: Either true or false.
+   * * {@code ARRAY}: An ordered collection of values.
    *
    */
   "fieldType": FieldInfo.FieldType;

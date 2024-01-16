@@ -24,9 +24,9 @@ export interface UpdateCertificateAuthorityConfigDetails {
    */
   "versionName"?: string;
   /**
-   * The rotation state of the CA. The default is `PENDING`, meaning that the CA is staged and available for use. A CA version
-   * that you mark as `CURRENT` is currently in use, but you don't yet want to rotate it into current, active use. For example,
-   * you might create or update a CA and mark its rotation state as `PENDING` if you haven't yet updated the certificate on the target system.
+   * The rotation state of the CA. The default is {@code PENDING}, meaning that the CA is staged and available for use. A CA version
+   * that you mark as {@code CURRENT} is currently in use, but you don't yet want to rotate it into current, active use. For example,
+   * you might create or update a CA and mark its rotation state as {@code PENDING} if you haven't yet updated the certificate on the target system.
    *
    */
   "stage"?: UpdateCertificateAuthorityConfigDetails.Stage;

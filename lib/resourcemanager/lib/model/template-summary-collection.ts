@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a `ListTemplates` operation.
+ * Results of a {@code ListTemplates} operation.
  *
  */
 export interface TemplateSummaryCollection {

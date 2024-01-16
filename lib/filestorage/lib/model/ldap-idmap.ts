@@ -40,14 +40,14 @@ export interface LdapIdmap {
   /**
     * All LDAP searches are recursive starting at this user.
 * <p>
-Example: `CN=User,DC=domain,DC=com`
+Example: {@code CN=User,DC=domain,DC=com}
 * 
     */
   "userSearchBase"?: string;
   /**
     * All LDAP searches are recursive starting at this group.
 * <p>
-Example: `CN=Group,DC=domain,DC=com`
+Example: {@code CN=Group,DC=domain,DC=com}
 * 
     */
   "groupSearchBase"?: string;

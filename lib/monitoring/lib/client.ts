@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -377,6 +377,95 @@ This call is subject to a Monitoring limit that applies to the total number of r
   }
 
   /**
+     * Creates a dimension-specific suppression for an alarm.
+* <p>
+For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* <p>
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
+* or transactions, per second (TPS) for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateAlarmSuppressionRequest
+     * @return CreateAlarmSuppressionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/CreateAlarmSuppression.ts.html |here} to see how to use CreateAlarmSuppression API.
+     */
+  public async createAlarmSuppression(
+    createAlarmSuppressionRequest: requests.CreateAlarmSuppressionRequest
+  ): Promise<responses.CreateAlarmSuppressionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MonitoringClient#createAlarmSuppression.");
+    const operationName = "createAlarmSuppression";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppression/CreateAlarmSuppression";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createAlarmSuppressionRequest.opcRequestId,
+      "opc-retry-token": createAlarmSuppressionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAlarmSuppressionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alarmSuppressions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAlarmSuppressionRequest.createAlarmSuppressionDetails,
+        "CreateAlarmSuppressionDetails",
+        model.CreateAlarmSuppressionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAlarmSuppressionResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmSuppression",
+        bodyModel: model.AlarmSuppression,
+        type: "model.AlarmSuppression",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Deletes the specified alarm.
 * For more information, see
 * [Deleting an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/delete-alarm.htm).
@@ -438,6 +527,83 @@ This call is subject to a Monitoring limit that applies to the total number of r
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAlarmResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Deletes the specified alarm suppression.
+* <p>
+For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* <p>
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
+* or transactions, per second (TPS) for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteAlarmSuppressionRequest
+     * @return DeleteAlarmSuppressionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/DeleteAlarmSuppression.ts.html |here} to see how to use DeleteAlarmSuppression API.
+     */
+  public async deleteAlarmSuppression(
+    deleteAlarmSuppressionRequest: requests.DeleteAlarmSuppressionRequest
+  ): Promise<responses.DeleteAlarmSuppressionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MonitoringClient#deleteAlarmSuppression.");
+    const operationName = "deleteAlarmSuppression";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppression/DeleteAlarmSuppression";
+    const pathParams = {
+      "{alarmSuppressionId}": deleteAlarmSuppressionRequest.alarmSuppressionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteAlarmSuppressionRequest.opcRequestId,
+      "if-match": deleteAlarmSuppressionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAlarmSuppressionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alarmSuppressions/{alarmSuppressionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAlarmSuppressionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -630,6 +796,186 @@ This call is subject to a Monitoring limit that applies to the total number of r
   }
 
   /**
+     * Gets the specified alarm suppression.
+* <p>
+For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* <p>
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
+* or transactions, per second (TPS) for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetAlarmSuppressionRequest
+     * @return GetAlarmSuppressionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarmSuppression.ts.html |here} to see how to use GetAlarmSuppression API.
+     */
+  public async getAlarmSuppression(
+    getAlarmSuppressionRequest: requests.GetAlarmSuppressionRequest
+  ): Promise<responses.GetAlarmSuppressionResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#getAlarmSuppression.");
+    const operationName = "getAlarmSuppression";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppression/GetAlarmSuppression";
+    const pathParams = {
+      "{alarmSuppressionId}": getAlarmSuppressionRequest.alarmSuppressionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAlarmSuppressionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAlarmSuppressionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alarmSuppressions/{alarmSuppressionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAlarmSuppressionResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmSuppression",
+        bodyModel: model.AlarmSuppression,
+        type: "model.AlarmSuppression",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Lists alarm suppressions for the specified alarm.
+* Only dimension-level suppressions are listed. Alarm-level suppressions are not listed.
+* <p>
+For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* <p>
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
+* or transactions, per second (TPS) for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAlarmSuppressionsRequest
+     * @return ListAlarmSuppressionsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarmSuppressions.ts.html |here} to see how to use ListAlarmSuppressions API.
+     */
+  public async listAlarmSuppressions(
+    listAlarmSuppressionsRequest: requests.ListAlarmSuppressionsRequest
+  ): Promise<responses.ListAlarmSuppressionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MonitoringClient#listAlarmSuppressions.");
+    const operationName = "listAlarmSuppressions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppressionCollection/ListAlarmSuppressions";
+    const pathParams = {};
+
+    const queryParams = {
+      "alarmId": listAlarmSuppressionsRequest.alarmId,
+      "displayName": listAlarmSuppressionsRequest.displayName,
+      "lifecycleState": listAlarmSuppressionsRequest.lifecycleState,
+      "sortBy": listAlarmSuppressionsRequest.sortBy,
+      "sortOrder": listAlarmSuppressionsRequest.sortOrder,
+      "page": listAlarmSuppressionsRequest.page,
+      "limit": listAlarmSuppressionsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAlarmSuppressionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlarmSuppressionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alarmSuppressions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAlarmSuppressionsResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmSuppressionCollection",
+        bodyModel: model.AlarmSuppressionCollection,
+        type: "model.AlarmSuppressionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-previous-page"),
+            key: "opcPreviousPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Lists the alarms for the specified compartment.
 * For more information, see
 * [Listing Alarms](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm.htm).
@@ -777,6 +1123,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * List the status of each alarm in the specified compartment.
 * Status is collective, across all metric streams in the alarm.
 * To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
+* Optionally filter by resource or status value.
 * For more information, see
 * [Listing Alarm Statuses](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-status.htm).
 * For important limits information, see
@@ -1248,7 +1595,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   }
 
   /**
-     * Lists the current alarm status of each metric stream, where status is derived from the metric stream's last associated transition. 
+     * Lists the current alarm status of each metric stream, where status is derived from the metric stream's last associated transition.
 * Optionally filter by status value and one or more dimension key-value pairs.
 * For more information, see
 * [Listing Metric Stream Status in an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-status-metric-stream.htm).
@@ -1332,6 +1679,104 @@ This call is subject to a Monitoring limit that applies to the total number of r
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Returns history of suppressions for the specified alarm, including both dimension-specific and and alarm-wide suppressions.
+* <p>
+For important limits information, see
+* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* <p>
+This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+* Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
+* or transactions, per second (TPS) for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param SummarizeAlarmSuppressionHistoryRequest
+     * @return SummarizeAlarmSuppressionHistoryResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/SummarizeAlarmSuppressionHistory.ts.html |here} to see how to use SummarizeAlarmSuppressionHistory API.
+     */
+  public async summarizeAlarmSuppressionHistory(
+    summarizeAlarmSuppressionHistoryRequest: requests.SummarizeAlarmSuppressionHistoryRequest
+  ): Promise<responses.SummarizeAlarmSuppressionHistoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MonitoringClient#summarizeAlarmSuppressionHistory.");
+    const operationName = "summarizeAlarmSuppressionHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppression/SummarizeAlarmSuppressionHistory";
+    const pathParams = {
+      "{alarmId}": summarizeAlarmSuppressionHistoryRequest.alarmId
+    };
+
+    const queryParams = {
+      "page": summarizeAlarmSuppressionHistoryRequest.page,
+      "limit": summarizeAlarmSuppressionHistoryRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAlarmSuppressionHistoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAlarmSuppressionHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alarms/{alarmId}/actions/summarizeAlarmSuppressionHistory",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        summarizeAlarmSuppressionHistoryRequest.summarizeAlarmSuppressionHistoryDetails,
+        "SummarizeAlarmSuppressionHistoryDetails",
+        model.SummarizeAlarmSuppressionHistoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAlarmSuppressionHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmSuppressionHistoryItemCollection",
+        bodyModel: model.AlarmSuppressionHistoryItemCollection,
+        type: "model.AlarmSuppressionHistoryItemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-previous-page"),
+            key: "opcPreviousPage",
             dataType: "string"
           }
         ]

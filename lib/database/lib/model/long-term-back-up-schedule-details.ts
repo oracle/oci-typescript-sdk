@@ -32,7 +32,7 @@ export interface LongTermBackUpScheduleDetails {
    */
   "retentionPeriodInDays"?: number;
   /**
-   * Indicates if the long-term backup schedule should be deleted. The default value is `FALSE`.
+   * Indicates if the long-term backup schedule should be deleted. The default value is {@code FALSE}.
    *
    */
   "isDisabled"?: boolean;

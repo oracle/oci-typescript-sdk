@@ -23,7 +23,7 @@ export interface CreateCpeDetails {
   "compartmentId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -35,14 +35,14 @@ export interface CreateCpeDetails {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
     * The public IP address of the on-premises router.
 * <p>
-Example: `203.0.113.2`
+Example: {@code 203.0.113.2}
 * 
     */
   "ipAddress": string;
@@ -63,7 +63,7 @@ For more information about generating CPE device configuration content, see:
     */
   "cpeDeviceShapeId"?: string;
   /**
-   * Indicates whether this CPE is of type `private` or not.
+   * Indicates whether this CPE is of type {@code private} or not.
    *
    */
   "isPrivate"?: boolean;

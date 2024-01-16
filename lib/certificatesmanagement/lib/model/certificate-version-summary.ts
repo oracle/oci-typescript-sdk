@@ -24,13 +24,13 @@ export interface CertificateVersionSummary {
   "certificateId": string;
   /**
    * A unique certificate identifier used in certificate revocation tracking, formatted as octets.
-   * Example: `03 AC FC FA CC B3 CB 02 B8 F8 DE F5 85 E7 7B FF`
+   * Example: {@code 03 AC FC FA CC B3 CB 02 B8 F8 DE F5 85 E7 7B FF}
    *
    */
   "serialNumber"?: string;
   /**
    * A optional property indicating the time when the certificate version was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
@@ -53,7 +53,7 @@ export interface CertificateVersionSummary {
   "subjectAlternativeNames"?: Array<model.CertificateSubjectAlternativeName>;
   /**
    * An optional property indicating when to delete the certificate version, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeOfDeletion"?: Date;

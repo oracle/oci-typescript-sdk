@@ -28,21 +28,21 @@ export interface NetworkLoadBalancerBackendSetMapping {
 * Backend sets that point to non-movable instances are only enabled or disabled during DR. For non-movable instances this flag should be set to 'true'.
 * Backend sets that point to movable instances are emptied and their contents are transferred to the destination region network load balancer.  For movable instances this flag should be set to 'false'. 
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isBackendSetForNonMovable": boolean;
   /**
     * The name of the source backend set.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
     */
   "sourceBackendSetName": string;
   /**
     * The name of the destination backend set.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
     */
   "destinationBackendSetName": string;

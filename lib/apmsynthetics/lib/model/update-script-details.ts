@@ -30,11 +30,11 @@ export interface UpdateScriptDetails {
   "contentType"?: model.ContentTypes;
   /**
    * The content of the script. It may contain custom-defined tags that can be used for setting dynamic parameters.
-   * The format to set dynamic parameters is: `<ORAP><ON>param name</ON><OV>param value</OV><OS>isParamValueSecret(true/false)</OS></ORAP>`.
+   * The format to set dynamic parameters is: {@code <ORAP><ON>param name</ON><OV>param value</OV><OS>isParamValueSecret(true/false)</OS></ORAP>}.
    * Param value and isParamValueSecret are optional, the default value for isParamValueSecret is false.
    * Examples:
-   * With mandatory param name : `<ORAP><ON>param name</ON></ORAP>`
-   * With parameter name and value : `<ORAP><ON>param name</ON><OV>param value</OV></ORAP>`
+   * With mandatory param name : {@code <ORAP><ON>param name</ON></ORAP>}
+   * With parameter name and value : {@code <ORAP><ON>param name</ON><OV>param value</OV></ORAP>}
    * Note that the content is valid if it matches the given content type. For example, if the content type is SIDE, then the content should be in Side script format. If the content type is JS, then the content should be in JavaScript format.
    *
    */
@@ -44,19 +44,19 @@ export interface UpdateScriptDetails {
    */
   "contentFileName"?: string;
   /**
-   * List of script parameters. Example: `[{\"paramName\": \"userid\", \"paramValue\":\"testuser\", \"isSecret\": false}]`
+   * List of script parameters. Example: {@code [{\"paramName\": \"userid\", \"paramValue\":\"testuser\", \"isSecret\": false}]}
    *
    */
   "parameters"?: Array<model.ScriptParameter>;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

@@ -24,7 +24,7 @@ export interface CreateServiceGatewayDetails {
   "compartmentId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -36,7 +36,7 @@ export interface CreateServiceGatewayDetails {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -55,11 +55,11 @@ For information about why you would associate a route table with a service gatew
   /**
     * List of the OCIDs of the {@link Service} objects to
 * enable for the service gateway. This list can be empty if you don't want to enable any
-* `Service` objects when you create the gateway. You can enable a `Service`
+* {@code Service} objects when you create the gateway. You can enable a {@code Service}
 * object later by using either {@link #attachServiceId(AttachServiceIdRequest) attachServiceId}
 * or {@link #updateServiceGateway(UpdateServiceGatewayRequest) updateServiceGateway}.
 * <p>
-For each enabled `Service`, make sure there's a route rule with the `Service` object's `cidrBlock`
+For each enabled {@code Service}, make sure there's a route rule with the {@code Service} object's {@code cidrBlock}
 * as the rule's destination and the service gateway as the rule's target. See
 * {@link RouteTable}.
 * 

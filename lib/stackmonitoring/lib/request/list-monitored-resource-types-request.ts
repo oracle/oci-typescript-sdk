@@ -50,7 +50,7 @@ export interface ListMonitoredResourceTypesRequest extends common.BaseRequest {
    */
   "sortBy"?: ListMonitoredResourceTypesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: model.SortOrder;
@@ -62,7 +62,7 @@ export interface ListMonitoredResourceTypesRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the
+   * For list pagination. The value of the {@code opc-next-page} response header from the
    * previous \"List\" call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *

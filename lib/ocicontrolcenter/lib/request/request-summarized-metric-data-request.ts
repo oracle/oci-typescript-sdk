@@ -23,7 +23,7 @@ export interface RequestSummarizedMetricDataRequest extends common.BaseRequest {
    */
   "requestSummarizedMetricDataDetails": model.RequestSummarizedMetricDataDetails;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call.
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
    * For important details about how pagination works, see <a href=\"https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine\">List Pagination</a>.
    *
    */

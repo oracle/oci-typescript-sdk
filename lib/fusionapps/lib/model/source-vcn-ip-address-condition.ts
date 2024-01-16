@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * An access control rule condition that requires a match on the specified source VCN and IP address range.
- * This condition must be used only in conjunction with `SourceVcnIdCondition`.
+ * This condition must be used only in conjunction with {@code SourceVcnIdCondition}.
  *
  */
 export interface SourceVcnIpAddressCondition extends model.RuleCondition {

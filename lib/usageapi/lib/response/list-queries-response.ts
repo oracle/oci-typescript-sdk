@@ -23,7 +23,7 @@ export interface ListQueriesResponse {
   "opcRequestId": string;
   /**
    * For pagination of a list of Queries. If this header appears in the response, then this
-   * is a partial list of Queries. Include this value as the `page` parameter in a subsequent
+   * is a partial list of Queries. Include this value as the {@code page} parameter in a subsequent
    * GET request, to get the next batch of Queries.
    *
    */

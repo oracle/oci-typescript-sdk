@@ -55,7 +55,7 @@ This attribute is not guaranteed to reflect the version of
 Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
 * version of bundled VMware software supported by the Oracle Cloud VMware Solution, you
 * should use {@link #updateSddc(UpdateSddcRequest) updateSddc} to update the SDDC's
-* `vmwareSoftwareVersion` with that new version.
+* {@code vmwareSoftwareVersion} with that new version.
 * 
     */
   "vmwareSoftwareVersion": string;
@@ -74,7 +74,7 @@ This attribute is not guaranteed to reflect the version of
 Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
 * version of bundled ESXi software supported by the Oracle Cloud VMware Solution, you
 * should use {@link #updateSddc(UpdateSddcRequest) updateSddc} to update the SDDC's
-* `vmwareSoftwareVersion` with that new version.
+* {@code vmwareSoftwareVersion} with that new version.
 * 
     */
   "esxiSoftwareVersion"?: string;
@@ -91,27 +91,27 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
   /**
     * The FQDN for vCenter.
 * <p>
-Example: `vcenter-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
+Example: {@code vcenter-my-sddc.sddc.us-phoenix-1.oraclecloud.com}
 * 
     */
   "vcenterFqdn": string;
   /**
     * The FQDN for NSX Manager.
 * <p>
-Example: `nsx-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
+Example: {@code nsx-my-sddc.sddc.us-phoenix-1.oraclecloud.com}
 * 
     */
   "nsxManagerFqdn": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `PrivateIp` object that is
-   * the virtual IP (VIP) for vCenter. For information about `PrivateIp` objects, see the
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
+   * the virtual IP (VIP) for vCenter. For information about {@code PrivateIp} objects, see the
    * Core Services API.
    *
    */
   "vcenterPrivateIpId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `PrivateIp` object that is
-   * the virtual IP (VIP) for NSX Manager. For information about `PrivateIp` objects, see the
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
+   * the virtual IP (VIP) for NSX Manager. For information about {@code PrivateIp} objects, see the
    * Core Services API.
    *
    */
@@ -129,9 +129,9 @@ Example: `nsx-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
    */
   "nsxManagerUsername"?: string;
   /**
-    * One or more public SSH keys to be included in the `~/.ssh/authorized_keys` file for
+    * One or more public SSH keys to be included in the {@code ~/.ssh/authorized_keys} file for
 * the default user on each ESXi host. Use a newline character to separate multiple keys.
-* The SSH keys must be in the format required for the `authorized_keys` file.
+* The SSH keys must be in the format required for the {@code authorized_keys} file.
 * <p>
 This attribute is not guaranteed to reflect the public SSH keys
 * currently installed on the ESXi hosts in the SDDC. The purpose
@@ -141,21 +141,21 @@ This attribute is not guaranteed to reflect the public SSH keys
 * <p>
 Therefore, if you upgrade the existing ESXi hosts in the SDDC to use different
 * SSH keys, you should use {@link #updateSddc(UpdateSddcRequest) updateSddc} to update
-* the SDDC's `sshAuthorizedKeys` with the new public keys.
+* the SDDC's {@code sshAuthorizedKeys} with the new public keys.
 * 
     */
   "sshAuthorizedKeys": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `PrivateIp` object that is
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
    * the virtual IP (VIP) for the NSX Edge Uplink. Use this OCID as the route target for
    * route table rules when setting up connectivity between the SDDC and other networks.
-   * For information about `PrivateIp` objects, see the Core Services API.
+   * For information about {@code PrivateIp} objects, see the Core Services API.
    *
    */
   "nsxEdgeUplinkIpId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `PrivateIp` object that is
-   * the virtual IP (VIP) for HCX Manager. For information about `PrivateIp` objects, see the
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
+   * the virtual IP (VIP) for HCX Manager. For information about {@code PrivateIp} objects, see the
    * Core Services API.
    *
    */
@@ -163,7 +163,7 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use different
   /**
     * The FQDN for HCX Manager.
 * <p>
-Example: `hcx-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
+Example: {@code hcx-my-sddc.sddc.us-phoenix-1.oraclecloud.com}
 * 
     */
   "hcxFqdn"?: string;
@@ -185,7 +185,7 @@ Example: `hcx-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
   /**
     * The date and time current HCX Enterprise billing cycle ends, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeHcxBillingCycleEnd"?: Date;
@@ -193,7 +193,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * The date and time the SDDC's HCX on-premise license status was updated, in the format defined by
 * [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeHcxLicenseStatusUpdated"?: Date;
@@ -205,7 +205,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * The date and time the SDDC was created, in the format defined by
 * [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -223,7 +223,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags": { [key: string]: string };
@@ -231,7 +231,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags": { [key: string]: { [key: string]: any } };

@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * Details of the monitor count per state.
- * Example: `{ \"total\" : 5, \"enabled\" : 3 , \"disabled\" : 2, \"invalid\" : 0 }`
+ * Example: {@code { \"total\" : 5, \"enabled\" : 3 , \"disabled\" : 2, \"invalid\" : 0 }}
  *
  */
 export interface MonitorStatusCountMap {

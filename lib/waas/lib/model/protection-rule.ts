@@ -35,13 +35,13 @@ export interface ProtectionRule {
    */
   "description"?: string;
   /**
-   * The action to take when the traffic is detected as malicious. If unspecified, defaults to `OFF`.
+   * The action to take when the traffic is detected as malicious. If unspecified, defaults to {@code OFF}.
    */
   "action"?: ProtectionRule.Action;
   /**
    * The list of labels for the protection rule.
    * <p>
-   **Note:** Protection rules with a `ResponseBody` label will have no effect unless `isResponseInspected` is true.
+   **Note:** Protection rules with a {@code ResponseBody} label will have no effect unless {@code isResponseInspected} is true.
    */
   "labels"?: Array<string>;
   "exclusions"?: Array<model.ProtectionRuleExclusion>;

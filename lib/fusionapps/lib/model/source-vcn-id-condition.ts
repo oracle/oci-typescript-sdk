@@ -21,8 +21,8 @@ import common = require("oci-common");
 export interface SourceVcnIdCondition extends model.RuleCondition {
   /**
    * The OCID of the originating VCN that an incoming packet must match.
-   * You can use this condition in conjunction with `SourceVcnIpAddressCondition`.
-   * **NOTE:** If you define this condition for a rule without a `SourceVcnIpAddressCondition`, this condition
+   * You can use this condition in conjunction with {@code SourceVcnIpAddressCondition}.
+   * **NOTE:** If you define this condition for a rule without a {@code SourceVcnIpAddressCondition}, this condition
    * matches all incoming traffic in the specified VCN.
    *
    */

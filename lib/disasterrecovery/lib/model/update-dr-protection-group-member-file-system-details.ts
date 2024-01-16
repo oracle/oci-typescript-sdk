@@ -26,7 +26,7 @@ export interface UpdateDrProtectionGroupMemberFileSystemDetails
   /**
     * The availability domain of the destination mount target.
 * <p>
-Example: `BBTh:region-AD`
+Example: {@code BBTh:region-AD}
 * 
     */
   "destinationAvailabilityDomain"?: string;

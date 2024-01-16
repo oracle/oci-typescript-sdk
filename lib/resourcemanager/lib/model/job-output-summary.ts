@@ -36,7 +36,7 @@ export interface JobOutputSummary {
    */
   "outputValue"?: string;
   /**
-   * When `true`, output is sensitive.
+   * When {@code true}, output is sensitive.
    */
   "isSensitive"?: boolean;
   /**

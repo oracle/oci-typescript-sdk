@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * Action:
  * * NO_DECRYPT - Matching traffic is not decrypted.
- * * DECRYPT - Matching traffic is decrypted with the specified `secret` according to the specified `decryptionProfile`.
+ * * DECRYPT - Matching traffic is decrypted with the specified {@code secret} according to the specified {@code decryptionProfile}.
  *
  **/
 export enum DecryptionActionType {

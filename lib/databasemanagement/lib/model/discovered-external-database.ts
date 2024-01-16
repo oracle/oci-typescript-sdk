@@ -26,7 +26,7 @@ export interface DiscoveredExternalDatabase extends model.DiscoveredExternalDbSy
    */
   "compartmentId": string;
   /**
-   * The `DB_UNIQUE_NAME` of the external database.
+   * The {@code DB_UNIQUE_NAME} of the external database.
    */
   "dbUniqueName": string;
   /**

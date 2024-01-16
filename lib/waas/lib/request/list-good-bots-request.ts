@@ -27,11 +27,11 @@ export interface ListGoodBotsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The maximum number of items to return in a paginated call. If unspecified, defaults to `10`.
+   * The maximum number of items to return in a paginated call. If unspecified, defaults to {@code 10}.
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous paginated call.
+   * The value of the {@code opc-next-page} response header from the previous paginated call.
    */
   "page"?: string;
 }

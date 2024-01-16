@@ -27,10 +27,10 @@ Allowed values are :
 *   *  8000Mbps
 *   *  Flexible
 * <p>
-  Example: `flexible`
+  Example: {@code flexible}
 * <p>
   * NOTE: Fixed shapes 10Mbps, 100Mbps, 400Mbps, 8000Mbps will be deprecated from May 2023. This api
-*   * will only support `Flexible` shape after that date.
+*   * will only support {@code Flexible} shape after that date.
 * 
     */
   "shapeName": string;

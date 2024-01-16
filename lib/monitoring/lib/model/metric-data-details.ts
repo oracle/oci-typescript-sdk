@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -26,10 +26,10 @@ export interface MetricDataDetails {
   /**
     * The source service or application emitting the metric.
 * <p>
-A valid namespace value starts with an alphabetical character and includes only alphanumeric characters and underscores. The \"oci_\" prefix is reserved.
+A valid namespace value starts with an alphabetical character and includes only alphanumeric characters and underscores. Custom metrics can't use the following reserved prefixes: {@code oci_} and {@code oracle_}
 * Avoid entering confidential information.
 * <p>
-Example: `my_namespace`
+Example: {@code my_namespace}
 * 
     */
   "namespace": string;
@@ -38,7 +38,7 @@ Example: `my_namespace`
 * A valid resourceGroup value starts with an alphabetical character and includes only alphanumeric characters, periods (.), underscores (_), hyphens (-), and dollar signs ($).
 * Avoid entering confidential information.
 * <p>
-Example: `frontend-fleet`
+Example: {@code frontend-fleet}
 * 
     */
   "resourceGroup"?: string;
@@ -50,10 +50,10 @@ Example: `frontend-fleet`
   /**
     * The name of the metric.
 * <p>
-A valid name value starts with an alphabetical character and includes only alphanumeric characters, dots, underscores, hyphens, and dollar signs. The `oci_` prefix is reserved.
+A valid name value starts with an alphabetical character and includes only alphanumeric characters, dots, underscores, hyphens, and dollar signs.
 * Avoid entering confidential information.
 * <p>
-Example: `my_app.success_rate`
+Example: {@code my_app.success_rate}
 * 
     */
   "name": string;
@@ -64,7 +64,7 @@ Example: `my_app.success_rate`
 * A valid dimension value includes only Unicode characters. The character limit for a dimension value is 512.
 * Empty strings are not allowed for keys or values. Avoid entering confidential information.
 * <p>
-Example: `\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"`
+Example: {@code {\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"}}
 * 
     */
   "dimensions": { [key: string]: string };
@@ -72,7 +72,7 @@ Example: `\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"`
     * Properties describing metrics. These are not part of the unique fields identifying the metric.
 * Each metadata item takes the form of a key-value pair. The character limit for a metadata key is 256. The character limit for a metadata value is 256.
 * <p>
-Example: `\"unit\": \"bytes\"`
+Example: {@code \"unit\": \"bytes\"}
 * 
     */
   "metadata"?: { [key: string]: string };

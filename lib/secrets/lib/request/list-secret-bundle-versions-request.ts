@@ -33,19 +33,19 @@ export interface ListSecretBundleVersionsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call. For information about
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call. For information about
    * pagination, see [List Pagination](https://docs.cloud.oracle.com/#API/Concepts/usingapi.htm#List_Pagination).
    *
    */
   "page"?: string;
   /**
    * The field to sort by. You can specify only one sort order. The default
-   * order for `VERSION_NUMBER` is descending.
+   * order for {@code VERSION_NUMBER} is descending.
    *
    */
   "sortBy"?: ListSecretBundleVersionsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListSecretBundleVersionsRequest.SortOrder;

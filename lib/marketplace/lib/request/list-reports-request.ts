@@ -38,7 +38,7 @@ export interface ListReportsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
 }

@@ -39,7 +39,7 @@ export interface SentimentAspect {
   "sentiment"?: string;
   /**
    * Scores or confidences for each sentiment.
-   * Example: `{\"positive\": 1.0, \"negative\": 0.0}`
+   * Example: {@code {\"positive\": 1.0, \"negative\": 0.0}}
    *
    */
   "scores"?: { [key: string]: number };

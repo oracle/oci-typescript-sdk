@@ -35,7 +35,7 @@ export interface CreateComputeCapacityReportDetails {
   /**
     * The availability domain for the capacity report.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;

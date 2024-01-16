@@ -27,11 +27,11 @@ export interface ListFlexComponentsRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListFlexComponentsRequest.SortOrder;
   /**
-   * The field to sort by.  You can provide one sort order (`sortOrder`).  Default order for NAME is ascending. The NAME sort order is case sensitive.
+   * The field to sort by.  You can provide one sort order ({@code sortOrder}).  Default order for NAME is ascending. The NAME sort order is case sensitive.
    *
    */
   "sortBy"?: ListFlexComponentsRequest.SortBy;

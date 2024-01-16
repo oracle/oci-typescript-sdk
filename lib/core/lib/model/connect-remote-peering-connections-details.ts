@@ -32,7 +32,7 @@ export interface ConnectRemotePeeringConnectionsDetails {
   /**
     * The name of the region that contains the RPC you want to peer with.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "peerRegionName": string;

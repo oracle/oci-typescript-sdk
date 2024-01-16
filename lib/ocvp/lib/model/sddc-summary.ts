@@ -47,7 +47,7 @@ This attribute is not guaranteed to reflect the version of
 Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
 * version of bundled VMware software supported by the Oracle Cloud VMware Solution, you
 * should use {@link #updateSddc(UpdateSddcRequest) updateSddc} to update the SDDC's
-* `vmwareSoftwareVersion` with that new version.
+* {@code vmwareSoftwareVersion} with that new version.
 * 
     */
   "vmwareSoftwareVersion": string;
@@ -73,14 +73,14 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
   /**
     * FQDN for vCenter
 * <p>
-Example: `vcenter-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
+Example: {@code vcenter-my-sddc.sddc.us-phoenix-1.oraclecloud.com}
 * 
     */
   "vcenterFqdn"?: string;
   /**
     * FQDN for NSX Manager
 * <p>
-Example: `nsx-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
+Example: {@code nsx-my-sddc.sddc.us-phoenix-1.oraclecloud.com}
 * 
     */
   "nsxManagerFqdn"?: string;
@@ -88,7 +88,7 @@ Example: `nsx-my-sddc.sddc.us-phoenix-1.oraclecloud.com`
     * The date and time the SDDC was created, in the format defined by
 * [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
@@ -110,7 +110,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags": { [key: string]: string };
@@ -118,7 +118,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags": { [key: string]: { [key: string]: any } };

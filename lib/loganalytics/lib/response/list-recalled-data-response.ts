@@ -22,14 +22,14 @@ export interface ListRecalledDataResponse {
   "opcRequestId": string;
   /**
    * For pagination of a list of items. When paging through a list, if this header appears in the response,
-   * then additional items may be available on the next page of the list. Include this value as the `page` parameter for the
+   * then additional items may be available on the next page of the list. Include this value as the {@code page} parameter for the
    * subsequent request to get the next batch of items.
    *
    */
   "opcNextPage": string;
   /**
    * For pagination of a list of items. When paging through a list, if this header appears in the response,
-   * then additional items may be available on the previous page of the list. Include this value as the `page` parameter for the
+   * then additional items may be available on the previous page of the list. Include this value as the {@code page} parameter for the
    * subsequent request to get the previous batch of items.
    *
    */

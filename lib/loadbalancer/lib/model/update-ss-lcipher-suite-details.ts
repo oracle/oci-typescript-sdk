@@ -129,7 +129,7 @@ The following ciphers are valid values for this property:
 *         \"RC4-SHA\"
 *         \"SEED-SHA\"
 * <p>
-example: `[\"ECDHE-RSA-AES256-GCM-SHA384\",\"ECDHE-ECDSA-AES256-GCM-SHA384\",\"ECDHE-RSA-AES128-GCM-SHA256\"]`
+example: {@code [\"ECDHE-RSA-AES256-GCM-SHA384\",\"ECDHE-ECDSA-AES256-GCM-SHA384\",\"ECDHE-RSA-AES128-GCM-SHA256\"]}
 * 
     */
   "ciphers": Array<string>;

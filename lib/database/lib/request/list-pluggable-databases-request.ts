@@ -35,11 +35,11 @@ export interface ListPluggableDatabasesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The field to sort by.  You can provide one sort order (`sortOrder`).  Default order for TIMECREATED is descending.  Default order for PDBNAME is ascending. The PDBNAME sort order is case sensitive.
+   * The field to sort by.  You can provide one sort order ({@code sortOrder}).  Default order for TIMECREATED is descending.  Default order for PDBNAME is ascending. The PDBNAME sort order is case sensitive.
    */
   "sortBy"?: ListPluggableDatabasesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListPluggableDatabasesRequest.SortOrder;
   /**

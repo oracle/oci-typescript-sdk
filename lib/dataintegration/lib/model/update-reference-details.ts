@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateReferenceDetails {
   /**
-   * A list of options such as `ignoreObjectOnError`.
+   * A list of options such as {@code ignoreObjectOnError}.
    */
   "options"?: { [key: string]: string };
   /**
-   * The new target object to reference. This can be of type `DataAsset`, `Schema` or `Task`. In case of `DataAsset`, the child references can be of type `Connection`.
+   * The new target object to reference. This can be of type {@code DataAsset}, {@code Schema} or {@code Task}. In case of {@code DataAsset}, the child references can be of type {@code Connection}.
    */
   "targetObject"?: any;
   /**

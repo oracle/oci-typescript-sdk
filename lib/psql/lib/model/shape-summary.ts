@@ -26,7 +26,7 @@ export interface ShapeSummary {
   "id"?: string;
   /**
    * The name of the Compute VM shape.
-   * Example: `VM.Standard.E4.Flex`
+   * Example: {@code VM.Standard.E4.Flex}
    *
    */
   "shape": string;

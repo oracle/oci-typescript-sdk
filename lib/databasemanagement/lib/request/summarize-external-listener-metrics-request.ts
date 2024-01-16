@@ -24,13 +24,13 @@ export interface SummarizeExternalListenerMetricsRequest extends common.BaseRequ
   "externalListenerId": string;
   /**
    * The beginning of the time range set to retrieve metric data for the DB system
-   * and its members. Expressed in UTC in ISO-8601 format, which is `yyyy-MM-dd'T'hh:mm:ss.sss'Z'`.
+   * and its members. Expressed in UTC in ISO-8601 format, which is {@code yyyy-MM-dd'T'hh:mm:ss.sss'Z'}.
    *
    */
   "startTime": string;
   /**
    * The end of the time range set to retrieve metric data for the DB system
-   * and its members. Expressed in UTC in ISO-8601 format, which is `yyyy-MM-dd'T'hh:mm:ss.sss'Z'`.
+   * and its members. Expressed in UTC in ISO-8601 format, which is {@code yyyy-MM-dd'T'hh:mm:ss.sss'Z'}.
    *
    */
   "endTime": string;

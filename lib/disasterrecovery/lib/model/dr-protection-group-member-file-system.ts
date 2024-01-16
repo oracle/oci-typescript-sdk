@@ -26,7 +26,7 @@ export interface DrProtectionGroupMemberFileSystem extends model.DrProtectionGro
   /**
    * The availability domain of the destination mount target.
    *
-   * Example: `BBTh:region-AD`
+   * Example: {@code BBTh:region-AD}
    *
    */
   "destinationAvailabilityDomain"?: string;

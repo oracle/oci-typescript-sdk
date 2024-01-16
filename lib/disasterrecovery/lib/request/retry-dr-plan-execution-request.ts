@@ -25,13 +25,13 @@ export interface RetryDrPlanExecutionRequest extends common.BaseRequest {
   /**
  * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1..uniqueID`
+Example: {@code ocid1.drplanexecution.oc1..uniqueID}
 * 
  */
   "drPlanExecutionId": string;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
    * The resource will be updated or deleted only if the etag you
    * provide matches the resource's current etag value.

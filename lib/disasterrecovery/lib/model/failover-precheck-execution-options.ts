@@ -25,7 +25,7 @@ export interface FailoverPrecheckExecutionOptions extends model.DrPlanExecutionO
   /**
     * A flag indicating whether warnings should be ignored during the precheck.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "areWarningsIgnored"?: boolean;

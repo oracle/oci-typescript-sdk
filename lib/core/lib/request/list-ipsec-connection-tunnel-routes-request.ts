@@ -31,20 +31,20 @@ export interface ListIPSecConnectionTunnelRoutesRequest extends common.BaseReque
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
-   * Specifies the advertiser of the routes. If set to `ORACLE`, this returns only the
-   * routes advertised by Oracle. When set to `CUSTOMER`, this returns only the
+   * Specifies the advertiser of the routes. If set to {@code ORACLE}, this returns only the
+   * routes advertised by Oracle. When set to {@code CUSTOMER}, this returns only the
    * routes advertised by the CPE.
    *
    */

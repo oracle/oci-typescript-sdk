@@ -39,7 +39,7 @@ export interface SnapshotSummary {
 * <p>
 Avoid entering confidential information.
 * <p>
-Example: `Sunday`
+Example: {@code Sunday}
 * 
     */
   "name": string;
@@ -47,7 +47,7 @@ Example: `Sunday`
     * The date and time the snapshot was created, expressed
 * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -59,13 +59,13 @@ Example: `2016-08-25T21:10:29.600Z`
   /**
     * The date and time the snapshot was taken, expressed
 * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
-* This value might be the same or different from `timeCreated` depending
+* This value might be the same or different from {@code timeCreated} depending
 * on the following factors:
 * - If the snapshot is created in the original file system directory.
 * - If the snapshot is cloned from a file system.
 * - If the snapshot is replicated from a file system.
 * <p>
-Example: `2020-08-25T21:10:29.600Z`
+Example: {@code 2020-08-25T21:10:29.600Z}
 * 
     */
   "snapshotTime"?: Date;
@@ -75,8 +75,8 @@ Example: `2020-08-25T21:10:29.600Z`
   "expirationTime"?: Date;
   /**
    * An [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) identifying the parent from which this snapshot was cloned.
-   * If this snapshot was not cloned, then the `provenanceId` is the same as the snapshot `id` value.
-   * If this snapshot was cloned, then the `provenanceId` value is the parent's `provenanceId`.
+   * If this snapshot was not cloned, then the {@code provenanceId} is the same as the snapshot {@code id} value.
+   * If this snapshot was cloned, then the {@code provenanceId} value is the parent's {@code provenanceId}.
    * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningFS.htm).
    *
    */
@@ -88,21 +88,21 @@ Example: `2020-08-25T21:10:29.600Z`
    */
   "isCloneSource"?: boolean;
   /**
-   * Additional information about the current `lifecycleState`.
+   * Additional information about the current {@code lifecycleState}.
    */
   "lifecycleDetails"?: string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

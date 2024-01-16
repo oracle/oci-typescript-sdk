@@ -24,7 +24,7 @@ export interface SummarizeSqlStatisticsTimeSeriesRequest extends common.BaseRequ
   "compartmentId": string;
   /**
    * Unique SQL_ID for a SQL Statement.
-   * Example: `6rgjh9bjmy2s7`
+   * Example: {@code 6rgjh9bjmy2s7}
    *
    */
   "sqlIdentifier": string;
@@ -79,7 +79,7 @@ export interface SummarizeSqlStatisticsTimeSeriesRequest extends common.BaseRequ
    */
   "timeIntervalEnd"?: Date;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from
+   * For list pagination. The value of the {@code opc-next-page} response header from
    * the previous \"List\" call. For important details about how pagination works,
    * see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
    *

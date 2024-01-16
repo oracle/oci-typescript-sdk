@@ -60,7 +60,7 @@ A public network load balancer is accessible from the internet, depending on the
 * see [How Network Load Balancing Works](https://docs.cloud.oracle.com/Content/Balance/Concepts/balanceoverview.htm#how-network-load-balancing-works).
 * This value is true by default.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isPrivate"?: boolean;
@@ -99,13 +99,13 @@ Example: [\"ocid1.nsg.oc1.phx.unique_ID\"]
   "backendSets"?: { [key: string]: model.BackendSetDetails };
   /**
    * Simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

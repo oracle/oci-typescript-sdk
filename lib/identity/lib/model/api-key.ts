@@ -47,14 +47,14 @@ export interface ApiKey {
    */
   "userId"?: string;
   /**
-    * Date and time the `ApiKey` object was created, in the format defined by RFC3339.
+    * Date and time the {@code ApiKey} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
   /**
-   * The API key's current state. After creating an `ApiKey` object, make sure its `lifecycleState` changes from
+   * The API key's current state. After creating an {@code ApiKey} object, make sure its {@code lifecycleState} changes from
    * CREATING to ACTIVE before using it.
    *
    */

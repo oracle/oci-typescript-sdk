@@ -26,21 +26,21 @@ export interface WorkRequestError {
     * A machine-usable code for the error that occured. Error codes are listed here --
 * (https://docs.cloud.oracle.com/Content/API/References/apierrors.htm).
 * <p>
-Example: `429`
+Example: {@code 429}
 * 
     */
   "code": string;
   /**
     * A human-readable description of the issue encountered.
 * <p>
-Example: `TooManyRequests`
+Example: {@code TooManyRequests}
 * 
     */
   "message": string;
   /**
     * The time the error occured. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timestamp": Date;

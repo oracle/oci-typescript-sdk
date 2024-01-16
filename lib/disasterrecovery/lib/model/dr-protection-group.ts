@@ -25,21 +25,21 @@ export interface DrProtectionGroup {
   /**
     * The OCID of the DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
     */
   "id": string;
   /**
     * The OCID of the compartment containing the DR protection group.
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
     */
   "compartmentId": string;
   /**
     * The display name of the DR protection group.
 * <p>
-Example: `EBS PHX Group`
+Example: {@code EBS PHX Group}
 * 
     */
   "displayName": string;
@@ -51,14 +51,14 @@ Example: `EBS PHX Group`
   /**
     * The OCID of the peer DR protection group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1..uniqueID`
+Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
 * 
     */
   "peerId"?: string;
   /**
     * The region of the peer DR protection group.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "peerRegion"?: string;
@@ -71,14 +71,14 @@ Example: `us-ashburn-1`
   /**
     * The date and time the DR protection group was created. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeCreated": Date;
   /**
     * The date and time the DR protection group was updated. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeUpdated": Date;
@@ -100,21 +100,21 @@ Example: `2019-03-29T09:36:42Z`
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
     * Usage of system tag keys. These predefined keys are scoped to namespaces.
 * <p>
-Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };

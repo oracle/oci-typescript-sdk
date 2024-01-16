@@ -42,7 +42,7 @@ export interface GetCertificateBundleRequest extends common.BaseRequest {
    */
   "stage"?: GetCertificateBundleRequest.Stage;
   /**
-   * The type of certificate bundle. By default, the private key fields are not returned. When querying for certificate bundles, to return results with certificate contents, the private key in PEM format, and the private key passphrase, specify the value of this parameter as `CERTIFICATE_CONTENT_WITH_PRIVATE_KEY`.
+   * The type of certificate bundle. By default, the private key fields are not returned. When querying for certificate bundles, to return results with certificate contents, the private key in PEM format, and the private key passphrase, specify the value of this parameter as {@code CERTIFICATE_CONTENT_WITH_PRIVATE_KEY}.
    *
    */
   "certificateBundleType"?: GetCertificateBundleRequest.CertificateBundleType;

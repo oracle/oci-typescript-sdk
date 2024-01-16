@@ -56,7 +56,7 @@ export interface SystemFormatResourceTypeMetadataDetails extends model.ResourceT
    * List of valid values for the properties. This is useful when resource type wants to
    * restrict only certain values for some properties. For instance for 'osType' property,
    * supported values can be restricted to be either Linux or Windows.
-   * Example: `{ \"osType\": [\"Linux\",\"Windows\",\"Solaris\"]}`
+   * Example: {@code { \"osType\": [\"Linux\",\"Windows\",\"Solaris\"]}}
    *
    */
   "validPropertyValues"?: { [key: string]: Array<string> };

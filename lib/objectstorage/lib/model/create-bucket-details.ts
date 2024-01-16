@@ -41,10 +41,10 @@ export interface CreateBucketDetails {
   "metadata"?: { [key: string]: string };
   /**
    * The type of public access enabled on this bucket.
-   * A bucket is set to `NoPublicAccess` by default, which only allows an authenticated caller to access the
-   * bucket and its contents. When `ObjectRead` is enabled on the bucket, public access is allowed for the
-   * `GetObject`, `HeadObject`, and `ListObjects` operations. When `ObjectReadWithoutList` is enabled on the bucket,
-   * public access is allowed for the `GetObject` and `HeadObject` operations.
+   * A bucket is set to {@code NoPublicAccess} by default, which only allows an authenticated caller to access the
+   * bucket and its contents. When {@code ObjectRead} is enabled on the bucket, public access is allowed for the
+   * {@code GetObject}, {@code HeadObject}, and {@code ListObjects} operations. When {@code ObjectReadWithoutList} is enabled on the bucket,
+   * public access is allowed for the {@code GetObject} and {@code HeadObject} operations.
    *
    */
   "publicAccessType"?: CreateBucketDetails.PublicAccessType;
@@ -57,8 +57,8 @@ export interface CreateBucketDetails {
    */
   "storageTier"?: CreateBucketDetails.StorageTier;
   /**
-   * Whether or not events are emitted for object state changes in this bucket. By default, `objectEventsEnabled` is
-   * set to `false`. Set `objectEventsEnabled` to `true` to emit events for object state changes. For more information
+   * Whether or not events are emitted for object state changes in this bucket. By default, {@code objectEventsEnabled} is
+   * set to {@code false}. Set {@code objectEventsEnabled} to {@code true} to emit events for object state changes. For more information
    * about events, see [Overview of Events](https://docs.cloud.oracle.com/Content/Events/Concepts/eventsoverview.htm).
    *
    */
@@ -66,14 +66,14 @@ export interface CreateBucketDetails {
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -84,14 +84,14 @@ export interface CreateBucketDetails {
    */
   "kmsKeyId"?: string;
   /**
-   * Set the versioning status on the bucket. By default, a bucket is created with versioning `Disabled`. Use this option to enable versioning during bucket creation. Objects in a version enabled bucket are protected from overwrites and deletions. Previous versions of the same object will be available in the bucket.
+   * Set the versioning status on the bucket. By default, a bucket is created with versioning {@code Disabled}. Use this option to enable versioning during bucket creation. Objects in a version enabled bucket are protected from overwrites and deletions. Previous versions of the same object will be available in the bucket.
    *
    */
   "versioning"?: CreateBucketDetails.Versioning;
   /**
-   * Set the auto tiering status on the bucket. By default, a bucket is created with auto tiering `Disabled`.
+   * Set the auto tiering status on the bucket. By default, a bucket is created with auto tiering {@code Disabled}.
    * Use this option to enable auto tiering during bucket creation. Objects in a bucket with auto tiering set to
-   * `InfrequentAccess` are transitioned automatically between the 'Standard' and 'InfrequentAccess'
+   * {@code InfrequentAccess} are transitioned automatically between the 'Standard' and 'InfrequentAccess'
    * tiers based on the access pattern of the objects.
    *
    */

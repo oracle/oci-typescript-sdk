@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of private endpoints that match filter criteria, if any. Results contain `PrivateEndpointSummary` objects.
+ * A list of private endpoints that match filter criteria, if any. Results contain {@code PrivateEndpointSummary} objects.
  *
  */
 export interface PrivateEndpointCollection {

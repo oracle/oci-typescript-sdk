@@ -23,7 +23,7 @@ export interface EnableReplicationToRegionDetails {
 * See [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm)
 * for the full list of supported region names.
 * <p>
-Example: `us-phoenix-1`
+Example: {@code us-phoenix-1}
 * 
     */
   "replicaRegion"?: string;

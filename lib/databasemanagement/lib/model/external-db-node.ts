@@ -58,8 +58,8 @@ export interface ExternalDbNode {
    */
   "memorySizeInGBs"?: number;
   /**
-   * The additional details of the external DB node defined in `{\"key\": \"value\"}` format.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The additional details of the external DB node defined in {@code {\"key\": \"value\"}} format.
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "additionalDetails"?: { [key: string]: string };

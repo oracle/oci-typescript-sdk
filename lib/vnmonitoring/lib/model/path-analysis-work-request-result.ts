@@ -23,12 +23,12 @@ import common = require("oci-common");
 export interface PathAnalysisWorkRequestResult extends model.WorkRequestResult {
   /**
    * List of various paths from source node to destination node
-   * for a given `PathAnalysisQuery`.
+   * for a given {@code PathAnalysisQuery}.
    *
    */
   "paths": Array<model.Path>;
   /**
-   * Time the `PathAnalysisResult` was generated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * Time the {@code PathAnalysisResult} was generated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeCreated": Date;

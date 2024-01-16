@@ -25,7 +25,7 @@ export interface FileSystemSummary {
     * The availability domain the file system is in. May be unset
 * as a blank or NULL value.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain"?: string;
@@ -45,7 +45,7 @@ Example: `Uocm:PHX-AD-1`
     * A user-friendly name. It does not have to be unique, and it is changeable.
 * Avoid entering confidential information.
 * <p>
-Example: `My file system`
+Example: {@code My file system}
 * 
     */
   "displayName": string;
@@ -61,7 +61,7 @@ Example: `My file system`
     * The date and time the file system was created, expressed
 * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -69,14 +69,14 @@ Example: `2016-08-25T21:10:29.600Z`
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

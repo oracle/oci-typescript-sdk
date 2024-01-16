@@ -25,7 +25,11 @@ export interface CalculateAuditVolumeAvailableDetails {
   /**
    * The trail locations for which the audit data volume has to be calculated.
    */
-  "trailLocations": Array<string>;
+  "trailLocations"?: Array<string>;
+  /**
+   * Unique name of the database associated to the peer target database.
+   */
+  "databaseUniqueName"?: string;
 }
 
 export namespace CalculateAuditVolumeAvailableDetails {

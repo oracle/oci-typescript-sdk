@@ -28,12 +28,12 @@ export interface ListIamWorkRequestErrorsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The NAME sort order
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). The NAME sort order
    * is case sensitive.
    *
    */

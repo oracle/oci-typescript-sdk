@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* Instance launch details for creating an instance from an instance configuration. Use the `sourceDetails`
+* Instance launch details for creating an instance from an instance configuration. Use the {@code sourceDetails}
 * parameter to specify whether a boot volume or an image should be used to launch a new instance.
 * <p>
 See {@link LaunchInstanceDetails} for more information.
@@ -32,7 +32,7 @@ export interface InstanceConfigurationLaunchInstanceDetails {
   /**
     * The availability domain of the instance.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain"?: string;
@@ -52,7 +52,7 @@ Example: `Uocm:PHX-AD-1`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -64,12 +64,12 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
   "displayName"?: string;
   /**
     * Additional metadata key/value pairs that you provide. They serve the same purpose and
-* functionality as fields in the `metadata` object.
+* functionality as fields in the {@code metadata} object.
 * <p>
-They are distinguished from `metadata` fields in that these can be nested JSON objects
-* (whereas `metadata` fields are string/string maps only).
+They are distinguished from {@code metadata} fields in that these can be nested JSON objects
+* (whereas {@code metadata} fields are string/string maps only).
 * <p>
-The combined size of the `metadata` and `extendedMetadata` objects can be a maximum of
+The combined size of the {@code metadata} and {@code extendedMetadata} objects can be a maximum of
 * 32,000 bytes.
 * 
     */
@@ -78,7 +78,7 @@ The combined size of the `metadata` and `extendedMetadata` objects can be a maxi
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -129,9 +129,9 @@ A metadata service runs on every launched instance. The service is an HTTP
 *  Cloud-Init:
 * <p>
  **\"ssh_authorized_keys\"** - Provide one or more public SSH keys to be
-*  included in the `~/.ssh/authorized_keys` file for the default user on the
+*  included in the {@code ~/.ssh/authorized_keys} file for the default user on the
 *  instance. Use a newline character to separate multiple keys. The SSH
-*  keys must be in the format necessary for the `authorized_keys` file, as shown
+*  keys must be in the format necessary for the {@code authorized_keys} file, as shown
 *  in the example below.
 * <p>
  **\"user_data\"** - Provide your own base64-encoded data to be used by
@@ -158,7 +158,7 @@ A metadata service runs on every launched instance. The service is an HTTP
  You'll get back a response that includes all the instance information; only the metadata information; or
 *  the metadata information for the specified key name, respectively.
 * <p>
- The combined size of the `metadata` and `extendedMetadata` objects can be a maximum of 32,000 bytes.
+ The combined size of the {@code metadata} and {@code extendedMetadata} objects can be a maximum of 32,000 bytes.
 * 
     */
   "metadata"?: { [key: string]: string };
@@ -198,7 +198,7 @@ If you do not specify the fault domain, the system selects one for you.
 * {@link #listFaultDomains(ListFaultDomainsRequest) listFaultDomains} operation in the
 * Identity and Access Management Service API.
 * <p>
-Example: `FAULT-DOMAIN-1`
+Example: {@code FAULT-DOMAIN-1}
 * 
     */
   "faultDomain"?: string;
@@ -212,10 +212,10 @@ Dedicated VM hosts can be used when launching individual instances from an insta
   "dedicatedVmHostId"?: string;
   /**
    * Specifies the configuration mode for launching virtual machine (VM) instances. The configuration modes are:
-   * * `NATIVE` - VM instances launch with iSCSI boot and VFIO devices. The default value for platform images.
-   * * `EMULATED` - VM instances launch with emulated devices, such as the E1000 network driver and emulated SCSI disk controller.
-   * * `PARAVIRTUALIZED` - VM instances launch with paravirtualized devices using VirtIO drivers.
-   * * `CUSTOM` - VM instances launch with custom configuration settings specified in the `LaunchOptions` parameter.
+   * * {@code NATIVE} - VM instances launch with iSCSI boot and VFIO devices. The default value for platform images.
+   * * {@code EMULATED} - VM instances launch with emulated devices, such as the E1000 network driver and emulated SCSI disk controller.
+   * * {@code PARAVIRTUALIZED} - VM instances launch with paravirtualized devices using VirtIO drivers.
+   * * {@code CUSTOM} - VM instances launch with custom configuration settings specified in the {@code LaunchOptions} parameter.
    *
    */
   "launchMode"?: InstanceConfigurationLaunchInstanceDetails.LaunchMode;
@@ -227,8 +227,8 @@ Dedicated VM hosts can be used when launching individual instances from an insta
   "isPvEncryptionInTransitEnabled"?: boolean;
   /**
    * The preferred maintenance action for an instance. The default is LIVE_MIGRATE, if live migration is supported.
-   * * `LIVE_MIGRATE` - Run maintenance using a live migration.
-   * * `REBOOT` - Run maintenance using a reboot.
+   * * {@code LIVE_MIGRATE} - Run maintenance using a live migration.
+   * * {@code REBOOT} - Run maintenance using a reboot.
    *
    */
   "preferredMaintenanceAction"?: InstanceConfigurationLaunchInstanceDetails.PreferredMaintenanceAction;

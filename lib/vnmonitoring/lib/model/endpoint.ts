@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information describing a source or destination in a `PathAnalyzerTest` resource.
+ * Information describing a source or destination in a {@code PathAnalyzerTest} resource.
  *
  */
 export interface Endpoint {

@@ -41,7 +41,7 @@ export interface ListStreamPoolsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The field to sort by. You can provide no more than one sort order. By default, `TIMECREATED` sorts results in descending order and `NAME` sorts results in ascending order.
+   * The field to sort by. You can provide no more than one sort order. By default, {@code TIMECREATED} sorts results in descending order and {@code NAME} sorts results in ascending order.
    *
    */
   "sortBy"?: ListStreamPoolsRequest.SortBy;

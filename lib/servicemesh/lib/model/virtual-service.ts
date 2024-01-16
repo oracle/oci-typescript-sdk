@@ -35,7 +35,7 @@ export interface VirtualService {
     * A user-friendly name. The name has to be unique within the same service mesh and cannot be changed after creation.
 * Avoid entering confidential information.
 * <p>
-Example: `My unique resource name`
+Example: {@code My unique resource name}
 * 
     */
   "name": string;
@@ -43,7 +43,7 @@ Example: `My unique resource name`
     * Description of the resource. It can be changed after creation.
 * Avoid entering confidential information.
 * <p>
-Example: `This is my new resource`
+Example: {@code This is my new resource}
 * 
     */
   "description"?: string;
@@ -75,19 +75,19 @@ Example: `This is my new resource`
   "lifecycleDetails"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

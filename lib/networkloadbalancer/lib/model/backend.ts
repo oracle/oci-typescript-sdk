@@ -23,26 +23,26 @@ export interface Backend {
   /**
     * A read-only field showing the IP address/IP OCID and port that uniquely identify this backend server in the backend set.
 * <p>
-Example: `10.0.0.3:8080`, or `ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>:443` or `10.0.0.3:0`
+Example: {@code 10.0.0.3:8080}, or {@code ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>:443} or {@code 10.0.0.3:0}
 * 
     */
   "name"?: string;
   /**
    * The IP address of the backend server.
-   * Example: `10.0.0.3`
+   * Example: {@code 10.0.0.3}
    *
    */
   "ipAddress"?: string;
   /**
    * The IP OCID/Instance OCID associated with the backend server.
-   * Example: `ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>`
+   * Example: {@code ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>}
    *
    */
   "targetId"?: string;
   /**
     * The communication port for the backend server.
 * <p>
-Example: `8080`
+Example: {@code 8080}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;
@@ -53,7 +53,7 @@ Example: `8080`
 * For more information about load balancing policies, see
 * [How Network Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
 * <p>
-Example: `3`
+Example: {@code 3}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "weight"?: number;
@@ -61,15 +61,15 @@ Example: `3`
     * Whether the network load balancer should drain this server. Servers marked \"isDrain\" receive no
 * incoming traffic.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isDrain"?: boolean;
   /**
-    * Whether the network load balancer should treat this server as a backup unit. If `true`, then the network load balancer forwards no ingress
+    * Whether the network load balancer should treat this server as a backup unit. If {@code true}, then the network load balancer forwards no ingress
 * traffic to this backend server unless all other backend servers not marked as \"isBackup\" fail the health check policy.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isBackup"?: boolean;
@@ -77,7 +77,7 @@ Example: `false`
     * Whether the network load balancer should treat this server as offline. Offline servers receive no incoming
 * traffic.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isOffline"?: boolean;

@@ -30,7 +30,7 @@ export interface ExternalExadataStorageConnectorStatus {
    */
   "status": ExternalExadataStorageConnectorStatus.Status;
   /**
-   * The error message indicating the reason for failure or `null` if the connection was successful.
+   * The error message indicating the reason for failure or {@code null} if the connection was successful.
    */
   "errorMessage"?: string;
 }

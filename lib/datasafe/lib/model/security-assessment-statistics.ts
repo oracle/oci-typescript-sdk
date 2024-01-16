@@ -34,6 +34,7 @@ export interface SecurityAssessmentStatistics {
   "advisory"?: model.SectionStatistics;
   "evaluate"?: model.SectionStatistics;
   "pass"?: model.SectionStatistics;
+  "deferred"?: model.SectionStatistics;
 }
 
 export namespace SecurityAssessmentStatistics {
@@ -48,7 +49,8 @@ export namespace SecurityAssessmentStatistics {
         "lowRisk": obj.lowRisk ? model.SectionStatistics.getJsonObj(obj.lowRisk) : undefined,
         "advisory": obj.advisory ? model.SectionStatistics.getJsonObj(obj.advisory) : undefined,
         "evaluate": obj.evaluate ? model.SectionStatistics.getJsonObj(obj.evaluate) : undefined,
-        "pass": obj.pass ? model.SectionStatistics.getJsonObj(obj.pass) : undefined
+        "pass": obj.pass ? model.SectionStatistics.getJsonObj(obj.pass) : undefined,
+        "deferred": obj.deferred ? model.SectionStatistics.getJsonObj(obj.deferred) : undefined
       }
     };
 
@@ -73,7 +75,10 @@ export namespace SecurityAssessmentStatistics {
         "evaluate": obj.evaluate
           ? model.SectionStatistics.getDeserializedJsonObj(obj.evaluate)
           : undefined,
-        "pass": obj.pass ? model.SectionStatistics.getDeserializedJsonObj(obj.pass) : undefined
+        "pass": obj.pass ? model.SectionStatistics.getDeserializedJsonObj(obj.pass) : undefined,
+        "deferred": obj.deferred
+          ? model.SectionStatistics.getDeserializedJsonObj(obj.deferred)
+          : undefined
       }
     };
 

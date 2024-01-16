@@ -51,20 +51,20 @@ export interface ProtectionCapabilitySummary {
   /**
    * The type of protection capability.
    * <p>
-   * **REQUEST_PROTECTION_CAPABILITY** can only be used in `requestProtection` module of WebAppFirewallPolicy.
+   * **REQUEST_PROTECTION_CAPABILITY** can only be used in {@code requestProtection} module of WebAppFirewallPolicy.
    * <p>
-   * **RESPONSE_PROTECTION_CAPABILITY** can only be used in `responseProtection` module of WebAppFirewallPolicy.
+   * **RESPONSE_PROTECTION_CAPABILITY** can only be used in {@code responseProtection} module of WebAppFirewallPolicy.
    *
    */
   "type": ProtectionCapabilitySummary.Type;
   /**
     * The default collaborative action threshold for OCI-managed collaborative protection capability.
 * Collaborative protection capabilities are made of several simple, non-collaborative protection capabilities
-* (referred to as `contributing capabilities` later on) which have weights assigned to them. These weights can
-* be found in the `collaborativeWeights` array.
+* (referred to as {@code contributing capabilities} later on) which have weights assigned to them. These weights can
+* be found in the {@code collaborativeWeights} array.
 * For incoming/outgoing HTTP messages, all contributing capabilities are executed and the sum of all triggered
 * contributing capabilities weights is calculated. Only if this sum is greater than or equal to
-* `collaborativeActionThreshold` is the incoming/outgoing HTTP message marked as malicious.
+* {@code collaborativeActionThreshold} is the incoming/outgoing HTTP message marked as malicious.
 * <p>
 This field is ignored for non-collaborative capabilities.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

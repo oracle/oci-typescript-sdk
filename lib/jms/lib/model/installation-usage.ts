@@ -41,11 +41,11 @@ export interface InstallationUsage {
    */
   "path": string;
   /**
-   * The Operating System for the installation. Deprecated, use `operatingSystem` instead.
+   * The Operating System for the installation. Deprecated, use {@code operatingSystem} instead.
    */
   "os": string;
   /**
-   * The architecture of the operating system for the installation. Deprecated, use `operatingSystem` instead.
+   * The architecture of the operating system for the installation. Deprecated, use {@code operatingSystem} instead.
    */
   "architecture": string;
   "operatingSystem"?: model.OperatingSystem;

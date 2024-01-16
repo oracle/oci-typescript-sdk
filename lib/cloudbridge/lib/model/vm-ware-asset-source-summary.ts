@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface VmWareAssetSourceSummary extends model.AssetSourceSummary {
   /**
-   * Endpoint for VMware asset discovery and replication in the form of ```https://<host>:<port>/sdk```
+   * Endpoint for VMware asset discovery and replication in the form of {@code https://<host>:<port>/sdk}
    */
   "vcenterEndpoint": string;
 

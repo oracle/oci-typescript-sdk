@@ -24,14 +24,14 @@ export interface SecretExpiryRule extends model.SecretRule {
    * updated when the secret content expires.
    * The timer resets after you update the secret contents.
    * The minimum value is 1 day and the maximum value is 90 days for this property. Currently, only intervals expressed in days are supported.
-   * For example, pass `P3D` to have the secret version expire every 3 days.
+   * For example, pass {@code P3D} to have the secret version expire every 3 days.
    *
    */
   "secretVersionExpiryInterval"?: string;
   /**
    * An optional property indicating the absolute time when this secret will expire, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    * The minimum number of days from current time is 1 day and the maximum number of days from current time is 365 days.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeOfAbsoluteExpiry"?: Date;

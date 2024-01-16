@@ -27,7 +27,7 @@ export interface DrProtectionGroupMemberDatabase extends model.DrProtectionGroup
     * The OCID of the vault secret where the database SYSDBA password is stored.
 * This password is used for performing database DR operations.
 * <p>
-Example: `ocid1.vaultsecret.oc1..uniqueID`
+Example: {@code ocid1.vaultsecret.oc1..uniqueID}
 * 
     */
   "passwordVaultSecretId"?: string;

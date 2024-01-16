@@ -27,7 +27,7 @@ export interface ManagedInstanceAnalyticSummary {
     * Qualifiers provided in a metric definition. Available dimensions vary by metric namespace.
 * Each dimension takes the form of a key-value pair.
 * <p>
-Example: `\"managedInstanceId\": \"ocid1.managementagent.123\"`
+Example: {@code \"managedInstanceId\": \"ocid1.managementagent.123\"}
 * 
     */
   "dimensions": { [key: string]: string };

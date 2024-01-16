@@ -48,7 +48,7 @@ export interface ListComputedUsagesRequest extends common.BaseRequest {
    */
   "computedProduct"?: string;
   /**
- * The maximum number of items to return in a paginated \"List\" call. Default: (`50`)
+ * The maximum number of items to return in a paginated \"List\" call. Default: ({@code 50})
 * <p>
 Example: '500'
 * 
@@ -65,7 +65,7 @@ Example: '500'
    */
   "sortOrder"?: ListComputedUsagesRequest.SortOrder;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`).
+   * The field to sort by. You can provide one sort order ({@code sortOrder}).
    *
    */
   "sortBy"?: ListComputedUsagesRequest.SortBy;

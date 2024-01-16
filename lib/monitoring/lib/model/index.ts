@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -31,10 +31,24 @@ import * as AlarmStatusSummary from "./alarm-status-summary";
 export import AlarmStatusSummary = AlarmStatusSummary.AlarmStatusSummary;
 import * as AlarmSummary from "./alarm-summary";
 export import AlarmSummary = AlarmSummary.AlarmSummary;
+import * as AlarmSuppression from "./alarm-suppression";
+export import AlarmSuppression = AlarmSuppression.AlarmSuppression;
+import * as AlarmSuppressionCollection from "./alarm-suppression-collection";
+export import AlarmSuppressionCollection = AlarmSuppressionCollection.AlarmSuppressionCollection;
+import * as AlarmSuppressionHistoryItem from "./alarm-suppression-history-item";
+export import AlarmSuppressionHistoryItem = AlarmSuppressionHistoryItem.AlarmSuppressionHistoryItem;
+import * as AlarmSuppressionHistoryItemCollection from "./alarm-suppression-history-item-collection";
+export import AlarmSuppressionHistoryItemCollection = AlarmSuppressionHistoryItemCollection.AlarmSuppressionHistoryItemCollection;
+import * as AlarmSuppressionSummary from "./alarm-suppression-summary";
+export import AlarmSuppressionSummary = AlarmSuppressionSummary.AlarmSuppressionSummary;
+import * as AlarmSuppressionTarget from "./alarm-suppression-target";
+export import AlarmSuppressionTarget = AlarmSuppressionTarget.AlarmSuppressionTarget;
 import * as ChangeAlarmCompartmentDetails from "./change-alarm-compartment-details";
 export import ChangeAlarmCompartmentDetails = ChangeAlarmCompartmentDetails.ChangeAlarmCompartmentDetails;
 import * as CreateAlarmDetails from "./create-alarm-details";
 export import CreateAlarmDetails = CreateAlarmDetails.CreateAlarmDetails;
+import * as CreateAlarmSuppressionDetails from "./create-alarm-suppression-details";
+export import CreateAlarmSuppressionDetails = CreateAlarmSuppressionDetails.CreateAlarmSuppressionDetails;
 import * as Datapoint from "./datapoint";
 export import Datapoint = Datapoint.Datapoint;
 import * as FailedMetricRecord from "./failed-metric-record";
@@ -53,9 +67,14 @@ import * as PostMetricDataResponseDetails from "./post-metric-data-response-deta
 export import PostMetricDataResponseDetails = PostMetricDataResponseDetails.PostMetricDataResponseDetails;
 import * as RetrieveDimensionStatesDetails from "./retrieve-dimension-states-details";
 export import RetrieveDimensionStatesDetails = RetrieveDimensionStatesDetails.RetrieveDimensionStatesDetails;
+import * as SummarizeAlarmSuppressionHistoryDetails from "./summarize-alarm-suppression-history-details";
+export import SummarizeAlarmSuppressionHistoryDetails = SummarizeAlarmSuppressionHistoryDetails.SummarizeAlarmSuppressionHistoryDetails;
 import * as SummarizeMetricsDataDetails from "./summarize-metrics-data-details";
 export import SummarizeMetricsDataDetails = SummarizeMetricsDataDetails.SummarizeMetricsDataDetails;
 import * as Suppression from "./suppression";
 export import Suppression = Suppression.Suppression;
 import * as UpdateAlarmDetails from "./update-alarm-details";
 export import UpdateAlarmDetails = UpdateAlarmDetails.UpdateAlarmDetails;
+
+import * as AlarmSuppressionAlarmTarget from "./alarm-suppression-alarm-target";
+export import AlarmSuppressionAlarmTarget = AlarmSuppressionAlarmTarget.AlarmSuppressionAlarmTarget;

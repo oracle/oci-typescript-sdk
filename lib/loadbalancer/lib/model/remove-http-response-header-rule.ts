@@ -22,7 +22,7 @@ import common = require("oci-common");
 If the same header appears more than once in the response, the load balancer removes all occurances of the specified header.
 * <p>
 **Note:** The system does not distinquish between underscore and dash characters in headers. That is, it treats
-* `example_header_name` and `example-header-name` as identical. Oracle recommends that you do not rely on underscore
+* {@code example_header_name} and {@code example-header-name} as identical. Oracle recommends that you do not rely on underscore
 * or dash characters to uniquely distinguish header names.
 * 
 */
@@ -30,7 +30,7 @@ export interface RemoveHttpResponseHeaderRule extends model.Rule {
   /**
     * A header name that conforms to RFC 7230.
 * <p>
-Example: `example_header_name`
+Example: {@code example_header_name}
 * 
     */
   "header": string;

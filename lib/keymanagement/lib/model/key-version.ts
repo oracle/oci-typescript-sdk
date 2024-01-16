@@ -39,13 +39,13 @@ export interface KeyVersion {
   /**
     * The key version's current lifecycle state.
 * <p>
-Example: `ENABLED`
+Example: {@code ENABLED}
 * 
     */
   "lifecycleState"?: KeyVersion.LifecycleState;
   /**
-   * The source of the key material. When this value is `INTERNAL`, Key Management
-   * created the key material. When this value is `EXTERNAL`, the key material
+   * The source of the key material. When this value is {@code INTERNAL}, Key Management
+   * created the key material. When this value is {@code EXTERNAL}, the key material
    * was imported from an external source.
    *
    */
@@ -59,7 +59,7 @@ Example: \"2018-04-03T21:10:29.600Z\"
   "timeCreated": Date;
   /**
    * An optional property indicating when to delete the key version, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeOfDeletion"?: Date;

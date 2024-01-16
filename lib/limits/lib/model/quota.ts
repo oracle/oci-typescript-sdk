@@ -53,12 +53,12 @@ export interface Quota {
   "description": string;
   /**
    * Date and time the quota was created, in the format defined by RFC 3339.
-   * Example: `2016-08-25T21:10:29.600Z`
+   * Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
-   * The quota's current state. After creating a quota, make sure its `lifecycleState` is set to
+   * The quota's current state. After creating a quota, make sure its {@code lifecycleState} is set to
    * ACTIVE before using it.
    *
    */
@@ -66,14 +66,14 @@ export interface Quota {
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

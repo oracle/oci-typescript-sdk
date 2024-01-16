@@ -30,22 +30,22 @@ export interface InstanceAgentCommandExecution {
   "instanceId": string;
   /**
    * Specifies the command delivery state.
-   *  * `VISIBLE` - The command is visible to instance.
-   *  * `PENDING` - The command is pending ack from the instance.
-   *  * `ACKED` - The command has been received and acked by the instance.
-   *  * `ACKED_CANCELED` - The canceled command has been received and acked by the instance.
-   *  * `EXPIRED` - The instance has not requested for commands and its delivery has expired.
+   *  * {@code VISIBLE} - The command is visible to instance.
+   *  * {@code PENDING} - The command is pending ack from the instance.
+   *  * {@code ACKED} - The command has been received and acked by the instance.
+   *  * {@code ACKED_CANCELED} - The canceled command has been received and acked by the instance.
+   *  * {@code EXPIRED} - The instance has not requested for commands and its delivery has expired.
    *
    */
   "deliveryState": InstanceAgentCommandExecution.DeliveryState;
   /**
    * command execution life cycle state.
-   * * `ACCEPTED` - The command execution has been accepted to run.
-   * * `IN_PROGRESS` - The command execution is in progress.
-   * * `SUCCEEDED` - The command execution is successful.
-   * * `FAILED` - The command execution has failed.
-   * * `TIMED_OUT` - The command execution has timedout.
-   * * `CANCELED` - The command execution has canceled.
+   * * {@code ACCEPTED} - The command execution has been accepted to run.
+   * * {@code IN_PROGRESS} - The command execution is in progress.
+   * * {@code SUCCEEDED} - The command execution is successful.
+   * * {@code FAILED} - The command execution has failed.
+   * * {@code TIMED_OUT} - The command execution has timedout.
+   * * {@code CANCELED} - The command execution has canceled.
    *
    */
   "lifecycleState": InstanceAgentCommandExecution.LifecycleState;

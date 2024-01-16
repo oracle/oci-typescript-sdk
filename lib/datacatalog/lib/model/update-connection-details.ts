@@ -42,7 +42,7 @@ export interface UpdateConnectionDetails {
    * required properties for a connection type, a query can be done on '/types?type=connection' that returns a
    * collection of all connection types. The appropriate connection type, which will include definitions of all
    * of it's properties, can be identified from this collection.
-   * Example: `{\"properties\": { \"default\": { \"username\": \"user1\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"username\": \"user1\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };
@@ -54,7 +54,7 @@ export interface UpdateConnectionDetails {
    * To determine the set of optional and required properties for a connection type, a query can be done
    * on '/types?type=connection' that returns a collection of all connection types. The appropriate connection
    * type, which will include definitions of all of it's properties, can be identified from this collection.
-   * Example: `{\"encProperties\": { \"default\": { \"password\": \"example-password\"}}}`
+   * Example: {@code {\"encProperties\": { \"default\": { \"password\": \"example-password\"}}}}
    *
    */
   "encProperties"?: { [key: string]: { [key: string]: string } };

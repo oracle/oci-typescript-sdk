@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface KeyShape {
   /**
-   * The algorithm used by a key's key versions to encrypt or decrypt. Only AES algorithm is supported for `External` keys.
+   * The algorithm used by a key's key versions to encrypt or decrypt. Only AES algorithm is supported for {@code External} keys.
    */
   "algorithm": KeyShape.Algorithm;
   /**

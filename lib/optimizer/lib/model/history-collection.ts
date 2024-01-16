@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list containing the recommendation history items that match filter criteria, if any. Results contain `HistorySummary` objects.
+ * A list containing the recommendation history items that match filter criteria, if any. Results contain {@code HistorySummary} objects.
  *
  */
 export interface HistoryCollection {

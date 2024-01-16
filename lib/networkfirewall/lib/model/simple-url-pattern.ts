@@ -18,19 +18,19 @@ import common = require("oci-common");
 * Pattern describing an http/https URL or set thereof
 * as a concatenation of optional host component and optional path component.
 * <p>
-`*.example.com` will match http://example.com/ and https://foo.example.com/foo?bar.
+{@code *.example.com} will match http://example.com/ and https://foo.example.com/foo?bar.
 * <p>
-`www.example.com/foo*` will match https://www.example.com/foo and http://www.exampe.com/foobar and https://www.example.com/foo/bar?baz, but not
+{@code www.example.com/foo*} will match https://www.example.com/foo and http://www.exampe.com/foobar and https://www.example.com/foo/bar?baz, but not
 * http://sub.www.example.com/foo or https://www.example.com/FOO.
 * <p>
-`*.example.com/foo*` will match http://example.com/foo and https://sub2.sub.example.com/foo/bar?baz, but not http://example.com/FOO.
+{@code *.example.com/foo*} will match http://example.com/foo and https://sub2.sub.example.com/foo/bar?baz, but not http://example.com/FOO.
 * 
 */
 export interface SimpleUrlPattern extends model.UrlPattern {
   /**
    * A string consisting of a concatenation of optional host component and optional path component.
-   * The host component may start with `*.` to match the case-insensitive domain and all its subdomains.
-   * The path component must start with a `/`, and may end with `*` to match all paths of which it is a case-sensitive prefix.
+   * The host component may start with {@code *.} to match the case-insensitive domain and all its subdomains.
+   * The path component must start with a {@code /}, and may end with {@code *} to match all paths of which it is a case-sensitive prefix.
    * A missing host component matches all request domains, and a missing path component matches all request paths.
    * An empty value matches all requests.
    *

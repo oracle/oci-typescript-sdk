@@ -24,7 +24,7 @@ import common = require("oci-common");
 /**
 * For a flexible shape, the number of OCPUs available for instances that use this shape.
 * <p>
-If this field is null, then this shape has a fixed number of OCPUs equal to `ocpus`.
+If this field is null, then this shape has a fixed number of OCPUs equal to {@code ocpus}.
 * 
 */
 export interface ShapeOcpuOptions {

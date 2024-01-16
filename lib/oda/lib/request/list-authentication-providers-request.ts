@@ -33,7 +33,7 @@ export interface ListAuthenticationProvidersRequest extends common.BaseRequest {
   /**
  * List only the information for Authentication Providers with this name. Authentication Provider names are unique and may not change.
 * <p>
-Example: `MyProvider`
+Example: {@code MyProvider}
 * 
  */
   "name"?: string;
@@ -48,21 +48,21 @@ Example: `MyProvider`
   /**
  * The page at which to start retrieving results.
 * <p>
-You get this value from the `opc-next-page` header in a previous list request.
+You get this value from the {@code opc-next-page} header in a previous list request.
 * To retireve the first page, omit this query parameter.
 * <p>
-Example: `MToxMA==`
+Example: {@code MToxMA==}
 * 
  */
   "page"?: string;
   /**
-   * Sort the results in this order, use either `ASC` (ascending) or `DESC` (descending).
+   * Sort the results in this order, use either {@code ASC} (ascending) or {@code DESC} (descending).
    */
   "sortOrder"?: ListAuthenticationProvidersRequest.SortOrder;
   /**
- * Sort on this field. You can specify one sort order only. The default sort field is `timeCreated`.
+ * Sort on this field. You can specify one sort order only. The default sort field is {@code timeCreated}.
 * <p>
-The default sort order for `timeCreated` and `timeUpdated` is descending.
+The default sort order for {@code timeCreated} and {@code timeUpdated} is descending.
 * For all other sort fields the default sort order is ascending.
 * 
  */

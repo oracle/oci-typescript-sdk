@@ -23,7 +23,7 @@ export interface WorkRequestLogEntry {
    */
   "message": string;
   /**
-   * Date and time the log was written, in the format defined by RFC3339. Example: `2016-08-25T21:10:29.600Z`
+   * Date and time the log was written, in the format defined by RFC3339. Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timestamp": Date;

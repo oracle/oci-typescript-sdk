@@ -30,12 +30,12 @@ export interface ListCertificateAuthorityBundleVersionsRequest extends common.Ba
   "opcRequestId"?: string;
   /**
    * The field to sort by. You can specify only one sort order. The default
-   * order for `VERSION_NUMBER` is ascending.
+   * order for {@code VERSION_NUMBER} is ascending.
    *
    */
   "sortBy"?: ListCertificateAuthorityBundleVersionsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListCertificateAuthorityBundleVersionsRequest.SortOrder;

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Note that a valid `dbSystemId` value must be supplied for the `CreateDbHomeWithDbSystemIdFromBackup` API operation to successfully complete.
+ * Note that a valid {@code dbSystemId} value must be supplied for the {@code CreateDbHomeWithDbSystemIdFromBackup} API operation to successfully complete.
  *
  */
 export interface CreateDbHomeWithDbSystemIdFromBackupDetails extends model.CreateDbHomeBase {

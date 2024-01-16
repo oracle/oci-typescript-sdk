@@ -33,28 +33,28 @@ export interface GovernanceRuleSummary {
   /**
     * Type of the governance rule, can be one of QUOTA, TAG, ALLOWED_REGIONS.
 * <p>
-Example: `QUOTA`
+Example: {@code QUOTA}
 * 
     */
   "type": model.GovernanceRuleType;
   /**
     * The type of option used to create the governance rule, could be one of TEMPLATE or CLONE.
 * <p>
-Example: `TEMPLATE`
+Example: {@code TEMPLATE}
 * 
     */
   "creationOption": model.CreationOption;
   /**
     * Date and time the governance rule was created. An RFC3339 formatted datetime string.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
     * Date and time the governance rule was updated. An RFC3339 formatted datetime string.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeUpdated": Date;
@@ -64,19 +64,19 @@ Example: `2016-08-25T21:10:29.600Z`
   "lifecycleState": model.GovernanceRuleLifecycleState;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags": { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags": { [key: string]: { [key: string]: any } };
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

@@ -30,28 +30,28 @@ export interface RunLocalScriptUserDefinedStep extends model.DrPlanUserDefinedSt
 * <p>
 **For non-moving instances:** *runOnInstanceId* must be the OCID of the non-moving instance.  
 * <p>
-Example: `ocid1.instance.oc1..uniqueID`
+Example: {@code ocid1.instance.oc1..uniqueID}
 * 
     */
   "runOnInstanceId": string;
   /**
     * The region in which the instance is present.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "runOnInstanceRegion": string;
   /**
     * The script name and arguments.
 * <p>
-Example: `/usr/bin/python3 /home/opc/scripts/my_app_script.py arg1 arg2 arg3`
+Example: {@code /usr/bin/python3 /home/opc/scripts/my_app_script.py arg1 arg2 arg3}
 * 
     */
   "scriptCommand": string;
   /**
     * The userid on the instance to be used for executing the script or command.
 * <p>
-Example: `opc`
+Example: {@code opc}
 * 
     */
   "runAsUser"?: string;

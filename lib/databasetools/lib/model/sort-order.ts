@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+ * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
  **/
 export enum SortOrder {
   Asc = "ASC",

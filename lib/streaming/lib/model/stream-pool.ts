@@ -41,7 +41,7 @@ export interface StreamPool {
   /**
     * The date and time the stream pool was created, expressed in in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2018-04-20T00:00:07.405Z`
+Example: {@code 2018-04-20T00:00:07.405Z}
 * 
     */
   "timeCreated": Date;
@@ -65,14 +65,14 @@ Example: `2018-04-20T00:00:07.405Z`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. Exists for cross-compatibility only.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}'
+Example: {\"Operations\": {\"CostCenter\": \"42\"}}'
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };

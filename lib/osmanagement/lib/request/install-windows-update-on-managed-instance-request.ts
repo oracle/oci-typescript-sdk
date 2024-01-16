@@ -25,7 +25,7 @@ export interface InstallWindowsUpdateOnManagedInstanceRequest extends common.Bas
   /**
    * Unique identifier for the Windows update. NOTE - This is not an OCID,
    * but is a unique identifier assigned by Microsoft.
-   * Example: `6981d463-cd91-4a26-b7c4-ea4ded9183ed`
+   * Example: {@code 6981d463-cd91-4a26-b7c4-ea4ded9183ed}
    *
    */
   "windowsUpdateName": string;

@@ -35,7 +35,7 @@ export interface ListSteeringPoliciesRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;
@@ -82,7 +82,7 @@ export interface ListSteeringPoliciesRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
-   * The field by which to sort steering policies. If unspecified, defaults to `timeCreated`.
+   * The field by which to sort steering policies. If unspecified, defaults to {@code timeCreated}.
    */
   "sortBy"?: ListSteeringPoliciesRequest.SortBy;
   /**

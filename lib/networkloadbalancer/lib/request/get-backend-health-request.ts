@@ -25,7 +25,7 @@ export interface GetBackendHealthRequest extends common.BaseRequest {
   /**
  * The name of the backend set associated with the backend server for which to retrieve the health status.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
  */
   "backendSetName": string;
@@ -35,7 +35,7 @@ Example: `example_backend_set`
 * If the backend was created without explicitly specifying the name, but was created using ipAddress, this is specified as <ipAddress>:<port>.
 * If the backend was created without explicitly specifying the name, but was created using targetId, this is specified as <targetId>:<port>.
 * <p>
-Example: `10.0.0.3:8080` or `ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>:8080`
+Example: {@code 10.0.0.3:8080} or {@code ocid1.privateip..oc1.<var>&lt;unique_ID&gt;</var>:8080}
 * 
  */
   "backendName": string;

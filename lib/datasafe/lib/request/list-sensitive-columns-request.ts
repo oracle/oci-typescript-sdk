@@ -32,7 +32,7 @@ export interface ListSensitiveColumnsRequest extends common.BaseRequest {
   "timeCreatedGreaterThanOrEqualTo"?: Date;
   /**
    * Search for resources that were created before a specific date.
-   * Specifying this parameter corresponding `timeCreatedLessThan`
+   * Specifying this parameter corresponding {@code timeCreatedLessThan}
    * parameter will retrieve all resources created before the
    * specified created date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
    * defined by RFC 3339.
@@ -43,7 +43,7 @@ export interface ListSensitiveColumnsRequest extends common.BaseRequest {
   "timeCreatedLessThan"?: Date;
   /**
    * Search for resources that were updated after a specific date.
-   * Specifying this parameter corresponding `timeUpdatedGreaterThanOrEqualTo`
+   * Specifying this parameter corresponding {@code timeUpdatedGreaterThanOrEqualTo}
    * parameter will retrieve all resources updated after the
    * specified created date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
    * defined by RFC 3339.
@@ -52,7 +52,7 @@ export interface ListSensitiveColumnsRequest extends common.BaseRequest {
   "timeUpdatedGreaterThanOrEqualTo"?: Date;
   /**
    * Search for resources that were updated before a specific date.
-   * Specifying this parameter corresponding `timeUpdatedLessThan`
+   * Specifying this parameter corresponding {@code timeUpdatedLessThan}
    * parameter will retrieve all resources updated before the
    * specified created date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
    * defined by RFC 3339.

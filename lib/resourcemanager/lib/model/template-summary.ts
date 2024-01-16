@@ -46,7 +46,7 @@ export interface TemplateSummary {
   /**
    * The date and time at which the template was created.
    * Format is defined by RFC3339.
-   * Example: `2020-11-25T21:10:29.600Z`
+   * Example: {@code 2020-11-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;

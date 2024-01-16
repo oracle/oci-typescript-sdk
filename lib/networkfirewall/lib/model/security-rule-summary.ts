@@ -31,7 +31,7 @@ export interface SecurityRuleSummary {
    * ALLOW - Allows the traffic.
    *   * DROP - Silently drops the traffic, e.g. without sending a TCP reset.
    *   * REJECT - Rejects the traffic, sending a TCP reset to client and/or server as applicable.
-   *   * INSPECT - Inspects traffic for vulnerability as specified in `inspection`, which may result in rejection.
+   *   * INSPECT - Inspects traffic for vulnerability as specified in {@code inspection}, which may result in rejection.
    *
    */
   "action": model.TrafficActionType;
@@ -39,7 +39,7 @@ export interface SecurityRuleSummary {
    * Type of inspection to affect the Traffic flow. This is only applicable if action is INSPECT.
    * <p>
    * INTRUSION_DETECTION - Intrusion Detection.
-   *   * INTRUSION_PREVENTION - Intrusion Detection and Prevention. Traffic classified as potentially malicious will be rejected as described in `type`.
+   *   * INTRUSION_PREVENTION - Intrusion Detection and Prevention. Traffic classified as potentially malicious will be rejected as described in {@code type}.
    *
    */
   "inspection"?: model.TrafficInspectionType;

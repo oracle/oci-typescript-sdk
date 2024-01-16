@@ -26,7 +26,7 @@ export interface BackendSetDetails {
   /**
     * The network load balancer policy for the backend set.
 * <p>
-Example: `FIVE_TUPLE`
+Example: {@code FIVE_TUPLE}
 * 
     */
   "policy"?: model.NetworkLoadBalancingPolicy;

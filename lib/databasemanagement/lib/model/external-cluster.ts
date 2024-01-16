@@ -54,8 +54,8 @@ export interface ExternalCluster {
    */
   "isFlexCluster"?: boolean;
   /**
-   * The additional details of the external cluster defined in `{\"key\": \"value\"}` format.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The additional details of the external cluster defined in {@code {\"key\": \"value\"}} format.
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "additionalDetails"?: { [key: string]: string };

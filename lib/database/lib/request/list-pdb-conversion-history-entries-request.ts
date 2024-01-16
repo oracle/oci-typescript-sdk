@@ -31,12 +31,12 @@ export interface ListPdbConversionHistoryEntriesRequest extends common.BaseReque
    */
   "lifecycleState"?: string;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`). The default order for `TIMECREATED` is ascending.
+   * The field to sort by. You can provide one sort order ({@code sortOrder}). The default order for {@code TIMECREATED} is ascending.
    *
    */
   "sortBy"?: ListPdbConversionHistoryEntriesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListPdbConversionHistoryEntriesRequest.SortOrder;
   /**

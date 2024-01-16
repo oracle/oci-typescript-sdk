@@ -32,7 +32,7 @@ export interface ListMediaAssetsRequest extends common.BaseRequest {
   "limit"?: number;
   /**
    * A token representing the position at which to start retrieving results. This must come from the
-   * `opc-next-page` header field of a previous response.
+   * {@code opc-next-page} header field of a previous response.
    *
    */
   "page"?: string;

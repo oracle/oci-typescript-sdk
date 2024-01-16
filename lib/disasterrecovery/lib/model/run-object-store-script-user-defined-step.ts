@@ -30,14 +30,14 @@ export interface RunObjectStoreScriptUserDefinedStep extends model.DrPlanUserDef
 * <p>
 **For non-moving instances:** *runOnInstanceId* must be the OCID of the non-moving instance.  
 * <p>
-Example: `ocid1.instance.oc1..uniqueID`
+Example: {@code ocid1.instance.oc1..uniqueID}
 * 
     */
   "runOnInstanceId": string;
   /**
     * The region of the instance where this script or command should be executed.
 * <p>
-Example: `us-ashburn-1`
+Example: {@code us-ashburn-1}
 * 
     */
   "runOnInstanceRegion": string;

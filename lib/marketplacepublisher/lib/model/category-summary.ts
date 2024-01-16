@@ -37,14 +37,14 @@ export interface CategorySummary {
   /**
     * The date and time the category was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2022-09-15T21:10:29.600Z`
+Example: {@code 2022-09-15T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
     * The date and time the category was updated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2022-09-15T21:10:29.600Z`
+Example: {@code 2022-09-15T21:10:29.600Z}
 * 
     */
   "timeUpdated": Date;

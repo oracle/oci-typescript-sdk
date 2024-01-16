@@ -27,17 +27,17 @@ export interface ApplyRollbackJobOperationDetails extends model.JobOperationDeta
   "terraformAdvancedOptions"?: model.TerraformAdvancedOptions;
   /**
    * Specifies the source of the execution plan for rollback to apply.
-   * Use `AUTO_APPROVED` to run the job without an execution plan for rollback.
+   * Use {@code AUTO_APPROVED} to run the job without an execution plan for rollback.
    *
    */
   "executionPlanRollbackStrategy": ApplyRollbackJobOperationDetails.ExecutionPlanRollbackStrategy;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a plan rollback job, for use when specifying `\"FROM_PLAN_ROLLBACK_JOB_ID\"` as the `executionPlanRollbackStrategy`.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a plan rollback job, for use when specifying {@code \"FROM_PLAN_ROLLBACK_JOB_ID\"} as the {@code executionPlanRollbackStrategy}.
    *
    */
   "executionPlanRollbackJobId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a successful apply job, for use when specifying `\"AUTO_APPROVED\"` as the `executionPlanRollbackStrategy`.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a successful apply job, for use when specifying {@code \"AUTO_APPROVED\"} as the {@code executionPlanRollbackStrategy}.
    *
    */
   "targetRollbackJobId"?: string;

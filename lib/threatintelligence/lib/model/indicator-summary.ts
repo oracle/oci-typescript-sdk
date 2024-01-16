@@ -49,7 +49,7 @@ export interface IndicatorSummary {
    */
   "attributes": Array<model.IndicatorAttributeSummary>;
   /**
-   * The state of the indicator. It will always be `ACTIVE`.
+   * The state of the indicator. It will always be {@code ACTIVE}.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -57,11 +57,11 @@ export interface IndicatorSummary {
    */
   "timeCreated": Date;
   /**
-   * The date and time that this indicator was last updated by the system.  Updates can include new reports or regular updates in confidence. The value is the same as `timeCreated` for a new indicator. An RFC3339 formatted string.
+   * The date and time that this indicator was last updated by the system.  Updates can include new reports or regular updates in confidence. The value is the same as {@code timeCreated} for a new indicator. An RFC3339 formatted string.
    */
   "timeUpdated": Date;
   /**
-   * The date and time that this indicator was last seen. The value is the same as `timeCreated` for a new indicator. An RFC3339 formatted string.
+   * The date and time that this indicator was last seen. The value is the same as {@code timeCreated} for a new indicator. An RFC3339 formatted string.
    */
   "timeLastSeen": Date;
   "geodata": model.GeodataDetails;

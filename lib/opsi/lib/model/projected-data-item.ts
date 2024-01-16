@@ -19,7 +19,7 @@ import common = require("oci-common");
 
 /**
  * The timestamp of the projected event and their corresponding resource value.
- * `highValue` and `lowValue` are the uncertainty bounds of the corresponding value.
+ * {@code highValue} and {@code lowValue} are the uncertainty bounds of the corresponding value.
  *
  */
 export interface ProjectedDataItem {

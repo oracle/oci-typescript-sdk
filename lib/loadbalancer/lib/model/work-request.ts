@@ -37,7 +37,7 @@ export interface WorkRequest {
   /**
     * The type of action the work request represents.
 * <p>
-Example: `CreateListener`
+Example: {@code CreateListener}
 * 
     */
   "type": string;
@@ -65,14 +65,14 @@ Example: `CreateListener`
   /**
     * The date and time the work request was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeAccepted": Date;
   /**
     * The date and time the work request was completed, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeFinished"?: Date;

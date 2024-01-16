@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for creating a connection of the type `GITLAB_ACCESS_TOKEN`.
+ * The details for creating a connection of the type {@code GITLAB_ACCESS_TOKEN}.
  * This type corresponds to a connection in GitLab that is authenticated with a personal access token.
  *
  */

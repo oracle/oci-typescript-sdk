@@ -25,7 +25,7 @@ export interface ListContainerImageSignaturesRequest extends common.BaseRequest 
   /**
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * inspected depending on the the setting of `accessLevel`.
+   * inspected depending on the the setting of {@code accessLevel}.
    * Default is false. Can only be set to true when calling the API
    * on the tenancy (root compartment).
    *
@@ -44,14 +44,14 @@ export interface ListContainerImageSignaturesRequest extends common.BaseRequest 
   /**
  * A filter to return container images or container image signatures that match the repository name.
 * <p>
-Example: `foo` or `foo*`
+Example: {@code foo} or {@code foo*}
 * 
  */
   "repositoryName"?: string;
   /**
  * The digest of the container image.
 * <p>
-Example: `sha256:e7d38b3517548a1c71e41bffe9c8ae6d6d29546ce46bf62159837aad072c90aa`
+Example: {@code sha256:e7d38b3517548a1c71e41bffe9c8ae6d6d29546ce46bf62159837aad072c90aa}
 * 
  */
   "imageDigest"?: string;
@@ -63,14 +63,14 @@ Example: `sha256:e7d38b3517548a1c71e41bffe9c8ae6d6d29546ce46bf62159837aad072c90a
   /**
  * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the kmsKeyVersionId used to sign the container image.
 * <p>
-Example: `ocid1.keyversion.oc1..exampleuniqueID`
+Example: {@code ocid1.keyversion.oc1..exampleuniqueID}
 * 
  */
   "kmsKeyId"?: string;
   /**
  * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the kmsKeyVersionId used to sign the container image.
 * <p>
-Example: `ocid1.keyversion.oc1..exampleuniqueID`
+Example: {@code ocid1.keyversion.oc1..exampleuniqueID}
 * 
  */
   "kmsKeyVersionId"?: string;
@@ -83,12 +83,12 @@ Example: `ocid1.keyversion.oc1..exampleuniqueID`
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\"
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -101,11 +101,11 @@ Example: `50`
    */
   "opcRequestId"?: string;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`). Default order for
+   * The field to sort by. You can provide one sort order ({@code sortOrder}). Default order for
    * TIMECREATED is descending. Default order for DISPLAYNAME is ascending. The DISPLAYNAME
    * sort order is case sensitive.
    * <p>
-   **Note:** In general, some \"List\" operations (for example, `ListInstances`) let you
+   **Note:** In general, some \"List\" operations (for example, {@code ListInstances}) let you
    * optionally filter by availability domain if the scope of the resource type is within a
    * single availability domain. If you call one of these \"List\" operations without specifying
    * an availability domain, the resources are grouped by availability domain, then sorted.
@@ -113,7 +113,7 @@ Example: `50`
    */
   "sortBy"?: ListContainerImageSignaturesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`). The DISPLAYNAME sort order
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}). The DISPLAYNAME sort order
    * is case sensitive.
    *
    */

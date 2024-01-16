@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a configuration source provider of the type `GITHUB_ACCESS_TOKEN`.
+ * Summary information for a configuration source provider of the type {@code GITHUB_ACCESS_TOKEN}.
  * This type corresponds to a configuration source provider in GitHub that is authenticated with a personal access token.
  *
  */
@@ -27,7 +27,7 @@ export interface GithubAccessTokenConfigurationSourceProviderSummary
   extends model.ConfigurationSourceProviderSummary {
   /**
    * The GitHub service endpoint.
-   * Example: `https://github.com/`
+   * Example: {@code https://github.com/}
    *
    */
   "apiEndpoint"?: string;

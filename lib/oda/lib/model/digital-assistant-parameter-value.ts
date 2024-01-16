@@ -27,7 +27,7 @@ export interface DigitalAssistantParameterValue {
    */
   "type": model.ParameterType;
   /**
-   * The current value.  The value will be interpreted based on the `type`.
+   * The current value.  The value will be interpreted based on the {@code type}.
    */
   "value": string;
 }

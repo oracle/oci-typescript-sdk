@@ -21,11 +21,11 @@ import common = require("oci-common");
  */
 export interface UdpProtocolParameters extends model.ProtocolParameters {
   /**
-   * The source port to use in a `PathAnalyzerTest` resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The source port to use in a {@code PathAnalyzerTest} resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sourcePort"?: number;
   /**
-   * The destination port to use in a `PathAnalyzerTest` resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The destination port to use in a {@code PathAnalyzerTest} resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "destinationPort": number;
 

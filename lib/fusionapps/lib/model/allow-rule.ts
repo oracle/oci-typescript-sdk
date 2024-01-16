@@ -21,17 +21,17 @@ import common = require("oci-common");
  * *  If you do not specify any access control rules, the default rule is to allow all traffic.
  * *  If you add access control rules, the load balancer denies any traffic that does not match the rules.
  * *  Maximum of two match conditions can be specified in a rule.
- * *  You can specify this rule only with the following `RuleCondition` combinations:
- * *  `SOURCE_IP_ADDRESS`
- * *  `SOURCE_VCN_ID`
- * *  `SOURCE_VCN_ID\", \"SOURCE_VCN_IP_ADDRESS`
+ * *  You can specify this rule only with the following {@code RuleCondition} combinations:
+ * *  {@code SOURCE_IP_ADDRESS}
+ * *  {@code SOURCE_VCN_ID}
+ * *  {@code SOURCE_VCN_ID\", \"SOURCE_VCN_IP_ADDRESS}
  *
  */
 export interface AllowRule extends model.Rule {
   "conditions": Array<model.RuleCondition>;
   /**
    * A brief description of the access control rule. Avoid entering confidential information.
-   * example: `192.168.0.0/16 and 2001:db8::/32 are trusted clients. Whitelist them.`
+   * example: {@code 192.168.0.0/16 and 2001:db8::/32 are trusted clients. Whitelist them.}
    *
    */
   "description"?: string;

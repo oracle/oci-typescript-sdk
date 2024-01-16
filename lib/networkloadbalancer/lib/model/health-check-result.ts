@@ -22,7 +22,7 @@ export interface HealthCheckResult {
   /**
     * The date and time the data was retrieved, in the format defined by RFC3339.
 * <p>
-Example: `2020-05-01T18:28:11+00:00`
+Example: {@code 2020-05-01T18:28:11+00:00}
 * 
     */
   "timestamp": Date;

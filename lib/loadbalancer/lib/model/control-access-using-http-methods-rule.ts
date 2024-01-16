@@ -19,13 +19,13 @@ import common = require("oci-common");
 /**
 * An object that represents the action of returning a specified response code when the requested HTTP method is not in
 * the list of allowed methods for the listener. The load balancer does not forward a disallowed request to the back end
-* servers. The default response code is `405 Method Not Allowed`.
+* servers. The default response code is {@code 405 Method Not Allowed}.
 * <p>
-If you set the response code to `405` or leave it blank, the system adds an \"allow\" response header that contains a
-* list of the allowed methods for the listener. If you set the response code to anything other than `405` (or blank),
+If you set the response code to {@code 405} or leave it blank, the system adds an \"allow\" response header that contains a
+* list of the allowed methods for the listener. If you set the response code to anything other than {@code 405} (or blank),
 * the system does not add the \"allow\" response header with a list of allowed methods.
 * <p>
-This rule applies only to HTTP listeners. No more than one `ControlAccessUsingHttpMethodsRule` object can be present in
+This rule applies only to HTTP listeners. No more than one {@code ControlAccessUsingHttpMethodsRule} object can be present in
 * a given listener.
 * 
 */
@@ -50,7 +50,7 @@ Example: [\"GET\", \"PUT\", \"POST\", \"PROPFIND\"]
   /**
     * The HTTP status code to return when the requested HTTP method is not in the list of allowed methods.
 * The associated status line returned with the code is mapped from the standard HTTP specification. The
-* default value is `405 (Method Not Allowed)`.
+* default value is {@code 405 (Method Not Allowed)}.
 * <p>
 Example: 403
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

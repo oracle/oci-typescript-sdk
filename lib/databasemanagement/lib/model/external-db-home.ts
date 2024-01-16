@@ -46,8 +46,8 @@ export interface ExternalDbHome {
    */
   "homeDirectory"?: string;
   /**
-   * The additional details of the DB home defined in `{\"key\": \"value\"}` format.
-   * Example: `{\"bar-key\": \"value\"}`
+   * The additional details of the DB home defined in {@code {\"key\": \"value\"}} format.
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "additionalDetails"?: { [key: string]: string };

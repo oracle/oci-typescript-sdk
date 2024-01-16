@@ -43,7 +43,7 @@ export interface ListDbNodesRequest extends common.BaseRequest {
    */
   "sortBy"?: ListDbNodesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListDbNodesRequest.SortOrder;
   /**

@@ -30,7 +30,7 @@ export interface PeerRegionForRemotePeering {
   /**
     * The region's name.
 * <p>
-Example: `us-phoenix-1`
+Example: {@code us-phoenix-1}
 * 
     */
   "name": string;

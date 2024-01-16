@@ -33,7 +33,7 @@ export interface AutonomousContainerDatabaseSummary {
    */
   "displayName": string;
   /**
-   * **Deprecated.** The `DB_UNIQUE_NAME` value is set by Oracle Cloud Infrastructure.  Do not specify a value for this parameter. Specifying a value for this field will cause Terraform operations to fail.
+   * **Deprecated.** The {@code DB_UNIQUE_NAME} value is set by Oracle Cloud Infrastructure.  Do not specify a value for this parameter. Specifying a value for this field will cause Terraform operations to fail.
    *
    */
   "dbUniqueName"?: string;
@@ -46,7 +46,7 @@ export interface AutonomousContainerDatabaseSummary {
    */
   "serviceLevelAgreementType": AutonomousContainerDatabaseSummary.ServiceLevelAgreementType;
   /**
-   * **No longer used.** For Autonomous Database on dedicated Exadata infrastructure, the container database is created within a specified `cloudAutonomousVmCluster`.
+   * **No longer used.** For Autonomous Database on dedicated Exadata infrastructure, the container database is created within a specified {@code cloudAutonomousVmCluster}.
    *
    */
   "autonomousExadataInfrastructureId"?: string;
@@ -135,7 +135,7 @@ export interface AutonomousContainerDatabaseSummary {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

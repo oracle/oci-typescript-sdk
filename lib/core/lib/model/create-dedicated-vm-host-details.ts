@@ -29,7 +29,7 @@ export interface CreateDedicatedVmHostDetails {
   /**
     * The availability domain of the dedicated virtual machine host.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;
@@ -47,7 +47,7 @@ Example: `Uocm:PHX-AD-1`
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -63,10 +63,10 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 * If you do not specify the fault domain, the system selects one for you. To change the fault domain for a dedicated virtual machine host,
 * delete it and create a new dedicated virtual machine host in the preferred fault domain.
 * <p>
-To get a list of fault domains, use the `ListFaultDomains` operation in
+To get a list of fault domains, use the {@code ListFaultDomains} operation in
 * the [Identity and Access Management Service API](https://docs.cloud.oracle.com/iaas/api/#/en/identity/20160918/).
 * <p>
-Example: `FAULT-DOMAIN-1`
+Example: {@code FAULT-DOMAIN-1}
 * 
     */
   "faultDomain"?: string;
@@ -74,7 +74,7 @@ Example: `FAULT-DOMAIN-1`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

@@ -41,7 +41,7 @@ export interface EntityLineage {
    * A map of maps that contains additional information in explanation of the lineage returned. The map keys are
    * categories of information and the values are maps of annotation names to their corresponding values.
    * Every annotation is contained inside a category.
-   * Example: `{\"annotations\": { \"category\": { \"key\": \"value\"}}}`
+   * Example: {@code {\"annotations\": { \"category\": { \"key\": \"value\"}}}}
    *
    */
   "annotations"?: { [key: string]: { [key: string]: string } };

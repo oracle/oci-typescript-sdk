@@ -45,14 +45,14 @@ export interface ConnectionSummary {
     * A simple key-value pair that is applied without any predefined name, type, or scope. Exists
 * for cross-compatibility only.
 * <p>
-Example: `{\"bar-key\": \"value\"}`
+Example: {@code {\"bar-key\": \"value\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Tags defined for this resource. Each key is predefined and scoped to a namespace.
 * <p>
-Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -61,7 +61,7 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
 * Cloud Infrastructure services. Each key is predefined and scoped to namespaces.  For more
 * information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{orcl-cloud: {free-tier-retain: true}}`
+Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
@@ -78,13 +78,13 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
   "lifecycleDetails"?: string;
   /**
    * The time the resource was created. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeCreated": Date;
   /**
    * The time the resource was last updated. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeUpdated": Date;

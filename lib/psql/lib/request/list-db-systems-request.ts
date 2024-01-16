@@ -23,7 +23,7 @@ export interface ListDbSystemsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources if their `lifecycleState` matches the given `lifecycleState`.
+   * A filter to return only resources if their {@code lifecycleState} matches the given {@code lifecycleState}.
    */
   "lifecycleState"?: string;
   /**
@@ -39,7 +39,7 @@ export interface ListDbSystemsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * A token representing the position at which to start retrieving results. This must come from the `opc-next-page` header field of a previous response.
+   * A token representing the position at which to start retrieving results. This must come from the {@code opc-next-page} header field of a previous response.
    */
   "page"?: string;
   /**

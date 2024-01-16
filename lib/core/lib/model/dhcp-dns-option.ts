@@ -29,7 +29,7 @@ import common = require("oci-common");
  */
 export interface DhcpDnsOption extends model.DhcpOption {
   /**
-   * If you set `serverType` to `CustomDnsServer`, specify the
+   * If you set {@code serverType} to {@code CustomDnsServer}, specify the
    * IP address of at least one DNS server of your choice (three maximum).
    *
    */

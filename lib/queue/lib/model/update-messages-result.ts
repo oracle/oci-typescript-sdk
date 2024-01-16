@@ -23,14 +23,14 @@ export interface UpdateMessagesResult {
    */
   "serverFailures": number;
   /**
-   * The number of messages that failed to be updated in the queue because of a client failure such as an invalid receipt or invalid `visibilityInSeconds`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of messages that failed to be updated in the queue because of a client failure such as an invalid receipt or invalid {@code visibilityInSeconds}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clientFailures": number;
   /**
    * An array of items representing the result of each action.
-   * The order is guaranteed to be the same as in the `UpdateMessagesDetails` object.
-   * If a message was successfully updated in the queue, the entry includes the `id` and `visibleAfter` fields.
-   * If a message failed to be updated in the queue, the entry includes the `errorCode` and `errorMessage` fields.
+   * The order is guaranteed to be the same as in the {@code UpdateMessagesDetails} object.
+   * If a message was successfully updated in the queue, the entry includes the {@code id} and {@code visibleAfter} fields.
+   * If a message failed to be updated in the queue, the entry includes the {@code errorCode} and {@code errorMessage} fields.
    *
    */
   "entries": Array<model.UpdateMessagesResultEntry>;

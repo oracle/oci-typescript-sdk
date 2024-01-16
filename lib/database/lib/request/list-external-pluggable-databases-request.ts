@@ -40,7 +40,7 @@ export interface ListExternalPluggableDatabasesRequest extends common.BaseReques
    */
   "page"?: string;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`).
+   * The field to sort by. You can provide one sort order ({@code sortOrder}).
    * Default order for TIMECREATED is descending.
    * Default order for DISPLAYNAME is ascending.
    * The DISPLAYNAME sort order is case sensitive.
@@ -48,7 +48,7 @@ export interface ListExternalPluggableDatabasesRequest extends common.BaseReques
    */
   "sortBy"?: ListExternalPluggableDatabasesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListExternalPluggableDatabasesRequest.SortOrder;
   /**

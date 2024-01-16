@@ -30,7 +30,7 @@ export interface WrappingKey {
   /**
     * The key's current lifecycle state.
 * <p>
-Example: `ENABLED`
+Example: {@code ENABLED}
 * 
     */
   "lifecycleState": WrappingKey.LifecycleState;
@@ -42,7 +42,7 @@ Example: `ENABLED`
   /**
     * The date and time the key was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
 * <p>
-Example: `2018-04-03T21:10:29.600Z`
+Example: {@code 2018-04-03T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

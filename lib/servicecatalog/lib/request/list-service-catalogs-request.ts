@@ -38,15 +38,15 @@ export interface ListServiceCatalogsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
   /**
-   * Default is `TIMECREATED`
+   * Default is {@code TIMECREATED}
    */
   "sortBy"?: ListServiceCatalogsRequest.SortBy;
   /**
-   * The sort order to apply, either `ASC` or `DESC`. Default is `ASC`.
+   * The sort order to apply, either {@code ASC} or {@code DESC}. Default is {@code ASC}.
    */
   "sortOrder"?: ListServiceCatalogsRequest.SortOrder;
   /**

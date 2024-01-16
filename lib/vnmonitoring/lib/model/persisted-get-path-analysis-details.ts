@@ -17,12 +17,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the configuration for getting a path analysis using the persisted `PathAnalyzerTest` resource.
+ * Defines the configuration for getting a path analysis using the persisted {@code PathAnalyzerTest} resource.
  *
  */
 export interface PersistedGetPathAnalysisDetails extends model.GetPathAnalysisDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `PathAnalyzerTest` resource.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PathAnalyzerTest} resource.
    *
    */
   "pathAnalyzerTestId": string;

@@ -31,7 +31,7 @@ export interface ListSecurityPoliciesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The unique identifier of the security zone policy (`SecurityPolicy`)
+   * The unique identifier of the security zone policy ({@code SecurityPolicy})
    */
   "id"?: string;
   /**

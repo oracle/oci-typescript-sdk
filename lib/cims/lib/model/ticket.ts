@@ -57,7 +57,7 @@ export interface Ticket {
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * Additional information about the current `lifecycleState`.
+   * Additional information about the current {@code lifecycleState}.
    */
   "lifecycleDetails"?: model.LifecycleDetails;
 }

@@ -33,13 +33,13 @@ export interface TargetTag {
    */
   "tagDefinitionName": string;
   /**
-    * Specifies which tag value types in the `tagValues` field result in overrides of the recommendation criteria.
+    * Specifies which tag value types in the {@code tagValues} field result in overrides of the recommendation criteria.
 * <p>
-When the value for this field is `ANY`, the `tagValues` field should be empty, which enforces overrides to the recommendation
+When the value for this field is {@code ANY}, the {@code tagValues} field should be empty, which enforces overrides to the recommendation
 * for resources with any tag values attached to them.
 * <p>
-When the value for this field value is `VALUE`, the `tagValues` field must include a specific value or list of values.
-* Overrides to the recommendation criteria only occur for resources that match the values in the `tagValues` fields.
+When the value for this field value is {@code VALUE}, the {@code tagValues} field must include a specific value or list of values.
+* Overrides to the recommendation criteria only occur for resources that match the values in the {@code tagValues} fields.
 * 
     */
   "tagValueType": model.TagValueType;

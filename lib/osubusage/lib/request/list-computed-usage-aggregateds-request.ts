@@ -43,19 +43,19 @@ export interface ListComputedUsageAggregatedsRequest extends common.BaseRequest 
    */
   "parentProduct"?: string;
   /**
-   * Grouping criteria to use for aggregate the computed Usage, either hourly (`HOURLY`), daily (`DAILY`), monthly(`MONTHLY`) or none (`NONE`) to not follow a grouping criteria by date.
+   * Grouping criteria to use for aggregate the computed Usage, either hourly ({@code HOURLY}), daily ({@code DAILY}), monthly({@code MONTHLY}) or none ({@code NONE}) to not follow a grouping criteria by date.
    *
    */
   "grouping"?: ListComputedUsageAggregatedsRequest.Grouping;
   /**
    * The maximum number aggregatedComputedUsages of items to return within the Subscription \"List\" call, this
    * counts the overall count across all items
-   * Example: `500`
+   * Example: {@code 500}
    *
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;

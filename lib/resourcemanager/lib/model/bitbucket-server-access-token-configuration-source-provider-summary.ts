@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a configuration source provider of the type `BITBUCKET_SERVER_ACCESS_TOKEN`.
+ * Summary information for a configuration source provider of the type {@code BITBUCKET_SERVER_ACCESS_TOKEN}.
  * This type corresponds to a configuration source provider in Bitbucket server that is authenticated with a personal access token.
  *
  */
@@ -27,7 +27,7 @@ export interface BitbucketServerAccessTokenConfigurationSourceProviderSummary
   extends model.ConfigurationSourceProviderSummary {
   /**
    * The Bitbucket server service endpoint.
-   * Example: `https://bitbucket.org/`
+   * Example: {@code https://bitbucket.org/}
    *
    */
   "apiEndpoint"?: string;

@@ -23,7 +23,7 @@ import common = require("oci-common");
 export interface SqlText {
   /**
    * Version
-   * Example: `1`
+   * Example: {@code 1}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
@@ -34,31 +34,31 @@ export interface SqlText {
   "sqlIdentifier": string;
   /**
    * Collection timestamp
-   * Example: `\"2020-05-06T00:00:00.000Z\"`
+   * Example: {@code \"2020-05-06T00:00:00.000Z\"}
    *
    */
   "timeCollected": Date;
   /**
    * SQL command
-   * Example: `\"SELECT\"`
+   * Example: {@code \"SELECT\"}
    *
    */
   "sqlCommand": string;
   /**
    * Exact matching signature
-   * Example: `\"18067345456756876713\"`
+   * Example: {@code \"18067345456756876713\"}
    *
    */
   "exactMatchingSignature"?: string;
   /**
    * Force matching signature
-   * Example: `\"18067345456756876713\"`
+   * Example: {@code \"18067345456756876713\"}
    *
    */
   "forceMatchingSignature"?: string;
   /**
    * Full SQL Text
-   * Example: `\"SELECT username,profile,default_tablespace,temporary_tablespace FROM dba_users\"`
+   * Example: {@code \"SELECT username,profile,default_tablespace,temporary_tablespace FROM dba_users\"}
    * Disclaimer: SQL text being uploaded explicitly via APIs is not masked. Any sensitive literals contained in the sqlFullText column should be masked prior to ingestion.
    *
    */

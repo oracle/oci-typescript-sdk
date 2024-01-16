@@ -36,14 +36,14 @@ export interface IScsiVolumeAttachment extends model.VolumeAttachment {
     * The volume's system-generated Challenge-Handshake-Authentication-Protocol
 * (CHAP) user name. See [RFC 1994](https://tools.ietf.org/html/rfc1994) for more on CHAP.
 * <p>
-Example: `ocid1.volume.oc1.phx.<unique_ID>`
+Example: {@code ocid1.volume.oc1.phx.<unique_ID>}
 * 
     */
   "chapUsername"?: string;
   /**
     * The volume's iSCSI IP address.
 * <p>
-Example: `169.254.0.2`
+Example: {@code 169.254.0.2}
 * 
     */
   "ipv4": string;
@@ -51,14 +51,14 @@ Example: `169.254.0.2`
     * The target volume's iSCSI Qualified Name in the format defined
 * by [RFC 3720](https://tools.ietf.org/html/rfc3720#page-32).
 * <p>
-Example: `iqn.2015-12.us.oracle.com:<CHAP_username>`
+Example: {@code iqn.2015-12.us.oracle.com:<CHAP_username>}
 * 
     */
   "iqn": string;
   /**
     * The volume's iSCSI port, usually port 860 or 3260.
 * <p>
-Example: `3260`
+Example: {@code 3260}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "port": number;

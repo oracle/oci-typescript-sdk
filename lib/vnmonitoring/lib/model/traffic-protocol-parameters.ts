@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the traffic protocol parameters for the traffic in a `PathAnalysisResult`.
+ * Defines the traffic protocol parameters for the traffic in a {@code PathAnalysisResult}.
  */
 export interface TrafficProtocolParameters {
   "type": string;

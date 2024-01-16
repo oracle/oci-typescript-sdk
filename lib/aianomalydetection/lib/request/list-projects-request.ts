@@ -46,9 +46,9 @@ export interface ListProjectsRequest extends common.BaseRequest {
   "sortOrder"?: model.SortOrder;
   /**
    * Specifies the field to sort by. Accepts only one field.
-   * By default, when you sort by `timeCreated`, the results are shown
-   * in descending order. When you sort by `displayName`, the results are
-   * shown in ascending order. Sort order for the `displayName` field is case sensitive.
+   * By default, when you sort by {@code timeCreated}, the results are shown
+   * in descending order. When you sort by {@code displayName}, the results are
+   * shown in ascending order. Sort order for the {@code displayName} field is case sensitive.
    *
    */
   "sortBy"?: ListProjectsRequest.SortBy;

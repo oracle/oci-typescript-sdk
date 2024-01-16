@@ -27,7 +27,7 @@ export interface UpdateDefaultModelDeploymentEnvironmentConfigurationDetails
    * Key should contain only letters, digits and underscore (_)
    * Key should start with a letter.
    * Key should have at least 2 characters.
-   * Key should not end with underscore eg. `TEST_`
+   * Key should not end with underscore eg. {@code TEST_}
    * Key if added cannot be empty. Value can be empty.
    * No specific size limits on individual Values. But overall environment variables is limited to 2048 bytes.
    * Key can't be reserved Model Deployment environment variables.

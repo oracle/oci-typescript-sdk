@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -19,12 +19,20 @@ import * as ChangeAlarmCompartmentRequest from "./change-alarm-compartment-reque
 export import ChangeAlarmCompartmentRequest = ChangeAlarmCompartmentRequest.ChangeAlarmCompartmentRequest;
 import * as CreateAlarmRequest from "./create-alarm-request";
 export import CreateAlarmRequest = CreateAlarmRequest.CreateAlarmRequest;
+import * as CreateAlarmSuppressionRequest from "./create-alarm-suppression-request";
+export import CreateAlarmSuppressionRequest = CreateAlarmSuppressionRequest.CreateAlarmSuppressionRequest;
 import * as DeleteAlarmRequest from "./delete-alarm-request";
 export import DeleteAlarmRequest = DeleteAlarmRequest.DeleteAlarmRequest;
+import * as DeleteAlarmSuppressionRequest from "./delete-alarm-suppression-request";
+export import DeleteAlarmSuppressionRequest = DeleteAlarmSuppressionRequest.DeleteAlarmSuppressionRequest;
 import * as GetAlarmRequest from "./get-alarm-request";
 export import GetAlarmRequest = GetAlarmRequest.GetAlarmRequest;
 import * as GetAlarmHistoryRequest from "./get-alarm-history-request";
 export import GetAlarmHistoryRequest = GetAlarmHistoryRequest.GetAlarmHistoryRequest;
+import * as GetAlarmSuppressionRequest from "./get-alarm-suppression-request";
+export import GetAlarmSuppressionRequest = GetAlarmSuppressionRequest.GetAlarmSuppressionRequest;
+import * as ListAlarmSuppressionsRequest from "./list-alarm-suppressions-request";
+export import ListAlarmSuppressionsRequest = ListAlarmSuppressionsRequest.ListAlarmSuppressionsRequest;
 import * as ListAlarmsRequest from "./list-alarms-request";
 export import ListAlarmsRequest = ListAlarmsRequest.ListAlarmsRequest;
 import * as ListAlarmsStatusRequest from "./list-alarms-status-request";
@@ -37,6 +45,8 @@ import * as RemoveAlarmSuppressionRequest from "./remove-alarm-suppression-reque
 export import RemoveAlarmSuppressionRequest = RemoveAlarmSuppressionRequest.RemoveAlarmSuppressionRequest;
 import * as RetrieveDimensionStatesRequest from "./retrieve-dimension-states-request";
 export import RetrieveDimensionStatesRequest = RetrieveDimensionStatesRequest.RetrieveDimensionStatesRequest;
+import * as SummarizeAlarmSuppressionHistoryRequest from "./summarize-alarm-suppression-history-request";
+export import SummarizeAlarmSuppressionHistoryRequest = SummarizeAlarmSuppressionHistoryRequest.SummarizeAlarmSuppressionHistoryRequest;
 import * as SummarizeMetricsDataRequest from "./summarize-metrics-data-request";
 export import SummarizeMetricsDataRequest = SummarizeMetricsDataRequest.SummarizeMetricsDataRequest;
 import * as UpdateAlarmRequest from "./update-alarm-request";

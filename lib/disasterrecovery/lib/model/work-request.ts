@@ -35,7 +35,7 @@ export interface WorkRequest {
   /**
     * The OCID of the work request.
 * <p>
-Example: `ocid1.drworkrequest.oc1..uniqueID`
+Example: {@code ocid1.drworkrequest.oc1..uniqueID}
 * 
     */
   "id": string;
@@ -45,7 +45,7 @@ Example: `ocid1.drworkrequest.oc1..uniqueID`
 * and those resources are not in the same compartment, it is up to the service team to pick the primary
 * resource whose compartment should be used
 * <p>
-Example: `ocid1.compartment.oc1..uniqueID`
+Example: {@code ocid1.compartment.oc1..uniqueID}
 * 
     */
   "compartmentId": string;
@@ -57,28 +57,28 @@ Example: `ocid1.compartment.oc1..uniqueID`
   /**
     * The percentage of the request completed.
 * <p>
-Example: `75`
+Example: {@code 75}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "percentComplete": number;
   /**
     * The date and time the request was created. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeAccepted": Date;
   /**
     * The date and time the request was started. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeStarted"?: Date;
   /**
     * The date and time the request was finished. An RFC3339 formatted datetime string.
 * <p>
-Example: `2019-03-29T09:36:42Z`
+Example: {@code 2019-03-29T09:36:42Z}
 * 
     */
   "timeFinished"?: Date;

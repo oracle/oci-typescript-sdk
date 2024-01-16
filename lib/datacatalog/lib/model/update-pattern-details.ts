@@ -68,7 +68,7 @@ export interface UpdatePatternDetails {
   /**
    * A map of maps that contains the properties which are specific to the pattern type. Each pattern type
    * definition defines it's set of required and optional properties.
-   * Example: `{\"properties\": { \"default\": { \"tbd\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"tbd\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

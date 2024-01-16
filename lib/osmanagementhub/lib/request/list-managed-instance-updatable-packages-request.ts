@@ -37,7 +37,7 @@ export interface ListManagedInstanceUpdatablePackagesRequest extends common.Base
   /**
  * The assigned erratum name. It's unique and not changeable.
 * <p>
-Example: `ELSA-2020-5804`
+Example: {@code ELSA-2020-5804}
 * 
  */
   "advisoryName"?: Array<string>;
@@ -49,15 +49,15 @@ Example: `ELSA-2020-5804`
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
- * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call.
+ * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
-Example: `3`
+Example: {@code 3}
 * 
  */
   "page"?: string;

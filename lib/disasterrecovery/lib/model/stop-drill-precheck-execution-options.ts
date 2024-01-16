@@ -25,7 +25,7 @@ export interface StopDrillPrecheckExecutionOptions extends model.DrPlanExecution
   /**
     * A flag indicating whether warnings should be ignored during the precheck.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "areWarningsIgnored"?: boolean;

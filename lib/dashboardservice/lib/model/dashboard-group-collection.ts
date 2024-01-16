@@ -23,7 +23,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of dashboard groups that match filter criteria, if any. Results contain `DashboardGroupSummary` objects.
+ * A list of dashboard groups that match filter criteria, if any. Results contain {@code DashboardGroupSummary} objects.
  */
 export interface DashboardGroupCollection {
   /**

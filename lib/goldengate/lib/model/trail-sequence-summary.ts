@@ -37,7 +37,7 @@ export interface TrailSequenceSummary {
   "sizeInBytes"?: number;
   /**
    * The time the resource was last updated. The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */
   "timeLastUpdated"?: Date;

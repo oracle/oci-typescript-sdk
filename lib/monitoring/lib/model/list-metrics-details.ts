@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -29,14 +29,14 @@ export interface ListMetricsDetails {
   /**
     * The metric name to use when searching for metric definitions.
 * <p>
-Example: `CpuUtilization`
+Example: {@code CpuUtilization}
 * 
     */
   "name"?: string;
   /**
     * The source service or application to use when searching for metric definitions.
 * <p>
-Example: `oci_computeagent`
+Example: {@code oci_computeagent}
 * 
     */
   "namespace"?: string;
@@ -44,7 +44,7 @@ Example: `oci_computeagent`
     * Resource group that you want to match. A null value returns only metric data that has no resource groups. The specified resource group must exist in the definition of the posted metric. Only one resource group can be applied per metric.
 * A valid resourceGroup value starts with an alphabetical character and includes only alphanumeric characters, periods (.), underscores (_), hyphens (-), and dollar signs ($).
 * <p>
-Example: `frontend-fleet`
+Example: {@code frontend-fleet}
 * 
     */
   "resourceGroup"?: string;
@@ -52,24 +52,24 @@ Example: `frontend-fleet`
     * Qualifiers that you want to use when searching for metric definitions.
 * Available dimensions vary by metric namespace. Each dimension takes the form of a key-value pair.
 * <p>
-Example: `\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"`
+Example: {@code {\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"}}
 * 
     */
   "dimensionFilters"?: { [key: string]: string };
   /**
     * Group metrics by these fields in the response. For example, to list all metric namespaces available
 *           in a compartment, groupBy the \"namespace\" field. Supported fields: namespace, name, resourceGroup.
-* If `groupBy` is used, then `dimensionFilters` is ignored.
+* If {@code groupBy} is used, then {@code dimensionFilters} is ignored.
 * <p>
 Example - group by namespace:
-* `[ \"namespace\" ]`
+* {@code [ \"namespace\" ]}
 * 
     */
   "groupBy"?: Array<string>;
   /**
     * The field to use when sorting returned metric definitions. Only one sorting level is provided.
 * <p>
-Example: `NAMESPACE`
+Example: {@code NAMESPACE}
 * 
     */
   "sortBy"?: ListMetricsDetails.SortBy;
@@ -77,7 +77,7 @@ Example: `NAMESPACE`
     * The sort order to use when sorting returned metric definitions. Ascending (ASC) or
 * descending (DESC).
 * <p>
-Example: `ASC`
+Example: {@code ASC}
 * 
     */
   "sortOrder"?: ListMetricsDetails.SortOrder;

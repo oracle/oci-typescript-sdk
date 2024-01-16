@@ -60,7 +60,7 @@ export interface ResolverEndpoint {
    * The date and time the resource was created in \"YYYY-MM-ddThh:mm:ssZ\" format
    * with a Z offset, as defined by RFC 3339.
    * <p>
-   **Example:** `2016-07-22T17:23:59:60Z`
+   **Example:** {@code 2016-07-22T17:23:59:60Z}
    *
    */
   "timeCreated": Date;
@@ -68,7 +68,7 @@ export interface ResolverEndpoint {
    * The date and time the resource was last updated in \"YYYY-MM-ddThh:mm:ssZ\"
    * format with a Z offset, as defined by RFC 3339.
    * <p>
-   **Example:** `2016-07-22T17:23:59:60Z`
+   **Example:** {@code 2016-07-22T17:23:59:60Z}
    *
    */
   "timeUpdated": Date;

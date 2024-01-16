@@ -94,28 +94,61 @@ export interface AuditTrail {
    */
   "timeLastCollected"?: Date;
   /**
+   * The secondary id assigned for the peer database registered with Data Safe. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "peerTargetDatabaseKey"?: number;
+  /**
+   * The underlying source of unified audit trail.
+   */
+  "trailSource"?: model.AuditTrailSource;
+  /**
+   * The date and time of the last purge job. The purge job deletes audit data in the
+   * target database every seven days so that the database's audit trail does not become too large.
+   * In the format defined by RFC3339.
+   *
+   */
+  "purgeJobTime"?: Date;
+  /**
+   * The current status of the audit trail purge job.
+   */
+  "purgeJobStatus"?: AuditTrail.PurgeJobStatus;
+  /**
+   * The details of the audit trail purge job that ran at the time specified by purgeJobTime\".
+   */
+  "purgeJobDetails"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace. For more information, see Resource Tags.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace AuditTrail {
+  export enum PurgeJobStatus {
+    Succeeded = "SUCCEEDED",
+    Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: AuditTrail): object {
     const jsonObj = { ...obj, ...{} };
 

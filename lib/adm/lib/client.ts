@@ -1052,11 +1052,6 @@ export class ApplicationDependencyManagementClient {
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          },
-          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -1926,6 +1921,7 @@ export class ApplicationDependencyManagementClient {
       "page": listApplicationDependencyRecommendationsRequest.page,
       "sortOrder": listApplicationDependencyRecommendationsRequest.sortOrder,
       "gav": listApplicationDependencyRecommendationsRequest.gav,
+      "purl": listApplicationDependencyRecommendationsRequest.purl,
       "sortBy": listApplicationDependencyRecommendationsRequest.sortBy
     };
 
@@ -2011,13 +2007,16 @@ export class ApplicationDependencyManagementClient {
         listApplicationDependencyVulnerabilitiesRequest.cvssV3GreaterThanOrEqual,
       "cvssV2GreaterThanOrEqual":
         listApplicationDependencyVulnerabilitiesRequest.cvssV2GreaterThanOrEqual,
+      "severityGreaterThanOrEqual":
+        listApplicationDependencyVulnerabilitiesRequest.severityGreaterThanOrEqual,
       "limit": listApplicationDependencyVulnerabilitiesRequest.limit,
       "page": listApplicationDependencyVulnerabilitiesRequest.page,
       "sortOrder": listApplicationDependencyVulnerabilitiesRequest.sortOrder,
       "sortBy": listApplicationDependencyVulnerabilitiesRequest.sortBy,
       "rootNodeId": listApplicationDependencyVulnerabilitiesRequest.rootNodeId,
       "depth": listApplicationDependencyVulnerabilitiesRequest.depth,
-      "gav": listApplicationDependencyVulnerabilitiesRequest.gav
+      "gav": listApplicationDependencyVulnerabilitiesRequest.gav,
+      "purl": listApplicationDependencyVulnerabilitiesRequest.purl
     };
 
     let headerParams = {
@@ -2451,7 +2450,12 @@ export class ApplicationDependencyManagementClient {
       "limit": listVulnerabilityAuditsRequest.limit,
       "page": listVulnerabilityAuditsRequest.page,
       "sortBy": listVulnerabilityAuditsRequest.sortBy,
-      "displayName": listVulnerabilityAuditsRequest.displayName
+      "displayName": listVulnerabilityAuditsRequest.displayName,
+      "timeCreatedGreaterThanOrEqualTo":
+        listVulnerabilityAuditsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThanOrEqualTo": listVulnerabilityAuditsRequest.timeCreatedLessThanOrEqualTo,
+      "maxObservedSeverityGreaterThanOrEqualTo":
+        listVulnerabilityAuditsRequest.maxObservedSeverityGreaterThanOrEqualTo
     };
 
     let headerParams = {

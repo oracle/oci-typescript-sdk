@@ -27,7 +27,7 @@ export interface CreateDataGuardAssociationDetails {
    */
   "databaseSoftwareImageId"?: string;
   /**
-    * A strong password for the `SYS`, `SYSTEM`, and `PDB Admin` users to apply during standby creation.
+    * A strong password for the {@code SYS}, {@code SYSTEM}, and {@code PDB Admin} users to apply during standby creation.
 * <p>
 The password must contain no fewer than nine characters and include:
 * <p>
@@ -53,7 +53,7 @@ The password must contain no fewer than nine characters and include:
    */
   "protectionMode": CreateDataGuardAssociationDetails.ProtectionMode;
   /**
-    * The redo transport type to use for this Data Guard association.  Valid values depend on the specified `protectionMode`:
+    * The redo transport type to use for this Data Guard association.  Valid values depend on the specified {@code protectionMode}:
 * <p>
 * MAXIMUM_AVAILABILITY - SYNC or FASTSYNC
 * * MAXIMUM_PERFORMANCE - ASYNC
@@ -72,12 +72,12 @@ For more information, see
    */
   "isActiveDataGuardEnabled"?: boolean;
   /**
-   * Specifies the `DB_UNIQUE_NAME` of the peer database to be created.
+   * Specifies the {@code DB_UNIQUE_NAME} of the peer database to be created.
    *
    */
   "peerDbUniqueName"?: string;
   /**
-   * Specifies a prefix for the `Oracle SID` of the database to be created.
+   * Specifies a prefix for the {@code Oracle SID} of the database to be created.
    *
    */
   "peerSidPrefix"?: string;

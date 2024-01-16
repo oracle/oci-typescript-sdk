@@ -26,7 +26,7 @@ export interface ComputeInstanceNonMovableBlockVolumeOperation {
   /**
     * The OCID of the block volume.
 * <p>
-Example: `ocid1.volume.oc1..uniqueID`
+Example: {@code ocid1.volume.oc1..uniqueID}
 * 
     */
   "blockVolumeId": string;

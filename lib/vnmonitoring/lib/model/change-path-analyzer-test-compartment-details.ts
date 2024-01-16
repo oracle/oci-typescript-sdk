@@ -17,12 +17,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the new `compartmentId` for the `PathAnalyzerTest` resource.
+ * Details of the new {@code compartmentId} for the {@code PathAnalyzerTest} resource.
  */
 export interface ChangePathAnalyzerTestCompartmentDetails {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
-   * into which the `PathAnalyzerTest` resource should be moved.
+   * into which the {@code PathAnalyzerTest} resource should be moved.
    *
    */
   "compartmentId": string;

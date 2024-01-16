@@ -25,7 +25,7 @@ export interface ListWindowsUpdatesRequest extends common.BaseRequest {
   /**
  * A user-friendly name. Does not have to be unique, and it's changeable.
 * <p>
-Example: `My new resource`
+Example: {@code My new resource}
 * 
  */
   "displayName"?: string;

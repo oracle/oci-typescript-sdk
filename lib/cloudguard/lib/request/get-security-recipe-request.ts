@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetSecurityRecipeRequest extends common.BaseRequest {
   /**
-   * The unique identifier of the security zone recipe (`SecurityRecipe`)
+   * The unique identifier of the security zone recipe ({@code SecurityRecipe})
    */
   "securityRecipeId": string;
   /**

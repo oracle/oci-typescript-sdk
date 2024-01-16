@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PurgeCache {
   /**
-   * A resource to purge, specified by either a hostless absolute path starting with a single slash (Example: `/path/to/resource`) or by a relative path in which the first component will be interpreted as a domain protected by the WAAS policy (Example: `example.com/path/to/resource`).
+   * A resource to purge, specified by either a hostless absolute path starting with a single slash (Example: {@code /path/to/resource}) or by a relative path in which the first component will be interpreted as a domain protected by the WAAS policy (Example: {@code example.com/path/to/resource}).
    */
   "resources"?: Array<string>;
 }

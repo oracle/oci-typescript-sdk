@@ -23,7 +23,7 @@ export interface ListMetricsRequest extends common.BaseRequest {
 * resources monitored by the metric that you are searching for. Use tenancyId to search in
 * the root compartment.
 * <p>
-Example: `ocid1.compartment.oc1..exampleuniqueID`
+Example: {@code ocid1.compartment.oc1..exampleuniqueID}
 * 
  */
   "compartmentId": string;
@@ -38,7 +38,7 @@ Example: `ocid1.compartment.oc1..exampleuniqueID`
    */
   "opcRequestId"?: string;
   /**
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call.
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
    * For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *

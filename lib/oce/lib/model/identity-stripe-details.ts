@@ -20,13 +20,13 @@ import common = require("oci-common");
 export interface IdentityStripeDetails {
   /**
    * Name of the Identity Cloud Service instance in My Services to be used.
-   * Example: `secondstripe`
+   * Example: {@code secondstripe}
    *
    */
   "serviceName": string;
   /**
    * Value of the Identity Cloud Service tenancy.
-   * Example: `idcs-8416ebdd0d674f84803f4193cce026e9`
+   * Example: {@code idcs-8416ebdd0d674f84803f4193cce026e9}
    *
    */
   "tenancy": string;

@@ -104,7 +104,7 @@ export interface ListJobsRequest extends common.BaseRequest {
   "executionCount"?: number;
   /**
    * The date and time the most recent execution for this job ,in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2019-03-25T21:10:29.600Z`
+   * Example: {@code 2019-03-25T21:10:29.600Z}
    *
    */
   "timeOfLatestExecution"?: Date;

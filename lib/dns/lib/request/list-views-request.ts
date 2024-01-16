@@ -38,7 +38,7 @@ export interface ListViewsRequest extends common.BaseRequest {
    */
   "id"?: string;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    *
    */
   "page"?: string;

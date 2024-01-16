@@ -17,7 +17,7 @@ import common = require("oci-common");
 
 /**
  * Specifies the creation type Relocate.
- * Additional input 'dblinkUsername` and `dblinkUserPassword` can be provided for Relocate Operation.
+ * Additional input 'dblinkUsername{@code  and }dblinkUserPassword can be provided for Relocate Operation.
  * If not provided, Backend will create a temporary user to perform Relocate operation.
  *
  */

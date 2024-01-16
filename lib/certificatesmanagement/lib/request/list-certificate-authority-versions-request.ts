@@ -40,7 +40,7 @@ export interface ListCertificateAuthorityVersionsRequest extends common.BaseRequ
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header
+   * The value of the {@code opc-next-page} response header
    * from the previous \"List\" call.
    *
    */
@@ -51,7 +51,7 @@ export interface ListCertificateAuthorityVersionsRequest extends common.BaseRequ
    */
   "sortBy"?: ListCertificateAuthorityVersionsRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListCertificateAuthorityVersionsRequest.SortOrder;

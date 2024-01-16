@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A `DerivedType` object represents a more complex type that is derived from a set of simple types, for example an `Address` or `SSN` data type.
+ * A {@code DerivedType} object represents a more complex type that is derived from a set of simple types, for example an {@code Address} or {@code SSN} data type.
  */
 export interface DerivedType extends model.BaseType {
   "modelType": string;

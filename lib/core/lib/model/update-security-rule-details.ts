@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A rule for allowing inbound (`direction`= INGRESS) or outbound (`direction`= EGRESS) IP packets.
+ * A rule for allowing inbound ({@code direction}= INGRESS) or outbound ({@code direction}= EGRESS) IP packets.
  *
  */
 export interface UpdateSecurityRuleDetails {
@@ -37,13 +37,13 @@ export interface UpdateSecurityRuleDetails {
 * <p>
 Allowed values:
 * <p>
-  * An IP address range in CIDR notation. For example: `192.168.1.0/24` or `2001:0db8:0123:45::/56`
+  * An IP address range in CIDR notation. For example: {@code 192.168.1.0/24} or {@code 2001:0db8:0123:45::/56}
 *     IPv6 addressing is supported for all commercial and government regions. See
 *     [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-  * The `cidrBlock` value for a {@link Service}, if you're
-*     setting up a security rule for traffic destined for a particular `Service` through
-*     a service gateway. For example: `oci-phx-objectstorage`.
+  * The {@code cidrBlock} value for a {@link Service}, if you're
+*     setting up a security rule for traffic destined for a particular {@code Service} through
+*     a service gateway. For example: {@code oci-phx-objectstorage}.
 * <p>
   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a {@link NetworkSecurityGroup} in the same
 *     VCN. The value can be the NSG that the rule belongs to if the rule's intent is to control
@@ -52,24 +52,24 @@ Allowed values:
     */
   "destination"?: string;
   /**
-    * Type of destination for the rule. Required if `direction` = `EGRESS`.
+    * Type of destination for the rule. Required if {@code direction} = {@code EGRESS}.
 * <p>
 Allowed values:
 * <p>
-  * `CIDR_BLOCK`: If the rule's `destination` is an IP address range in CIDR notation.
+  * {@code CIDR_BLOCK}: If the rule's {@code destination} is an IP address range in CIDR notation.
 * <p>
-  * `SERVICE_CIDR_BLOCK`: If the rule's `destination` is the `cidrBlock` value for a
+  * {@code SERVICE_CIDR_BLOCK}: If the rule's {@code destination} is the {@code cidrBlock} value for a
 *     {@link Service} (the rule is for traffic destined for a
-*     particular `Service` through a service gateway).
+*     particular {@code Service} through a service gateway).
 * <p>
-  * `NETWORK_SECURITY_GROUP`: If the rule's `destination` is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
+  * {@code NETWORK_SECURITY_GROUP}: If the rule's {@code destination} is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
 *     {@link NetworkSecurityGroup}.
 * 
     */
   "destinationType"?: UpdateSecurityRuleDetails.DestinationType;
   /**
-   * Direction of the security rule. Set to `EGRESS` for rules to allow outbound IP packets,
-   * or `INGRESS` for rules to allow inbound IP packets.
+   * Direction of the security rule. Set to {@code EGRESS} for rules to allow outbound IP packets,
+   * or {@code INGRESS} for rules to allow inbound IP packets.
    *
    */
   "direction": UpdateSecurityRuleDetails.Direction;
@@ -77,7 +77,7 @@ Allowed values:
   /**
     * The Oracle-assigned ID of the security rule that you want to update. You can't change this value.
 * <p>
-Example: `04ABEC`
+Example: {@code 04ABEC}
 * 
     */
   "id": string;
@@ -91,7 +91,7 @@ Example: `04ABEC`
    */
   "isStateless"?: boolean;
   /**
-   * The transport protocol. Specify either `all` or an IPv4 protocol number as
+   * The transport protocol. Specify either {@code all} or an IPv4 protocol number as
    * defined in
    * [Protocol Numbers](http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
    * Options are supported only for ICMP (\"1\"), TCP (\"6\"), UDP (\"17\"), and ICMPv6 (\"58\").
@@ -104,13 +104,13 @@ Example: `04ABEC`
 * <p>
 Allowed values:
 * <p>
-  * An IP address range in CIDR notation. For example: `192.168.1.0/24` or `2001:0db8:0123:45::/56`
+  * An IP address range in CIDR notation. For example: {@code 192.168.1.0/24} or {@code 2001:0db8:0123:45::/56}
 *     IPv6 addressing is supported for all commercial and government regions. See
 *     [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-  * The `cidrBlock` value for a {@link Service}, if you're
-*     setting up a security rule for traffic coming from a particular `Service` through
-*     a service gateway. For example: `oci-phx-objectstorage`.
+  * The {@code cidrBlock} value for a {@link Service}, if you're
+*     setting up a security rule for traffic coming from a particular {@code Service} through
+*     a service gateway. For example: {@code oci-phx-objectstorage}.
 * <p>
   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a {@link NetworkSecurityGroup} in the same
 *     VCN. The value can be the NSG that the rule belongs to if the rule's intent is to control
@@ -119,15 +119,15 @@ Allowed values:
     */
   "source"?: string;
   /**
-   * Type of source for the rule. Required if `direction` = `INGRESS`.
+   * Type of source for the rule. Required if {@code direction} = {@code INGRESS}.
    * <p>
-   * `CIDR_BLOCK`: If the rule's `source` is an IP address range in CIDR notation.
+   * {@code CIDR_BLOCK}: If the rule's {@code source} is an IP address range in CIDR notation.
    * <p>
-   * `SERVICE_CIDR_BLOCK`: If the rule's `source` is the `cidrBlock` value for a
+   * {@code SERVICE_CIDR_BLOCK}: If the rule's {@code source} is the {@code cidrBlock} value for a
    *     {@link Service} (the rule is for traffic coming from a
-   *     particular `Service` through a service gateway).
+   *     particular {@code Service} through a service gateway).
    * <p>
-   * `NETWORK_SECURITY_GROUP`: If the rule's `source` is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
+   * {@code NETWORK_SECURITY_GROUP}: If the rule's {@code source} is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
    *     {@link NetworkSecurityGroup}.
    *
    */

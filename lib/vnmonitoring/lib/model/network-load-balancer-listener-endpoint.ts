@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the details required for a NETWORK_LOAD_BALANCER_LISTENER-type `Endpoint`.
+ * Defines the details required for a NETWORK_LOAD_BALANCER_LISTENER-type {@code Endpoint}.
  *
  */
 export interface NetworkLoadBalancerListenerEndpoint extends model.Endpoint {

@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -28,14 +28,14 @@ export interface Metric {
   /**
     * The name of the metric.
 * <p>
-Example: `CpuUtilization`
+Example: {@code CpuUtilization}
 * 
     */
   "name"?: string;
   /**
     * The source service or application emitting the metric.
 * <p>
-Example: `oci_computeagent`
+Example: {@code oci_computeagent}
 * 
     */
   "namespace"?: string;
@@ -43,7 +43,7 @@ Example: `oci_computeagent`
     * Resource group provided with the posted metric. A resource group is a custom string that you can match when retrieving custom metrics. Only one resource group can be applied per metric.
 * A valid resourceGroup value starts with an alphabetical character and includes only alphanumeric characters, periods (.), underscores (_), hyphens (-), and dollar signs ($).
 * <p>
-Example: `frontend-fleet`
+Example: {@code frontend-fleet}
 * 
     */
   "resourceGroup"?: string;
@@ -57,7 +57,7 @@ Example: `frontend-fleet`
     * Qualifiers provided in a metric definition. Available dimensions vary by metric namespace.
 * Each dimension takes the form of a key-value pair.
 * <p>
-Example: `\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"`
+Example: {@code {\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"}}
 * 
     */
   "dimensions"?: { [key: string]: string };

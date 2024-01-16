@@ -25,6 +25,10 @@ export interface ApplicationDependencyRecommendationSummary {
    */
   "gav": string;
   /**
+   * Package URL defined in https://github.com/package-url/purl-spec, e.g. pkg:maven/org.graalvm.nativeimage/svm@21.1.0
+   */
+  "purl"?: string;
+  /**
    * Unique node identifier of an application dependency with an associated Recommendation, e.g. nodeId1.
    */
   "nodeId": string;
@@ -36,6 +40,10 @@ export interface ApplicationDependencyRecommendationSummary {
    * Recommended application dependency in \"group:artifact:version\" (GAV) format, e.g. org.graalvm.nativeimage:svm:21.2.0.
    */
   "recommendedGav"?: string;
+  /**
+   * Recommended application dependency in PURL format, e.g. pkg:maven/org.graalvm.nativeimage/svm@21.2.0
+   */
+  "recommendedPurl"?: string;
 }
 
 export namespace ApplicationDependencyRecommendationSummary {

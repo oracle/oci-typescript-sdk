@@ -25,14 +25,14 @@ export interface SnapshotSchedule {
   /**
     * A name prefix to be applied to snapshots created by this schedule.
 * <p>
-Example: `compliance1`
+Example: {@code compliance1}
 * 
     */
   "schedulePrefix"?: string;
   /**
    * The starting point used to begin the scheduling of the snapshots based upon recurrence string
    * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
-   * If no `timeScheduleStart` is provided, the value will be set to the time when the schedule was created.
+   * If no {@code timeScheduleStart} is provided, the value will be set to the time when the schedule was created.
    *
    */
   "timeScheduleStart"?: Date;

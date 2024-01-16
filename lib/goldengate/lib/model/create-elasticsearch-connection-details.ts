@@ -28,7 +28,7 @@ export interface CreateElasticsearchConnectionDetails extends model.CreateConnec
    * Comma separated list of Elasticsearch server addresses, specified as host:port entries, where :port is optional.
    * If port is not specified, it defaults to 9200.
    * Used for establishing the initial connection to the Elasticsearch cluster.
-   * Example: `\"server1.example.com:4000,server2.example.com:4000\"`
+   * Example: {@code \"server1.example.com:4000,server2.example.com:4000\"}
    *
    */
   "servers": string;

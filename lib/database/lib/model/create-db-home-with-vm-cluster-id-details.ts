@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Note that a valid `vmClusterId` value must be supplied for the `CreateDbHomeWithVmClusterId` API operation to successfully complete.
+ * Note that a valid {@code vmClusterId} value must be supplied for the {@code CreateDbHomeWithVmClusterId} API operation to successfully complete.
  *
  */
 export interface CreateDbHomeWithVmClusterIdDetails extends model.CreateDbHomeBase {

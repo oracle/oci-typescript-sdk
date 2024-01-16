@@ -26,7 +26,7 @@ export interface UpdateDrProtectionGroupMemberDatabaseDetails
   /**
     * The OCID of the vault secret where the database SYSDBA password is stored.
 * <p>
-Example: `ocid1.vaultsecret.oc1..uniqueID`
+Example: {@code ocid1.vaultsecret.oc1..uniqueID}
 * 
     */
   "passwordVaultSecretId"?: string;

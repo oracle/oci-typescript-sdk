@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface InstanceAgentCommandExecutionOutputContent {
   /**
-   * The exit code for the command. Exit code `0` indicates success. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The exit code for the command. Exit code {@code 0} indicates success. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "exitCode": number;
   /**

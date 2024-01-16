@@ -71,8 +71,8 @@ export interface SearchMonitoredResourcesDetails {
    * Search for resources that were created within a specific date range,
    * using this parameter to specify the earliest creation date for the
    * returned list (inclusive). Specifying this parameter without the
-   * corresponding `timeCreatedLessThan` parameter will retrieve resources created from the
-   * given `timeCreatedGreaterThanOrEqualTo` to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
+   * corresponding {@code timeCreatedLessThan} parameter will retrieve resources created from the
+   * given {@code timeCreatedGreaterThanOrEqualTo} to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
    * Z offset, as defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
    * <p>
    **Example:** 2016-12-19T16:39:57.600Z
@@ -83,7 +83,7 @@ export interface SearchMonitoredResourcesDetails {
    * Search for resources that were created within a specific date range,
    * using this parameter to specify the latest creation date for the returned
    * list (exclusive). Specifying this parameter without the corresponding
-   * `timeCreatedGreaterThanOrEqualTo` parameter will retrieve all resources created before the
+   * {@code timeCreatedGreaterThanOrEqualTo} parameter will retrieve all resources created before the
    * specified end date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
    * defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
    * <p>
@@ -95,8 +95,8 @@ export interface SearchMonitoredResourcesDetails {
    * Search for resources that were updated within a specific date range,
    * using this parameter to specify the earliest update date for the
    * returned list (inclusive). Specifying this parameter without the
-   * corresponding `timeUpdatedLessThan` parameter will retrieve resources updated from the
-   * given `timeUpdatedGreaterThanOrEqualTo` to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
+   * corresponding {@code timeUpdatedLessThan} parameter will retrieve resources updated from the
+   * given {@code timeUpdatedGreaterThanOrEqualTo} to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
    * Z offset, as defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
    * <p>
    **Example:** 2016-12-19T16:39:57.600Z
@@ -107,7 +107,7 @@ export interface SearchMonitoredResourcesDetails {
    * Search for resources that were updated within a specific date range,
    * using this parameter to specify the latest creation date for the returned
    * list (exclusive). Specifying this parameter without the corresponding
-   * `timeUpdatedGreaterThanOrEqualTo` parameter will retrieve all resources updated before the
+   * {@code timeUpdatedGreaterThanOrEqualTo} parameter will retrieve all resources updated before the
    * specified end date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
    * defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
    * <p>

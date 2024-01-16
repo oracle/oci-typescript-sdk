@@ -52,7 +52,7 @@ export interface WafMeterDatum {
    */
   "trafficInBytes"?: number;
   /**
-   * The tag slug for the specified `waasPolicyId`.
+   * The tag slug for the specified {@code waasPolicyId}.
    */
   "tagSlug"?: string;
 }

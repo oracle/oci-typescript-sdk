@@ -47,20 +47,20 @@ export interface Function {
   /**
    * The qualified name of the Docker image to use in the function, including the image tag.
    * The image should be in the OCI Registry that is in the same region as the function itself.
-   * Example: `phx.ocir.io/ten/functions/function:0.0.1`
+   * Example: {@code phx.ocir.io/ten/functions/function:0.0.1}
    *
    */
   "image"?: string;
   /**
    * The image digest for the version of the image that will be pulled when invoking this function.
    * If no value is specified, the digest currently associated with the image in the OCI Registry will be used.
-   * Example: `sha256:ca0eeb6fb05351dfc8759c20733c91def84cb8007aa89a5bf606bc8b315b9fc7`
+   * Example: {@code sha256:ca0eeb6fb05351dfc8759c20733c91def84cb8007aa89a5bf606bc8b315b9fc7}
    *
    */
   "imageDigest"?: string;
   "sourceDetails"?: model.PreBuiltFunctionSourceDetails;
   /**
-   * The processor shape (`GENERIC_X86`/`GENERIC_ARM`) on which to run functions in the application, extracted from the image manifest.
+   * The processor shape ({@code GENERIC_X86}/{@code GENERIC_ARM}) on which to run functions in the application, extracted from the image manifest.
    *
    */
   "shape"?: Function.Shape;
@@ -72,7 +72,7 @@ export interface Function {
     * Function configuration. Overrides application configuration.
 * Keys must be ASCII strings consisting solely of letters, digits, and the '_' (underscore) character, and must not begin with a digit. Values should be limited to printable unicode characters.
 * <p>
-Example: `{\"MY_FUNCTION_CONFIG\": \"ConfVal\"}`
+Example: {@code {\"MY_FUNCTION_CONFIG\": \"ConfVal\"}}
 * <p>
 The maximum size for all configuration keys and values is limited to 4KB. This is measured as the sum of octets necessary to represent each key and value in UTF-8.
 * 
@@ -90,7 +90,7 @@ The maximum size for all configuration keys and values is limited to 4KB. This i
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -102,7 +102,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -110,7 +110,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * The time the function was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format.
 * <p>
-Example: `2018-09-12T22:47:12.613Z`
+Example: {@code 2018-09-12T22:47:12.613Z}
 * 
     */
   "timeCreated"?: Date;
@@ -118,7 +118,7 @@ Example: `2018-09-12T22:47:12.613Z`
     * The time the function was updated, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format.
 * <p>
-Example: `2018-09-12T22:47:12.613Z`
+Example: {@code 2018-09-12T22:47:12.613Z}
 * 
     */
   "timeUpdated"?: Date;

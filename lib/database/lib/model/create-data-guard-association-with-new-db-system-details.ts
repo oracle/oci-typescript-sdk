@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* The configuration details for creating a Data Guard association for a virtual machine DB system database. For this type of DB system database, the `creationType` should be `NewDbSystem`. A new DB system will be launched to create the standby database.
+* The configuration details for creating a Data Guard association for a virtual machine DB system database. For this type of DB system database, the {@code creationType} should be {@code NewDbSystem}. A new DB system will be launched to create the standby database.
 * <p>
 To create a Data Guard association for a database in a bare metal or Exadata DB system, use the {@link #createDataGuardAssociationToExistingDbSystemDetails(CreateDataGuardAssociationToExistingDbSystemDetailsRequest) createDataGuardAssociationToExistingDbSystemDetails} subtype instead.
 * 
@@ -44,7 +44,7 @@ To get a list of all shapes, use the {@link #listDbSystemShapes(ListDbSystemShap
    */
   "cpuCoreCount"?: number;
   /**
-   * The block storage volume performance level. Valid values are `BALANCED` and `HIGH_PERFORMANCE`. See [Block Volume Performance](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumeperformance.htm) for more information.
+   * The block storage volume performance level. Valid values are {@code BALANCED} and {@code HIGH_PERFORMANCE}. See [Block Volume Performance](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumeperformance.htm) for more information.
    *
    */
   "storageVolumePerformanceMode"?: CreateDataGuardAssociationWithNewDbSystemDetails.StorageVolumePerformanceMode;
@@ -101,7 +101,7 @@ To get a list of Fault Domains, use the
 * {@link #listFaultDomains(ListFaultDomainsRequest) listFaultDomains} operation in the
 * Identity and Access Management Service API.
 * <p>
-Example: `FAULT-DOMAIN-1`
+Example: {@code FAULT-DOMAIN-1}
 * 
     */
   "faultDomains"?: Array<string>;
@@ -120,7 +120,7 @@ Example: `FAULT-DOMAIN-1`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "dbSystemFreeformTags"?: { [key: string]: string };
@@ -134,7 +134,7 @@ Example: `{\"Department\": \"Finance\"}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "databaseFreeformTags"?: { [key: string]: string };

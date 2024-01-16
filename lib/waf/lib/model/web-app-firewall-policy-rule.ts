@@ -25,7 +25,7 @@ export interface WebAppFirewallPolicyRule {
    */
   "name": string;
   /**
-   * The language used to parse condition from field `condition`. Available languages:
+   * The language used to parse condition from field {@code condition}. Available languages:
    * <p>
    * **JMESPATH** an extended JMESPath language syntax.
    *

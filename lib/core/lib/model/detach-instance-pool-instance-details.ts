@@ -31,15 +31,15 @@ export interface DetachInstancePoolInstanceDetails {
    */
   "instanceId": string;
   /**
-   * Whether to decrease the size of the instance pool when the instance is detached. If `true`, the
-   * pool size is decreased. If `false`, the pool will provision a new, replacement instance
-   * using the pool's instance configuration as a template. Default is `true`.
+   * Whether to decrease the size of the instance pool when the instance is detached. If {@code true}, the
+   * pool size is decreased. If {@code false}, the pool will provision a new, replacement instance
+   * using the pool's instance configuration as a template. Default is {@code true}.
    *
    */
   "isDecrementSize"?: boolean;
   /**
    * Whether to permanently terminate (delete) the instance and its attached boot volume
-   * when detaching it from the instance pool. Default is `false`.
+   * when detaching it from the instance pool. Default is {@code false}.
    *
    */
   "isAutoTerminate"?: boolean;

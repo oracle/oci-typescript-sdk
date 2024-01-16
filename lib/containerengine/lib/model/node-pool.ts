@@ -54,12 +54,12 @@ export interface NodePool {
    */
   "nodeMetadata"?: { [key: string]: string };
   /**
-   * Deprecated. see `nodeSource`. The OCID of the image running on the nodes in the node pool.
+   * Deprecated. see {@code nodeSource}. The OCID of the image running on the nodes in the node pool.
    *
    */
   "nodeImageId"?: string;
   /**
-   * Deprecated. see `nodeSource`. The name of the image running on the nodes in the node pool.
+   * Deprecated. see {@code nodeSource}. The name of the image running on the nodes in the node pool.
    *
    */
   "nodeImageName"?: string;
@@ -68,7 +68,7 @@ export interface NodePool {
    */
   "nodeShapeConfig"?: model.NodeShapeConfig;
   /**
-   * Deprecated. see `nodeSourceDetails`. Source running on the nodes in the node pool.
+   * Deprecated. see {@code nodeSourceDetails}. Source running on the nodes in the node pool.
    */
   "nodeSource"?: model.NodeSourceViaImageOption;
   /**
@@ -106,20 +106,20 @@ export interface NodePool {
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };

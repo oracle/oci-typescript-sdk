@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An object that represents the `ip-hash` load balancing method.
+ * An object that represents the {@code ip-hash} load balancing method.
  *
  */
 export interface IPHashLoadBalancingMethod extends model.LoadBalancingMethod {

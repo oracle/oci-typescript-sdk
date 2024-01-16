@@ -23,8 +23,8 @@ export interface ListRuntimeOperatorsResponse {
    */
   "opcRequestId": string;
   /**
-   * For pagination of a list of `RuntimeOperator`s. If this header appears in the response, then this
-   * is a partial list of RuntimeOperator. Include this value as the `page` parameter in a subsequent
+   * For pagination of a list of {@code RuntimeOperator}s. If this header appears in the response, then this
+   * is a partial list of RuntimeOperator. Include this value as the {@code page} parameter in a subsequent
    * GET request to get the next batch of RuntimeOperators.
    *
    */

@@ -31,7 +31,7 @@ export interface WorkRequestResource {
    */
   "identifier"?: string;
   /**
-   * The URI path used while performing a `GET` to access the resource metadata.
+   * The URI path used while performing a {@code GET} to access the resource metadata.
    */
   "entityUri"?: string;
 }

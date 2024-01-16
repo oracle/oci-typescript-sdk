@@ -18,16 +18,16 @@ import common = require("oci-common");
 
 export interface UpdateServiceGatewayDetails {
   /**
-    * Whether the service gateway blocks all traffic through it. The default is `false`. When
-* this is `true`, traffic is not routed to any services, regardless of route rules.
+    * Whether the service gateway blocks all traffic through it. The default is {@code false}. When
+* this is {@code true}, traffic is not routed to any services, regardless of route rules.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "blockTraffic"?: boolean;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -39,7 +39,7 @@ Example: `true`
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -51,15 +51,15 @@ Example: `true`
    */
   "routeTableId"?: string;
   /**
-    * List of all the `Service` objects you want enabled on this service gateway. Sending an empty list
+    * List of all the {@code Service} objects you want enabled on this service gateway. Sending an empty list
 * means you want to disable all services. Omitting this parameter entirely keeps the
 * existing list of services intact.
 * <p>
-You can also enable or disable a particular `Service` by using
+You can also enable or disable a particular {@code Service} by using
 * {@link #attachServiceId(AttachServiceIdRequest) attachServiceId} or
 * {@link #detachServiceId(DetachServiceIdRequest) detachServiceId}.
 * <p>
-For each enabled `Service`, make sure there's a route rule with the `Service` object's `cidrBlock`
+For each enabled {@code Service}, make sure there's a route rule with the {@code Service} object's {@code cidrBlock}
 * as the rule's destination and the service gateway as the rule's target. See
 * {@link RouteTable}.
 * 

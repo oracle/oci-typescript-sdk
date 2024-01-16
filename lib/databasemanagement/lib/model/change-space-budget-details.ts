@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface ChangeSpaceBudgetDetails {
   /**
-   * The maximum percent of `SYSAUX` space that the SQL Management Base can use.
+   * The maximum percent of {@code SYSAUX} space that the SQL Management Base can use.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "spaceBudgetPercent": number;

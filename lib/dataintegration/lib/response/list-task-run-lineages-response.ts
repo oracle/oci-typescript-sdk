@@ -23,8 +23,8 @@ export interface ListTaskRunLineagesResponse {
    */
   "opcRequestId": string;
   /**
-   * For pagination of a list of `TaskRunLineage`s. If this header appears in the response, then this
-   * is a partial list of TaskRunLineage. Include this value as the `page` parameter in a subsequent
+   * For pagination of a list of {@code TaskRunLineage}s. If this header appears in the response, then this
+   * is a partial list of TaskRunLineage. Include this value as the {@code page} parameter in a subsequent
    * GET request to get the next batch of TaskRunLineages.
    *
    */

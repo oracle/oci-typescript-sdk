@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a configuration source provider of the type `GITLAB_ACCESS_TOKEN`.
+ * Summary information for a configuration source provider of the type {@code GITLAB_ACCESS_TOKEN}.
  * This type corresponds to a configuration source provider in GitLab that is authenticated with a personal access token.
  *
  */
@@ -27,7 +27,7 @@ export interface GitlabAccessTokenConfigurationSourceProviderSummary
   extends model.ConfigurationSourceProviderSummary {
   /**
    * The Git service endpoint.
-   * Example: `https://gitlab.com`
+   * Example: {@code https://gitlab.com}
    *
    */
   "apiEndpoint"?: string;

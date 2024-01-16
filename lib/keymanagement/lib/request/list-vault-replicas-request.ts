@@ -24,7 +24,7 @@ export interface ListVaultReplicasRequest extends common.BaseRequest {
   "vaultId": string;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a
-   * resource, set the `if-match` parameter to the value of the etag from a
+   * resource, set the {@code if-match} parameter to the value of the etag from a
    * previous GET or POST response for that resource. The resource will be
    * updated or deleted only if the etag you provide matches the resource's
    * current etag value.
@@ -37,7 +37,7 @@ export interface ListVaultReplicasRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header
+   * The value of the {@code opc-next-page} response header
    * from the previous \"List\" call.
    *
    */
@@ -61,13 +61,13 @@ export interface ListVaultReplicasRequest extends common.BaseRequest {
   "opcRetryToken"?: string;
   /**
    * The field to sort by. You can specify only one sort order. The default
-   * order for `TIMECREATED` is descending. The default order for `DISPLAYNAME`
+   * order for {@code TIMECREATED} is descending. The default order for {@code DISPLAYNAME}
    * is ascending.
    *
    */
   "sortBy"?: ListVaultReplicasRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListVaultReplicasRequest.SortOrder;

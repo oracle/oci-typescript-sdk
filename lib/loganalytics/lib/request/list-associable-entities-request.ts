@@ -54,7 +54,7 @@ export interface ListAssociableEntitiesRequest extends common.BaseRequest {
    */
   "sortBy"?: ListAssociableEntitiesRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListAssociableEntitiesRequest.SortOrder;

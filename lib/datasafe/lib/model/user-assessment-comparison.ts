@@ -28,7 +28,7 @@ export interface UserAssessmentComparison {
   "timeCreated": Date;
   /**
    * List containing maps as values.
-   * Example: `{\"Operations\": [ {\"CostCenter\": \"42\"} ] }`
+   * Example: {@code {\"Operations\": [ {\"CostCenter\": \"42\"} ] }}
    *
    */
   "summary"?: Array<any>;

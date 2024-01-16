@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * A rule that enforces how long certificates or certificate authorities (CAs) issued by this particular CA are valid.
- * You must include either or both `leafCertificateMaxValidityDuration` and `certificateAuthorityMaxValidityDuration`.
+ * You must include either or both {@code leafCertificateMaxValidityDuration} and {@code certificateAuthorityMaxValidityDuration}.
  *
  */
 export interface CertificateAuthorityIssuanceExpiryRule extends model.CertificateAuthorityRule {

@@ -51,12 +51,12 @@ export interface ConfigurationField {
    */
   "resourceList"?: Array<model.ResourceField>;
   /**
-   * Indicates whether or not the field is required (defaults to `true`).
+   * Indicates whether or not the field is required (defaults to {@code true}).
    *
    */
   "isRequired"?: boolean;
   /**
-   * Indicates whether or not the field may be modified (defaults to `true`).
+   * Indicates whether or not the field may be modified (defaults to {@code true}).
    *
    */
   "isMutable"?: boolean;

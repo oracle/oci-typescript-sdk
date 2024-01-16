@@ -25,11 +25,11 @@ export interface Captcha {
    */
   "url": string;
   /**
-   * The amount of time before the CAPTCHA expires, in seconds. If unspecified, defaults to `300`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of time before the CAPTCHA expires, in seconds. If unspecified, defaults to {@code 300}. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sessionExpirationInSeconds": number;
   /**
-   * The title used when displaying a CAPTCHA challenge. If unspecified, defaults to `Are you human?`
+   * The title used when displaying a CAPTCHA challenge. If unspecified, defaults to {@code Are you human?}
    */
   "title": string;
   /**
@@ -41,11 +41,11 @@ export interface Captcha {
    */
   "footerText"?: string;
   /**
-   * The text to show when incorrect CAPTCHA text is entered. If unspecified, defaults to `The CAPTCHA was incorrect. Try again.`
+   * The text to show when incorrect CAPTCHA text is entered. If unspecified, defaults to {@code The CAPTCHA was incorrect. Try again.}
    */
   "failureMessage": string;
   /**
-   * The text to show on the label of the CAPTCHA challenge submit button. If unspecified, defaults to `Yes, I am human`.
+   * The text to show on the label of the CAPTCHA challenge submit button. If unspecified, defaults to {@code Yes, I am human}.
    */
   "submitLabel": string;
 }

@@ -26,7 +26,7 @@ export interface InitialClusterConfiguration {
    */
   "vsphereType": model.VsphereTypes;
   /**
-   * The availability domain to create the Cluster's ESXi hosts in. For multi-AD Cluster deployment, set to `multi-AD`.
+   * The availability domain to create the Cluster's ESXi hosts in. For multi-AD Cluster deployment, set to {@code multi-AD}.
    *
    */
   "computeAvailabilityDomain": string;
@@ -39,10 +39,10 @@ export interface InitialClusterConfiguration {
   "displayName"?: string;
   /**
     * A prefix used in the name of each ESXi host and Compute instance in the Cluster.
-* If this isn't set, the Cluster's `displayName` is used as the prefix.
+* If this isn't set, the Cluster's {@code displayName} is used as the prefix.
 * <p>
-For example, if the value is `myCluster`, the ESXi hosts are named `myCluster-1`,
-* `myCluster-2`, and so on.
+For example, if the value is {@code myCluster}, the ESXi hosts are named {@code myCluster-1},
+* {@code myCluster-2}, and so on.
 * 
     */
   "instanceDisplayNamePrefix"?: string;
@@ -94,7 +94,7 @@ For example, if the value is `myCluster`, the ESXi hosts are named `myCluster-1`
   "capacityReservationId"?: string;
   /**
    * A list of datastore info for the Cluster.
-   * This value is required only when `initialHostShapeName` is a standard shape.
+   * This value is required only when {@code initialHostShapeName} is a standard shape.
    *
    */
   "datastores"?: Array<model.DatastoreInfo>;

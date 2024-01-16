@@ -33,7 +33,7 @@ export interface SignDataDetails {
   "keyVersionId"?: string;
   /**
    * Denotes whether the value of the message parameter is a raw message or a message digest.
-   * The default value, `RAW`, indicates a message. To indicate a message digest, use `DIGEST`.
+   * The default value, {@code RAW}, indicates a message. To indicate a message digest, use {@code DIGEST}.
    *
    */
   "messageType"?: SignDataDetails.MessageType;

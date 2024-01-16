@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Each operator owns a set of `InputPort` and `OutputPort` objects (can scale to zero), which represent the ports that can be connected to/from the operator.
+ * Each operator owns a set of {@code InputPort} and {@code OutputPort} objects (can scale to zero), which represent the ports that can be connected to/from the operator.
  */
 export interface FlowPort extends model.TypedObject {
   "modelType": string;

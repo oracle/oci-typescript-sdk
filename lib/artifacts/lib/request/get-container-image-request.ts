@@ -21,7 +21,7 @@ export interface GetContainerImageRequest extends common.BaseRequest {
   /**
  * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container image.
 * <p>
-Example: `ocid1.containerimage.oc1..exampleuniqueID`
+Example: {@code ocid1.containerimage.oc1..exampleuniqueID}
 * 
  */
   "imageId": string;

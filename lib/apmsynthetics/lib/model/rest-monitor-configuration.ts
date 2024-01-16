@@ -37,12 +37,12 @@ export interface RestMonitorConfiguration extends model.MonitorConfiguration {
   "reqAuthenticationDetails"?: model.RequestAuthenticationDetails;
   "clientCertificateDetails"?: model.ClientCertificateDetails;
   /**
-   * List of request headers. Example: `[{\"headerName\": \"content-type\", \"headerValue\":\"json\"}]`
+   * List of request headers. Example: {@code [{\"headerName\": \"content-type\", \"headerValue\":\"json\"}]}
    *
    */
   "requestHeaders"?: Array<model.Header>;
   /**
-   * List of request query params. Example: `[{\"paramName\": \"sortOrder\", \"paramValue\": \"asc\"}]`
+   * List of request query params. Example: {@code [{\"paramName\": \"sortOrder\", \"paramValue\": \"asc\"}]}
    *
    */
   "requestQueryParams"?: Array<model.RequestQueryParam>;

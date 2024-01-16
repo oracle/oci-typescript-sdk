@@ -36,12 +36,12 @@ export interface ListCloudExadataInfrastructuresRequest extends common.BaseReque
    */
   "opcRequestId"?: string;
   /**
-   * The field to sort by. You can provide one sort order (`sortOrder`).  Default order for TIMECREATED is descending.  Default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
+   * The field to sort by. You can provide one sort order ({@code sortOrder}).  Default order for TIMECREATED is descending.  Default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
    *
    */
   "sortBy"?: ListCloudExadataInfrastructuresRequest.SortBy;
   /**
-   * The sort order to use, either ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListCloudExadataInfrastructuresRequest.SortOrder;
   /**

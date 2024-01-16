@@ -24,7 +24,7 @@ export interface CreateDeployPipelineResponse {
    */
   "opcWorkRequestId": string;
   /**
-   * For optimistic concurrency control. See `if-match`.
+   * For optimistic concurrency control. See {@code if-match}.
    */
   "etag": string;
   /**

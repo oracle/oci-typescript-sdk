@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface Cursor {
   /**
-   * The cursor to pass to the `GetMessages` operation.
+   * The cursor to pass to the {@code GetMessages} operation.
    */
   "value": string;
 }

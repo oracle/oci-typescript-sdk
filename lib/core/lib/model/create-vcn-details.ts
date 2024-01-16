@@ -23,8 +23,8 @@ import common = require("oci-common");
 
 export interface CreateVcnDetails {
   /**
-   * **Deprecated.** Do *not* set this value. Use `cidrBlocks` instead.
-   * Example: `10.0.0.0/16`
+   * **Deprecated.** Do *not* set this value. Use {@code cidrBlocks} instead.
+   * Example: {@code 10.0.0.0/16}
    *
    */
   "cidrBlock"?: string;
@@ -34,7 +34,7 @@ export interface CreateVcnDetails {
    * - They must not overlap with each other or with the on-premises network CIDR block.
    * - The number of CIDR blocks must not exceed the limit of CIDR blocks allowed per VCN.
    * <p>
-   **Important:** Do *not* specify a value for `cidrBlock`. Use this parameter instead.
+   **Important:** Do *not* specify a value for {@code cidrBlock}. Use this parameter instead.
    *
    */
   "cidrBlocks"?: Array<string>;
@@ -48,7 +48,7 @@ export interface CreateVcnDetails {
    * - Multiple CIDR blocks must not overlap each other or the on-premises network prefix.
    * - The number of CIDR blocks must not exceed the limit of IPv6 prefixes allowed to a VCN.
    * <p>
-   **Important:** Do *not* specify a value for `ipv6CidrBlock`. Use this parameter instead.
+   **Important:** Do *not* specify a value for {@code ipv6CidrBlock}. Use this parameter instead.
    *
    */
   "ipv6PrivateCidrBlocks"?: Array<string>;
@@ -67,7 +67,7 @@ export interface CreateVcnDetails {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -80,7 +80,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
   /**
     * A DNS label for the VCN, used in conjunction with the VNIC's hostname and
 * subnet's DNS label to form a fully qualified domain name (FQDN) for each VNIC
-* within this subnet (for example, `bminstance1.subnet123.vcn1.oraclevcn.com`).
+* within this subnet (for example, {@code bminstance1.subnet123.vcn1.oraclevcn.com}).
 * Not required to be unique, but it's a best practice to set unique DNS labels
 * for VCNs in your tenancy. Must be an alphanumeric string that begins with a letter.
 * The value cannot be changed.
@@ -92,7 +92,7 @@ You must set this value if you want instances to be able to use hostnames to
 For more information, see
 * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
-Example: `vcn1`
+Example: {@code vcn1}
 * 
     */
   "dnsLabel"?: string;
@@ -100,17 +100,17 @@ Example: `vcn1`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * Whether IPv6 is enabled for the VCN. Default is `false`.
+    * Whether IPv6 is enabled for the VCN. Default is {@code false}.
 * If enabled, Oracle will assign the VCN a IPv6 /56 CIDR block.
-* You may skip having Oracle allocate the VCN a IPv6 /56 CIDR block by setting isOracleGuaAllocationEnabled to `false`.
+* You may skip having Oracle allocate the VCN a IPv6 /56 CIDR block by setting isOracleGuaAllocationEnabled to {@code false}.
 * For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isIpv6Enabled"?: boolean;

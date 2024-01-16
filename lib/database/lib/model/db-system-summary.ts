@@ -34,7 +34,7 @@ For information about access control and compartments, see
 For information about availability domains, see
 * [Regions and Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
 * <p>
-To get a list of availability domains, use the `ListAvailabilityDomains` operation
+To get a list of availability domains, use the {@code ListAvailabilityDomains} operation
 * in the Identity Service API.
 * <p>
 **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
@@ -98,7 +98,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "memorySizeInGBs"?: number;
   /**
-   * The block storage volume performance level. Valid values are `BALANCED` and `HIGH_PERFORMANCE`. See [Block Volume Performance](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumeperformance.htm) for more information.
+   * The block storage volume performance level. Valid values are {@code BALANCED} and {@code HIGH_PERFORMANCE}. See [Block Volume Performance](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumeperformance.htm) for more information.
    *
    */
   "storageVolumePerformanceMode"?: DbSystemSummary.StorageVolumePerformanceMode;
@@ -256,7 +256,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

@@ -26,7 +26,7 @@ export interface CreateBlockVolumeMountDetails {
   /**
     * The physical mount point used for mounting the file system on the block volume.
 * <p>
-Example: `/mnt/yourmountpoint`
+Example: {@code /mnt/yourmountpoint}
 * 
     */
   "mountPoint"?: string;

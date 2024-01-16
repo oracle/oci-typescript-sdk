@@ -71,7 +71,7 @@ The following response codes are valid values for this property:
 *   504 Gateway Timeout
 *   507 Insufficient Storage
 * <p>
-Example: `200`
+Example: {@code 200}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "code": number;

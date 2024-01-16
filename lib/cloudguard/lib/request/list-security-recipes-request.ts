@@ -31,7 +31,7 @@ export interface ListSecurityRecipesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The unique identifier of the security zone recipe (`SecurityRecipe`)
+   * The unique identifier of the security zone recipe ({@code SecurityRecipe})
    */
   "id"?: string;
   /**

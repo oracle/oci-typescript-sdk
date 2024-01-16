@@ -24,14 +24,14 @@ export interface MetricsAggregationRange {
   "header"?: model.DbManagementAnalyticsMetric;
   /**
     * The list of metrics returned for the specified request. Each of the metrics
-* has a `metricName` and additional properties like `metadata`, `dimensions`.
-* If a property is not set, then use the value from `header`.
+* has a {@code metricName} and additional properties like {@code metadata}, {@code dimensions}.
+* If a property is not set, then use the value from {@code header}.
 * <p>
-Suppose `m` be an item in the `metrics` array:
-* - If `m.metricName` is not set, use `header.metricName` instead
-* - If `m.durationInSeconds` is not set, use `header.durationInSeconds` instead
-* - If `m.dimensions` is not set, use `header.dimensions` instead
-* - If `m.metadata` is not set, use `header.metadata` instead
+Suppose {@code m} be an item in the {@code metrics} array:
+* - If {@code m.metricName} is not set, use {@code header.metricName} instead
+* - If {@code m.durationInSeconds} is not set, use {@code header.durationInSeconds} instead
+* - If {@code m.dimensions} is not set, use {@code header.dimensions} instead
+* - If {@code m.metadata} is not set, use {@code header.metadata} instead
 * 
     */
   "metrics"?: Array<model.DbManagementAnalyticsMetric>;

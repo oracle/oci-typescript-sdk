@@ -22,15 +22,15 @@ import common = require("oci-common");
  */
 export interface SqlInventory {
   /**
-   * Total number of sqls. Example `2000` Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of sqls. Example {@code 2000} Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalSqls": number;
   /**
-   * Total number of Databases. Example `400` Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of Databases. Example {@code 400} Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalDatabases": number;
   /**
-   * Total number of sqls analyzed by the query. Example `120` Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of sqls analyzed by the query. Example {@code 120} Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sqlsAnalyzed": number;
 }

@@ -34,7 +34,7 @@ export interface VolumeGroupReplicaDetails {
   /**
     * The availability domain of the volume group replica.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of recommendations that match filter criteria, if any. Results contain `RecommendationSummary` objects.
+ * A list of recommendations that match filter criteria, if any. Results contain {@code RecommendationSummary} objects.
  *
  */
 export interface RecommendationCollection {

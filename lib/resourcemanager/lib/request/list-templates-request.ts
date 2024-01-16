@@ -31,7 +31,7 @@ export interface ListTemplatesRequest extends common.BaseRequest {
   "compartmentId"?: string;
   /**
    * Unique identifier for the template category.
-   * Possible values are `0` (Quickstarts), `1` (Service), `2` (Architecture), and `3` (Private).
+   * Possible values are {@code 0} (Quickstarts), {@code 1} (Service), {@code 2} (Architecture), and {@code 3} (Private).
    * Template category labels are displayed in the Console page listing templates.
    * Quickstarts, Service, and Architecture templates (categories 0, 1, and 2) are available in all compartments.
    * Each private template (category 3) is available in the compartment where it was created.
@@ -45,31 +45,31 @@ export interface ListTemplatesRequest extends common.BaseRequest {
   /**
    * A filter to return only resources that match the given display name exactly.
    * Use this filter to list a resource by name.
-   * Requires `sortBy` set to `DISPLAYNAME`.
+   * Requires {@code sortBy} set to {@code DISPLAYNAME}.
    * Alternatively, when you know the resource OCID, use the related Get operation.
    *
    */
   "displayName"?: string;
   /**
    * The field to use when sorting returned resources.
-   * By default, `TIMECREATED` is ordered descending.
-   * By default, `DISPLAYNAME` is ordered ascending. Note that you can sort only on one field.
+   * By default, {@code TIMECREATED} is ordered descending.
+   * By default, {@code DISPLAYNAME} is ordered ascending. Note that you can sort only on one field.
    *
    */
   "sortBy"?: ListTemplatesRequest.SortBy;
   /**
-   * The sort order to use when sorting returned resources. Ascending (`ASC`) or descending (`DESC`).
+   * The sort order to use when sorting returned resources. Ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */
   "sortOrder"?: ListTemplatesRequest.SortOrder;
   /**
-   * The number of items returned in a paginated `List` call. For information about pagination, see
+   * The number of items returned in a paginated {@code List} call. For information about pagination, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header from the preceding `List` call.
+   * The value of the {@code opc-next-page} response header from the preceding {@code List} call.
    * For information about pagination, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */

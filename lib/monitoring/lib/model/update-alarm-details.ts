@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -29,7 +29,7 @@ export interface UpdateAlarmDetails {
 * <p>
 This value determines the title of each alarm notification.
 * <p>
-Example: `High CPU Utilization`
+Example: {@code High CPU Utilization}
 * 
     */
   "displayName"?: string;
@@ -51,14 +51,14 @@ Example: `High CPU Utilization`
 * then the call is rejected. When false, the alarm evaluates metrics from only the compartment specified
 * in metricCompartmentId. Default is false.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "metricCompartmentIdInSubtree"?: boolean;
   /**
     * The source service or application emitting the metric that is evaluated by the alarm.
 * <p>
-Example: `oci_computeagent`
+Example: {@code oci_computeagent}
 * 
     */
   "namespace"?: string;
@@ -67,7 +67,7 @@ Example: `oci_computeagent`
 * A valid resourceGroup value starts with an alphabetical character and includes only alphanumeric characters, periods (.), underscores (_), hyphens (-), and dollar signs ($).
 * Avoid entering confidential information.
 * <p>
-Example: `frontend-fleet`
+Example: {@code frontend-fleet}
 * 
     */
   "resourceGroup"?: string;
@@ -78,7 +78,7 @@ Example: `frontend-fleet`
 * rule condition has been met. The query must specify a metric, statistic, interval, and trigger
 * rule (threshold or absence). Supported values for interval depend on the specified time range. More
 * interval values are supported for smaller time ranges. You can optionally
-* specify dimensions and grouping functions. Supported grouping functions: `grouping()`, `groupBy()`.
+* specify dimensions and grouping functions. Supported grouping functions: {@code grouping()}, {@code groupBy()}.
 * For information about writing MQL expressions, see
 * [Editing the MQL Expression for a Query](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/query-metric-mql.htm).
 * For details about MQL, see
@@ -105,7 +105,7 @@ Example of absence alarm:
     */
   "query"?: string;
   /**
-   * The time between calculated aggregation windows for the alarm. Supported value: `1m`
+   * The time between calculated aggregation windows for the alarm. Supported value: {@code 1m}
    *
    */
   "resolution"?: string;
@@ -115,7 +115,7 @@ Example of absence alarm:
 * alarm must persist in breaching the condition for five minutes before the alarm updates its
 * state to \"FIRING\".
 * <p>
-The duration is specified as a string in ISO 8601 format (`PT10M` for ten minutes or `PT1H`
+The duration is specified as a string in ISO 8601 format ({@code PT10M} for ten minutes or {@code PT1H}
 * for one hour). Minimum: PT1M. Maximum: PT1H. Default: PT1M.
 * <p>
 Under the default value of PT1M, the first evaluation that breaches the alarm updates the
@@ -124,14 +124,14 @@ Under the default value of PT1M, the first evaluation that breaches the alarm up
 The alarm updates its status to \"OK\" when the breaching condition has been clear for
 * the most recent minute.
 * <p>
-Example: `PT5M`
+Example: {@code PT5M}
 * 
     */
   "pendingDuration"?: string;
   /**
     * The perceived severity of the alarm with regard to the affected system.
 * <p>
-Example: `CRITICAL`
+Example: {@code CRITICAL}
 * 
     */
   "severity"?: string;
@@ -140,21 +140,21 @@ Example: `CRITICAL`
 * to operators for resolving the alarm condition. Consider adding links to standard runbook
 * practices. Avoid entering confidential information.
 * <p>
-Example: `High CPU usage alert. Follow runbook instructions for resolution.`
+Example: {@code High CPU usage alert. Follow runbook instructions for resolution.}
 * 
     */
   "body"?: string;
   /**
-   * When set to `true`, splits alarm notifications per metric stream.
-   * When set to `false`, groups alarm notifications across metric streams.
+   * When set to {@code true}, splits alarm notifications per metric stream.
+   * When set to {@code false}, groups alarm notifications across metric streams.
    *
    */
   "isNotificationsPerMetricDimensionEnabled"?: boolean;
   /**
    * The format to use for alarm notifications. The formats are:
-   * * `RAW` - Raw JSON blob. Default value. When the `destinations` attribute specifies `Streaming`, all alarm notifications use this format.
-   * * `PRETTY_JSON`: JSON with new lines and indents. Available when the `destinations` attribute specifies `Notifications` only.
-   * * `ONS_OPTIMIZED`: Simplified, user-friendly layout. Available when the `destinations` attribute specifies `Notifications` only. Applies to Email subscription types only.
+   * * {@code RAW} - Raw JSON blob. Default value. When the {@code destinations} attribute specifies {@code Streaming}, all alarm notifications use this format.
+   * * {@code PRETTY_JSON}: JSON with new lines and indents. Available when the {@code destinations} attribute specifies {@code Notifications} only.
+   * * {@code ONS_OPTIMIZED}: Simplified, user-friendly layout. Available when the {@code destinations} attribute specifies {@code Notifications} only. Applies to Email subscription types only.
    *
    */
   "messageFormat"?: UpdateAlarmDetails.MessageFormat;
@@ -162,20 +162,19 @@ Example: `High CPU usage alert. Follow runbook instructions for resolution.`
    * A list of destinations for alarm notifications.
    * Each destination is represented by the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    * of a related resource, such as a {@link NotificationTopic}.
-   * Supported destination services: Notifications
-   * , Streaming.
+   * Supported destination services: Notifications, Streaming.
    * Limit: One destination per supported destination service.
    *
    */
   "destinations"?: Array<string>;
   /**
     * The frequency for re-submitting alarm notifications, if the alarm keeps firing without
-* interruption. Format defined by ISO 8601. For example, `PT4H` indicates four hours.
+* interruption. Format defined by ISO 8601. For example, {@code PT4H} indicates four hours.
 * Minimum: PT1M. Maximum: P30D.
 * <p>
 Default value: null (notifications are not re-submitted).
 * <p>
-Example: `PT2H`
+Example: {@code PT2H}
 * 
     */
   "repeatNotificationDuration"?: string;
@@ -187,19 +186,19 @@ Example: `PT2H`
   /**
     * Whether the alarm is enabled.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isEnabled"?: boolean;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Usage of predefined tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

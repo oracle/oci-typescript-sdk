@@ -24,7 +24,7 @@ import common = require("oci-common");
 /**
 * For a flexible shape, the amount of networking bandwidth available for instances that use this shape.
 * <p>
-If this field is null, then this shape has a fixed amount of bandwidth equivalent to `networkingBandwidthInGbps`.
+If this field is null, then this shape has a fixed amount of bandwidth equivalent to {@code networkingBandwidthInGbps}.
 * 
 */
 export interface ShapeNetworkingBandwidthOptions {

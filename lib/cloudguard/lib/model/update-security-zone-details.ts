@@ -30,12 +30,12 @@ export interface UpdateSecurityZoneDetails {
    */
   "description"?: string;
   /**
-   * The OCID of the recipe (`SecurityRecipe`) for the security zone
+   * The OCID of the recipe ({@code SecurityRecipe}) for the security zone
    */
   "securityZoneRecipeId"?: string;
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-* Example: `{\"bar-key\": \"value\"}`
+* Example: {@code {\"bar-key\": \"value\"}}
 * <p>
 Avoid entering confidential information.
 * 
@@ -43,7 +43,7 @@ Avoid entering confidential information.
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

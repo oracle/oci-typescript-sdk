@@ -23,15 +23,15 @@ export interface StorageDetails {
   /**
    * Specifies if the block volume used for the database system is regional or AD-local.
    * If not specified, it will be set to false.
-   * If `isRegionallyDurable` is set to true, `availabilityDomain` should not be specified.
-   * If `isRegionallyDurable` is set to false, `availabilityDomain` must be specified.
+   * If {@code isRegionallyDurable} is set to true, {@code availabilityDomain} should not be specified.
+   * If {@code isRegionallyDurable} is set to false, {@code availabilityDomain} must be specified.
    *
    */
   "isRegionallyDurable": boolean;
   /**
    * Specifies the availability domain of AD-local storage.
-   * If `isRegionallyDurable` is set to true, `availabilityDomain` should not be specified.
-   * If `isRegionallyDurable` is set to false, `availabilityDomain` must be specified.
+   * If {@code isRegionallyDurable} is set to true, {@code availabilityDomain} should not be specified.
+   * If {@code isRegionallyDurable} is set to false, {@code availabilityDomain} must be specified.
    *
    */
   "availabilityDomain"?: string;

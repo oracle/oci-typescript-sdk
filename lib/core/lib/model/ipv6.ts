@@ -23,7 +23,7 @@ import common = require("oci-common");
 
 /**
 * An *IPv6* is a conceptual term that refers to an IPv6 address and related properties.
-* The `IPv6` object is the API representation of an IPv6.
+* The {@code IPv6} object is the API representation of an IPv6.
 * <p>
 You can create and assign an IPv6 to any VNIC that is in an IPv6-enabled subnet in an
 * IPv6-enabled VCN.
@@ -43,7 +43,7 @@ export interface Ipv6 {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -57,7 +57,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -66,10 +66,10 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "id": string;
   /**
-    * The IPv6 address of the `IPv6` object. The address is within the IPv6 prefix of the VNIC's subnet
-* (see the `ipv6CidrBlock` attribute for the {@link Subnet} object.
+    * The IPv6 address of the {@code IPv6} object. The address is within the IPv6 prefix of the VNIC's subnet
+* (see the {@code ipv6CidrBlock} attribute for the {@link Subnet} object.
 * <p>
-Example: `2001:0db8:0123:1111:abcd:ef01:2345:6789`
+Example: {@code 2001:0db8:0123:1111:abcd:ef01:2345:6789}
 * 
     */
   "ipAddress": string;
@@ -84,7 +84,7 @@ Example: `2001:0db8:0123:1111:abcd:ef01:2345:6789`
   /**
     * The date and time the IPv6 was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

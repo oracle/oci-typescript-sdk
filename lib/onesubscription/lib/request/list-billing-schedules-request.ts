@@ -33,7 +33,7 @@ export interface ListBillingSchedulesRequest extends common.BaseRequest {
    */
   "subscribedServiceId"?: string;
   /**
- * The maximum number of items to return in a paginated \"List\" call. Default: (`50`)
+ * The maximum number of items to return in a paginated \"List\" call. Default: ({@code 50})
 * <p>
 Example: '500'
 * 

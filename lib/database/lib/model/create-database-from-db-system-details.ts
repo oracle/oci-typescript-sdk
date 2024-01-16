@@ -35,7 +35,7 @@ export interface CreateDatabaseFromDbSystemDetails {
    */
   "dbDomain"?: string;
   /**
-   * The `DB_UNIQUE_NAME` of the Oracle Database.
+   * The {@code DB_UNIQUE_NAME} of the Oracle Database.
    */
   "dbUniqueName"?: string;
   "dbBackupConfig"?: model.DbBackupConfig;
@@ -43,7 +43,7 @@ export interface CreateDatabaseFromDbSystemDetails {
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

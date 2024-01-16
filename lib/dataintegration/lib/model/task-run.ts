@@ -69,7 +69,7 @@ export interface TaskRun {
    */
   "bytesProcessed"?: number;
   /**
-   * Contains an error message if status is `ERROR`.
+   * Contains an error message if status is {@code ERROR}.
    */
   "errorMessage"?: string;
   /**

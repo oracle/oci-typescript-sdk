@@ -23,7 +23,7 @@ export interface SteeringPolicyFilterAnswerData {
    */
   "answerCondition"?: string;
   /**
-   * Keeps the answer only if the value is `true`.
+   * Keeps the answer only if the value is {@code true}.
    */
   "shouldKeep"?: boolean;
 }

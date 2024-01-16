@@ -43,11 +43,11 @@ export interface CategorySummary {
    */
   "description": string;
   /**
-   * An array of `RecommendationCount` objects grouped by the level of importance assigned to each recommendation.
+   * An array of {@code RecommendationCount} objects grouped by the level of importance assigned to each recommendation.
    */
   "recommendationCounts": Array<model.RecommendationCount>;
   /**
-   * An array of `ResourceCount` objects grouped by the status of each recommendation.
+   * An array of {@code ResourceCount} objects grouped by the status of each recommendation.
    */
   "resourceCounts": Array<model.ResourceCount>;
   /**
@@ -71,7 +71,7 @@ export interface CategorySummary {
 * <p>
 For example:
 * <p>
-`{\"EstimatedSaving\": \"200\"}`
+{@code {\"EstimatedSaving\": \"200\"}}
 * 
     */
   "extendedMetadata"?: { [key: string]: string };

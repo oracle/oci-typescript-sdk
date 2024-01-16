@@ -23,15 +23,15 @@ export interface UpdateModelRequest extends common.BaseRequest {
    */
   "modelId": string;
   /**
-   * Details for updating a model. You can update the `displayName`, `description`, `freeformTags`, and `definedTags` properties.
+   * Details for updating a model. You can update the {@code displayName}, {@code description}, {@code freeformTags}, and {@code definedTags} properties.
    */
   "updateModelDetails": model.UpdateModelDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
-   * The resource is updated or deleted only if the `etag` you
-   * provide matches the resource's current `etag` value.
+   * The resource is updated or deleted only if the {@code etag} you
+   * provide matches the resource's current {@code etag} value.
    *
    */
   "ifMatch"?: string;

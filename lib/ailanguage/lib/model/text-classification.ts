@@ -27,7 +27,7 @@ export interface TextClassification {
   "label": string;
   /**
    * Score or confidence of extracted text label.
-   * Example: `0.9999856066867399`
+   * Example: {@code 0.9999856066867399}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "score": number;

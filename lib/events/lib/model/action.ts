@@ -39,7 +39,7 @@ export interface Action {
   /**
     * Whether or not this action is currently enabled.
 * <p>
-Example: `true`
+Example: {@code true}
 * 
     */
   "isEnabled"?: boolean;

@@ -31,9 +31,9 @@ export interface ListBackendSetsRequest extends common.BaseRequest {
   /**
  * The system returns the requested resource, with a 200 status, only if the resource has no etag
 * matching the one specified. If the condition fails for the GET and HEAD methods, then the system returns the
-* HTTP status code `304 (Not Modified)`.
+* HTTP status code {@code 304 (Not Modified)}.
 * <p>
-Example: `example-etag`
+Example: {@code example-etag}
 * 
  */
   "ifNoneMatch"?: string;
@@ -45,7 +45,7 @@ Example: `example-etag`
   "limit"?: number;
   /**
    * The page token representing the page from which to start retrieving results.
-   * For list pagination. The value of the `opc-next-page` response header from the previous \"List\" call.
+   * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
    * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */

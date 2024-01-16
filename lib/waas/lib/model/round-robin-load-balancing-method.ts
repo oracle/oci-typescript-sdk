@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An object that represents the `round-robin` load balancing method.
+ * An object that represents the {@code round-robin} load balancing method.
  *
  */
 export interface RoundRobinLoadBalancingMethod extends model.LoadBalancingMethod {

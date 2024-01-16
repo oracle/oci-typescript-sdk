@@ -37,7 +37,7 @@ export interface ListNetworkFirewallsRequest extends common.BaseRequest {
   /**
    * A filter to return only resources that are present within the specified availability domain.
    * To get a list of availability domains for a tenancy, use {@link #listAvailabilityDomains(ListAvailabilityDomainsRequest) listAvailabilityDomains} operation.
-   * Example: `kIdk:PHX-AD-1`
+   * Example: {@code kIdk:PHX-AD-1}
    *
    */
   "availabilityDomain"?: string;
@@ -46,7 +46,7 @@ export interface ListNetworkFirewallsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * A token representing the position at which to start retrieving results. This must come from the `opc-next-page` or `opc-prev-page` header field of a previous response.
+   * A token representing the position at which to start retrieving results. This must come from the {@code opc-next-page} or {@code opc-prev-page} header field of a previous response.
    */
   "page"?: string;
   /**

@@ -39,7 +39,7 @@ export interface Vcn {
   /**
     * Deprecated. The first CIDR IP address from cidrBlocks.
 * <p>
-Example: `172.16.0.0/16`
+Example: {@code 172.16.0.0/16}
 * 
     */
   "cidrBlock": string;
@@ -67,7 +67,7 @@ Example: `172.16.0.0/16`
   "defaultSecurityListId"?: string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -80,7 +80,7 @@ Example: `172.16.0.0/16`
   /**
     * A DNS label for the VCN, used in conjunction with the VNIC's hostname and
 * subnet's DNS label to form a fully qualified domain name (FQDN) for each VNIC
-* within this subnet (for example, `bminstance1.subnet123.vcn1.oraclevcn.com`).
+* within this subnet (for example, {@code bminstance1.subnet123.vcn1.oraclevcn.com}).
 * Must be an alphanumeric string that begins with a letter.
 * The value cannot be changed.
 * <p>
@@ -90,13 +90,13 @@ The absence of this parameter means the Internet and VCN Resolver will
 For more information, see
 * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
-Example: `vcn1`
+Example: {@code vcn1}
 * 
     */
   "dnsLabel"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -117,18 +117,18 @@ Example: `vcn1`
   /**
     * The date and time the VCN was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
   /**
     * The VCN's domain name, which consists of the VCN's DNS label, and the
-* `oraclevcn.com` domain.
+* {@code oraclevcn.com} domain.
 * <p>
 For more information, see
 * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
-Example: `vcn1.oraclevcn.com`
+Example: {@code vcn1.oraclevcn.com}
 * 
     */
   "vcnDomainName"?: string;

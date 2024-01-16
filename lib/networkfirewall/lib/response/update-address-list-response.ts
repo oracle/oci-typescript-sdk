@@ -27,7 +27,7 @@ export interface UpdateAddressListResponse {
    */
   "opcTotalItems": number;
   /**
-   * For optimistic concurrency control. See `if-match`.
+   * For optimistic concurrency control. See {@code if-match}.
    *
    */
   "etag": string;

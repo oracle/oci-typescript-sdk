@@ -28,7 +28,7 @@ export interface UpdateDashboardRequest extends common.BaseRequest {
   "updateDashboardDetails": model.UpdateV1DashboardDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
-   * for a resource, set the `if-match` parameter to the value of the
+   * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.
    * The resource will be updated or deleted only if the etag you
    * provide matches the resource's current etag value.
@@ -42,7 +42,7 @@ export interface UpdateDashboardRequest extends common.BaseRequest {
   /**
    * To identify if the call is cross-regional. In CRUD calls for a resource, to
    * identify that the call originates from different region, set the
-   * `CrossRegionIdentifierHeader` parameter to a region name (ex - `US-ASHBURN-1`)
+   * {@code CrossRegionIdentifierHeader} parameter to a region name (ex - {@code US-ASHBURN-1})
    * The call will be served from a Replicated bucket.
    * For same-region calls, the value is unassigned.
    *

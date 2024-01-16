@@ -24,15 +24,15 @@ import common = require("oci-common");
  */
 export interface ResourceDiscoveryServiceSummary {
   /**
-   * A supported service. Example: `core`
+   * A supported service. Example: {@code core}
    * For reference on service names, see the [Terraform provider documentation](https://www.terraform.io/docs/providers/oci/guides/resource_discovery.html#services).
    *
    */
   "name"?: string;
   /**
    * The scope of the service as used with Resource Discovery.
-   * This property determines the type of compartment OCID required: root compartment (`TENANCY`) or not (`COMPARTMENT`).
-   * For example, `identity` is at the root compartment scope while `database` is at the compartment scope.
+   * This property determines the type of compartment OCID required: root compartment ({@code TENANCY}) or not ({@code COMPARTMENT}).
+   * For example, {@code identity} is at the root compartment scope while {@code database} is at the compartment scope.
    *
    */
   "discoveryScope"?: ResourceDiscoveryServiceSummary.DiscoveryScope;

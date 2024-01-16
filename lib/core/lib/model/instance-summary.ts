@@ -69,7 +69,7 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
   "state": string;
   /**
    * The date and time the instance pool instance was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2016-08-25T21:10:29.600Z`
+   * Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timeCreated": Date;

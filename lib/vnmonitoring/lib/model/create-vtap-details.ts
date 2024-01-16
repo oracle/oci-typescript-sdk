@@ -21,16 +21,16 @@ import common = require("oci-common");
  */
 export interface CreateVtapDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the `Vtap` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the {@code Vtap} resource.
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN containing the `Vtap` resource.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN containing the {@code Vtap} resource.
    */
   "vcnId": string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -42,7 +42,7 @@ export interface CreateVtapDetails {
   "displayName"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
+   * Example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
@@ -77,10 +77,10 @@ export interface CreateVtapDetails {
    */
   "vxlanNetworkIdentifier"?: number;
   /**
-   * Used to start or stop a `Vtap` resource.
+   * Used to start or stop a {@code Vtap} resource.
    * <p>
-   * `TRUE` directs the VTAP to start mirroring traffic.
-   * * `FALSE` (Default) directs the VTAP to stop mirroring traffic.
+   * {@code TRUE} directs the VTAP to start mirroring traffic.
+   * * {@code FALSE} (Default) directs the VTAP to stop mirroring traffic.
    *
    */
   "isVtapEnabled"?: boolean;

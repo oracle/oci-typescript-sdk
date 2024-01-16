@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An image can be specified as the source of nodes when launching a node pool using the `nodeSourceDetails` object.
+ * An image can be specified as the source of nodes when launching a node pool using the {@code nodeSourceDetails} object.
  *
  */
 export interface NodeSourceViaImageOption extends model.NodeSourceOption {

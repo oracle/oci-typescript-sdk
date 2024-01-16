@@ -29,7 +29,7 @@ export interface CertificateAuthorityBundle {
   "certificateAuthorityName": string;
   /**
    * A unique certificate identifier used in certificate revocation tracking, formatted as octets.
-   * Example: `03 AC FC FA CC B3 CB 02 B8 F8 DE F5 85 E7 7B FF`
+   * Example: {@code 03 AC FC FA CC B3 CB 02 B8 F8 DE F5 85 E7 7B FF}
    *
    */
   "serialNumber": string;
@@ -47,7 +47,7 @@ export interface CertificateAuthorityBundle {
   "versionName"?: string;
   /**
    * A property indicating when the CA was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
-   * Example: `2019-04-03T21:10:29.600Z`
+   * Example: {@code 2019-04-03T21:10:29.600Z}
    *
    */
   "timeCreated": Date;

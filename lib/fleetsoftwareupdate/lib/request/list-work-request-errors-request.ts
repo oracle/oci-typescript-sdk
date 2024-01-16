@@ -30,7 +30,7 @@ export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * A token representing the position at which to start retrieving results.
-   * This must come from the `opc-next-page` header field of a previous response.
+   * This must come from the {@code opc-next-page} header field of a previous response.
    *
    */
   "page"?: string;

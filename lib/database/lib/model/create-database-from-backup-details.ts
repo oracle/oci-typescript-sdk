@@ -29,7 +29,7 @@ export interface CreateDatabaseFromBackupDetails {
    */
   "adminPassword": string;
   /**
-   * The `DB_UNIQUE_NAME` of the Oracle Database being backed up.
+   * The {@code DB_UNIQUE_NAME} of the Oracle Database being backed up.
    */
   "dbUniqueName"?: string;
   /**
@@ -37,7 +37,7 @@ export interface CreateDatabaseFromBackupDetails {
    */
   "dbName"?: string;
   /**
-   * Specifies a prefix for the `Oracle SID` of the database to be created.
+   * Specifies a prefix for the {@code Oracle SID} of the database to be created.
    *
    */
   "sidPrefix"?: string;

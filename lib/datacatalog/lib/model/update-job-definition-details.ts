@@ -59,7 +59,7 @@ export interface UpdateJobDefinitionDetails {
    * definition may define it's set of required and optional properties. The map keys are category names and the
    * values are maps of property name to property value. Every property is contained inside of a category. Most
    * job definitions have required properties within the \"default\" category.
-   * Example: `{\"properties\": { \"default\": { \"host\": \"host1\", \"port\": \"1521\", \"database\": \"orcl\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"host\": \"host1\", \"port\": \"1521\", \"database\": \"orcl\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

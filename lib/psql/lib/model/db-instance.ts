@@ -48,7 +48,7 @@ export interface DbInstance {
     * The date and time that the database instance node was created, expressed in
 * [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
@@ -56,7 +56,7 @@ Example: `2016-08-25T21:10:29.600Z`
     * The date and time that the database instance node was updated, expressed in
 * [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeUpdated"?: Date;

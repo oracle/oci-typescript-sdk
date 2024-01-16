@@ -34,7 +34,7 @@ export interface InstancePoolPlacementSecondaryVnicSubnet {
   /**
    * Whether to allocate an IPv6 address at instance and VNIC creation from an IPv6 enabled
    * subnet. Default: False. When provided you may optionally provide an IPv6 prefix
-   * (`ipv6SubnetCidr`) of your choice to assign the IPv6 address from. If `ipv6SubnetCidr`
+   * ({@code ipv6SubnetCidr}) of your choice to assign the IPv6 address from. If {@code ipv6SubnetCidr}
    * is not provided then an IPv6 prefix is chosen
    * for you.
    *

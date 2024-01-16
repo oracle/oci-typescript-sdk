@@ -42,7 +42,7 @@ export interface LocalPeeringGateway {
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -56,7 +56,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -67,7 +67,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * Whether the VCN at the other end of the peering is in a different tenancy.
 * <p>
-Example: `false`
+Example: {@code false}
 * 
     */
   "isCrossTenancyPeering": boolean;
@@ -77,26 +77,26 @@ Example: `false`
   "lifecycleState": LocalPeeringGateway.LifecycleState;
   /**
     * The smallest aggregate CIDR that contains all the CIDR routes advertised by the VCN
-* at the other end of the peering from this LPG. See `peerAdvertisedCidrDetails` for
-* the individual CIDRs. The value is `null` if the LPG is not peered.
+* at the other end of the peering from this LPG. See {@code peerAdvertisedCidrDetails} for
+* the individual CIDRs. The value is {@code null} if the LPG is not peered.
 * <p>
-Example: `192.168.0.0/16`, or if aggregated with `172.16.0.0/24` then `128.0.0.0/1`
+Example: {@code 192.168.0.0/16}, or if aggregated with {@code 172.16.0.0/24} then {@code 128.0.0.0/1}
 * 
     */
   "peerAdvertisedCidr"?: string;
   /**
     * The specific ranges of IP addresses available on or via the VCN at the other
-* end of the peering from this LPG. The value is `null` if the LPG is not peered.
+* end of the peering from this LPG. The value is {@code null} if the LPG is not peered.
 * You can use these as destination CIDRs for route rules to route a subnet's
 * traffic to this LPG.
 * <p>
-Example: [`192.168.0.0/16`, `172.16.0.0/24`]
+Example: [{@code 192.168.0.0/16}, {@code 172.16.0.0/24}]
 * 
     */
   "peerAdvertisedCidrDetails"?: Array<string>;
   /**
-   * Whether the LPG is peered with another LPG. `NEW` means the LPG has not yet been
-   * peered. `PENDING` means the peering is being established. `REVOKED` means the
+   * Whether the LPG is peered with another LPG. {@code NEW} means the LPG has not yet been
+   * peered. {@code PENDING} means the peering is being established. {@code REVOKED} means the
    * LPG at the other end of the peering has been deleted.
    *
    */
@@ -120,7 +120,7 @@ For information about why you would associate a route table with an LPG, see
   /**
     * The date and time the LPG was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;

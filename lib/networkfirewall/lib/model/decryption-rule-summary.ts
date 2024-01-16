@@ -28,7 +28,7 @@ export interface DecryptionRuleSummary {
    * Action:
    * <p>
    * NO_DECRYPT - Matching traffic is not decrypted.
-   * * DECRYPT - Matching traffic is decrypted with the specified `secret` according to the specified `decryptionProfile`.
+   * * DECRYPT - Matching traffic is decrypted with the specified {@code secret} according to the specified {@code decryptionProfile}.
    *
    */
   "action": model.DecryptionActionType;
@@ -37,7 +37,7 @@ export interface DecryptionRuleSummary {
    */
   "decryptionProfile": string;
   /**
-   * The name of a mapped secret. Its `type` must match that of the specified decryption profile.
+   * The name of a mapped secret. Its {@code type} must match that of the specified decryption profile.
    */
   "secret": string;
   /**

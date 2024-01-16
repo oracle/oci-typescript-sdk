@@ -25,7 +25,7 @@ export interface ImageObjectSelectionEntity extends model.Entity {
   "boundingPolygon": model.BoundingPolygon;
   /**
    * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
-   * For example: `{\"bar-key\": \"value\"}`
+   * For example: {@code {\"bar-key\": \"value\"}}
    *
    */
   "extendedMetadata"?: { [key: string]: string };

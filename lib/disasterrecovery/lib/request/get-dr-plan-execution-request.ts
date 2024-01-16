@@ -21,7 +21,7 @@ export interface GetDrPlanExecutionRequest extends common.BaseRequest {
   /**
  * The OCID of the DR plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1..uniqueID`
+Example: {@code ocid1.drplanexecution.oc1..uniqueID}
 * 
  */
   "drPlanExecutionId": string;

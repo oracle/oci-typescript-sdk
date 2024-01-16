@@ -1,7 +1,7 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetric, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
 For more information, see
 [the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
 
@@ -19,7 +19,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for suppressing an alarm.
+ * The configuration details for an alarm-wide suppression.
+ * For dimension-specific suppressions, see {@link AlarmSuppression}.
  * For information about alarms, see
  * [Alarms Overview](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#AlarmsOverview).
  *
@@ -33,21 +34,21 @@ export interface Suppression {
 Oracle recommends including tracking information for the event or associated work,
 * such as a ticket number.
 * <p>
-Example: `Planned outage due to change IT-1234.`
+Example: {@code Planned outage due to change IT-1234.}
 * 
     */
   "description"?: string;
   /**
     * The start date and time for the suppression to take place, inclusive. Format defined by RFC3339.
 * <p>
-Example: `2019-02-01T01:02:29.600Z`
+Example: {@code 2023-02-01T01:02:29.600Z}
 * 
     */
   "timeSuppressFrom": Date;
   /**
     * The end date and time for the suppression to take place, inclusive. Format defined by RFC3339.
 * <p>
-Example: `2019-02-01T02:02:29.600Z`
+Example: {@code 2023-02-01T02:02:29.600Z}
 * 
     */
   "timeSuppressUntil": Date;

@@ -59,12 +59,12 @@ export interface ListModelsRequest extends common.BaseRequest {
 * 1 is the minimum, 100 is the maximum.
 * See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
 * <p>
-Example: `50`
+Example: {@code 50}
 * 
  */
   "limit"?: number;
   /**
- * For list pagination. The value of the `opc-next-page` response
+ * For list pagination. The value of the {@code opc-next-page} response
 * header from the previous \"List\" call.
 * <p>
 See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
@@ -72,14 +72,14 @@ See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concept
  */
   "page"?: string;
   /**
-   * Specifies sort order to use, either `ASC` (ascending) or `DESC` (descending).
+   * Specifies sort order to use, either {@code ASC} (ascending) or {@code DESC} (descending).
    *
    */
   "sortOrder"?: ListModelsRequest.SortOrder;
   /**
    * Specifies the field to sort by. Accepts only one field.
-   * By default, when you sort by `timeCreated`, the results are shown
-   * in descending order. All other fields default to ascending order. Sort order for the `displayName` field is case sensitive.
+   * By default, when you sort by {@code timeCreated}, the results are shown
+   * in descending order. All other fields default to ascending order. Sort order for the {@code displayName} field is case sensitive.
    *
    */
   "sortBy"?: ListModelsRequest.SortBy;

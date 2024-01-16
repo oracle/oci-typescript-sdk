@@ -43,7 +43,7 @@ export interface CreateJobArtifactRequest extends common.BaseRequest {
   "opcRetryToken"?: string;
   /**
    * This header is for specifying a filename during upload. It is used to identify the file type and validate if the
-   * file type is supported. Example: `--content-disposition \"attachment; filename=hello-world.py\"`
+   * file type is supported. Example: {@code --content-disposition \"attachment; filename=hello-world.py\"}
    *
    */
   "contentDisposition"?: string;

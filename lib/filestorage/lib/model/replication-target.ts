@@ -20,11 +20,11 @@ import common = require("oci-common");
  * Replication targets are associated with a primary resource called a {@link Replication}
  * located in another availability domain in the same or different region.
  * The replication retrieves the delta of data between two snapshots of a source file system
- * and sends it to the associated `ReplicationTarget`,  which applies it to the target
+ * and sends it to the associated {@code ReplicationTarget},  which applies it to the target
  * file system.
- * All operations (except `DELETE`) must be done using the associated replication resource.
- * Deleting a `ReplicationTarget` allows the target file system to be exported.
- * Deleting a `ReplicationTarget` does not delete the associated `Replication` resource, but places it in a `FAILED` state.
+ * All operations (except {@code DELETE}) must be done using the associated replication resource.
+ * Deleting a {@code ReplicationTarget} allows the target file system to be exported.
+ * Deleting a {@code ReplicationTarget} does not delete the associated {@code Replication} resource, but places it in a {@code FAILED} state.
  * For more information, see [File System Replication](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/FSreplication.htm).
  *
  */
@@ -33,7 +33,7 @@ export interface ReplicationTarget {
     * The availability domain the replication resource is in. May be unset
 * as a blank or NULL value.
 * <p>
-Example: `Uocm:PHX-AD-1`
+Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain"?: string;
@@ -51,14 +51,14 @@ Example: `Uocm:PHX-AD-1`
   "lifecycleState": ReplicationTarget.LifecycleState;
   /**
    * A user-friendly name. This name is same as the replication display name for the associated resource.
-   * Example: `My Replication`
+   * Example: {@code My Replication}
    *
    */
   "displayName": string;
   /**
    * The date and time the replication target was created in target region.
    * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
-   * Example: `2021-01-04T20:01:29.100Z`
+   * Example: {@code 2021-01-04T20:01:29.100Z}
    *
    */
   "timeCreated": Date;
@@ -83,7 +83,7 @@ Example: `Uocm:PHX-AD-1`
   /**
    * The snapshotTime of the most recent recoverable replication snapshot
    * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
-   * Example: `2021-04-04T20:01:29.100Z`
+   * Example: {@code 2021-04-04T20:01:29.100Z}
    *
    */
   "recoveryPointTime"?: Date;
@@ -100,19 +100,19 @@ Example: `Uocm:PHX-AD-1`
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Additional information about the current `lifecycleState`.
+   * Additional information about the current {@code lifecycleState}.
    */
   "lifecycleDetails"?: string;
 }

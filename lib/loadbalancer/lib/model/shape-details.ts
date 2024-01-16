@@ -25,7 +25,7 @@ export interface ShapeDetails {
     * Bandwidth in Mbps that determines the total pre-provisioned bandwidth (ingress plus egress).
 * The values must be between 10 and the maximumBandwidthInMbps.
 * <p>
-Example: `150`
+Example: {@code 150}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "minimumBandwidthInMbps": number;
@@ -36,7 +36,7 @@ Example: `150`
 * <p>
 The values must be between minimumBandwidthInMbps and 8000 (8Gbps).
 * <p>
-Example: `1500`
+Example: {@code 1500}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "maximumBandwidthInMbps": number;

@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the `ProtocolParameters` configuration for the [ICMP](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml) protocol.
+ * Defines the {@code ProtocolParameters} configuration for the [ICMP](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml) protocol.
  *
  */
 export interface IcmpTrafficProtocolParameters extends model.TrafficProtocolParameters {

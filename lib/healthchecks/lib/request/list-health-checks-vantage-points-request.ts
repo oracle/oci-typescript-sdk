@@ -30,7 +30,7 @@ export interface ListHealthChecksVantagePointsRequest extends common.BaseRequest
    */
   "limit"?: number;
   /**
-   * The value of the `opc-next-page` response header
+   * The value of the {@code opc-next-page} response header
    * from the previous \"List\" call.
    *
    */
@@ -44,11 +44,11 @@ export interface ListHealthChecksVantagePointsRequest extends common.BaseRequest
    */
   "sortOrder"?: ListHealthChecksVantagePointsRequest.SortOrder;
   /**
-   * Filters results that exactly match the `name` field.
+   * Filters results that exactly match the {@code name} field.
    */
   "name"?: string;
   /**
-   * Filters results that exactly match the `displayName` field.
+   * Filters results that exactly match the {@code displayName} field.
    */
   "displayName"?: string;
 }

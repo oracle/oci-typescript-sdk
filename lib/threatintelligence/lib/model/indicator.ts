@@ -28,7 +28,7 @@ export interface Indicator {
   "type": model.IndicatorType;
   /**
     * The value for this indicator.
-* The value's format is dependent upon its `type`. Examples:
+* The value's format is dependent upon its {@code type}. Examples:
 * <p>
 DOMAIN_NAME \"evil.example.com\"
 * <p>
@@ -63,7 +63,7 @@ IP_ADDRESS \"2001:db8::1\"
    */
   "relationships": Array<model.IndicatorRelationship>;
   /**
-   * The state of the indicator. It will always be `ACTIVE`.
+   * The state of the indicator. It will always be {@code ACTIVE}.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -71,11 +71,11 @@ IP_ADDRESS \"2001:db8::1\"
    */
   "timeCreated": Date;
   /**
-   * The date and time that this indicator was last updated. The value is the same as `timeCreated` for a new indicator. An RFC3339 formatted string.
+   * The date and time that this indicator was last updated. The value is the same as {@code timeCreated} for a new indicator. An RFC3339 formatted string.
    */
   "timeUpdated": Date;
   /**
-   * The date and time that this indicator was last seen. The value is the same as `timeCreated` for a new indicator. An RFC3339 formatted string.
+   * The date and time that this indicator was last seen. The value is the same as {@code timeCreated} for a new indicator. An RFC3339 formatted string.
    */
   "timeLastSeen": Date;
   "geodata": model.GeodataDetails;

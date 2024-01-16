@@ -30,7 +30,7 @@ export interface UpdateDatabaseToolsConnectionOracleDatabaseDetails
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretIdDetails;
   /**
-   * The advanced connection properties key-value pair (e.g., `oracle.net.ssl_server_dn_match`).
+   * The advanced connection properties key-value pair (e.g., {@code oracle.net.ssl_server_dn_match}).
    */
   "advancedProperties"?: { [key: string]: string };
   /**

@@ -22,8 +22,8 @@ import common = require("oci-common");
  */
 export interface DNS {
   /**
-   * Total DNS resolution duration, in milliseconds. Calculated using `domainLookupEnd`
-   * minus `domainLookupStart`.
+   * Total DNS resolution duration, in milliseconds. Calculated using {@code domainLookupEnd}
+   * minus {@code domainLookupStart}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "domainLookupDuration"?: number;

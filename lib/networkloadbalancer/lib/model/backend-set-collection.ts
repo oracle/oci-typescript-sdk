@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Wrapper object for an array of `BackendSetSummary` objects.
+ * Wrapper object for an array of {@code BackendSetSummary} objects.
  */
 export interface BackendSetCollection {
   /**
-   * An array of `BackendSetSummary` objects.
+   * An array of {@code BackendSetSummary} objects.
    */
   "items"?: Array<model.BackendSetSummary>;
 }

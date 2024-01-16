@@ -62,7 +62,7 @@ export interface DataAsset {
   "lifecycleDetails"?: string;
   /**
    * The date and time the data asset was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2019-03-25T21:10:29.600Z`
+   * Example: {@code 2019-03-25T21:10:29.600Z}
    *
    */
   "timeCreated"?: Date;
@@ -101,7 +101,7 @@ export interface DataAsset {
    * definition defines it's set of required and optional properties. The map keys are category names and the
    * values are maps of property name to property value. Every property is contained inside of a category. Most
    * data assets have required properties within the \"default\" category.
-   * Example: `{\"properties\": { \"default\": { \"host\": \"host1\", \"port\": \"1521\", \"database\": \"orcl\"}}}`
+   * Example: {@code {\"properties\": { \"default\": { \"host\": \"host1\", \"port\": \"1521\", \"database\": \"orcl\"}}}}
    *
    */
   "properties"?: { [key: string]: { [key: string]: string } };

@@ -15,8 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* An `AuthToken` is an Oracle-generated token string that you can use to authenticate with third-party APIs
-* that do not support Oracle Cloud Infrastructure's signature-based authentication. For example, use an `AuthToken`
+* An {@code AuthToken} is an Oracle-generated token string that you can use to authenticate with third-party APIs
+* that do not support Oracle Cloud Infrastructure's signature-based authentication. For example, use an {@code AuthToken}
 * to authenticate with a Swift client with the Object Storage Service.
 * <p>
 The auth token is associated with the user's Console login. Auth tokens never expire. A user can have up to two
@@ -29,8 +29,8 @@ For more information, see [Managing User Credentials](https://docs.cloud.oracle.
 */
 export interface AuthToken {
   /**
-   * The auth token. The value is available only in the response for `CreateAuthToken`, and not
-   * for `ListAuthTokens` or `UpdateAuthToken`.
+   * The auth token. The value is available only in the response for {@code CreateAuthToken}, and not
+   * for {@code ListAuthTokens} or {@code UpdateAuthToken}.
    *
    */
   "token"?: string;
@@ -50,9 +50,9 @@ export interface AuthToken {
     */
   "description"?: string;
   /**
-    * Date and time the `AuthToken` object was created, in the format defined by RFC3339.
+    * Date and time the {@code AuthToken} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
@@ -60,12 +60,12 @@ Example: `2016-08-25T21:10:29.600Z`
     * Date and time when this auth token will expire, in the format defined by RFC3339.
 * Null if it never expires.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeExpires"?: Date;
   /**
-   * The token's current state. After creating an auth token, make sure its `lifecycleState` changes from
+   * The token's current state. After creating an auth token, make sure its {@code lifecycleState} changes from
    * CREATING to ACTIVE before using it.
    *
    */

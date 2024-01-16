@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface IdentityProviderGroupSummary {
   /**
-   * The OCID of the `IdentityProviderGroup`.
+   * The OCID of the {@code IdentityProviderGroup}.
    */
   "id"?: string;
   /**
-   * The OCID of the `IdentityProvider` this group belongs to.
+   * The OCID of the {@code IdentityProvider} this group belongs to.
    */
   "identityProviderId"?: string;
   /**
@@ -40,16 +40,16 @@ export interface IdentityProviderGroupSummary {
    */
   "externalIdentifier"?: string;
   /**
-    * Date and time the `IdentityProviderGroup` was created, in the format defined by RFC3339.
+    * Date and time the {@code IdentityProviderGroup} was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
   /**
-    * Date and time the `IdentityProviderGroup` was last modified, in the format defined by RFC3339.
+    * Date and time the {@code IdentityProviderGroup} was last modified, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeModified"?: Date;

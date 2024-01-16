@@ -24,13 +24,13 @@ import common = require("oci-common");
 export interface ChangeSqlPlanBaselinesAttributesDetails {
   /**
    * The SQL statement handle. It identifies plans associated with a SQL statement
-   * for attribute changes. If `null` then `planName` must be specified.
+   * for attribute changes. If {@code null} then {@code planName} must be specified.
    *
    */
   "sqlHandle"?: string;
   /**
-   * Then plan name. It identifies a specific plan. If `null' then all plans associated
-   * with a SQL statement identified by `sqlHandle' are considered for attribute changes.
+   * Then plan name. It identifies a specific plan. If {@code null' then all plans associated
+   * with a SQL statement identified by }sqlHandle' are considered for attribute changes.
    *
    */
   "planName"?: string;

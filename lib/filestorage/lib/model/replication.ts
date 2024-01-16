@@ -21,7 +21,7 @@ import common = require("oci-common");
  * and target file systems. Replications are associated with a secondary resource called a {@link ReplicationTarget}
  * located in another availability domain in the same or different region.
  * The replication retrieves the delta of data between two snapshots of a source file system
- * and sends it to the associated `ReplicationTarget`, which applies it to the target
+ * and sends it to the associated {@code ReplicationTarget}, which applies it to the target
  * file system. For more information, see [File System Replication](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/FSreplication.htm).
  *
  */
@@ -31,8 +31,8 @@ export interface Replication {
    */
   "compartmentId": string;
   /**
-   * The availability domain that contains the replication. May be unset as a blank or `NULL` value.
-   * Example: `Uocm:PHX-AD-2`
+   * The availability domain that contains the replication. May be unset as a blank or {@code NULL} value.
+   * Example: {@code Uocm:PHX-AD-2}
    *
    */
   "availabilityDomain"?: string;
@@ -48,7 +48,7 @@ export interface Replication {
     * A user-friendly name. It does not have to be unique, and it is changeable.
 * Avoid entering confidential information.
 * <p>
-Example: `My replication`
+Example: {@code My replication}
 * 
     */
   "displayName": string;
@@ -56,7 +56,7 @@ Example: `My replication`
     * The date and time the replication was created
 * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
 * <p>
-Example: `2021-01-04T20:01:29.100Z`
+Example: {@code 2021-01-04T20:01:29.100Z}
 * 
     */
   "timeCreated": Date;
@@ -88,7 +88,7 @@ Example: `2021-01-04T20:01:29.100Z`
   /**
    * The {@link #snapshotTime(SnapshotTimeRequest) snapshotTime} of the most recent recoverable replication snapshot
    * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
-   * Example: `2021-04-04T20:01:29.100Z`
+   * Example: {@code 2021-04-04T20:01:29.100Z}
    *
    */
   "recoveryPointTime"?: Date;
@@ -109,14 +109,14 @@ Example: `2021-01-04T20:01:29.100Z`
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Department\": \"Finance\"}`
+   * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

@@ -18,18 +18,18 @@ export interface BulkEditOperationDetails {
   /**
    * An enum-like description of the type of operation.
    * <p>
-   * `ADD_WHERE_ABSENT` adds a defined tag only if the tag does not already exist on the resource.
-   * * `SET_WHERE_PRESENT` updates the value for a defined tag only if the tag is present on the resource.
-   * * `ADD_OR_SET` combines the first two operations to add a defined tag if it does not already exist on the resource
+   * {@code ADD_WHERE_ABSENT} adds a defined tag only if the tag does not already exist on the resource.
+   * * {@code SET_WHERE_PRESENT} updates the value for a defined tag only if the tag is present on the resource.
+   * * {@code ADD_OR_SET} combines the first two operations to add a defined tag if it does not already exist on the resource
    * or update the value for a defined tag only if the tag is present on the resource.
-   * * `REMOVE` removes the defined tag from the resource. The tag is removed from the resource regardless of the tag value.
+   * * {@code REMOVE} removes the defined tag from the resource. The tag is removed from the resource regardless of the tag value.
    *
    */
   "operationType": BulkEditOperationDetails.OperationType;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
-   * Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags": { [key: string]: { [key: string]: any } };

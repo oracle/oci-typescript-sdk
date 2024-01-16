@@ -35,7 +35,7 @@ export interface OAuth2ClientCredential {
     * Date and time when this credential will expire, in the format defined by RFC3339.
 * Null if it never expires.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "expiresOn"?: Date;
@@ -56,15 +56,15 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "description"?: string;
   /**
-   * The credential's current state. After creating a Oauth credential, make sure its `lifecycleState` changes from
+   * The credential's current state. After creating a Oauth credential, make sure its {@code lifecycleState} changes from
    * CREATING to ACTIVE before using it.
    *
    */
   "lifecycleState"?: OAuth2ClientCredential.LifecycleState;
   /**
-    * Date and time the `OAuth2ClientCredential` object was created, in the format defined by RFC3339.
+    * Date and time the {@code OAuth2ClientCredential} object was created, in the format defined by RFC3339.
 * <p>
-Example: `2016-08-25T21:10:29.600Z`
+Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;

@@ -23,7 +23,7 @@ export interface IpAddress {
   /**
     * An IP address.
 * <p>
-Example: `192.168.0.3`
+Example: {@code 192.168.0.3}
 * 
     */
   "ipAddress": string;

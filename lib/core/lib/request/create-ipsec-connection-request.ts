@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateIPSecConnectionRequest extends common.BaseRequest {
   /**
-   * Details for creating an `IPSecConnection`.
+   * Details for creating an {@code IPSecConnection}.
    */
   "createIPSecConnectionDetails": model.CreateIPSecConnectionDetails;
   /**

@@ -28,7 +28,7 @@ export interface ListTopUtilizedResourcesRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * A token representing the position at which to start retrieving results. This must come from the `opc-next-page` header field of a previous response.
+   * A token representing the position at which to start retrieving results. This must come from the {@code opc-next-page} header field of a previous response.
    */
   "page"?: string;
   /**
@@ -46,13 +46,13 @@ export interface ListTopUtilizedResourcesRequest extends common.BaseRequest {
    */
   "resourceUnitType"?: model.ResourceUnit;
   /**
-   * The sort order to use, whether `ASC` or `DESC`.
+   * The sort order to use, whether {@code ASC} or {@code DESC}.
    */
   "sortOrder"?: ListTopUtilizedResourcesRequest.SortOrder;
   /**
  * Specifies the attribute with which to sort the rules.
 * <p>
-Default: `totalUnits`
+Default: {@code totalUnits}
 * <p>
 * **totalUnits:** Sorts by totalUnits consumed by resource.
 * 

@@ -31,23 +31,23 @@ export interface JavaDownloadCountAggregation {
    */
   "familyDisplayName"?: string;
   /**
-   * The Java release version. Applicable only to `JAVA_RELEASE` aggregationType.
+   * The Java release version. Applicable only to {@code JAVA_RELEASE} aggregationType.
    */
   "releaseVersion"?: string;
   /**
-   * The target Operating System family for the artifact. Applicable only to `PLATFORM` aggregationType.
+   * The target Operating System family for the artifact. Applicable only to {@code PLATFORM} aggregationType.
    */
   "osFamily"?: string;
   /**
-   * The target Operating System architecture for the artifact. Applicable only to `PLATFORM` aggregationType.
+   * The target Operating System architecture for the artifact. Applicable only to {@code PLATFORM} aggregationType.
    */
   "architecture"?: string;
   /**
-   * The package type(typically the file extension) of the artifact. Applicable only to `PLATFORM` aggregationType.
+   * The package type(typically the file extension) of the artifact. Applicable only to {@code PLATFORM} aggregationType.
    */
   "packageType"?: string;
   /**
-   * Additional information about the package type. Applicable only to `PLATFORM` aggregationType.
+   * Additional information about the package type. Applicable only to {@code PLATFORM} aggregationType.
    */
   "packageTypeDetail"?: string;
 }

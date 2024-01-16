@@ -35,7 +35,7 @@ export interface ListObjects {
    */
   "prefixes"?: Array<string>;
   /**
-   * The name of the object to use in the `start` parameter to obtain the next page of
+   * The name of the object to use in the {@code start} parameter to obtain the next page of
    * a truncated ListObjects response. Avoid entering confidential information.
    * Example: test/object1.log
    *

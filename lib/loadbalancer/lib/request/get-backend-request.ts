@@ -25,14 +25,14 @@ export interface GetBackendRequest extends common.BaseRequest {
   /**
  * The name of the backend set that includes the backend server.
 * <p>
-Example: `example_backend_set`
+Example: {@code example_backend_set}
 * 
  */
   "backendSetName": string;
   /**
  * The IP address and port of the backend server to retrieve.
 * <p>
-Example: `10.0.0.3:8080`
+Example: {@code 10.0.0.3:8080}
 * 
  */
   "backendName": string;
@@ -52,7 +52,7 @@ For example, the eTag returned by getListener can be specified as the ifMatch fo
 The resource is updated or deleted only if the ETag you provide matches the resource's current
 * ETag value.
 * <p>
-Example: `example-etag`
+Example: {@code example-etag}
 * 
  */
   "ifMatch"?: string;

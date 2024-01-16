@@ -22,11 +22,11 @@ import common = require("oci-common");
  */
 export interface EvaluatedMetric {
   /**
-   * The name of the metric (e.g., `CpuUtilization`).
+   * The name of the metric (e.g., {@code CpuUtilization}).
    */
   "name": string;
   /**
-   * The name of the statistic (e.g., `p95`).
+   * The name of the statistic (e.g., {@code p95}).
    */
   "statistic": string;
   /**

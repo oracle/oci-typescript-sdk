@@ -25,7 +25,7 @@ export interface DeleteHostnameRequest extends common.BaseRequest {
   /**
  * The name of the hostname resource to delete.
 * <p>
-Example: `example_hostname_001`
+Example: {@code example_hostname_001}
 * 
  */
   "name": string;
@@ -45,7 +45,7 @@ For example, the eTag returned by getListener can be specified as the ifMatch fo
 The resource is updated or deleted only if the ETag you provide matches the resource's current
 * ETag value.
 * <p>
-Example: `example-etag`
+Example: {@code example-etag}
 * 
  */
   "ifMatch"?: string;

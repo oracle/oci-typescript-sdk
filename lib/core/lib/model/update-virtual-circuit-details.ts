@@ -42,29 +42,29 @@ The customer and provider can update different properties in the mapping
   "crossConnectMappings"?: Array<model.CrossConnectMapping>;
   /**
    * The routing policy sets how routing information about the Oracle cloud is shared over a public virtual circuit.
-   * Policies available are: `ORACLE_SERVICE_NETWORK`, `REGIONAL`, `MARKET_LEVEL`, and `GLOBAL`.
+   * Policies available are: {@code ORACLE_SERVICE_NETWORK}, {@code REGIONAL}, {@code MARKET_LEVEL}, and {@code GLOBAL}.
    * See [Route Filtering](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/routingonprem.htm#route_filtering) for details.
    * By default, routing information is shared for all routes in the same market.
    *
    */
   "routingPolicy"?: Array<UpdateVirtualCircuitDetails.RoutingPolicy>;
   /**
-   * Set to `ENABLED` (the default) to activate the BGP session of the virtual circuit, set to `DISABLED` to deactivate the virtual circuit.
+   * Set to {@code ENABLED} (the default) to activate the BGP session of the virtual circuit, set to {@code DISABLED} to deactivate the virtual circuit.
    *
    */
   "bgpAdminState"?: UpdateVirtualCircuitDetails.BgpAdminState;
   /**
-   * Set to `true` to enable BFD for IPv4 BGP peering, or set to `false` to disable BFD. If this is not set, the default is `false`.
+   * Set to {@code true} to enable BFD for IPv4 BGP peering, or set to {@code false} to disable BFD. If this is not set, the default is {@code false}.
    *
    */
   "isBfdEnabled"?: boolean;
   /**
-   * Set to `true` for the virtual circuit to carry only encrypted traffic, or set to `false` for the virtual circuit to carry unencrypted traffic. If this is not set, the default is `false`.
+   * Set to {@code true} for the virtual circuit to carry only encrypted traffic, or set to {@code false} for the virtual circuit to carry unencrypted traffic. If this is not set, the default is {@code false}.
    *
    */
   "isTransportMode"?: boolean;
   /**
-   * Deprecated. Instead use `customerAsn`.
+   * Deprecated. Instead use {@code customerAsn}.
    * If you specify values for both, the request will be rejected.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -89,7 +89,7 @@ Can be a 2-byte or 4-byte ASN. Uses \"asplain\" format.
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
@@ -103,7 +103,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };

@@ -19,8 +19,8 @@ import common = require("oci-common");
  * Details to update an Oracle Autonomous Database.
  * <p>
  **Notes**
- * - To specify OCPU core count, you must use either `ocpuCount` or `cpuCoreCount`. You cannot use both parameters at the same time.
- * - To specify a storage allocation, you must use  either `dataStorageSizeInGBs` or `dataStorageSizeInTBs`.
+ * - To specify OCPU core count, you must use either {@code ocpuCount} or {@code cpuCoreCount}. You cannot use both parameters at the same time.
+ * - To specify a storage allocation, you must use  either {@code dataStorageSizeInGBs} or {@code dataStorageSizeInTBs}.
  * - See the individual parameter discriptions for more information on the OCPU and storage value parameters.
  * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
@@ -31,7 +31,7 @@ export interface UpdateAutonomousDatabaseDetails {
    */
   "backupRetentionPeriodInDays"?: number;
   /**
-   * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value.
+   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value.
    */
   "computeModel"?: UpdateAutonomousDatabaseDetails.ComputeModel;
   /**
@@ -48,7 +48,7 @@ export interface UpdateAutonomousDatabaseDetails {
 * - The CPU type (OCPUs or ECPUs) is determined by the parent Autonomous Exadata VM Cluster's compute model. 
 * - It is suggested to use 'computeCount' parameter if you want to use fractional value to provision less than 1 core.
 * <p>
-**Note:** This parameter cannot be used with the `ocpuCount` or `computeCount` parameter.
+**Note:** This parameter cannot be used with the {@code ocpuCount} or {@code computeCount} parameter.
 * <p>
 This cannot be updated in parallel with any of the following: licenseModel, databaseEdition, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -69,7 +69,7 @@ For Autonomous Databases on Dedicated Exadata Infrastructure, you can specify a 
 * <p>
 To provision less than 1 core, enter a fractional value in an increment of 0.1. To provision 1 or more cores, you must enter an integer between 1 and the maximum number of cores available to the infrastructure shape. For example, you can provision 0.3 or 0.4 cores, but not 0.35 cores. Likewise, you can provision 2 cores or 3 cores, but not 2.5 cores. The maximum number of cores is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbde/index.html) for shape details.
 * <p>
-**Note:** This parameter cannot be used with the `cpuCoreCount` parameter.
+**Note:** This parameter cannot be used with the {@code cpuCoreCount} parameter.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "ocpuCount"?: number;
@@ -77,7 +77,7 @@ To provision less than 1 core, enter a fractional value in an increment of 0.1. 
     * The size, in terabytes, of the data volume that will be created and attached to the database. For Autonomous Databases on dedicated Exadata infrastructure, the maximum storage value is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/autonomous-database&id=ATPFG-GUID-B0F033C1-CC5A-42F0-B2E7-3CECFEDA1FD1) for shape details.
 * A full Exadata service is allocated when the Autonomous Database size is set to the upper limit (384 TB).
 * <p>
-**Note:** This parameter cannot be used with the `dataStorageSizeInGBs` parameter.
+**Note:** This parameter cannot be used with the {@code dataStorageSizeInGBs} parameter.
 * <p>
 This cannot be updated in parallel with any of the following: licenseModel, databaseEdition, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -88,7 +88,7 @@ This cannot be updated in parallel with any of the following: licenseModel, data
 * <p>
 The size, in gigabytes, of the data volume that will be created and attached to the database. The maximum storage value depends on the system shape. See [Characteristics of Infrastructure Shapes](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/autonomous-database&id=ATPFG-GUID-B0F033C1-CC5A-42F0-B2E7-3CECFEDA1FD1) for shape details.
 * <p>
-**Note:** This parameter cannot be used with the `dataStorageSizeInTBs` parameter.
+**Note:** This parameter cannot be used with the {@code dataStorageSizeInTBs} parameter.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "dataStorageSizeInGBs"?: number;
@@ -126,7 +126,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
-Example: `{\"Department\": \"Finance\"}`
+Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
@@ -152,7 +152,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud.
 * License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service.
 * Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the
-* Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`.
+* Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to {@code BRING_YOUR_OWN_LICENSE}.
 * <p>
 This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, maxCpuCoreCount, dataStorageSizeInTBs, adminPassword, isMTLSConnectionRequired, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 * 
@@ -161,8 +161,8 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
   /**
     * Indicates if the database-level access control is enabled.
 * If disabled, database access is defined by the network security rules.
-* If enabled, database access is restricted to the IP addresses defined by the rules specified with the `whitelistedIps` property. While specifying `whitelistedIps` rules is optional,
-*  if database-level access control is enabled and no rules are specified, the database will become inaccessible. The rules can be added later using the `UpdateAutonomousDatabase` API operation or edit option in console.
+* If enabled, database access is restricted to the IP addresses defined by the rules specified with the {@code whitelistedIps} property. While specifying {@code whitelistedIps} rules is optional,
+*  if database-level access control is enabled and no rules are specified, the database will become inaccessible. The rules can be added later using the {@code UpdateAutonomousDatabase} API operation or edit option in console.
 * When creating a database clone, the desired access control setting should be specified. By default, database-level access control will be disabled for the clone.
 * <p>
 This property is applicable only to Autonomous Databases on the Exadata Cloud@Customer platform.
@@ -175,9 +175,9 @@ This property is applicable only to Autonomous Databases on the Exadata Cloud@Cu
 * <p>
 For Autonomous Database Serverless, this is an array of CIDR (classless inter-domain routing) notations for a subnet or VCN OCID (virtual cloud network Oracle Cloud ID).
 * Use a semicolon (;) as a deliminator between the VCN-specific subnets or IPs.
-* Example: `[\"1.1.1.1\",\"1.1.1.0/24\",\"ocid1.vcn.oc1.sea.<unique_id>\",\"ocid1.vcn.oc1.sea.<unique_id1>;1.1.1.1\",\"ocid1.vcn.oc1.sea.<unique_id2>;1.1.0.0/16\"]`
+* Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"ocid1.vcn.oc1.sea.<unique_id>\",\"ocid1.vcn.oc1.sea.<unique_id1>;1.1.1.1\",\"ocid1.vcn.oc1.sea.<unique_id2>;1.1.0.0/16\"]}
 * For Exadata Cloud@Customer, this is an array of IP addresses or CIDR notations.
-* Example: `[\"1.1.1.1\",\"1.1.1.0/24\",\"1.1.2.25\"]`
+* Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"1.1.2.25\"]}
 * <p>
 For an update operation, if you want to delete all the IPs in the ACL, use an array with a single empty string entry.
 * <p>
@@ -187,8 +187,8 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
   "whitelistedIps"?: Array<string>;
   /**
    * This field will be null if the Autonomous Database is not Data Guard enabled or Access Control is disabled.
-   * `TRUE` if the Autonomous Database has Data Guard and Access Control enabled, and the Autonomous Database uses the primary's IP access control list (ACL) for standby.
-   * `FALSE` if the Autonomous Database has Data Guard and Access Control enabled, and the Autonomous Database uses a different IP access control list (ACL) for standby compared to primary.
+   * {@code TRUE} if the Autonomous Database has Data Guard and Access Control enabled, and the Autonomous Database uses the primary's IP access control list (ACL) for standby.
+   * {@code FALSE} if the Autonomous Database has Data Guard and Access Control enabled, and the Autonomous Database uses a different IP access control list (ACL) for standby compared to primary.
    *
    */
   "arePrimaryWhitelistedIpsUsed"?: boolean;
@@ -198,9 +198,9 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
 * <p>
 For Autonomous Database Serverless, this is an array of CIDR (classless inter-domain routing) notations for a subnet or VCN OCID (virtual cloud network Oracle Cloud ID).
 * Use a semicolon (;) as a deliminator between the VCN-specific subnets or IPs.
-* Example: `[\"1.1.1.1\",\"1.1.1.0/24\",\"ocid1.vcn.oc1.sea.<unique_id>\",\"ocid1.vcn.oc1.sea.<unique_id1>;1.1.1.1\",\"ocid1.vcn.oc1.sea.<unique_id2>;1.1.0.0/16\"]`
+* Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"ocid1.vcn.oc1.sea.<unique_id>\",\"ocid1.vcn.oc1.sea.<unique_id1>;1.1.1.1\",\"ocid1.vcn.oc1.sea.<unique_id2>;1.1.0.0/16\"]}
 * For Exadata Cloud@Customer, this is an array of IP addresses or CIDR notations.
-* Example: `[\"1.1.1.1\",\"1.1.1.0/24\",\"1.1.2.25\"]`
+* Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"1.1.2.25\"]}
 * <p>
 For an update operation, if you want to delete all the IPs in the ACL, use an array with a single empty string entry.
 * <p>
@@ -209,7 +209,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     */
   "standbyWhitelistedIps"?: Array<string>;
   /**
-   * Indicates whether auto scaling is enabled for the Autonomous Database OCPU core count. Setting to `TRUE` enables auto scaling. Setting to `FALSE` disables auto scaling. The default value is true. Auto scaling is only available for [Autonomous Database Serverless instances](https://docs.oracle.com/en/cloud/paas/autonomous-database/shared/index.html).
+   * Indicates whether auto scaling is enabled for the Autonomous Database OCPU core count. Setting to {@code TRUE} enables auto scaling. Setting to {@code FALSE} disables auto scaling. The default value is true. Auto scaling is only available for [Autonomous Database Serverless instances](https://docs.oracle.com/en/cloud/paas/autonomous-database/shared/index.html).
    *
    */
   "isAutoScalingEnabled"?: boolean;
@@ -228,7 +228,7 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
     * Indicates whether the Autonomous Database has a local (in-region) standby database. Not applicable when creating a cross-region Autonomous Data Guard associations, or to
 * Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
 * <p>
-To create a local standby, set to `TRUE`. To delete a local standby, set to `FALSE`. For more information on using Autonomous Data Guard on an Autonomous Database Serverless instance (local and cross-region) , see [About Standby Databases](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/autonomous-data-guard-about.html#GUID-045AD017-8120-4BDC-AF58-7430FFE28D2B)
+To create a local standby, set to {@code TRUE}. To delete a local standby, set to {@code FALSE}. For more information on using Autonomous Data Guard on an Autonomous Database Serverless instance (local and cross-region) , see [About Standby Databases](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/autonomous-data-guard-about.html#GUID-045AD017-8120-4BDC-AF58-7430FFE28D2B)
 * <p>
 To enable cross-region Autonomous Data Guard on an Autonomous Database Serverless instance, see [Enable Autonomous Data Guard](https://docs-uat.us.oracle.com/en/cloud/paas/autonomous-database/adbsa/autonomous-data-guard-update-type.html#GUID-967ED737-4A05-4D6E-A7CA-C3F21ACF9BF0).
 * <p>
@@ -240,18 +240,18 @@ This cannot be updated in parallel with any of the following: isMTLSRequired, db
     * ** Deprecated. ** Indicates whether the Autonomous Database has a local (in-region) standby database. Not applicable when creating a cross-region Autonomous Data Guard associations, or to
 * Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
 * <p>
-To create a local standby, set to `TRUE`. To delete a local standby, set to `FALSE`. For more information on using Autonomous Data Guard on an Autonomous Database Serverless instance (local and cross-region) , see [About Standby Databases](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/autonomous-data-guard-about.html#GUID-045AD017-8120-4BDC-AF58-7430FFE28D2B)
+To create a local standby, set to {@code TRUE}. To delete a local standby, set to {@code FALSE}. For more information on using Autonomous Data Guard on an Autonomous Database Serverless instance (local and cross-region) , see [About Standby Databases](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/autonomous-data-guard-about.html#GUID-045AD017-8120-4BDC-AF58-7430FFE28D2B)
 * <p>
 To enable cross-region Autonomous Data Guard on an Autonomous Database Serverless instance, see [Enable Autonomous Data Guard](https://docs-uat.us.oracle.com/en/cloud/paas/autonomous-database/adbsa/autonomous-data-guard-update-type.html#GUID-967ED737-4A05-4D6E-A7CA-C3F21ACF9BF0).
 * <p>
-To delete a cross-region standby database, provide the `peerDbId` for the standby database in a remote region, and set `isDataGuardEnabled` to `FALSE`.
+To delete a cross-region standby database, provide the {@code peerDbId} for the standby database in a remote region, and set {@code isDataGuardEnabled} to {@code FALSE}.
 * 
     */
   "isDataGuardEnabled"?: boolean;
   /**
     * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Data Guard standby database located in a different (remote) region from the source primary Autonomous Database.
 * <p>
-To create or delete a local (in-region) standby, see the `isDataGuardEnabled` parameter.
+To create or delete a local (in-region) standby, see the {@code isDataGuardEnabled} parameter.
 * 
     */
   "peerDbId"?: string;
@@ -260,7 +260,7 @@ To create or delete a local (in-region) standby, see the `isDataGuardEnabled` pa
    */
   "dbVersion"?: string;
   /**
-    * Indicates the Autonomous Database mode. The database can be opened in `READ_ONLY` or `READ_WRITE` mode.
+    * Indicates the Autonomous Database mode. The database can be opened in {@code READ_ONLY} or {@code READ_WRITE} mode.
 * <p>
 This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 * 
@@ -340,7 +340,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     */
   "scheduledOperations"?: Array<model.ScheduledOperationDetails>;
   /**
-   * Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `FALSE`.
+   * Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is {@code FALSE}.
    *
    */
   "isAutoScalingForStorageEnabled"?: boolean;

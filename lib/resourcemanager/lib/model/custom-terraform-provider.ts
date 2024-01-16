@@ -21,7 +21,7 @@ import common = require("oci-common");
 /**
  * Location information about custom Terraform providers for a stack.
  * For more information, see [Custom Providers](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#features__custom-providers).
- * Note: Older stacks must be explicitly updated to use Terraform Registry (`isThirdPartyProviderExperienceEnabled=true`).
+ * Note: Older stacks must be explicitly updated to use Terraform Registry ({@code isThirdPartyProviderExperienceEnabled=true}).
  * See {@link #updateStack(UpdateStackRequest) updateStack}. For more information, see
  * [Using Terraform Registry with Older Stacks](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/update-stack-tf-reg.htm).
  *
@@ -30,7 +30,7 @@ export interface CustomTerraformProvider {
   /**
    * The name of the region that contains the bucket you want.
    * For information about regions, see [Regions and Availability Domains](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm).
-   * Example: `us-phoenix-1`
+   * Example: {@code us-phoenix-1}
    *
    */
   "region": string;

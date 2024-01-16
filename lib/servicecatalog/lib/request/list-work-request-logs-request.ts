@@ -29,7 +29,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The value of the `opc-next-page` response header from the previous \"List\" call.
+   * The value of the {@code opc-next-page} response header from the previous \"List\" call.
    */
   "page"?: string;
   /**
@@ -43,7 +43,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListWorkRequestLogsRequest.SortBy;
   /**
-   * The sort order to apply, either `ASC` or `DESC`. Default is `ASC`.
+   * The sort order to apply, either {@code ASC} or {@code DESC}. Default is {@code ASC}.
    */
   "sortOrder"?: ListWorkRequestLogsRequest.SortOrder;
 }
