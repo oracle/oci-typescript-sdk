@@ -156,6 +156,25 @@ export class StackMonitoringWaiter {
   }
 
   /**
+   * Waits forProcessSet till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetProcessSetResponse | null (null in case of 404 response)
+   */
+  public async forProcessSet(
+    request: serviceRequests.GetProcessSetRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetProcessSetResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getProcessSet(request),
+      response => targetStates.includes(response.processSet.lifecycleState!),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

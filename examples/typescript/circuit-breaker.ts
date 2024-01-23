@@ -57,4 +57,8 @@ const compartmentId = provider.getTenantId();
   } catch (err) {
     console.log("what is err: ", err);
   }
+
+  // Shut down circuit breakers used by clients if they are no longer needed
+  identityClient.shutdownCircuitBreaker();
+  auditClient.shutdownCircuitBreaker();
 })();
