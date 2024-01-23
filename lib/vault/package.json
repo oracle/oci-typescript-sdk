@@ -1,6 +1,6 @@
 {
   "name": "oci-vault",
-  "version": "2.77.0",
+  "version": "2.77.1",
   "description": "OCI NodeJS client for Vault Service",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
   },
   "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {
-    "oci-common": "../common"
+    "oci-common": "../common",
+    "oci-workrequests": "../workrequests"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

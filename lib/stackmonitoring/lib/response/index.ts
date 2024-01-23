@@ -21,6 +21,8 @@ import * as ChangeMonitoredResourceCompartmentResponse from "./change-monitored-
 export import ChangeMonitoredResourceCompartmentResponse = ChangeMonitoredResourceCompartmentResponse.ChangeMonitoredResourceCompartmentResponse;
 import * as ChangeMonitoredResourceTaskCompartmentResponse from "./change-monitored-resource-task-compartment-response";
 export import ChangeMonitoredResourceTaskCompartmentResponse = ChangeMonitoredResourceTaskCompartmentResponse.ChangeMonitoredResourceTaskCompartmentResponse;
+import * as ChangeProcessSetCompartmentResponse from "./change-process-set-compartment-response";
+export import ChangeProcessSetCompartmentResponse = ChangeProcessSetCompartmentResponse.ChangeProcessSetCompartmentResponse;
 import * as CreateBaselineableMetricResponse from "./create-baselineable-metric-response";
 export import CreateBaselineableMetricResponse = CreateBaselineableMetricResponse.CreateBaselineableMetricResponse;
 import * as CreateConfigResponse from "./create-config-response";
@@ -35,6 +37,8 @@ import * as CreateMonitoredResourceTaskResponse from "./create-monitored-resourc
 export import CreateMonitoredResourceTaskResponse = CreateMonitoredResourceTaskResponse.CreateMonitoredResourceTaskResponse;
 import * as CreateMonitoredResourceTypeResponse from "./create-monitored-resource-type-response";
 export import CreateMonitoredResourceTypeResponse = CreateMonitoredResourceTypeResponse.CreateMonitoredResourceTypeResponse;
+import * as CreateProcessSetResponse from "./create-process-set-response";
+export import CreateProcessSetResponse = CreateProcessSetResponse.CreateProcessSetResponse;
 import * as DeleteBaselineableMetricResponse from "./delete-baselineable-metric-response";
 export import DeleteBaselineableMetricResponse = DeleteBaselineableMetricResponse.DeleteBaselineableMetricResponse;
 import * as DeleteConfigResponse from "./delete-config-response";
@@ -47,6 +51,8 @@ import * as DeleteMonitoredResourceResponse from "./delete-monitored-resource-re
 export import DeleteMonitoredResourceResponse = DeleteMonitoredResourceResponse.DeleteMonitoredResourceResponse;
 import * as DeleteMonitoredResourceTypeResponse from "./delete-monitored-resource-type-response";
 export import DeleteMonitoredResourceTypeResponse = DeleteMonitoredResourceTypeResponse.DeleteMonitoredResourceTypeResponse;
+import * as DeleteProcessSetResponse from "./delete-process-set-response";
+export import DeleteProcessSetResponse = DeleteProcessSetResponse.DeleteProcessSetResponse;
 import * as DisableExternalDatabaseResponse from "./disable-external-database-response";
 export import DisableExternalDatabaseResponse = DisableExternalDatabaseResponse.DisableExternalDatabaseResponse;
 import * as DisableMetricExtensionResponse from "./disable-metric-extension-response";
@@ -73,6 +79,8 @@ import * as GetMonitoredResourceTaskResponse from "./get-monitored-resource-task
 export import GetMonitoredResourceTaskResponse = GetMonitoredResourceTaskResponse.GetMonitoredResourceTaskResponse;
 import * as GetMonitoredResourceTypeResponse from "./get-monitored-resource-type-response";
 export import GetMonitoredResourceTypeResponse = GetMonitoredResourceTypeResponse.GetMonitoredResourceTypeResponse;
+import * as GetProcessSetResponse from "./get-process-set-response";
+export import GetProcessSetResponse = GetProcessSetResponse.GetProcessSetResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as ListBaselineableMetricsResponse from "./list-baselineable-metrics-response";
@@ -91,6 +99,8 @@ import * as ListMonitoredResourceTypesResponse from "./list-monitored-resource-t
 export import ListMonitoredResourceTypesResponse = ListMonitoredResourceTypesResponse.ListMonitoredResourceTypesResponse;
 import * as ListMonitoredResourcesResponse from "./list-monitored-resources-response";
 export import ListMonitoredResourcesResponse = ListMonitoredResourcesResponse.ListMonitoredResourcesResponse;
+import * as ListProcessSetsResponse from "./list-process-sets-response";
+export import ListProcessSetsResponse = ListProcessSetsResponse.ListProcessSetsResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
 export import ListWorkRequestErrorsResponse = ListWorkRequestErrorsResponse.ListWorkRequestErrorsResponse;
 import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response";
@@ -127,3 +137,5 @@ import * as UpdateMonitoredResourceTaskResponse from "./update-monitored-resourc
 export import UpdateMonitoredResourceTaskResponse = UpdateMonitoredResourceTaskResponse.UpdateMonitoredResourceTaskResponse;
 import * as UpdateMonitoredResourceTypeResponse from "./update-monitored-resource-type-response";
 export import UpdateMonitoredResourceTypeResponse = UpdateMonitoredResourceTypeResponse.UpdateMonitoredResourceTypeResponse;
+import * as UpdateProcessSetResponse from "./update-process-set-response";
+export import UpdateProcessSetResponse = UpdateProcessSetResponse.UpdateProcessSetResponse;

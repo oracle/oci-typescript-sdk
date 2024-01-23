@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.77.0",
+  "version": "2.77.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -37,7 +37,6 @@
     "oci-apmcontrolplane": "file:lib/apmcontrolplane",
     "oci-apmsynthetics": "file:lib/apmsynthetics",
     "oci-apmtraces": "file:lib/apmtraces",
-    "oci-applicationmigration": "file:lib/applicationmigration",
     "oci-appmgmtcontrol": "file:lib/appmgmtcontrol",
     "oci-artifacts": "file:lib/artifacts",
     "oci-audit": "file:lib/audit",
@@ -153,7 +152,9 @@
     "oci-marketplacepublisher": "file:lib/marketplacepublisher",
     "oci-redis": "file:lib/redis",
     "oci-jmsjavadownloads": "file:lib/jmsjavadownloads",
-    "oci-psql": "file:lib/psql"
+    "oci-psql": "file:lib/psql",
+    "oci-generativeai": "file:lib/generativeai",
+    "oci-generativeaiinference": "file:lib/generativeaiinference"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

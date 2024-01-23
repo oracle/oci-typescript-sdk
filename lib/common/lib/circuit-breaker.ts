@@ -130,5 +130,8 @@ export default class CircuitBreaker {
     this.circuit.on("close", () => {
       console.log("circuit breaker is now in CLOSE state");
     });
+    this.circuit.on("shutdown", () => {
+      console.log("circuit breaker is now SHUTDOWN");
+    });
   }
 }

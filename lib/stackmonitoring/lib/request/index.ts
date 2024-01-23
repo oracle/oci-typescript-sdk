@@ -21,6 +21,8 @@ import * as ChangeMonitoredResourceCompartmentRequest from "./change-monitored-r
 export import ChangeMonitoredResourceCompartmentRequest = ChangeMonitoredResourceCompartmentRequest.ChangeMonitoredResourceCompartmentRequest;
 import * as ChangeMonitoredResourceTaskCompartmentRequest from "./change-monitored-resource-task-compartment-request";
 export import ChangeMonitoredResourceTaskCompartmentRequest = ChangeMonitoredResourceTaskCompartmentRequest.ChangeMonitoredResourceTaskCompartmentRequest;
+import * as ChangeProcessSetCompartmentRequest from "./change-process-set-compartment-request";
+export import ChangeProcessSetCompartmentRequest = ChangeProcessSetCompartmentRequest.ChangeProcessSetCompartmentRequest;
 import * as CreateBaselineableMetricRequest from "./create-baselineable-metric-request";
 export import CreateBaselineableMetricRequest = CreateBaselineableMetricRequest.CreateBaselineableMetricRequest;
 import * as CreateConfigRequest from "./create-config-request";
@@ -35,6 +37,8 @@ import * as CreateMonitoredResourceTaskRequest from "./create-monitored-resource
 export import CreateMonitoredResourceTaskRequest = CreateMonitoredResourceTaskRequest.CreateMonitoredResourceTaskRequest;
 import * as CreateMonitoredResourceTypeRequest from "./create-monitored-resource-type-request";
 export import CreateMonitoredResourceTypeRequest = CreateMonitoredResourceTypeRequest.CreateMonitoredResourceTypeRequest;
+import * as CreateProcessSetRequest from "./create-process-set-request";
+export import CreateProcessSetRequest = CreateProcessSetRequest.CreateProcessSetRequest;
 import * as DeleteBaselineableMetricRequest from "./delete-baselineable-metric-request";
 export import DeleteBaselineableMetricRequest = DeleteBaselineableMetricRequest.DeleteBaselineableMetricRequest;
 import * as DeleteConfigRequest from "./delete-config-request";
@@ -47,6 +51,8 @@ import * as DeleteMonitoredResourceRequest from "./delete-monitored-resource-req
 export import DeleteMonitoredResourceRequest = DeleteMonitoredResourceRequest.DeleteMonitoredResourceRequest;
 import * as DeleteMonitoredResourceTypeRequest from "./delete-monitored-resource-type-request";
 export import DeleteMonitoredResourceTypeRequest = DeleteMonitoredResourceTypeRequest.DeleteMonitoredResourceTypeRequest;
+import * as DeleteProcessSetRequest from "./delete-process-set-request";
+export import DeleteProcessSetRequest = DeleteProcessSetRequest.DeleteProcessSetRequest;
 import * as DisableExternalDatabaseRequest from "./disable-external-database-request";
 export import DisableExternalDatabaseRequest = DisableExternalDatabaseRequest.DisableExternalDatabaseRequest;
 import * as DisableMetricExtensionRequest from "./disable-metric-extension-request";
@@ -73,6 +79,8 @@ import * as GetMonitoredResourceTaskRequest from "./get-monitored-resource-task-
 export import GetMonitoredResourceTaskRequest = GetMonitoredResourceTaskRequest.GetMonitoredResourceTaskRequest;
 import * as GetMonitoredResourceTypeRequest from "./get-monitored-resource-type-request";
 export import GetMonitoredResourceTypeRequest = GetMonitoredResourceTypeRequest.GetMonitoredResourceTypeRequest;
+import * as GetProcessSetRequest from "./get-process-set-request";
+export import GetProcessSetRequest = GetProcessSetRequest.GetProcessSetRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as ListBaselineableMetricsRequest from "./list-baselineable-metrics-request";
@@ -91,6 +99,8 @@ import * as ListMonitoredResourceTypesRequest from "./list-monitored-resource-ty
 export import ListMonitoredResourceTypesRequest = ListMonitoredResourceTypesRequest.ListMonitoredResourceTypesRequest;
 import * as ListMonitoredResourcesRequest from "./list-monitored-resources-request";
 export import ListMonitoredResourcesRequest = ListMonitoredResourcesRequest.ListMonitoredResourcesRequest;
+import * as ListProcessSetsRequest from "./list-process-sets-request";
+export import ListProcessSetsRequest = ListProcessSetsRequest.ListProcessSetsRequest;
 import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
 export import ListWorkRequestErrorsRequest = ListWorkRequestErrorsRequest.ListWorkRequestErrorsRequest;
 import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
@@ -127,3 +137,5 @@ import * as UpdateMonitoredResourceTaskRequest from "./update-monitored-resource
 export import UpdateMonitoredResourceTaskRequest = UpdateMonitoredResourceTaskRequest.UpdateMonitoredResourceTaskRequest;
 import * as UpdateMonitoredResourceTypeRequest from "./update-monitored-resource-type-request";
 export import UpdateMonitoredResourceTypeRequest = UpdateMonitoredResourceTypeRequest.UpdateMonitoredResourceTypeRequest;
+import * as UpdateProcessSetRequest from "./update-process-set-request";
+export import UpdateProcessSetRequest = UpdateProcessSetRequest.UpdateProcessSetRequest;

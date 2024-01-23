@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.77.1 - 2024-01-23
+### Added
+- Support for the Generative AI service
+- Support for additional currencies and countries for paid listings in the Marketplace service
+- Support for process sets in the Stack Monitoring service
+
+
 ## 2.77.0 - 2024-01-16
 ### Added
 - Support for resource id filter on the service work requests in the Container Instances service
