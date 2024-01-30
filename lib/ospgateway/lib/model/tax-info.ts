@@ -38,6 +38,10 @@ export interface TaxInfo {
    * Brazilian companies' CNPJ number.
    */
   "taxCnpj"?: string;
+  /**
+   * Companies' GIRO code
+   */
+  "giro"?: string;
 }
 
 export namespace TaxInfo {

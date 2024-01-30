@@ -136,6 +136,11 @@ export namespace ConnectionDetails {
             <model.ConnectionFromRestBasicAuthDetails>(<object>jsonObj),
             true
           );
+        case "OAUTH2_CONNECTION":
+          return model.ConnectionFromOAuth2Details.getJsonObj(
+            <model.ConnectionFromOAuth2Details>(<object>jsonObj),
+            true
+          );
         case "BICC_CONNECTION":
           return model.ConnectionFromBICCDetails.getJsonObj(
             <model.ConnectionFromBICCDetails>(<object>jsonObj),
@@ -250,6 +255,11 @@ export namespace ConnectionDetails {
         case "REST_BASIC_AUTH_CONNECTION":
           return model.ConnectionFromRestBasicAuthDetails.getDeserializedJsonObj(
             <model.ConnectionFromRestBasicAuthDetails>(<object>jsonObj),
+            true
+          );
+        case "OAUTH2_CONNECTION":
+          return model.ConnectionFromOAuth2Details.getDeserializedJsonObj(
+            <model.ConnectionFromOAuth2Details>(<object>jsonObj),
             true
           );
         case "BICC_CONNECTION":

@@ -39,6 +39,7 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateConnectionFromMySQL
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBIP
+    | model.CreateConnectionFromOAuth2
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromRestNoAuth
     | model.CreateConnectionFromObjectStorage

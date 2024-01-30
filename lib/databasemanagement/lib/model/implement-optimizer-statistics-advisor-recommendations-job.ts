@@ -38,6 +38,10 @@ export interface ImplementOptimizerStatisticsAdvisorRecommendationsJob {
   "compartmentId": string;
   "resultLocation": model.ObjectStorageJobExecutionResultLocation;
   "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace ImplementOptimizerStatisticsAdvisorRecommendationsJob {
@@ -50,6 +54,9 @@ export namespace ImplementOptimizerStatisticsAdvisorRecommendationsJob {
           : undefined,
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -67,6 +74,9 @@ export namespace ImplementOptimizerStatisticsAdvisorRecommendationsJob {
           : undefined,
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

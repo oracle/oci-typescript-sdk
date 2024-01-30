@@ -100,6 +100,11 @@ export namespace Connection {
             <model.ConnectionFromMySQL>(<object>jsonObj),
             true
           );
+        case "OAUTH2_CONNECTION":
+          return model.ConnectionFromOAuth2.getJsonObj(
+            <model.ConnectionFromOAuth2>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_CONNECTION":
           return model.ConnectionFromJdbc.getJsonObj(
             <model.ConnectionFromJdbc>(<object>jsonObj),
@@ -214,6 +219,11 @@ export namespace Connection {
         case "MYSQL_CONNECTION":
           return model.ConnectionFromMySQL.getDeserializedJsonObj(
             <model.ConnectionFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "OAUTH2_CONNECTION":
+          return model.ConnectionFromOAuth2.getDeserializedJsonObj(
+            <model.ConnectionFromOAuth2>(<object>jsonObj),
             true
           );
         case "GENERIC_JDBC_CONNECTION":

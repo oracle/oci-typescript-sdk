@@ -137,6 +137,11 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromBIP>(<object>jsonObj),
             true
           );
+        case "OAUTH2_CONNECTION":
+          return model.CreateConnectionFromOAuth2.getJsonObj(
+            <model.CreateConnectionFromOAuth2>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ADWC_CONNECTION":
           return model.CreateConnectionFromAdwc.getJsonObj(
             <model.CreateConnectionFromAdwc>(<object>jsonObj),
@@ -247,6 +252,11 @@ export namespace CreateConnectionDetails {
         case "BIP_CONNECTION":
           return model.CreateConnectionFromBIP.getDeserializedJsonObj(
             <model.CreateConnectionFromBIP>(<object>jsonObj),
+            true
+          );
+        case "OAUTH2_CONNECTION":
+          return model.CreateConnectionFromOAuth2.getDeserializedJsonObj(
+            <model.CreateConnectionFromOAuth2>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_CONNECTION":

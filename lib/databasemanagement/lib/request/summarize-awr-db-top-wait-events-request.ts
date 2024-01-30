@@ -85,6 +85,10 @@ export interface SummarizeAwrDbTopWaitEventsRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }
 
 export namespace SummarizeAwrDbTopWaitEventsRequest {

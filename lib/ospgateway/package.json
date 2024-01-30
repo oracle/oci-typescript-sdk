@@ -1,6 +1,6 @@
 {
   "name": "oci-ospgateway",
-  "version": "2.77.1",
+  "version": "2.78.0",
   "description": "OCI NodeJS client for Osp Gateway Service",
   "repository": {
     "type": "git",

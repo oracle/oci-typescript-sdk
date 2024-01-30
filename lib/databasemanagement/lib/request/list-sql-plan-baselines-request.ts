@@ -90,14 +90,43 @@ export interface ListSqlPlanBaselinesRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrders;
   /**
+   * A filter to return only SQL plan baselines that are either auto-purged or not auto-purged.
+   * By default, all SQL plan baselines are returned.
+   *
+   */
+  "isAutoPurged"?: boolean;
+  /**
+   * A filter to return only SQL plan baselines whose last execution time is
+   * after the specified value. By default, all SQL plan baselines are returned.
+   *
+   */
+  "timeLastExecutedGreaterThan"?: Date;
+  /**
+   * A filter to return only SQL plan baselines whose last execution time is
+   * before the specified value. By default, all SQL plan baselines are returned.
+   *
+   */
+  "timeLastExecutedLessThan"?: Date;
+  /**
+   * A filter to return only SQL plan baselines that are not executed till now.
+   * By default, all SQL plan baselines are returned.
+   *
+   */
+  "isNeverExecuted"?: boolean;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }
 
 export namespace ListSqlPlanBaselinesRequest {
   export enum SortBy {
     TimeCreated = "timeCreated",
-    TimeLastModified = "timeLastModified"
+    TimeLastModified = "timeLastModified",
+    TimeLastExecuted = "timeLastExecuted"
   }
 }

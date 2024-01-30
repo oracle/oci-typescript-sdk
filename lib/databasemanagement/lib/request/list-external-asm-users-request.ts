@@ -46,6 +46,10 @@ export interface ListExternalAsmUsersRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }
 
 export namespace ListExternalAsmUsersRequest {

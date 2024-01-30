@@ -83,6 +83,8 @@ import * as ThirdPartyValidationType from "./third-party-validation-type";
 export import ThirdPartyValidationType = ThirdPartyValidationType.ThirdPartyValidationType;
 import * as UpdateSubscriptionDetails from "./update-subscription-details";
 export import UpdateSubscriptionDetails = UpdateSubscriptionDetails.UpdateSubscriptionDetails;
+import * as ValueSetEntity from "./value-set-entity";
+export import ValueSetEntity = ValueSetEntity.ValueSetEntity;
 import * as VerifyAddressDetails from "./verify-address-details";
 export import VerifyAddressDetails = VerifyAddressDetails.VerifyAddressDetails;
 import * as VerifyAddressReceipt from "./verify-address-receipt";

@@ -38,6 +38,10 @@ export interface CreateImportRequestDetails {
    * Key of the object inside which all the objects will be imported
    */
   "objectKeyForImport"?: string;
+  /**
+   * This field controls if the data asset references will be included during import.
+   */
+  "areDataAssetReferencesIncluded"?: boolean;
   "importConflictResolution"?: model.ImportConflictResolution;
 }
 

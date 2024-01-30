@@ -54,6 +54,10 @@ export interface ListRolesRequest extends common.BaseRequest {
    *
    */
   "page"?: string;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }
 
 export namespace ListRolesRequest {

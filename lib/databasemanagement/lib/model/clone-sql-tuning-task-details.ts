@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The request to clone and run a SQL tuning task. The new task uses the same inputs as the one being cloned.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface CloneSqlTuningTaskDetails {
@@ -37,9 +38,13 @@ export interface CloneSqlTuningTaskDetails {
    * The description of the SQL tuning task.
    */
   "taskDescription"?: string;
-  "credentialDetails":
+  "credentialDetails"?:
     | model.SqlTuningTaskSecretCredentialDetails
     | model.SqlTuningTaskPasswordCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace CloneSqlTuningTaskDetails {
@@ -49,6 +54,9 @@ export namespace CloneSqlTuningTaskDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningTaskCredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -61,6 +69,9 @@ export namespace CloneSqlTuningTaskDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningTaskCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

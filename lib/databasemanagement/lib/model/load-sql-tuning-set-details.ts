@@ -19,12 +19,17 @@ import common = require("oci-common");
 
 /**
  * The details required to load the Sql statements into the Sql tuning set.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface LoadSqlTuningSetDetails {
-  "credentialDetails":
+  "credentialDetails"?:
     | model.SqlTuningSetAdminPasswordCredentialDetails
     | model.SqlTuningSetAdminSecretCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * Flag to indicate whether to create the Sql tuning set or just display the plsql used to create Sql tuning set.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -265,6 +270,9 @@ export namespace LoadSqlTuningSetDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningSetAdminCredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -277,6 +285,9 @@ export namespace LoadSqlTuningSetDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningSetAdminCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

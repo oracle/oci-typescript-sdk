@@ -44,6 +44,10 @@ export interface UpdateSqlJobDetails extends model.UpdateJobDetails {
    */
   "secretId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Named Credentials containing password secret.
+   */
+  "namedCredentialId"?: string;
+  /**
    * The role of the database user. Indicates whether the database user is a normal user or sysdba.
    */
   "role"?: string;

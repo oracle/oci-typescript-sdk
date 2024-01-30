@@ -69,6 +69,7 @@ export interface CreateDataAssetFromAtp extends model.CreateDataAssetDetails {
     | model.ConnectionFromAmazonS3
     | model.ConnectionFromBIP
     | model.ConnectionFromMySQL
+    | model.ConnectionFromOAuth2
     | model.ConnectionFromJdbc
     | model.ConnectionFromBICC
     | model.ConnectionFromMySqlHeatWave

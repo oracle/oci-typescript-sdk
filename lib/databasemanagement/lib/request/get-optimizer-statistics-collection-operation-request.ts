@@ -30,4 +30,8 @@ export interface GetOptimizerStatisticsCollectionOperationRequest extends common
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }

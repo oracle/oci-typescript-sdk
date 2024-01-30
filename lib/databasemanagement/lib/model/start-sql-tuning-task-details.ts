@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The request to start a SQL tuning task.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface StartSqlTuningTaskDetails {
@@ -30,9 +31,13 @@ export interface StartSqlTuningTaskDetails {
    * The description of the SQL tuning task.
    */
   "taskDescription"?: string;
-  "credentialDetails":
+  "credentialDetails"?:
     | model.SqlTuningTaskSecretCredentialDetails
     | model.SqlTuningTaskPasswordCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * The time limit for running the SQL tuning task. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -81,6 +86,9 @@ export namespace StartSqlTuningTaskDetails {
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningTaskCredentialDetails.getJsonObj(obj.credentialDetails)
           : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
+          : undefined,
 
         "sqlTuningSet": obj.sqlTuningSet
           ? model.SqlTuningSetInput.getJsonObj(obj.sqlTuningSet)
@@ -101,6 +109,9 @@ export namespace StartSqlTuningTaskDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningTaskCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined,
 
         "sqlTuningSet": obj.sqlTuningSet

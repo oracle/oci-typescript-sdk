@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to change the disk space limit for the SQL Management Base.
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ChangeSpaceBudgetDetails {
@@ -27,7 +28,11 @@ export interface ChangeSpaceBudgetDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "spaceBudgetPercent": number;
-  "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace ChangeSpaceBudgetDetails {
@@ -37,6 +42,9 @@ export namespace ChangeSpaceBudgetDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -49,6 +57,9 @@ export namespace ChangeSpaceBudgetDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

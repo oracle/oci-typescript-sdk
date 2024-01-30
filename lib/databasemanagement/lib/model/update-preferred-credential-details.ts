@@ -30,6 +30,11 @@ export namespace UpdatePreferredCredentialDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "NAMED_CREDENTIAL":
+          return model.UpdateNamedPreferredCredentialDetails.getJsonObj(
+            <model.UpdateNamedPreferredCredentialDetails>(<object>jsonObj),
+            true
+          );
         case "BASIC":
           return model.UpdateBasicPreferredCredentialDetails.getJsonObj(
             <model.UpdateBasicPreferredCredentialDetails>(<object>jsonObj),
@@ -46,6 +51,11 @@ export namespace UpdatePreferredCredentialDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "NAMED_CREDENTIAL":
+          return model.UpdateNamedPreferredCredentialDetails.getDeserializedJsonObj(
+            <model.UpdateNamedPreferredCredentialDetails>(<object>jsonObj),
+            true
+          );
         case "BASIC":
           return model.UpdateBasicPreferredCredentialDetails.getDeserializedJsonObj(
             <model.UpdateBasicPreferredCredentialDetails>(<object>jsonObj),

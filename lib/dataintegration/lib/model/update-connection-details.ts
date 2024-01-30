@@ -106,6 +106,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromHdfs>(<object>jsonObj),
             true
           );
+        case "OAUTH2_CONNECTION":
+          return model.UpdateConnectionFromOAuth2.getJsonObj(
+            <model.UpdateConnectionFromOAuth2>(<object>jsonObj),
+            true
+          );
         case "REST_BASIC_AUTH_CONNECTION":
           return model.UpdateConnectionFromRestBasicAuth.getJsonObj(
             <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
@@ -216,6 +221,11 @@ export namespace UpdateConnectionDetails {
         case "HDFS_CONNECTION":
           return model.UpdateConnectionFromHdfs.getDeserializedJsonObj(
             <model.UpdateConnectionFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "OAUTH2_CONNECTION":
+          return model.UpdateConnectionFromOAuth2.getDeserializedJsonObj(
+            <model.UpdateConnectionFromOAuth2>(<object>jsonObj),
             true
           );
         case "REST_BASIC_AUTH_CONNECTION":

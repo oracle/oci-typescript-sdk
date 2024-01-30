@@ -19,10 +19,15 @@ import common = require("oci-common");
 
 /**
  * The details required to change database parameter values.
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ChangeDatabaseParametersDetails {
-  "credentials": model.DatabaseCredentials;
+  "credentials"?: model.DatabaseCredentials;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
     * The clause used to specify when the parameter change takes effect.
 * <p>
@@ -49,6 +54,9 @@ export namespace ChangeDatabaseParametersDetails {
         "credentials": obj.credentials
           ? model.DatabaseCredentials.getJsonObj(obj.credentials)
           : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
+          : undefined,
 
         "parameters": obj.parameters
           ? obj.parameters.map(item => {
@@ -66,6 +74,9 @@ export namespace ChangeDatabaseParametersDetails {
       ...{
         "credentials": obj.credentials
           ? model.DatabaseCredentials.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined,
 
         "parameters": obj.parameters

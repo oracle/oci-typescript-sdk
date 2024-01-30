@@ -19,12 +19,17 @@ import common = require("oci-common");
 
 /**
  * The details required to fetch the Sql tuning set details.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface FetchSqlTuningSetDetails {
-  "credentialDetails":
+  "credentialDetails"?:
     | model.SqlTuningSetAdminPasswordCredentialDetails
     | model.SqlTuningSetAdminSecretCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * The owner of the Sql tuning set.
    */
@@ -83,6 +88,9 @@ export namespace FetchSqlTuningSetDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningSetAdminCredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -95,6 +103,9 @@ export namespace FetchSqlTuningSetDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningSetAdminCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

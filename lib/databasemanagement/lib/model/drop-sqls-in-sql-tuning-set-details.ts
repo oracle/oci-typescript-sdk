@@ -22,12 +22,17 @@ import common = require("oci-common");
  * The basicFilter parameter specifies the Sql predicate to filter the Sql from the Sql tuning set defined on attributes of the SQLSET_ROW.
  * If a valid filter criteria is specified, then, Sql statements matching this filter criteria will be deleted from the current Sql tuning set.
  * If filter criteria is not specified, then, all Sql statements will be deleted from the current Sql tuning set.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface DropSqlsInSqlTuningSetDetails {
-  "credentialDetails":
+  "credentialDetails"?:
     | model.SqlTuningSetAdminPasswordCredentialDetails
     | model.SqlTuningSetAdminSecretCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * Flag to indicate whether to drop the Sql statements or just display the plsql used to drop the Sql statements.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -57,6 +62,9 @@ export namespace DropSqlsInSqlTuningSetDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningSetAdminCredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -69,6 +77,9 @@ export namespace DropSqlsInSqlTuningSetDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningSetAdminCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

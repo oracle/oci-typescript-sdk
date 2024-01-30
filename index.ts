@@ -24,6 +24,9 @@ export import announcementsservice = require("oci-announcementsservice");
 // API Gateway Service
 export import apigateway = require("oci-apigateway");
 
+// Application Migration Service
+export import applicationmigration = require("oci-applicationmigration");
+
 // Audit Service
 export import audit = require("oci-audit");
 
@@ -217,3 +220,4 @@ export import jmsjavadownloads = require("oci-jmsjavadownloads");
 export import psql = require("oci-psql");
 export import generativeai = require("oci-generativeai");
 export import generativeaiinference = require("oci-generativeaiinference");
+export import capacitymanagement = require("oci-capacitymanagement");

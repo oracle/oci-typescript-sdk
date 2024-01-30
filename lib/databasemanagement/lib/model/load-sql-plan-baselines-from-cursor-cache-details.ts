@@ -22,6 +22,7 @@ import common = require("oci-common");
  * the plans to load using SQL ID, plan identifier, or filterName and filterValue pair.
  * You can also control the SQL plan baseline into which the plans are loaded using either
  * SQL text or SQL handle.
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface LoadSqlPlanBaselinesFromCursorCacheDetails {
@@ -83,7 +84,11 @@ export interface LoadSqlPlanBaselinesFromCursorCacheDetails {
    *
    */
   "isEnabled"?: boolean;
-  "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace LoadSqlPlanBaselinesFromCursorCacheDetails {
@@ -100,6 +105,9 @@ export namespace LoadSqlPlanBaselinesFromCursorCacheDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -112,6 +120,9 @@ export namespace LoadSqlPlanBaselinesFromCursorCacheDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

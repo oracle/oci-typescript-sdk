@@ -22,6 +22,7 @@ import common = require("oci-common");
  **/
 export enum PreferredCredentialType {
   Basic = "BASIC",
+  NamedCredential = "NAMED_CREDENTIAL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
