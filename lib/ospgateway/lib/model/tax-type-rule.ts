@@ -22,6 +22,10 @@ export interface TaxTypeRule {
    * Tax type rule fields
    */
   "fields": Array<model.Field>;
+  /**
+   * Label value pair for allowed values. Used for GIRO
+   */
+  "valueSet"?: Array<model.ValueSetEntity>;
 }
 
 export namespace TaxTypeRule {
@@ -32,6 +36,11 @@ export namespace TaxTypeRule {
         "fields": obj.fields
           ? obj.fields.map(item => {
               return model.Field.getJsonObj(item);
+            })
+          : undefined,
+        "valueSet": obj.valueSet
+          ? obj.valueSet.map(item => {
+              return model.ValueSetEntity.getJsonObj(item);
             })
           : undefined
       }
@@ -46,6 +55,11 @@ export namespace TaxTypeRule {
         "fields": obj.fields
           ? obj.fields.map(item => {
               return model.Field.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "valueSet": obj.valueSet
+          ? obj.valueSet.map(item => {
+              return model.ValueSetEntity.getDeserializedJsonObj(item);
             })
           : undefined
       }

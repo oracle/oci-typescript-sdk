@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to change SQL plan baseline attributes.
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ChangeSqlPlanBaselinesAttributesDetails {
@@ -46,7 +47,11 @@ export interface ChangeSqlPlanBaselinesAttributesDetails {
    * Indicates whether the plan is purged if it is not used for a time period.
    */
   "isAutoPurged"?: boolean;
-  "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace ChangeSqlPlanBaselinesAttributesDetails {
@@ -56,6 +61,9 @@ export namespace ChangeSqlPlanBaselinesAttributesDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -68,6 +76,9 @@ export namespace ChangeSqlPlanBaselinesAttributesDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

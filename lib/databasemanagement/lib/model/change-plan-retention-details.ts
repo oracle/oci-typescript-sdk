@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to change the plan retention period.
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ChangePlanRetentionDetails {
@@ -27,7 +28,11 @@ export interface ChangePlanRetentionDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionWeeks": number;
-  "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace ChangePlanRetentionDetails {
@@ -37,6 +42,9 @@ export namespace ChangePlanRetentionDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -49,6 +57,9 @@ export namespace ChangePlanRetentionDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

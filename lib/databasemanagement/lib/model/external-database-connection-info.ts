@@ -19,14 +19,19 @@ import common = require("oci-common");
 
 /**
  * The details required to connect to an external Oracle Database.
+ * It takes either connectionCredentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ExternalDatabaseConnectionInfo extends model.ExternalDbSystemConnectionInfo {
   "connectionString": model.DatabaseConnectionString;
-  "connectionCredentials":
+  "connectionCredentials"?:
     | model.DatabaseConnectionCredentailsByName
     | model.DatabaseSslConnectionCredentials
     | model.DatabaseConnectionCredentialsByDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 
   "componentType": string;
 }
@@ -46,6 +51,9 @@ export namespace ExternalDatabaseConnectionInfo {
           : undefined,
         "connectionCredentials": obj.connectionCredentials
           ? model.DatabaseConnectionCredentials.getJsonObj(obj.connectionCredentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -69,6 +77,9 @@ export namespace ExternalDatabaseConnectionInfo {
           : undefined,
         "connectionCredentials": obj.connectionCredentials
           ? model.DatabaseConnectionCredentials.getDeserializedJsonObj(obj.connectionCredentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

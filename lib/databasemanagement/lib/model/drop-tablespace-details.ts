@@ -19,12 +19,17 @@ import common = require("oci-common");
 
 /**
  * The details required to drop a tablespace.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface DropTablespaceDetails {
-  "credentialDetails":
+  "credentialDetails"?:
     | model.TablespaceAdminPasswordCredentialDetails
     | model.TablespaceAdminSecretCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * Specifies whether all the contents of the tablespace being dropped should be dropped.
    *
@@ -49,6 +54,9 @@ export namespace DropTablespaceDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.TablespaceAdminCredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -61,6 +69,9 @@ export namespace DropTablespaceDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.TablespaceAdminCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

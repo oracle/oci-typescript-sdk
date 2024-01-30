@@ -36,6 +36,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateConnectionFromBICC
     | model.UpdateConnectionFromRestNoAuth
     | model.UpdateConnectionFromHdfs
+    | model.UpdateConnectionFromOAuth2
     | model.UpdateConnectionFromRestBasicAuth
     | model.UpdateConnectionFromOracleSiebel
     | model.UpdateConnectionFromMySqlHeatWave

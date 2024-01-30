@@ -19,12 +19,17 @@ import common = require("oci-common");
 
 /**
  * Validate the basic filter criteria provided by the user.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ValidateBasicFilterDetails {
-  "credentialDetails":
+  "credentialDetails"?:
     | model.SqlTuningSetAdminPasswordCredentialDetails
     | model.SqlTuningSetAdminSecretCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * The owner of the Sql tuning set.
    */
@@ -49,6 +54,9 @@ export namespace ValidateBasicFilterDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningSetAdminCredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -61,6 +69,9 @@ export namespace ValidateBasicFilterDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningSetAdminCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

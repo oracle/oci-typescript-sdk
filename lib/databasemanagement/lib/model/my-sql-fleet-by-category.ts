@@ -30,7 +30,7 @@ export interface MySqlFleetByCategory {
    */
   "mdsDeploymentType": string;
   /**
-   *  The number of MySQL Databases. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of MySQL Databases. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inventoryCount": number;
 }

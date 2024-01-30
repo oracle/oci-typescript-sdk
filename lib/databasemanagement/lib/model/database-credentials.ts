@@ -19,6 +19,8 @@ import common = require("oci-common");
 
 /**
  * The database credentials used to perform management activity.
+ * Provide one of the following attribute set.
+ * (userName, password, role) OR (userName, secretId, role) OR (namedCredentialId)
  *
  */
 export interface DatabaseCredentials {

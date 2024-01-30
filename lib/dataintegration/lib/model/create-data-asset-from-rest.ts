@@ -40,6 +40,7 @@ export interface CreateDataAssetFromRest extends model.CreateDataAssetDetails {
     | model.CreateConnectionFromMySQL
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBIP
+    | model.CreateConnectionFromOAuth2
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromRestNoAuth
     | model.CreateConnectionFromObjectStorage

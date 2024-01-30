@@ -19,12 +19,17 @@ import common = require("oci-common");
 
 /**
  * The details required to update a tablespace.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface UpdateTablespaceDetails {
-  "credentialDetails":
+  "credentialDetails"?:
     | model.TablespaceAdminPasswordCredentialDetails
     | model.TablespaceAdminSecretCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * The name of the tablespace. It must be unique within a database.
    *
@@ -90,6 +95,9 @@ export namespace UpdateTablespaceDetails {
         "credentialDetails": obj.credentialDetails
           ? model.TablespaceAdminCredentialDetails.getJsonObj(obj.credentialDetails)
           : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
+          : undefined,
 
         "fileSize": obj.fileSize ? model.TablespaceStorageSize.getJsonObj(obj.fileSize) : undefined,
 
@@ -110,6 +118,9 @@ export namespace UpdateTablespaceDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.TablespaceAdminCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined,
 
         "fileSize": obj.fileSize

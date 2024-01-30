@@ -115,6 +115,11 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromAmazonS3>(<object>jsonObj),
             true
           );
+        case "OAUTH2_CONNECTION":
+          return model.ConnectionSummaryFromOAuth2.getJsonObj(
+            <model.ConnectionSummaryFromOAuth2>(<object>jsonObj),
+            true
+          );
         case "ORACLE_PEOPLESOFT_CONNECTION":
           return model.ConnectionSummaryFromOraclePeopleSoft.getJsonObj(
             <model.ConnectionSummaryFromOraclePeopleSoft>(<object>jsonObj),
@@ -229,6 +234,11 @@ export namespace ConnectionSummary {
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionSummaryFromAmazonS3.getDeserializedJsonObj(
             <model.ConnectionSummaryFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "OAUTH2_CONNECTION":
+          return model.ConnectionSummaryFromOAuth2.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromOAuth2>(<object>jsonObj),
             true
           );
         case "ORACLE_PEOPLESOFT_CONNECTION":

@@ -409,7 +409,8 @@ export class DbManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": addmTasksRequest.opcRequestId
+      "opc-request-id": addmTasksRequest.opcRequestId,
+      "opc-named-credential-id": addmTasksRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -940,6 +941,84 @@ export class DbManagementClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeManagedDatabaseGroupCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a named credential to a different compartment.
+   * The destination compartment must not have a named credential
+   * with the same name.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeNamedCredentialCompartmentRequest
+   * @return ChangeNamedCredentialCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeNamedCredentialCompartment.ts.html |here} to see how to use ChangeNamedCredentialCompartment API.
+   */
+  public async changeNamedCredentialCompartment(
+    changeNamedCredentialCompartmentRequest: requests.ChangeNamedCredentialCompartmentRequest
+  ): Promise<responses.ChangeNamedCredentialCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeNamedCredentialCompartment.");
+    const operationName = "changeNamedCredentialCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/ChangeNamedCredentialCompartment";
+    const pathParams = {
+      "{namedCredentialId}": changeNamedCredentialCompartmentRequest.namedCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeNamedCredentialCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeNamedCredentialCompartmentRequest.opcRetryToken,
+      "if-match": changeNamedCredentialCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeNamedCredentialCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials/{namedCredentialId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeNamedCredentialCompartmentRequest.changeNamedCredentialCompartmentDetails,
+        "ChangeNamedCredentialCompartmentDetails",
+        model.ChangeNamedCredentialCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeNamedCredentialCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2222,6 +2301,93 @@ The database purges plans that have not been used for longer than
   }
 
   /**
+   * Creates a named credential.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateNamedCredentialRequest
+   * @return CreateNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateNamedCredential.ts.html |here} to see how to use CreateNamedCredential API.
+   */
+  public async createNamedCredential(
+    createNamedCredentialRequest: requests.CreateNamedCredentialRequest
+  ): Promise<responses.CreateNamedCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createNamedCredential.");
+    const operationName = "createNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/CreateNamedCredential";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createNamedCredentialRequest.opcRequestId,
+      "opc-retry-token": createNamedCredentialRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createNamedCredentialRequest.createNamedCredentialDetails,
+        "CreateNamedCredentialDetails",
+        model.CreateNamedCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateNamedCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredential",
+        bodyModel: model.NamedCredential,
+        type: "model.NamedCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a tablespace within the Managed Database specified by managedDatabaseId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2866,6 +3032,76 @@ The database purges plans that have not been used for longer than
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagedDatabaseGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the named credential specified by namedCredentialId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteNamedCredentialRequest
+   * @return DeleteNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteNamedCredential.ts.html |here} to see how to use DeleteNamedCredential API.
+   */
+  public async deleteNamedCredential(
+    deleteNamedCredentialRequest: requests.DeleteNamedCredentialRequest
+  ): Promise<responses.DeleteNamedCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteNamedCredential.");
+    const operationName = "deleteNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/DeleteNamedCredential";
+    const pathParams = {
+      "{namedCredentialId}": deleteNamedCredentialRequest.namedCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteNamedCredentialRequest.ifMatch,
+      "opc-request-id": deleteNamedCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials/{namedCredentialId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNamedCredentialResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4384,7 +4620,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": generateAwrSnapshotRequest.opcRetryToken,
-      "opc-request-id": generateAwrSnapshotRequest.opcRequestId
+      "opc-request-id": generateAwrSnapshotRequest.opcRequestId,
+      "opc-named-credential-id": generateAwrSnapshotRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4467,7 +4704,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAwrDbReportRequest.opcRequestId,
-      "opc-retry-token": getAwrDbReportRequest.opcRetryToken
+      "opc-retry-token": getAwrDbReportRequest.opcRetryToken,
+      "opc-named-credential-id": getAwrDbReportRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4550,7 +4788,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getAwrDbSqlReportRequest.opcRequestId,
-      "opc-retry-token": getAwrDbSqlReportRequest.opcRetryToken
+      "opc-retry-token": getAwrDbSqlReportRequest.opcRetryToken,
+      "opc-named-credential-id": getAwrDbSqlReportRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -5014,7 +5253,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getExternalAsmConfigurationRequest.opcRequestId
+      "opc-request-id": getExternalAsmConfigurationRequest.opcRequestId,
+      "opc-named-credential-id": getExternalAsmConfigurationRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -6515,6 +6755,83 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
+   * Gets the details for the named credential specified by namedCredentialId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetNamedCredentialRequest
+   * @return GetNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetNamedCredential.ts.html |here} to see how to use GetNamedCredential API.
+   */
+  public async getNamedCredential(
+    getNamedCredentialRequest: requests.GetNamedCredentialRequest
+  ): Promise<responses.GetNamedCredentialResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getNamedCredential.");
+    const operationName = "getNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/GetNamedCredential";
+    const pathParams = {
+      "{namedCredentialId}": getNamedCredentialRequest.namedCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNamedCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials/{namedCredentialId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNamedCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredential",
+        bodyModel: model.NamedCredential,
+        type: "model.NamedCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the open alerts from the specified Exadata storage server.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6617,7 +6934,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getOptimizerStatisticsAdvisorExecutionRequest.opcRequestId
+      "opc-request-id": getOptimizerStatisticsAdvisorExecutionRequest.opcRequestId,
+      "opc-named-credential-id": getOptimizerStatisticsAdvisorExecutionRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -6695,7 +7013,9 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getOptimizerStatisticsAdvisorExecutionScriptRequest.opcRequestId
+      "opc-request-id": getOptimizerStatisticsAdvisorExecutionScriptRequest.opcRequestId,
+      "opc-named-credential-id":
+        getOptimizerStatisticsAdvisorExecutionScriptRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -6772,7 +7092,9 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getOptimizerStatisticsCollectionOperationRequest.opcRequestId
+      "opc-request-id": getOptimizerStatisticsCollectionOperationRequest.opcRequestId,
+      "opc-named-credential-id":
+        getOptimizerStatisticsCollectionOperationRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -7006,7 +7328,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getSqlPlanBaselineRequest.opcRequestId
+      "opc-request-id": getSqlPlanBaselineRequest.opcRequestId,
+      "opc-named-credential-id": getSqlPlanBaselineRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7081,7 +7404,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getSqlPlanBaselineConfigurationRequest.opcRequestId
+      "opc-request-id": getSqlPlanBaselineConfigurationRequest.opcRequestId,
+      "opc-named-credential-id": getSqlPlanBaselineConfigurationRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -7154,7 +7478,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getTablespaceRequest.opcRequestId
+      "opc-request-id": getTablespaceRequest.opcRequestId,
+      "opc-named-credential-id": getTablespaceRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -7300,7 +7625,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getUserRequest.opcRequestId
+      "opc-request-id": getUserRequest.opcRequestId,
+      "opc-named-credential-id": getUserRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -7709,7 +8035,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAwrDbSnapshotsRequest.opcRequestId,
-      "opc-retry-token": listAwrDbSnapshotsRequest.opcRetryToken
+      "opc-retry-token": listAwrDbSnapshotsRequest.opcRetryToken,
+      "opc-named-credential-id": listAwrDbSnapshotsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -7795,7 +8122,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listAwrDbsRequest.opcRequestId,
-      "opc-retry-token": listAwrDbsRequest.opcRetryToken
+      "opc-retry-token": listAwrDbsRequest.opcRetryToken,
+      "opc-named-credential-id": listAwrDbsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -7879,7 +8207,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listConsumerGroupPrivilegesRequest.opcRequestId
+      "opc-request-id": listConsumerGroupPrivilegesRequest.opcRequestId,
+      "opc-named-credential-id": listConsumerGroupPrivilegesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -7963,7 +8292,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listCursorCacheStatementsRequest.opcRequestId
+      "opc-request-id": listCursorCacheStatementsRequest.opcRequestId,
+      "opc-named-credential-id": listCursorCacheStatementsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8047,7 +8377,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listDataAccessContainersRequest.opcRequestId
+      "opc-request-id": listDataAccessContainersRequest.opcRequestId,
+      "opc-named-credential-id": listDataAccessContainersRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -8131,7 +8462,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listDatabaseParametersRequest.opcRequestId
+      "opc-request-id": listDatabaseParametersRequest.opcRequestId,
+      "opc-named-credential-id": listDatabaseParametersRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -8295,7 +8627,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listExternalAsmDiskGroupsRequest.opcRequestId
+      "opc-request-id": listExternalAsmDiskGroupsRequest.opcRequestId,
+      "opc-named-credential-id": listExternalAsmDiskGroupsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -8461,7 +8794,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listExternalAsmUsersRequest.opcRequestId
+      "opc-request-id": listExternalAsmUsersRequest.opcRequestId,
+      "opc-named-credential-id": listExternalAsmUsersRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -9543,7 +9877,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listExternalListenerServicesRequest.opcRequestId
+      "opc-request-id": listExternalListenerServicesRequest.opcRequestId,
+      "opc-named-credential-id": listExternalListenerServicesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -10131,6 +10466,92 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
+   * Gets a single named credential specified by the name or all the named credentials in a specific compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListNamedCredentialsRequest
+   * @return ListNamedCredentialsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListNamedCredentials.ts.html |here} to see how to use ListNamedCredentials API.
+   */
+  public async listNamedCredentials(
+    listNamedCredentialsRequest: requests.ListNamedCredentialsRequest
+  ): Promise<responses.ListNamedCredentialsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listNamedCredentials.");
+    const operationName = "listNamedCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/ListNamedCredentials";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listNamedCredentialsRequest.compartmentId,
+      "associatedResource": listNamedCredentialsRequest.associatedResource,
+      "type": listNamedCredentialsRequest.type,
+      "scope": listNamedCredentialsRequest.scope,
+      "name": listNamedCredentialsRequest.name,
+      "page": listNamedCredentialsRequest.page,
+      "limit": listNamedCredentialsRequest.limit,
+      "sortBy": listNamedCredentialsRequest.sortBy,
+      "sortOrder": listNamedCredentialsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNamedCredentialsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNamedCredentialsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNamedCredentialsResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredentialCollection",
+        bodyModel: model.NamedCredentialCollection,
+        type: "model.NamedCredentialCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the list of object privileges granted to a specific user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListObjectPrivilegesRequest
@@ -10161,7 +10582,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listObjectPrivilegesRequest.opcRequestId
+      "opc-request-id": listObjectPrivilegesRequest.opcRequestId,
+      "opc-named-credential-id": listObjectPrivilegesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10248,7 +10670,9 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listOptimizerStatisticsAdvisorExecutionsRequest.opcRequestId
+      "opc-request-id": listOptimizerStatisticsAdvisorExecutionsRequest.opcRequestId,
+      "opc-named-credential-id":
+        listOptimizerStatisticsAdvisorExecutionsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10337,7 +10761,9 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listOptimizerStatisticsCollectionAggregationsRequest.opcRequestId
+      "opc-request-id": listOptimizerStatisticsCollectionAggregationsRequest.opcRequestId,
+      "opc-named-credential-id":
+        listOptimizerStatisticsCollectionAggregationsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10434,7 +10860,9 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listOptimizerStatisticsCollectionOperationsRequest.opcRequestId
+      "opc-request-id": listOptimizerStatisticsCollectionOperationsRequest.opcRequestId,
+      "opc-named-credential-id":
+        listOptimizerStatisticsCollectionOperationsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10595,7 +11023,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listProxiedForUsersRequest.opcRequestId
+      "opc-request-id": listProxiedForUsersRequest.opcRequestId,
+      "opc-named-credential-id": listProxiedForUsersRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10678,7 +11107,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listProxyUsersRequest.opcRequestId
+      "opc-request-id": listProxyUsersRequest.opcRequestId,
+      "opc-named-credential-id": listProxyUsersRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10761,7 +11191,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listRolesRequest.opcRequestId
+      "opc-request-id": listRolesRequest.opcRequestId,
+      "opc-named-credential-id": listRolesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10845,7 +11276,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listSqlPlanBaselineJobsRequest.opcRequestId
+      "opc-request-id": listSqlPlanBaselineJobsRequest.opcRequestId,
+      "opc-named-credential-id": listSqlPlanBaselineJobsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -10932,12 +11364,17 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       "page": listSqlPlanBaselinesRequest.page,
       "limit": listSqlPlanBaselinesRequest.limit,
       "sortBy": listSqlPlanBaselinesRequest.sortBy,
-      "sortOrder": listSqlPlanBaselinesRequest.sortOrder
+      "sortOrder": listSqlPlanBaselinesRequest.sortOrder,
+      "isAutoPurged": listSqlPlanBaselinesRequest.isAutoPurged,
+      "timeLastExecutedGreaterThan": listSqlPlanBaselinesRequest.timeLastExecutedGreaterThan,
+      "timeLastExecutedLessThan": listSqlPlanBaselinesRequest.timeLastExecutedLessThan,
+      "isNeverExecuted": listSqlPlanBaselinesRequest.isNeverExecuted
     };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listSqlPlanBaselinesRequest.opcRequestId
+      "opc-request-id": listSqlPlanBaselinesRequest.opcRequestId,
+      "opc-named-credential-id": listSqlPlanBaselinesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -11021,7 +11458,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listSystemPrivilegesRequest.opcRequestId
+      "opc-request-id": listSystemPrivilegesRequest.opcRequestId,
+      "opc-named-credential-id": listSystemPrivilegesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -11099,7 +11537,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listTableStatisticsRequest.opcRequestId
+      "opc-request-id": listTableStatisticsRequest.opcRequestId,
+      "opc-named-credential-id": listTableStatisticsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -11176,7 +11615,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listTablespacesRequest.opcRequestId
+      "opc-request-id": listTablespacesRequest.opcRequestId,
+      "opc-named-credential-id": listTablespacesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -11258,7 +11698,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listUsersRequest.opcRequestId
+      "opc-request-id": listUsersRequest.opcRequestId,
+      "opc-named-credential-id": listUsersRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12157,7 +12598,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": runHistoricAddmRequest.opcRetryToken,
-      "opc-request-id": runHistoricAddmRequest.opcRequestId
+      "opc-request-id": runHistoricAddmRequest.opcRequestId,
+      "opc-named-credential-id": runHistoricAddmRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12249,7 +12691,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbCpuUsagesRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbCpuUsagesRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbCpuUsagesRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbCpuUsagesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12341,7 +12784,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbMetricsRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbMetricsRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbMetricsRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbMetricsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12438,7 +12882,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbParameterChangesRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbParameterChangesRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbParameterChangesRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbParameterChangesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12545,7 +12990,8 @@ Note that this API does not return information on the number of times each datab
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbParametersRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbParametersRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbParametersRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbParametersRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12632,7 +13078,8 @@ Note that this API does not return information on the number of times each datab
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbSnapshotRangesRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbSnapshotRangesRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbSnapshotRangesRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbSnapshotRangesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12724,7 +13171,8 @@ Note that this API does not return information on the number of times each datab
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbSysstatsRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbSysstatsRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbSysstatsRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbSysstatsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12816,7 +13264,8 @@ Note that this API does not return information on the number of times each datab
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbTopWaitEventsRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbTopWaitEventsRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbTopWaitEventsRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbTopWaitEventsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12912,7 +13361,8 @@ Note that this API does not return information on the number of times each datab
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbWaitEventBucketsRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbWaitEventBucketsRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbWaitEventBucketsRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbWaitEventBucketsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -13006,7 +13456,8 @@ Note that this API does not return information on the number of times each datab
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": summarizeAwrDbWaitEventsRequest.opcRequestId,
-      "opc-retry-token": summarizeAwrDbWaitEventsRequest.opcRetryToken
+      "opc-retry-token": summarizeAwrDbWaitEventsRequest.opcRetryToken,
+      "opc-named-credential-id": summarizeAwrDbWaitEventsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -13675,7 +14126,8 @@ Note that this API does not return information on the number of times each datab
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": summarizeSqlPlanBaselinesRequest.opcRequestId
+      "opc-request-id": summarizeSqlPlanBaselinesRequest.opcRequestId,
+      "opc-named-credential-id": summarizeSqlPlanBaselinesRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -13757,7 +14209,9 @@ Note that this API does not return information on the number of times each datab
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": summarizeSqlPlanBaselinesByLastExecutionRequest.opcRequestId
+      "opc-request-id": summarizeSqlPlanBaselinesByLastExecutionRequest.opcRequestId,
+      "opc-named-credential-id":
+        summarizeSqlPlanBaselinesByLastExecutionRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -13799,6 +14253,83 @@ Note that this API does not return information on the number of times each datab
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Tests the named credential.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param TestNamedCredentialRequest
+   * @return TestNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/TestNamedCredential.ts.html |here} to see how to use TestNamedCredential API.
+   */
+  public async testNamedCredential(
+    testNamedCredentialRequest: requests.TestNamedCredentialRequest
+  ): Promise<responses.TestNamedCredentialResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#testNamedCredential.");
+    const operationName = "testNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/TestNamedCredential";
+    const pathParams = {
+      "{namedCredentialId}": testNamedCredentialRequest.namedCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": testNamedCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials/{namedCredentialId}/actions/test",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testNamedCredentialRequest.testNamedCredentialDetails,
+        "TestNamedCredentialDetails",
+        model.TestNamedCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestNamedCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "testNamedCredentialStatus",
+        bodyModel: model.TestNamedCredentialStatus,
+        type: "model.TestNamedCredentialStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -14965,6 +15496,90 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Updates the named credential specified by namedCredentialId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateNamedCredentialRequest
+   * @return UpdateNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateNamedCredential.ts.html |here} to see how to use UpdateNamedCredential API.
+   */
+  public async updateNamedCredential(
+    updateNamedCredentialRequest: requests.UpdateNamedCredentialRequest
+  ): Promise<responses.UpdateNamedCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateNamedCredential.");
+    const operationName = "updateNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/UpdateNamedCredential";
+    const pathParams = {
+      "{namedCredentialId}": updateNamedCredentialRequest.namedCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateNamedCredentialRequest.ifMatch,
+      "opc-request-id": updateNamedCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials/{namedCredentialId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateNamedCredentialRequest.updateNamedCredentialDetails,
+        "UpdateNamedCredentialDetails",
+        model.UpdateNamedCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateNamedCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredential",
+        bodyModel: model.NamedCredential,
+        type: "model.NamedCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the preferred credential based on the credentialName.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -15324,7 +15939,8 @@ export class DiagnosabilityClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listAlertLogsRequest.opcRequestId
+      "opc-request-id": listAlertLogsRequest.opcRequestId,
+      "opc-named-credential-id": listAlertLogsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -15412,7 +16028,8 @@ export class DiagnosabilityClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listAttentionLogsRequest.opcRequestId
+      "opc-request-id": listAttentionLogsRequest.opcRequestId,
+      "opc-named-credential-id": listAttentionLogsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -15500,7 +16117,8 @@ export class DiagnosabilityClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": summarizeAlertLogCountsRequest.opcRequestId
+      "opc-request-id": summarizeAlertLogCountsRequest.opcRequestId,
+      "opc-named-credential-id": summarizeAlertLogCountsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -15588,7 +16206,8 @@ export class DiagnosabilityClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": summarizeAttentionLogCountsRequest.opcRequestId
+      "opc-request-id": summarizeAttentionLogCountsRequest.opcRequestId,
+      "opc-named-credential-id": summarizeAttentionLogCountsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -16486,7 +17105,8 @@ export class PerfhubClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": modifySnapshotSettingsRequest.opcRequestId
+      "opc-request-id": modifySnapshotSettingsRequest.opcRequestId,
+      "opc-named-credential-id": modifySnapshotSettingsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -17198,7 +17818,8 @@ export class SqlTuningClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getExecutionPlanStatsComparisionRequest.opcRequestId
+      "opc-request-id": getExecutionPlanStatsComparisionRequest.opcRequestId,
+      "opc-named-credential-id": getExecutionPlanStatsComparisionRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -17275,7 +17896,8 @@ export class SqlTuningClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getSqlExecutionPlanRequest.opcRequestId
+      "opc-request-id": getSqlExecutionPlanRequest.opcRequestId,
+      "opc-named-credential-id": getSqlExecutionPlanRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -17359,7 +17981,8 @@ export class SqlTuningClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getSqlTuningAdvisorTaskSummaryReportRequest.opcRequestId
+      "opc-request-id": getSqlTuningAdvisorTaskSummaryReportRequest.opcRequestId,
+      "opc-named-credential-id": getSqlTuningAdvisorTaskSummaryReportRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -17445,7 +18068,8 @@ export class SqlTuningClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listSqlTuningAdvisorTaskFindingsRequest.opcRequestId
+      "opc-request-id": listSqlTuningAdvisorTaskFindingsRequest.opcRequestId,
+      "opc-named-credential-id": listSqlTuningAdvisorTaskFindingsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -17536,7 +18160,8 @@ export class SqlTuningClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listSqlTuningAdvisorTaskRecommendationsRequest.opcRequestId
+      "opc-request-id": listSqlTuningAdvisorTaskRecommendationsRequest.opcRequestId,
+      "opc-named-credential-id": listSqlTuningAdvisorTaskRecommendationsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -17624,7 +18249,8 @@ export class SqlTuningClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listSqlTuningAdvisorTasksRequest.opcRequestId
+      "opc-request-id": listSqlTuningAdvisorTasksRequest.opcRequestId,
+      "opc-named-credential-id": listSqlTuningAdvisorTasksRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -17708,7 +18334,8 @@ export class SqlTuningClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listSqlTuningSetsRequest.opcRequestId
+      "opc-request-id": listSqlTuningSetsRequest.opcRequestId,
+      "opc-named-credential-id": listSqlTuningSetsRequest.opcNamedCredentialId
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;

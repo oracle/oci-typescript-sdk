@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to configure automatic capture filters.
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ConfigureAutomaticCaptureFiltersDetails {
@@ -26,7 +27,11 @@ export interface ConfigureAutomaticCaptureFiltersDetails {
    * The filters used in automatic initial plan capture.
    */
   "autoCaptureFilters": Array<model.AutomaticCaptureFilterDetails>;
-  "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace ConfigureAutomaticCaptureFiltersDetails {
@@ -41,6 +46,9 @@ export namespace ConfigureAutomaticCaptureFiltersDetails {
           : undefined,
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -58,6 +66,9 @@ export namespace ConfigureAutomaticCaptureFiltersDetails {
           : undefined,
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

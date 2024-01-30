@@ -33,6 +33,7 @@ export interface DataAssetSummaryFromRest extends model.DataAssetSummary {
     | model.ConnectionSummaryFromOracle
     | model.ConnectionSummaryFromMySqlHeatWave
     | model.ConnectionSummaryFromAmazonS3
+    | model.ConnectionSummaryFromOAuth2
     | model.ConnectionSummaryFromOraclePeopleSoft
     | model.ConnectionSummaryFromOracleEbs
     | model.ConnectionSummaryFromAdwc

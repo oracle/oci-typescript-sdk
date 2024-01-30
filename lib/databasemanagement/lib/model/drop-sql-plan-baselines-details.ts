@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to drop SQL plan baselines.
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface DropSqlPlanBaselinesDetails {
@@ -34,7 +35,11 @@ export interface DropSqlPlanBaselinesDetails {
    *
    */
   "planName"?: string;
-  "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace DropSqlPlanBaselinesDetails {
@@ -44,6 +49,9 @@ export namespace DropSqlPlanBaselinesDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -56,6 +64,9 @@ export namespace DropSqlPlanBaselinesDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

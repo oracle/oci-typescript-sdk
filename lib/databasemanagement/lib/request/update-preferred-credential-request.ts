@@ -29,7 +29,9 @@ export interface UpdatePreferredCredentialRequest extends common.BaseRequest {
   /**
    * The details required to update preferred credential.
    */
-  "updatePreferredCredentialDetails": model.UpdateBasicPreferredCredentialDetails;
+  "updatePreferredCredentialDetails":
+    | model.UpdateNamedPreferredCredentialDetails
+    | model.UpdateBasicPreferredCredentialDetails;
   /**
    * The client request ID for tracing.
    */

@@ -51,6 +51,10 @@ export interface ListTablespacesRequest extends common.BaseRequest {
    * The maximum number of records returned in the paginated response.
    */
   "limit"?: number;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }
 
 export namespace ListTablespacesRequest {

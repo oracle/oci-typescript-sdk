@@ -16,9 +16,14 @@ import * as serviceResponses from "./response";
 import * as models from "./model";
 import { VaultsClient } from "./client";
 import { genericWaiter, genericTerminalConditionWaiter, WaiterConfiguration } from "oci-common";
+import { waitForWorkRequest, WorkRequestClient, responses } from "oci-workrequests";
 
 export class VaultsWaiter {
-  public constructor(private client: VaultsClient, private readonly config?: WaiterConfiguration) {}
+  public constructor(
+    private client: VaultsClient,
+    private workRequestClient: WorkRequestClient,
+    private readonly config?: WaiterConfiguration
+  ) {}
 
   /**
    * Waits forSecret till it reaches any of the provided states

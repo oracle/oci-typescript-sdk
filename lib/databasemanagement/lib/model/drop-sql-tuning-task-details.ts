@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The request to drop a SQL tuning task.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface DropSqlTuningTaskDetails {
@@ -29,9 +30,13 @@ export interface DropSqlTuningTaskDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "taskId": number;
-  "credentialDetails":
+  "credentialDetails"?:
     | model.SqlTuningTaskSecretCredentialDetails
     | model.SqlTuningTaskPasswordCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace DropSqlTuningTaskDetails {
@@ -41,6 +46,9 @@ export namespace DropSqlTuningTaskDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningTaskCredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -53,6 +61,9 @@ export namespace DropSqlTuningTaskDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.SqlTuningTaskCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

@@ -40,4 +40,8 @@ export interface RunHistoricAddmRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }

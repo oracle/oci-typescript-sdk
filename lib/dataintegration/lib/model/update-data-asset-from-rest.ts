@@ -33,6 +33,7 @@ export interface UpdateDataAssetFromRest extends model.UpdateDataAssetDetails {
     | model.UpdateConnectionFromBICC
     | model.UpdateConnectionFromRestNoAuth
     | model.UpdateConnectionFromHdfs
+    | model.UpdateConnectionFromOAuth2
     | model.UpdateConnectionFromRestBasicAuth
     | model.UpdateConnectionFromOracleSiebel
     | model.UpdateConnectionFromMySqlHeatWave

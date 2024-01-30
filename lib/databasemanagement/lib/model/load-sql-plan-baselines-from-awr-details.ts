@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to load plans from Automatic Workload Repository (AWR).
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface LoadSqlPlanBaselinesFromAwrDetails {
@@ -58,7 +59,11 @@ export interface LoadSqlPlanBaselinesFromAwrDetails {
    *
    */
   "isEnabled"?: boolean;
-  "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace LoadSqlPlanBaselinesFromAwrDetails {
@@ -68,6 +73,9 @@ export namespace LoadSqlPlanBaselinesFromAwrDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -80,6 +88,9 @@ export namespace LoadSqlPlanBaselinesFromAwrDetails {
       ...{
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

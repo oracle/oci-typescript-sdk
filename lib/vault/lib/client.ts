@@ -16,6 +16,7 @@ import * as requests from "./request";
 import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
+import { WorkRequestClient } from "oci-workrequests";
 import { VaultsWaiter } from "./vaults-waiter";
 import {
   composeResponse,
@@ -186,11 +187,15 @@ export class VaultsClient {
   /**
    * Creates a new VaultsWaiter for resources for this service.
    *
+   * @param workRequestClient The work request service client used to query for work request status
    * @param config The waiter configuration for termination and delay strategy
    * @return The service waiters.
    */
-  public createWaiters(config?: common.WaiterConfiguration): VaultsWaiter {
-    this._waiters = new VaultsWaiter(this, config);
+  public createWaiters(
+    workRequestClient: WorkRequestClient,
+    config?: common.WaiterConfiguration
+  ): VaultsWaiter {
+    this._waiters = new VaultsWaiter(this, workRequestClient, config);
     return this._waiters;
   }
 

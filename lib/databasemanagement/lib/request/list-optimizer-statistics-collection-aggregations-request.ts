@@ -56,4 +56,8 @@ export interface ListOptimizerStatisticsCollectionAggregationsRequest extends co
    *
    */
   "page"?: string;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }

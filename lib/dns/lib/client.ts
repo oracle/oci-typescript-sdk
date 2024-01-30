@@ -1448,7 +1448,7 @@ Note that attempting to delete a resolver endpoint in the DELETED lifecycle stat
 * a `404` response to be consistent with other operations of the API. Resolver endpoints may not
 * be deleted if they are referenced by a resolver rule.
 * 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteResolverEndpointRequest
      * @return DeleteResolverEndpointResponse
      * @throws OciError when an error occurs
@@ -1477,7 +1477,7 @@ Note that attempting to delete a resolver endpoint in the DELETED lifecycle stat
       "opc-request-id": deleteResolverEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteResolverEndpointRequest.retryConfiguration,
@@ -1530,7 +1530,7 @@ A `204` response indicates that the delete has been successful.
 * Deletion will fail if the policy is attached to any zones. To detach a
 * policy from a zone, see `DeleteSteeringPolicyAttachment`.
 * 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteSteeringPolicyRequest
      * @return DeleteSteeringPolicyResponse
      * @throws OciError when an error occurs
@@ -1557,7 +1557,7 @@ A `204` response indicates that the delete has been successful.
       "opc-request-id": deleteSteeringPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSteeringPolicyRequest.retryConfiguration,
@@ -1602,7 +1602,7 @@ A `204` response indicates that the delete has been successful.
    * Deletes the specified steering policy attachment.
    * A `204` response indicates that the delete has been successful.
    *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSteeringPolicyAttachmentRequest
    * @return DeleteSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
@@ -1631,7 +1631,7 @@ A `204` response indicates that the delete has been successful.
       "opc-request-id": deleteSteeringPolicyAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSteeringPolicyAttachmentRequest.retryConfiguration,
@@ -1675,7 +1675,7 @@ A `204` response indicates that the delete has been successful.
   /**
    * Deletes the specified TSIG key.
    *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTsigKeyRequest
    * @return DeleteTsigKeyResponse
    * @throws OciError when an error occurs
@@ -1702,7 +1702,7 @@ A `204` response indicates that the delete has been successful.
       "opc-request-id": deleteTsigKeyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTsigKeyRequest.retryConfiguration,
@@ -1756,7 +1756,7 @@ Note that attempting to delete a view in the DELETED lifecycleState will result 
 * deleted if they are referenced by non-deleted zones or resolvers.
 * Protected views cannot be deleted.
 * 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteViewRequest
      * @return DeleteViewResponse
      * @throws OciError when an error occurs
@@ -1783,7 +1783,7 @@ Note that attempting to delete a view in the DELETED lifecycleState will result 
       "opc-request-id": deleteViewRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteViewRequest.retryConfiguration,

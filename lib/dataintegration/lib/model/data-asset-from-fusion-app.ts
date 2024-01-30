@@ -34,6 +34,7 @@ export interface DataAssetFromFusionApp extends model.DataAsset {
     | model.ConnectionFromAtpDetails
     | model.ConnectionFromOraclePeopleSoftDetails
     | model.ConnectionFromRestBasicAuthDetails
+    | model.ConnectionFromOAuth2Details
     | model.ConnectionFromBICCDetails
     | model.ConnectionFromAdwcDetails
     | model.ConnectionFromOracleDetails

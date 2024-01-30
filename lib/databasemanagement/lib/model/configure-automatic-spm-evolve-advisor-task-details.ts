@@ -19,11 +19,16 @@ import common = require("oci-common");
 
 /**
  * The configuration details of the Automatic SPM Evolve Advisor task.
+ * It takes either credentials or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ConfigureAutomaticSpmEvolveAdvisorTaskDetails {
   "taskParameters": model.SpmEvolveTaskParameters;
-  "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "credentials"?: model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
 }
 
 export namespace ConfigureAutomaticSpmEvolveAdvisorTaskDetails {
@@ -36,6 +41,9 @@ export namespace ConfigureAutomaticSpmEvolveAdvisorTaskDetails {
           : undefined,
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -53,6 +61,9 @@ export namespace ConfigureAutomaticSpmEvolveAdvisorTaskDetails {
           : undefined,
         "credentials": obj.credentials
           ? model.ManagedDatabaseCredential.getDeserializedJsonObj(obj.credentials)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

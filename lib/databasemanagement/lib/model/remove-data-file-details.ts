@@ -19,12 +19,17 @@ import common = require("oci-common");
 
 /**
  * The details required to remove a data file or temp file from the tablespace.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface RemoveDataFileDetails {
-  "credentialDetails":
+  "credentialDetails"?:
     | model.TablespaceAdminPasswordCredentialDetails
     | model.TablespaceAdminSecretCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * Specifies whether the file is a data file or temp file.
    *
@@ -49,6 +54,9 @@ export namespace RemoveDataFileDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.TablespaceAdminCredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
           : undefined
       }
     };
@@ -61,6 +69,9 @@ export namespace RemoveDataFileDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.TablespaceAdminCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined
       }
     };

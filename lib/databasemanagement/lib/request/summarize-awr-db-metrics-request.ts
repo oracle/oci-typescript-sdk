@@ -91,6 +91,10 @@ export interface SummarizeAwrDbMetricsRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * The OCID of the Named Credential.
+   */
+  "opcNamedCredentialId"?: string;
 }
 
 export namespace SummarizeAwrDbMetricsRequest {

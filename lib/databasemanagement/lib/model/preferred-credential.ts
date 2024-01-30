@@ -43,6 +43,11 @@ export namespace PreferredCredential {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "NAMED_CREDENTIAL":
+          return model.NamedPreferredCredential.getJsonObj(
+            <model.NamedPreferredCredential>(<object>jsonObj),
+            true
+          );
         case "BASIC":
           return model.BasicPreferredCredential.getJsonObj(
             <model.BasicPreferredCredential>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace PreferredCredential {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "NAMED_CREDENTIAL":
+          return model.NamedPreferredCredential.getDeserializedJsonObj(
+            <model.NamedPreferredCredential>(<object>jsonObj),
+            true
+          );
         case "BASIC":
           return model.BasicPreferredCredential.getDeserializedJsonObj(
             <model.BasicPreferredCredential>(<object>jsonObj),

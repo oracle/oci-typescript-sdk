@@ -19,12 +19,17 @@ import common = require("oci-common");
 
 /**
  * The details required to resize a data file or temp file within the tablespace.
+ * It takes either credentialDetails or databaseCredential. It's recommended to provide databaseCredential
  *
  */
 export interface ResizeDataFileDetails {
-  "credentialDetails":
+  "credentialDetails"?:
     | model.TablespaceAdminPasswordCredentialDetails
     | model.TablespaceAdminSecretCredentialDetails;
+  "databaseCredential"?:
+    | model.DatabaseSecretCredentialDetails
+    | model.DatabaseNamedCredentialDetails
+    | model.DatabasePasswordCredentialDetails;
   /**
    * Specifies whether the file is a data file or temp file.
    *
@@ -75,6 +80,9 @@ export namespace ResizeDataFileDetails {
         "credentialDetails": obj.credentialDetails
           ? model.TablespaceAdminCredentialDetails.getJsonObj(obj.credentialDetails)
           : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getJsonObj(obj.databaseCredential)
+          : undefined,
 
         "fileSize": obj.fileSize ? model.TablespaceStorageSize.getJsonObj(obj.fileSize) : undefined,
 
@@ -95,6 +103,9 @@ export namespace ResizeDataFileDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.TablespaceAdminCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "databaseCredential": obj.databaseCredential
+          ? model.DatabaseCredentialDetails.getDeserializedJsonObj(obj.databaseCredential)
           : undefined,
 
         "fileSize": obj.fileSize

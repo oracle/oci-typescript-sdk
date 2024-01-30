@@ -45,6 +45,10 @@ export interface PreferredCredentialSummary {
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Vault service secret that contains the database user password.
    */
   "passwordSecretId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Named Credential that contains the database user password metadata.
+   */
+  "namedCredentialId"?: string;
 }
 
 export namespace PreferredCredentialSummary {

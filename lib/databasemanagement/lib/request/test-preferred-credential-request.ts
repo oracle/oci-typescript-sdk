@@ -33,5 +33,7 @@ export interface TestPreferredCredentialRequest extends common.BaseRequest {
   /**
    * The details required to test preferred credential.
    */
-  "testPreferredCredentialDetails"?: model.TestBasicPreferredCredentialDetails;
+  "testPreferredCredentialDetails"?:
+    | model.TestNamedPreferredCredentialDetails
+    | model.TestBasicPreferredCredentialDetails;
 }
