@@ -68,6 +68,23 @@ export interface Secret {
    *
    */
   "metadata"?: { [key: string]: any };
+  "rotationConfig"?: model.RotationConfig;
+  /**
+   * Additional information about the status of the secret rotation
+   */
+  "rotationStatus"?: Secret.RotationStatus;
+  /**
+   * A property indicating when the secret was last rotated successfully, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   * Example: {@code 2019-04-03T21:10:29.600Z}
+   *
+   */
+  "lastRotationTime"?: Date;
+  /**
+   * A property indicating when the secret is scheduled to be rotated, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   * Example: {@code 2019-04-03T21:10:29.600Z}
+   *
+   */
+  "nextRotationTime"?: Date;
   /**
    * The user-friendly name of the secret. Avoid entering confidential information.
    */
@@ -118,10 +135,26 @@ export namespace Secret {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum RotationStatus {
+    InProgress = "IN_PROGRESS",
+    Scheduled = "SCHEDULED",
+    NotEnabled = "NOT_ENABLED",
+    Cancelling = "CANCELLING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Secret): object {
     const jsonObj = {
       ...obj,
       ...{
+        "rotationConfig": obj.rotationConfig
+          ? model.RotationConfig.getJsonObj(obj.rotationConfig)
+          : undefined,
+
         "secretRules": obj.secretRules
           ? obj.secretRules.map(item => {
               return model.SecretRule.getJsonObj(item);
@@ -136,6 +169,10 @@ export namespace Secret {
     const jsonObj = {
       ...obj,
       ...{
+        "rotationConfig": obj.rotationConfig
+          ? model.RotationConfig.getDeserializedJsonObj(obj.rotationConfig)
+          : undefined,
+
         "secretRules": obj.secretRules
           ? obj.secretRules.map(item => {
               return model.SecretRule.getDeserializedJsonObj(item);

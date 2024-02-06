@@ -1,6 +1,6 @@
 {
   "name": "oci-servicecatalog",
-  "version": "2.78.0",
+  "version": "2.79.0",
   "description": "OCI NodeJS client for Service Catalog Service",
   "repository": {
     "type": "git",

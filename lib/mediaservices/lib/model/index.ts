@@ -14,6 +14,8 @@ Use the Media Services API to configure media workflows and run Media Flow jobs,
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddLockDetails from "./add-lock-details";
+export import AddLockDetails = AddLockDetails.AddLockDetails;
 import * as AssetType from "./asset-type";
 export import AssetType = AssetType.AssetType;
 import * as ChangeMediaAssetCompartmentDetails from "./change-media-asset-compartment-details";
@@ -84,14 +86,6 @@ import * as MediaWorkflowJob from "./media-workflow-job";
 export import MediaWorkflowJob = MediaWorkflowJob.MediaWorkflowJob;
 import * as MediaWorkflowJobCollection from "./media-workflow-job-collection";
 export import MediaWorkflowJobCollection = MediaWorkflowJobCollection.MediaWorkflowJobCollection;
-import * as MediaWorkflowJobFact from "./media-workflow-job-fact";
-export import MediaWorkflowJobFact = MediaWorkflowJobFact.MediaWorkflowJobFact;
-import * as MediaWorkflowJobFactCollection from "./media-workflow-job-fact-collection";
-export import MediaWorkflowJobFactCollection = MediaWorkflowJobFactCollection.MediaWorkflowJobFactCollection;
-import * as MediaWorkflowJobFactSortBy from "./media-workflow-job-fact-sort-by";
-export import MediaWorkflowJobFactSortBy = MediaWorkflowJobFactSortBy.MediaWorkflowJobFactSortBy;
-import * as MediaWorkflowJobFactSummary from "./media-workflow-job-fact-summary";
-export import MediaWorkflowJobFactSummary = MediaWorkflowJobFactSummary.MediaWorkflowJobFactSummary;
 import * as MediaWorkflowJobSortBy from "./media-workflow-job-sort-by";
 export import MediaWorkflowJobSortBy = MediaWorkflowJobSortBy.MediaWorkflowJobSortBy;
 import * as MediaWorkflowJobSummary from "./media-workflow-job-summary";
@@ -110,6 +104,10 @@ import * as MediaWorkflowTaskState from "./media-workflow-task-state";
 export import MediaWorkflowTaskState = MediaWorkflowTaskState.MediaWorkflowTaskState;
 import * as Metadata from "./metadata";
 export import Metadata = Metadata.Metadata;
+import * as RemoveLockDetails from "./remove-lock-details";
+export import RemoveLockDetails = RemoveLockDetails.RemoveLockDetails;
+import * as ResourceLock from "./resource-lock";
+export import ResourceLock = ResourceLock.ResourceLock;
 import * as SessionToken from "./session-token";
 export import SessionToken = SessionToken.SessionToken;
 import * as SortBy from "./sort-by";

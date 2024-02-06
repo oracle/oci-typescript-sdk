@@ -24,6 +24,9 @@ export enum OperationTypes {
   UpgradePlugin = "UPGRADE_PLUGIN",
   CreateUpgradePlugins = "CREATE_UPGRADE_PLUGINS",
   AgentimageUpgrade = "AGENTIMAGE_UPGRADE",
+  CreateDataSource = "CREATE_DATA_SOURCE",
+  UpdateDataSource = "UPDATE_DATA_SOURCE",
+  DeleteDataSource = "DELETE_DATA_SOURCE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

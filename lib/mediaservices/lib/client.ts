@@ -219,6 +219,595 @@ export class MediaServicesClient {
   }
 
   /**
+   * Add a lock to an MediaAsset.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddMediaAssetLockRequest
+   * @return AddMediaAssetLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaAssetLock.ts.html |here} to see how to use AddMediaAssetLock API.
+   */
+  public async addMediaAssetLock(
+    addMediaAssetLockRequest: requests.AddMediaAssetLockRequest
+  ): Promise<responses.AddMediaAssetLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#addMediaAssetLock.");
+    const operationName = "addMediaAssetLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mediaAssetId}": addMediaAssetLockRequest.mediaAssetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addMediaAssetLockRequest.opcRetryToken,
+      "opc-request-id": addMediaAssetLockRequest.opcRequestId,
+      "if-match": addMediaAssetLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addMediaAssetLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mediaAssets/{mediaAssetId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addMediaAssetLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddMediaAssetLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mediaAsset",
+        bodyModel: model.MediaAsset,
+        type: "model.MediaAsset",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a lock to a MediaWorkflowConfiguration.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddMediaWorkflowConfigurationLockRequest
+   * @return AddMediaWorkflowConfigurationLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowConfigurationLock.ts.html |here} to see how to use AddMediaWorkflowConfigurationLock API.
+   */
+  public async addMediaWorkflowConfigurationLock(
+    addMediaWorkflowConfigurationLockRequest: requests.AddMediaWorkflowConfigurationLockRequest
+  ): Promise<responses.AddMediaWorkflowConfigurationLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#addMediaWorkflowConfigurationLock.");
+    const operationName = "addMediaWorkflowConfigurationLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mediaWorkflowConfigurationId}":
+        addMediaWorkflowConfigurationLockRequest.mediaWorkflowConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addMediaWorkflowConfigurationLockRequest.ifMatch,
+      "opc-request-id": addMediaWorkflowConfigurationLockRequest.opcRequestId,
+      "opc-retry-token": addMediaWorkflowConfigurationLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addMediaWorkflowConfigurationLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mediaWorkflowConfigurations/{mediaWorkflowConfigurationId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addMediaWorkflowConfigurationLockRequest.addResourceLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddMediaWorkflowConfigurationLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mediaWorkflowConfiguration",
+        bodyModel: model.MediaWorkflowConfiguration,
+        type: "model.MediaWorkflowConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a lock to a MediaWorkflowJob.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddMediaWorkflowJobLockRequest
+   * @return AddMediaWorkflowJobLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowJobLock.ts.html |here} to see how to use AddMediaWorkflowJobLock API.
+   */
+  public async addMediaWorkflowJobLock(
+    addMediaWorkflowJobLockRequest: requests.AddMediaWorkflowJobLockRequest
+  ): Promise<responses.AddMediaWorkflowJobLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#addMediaWorkflowJobLock.");
+    const operationName = "addMediaWorkflowJobLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mediaWorkflowJobId}": addMediaWorkflowJobLockRequest.mediaWorkflowJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addMediaWorkflowJobLockRequest.opcRetryToken,
+      "opc-request-id": addMediaWorkflowJobLockRequest.opcRequestId,
+      "if-match": addMediaWorkflowJobLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addMediaWorkflowJobLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mediaWorkflowJobs/{mediaWorkflowJobId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addMediaWorkflowJobLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddMediaWorkflowJobLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mediaWorkflowJob",
+        bodyModel: model.MediaWorkflowJob,
+        type: "model.MediaWorkflowJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a lock to a MediaWorkflow.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddMediaWorkflowLockRequest
+   * @return AddMediaWorkflowLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowLock.ts.html |here} to see how to use AddMediaWorkflowLock API.
+   */
+  public async addMediaWorkflowLock(
+    addMediaWorkflowLockRequest: requests.AddMediaWorkflowLockRequest
+  ): Promise<responses.AddMediaWorkflowLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#addMediaWorkflowLock.");
+    const operationName = "addMediaWorkflowLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mediaWorkflowId}": addMediaWorkflowLockRequest.mediaWorkflowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addMediaWorkflowLockRequest.opcRetryToken,
+      "opc-request-id": addMediaWorkflowLockRequest.opcRequestId,
+      "if-match": addMediaWorkflowLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addMediaWorkflowLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mediaWorkflows/{mediaWorkflowId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addMediaWorkflowLockRequest.addResourceLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddMediaWorkflowLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mediaWorkflow",
+        bodyModel: model.MediaWorkflow,
+        type: "model.MediaWorkflow",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a lock to a StreamCdnConfig.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddStreamCdnConfigLockRequest
+   * @return AddStreamCdnConfigLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamCdnConfigLock.ts.html |here} to see how to use AddStreamCdnConfigLock API.
+   */
+  public async addStreamCdnConfigLock(
+    addStreamCdnConfigLockRequest: requests.AddStreamCdnConfigLockRequest
+  ): Promise<responses.AddStreamCdnConfigLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#addStreamCdnConfigLock.");
+    const operationName = "addStreamCdnConfigLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{streamCdnConfigId}": addStreamCdnConfigLockRequest.streamCdnConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addStreamCdnConfigLockRequest.ifMatch,
+      "opc-request-id": addStreamCdnConfigLockRequest.opcRequestId,
+      "opc-retry-token": addStreamCdnConfigLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addStreamCdnConfigLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamCdnConfigs/{streamCdnConfigId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addStreamCdnConfigLockRequest.addResourceLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddStreamCdnConfigLockResponse>{},
+        body: await response.json(),
+        bodyKey: "streamCdnConfig",
+        bodyModel: model.StreamCdnConfig,
+        type: "model.StreamCdnConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a lock to a StreamDistributionChannel.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddStreamDistributionChannelLockRequest
+   * @return AddStreamDistributionChannelLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamDistributionChannelLock.ts.html |here} to see how to use AddStreamDistributionChannelLock API.
+   */
+  public async addStreamDistributionChannelLock(
+    addStreamDistributionChannelLockRequest: requests.AddStreamDistributionChannelLockRequest
+  ): Promise<responses.AddStreamDistributionChannelLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#addStreamDistributionChannelLock.");
+    const operationName = "addStreamDistributionChannelLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{streamDistributionChannelId}":
+        addStreamDistributionChannelLockRequest.streamDistributionChannelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addStreamDistributionChannelLockRequest.ifMatch,
+      "opc-request-id": addStreamDistributionChannelLockRequest.opcRequestId,
+      "opc-retry-token": addStreamDistributionChannelLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addStreamDistributionChannelLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamDistributionChannels/{streamDistributionChannelId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addStreamDistributionChannelLockRequest.addResourceLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddStreamDistributionChannelLockResponse>{},
+        body: await response.json(),
+        bodyKey: "streamDistributionChannel",
+        bodyModel: model.StreamDistributionChannel,
+        type: "model.StreamDistributionChannel",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a lock to a StreamPackagingConfig.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddStreamPackagingConfigLockRequest
+   * @return AddStreamPackagingConfigLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamPackagingConfigLock.ts.html |here} to see how to use AddStreamPackagingConfigLock API.
+   */
+  public async addStreamPackagingConfigLock(
+    addStreamPackagingConfigLockRequest: requests.AddStreamPackagingConfigLockRequest
+  ): Promise<responses.AddStreamPackagingConfigLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#addStreamPackagingConfigLock.");
+    const operationName = "addStreamPackagingConfigLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{streamPackagingConfigId}": addStreamPackagingConfigLockRequest.streamPackagingConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addStreamPackagingConfigLockRequest.ifMatch,
+      "opc-request-id": addStreamPackagingConfigLockRequest.opcRequestId,
+      "opc-retry-token": addStreamPackagingConfigLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addStreamPackagingConfigLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamPackagingConfigs/{streamPackagingConfigId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addStreamPackagingConfigLockRequest.addResourceLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddStreamPackagingConfigLockResponse>{},
+        body: await response.json(),
+        bodyKey: "streamPackagingConfig",
+        bodyModel: model.StreamPackagingConfig,
+        type: "model.StreamPackagingConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a MediaAsset resource from one compartment identifier to another.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeMediaAssetCompartmentRequest
@@ -237,7 +826,9 @@ export class MediaServicesClient {
       "{mediaAssetId}": changeMediaAssetCompartmentRequest.mediaAssetId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeMediaAssetCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -311,7 +902,9 @@ export class MediaServicesClient {
       "{mediaWorkflowId}": changeMediaWorkflowCompartmentRequest.mediaWorkflowId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeMediaWorkflowCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -353,11 +946,6 @@ export class MediaServicesClient {
         responseObject: <responses.ChangeMediaWorkflowCompartmentResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          },
-          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -393,7 +981,9 @@ export class MediaServicesClient {
         changeMediaWorkflowConfigurationCompartmentRequest.mediaWorkflowConfigurationId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeMediaWorkflowConfigurationCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -435,11 +1025,6 @@ export class MediaServicesClient {
         responseObject: <responses.ChangeMediaWorkflowConfigurationCompartmentResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          },
-          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -472,7 +1057,9 @@ export class MediaServicesClient {
       "{mediaWorkflowJobId}": changeMediaWorkflowJobCompartmentRequest.mediaWorkflowJobId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeMediaWorkflowJobCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -514,11 +1101,6 @@ export class MediaServicesClient {
         responseObject: <responses.ChangeMediaWorkflowJobCompartmentResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          },
-          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -554,7 +1136,9 @@ export class MediaServicesClient {
         changeStreamDistributionChannelCompartmentRequest.streamDistributionChannelId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeStreamDistributionChannelCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -595,11 +1179,6 @@ export class MediaServicesClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeStreamDistributionChannelCompartmentResponse>{},
         responseHeaders: [
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1198,6 +1777,7 @@ export class MediaServicesClient {
     };
 
     const queryParams = {
+      "isLockOverride": deleteMediaAssetRequest.isLockOverride,
       "deleteMode": deleteMediaAssetRequest.deleteMode
     };
 
@@ -1272,6 +1852,7 @@ export class MediaServicesClient {
     };
 
     const queryParams = {
+      "isLockOverride": deleteMediaAssetDistributionChannelAttachmentRequest.isLockOverride,
       "version": deleteMediaAssetDistributionChannelAttachmentRequest.version
     };
 
@@ -1341,7 +1922,9 @@ export class MediaServicesClient {
       "{mediaWorkflowId}": deleteMediaWorkflowRequest.mediaWorkflowId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteMediaWorkflowRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1410,7 +1993,9 @@ export class MediaServicesClient {
         deleteMediaWorkflowConfigurationRequest.mediaWorkflowConfigurationId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteMediaWorkflowConfigurationRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1446,11 +2031,6 @@ export class MediaServicesClient {
         responseObject: <responses.DeleteMediaWorkflowConfigurationResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          },
-          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -1483,7 +2063,9 @@ export class MediaServicesClient {
       "{mediaWorkflowJobId}": deleteMediaWorkflowJobRequest.mediaWorkflowJobId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteMediaWorkflowJobRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1519,11 +2101,6 @@ export class MediaServicesClient {
         responseObject: <responses.DeleteMediaWorkflowJobResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          },
-          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -1556,7 +2133,9 @@ export class MediaServicesClient {
       "{streamCdnConfigId}": deleteStreamCdnConfigRequest.streamCdnConfigId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteStreamCdnConfigRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1625,7 +2204,9 @@ export class MediaServicesClient {
         deleteStreamDistributionChannelRequest.streamDistributionChannelId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteStreamDistributionChannelRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1693,7 +2274,9 @@ export class MediaServicesClient {
       "{streamPackagingConfigId}": deleteStreamPackagingConfigRequest.streamPackagingConfigId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteStreamPackagingConfigRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2107,83 +2690,6 @@ export class MediaServicesClient {
         bodyKey: "mediaWorkflowJob",
         bodyModel: model.MediaWorkflowJob,
         type: "model.MediaWorkflowJob",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Get the MediaWorkflowJobFact identified by the mediaWorkflowJobId and Fact ID.
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param GetMediaWorkflowJobFactRequest
-   * @return GetMediaWorkflowJobFactResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaWorkflowJobFact.ts.html |here} to see how to use GetMediaWorkflowJobFact API.
-   */
-  public async getMediaWorkflowJobFact(
-    getMediaWorkflowJobFactRequest: requests.GetMediaWorkflowJobFactRequest
-  ): Promise<responses.GetMediaWorkflowJobFactResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#getMediaWorkflowJobFact.");
-    const operationName = "getMediaWorkflowJobFact";
-    const apiReferenceLink = "";
-    const pathParams = {
-      "{mediaWorkflowJobId}": getMediaWorkflowJobFactRequest.mediaWorkflowJobId,
-      "{key}": getMediaWorkflowJobFactRequest.key
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getMediaWorkflowJobFactRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      getMediaWorkflowJobFactRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/mediaWorkflowJobs/{mediaWorkflowJobId}/facts/{key}",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetMediaWorkflowJobFactResponse>{},
-        body: await response.json(),
-        bodyKey: "mediaWorkflowJobFact",
-        bodyModel: model.MediaWorkflowJobFact,
-        type: "model.MediaWorkflowJobFact",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2751,89 +3257,6 @@ export class MediaServicesClient {
         bodyKey: "mediaWorkflowConfigurationCollection",
         bodyModel: model.MediaWorkflowConfigurationCollection,
         type: "model.MediaWorkflowConfigurationCollection",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Internal API to get a point-in-time snapshot of a MediaWorkflowJob.
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param ListMediaWorkflowJobFactsRequest
-   * @return ListMediaWorkflowJobFactsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflowJobFacts.ts.html |here} to see how to use ListMediaWorkflowJobFacts API.
-   */
-  public async listMediaWorkflowJobFacts(
-    listMediaWorkflowJobFactsRequest: requests.ListMediaWorkflowJobFactsRequest
-  ): Promise<responses.ListMediaWorkflowJobFactsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#listMediaWorkflowJobFacts.");
-    const operationName = "listMediaWorkflowJobFacts";
-    const apiReferenceLink = "";
-    const pathParams = {
-      "{mediaWorkflowJobId}": listMediaWorkflowJobFactsRequest.mediaWorkflowJobId
-    };
-
-    const queryParams = {
-      "key": listMediaWorkflowJobFactsRequest.key,
-      "type": listMediaWorkflowJobFactsRequest.type,
-      "sortBy": listMediaWorkflowJobFactsRequest.sortBy,
-      "sortOrder": listMediaWorkflowJobFactsRequest.sortOrder,
-      "page": listMediaWorkflowJobFactsRequest.page,
-      "limit": listMediaWorkflowJobFactsRequest.limit
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listMediaWorkflowJobFactsRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      listMediaWorkflowJobFactsRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/mediaWorkflowJobs/{mediaWorkflowJobId}/facts",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.ListMediaWorkflowJobFactsResponse>{},
-        body: await response.json(),
-        bodyKey: "mediaWorkflowJobFactCollection",
-        bodyModel: model.MediaWorkflowJobFactCollection,
-        type: "model.MediaWorkflowJobFactCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3435,6 +3858,600 @@ export class MediaServicesClient {
   }
 
   /**
+   * Remove a lock to an MediaAsset.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveMediaAssetLockRequest
+   * @return RemoveMediaAssetLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaAssetLock.ts.html |here} to see how to use RemoveMediaAssetLock API.
+   */
+  public async removeMediaAssetLock(
+    removeMediaAssetLockRequest: requests.RemoveMediaAssetLockRequest
+  ): Promise<responses.RemoveMediaAssetLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#removeMediaAssetLock.");
+    const operationName = "removeMediaAssetLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mediaAssetId}": removeMediaAssetLockRequest.mediaAssetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeMediaAssetLockRequest.opcRetryToken,
+      "opc-request-id": removeMediaAssetLockRequest.opcRequestId,
+      "if-match": removeMediaAssetLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeMediaAssetLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mediaAssets/{mediaAssetId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeMediaAssetLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveMediaAssetLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mediaAsset",
+        bodyModel: model.MediaAsset,
+        type: "model.MediaAsset",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock from a MediaWorkflowConfiguration.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveMediaWorkflowConfigurationLockRequest
+   * @return RemoveMediaWorkflowConfigurationLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowConfigurationLock.ts.html |here} to see how to use RemoveMediaWorkflowConfigurationLock API.
+   */
+  public async removeMediaWorkflowConfigurationLock(
+    removeMediaWorkflowConfigurationLockRequest: requests.RemoveMediaWorkflowConfigurationLockRequest
+  ): Promise<responses.RemoveMediaWorkflowConfigurationLockResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation MediaServicesClient#removeMediaWorkflowConfigurationLock."
+      );
+    const operationName = "removeMediaWorkflowConfigurationLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mediaWorkflowConfigurationId}":
+        removeMediaWorkflowConfigurationLockRequest.mediaWorkflowConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeMediaWorkflowConfigurationLockRequest.ifMatch,
+      "opc-request-id": removeMediaWorkflowConfigurationLockRequest.opcRequestId,
+      "opc-retry-token": removeMediaWorkflowConfigurationLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeMediaWorkflowConfigurationLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mediaWorkflowConfigurations/{mediaWorkflowConfigurationId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeMediaWorkflowConfigurationLockRequest.removeResourceLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveMediaWorkflowConfigurationLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mediaWorkflowConfiguration",
+        bodyModel: model.MediaWorkflowConfiguration,
+        type: "model.MediaWorkflowConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock from a MediaWorkflowJob.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveMediaWorkflowJobLockRequest
+   * @return RemoveMediaWorkflowJobLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowJobLock.ts.html |here} to see how to use RemoveMediaWorkflowJobLock API.
+   */
+  public async removeMediaWorkflowJobLock(
+    removeMediaWorkflowJobLockRequest: requests.RemoveMediaWorkflowJobLockRequest
+  ): Promise<responses.RemoveMediaWorkflowJobLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#removeMediaWorkflowJobLock.");
+    const operationName = "removeMediaWorkflowJobLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mediaWorkflowJobId}": removeMediaWorkflowJobLockRequest.mediaWorkflowJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeMediaWorkflowJobLockRequest.opcRetryToken,
+      "opc-request-id": removeMediaWorkflowJobLockRequest.opcRequestId,
+      "if-match": removeMediaWorkflowJobLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeMediaWorkflowJobLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mediaWorkflowJobs/{mediaWorkflowJobId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeMediaWorkflowJobLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveMediaWorkflowJobLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mediaWorkflowJob",
+        bodyModel: model.MediaWorkflowJob,
+        type: "model.MediaWorkflowJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock from a MediaWorkflow.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveMediaWorkflowLockRequest
+   * @return RemoveMediaWorkflowLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowLock.ts.html |here} to see how to use RemoveMediaWorkflowLock API.
+   */
+  public async removeMediaWorkflowLock(
+    removeMediaWorkflowLockRequest: requests.RemoveMediaWorkflowLockRequest
+  ): Promise<responses.RemoveMediaWorkflowLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#removeMediaWorkflowLock.");
+    const operationName = "removeMediaWorkflowLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mediaWorkflowId}": removeMediaWorkflowLockRequest.mediaWorkflowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeMediaWorkflowLockRequest.opcRetryToken,
+      "opc-request-id": removeMediaWorkflowLockRequest.opcRequestId,
+      "if-match": removeMediaWorkflowLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeMediaWorkflowLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mediaWorkflows/{mediaWorkflowId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeMediaWorkflowLockRequest.removeResourceLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveMediaWorkflowLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mediaWorkflow",
+        bodyModel: model.MediaWorkflow,
+        type: "model.MediaWorkflow",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock from a StreamCdnConfig.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveStreamCdnConfigLockRequest
+   * @return RemoveStreamCdnConfigLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamCdnConfigLock.ts.html |here} to see how to use RemoveStreamCdnConfigLock API.
+   */
+  public async removeStreamCdnConfigLock(
+    removeStreamCdnConfigLockRequest: requests.RemoveStreamCdnConfigLockRequest
+  ): Promise<responses.RemoveStreamCdnConfigLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#removeStreamCdnConfigLock.");
+    const operationName = "removeStreamCdnConfigLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{streamCdnConfigId}": removeStreamCdnConfigLockRequest.streamCdnConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeStreamCdnConfigLockRequest.ifMatch,
+      "opc-request-id": removeStreamCdnConfigLockRequest.opcRequestId,
+      "opc-retry-token": removeStreamCdnConfigLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeStreamCdnConfigLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamCdnConfigs/{streamCdnConfigId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeStreamCdnConfigLockRequest.removeResourceLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveStreamCdnConfigLockResponse>{},
+        body: await response.json(),
+        bodyKey: "streamCdnConfig",
+        bodyModel: model.StreamCdnConfig,
+        type: "model.StreamCdnConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock to a StreamDistributionChannel.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveStreamDistributionChannelLockRequest
+   * @return RemoveStreamDistributionChannelLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamDistributionChannelLock.ts.html |here} to see how to use RemoveStreamDistributionChannelLock API.
+   */
+  public async removeStreamDistributionChannelLock(
+    removeStreamDistributionChannelLockRequest: requests.RemoveStreamDistributionChannelLockRequest
+  ): Promise<responses.RemoveStreamDistributionChannelLockResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation MediaServicesClient#removeStreamDistributionChannelLock."
+      );
+    const operationName = "removeStreamDistributionChannelLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{streamDistributionChannelId}":
+        removeStreamDistributionChannelLockRequest.streamDistributionChannelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeStreamDistributionChannelLockRequest.ifMatch,
+      "opc-request-id": removeStreamDistributionChannelLockRequest.opcRequestId,
+      "opc-retry-token": removeStreamDistributionChannelLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeStreamDistributionChannelLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamDistributionChannels/{streamDistributionChannelId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeStreamDistributionChannelLockRequest.removeResourceLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveStreamDistributionChannelLockResponse>{},
+        body: await response.json(),
+        bodyKey: "streamDistributionChannel",
+        bodyModel: model.StreamDistributionChannel,
+        type: "model.StreamDistributionChannel",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock from a StreamPackagingConfig.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveStreamPackagingConfigLockRequest
+   * @return RemoveStreamPackagingConfigLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamPackagingConfigLock.ts.html |here} to see how to use RemoveStreamPackagingConfigLock API.
+   */
+  public async removeStreamPackagingConfigLock(
+    removeStreamPackagingConfigLockRequest: requests.RemoveStreamPackagingConfigLockRequest
+  ): Promise<responses.RemoveStreamPackagingConfigLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MediaServicesClient#removeStreamPackagingConfigLock.");
+    const operationName = "removeStreamPackagingConfigLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{streamPackagingConfigId}": removeStreamPackagingConfigLockRequest.streamPackagingConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeStreamPackagingConfigLockRequest.ifMatch,
+      "opc-request-id": removeStreamPackagingConfigLockRequest.opcRequestId,
+      "opc-retry-token": removeStreamPackagingConfigLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeStreamPackagingConfigLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamPackagingConfigs/{streamPackagingConfigId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeStreamPackagingConfigLockRequest.removeResourceLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveStreamPackagingConfigLockResponse>{},
+        body: await response.json(),
+        bodyKey: "streamPackagingConfig",
+        bodyModel: model.StreamPackagingConfig,
+        type: "model.StreamPackagingConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the MediaAsset.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMediaAssetRequest
@@ -3452,7 +4469,9 @@ export class MediaServicesClient {
       "{mediaAssetId}": updateMediaAssetRequest.mediaAssetId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateMediaAssetRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3534,7 +4553,9 @@ export class MediaServicesClient {
       "{mediaWorkflowId}": updateMediaWorkflowRequest.mediaWorkflowId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateMediaWorkflowRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3617,7 +4638,9 @@ export class MediaServicesClient {
         updateMediaWorkflowConfigurationRequest.mediaWorkflowConfigurationId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateMediaWorkflowConfigurationRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3699,7 +4722,9 @@ export class MediaServicesClient {
       "{mediaWorkflowJobId}": updateMediaWorkflowJobRequest.mediaWorkflowJobId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateMediaWorkflowJobRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3781,7 +4806,9 @@ export class MediaServicesClient {
       "{streamCdnConfigId}": updateStreamCdnConfigRequest.streamCdnConfigId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateStreamCdnConfigRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3864,7 +4891,9 @@ export class MediaServicesClient {
         updateStreamDistributionChannelRequest.streamDistributionChannelId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateStreamDistributionChannelRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3946,7 +4975,9 @@ export class MediaServicesClient {
       "{streamPackagingConfigId}": updateStreamPackagingConfigRequest.streamPackagingConfigId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateStreamPackagingConfigRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3993,11 +5024,6 @@ export class MediaServicesClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -4178,7 +5204,7 @@ export class MediaStreamClient {
   }
 
   /**
-   * Gets the playlist content for the specified Packaging Configuration and Media Asset combination.
+   * Gets the playlist content for the specified Packaging Configuration and Media Asset combination. This API call is made using the MediaStreamsClient, which requires the endpoint to be set with the value of the distribution channel domain name (for example, https://example_channel.dc.mediaservices.example_region.oci.oraclecloud.com) to generate a session token or playlist for a media asset registered in this distribution channel.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GeneratePlaylistRequest
    * @return GeneratePlaylistResponse
@@ -4255,7 +5281,7 @@ export class MediaStreamClient {
   }
 
   /**
-   * Generate a new streaming session token.
+   * Generate a new streaming session token. This API call is made using the MediaStreamsClient, which requires the endpoint to be set with the value of the distribution channel domain name (for example, https://example_channel.dc.mediaservices.example_region.oci.oraclecloud.com) to generate a session token or playlist for a media asset registered in this distribution channel.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateSessionTokenRequest
    * @return GenerateSessionTokenResponse

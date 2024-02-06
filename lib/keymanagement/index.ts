@@ -17,6 +17,7 @@ import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
 import * as ekm_waiter from "./lib/ekm-waiter";
+import * as kmshsmcluster_waiter from "./lib/kmshsmcluster-waiter";
 import * as kmsmanagement_waiter from "./lib/kmsmanagement-waiter";
 import * as kmsvault_waiter from "./lib/kmsvault-waiter";
 
@@ -26,6 +27,8 @@ export { responses };
 export import EkmClient = client.EkmClient;
 export import EkmWaiter = ekm_waiter.EkmWaiter;
 export import KmsCryptoClient = client.KmsCryptoClient;
+export import KmsHsmClusterClient = client.KmsHsmClusterClient;
+export import KmsHsmClusterWaiter = kmshsmcluster_waiter.KmsHsmClusterWaiter;
 export import KmsManagementClient = client.KmsManagementClient;
 export import KmsManagementWaiter = kmsmanagement_waiter.KmsManagementWaiter;
 export import KmsVaultClient = client.KmsVaultClient;

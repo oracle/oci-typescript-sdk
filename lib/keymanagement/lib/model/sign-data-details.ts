@@ -47,6 +47,12 @@ export interface SignDataDetails {
    *
    */
   "signingAlgorithm": SignDataDetails.SigningAlgorithm;
+  /**
+   * Information that can be used to provide context for audit logging. It is a map that contains any additional
+   * data that you provide to include with audit logs, if audit logging is enabled.
+   *
+   */
+  "loggingContext"?: { [key: string]: string };
 }
 
 export namespace SignDataDetails {

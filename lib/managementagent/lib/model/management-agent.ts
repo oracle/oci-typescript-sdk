@@ -118,6 +118,10 @@ export interface ManagementAgent {
    */
   "managementAgentProperties"?: Array<model.ManagementAgentProperty>;
   /**
+   * list of dataSources associated with the agent
+   */
+  "dataSourceList"?: Array<model.DataSource>;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -146,6 +150,11 @@ export namespace ManagementAgent {
           ? obj.managementAgentProperties.map(item => {
               return model.ManagementAgentProperty.getJsonObj(item);
             })
+          : undefined,
+        "dataSourceList": obj.dataSourceList
+          ? obj.dataSourceList.map(item => {
+              return model.DataSource.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -165,6 +174,11 @@ export namespace ManagementAgent {
         "managementAgentProperties": obj.managementAgentProperties
           ? obj.managementAgentProperties.map(item => {
               return model.ManagementAgentProperty.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dataSourceList": obj.dataSourceList
+          ? obj.dataSourceList.map(item => {
+              return model.DataSource.getDeserializedJsonObj(item);
             })
           : undefined
       }

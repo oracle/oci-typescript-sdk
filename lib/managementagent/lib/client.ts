@@ -219,6 +219,86 @@ export class ManagementAgentClient {
   }
 
   /**
+   * Datasource creation request to given Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateDataSourceRequest
+   * @return CreateDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/CreateDataSource.ts.html |here} to see how to use CreateDataSource API.
+   */
+  public async createDataSource(
+    createDataSourceRequest: requests.CreateDataSourceRequest
+  ): Promise<responses.CreateDataSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#createDataSource.");
+    const operationName = "createDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/CreateDataSource";
+    const pathParams = {
+      "{managementAgentId}": createDataSourceRequest.managementAgentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDataSourceRequest.opcRetryToken,
+      "opc-request-id": createDataSourceRequest.opcRequestId,
+      "if-match": createDataSourceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/{managementAgentId}/dataSources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDataSourceRequest.createDataSourceDetails,
+        "CreateDataSourceDetails",
+        model.CreateDataSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDataSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * User creates a new install key as part of this API.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -289,6 +369,81 @@ export class ManagementAgentClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Datasource delete request to given Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDataSourceRequest
+   * @return DeleteDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/DeleteDataSource.ts.html |here} to see how to use DeleteDataSource API.
+   */
+  public async deleteDataSource(
+    deleteDataSourceRequest: requests.DeleteDataSourceRequest
+  ): Promise<responses.DeleteDataSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#deleteDataSource.");
+    const operationName = "deleteDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/DeleteDataSource";
+    const pathParams = {
+      "{managementAgentId}": deleteDataSourceRequest.managementAgentId,
+      "{dataSourceKey}": deleteDataSourceRequest.dataSourceKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDataSourceRequest.ifMatch,
+      "opc-request-id": deleteDataSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/{managementAgentId}/dataSources/{dataSourceKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDataSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -648,6 +803,85 @@ export class ManagementAgentClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Datasource details for given Id and given Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDataSourceRequest
+   * @return GetDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/GetDataSource.ts.html |here} to see how to use GetDataSource API.
+   */
+  public async getDataSource(
+    getDataSourceRequest: requests.GetDataSourceRequest
+  ): Promise<responses.GetDataSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#getDataSource.");
+    const operationName = "getDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/GetDataSource";
+    const pathParams = {
+      "{managementAgentId}": getDataSourceRequest.managementAgentId,
+      "{dataSourceKey}": getDataSourceRequest.dataSourceKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": getDataSourceRequest.opcRetryToken,
+      "opc-request-id": getDataSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/{managementAgentId}/dataSources/{dataSourceKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDataSourceResponse>{},
+        body: await response.json(),
+        bodyKey: "dataSource",
+        bodyModel: model.DataSource,
+        type: "model.DataSource",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -1122,6 +1356,141 @@ export class ManagementAgentClient {
   }
 
   /**
+   * A list of Management Agent Data Sources for the given Management Agent Id.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDataSourcesRequest
+   * @return ListDataSourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListDataSources.ts.html |here} to see how to use ListDataSources API.
+   */
+  public async listDataSources(
+    listDataSourcesRequest: requests.ListDataSourcesRequest
+  ): Promise<responses.ListDataSourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#listDataSources.");
+    const operationName = "listDataSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/ListDataSources";
+    const pathParams = {
+      "{managementAgentId}": listDataSourcesRequest.managementAgentId
+    };
+
+    const queryParams = {
+      "page": listDataSourcesRequest.page,
+      "limit": listDataSourcesRequest.limit,
+      "sortOrder": listDataSourcesRequest.sortOrder,
+      "sortBy": listDataSourcesRequest.sortBy,
+      "name": listDataSourcesRequest.name
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataSourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataSourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/{managementAgentId}/dataSources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataSourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DataSourceSummary,
+        type: "Array<model.DataSourceSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDataSourcesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DataSourceSummary objects
+   * contained in responses from the listDataSources operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDataSources(
+    request: requests.ListDataSourcesRequest
+  ): AsyncIterableIterator<model.DataSourceSummary> {
+    return paginateRecords(request, req => this.listDataSources(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDataSourcesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDataSources operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDataSourcesResponses(
+    request: requests.ListDataSourcesRequest
+  ): AsyncIterableIterator<responses.ListDataSourcesResponse> {
+    return paginateResponses(request, req => this.listDataSources(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DataSourceSummary objects
+   * contained in responses from the listDataSources operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDataSourcesRecordIterator(
+    request: requests.ListDataSourcesRequest
+  ): AsyncIterableIterator<model.DataSourceSummary> {
+    return paginateRecords(request, req => this.listDataSources(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDataSources operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDataSourcesResponseIterator(
+    request: requests.ListDataSourcesRequest
+  ): AsyncIterableIterator<responses.ListDataSourcesResponse> {
+    return paginateResponses(request, req => this.listDataSources(req));
+  }
+
+  /**
    * Get supported agent image information
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1572,7 +1941,9 @@ export class ManagementAgentClient {
       "sortOrder": listManagementAgentsRequest.sortOrder,
       "sortBy": listManagementAgentsRequest.sortBy,
       "compartmentIdInSubtree": listManagementAgentsRequest.compartmentIdInSubtree,
-      "accessLevel": listManagementAgentsRequest.accessLevel
+      "accessLevel": listManagementAgentsRequest.accessLevel,
+      "dataSourceType": listManagementAgentsRequest.dataSourceType,
+      "dataSourceName": listManagementAgentsRequest.dataSourceName
     };
 
     let headerParams = {
@@ -2324,6 +2695,87 @@ export class ManagementAgentClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Datasource update request to given Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDataSourceRequest
+   * @return UpdateDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/UpdateDataSource.ts.html |here} to see how to use UpdateDataSource API.
+   */
+  public async updateDataSource(
+    updateDataSourceRequest: requests.UpdateDataSourceRequest
+  ): Promise<responses.UpdateDataSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#updateDataSource.");
+    const operationName = "updateDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/UpdateDataSource";
+    const pathParams = {
+      "{managementAgentId}": updateDataSourceRequest.managementAgentId,
+      "{dataSourceKey}": updateDataSourceRequest.dataSourceKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateDataSourceRequest.opcRetryToken,
+      "opc-request-id": updateDataSourceRequest.opcRequestId,
+      "if-match": updateDataSourceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/{managementAgentId}/dataSources/{dataSourceKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDataSourceRequest.updateDataSourceDetails,
+        "UpdateDataSourceDetails",
+        model.UpdateDataSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDataSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

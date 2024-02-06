@@ -13,8 +13,12 @@ For more information, see [Management Agent](https://docs.cloud.oracle.com/iaas/
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateDataSourceResponse from "./create-data-source-response";
+export import CreateDataSourceResponse = CreateDataSourceResponse.CreateDataSourceResponse;
 import * as CreateManagementAgentInstallKeyResponse from "./create-management-agent-install-key-response";
 export import CreateManagementAgentInstallKeyResponse = CreateManagementAgentInstallKeyResponse.CreateManagementAgentInstallKeyResponse;
+import * as DeleteDataSourceResponse from "./delete-data-source-response";
+export import DeleteDataSourceResponse = DeleteDataSourceResponse.DeleteDataSourceResponse;
 import * as DeleteManagementAgentResponse from "./delete-management-agent-response";
 export import DeleteManagementAgentResponse = DeleteManagementAgentResponse.DeleteManagementAgentResponse;
 import * as DeleteManagementAgentInstallKeyResponse from "./delete-management-agent-install-key-response";
@@ -25,6 +29,8 @@ import * as DeployPluginsResponse from "./deploy-plugins-response";
 export import DeployPluginsResponse = DeployPluginsResponse.DeployPluginsResponse;
 import * as GetAutoUpgradableConfigResponse from "./get-auto-upgradable-config-response";
 export import GetAutoUpgradableConfigResponse = GetAutoUpgradableConfigResponse.GetAutoUpgradableConfigResponse;
+import * as GetDataSourceResponse from "./get-data-source-response";
+export import GetDataSourceResponse = GetDataSourceResponse.GetDataSourceResponse;
 import * as GetManagementAgentResponse from "./get-management-agent-response";
 export import GetManagementAgentResponse = GetManagementAgentResponse.GetManagementAgentResponse;
 import * as GetManagementAgentInstallKeyResponse from "./get-management-agent-install-key-response";
@@ -35,6 +41,8 @@ import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as ListAvailabilityHistoriesResponse from "./list-availability-histories-response";
 export import ListAvailabilityHistoriesResponse = ListAvailabilityHistoriesResponse.ListAvailabilityHistoriesResponse;
+import * as ListDataSourcesResponse from "./list-data-sources-response";
+export import ListDataSourcesResponse = ListDataSourcesResponse.ListDataSourcesResponse;
 import * as ListManagementAgentImagesResponse from "./list-management-agent-images-response";
 export import ListManagementAgentImagesResponse = ListManagementAgentImagesResponse.ListManagementAgentImagesResponse;
 import * as ListManagementAgentInstallKeysResponse from "./list-management-agent-install-keys-response";
@@ -55,6 +63,8 @@ import * as SummarizeManagementAgentCountsResponse from "./summarize-management-
 export import SummarizeManagementAgentCountsResponse = SummarizeManagementAgentCountsResponse.SummarizeManagementAgentCountsResponse;
 import * as SummarizeManagementAgentPluginCountsResponse from "./summarize-management-agent-plugin-counts-response";
 export import SummarizeManagementAgentPluginCountsResponse = SummarizeManagementAgentPluginCountsResponse.SummarizeManagementAgentPluginCountsResponse;
+import * as UpdateDataSourceResponse from "./update-data-source-response";
+export import UpdateDataSourceResponse = UpdateDataSourceResponse.UpdateDataSourceResponse;
 import * as UpdateManagementAgentResponse from "./update-management-agent-response";
 export import UpdateManagementAgentResponse = UpdateManagementAgentResponse.UpdateManagementAgentResponse;
 import * as UpdateManagementAgentInstallKeyResponse from "./update-management-agent-install-key-response";

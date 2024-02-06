@@ -51,6 +51,7 @@ export interface UpdateSecretDetails {
    */
   "metadata"?: { [key: string]: any };
   "secretContent"?: model.Base64SecretContentDetails;
+  "rotationConfig"?: model.RotationConfig;
   /**
    * A list of rules to control how the secret is used and managed.
    */
@@ -64,6 +65,9 @@ export namespace UpdateSecretDetails {
       ...{
         "secretContent": obj.secretContent
           ? model.SecretContentDetails.getJsonObj(obj.secretContent)
+          : undefined,
+        "rotationConfig": obj.rotationConfig
+          ? model.RotationConfig.getJsonObj(obj.rotationConfig)
           : undefined,
         "secretRules": obj.secretRules
           ? obj.secretRules.map(item => {
@@ -81,6 +85,9 @@ export namespace UpdateSecretDetails {
       ...{
         "secretContent": obj.secretContent
           ? model.SecretContentDetails.getDeserializedJsonObj(obj.secretContent)
+          : undefined,
+        "rotationConfig": obj.rotationConfig
+          ? model.RotationConfig.getDeserializedJsonObj(obj.rotationConfig)
           : undefined,
         "secretRules": obj.secretRules
           ? obj.secretRules.map(item => {

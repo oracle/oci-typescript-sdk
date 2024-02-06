@@ -297,6 +297,77 @@ export class VaultsClient {
   }
 
   /**
+   * Cancels the ongoing secret rotation. The cancellation is contingent on how
+   * far the rotation process has progressed. Upon cancelling a rotation, all
+   * future rotations are also disabled.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelSecretRotationRequest
+   * @return CancelSecretRotationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CancelSecretRotation.ts.html |here} to see how to use CancelSecretRotation API.
+   */
+  public async cancelSecretRotation(
+    cancelSecretRotationRequest: requests.CancelSecretRotationRequest
+  ): Promise<responses.CancelSecretRotationResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#cancelSecretRotation.");
+    const operationName = "cancelSecretRotation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/CancelSecretRotation";
+    const pathParams = {
+      "{secretId}": cancelSecretRotationRequest.secretId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelSecretRotationRequest.ifMatch,
+      "opc-request-id": cancelSecretRotationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelSecretRotationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/secrets/{secretId}/actions/cancelRotation",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelSecretRotationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancels the scheduled deletion of a secret version.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelSecretVersionDeletionRequest
@@ -957,6 +1028,81 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     request: requests.ListSecretsRequest
   ): AsyncIterableIterator<responses.ListSecretsResponse> {
     return paginateResponses(request, req => this.listSecrets(req));
+  }
+
+  /**
+   * API to force rotation of an existing secret in Vault and the specified target system; expects secret to have a valid Target System Details object
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RotateSecretRequest
+   * @return RotateSecretResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/RotateSecret.ts.html |here} to see how to use RotateSecret API.
+   */
+  public async rotateSecret(
+    rotateSecretRequest: requests.RotateSecretRequest
+  ): Promise<responses.RotateSecretResponse> {
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#rotateSecret.");
+    const operationName = "rotateSecret";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/RotateSecret";
+    const pathParams = {
+      "{secretId}": rotateSecretRequest.secretId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rotateSecretRequest.ifMatch,
+      "opc-request-id": rotateSecretRequest.opcRequestId,
+      "opc-retry-token": rotateSecretRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateSecretRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/secrets/{secretId}/actions/rotate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateSecretResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

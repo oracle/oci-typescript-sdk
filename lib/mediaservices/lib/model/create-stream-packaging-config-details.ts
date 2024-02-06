@@ -52,6 +52,10 @@ export interface CreateStreamPackagingConfigDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace CreateStreamPackagingConfigDetails {
@@ -66,6 +70,12 @@ export namespace CreateStreamPackagingConfigDetails {
       ...{
         "encryption": obj.encryption
           ? model.StreamPackagingConfigEncryption.getJsonObj(obj.encryption)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -78,6 +88,12 @@ export namespace CreateStreamPackagingConfigDetails {
       ...{
         "encryption": obj.encryption
           ? model.StreamPackagingConfigEncryption.getDeserializedJsonObj(obj.encryption)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

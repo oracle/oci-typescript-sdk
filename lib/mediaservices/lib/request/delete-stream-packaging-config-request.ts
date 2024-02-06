@@ -23,6 +23,10 @@ export interface DeleteStreamPackagingConfigRequest extends common.BaseRequest {
    */
   "streamPackagingConfigId": string;
   /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

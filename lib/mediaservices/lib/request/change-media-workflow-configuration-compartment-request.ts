@@ -27,6 +27,10 @@ export interface ChangeMediaWorkflowConfigurationCompartmentRequest extends comm
    */
   "changeMediaWorkflowConfigurationCompartmentDetails": model.ChangeMediaWorkflowConfigurationCompartmentDetails;
   /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
+  /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without the risk of executing that same action again. Retry tokens expire after 24
    * hours, but can be invalidated before then due to conflicting operations. For example, if a resource

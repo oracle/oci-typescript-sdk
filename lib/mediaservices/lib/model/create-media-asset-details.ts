@@ -97,6 +97,10 @@ export interface CreateMediaAssetDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace CreateMediaAssetDetails {
@@ -113,6 +117,12 @@ export namespace CreateMediaAssetDetails {
         "mediaAssetTags": obj.mediaAssetTags
           ? obj.mediaAssetTags.map(item => {
               return model.MediaAssetTag.getJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -133,6 +143,12 @@ export namespace CreateMediaAssetDetails {
         "mediaAssetTags": obj.mediaAssetTags
           ? obj.mediaAssetTags.map(item => {
               return model.MediaAssetTag.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

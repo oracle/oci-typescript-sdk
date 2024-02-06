@@ -53,6 +53,7 @@ export namespace JobOutput {
     TranscriptionJob = "TRANSCRIPTION_JOB",
     VisionJob = "VISION_JOB",
     TextAnalysis = "TEXT_ANALYSIS",
+    InputFile = "INPUT_FILE",
     Other = "OTHER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

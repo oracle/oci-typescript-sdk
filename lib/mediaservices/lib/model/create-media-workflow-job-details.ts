@@ -54,13 +54,26 @@ export interface CreateMediaWorkflowJobDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 
   "workflowIdentifierType": string;
 }
 
 export namespace CreateMediaWorkflowJobDetails {
   export function getJsonObj(obj: CreateMediaWorkflowJobDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "workflowIdentifierType" in obj && obj.workflowIdentifierType) {
       switch (obj.workflowIdentifierType) {
@@ -82,7 +95,16 @@ export namespace CreateMediaWorkflowJobDetails {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateMediaWorkflowJobDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "workflowIdentifierType" in obj && obj.workflowIdentifierType) {
       switch (obj.workflowIdentifierType) {

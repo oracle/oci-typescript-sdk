@@ -110,6 +110,10 @@ export interface ManagementAgentSummary {
    */
   "installType"?: model.InstallTypes;
   /**
+   * list of dataSources summaries associated with the agent
+   */
+  "dataSourceSummaryList"?: Array<model.DataSourceSummaryItem>;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -132,6 +136,12 @@ export namespace ManagementAgentSummary {
           ? obj.pluginList.map(item => {
               return model.ManagementAgentPluginDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "dataSourceSummaryList": obj.dataSourceSummaryList
+          ? obj.dataSourceSummaryList.map(item => {
+              return model.DataSourceSummaryItem.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -145,6 +155,12 @@ export namespace ManagementAgentSummary {
         "pluginList": obj.pluginList
           ? obj.pluginList.map(item => {
               return model.ManagementAgentPluginDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "dataSourceSummaryList": obj.dataSourceSummaryList
+          ? obj.dataSourceSummaryList.map(item => {
+              return model.DataSourceSummaryItem.getDeserializedJsonObj(item);
             })
           : undefined
       }

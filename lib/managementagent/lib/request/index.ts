@@ -13,8 +13,12 @@ For more information, see [Management Agent](https://docs.cloud.oracle.com/iaas/
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateDataSourceRequest from "./create-data-source-request";
+export import CreateDataSourceRequest = CreateDataSourceRequest.CreateDataSourceRequest;
 import * as CreateManagementAgentInstallKeyRequest from "./create-management-agent-install-key-request";
 export import CreateManagementAgentInstallKeyRequest = CreateManagementAgentInstallKeyRequest.CreateManagementAgentInstallKeyRequest;
+import * as DeleteDataSourceRequest from "./delete-data-source-request";
+export import DeleteDataSourceRequest = DeleteDataSourceRequest.DeleteDataSourceRequest;
 import * as DeleteManagementAgentRequest from "./delete-management-agent-request";
 export import DeleteManagementAgentRequest = DeleteManagementAgentRequest.DeleteManagementAgentRequest;
 import * as DeleteManagementAgentInstallKeyRequest from "./delete-management-agent-install-key-request";
@@ -25,6 +29,8 @@ import * as DeployPluginsRequest from "./deploy-plugins-request";
 export import DeployPluginsRequest = DeployPluginsRequest.DeployPluginsRequest;
 import * as GetAutoUpgradableConfigRequest from "./get-auto-upgradable-config-request";
 export import GetAutoUpgradableConfigRequest = GetAutoUpgradableConfigRequest.GetAutoUpgradableConfigRequest;
+import * as GetDataSourceRequest from "./get-data-source-request";
+export import GetDataSourceRequest = GetDataSourceRequest.GetDataSourceRequest;
 import * as GetManagementAgentRequest from "./get-management-agent-request";
 export import GetManagementAgentRequest = GetManagementAgentRequest.GetManagementAgentRequest;
 import * as GetManagementAgentInstallKeyRequest from "./get-management-agent-install-key-request";
@@ -35,6 +41,8 @@ import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as ListAvailabilityHistoriesRequest from "./list-availability-histories-request";
 export import ListAvailabilityHistoriesRequest = ListAvailabilityHistoriesRequest.ListAvailabilityHistoriesRequest;
+import * as ListDataSourcesRequest from "./list-data-sources-request";
+export import ListDataSourcesRequest = ListDataSourcesRequest.ListDataSourcesRequest;
 import * as ListManagementAgentImagesRequest from "./list-management-agent-images-request";
 export import ListManagementAgentImagesRequest = ListManagementAgentImagesRequest.ListManagementAgentImagesRequest;
 import * as ListManagementAgentInstallKeysRequest from "./list-management-agent-install-keys-request";
@@ -55,6 +63,8 @@ import * as SummarizeManagementAgentCountsRequest from "./summarize-management-a
 export import SummarizeManagementAgentCountsRequest = SummarizeManagementAgentCountsRequest.SummarizeManagementAgentCountsRequest;
 import * as SummarizeManagementAgentPluginCountsRequest from "./summarize-management-agent-plugin-counts-request";
 export import SummarizeManagementAgentPluginCountsRequest = SummarizeManagementAgentPluginCountsRequest.SummarizeManagementAgentPluginCountsRequest;
+import * as UpdateDataSourceRequest from "./update-data-source-request";
+export import UpdateDataSourceRequest = UpdateDataSourceRequest.UpdateDataSourceRequest;
 import * as UpdateManagementAgentRequest from "./update-management-agent-request";
 export import UpdateManagementAgentRequest = UpdateManagementAgentRequest.UpdateManagementAgentRequest;
 import * as UpdateManagementAgentInstallKeyRequest from "./update-management-agent-install-key-request";

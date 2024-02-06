@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.79.0 - 2024-02-06
+### Added
+- Support for the Globally Distributed Database service
+- Support for secret auto-rotation in the Secret Management service
+- Support for dedicated key management in the Key Management service
+- Support for resource locking operations in the Digital Media service
+- Support for data sources, including prometheus emitter, in the Management Agent service
+- Support for Bring Your Own Certificates (BYOC) in the MySQL HeatWave Database service
+  
+### Breaking Changes
+- The data type of property `type` in request class `ListWorkRequestsRequest` has changed from `model.OperationTypes` to Array of `model.OperationTypes` in the Management Agent service
+- Field `type` was made mandatory in the model `MediaWorkflowTask` in the Digital Media service
+- Field `tasks` was made mandatory in the model `MediaWorkflow` in the Digital Media service
+- Field `opcWorkRequestId` has been removed from response classes `ChangeMediaWorkflowCompartmentResponse`, `ChangeMediaWorkflowConfigurationCompartmentResponse`, `ChangeMediaWorkflowJobCompartmentResponse`, `ChangeStreamDistributionChannelCompartmentResponse`, `DeleteMediaWorkflowConfigurationResponse`, `DeleteMediaWorkflowJobResponse` and `UpdateStreamPackagingConfigResponse` in the Digital Media service
+- enum `Datatypes` has been removed from the Management Agent service
+
+
 ## 2.78.0 - 2024-01-30
 ### Added
 - Support for OCI Control Center service

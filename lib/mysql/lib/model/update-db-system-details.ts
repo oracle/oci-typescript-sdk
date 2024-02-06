@@ -161,6 +161,7 @@ It is not possible to decrease data storage size.
    *
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
+  "secureConnections"?: model.SecureConnectionDetails;
 }
 
 export namespace UpdateDbSystemDetails {
@@ -177,6 +178,10 @@ export namespace UpdateDbSystemDetails {
 
         "deletionPolicy": obj.deletionPolicy
           ? model.UpdateDeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "secureConnections": obj.secureConnections
+          ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
           : undefined
       }
     };
@@ -196,6 +201,10 @@ export namespace UpdateDbSystemDetails {
 
         "deletionPolicy": obj.deletionPolicy
           ? model.UpdateDeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "secureConnections": obj.secureConnections
+          ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
           : undefined
       }
     };
