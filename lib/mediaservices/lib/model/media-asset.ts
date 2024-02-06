@@ -119,6 +119,10 @@ export interface MediaAsset {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace MediaAsset {
@@ -134,6 +138,12 @@ export namespace MediaAsset {
         "mediaAssetTags": obj.mediaAssetTags
           ? obj.mediaAssetTags.map(item => {
               return model.MediaAssetTag.getJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -153,6 +163,12 @@ export namespace MediaAsset {
         "mediaAssetTags": obj.mediaAssetTags
           ? obj.mediaAssetTags.map(item => {
               return model.MediaAssetTag.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

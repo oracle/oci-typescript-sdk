@@ -76,6 +76,10 @@ export interface StreamCdnConfig {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace StreamCdnConfig {
@@ -94,7 +98,13 @@ export namespace StreamCdnConfig {
     const jsonObj = {
       ...obj,
       ...{
-        "config": obj.config ? model.StreamCdnConfigSection.getJsonObj(obj.config) : undefined
+        "config": obj.config ? model.StreamCdnConfigSection.getJsonObj(obj.config) : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -106,6 +116,12 @@ export namespace StreamCdnConfig {
       ...{
         "config": obj.config
           ? model.StreamCdnConfigSection.getDeserializedJsonObj(obj.config)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -75,6 +75,10 @@ export interface MediaWorkflowConfiguration {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace MediaWorkflowConfiguration {
@@ -89,12 +93,30 @@ export namespace MediaWorkflowConfiguration {
   }
 
   export function getJsonObj(obj: MediaWorkflowConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MediaWorkflowConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

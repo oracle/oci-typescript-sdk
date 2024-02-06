@@ -39,7 +39,7 @@ export interface MediaWorkflow {
    * CreateMediaWorkflowDetails or UpdateMediaWorkflowDetails.
    *
    */
-  "tasks"?: Array<model.MediaWorkflowTask>;
+  "tasks": Array<model.MediaWorkflowTask>;
   /**
    * Configurations to be applied to all the runs of this workflow. Parameters in these configurations are
    * overridden by parameters in the MediaWorkflowConfigurations of the MediaWorkflowJob and the
@@ -75,6 +75,10 @@ export interface MediaWorkflow {
    * The version of the MediaWorkflow. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "version"?: number;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -115,6 +119,12 @@ export namespace MediaWorkflow {
           ? obj.tasks.map(item => {
               return model.MediaWorkflowTask.getJsonObj(item);
             })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -128,6 +138,12 @@ export namespace MediaWorkflow {
         "tasks": obj.tasks
           ? obj.tasks.map(item => {
               return model.MediaWorkflowTask.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

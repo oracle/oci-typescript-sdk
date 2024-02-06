@@ -13,6 +13,8 @@
 
 import * as CancelSecretDeletionResponse from "./cancel-secret-deletion-response";
 export import CancelSecretDeletionResponse = CancelSecretDeletionResponse.CancelSecretDeletionResponse;
+import * as CancelSecretRotationResponse from "./cancel-secret-rotation-response";
+export import CancelSecretRotationResponse = CancelSecretRotationResponse.CancelSecretRotationResponse;
 import * as CancelSecretVersionDeletionResponse from "./cancel-secret-version-deletion-response";
 export import CancelSecretVersionDeletionResponse = CancelSecretVersionDeletionResponse.CancelSecretVersionDeletionResponse;
 import * as ChangeSecretCompartmentResponse from "./change-secret-compartment-response";
@@ -27,6 +29,8 @@ import * as ListSecretVersionsResponse from "./list-secret-versions-response";
 export import ListSecretVersionsResponse = ListSecretVersionsResponse.ListSecretVersionsResponse;
 import * as ListSecretsResponse from "./list-secrets-response";
 export import ListSecretsResponse = ListSecretsResponse.ListSecretsResponse;
+import * as RotateSecretResponse from "./rotate-secret-response";
+export import RotateSecretResponse = RotateSecretResponse.RotateSecretResponse;
 import * as ScheduleSecretDeletionResponse from "./schedule-secret-deletion-response";
 export import ScheduleSecretDeletionResponse = ScheduleSecretDeletionResponse.ScheduleSecretDeletionResponse;
 import * as ScheduleSecretVersionDeletionResponse from "./schedule-secret-version-deletion-response";

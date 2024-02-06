@@ -41,6 +41,13 @@ export interface SecretSummary {
    */
   "freeformTags"?: { [key: string]: string };
   /**
+    * System tags for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+* 
+    */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The OCID of the master encryption key that is used to encrypt the secret. You must specify a symmetric key to encrypt the secret during import to the vault. You cannot encrypt secrets with asymmetric keys. Furthermore, the key must exist in the vault that you specify.
    *
    */
@@ -57,6 +64,23 @@ export interface SecretSummary {
    * The current lifecycle state of the secret.
    */
   "lifecycleState": SecretSummary.LifecycleState;
+  "rotationConfig"?: model.RotationConfig;
+  /**
+   * Additional information about the status of the secret rotation
+   */
+  "rotationStatus"?: string;
+  /**
+   * A property indicating when the secret was last rotated successfully, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   * Example: {@code 2019-04-03T21:10:29.600Z}
+   *
+   */
+  "lastRotationTime"?: Date;
+  /**
+   * A property indicating when the secret is scheduled to be rotated, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   * Example: {@code 2019-04-03T21:10:29.600Z}
+   *
+   */
+  "nextRotationTime"?: Date;
   /**
    * The name of the secret.
    */
@@ -104,12 +128,26 @@ export namespace SecretSummary {
   }
 
   export function getJsonObj(obj: SecretSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "rotationConfig": obj.rotationConfig
+          ? model.RotationConfig.getJsonObj(obj.rotationConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: SecretSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "rotationConfig": obj.rotationConfig
+          ? model.RotationConfig.getDeserializedJsonObj(obj.rotationConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

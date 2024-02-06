@@ -15,6 +15,8 @@ import * as ChangeSecretCompartmentDetails from "./change-secret-compartment-det
 export import ChangeSecretCompartmentDetails = ChangeSecretCompartmentDetails.ChangeSecretCompartmentDetails;
 import * as CreateSecretDetails from "./create-secret-details";
 export import CreateSecretDetails = CreateSecretDetails.CreateSecretDetails;
+import * as RotationConfig from "./rotation-config";
+export import RotationConfig = RotationConfig.RotationConfig;
 import * as ScheduleSecretDeletionDetails from "./schedule-secret-deletion-details";
 export import ScheduleSecretDeletionDetails = ScheduleSecretDeletionDetails.ScheduleSecretDeletionDetails;
 import * as ScheduleSecretVersionDeletionDetails from "./schedule-secret-version-deletion-details";
@@ -31,11 +33,17 @@ import * as SecretVersion from "./secret-version";
 export import SecretVersion = SecretVersion.SecretVersion;
 import * as SecretVersionSummary from "./secret-version-summary";
 export import SecretVersionSummary = SecretVersionSummary.SecretVersionSummary;
+import * as TargetSystemDetails from "./target-system-details";
+export import TargetSystemDetails = TargetSystemDetails.TargetSystemDetails;
 import * as UpdateSecretDetails from "./update-secret-details";
 export import UpdateSecretDetails = UpdateSecretDetails.UpdateSecretDetails;
 
+import * as AdbTargetSystemDetails from "./adb-target-system-details";
+export import AdbTargetSystemDetails = AdbTargetSystemDetails.AdbTargetSystemDetails;
 import * as Base64SecretContentDetails from "./base64-secret-content-details";
 export import Base64SecretContentDetails = Base64SecretContentDetails.Base64SecretContentDetails;
+import * as FunctionTargetSystemDetails from "./function-target-system-details";
+export import FunctionTargetSystemDetails = FunctionTargetSystemDetails.FunctionTargetSystemDetails;
 import * as SecretExpiryRule from "./secret-expiry-rule";
 export import SecretExpiryRule = SecretExpiryRule.SecretExpiryRule;
 import * as SecretReuseRule from "./secret-reuse-rule";

@@ -1,6 +1,6 @@
 {
   "name": "oci-stackmonitoring",
-  "version": "2.78.0",
+  "version": "2.79.0",
   "description": "OCI NodeJS client for Stack Monitoring Service",
   "repository": {
     "type": "git",

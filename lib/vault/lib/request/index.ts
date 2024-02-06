@@ -13,6 +13,8 @@
 
 import * as CancelSecretDeletionRequest from "./cancel-secret-deletion-request";
 export import CancelSecretDeletionRequest = CancelSecretDeletionRequest.CancelSecretDeletionRequest;
+import * as CancelSecretRotationRequest from "./cancel-secret-rotation-request";
+export import CancelSecretRotationRequest = CancelSecretRotationRequest.CancelSecretRotationRequest;
 import * as CancelSecretVersionDeletionRequest from "./cancel-secret-version-deletion-request";
 export import CancelSecretVersionDeletionRequest = CancelSecretVersionDeletionRequest.CancelSecretVersionDeletionRequest;
 import * as ChangeSecretCompartmentRequest from "./change-secret-compartment-request";
@@ -27,6 +29,8 @@ import * as ListSecretVersionsRequest from "./list-secret-versions-request";
 export import ListSecretVersionsRequest = ListSecretVersionsRequest.ListSecretVersionsRequest;
 import * as ListSecretsRequest from "./list-secrets-request";
 export import ListSecretsRequest = ListSecretsRequest.ListSecretsRequest;
+import * as RotateSecretRequest from "./rotate-secret-request";
+export import RotateSecretRequest = RotateSecretRequest.RotateSecretRequest;
 import * as ScheduleSecretDeletionRequest from "./schedule-secret-deletion-request";
 export import ScheduleSecretDeletionRequest = ScheduleSecretDeletionRequest.ScheduleSecretDeletionRequest;
 import * as ScheduleSecretVersionDeletionRequest from "./schedule-secret-version-deletion-request";

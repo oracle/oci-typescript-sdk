@@ -45,6 +45,10 @@ export interface SystemMediaWorkflow {
    *
    */
   "tasks": Array<model.MediaWorkflowTask>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace SystemMediaWorkflow {
@@ -55,6 +59,11 @@ export namespace SystemMediaWorkflow {
         "tasks": obj.tasks
           ? obj.tasks.map(item => {
               return model.MediaWorkflowTask.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -69,6 +78,11 @@ export namespace SystemMediaWorkflow {
         "tasks": obj.tasks
           ? obj.tasks.map(item => {
               return model.MediaWorkflowTask.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

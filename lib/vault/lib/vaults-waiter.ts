@@ -43,4 +43,27 @@ export class VaultsWaiter {
       targetStates.includes(models.Secret.LifecycleState.Deleted)
     );
   }
+
+  /**
+   * Waits forRotateSecret
+   *
+   * @param request the request to send
+   * @return response returns RotateSecretResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateSecret(
+    request: serviceRequests.RotateSecretRequest
+  ): Promise<{
+    response: serviceResponses.RotateSecretResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateSecretResponse = await this.client.rotateSecret(request);
+    if (rotateSecretResponse.opcWorkRequestId === undefined)
+      return { response: rotateSecretResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateSecretResponse.opcWorkRequestId
+    );
+    return { response: rotateSecretResponse, workRequestResponse: getWorkRequestResponse };
+  }
 }

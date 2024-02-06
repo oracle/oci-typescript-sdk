@@ -21,6 +21,7 @@ import common = require("oci-common");
  * X86_64 - Package architecture is x86-64
  * SPARC - Package architecture is SPARC
  * M1 - Package architecture for M1 chipset
+ * AARCH64
  *
  **/
 export enum ArchitectureTypes {
@@ -28,6 +29,7 @@ export enum ArchitectureTypes {
   Sparc = "SPARC",
   X86 = "X86",
   M1 = "M1",
+  Aarch64 = "AARCH64",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -18,6 +18,7 @@ import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
 import { EkmWaiter } from "./ekm-waiter";
+import { KmsHsmClusterWaiter } from "./kmshsmcluster-waiter";
 import { KmsManagementWaiter } from "./kmsmanagement-waiter";
 import { KmsVaultWaiter } from "./kmsvault-waiter";
 import {
@@ -1209,6 +1210,1176 @@ export class KmsCryptoClient {
         bodyModel: model.VerifiedData,
         type: "model.VerifiedData",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum KmsHsmClusterApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class KmsHsmClusterClient {
+  protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": KmsHsmClusterWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "KmsHsmCluster";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("keymanagement")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("keymanagement");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    if (this.logger) this.logger.info(`KmsHsmClusterClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        KmsHsmClusterClient.serviceEndpointTemplate,
+        this._region,
+        KmsHsmClusterClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        KmsHsmClusterClient.serviceEndpointTemplate,
+        this._regionId,
+        KmsHsmClusterClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      KmsHsmClusterClient.serviceEndpointTemplate,
+      region,
+      KmsHsmClusterClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      KmsHsmClusterClient.serviceEndpointTemplate,
+      regionId,
+      KmsHsmClusterClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new KmsHsmClusterWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): KmsHsmClusterWaiter {
+    this._waiters = new KmsHsmClusterWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): KmsHsmClusterWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Cancels deletion of specified HSM Cluster, restores it and associated HSM partitions to pre-deletion states.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CancelHsmClusterDeletionRequest
+   * @return CancelHsmClusterDeletionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelHsmClusterDeletion.ts.html |here} to see how to use CancelHsmClusterDeletion API.
+   */
+  public async cancelHsmClusterDeletion(
+    cancelHsmClusterDeletionRequest: requests.CancelHsmClusterDeletionRequest
+  ): Promise<responses.CancelHsmClusterDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#cancelHsmClusterDeletion.");
+    const operationName = "cancelHsmClusterDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/CancelHsmClusterDeletion";
+    const pathParams = {
+      "{hsmClusterId}": cancelHsmClusterDeletionRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelHsmClusterDeletionRequest.ifMatch,
+      "opc-request-id": cancelHsmClusterDeletionRequest.opcRequestId,
+      "opc-retry-token": cancelHsmClusterDeletionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelHsmClusterDeletionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/cancelDeletion",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelHsmClusterDeletionResponse>{},
+        body: await response.json(),
+        bodyKey: "hsmCluster",
+        bodyModel: model.HsmCluster,
+        type: "model.HsmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a HSM Cluster resource to a different compartment within the same tenancy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeHsmClusterCompartmentRequest
+   * @return ChangeHsmClusterCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ChangeHsmClusterCompartment.ts.html |here} to see how to use ChangeHsmClusterCompartment API.
+   */
+  public async changeHsmClusterCompartment(
+    changeHsmClusterCompartmentRequest: requests.ChangeHsmClusterCompartmentRequest
+  ): Promise<responses.ChangeHsmClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#changeHsmClusterCompartment.");
+    const operationName = "changeHsmClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/ChangeHsmClusterCompartment";
+    const pathParams = {
+      "{hsmClusterId}": changeHsmClusterCompartmentRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeHsmClusterCompartmentRequest.ifMatch,
+      "opc-request-id": changeHsmClusterCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeHsmClusterCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeHsmClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeHsmClusterCompartmentRequest.changeHsmClusterCompartmentDetails,
+        "ChangeHsmClusterCompartmentDetails",
+        model.ChangeHsmClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeHsmClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new HSM cluster resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateHsmClusterRequest
+   * @return CreateHsmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateHsmCluster.ts.html |here} to see how to use CreateHsmCluster API.
+   */
+  public async createHsmCluster(
+    createHsmClusterRequest: requests.CreateHsmClusterRequest
+  ): Promise<responses.CreateHsmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#createHsmCluster.");
+    const operationName = "createHsmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/CreateHsmCluster";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createHsmClusterRequest.opcRequestId,
+      "opc-retry-token": createHsmClusterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHsmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createHsmClusterRequest.createHsmClusterDetails,
+        "CreateHsmClusterDetails",
+        model.CreateHsmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateHsmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "hsmCluster",
+        bodyModel: model.HsmCluster,
+        type: "model.HsmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the certificate signing request for the designated HSM Cluster resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadCertificateSigningRequestRequest
+   * @return DownloadCertificateSigningRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DownloadCertificateSigningRequest.ts.html |here} to see how to use DownloadCertificateSigningRequest API.
+   */
+  public async downloadCertificateSigningRequest(
+    downloadCertificateSigningRequestRequest: requests.DownloadCertificateSigningRequestRequest
+  ): Promise<responses.DownloadCertificateSigningRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#downloadCertificateSigningRequest.");
+    const operationName = "downloadCertificateSigningRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/DownloadCertificateSigningRequest";
+    const pathParams = {
+      "{hsmClusterId}": downloadCertificateSigningRequestRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadCertificateSigningRequestRequest.opcRequestId,
+      "opc-retry-token": downloadCertificateSigningRequestRequest.opcRetryToken,
+      "if-match": downloadCertificateSigningRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadCertificateSigningRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/downloadCertificateSigningRequest",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadCertificateSigningRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "value",
+        bodyModel: "string",
+        type: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Retrieves configuration details for the specified HSM Cluster resource.
+* <p>
+As a provisioning operation, this call is subject to a Key Management limit that applies to
+* the total number of requests across all provisioning read operations. Key Management might
+* throttle this call to reject an otherwise valid request when the total rate of provisioning
+* read operations exceeds 10 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param GetHsmClusterRequest
+     * @return GetHsmClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetHsmCluster.ts.html |here} to see how to use GetHsmCluster API.
+     */
+  public async getHsmCluster(
+    getHsmClusterRequest: requests.GetHsmClusterRequest
+  ): Promise<responses.GetHsmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#getHsmCluster.");
+    const operationName = "getHsmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/GetHsmCluster";
+    const pathParams = {
+      "{hsmClusterId}": getHsmClusterRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHsmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHsmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHsmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "hsmCluster",
+        bodyModel: model.HsmCluster,
+        type: "model.HsmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves HSM partition details for the specified HSM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetHsmPartitionRequest
+   * @return GetHsmPartitionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetHsmPartition.ts.html |here} to see how to use GetHsmPartition API.
+   */
+  public async getHsmPartition(
+    getHsmPartitionRequest: requests.GetHsmPartitionRequest
+  ): Promise<responses.GetHsmPartitionResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#getHsmPartition.");
+    const operationName = "getHsmPartition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmPartition/GetHsmPartition";
+    const pathParams = {
+      "{hsmClusterId}": getHsmPartitionRequest.hsmClusterId,
+      "{hsmPartitionId}": getHsmPartitionRequest.hsmPartitionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHsmPartitionRequest.opcRequestId,
+      "opc-retry-token": getHsmPartitionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHsmPartitionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/hsmPartitions/{hsmPartitionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHsmPartitionResponse>{},
+        body: await response.json(),
+        bodyKey: "hsmPartition",
+        bodyModel: model.HsmPartition,
+        type: "model.HsmPartition",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves Pre Crypto Officer user credentials for the specified HSM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetPreCoUserCredentialsRequest
+   * @return GetPreCoUserCredentialsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetPreCoUserCredentials.ts.html |here} to see how to use GetPreCoUserCredentials API.
+   */
+  public async getPreCoUserCredentials(
+    getPreCoUserCredentialsRequest: requests.GetPreCoUserCredentialsRequest
+  ): Promise<responses.GetPreCoUserCredentialsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#getPreCoUserCredentials.");
+    const operationName = "getPreCoUserCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/GetPreCoUserCredentials";
+    const pathParams = {
+      "{hsmClusterId}": getPreCoUserCredentialsRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPreCoUserCredentialsRequest.opcRequestId,
+      "opc-retry-token": getPreCoUserCredentialsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPreCoUserCredentialsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/preCoUserCredentials",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPreCoUserCredentialsResponse>{},
+        body: await response.json(),
+        bodyKey: "preCoUserCredentials",
+        bodyModel: model.PreCoUserCredentials,
+        type: "model.PreCoUserCredentials",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Lists all HSM cluster resources contained within the specified compartment.
+* <p>
+As a provisioning operation, this call is subject to a Key Management limit that applies to
+* the total number of requests across all provisioning read operations. Key Management might
+* throttle this call to reject an otherwise valid request when the total rate of provisioning
+* read operations exceeds 10 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListHsmClustersRequest
+     * @return ListHsmClustersResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListHsmClusters.ts.html |here} to see how to use ListHsmClusters API.
+     */
+  public async listHsmClusters(
+    listHsmClustersRequest: requests.ListHsmClustersRequest
+  ): Promise<responses.ListHsmClustersResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#listHsmClusters.");
+    const operationName = "listHsmClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/ListHsmClusters";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listHsmClustersRequest.compartmentId,
+      "limit": listHsmClustersRequest.limit,
+      "page": listHsmClustersRequest.page,
+      "sortBy": listHsmClustersRequest.sortBy,
+      "sortOrder": listHsmClustersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHsmClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHsmClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHsmClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "hsmClusterCollection",
+        bodyModel: model.HsmClusterCollection,
+        type: "model.HsmClusterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists all HSM partitions within the specified HSM Cluster resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListHsmPartitionsRequest
+   * @return ListHsmPartitionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListHsmPartitions.ts.html |here} to see how to use ListHsmPartitions API.
+   */
+  public async listHsmPartitions(
+    listHsmPartitionsRequest: requests.ListHsmPartitionsRequest
+  ): Promise<responses.ListHsmPartitionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#listHsmPartitions.");
+    const operationName = "listHsmPartitions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmPartition/ListHsmPartitions";
+    const pathParams = {
+      "{hsmClusterId}": listHsmPartitionsRequest.hsmClusterId
+    };
+
+    const queryParams = {
+      "limit": listHsmPartitionsRequest.limit,
+      "page": listHsmPartitionsRequest.page,
+      "sortBy": listHsmPartitionsRequest.sortBy,
+      "sortOrder": listHsmPartitionsRequest.sortOrder,
+      "lifecycleState": listHsmPartitionsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHsmPartitionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHsmPartitionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/hsmPartitions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHsmPartitionsResponse>{},
+        body: await response.json(),
+        bodyKey: "hsmPartitionCollection",
+        bodyModel: model.HsmPartitionCollection,
+        type: "model.HsmPartitionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Schedules HSM cluster for deletion, update its lifecycle state to 'PENDING_DELETION'
+   * and deletes it after the retention period.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ScheduleHsmClusterDeletionRequest
+   * @return ScheduleHsmClusterDeletionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleHsmClusterDeletion.ts.html |here} to see how to use ScheduleHsmClusterDeletion API.
+   */
+  public async scheduleHsmClusterDeletion(
+    scheduleHsmClusterDeletionRequest: requests.ScheduleHsmClusterDeletionRequest
+  ): Promise<responses.ScheduleHsmClusterDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#scheduleHsmClusterDeletion.");
+    const operationName = "scheduleHsmClusterDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/ScheduleHsmClusterDeletion";
+    const pathParams = {
+      "{hsmClusterId}": scheduleHsmClusterDeletionRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": scheduleHsmClusterDeletionRequest.ifMatch,
+      "opc-request-id": scheduleHsmClusterDeletionRequest.opcRequestId,
+      "opc-retry-token": scheduleHsmClusterDeletionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleHsmClusterDeletionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/scheduleDeletion",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        scheduleHsmClusterDeletionRequest.scheduleHsmClusterDeletionDetails,
+        "ScheduleHsmClusterDeletionDetails",
+        model.ScheduleHsmClusterDeletionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ScheduleHsmClusterDeletionResponse>{},
+        body: await response.json(),
+        bodyKey: "hsmCluster",
+        bodyModel: model.HsmCluster,
+        type: "model.HsmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Modifies properties of an HSM cluster resource, including `displayName`, `freeformTags` and `definedTags`.
+* <p>
+As a provisioning operation, this call is subject to a Key Management limit that applies to
+* the total number of requests across all provisioning write operations. Key Management might
+* throttle this call to reject an otherwise valid request when the total rate of provisioning
+* write operations exceeds 10 requests per second for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateHsmClusterRequest
+     * @return UpdateHsmClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateHsmCluster.ts.html |here} to see how to use UpdateHsmCluster API.
+     */
+  public async updateHsmCluster(
+    updateHsmClusterRequest: requests.UpdateHsmClusterRequest
+  ): Promise<responses.UpdateHsmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#updateHsmCluster.");
+    const operationName = "updateHsmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/UpdateHsmCluster";
+    const pathParams = {
+      "{hsmClusterId}": updateHsmClusterRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateHsmClusterRequest.ifMatch,
+      "opc-request-id": updateHsmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHsmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateHsmClusterRequest.updateHsmClusterDetails,
+        "UpdateHsmClusterDetails",
+        model.UpdateHsmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateHsmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "hsmCluster",
+        bodyModel: model.HsmCluster,
+        type: "model.HsmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Uploads the partition owner certificates to the HSM Cluster resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UploadPartitionCertificatesRequest
+   * @return UploadPartitionCertificatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UploadPartitionCertificates.ts.html |here} to see how to use UploadPartitionCertificates API.
+   */
+  public async uploadPartitionCertificates(
+    uploadPartitionCertificatesRequest: requests.UploadPartitionCertificatesRequest
+  ): Promise<responses.UploadPartitionCertificatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#uploadPartitionCertificates.");
+    const operationName = "uploadPartitionCertificates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/UploadPartitionCertificates";
+    const pathParams = {
+      "{hsmClusterId}": uploadPartitionCertificatesRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": uploadPartitionCertificatesRequest.opcRequestId,
+      "opc-retry-token": uploadPartitionCertificatesRequest.opcRetryToken,
+      "if-match": uploadPartitionCertificatesRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadPartitionCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/uploadPartitionCertificates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        uploadPartitionCertificatesRequest.uploadPartitionCertificatesDetails,
+        "UploadPartitionCertificatesDetails",
+        model.UploadPartitionCertificatesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UploadPartitionCertificatesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

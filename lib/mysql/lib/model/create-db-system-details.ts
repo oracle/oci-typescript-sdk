@@ -163,6 +163,7 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    *
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
+  "secureConnections"?: model.SecureConnectionDetails;
 }
 
 export namespace CreateDbSystemDetails {
@@ -180,6 +181,10 @@ export namespace CreateDbSystemDetails {
 
         "deletionPolicy": obj.deletionPolicy
           ? model.CreateDeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "secureConnections": obj.secureConnections
+          ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
           : undefined
       }
     };
@@ -202,6 +207,10 @@ export namespace CreateDbSystemDetails {
 
         "deletionPolicy": obj.deletionPolicy
           ? model.CreateDeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "secureConnections": obj.secureConnections
+          ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
           : undefined
       }
     };

@@ -90,6 +90,10 @@ export interface MediaWorkflowJob {
    */
   "timeEnded"?: Date;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -114,6 +118,7 @@ export namespace MediaWorkflowJob {
     Accepted = "ACCEPTED",
     InProgress = "IN_PROGRESS",
     Waiting = "WAITING",
+    Rejected = "REJECTED",
     Failed = "FAILED",
     Succeeded = "SUCCEEDED",
     Canceling = "CANCELING",
@@ -139,6 +144,12 @@ export namespace MediaWorkflowJob {
           ? obj.outputs.map(item => {
               return model.JobOutput.getJsonObj(item);
             })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -158,6 +169,12 @@ export namespace MediaWorkflowJob {
         "outputs": obj.outputs
           ? obj.outputs.map(item => {
               return model.JobOutput.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -23,6 +23,10 @@ export interface DeleteStreamDistributionChannelRequest extends common.BaseReque
    */
   "streamDistributionChannelId": string;
   /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

@@ -27,6 +27,10 @@ export interface UpdateMediaWorkflowRequest extends common.BaseRequest {
    */
   "updateMediaWorkflowDetails": model.UpdateMediaWorkflowDetails;
   /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
+  /**
    * For optimistic concurrency control. In the PUT or DELETE call
    * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.

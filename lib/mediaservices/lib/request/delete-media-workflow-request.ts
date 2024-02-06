@@ -23,6 +23,10 @@ export interface DeleteMediaWorkflowRequest extends common.BaseRequest {
    */
   "mediaWorkflowId": string;
   /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

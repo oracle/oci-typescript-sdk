@@ -178,6 +178,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    *
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
+  "secureConnections"?: model.SecureConnectionDetails;
 }
 
 export namespace DbSystem {
@@ -233,6 +234,10 @@ export namespace DbSystem {
 
         "pointInTimeRecoveryDetails": obj.pointInTimeRecoveryDetails
           ? model.PointInTimeRecoveryDetails.getJsonObj(obj.pointInTimeRecoveryDetails)
+          : undefined,
+
+        "secureConnections": obj.secureConnections
+          ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
           : undefined
       }
     };
@@ -276,6 +281,10 @@ export namespace DbSystem {
 
         "pointInTimeRecoveryDetails": obj.pointInTimeRecoveryDetails
           ? model.PointInTimeRecoveryDetails.getDeserializedJsonObj(obj.pointInTimeRecoveryDetails)
+          : undefined,
+
+        "secureConnections": obj.secureConnections
+          ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
           : undefined
       }
     };

@@ -92,6 +92,14 @@ export interface ListManagementAgentsRequest extends common.BaseRequest {
    *
    */
   "accessLevel"?: string;
+  /**
+   * The type of the dataSource.
+   */
+  "dataSourceType"?: model.DataSourceTypes;
+  /**
+   * Unique name of the dataSource.
+   */
+  "dataSourceName"?: Array<string>;
 }
 
 export namespace ListManagementAgentsRequest {

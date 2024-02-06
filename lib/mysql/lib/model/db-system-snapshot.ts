@@ -137,6 +137,7 @@ export interface DbSystemSnapshot {
    *
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
+  "secureConnections"?: model.SecureConnectionDetails;
 }
 
 export namespace DbSystemSnapshot {
@@ -158,6 +159,10 @@ export namespace DbSystemSnapshot {
           : undefined,
         "deletionPolicy": obj.deletionPolicy
           ? model.DeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "secureConnections": obj.secureConnections
+          ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
           : undefined
       }
     };
@@ -182,6 +187,10 @@ export namespace DbSystemSnapshot {
           : undefined,
         "deletionPolicy": obj.deletionPolicy
           ? model.DeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "secureConnections": obj.secureConnections
+          ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
           : undefined
       }
     };

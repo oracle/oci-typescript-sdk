@@ -14,6 +14,20 @@ Use the Media Services API to configure media workflows and run Media Flow jobs,
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddMediaAssetLockResponse from "./add-media-asset-lock-response";
+export import AddMediaAssetLockResponse = AddMediaAssetLockResponse.AddMediaAssetLockResponse;
+import * as AddMediaWorkflowConfigurationLockResponse from "./add-media-workflow-configuration-lock-response";
+export import AddMediaWorkflowConfigurationLockResponse = AddMediaWorkflowConfigurationLockResponse.AddMediaWorkflowConfigurationLockResponse;
+import * as AddMediaWorkflowJobLockResponse from "./add-media-workflow-job-lock-response";
+export import AddMediaWorkflowJobLockResponse = AddMediaWorkflowJobLockResponse.AddMediaWorkflowJobLockResponse;
+import * as AddMediaWorkflowLockResponse from "./add-media-workflow-lock-response";
+export import AddMediaWorkflowLockResponse = AddMediaWorkflowLockResponse.AddMediaWorkflowLockResponse;
+import * as AddStreamCdnConfigLockResponse from "./add-stream-cdn-config-lock-response";
+export import AddStreamCdnConfigLockResponse = AddStreamCdnConfigLockResponse.AddStreamCdnConfigLockResponse;
+import * as AddStreamDistributionChannelLockResponse from "./add-stream-distribution-channel-lock-response";
+export import AddStreamDistributionChannelLockResponse = AddStreamDistributionChannelLockResponse.AddStreamDistributionChannelLockResponse;
+import * as AddStreamPackagingConfigLockResponse from "./add-stream-packaging-config-lock-response";
+export import AddStreamPackagingConfigLockResponse = AddStreamPackagingConfigLockResponse.AddStreamPackagingConfigLockResponse;
 import * as ChangeMediaAssetCompartmentResponse from "./change-media-asset-compartment-response";
 export import ChangeMediaAssetCompartmentResponse = ChangeMediaAssetCompartmentResponse.ChangeMediaAssetCompartmentResponse;
 import * as ChangeMediaWorkflowCompartmentResponse from "./change-media-workflow-compartment-response";
@@ -64,8 +78,6 @@ import * as GetMediaWorkflowConfigurationResponse from "./get-media-workflow-con
 export import GetMediaWorkflowConfigurationResponse = GetMediaWorkflowConfigurationResponse.GetMediaWorkflowConfigurationResponse;
 import * as GetMediaWorkflowJobResponse from "./get-media-workflow-job-response";
 export import GetMediaWorkflowJobResponse = GetMediaWorkflowJobResponse.GetMediaWorkflowJobResponse;
-import * as GetMediaWorkflowJobFactResponse from "./get-media-workflow-job-fact-response";
-export import GetMediaWorkflowJobFactResponse = GetMediaWorkflowJobFactResponse.GetMediaWorkflowJobFactResponse;
 import * as GetStreamCdnConfigResponse from "./get-stream-cdn-config-response";
 export import GetStreamCdnConfigResponse = GetStreamCdnConfigResponse.GetStreamCdnConfigResponse;
 import * as GetStreamDistributionChannelResponse from "./get-stream-distribution-channel-response";
@@ -80,8 +92,6 @@ import * as ListMediaAssetsResponse from "./list-media-assets-response";
 export import ListMediaAssetsResponse = ListMediaAssetsResponse.ListMediaAssetsResponse;
 import * as ListMediaWorkflowConfigurationsResponse from "./list-media-workflow-configurations-response";
 export import ListMediaWorkflowConfigurationsResponse = ListMediaWorkflowConfigurationsResponse.ListMediaWorkflowConfigurationsResponse;
-import * as ListMediaWorkflowJobFactsResponse from "./list-media-workflow-job-facts-response";
-export import ListMediaWorkflowJobFactsResponse = ListMediaWorkflowJobFactsResponse.ListMediaWorkflowJobFactsResponse;
 import * as ListMediaWorkflowJobsResponse from "./list-media-workflow-jobs-response";
 export import ListMediaWorkflowJobsResponse = ListMediaWorkflowJobsResponse.ListMediaWorkflowJobsResponse;
 import * as ListMediaWorkflowTaskDeclarationsResponse from "./list-media-workflow-task-declarations-response";
@@ -96,6 +106,20 @@ import * as ListStreamPackagingConfigsResponse from "./list-stream-packaging-con
 export import ListStreamPackagingConfigsResponse = ListStreamPackagingConfigsResponse.ListStreamPackagingConfigsResponse;
 import * as ListSystemMediaWorkflowsResponse from "./list-system-media-workflows-response";
 export import ListSystemMediaWorkflowsResponse = ListSystemMediaWorkflowsResponse.ListSystemMediaWorkflowsResponse;
+import * as RemoveMediaAssetLockResponse from "./remove-media-asset-lock-response";
+export import RemoveMediaAssetLockResponse = RemoveMediaAssetLockResponse.RemoveMediaAssetLockResponse;
+import * as RemoveMediaWorkflowConfigurationLockResponse from "./remove-media-workflow-configuration-lock-response";
+export import RemoveMediaWorkflowConfigurationLockResponse = RemoveMediaWorkflowConfigurationLockResponse.RemoveMediaWorkflowConfigurationLockResponse;
+import * as RemoveMediaWorkflowJobLockResponse from "./remove-media-workflow-job-lock-response";
+export import RemoveMediaWorkflowJobLockResponse = RemoveMediaWorkflowJobLockResponse.RemoveMediaWorkflowJobLockResponse;
+import * as RemoveMediaWorkflowLockResponse from "./remove-media-workflow-lock-response";
+export import RemoveMediaWorkflowLockResponse = RemoveMediaWorkflowLockResponse.RemoveMediaWorkflowLockResponse;
+import * as RemoveStreamCdnConfigLockResponse from "./remove-stream-cdn-config-lock-response";
+export import RemoveStreamCdnConfigLockResponse = RemoveStreamCdnConfigLockResponse.RemoveStreamCdnConfigLockResponse;
+import * as RemoveStreamDistributionChannelLockResponse from "./remove-stream-distribution-channel-lock-response";
+export import RemoveStreamDistributionChannelLockResponse = RemoveStreamDistributionChannelLockResponse.RemoveStreamDistributionChannelLockResponse;
+import * as RemoveStreamPackagingConfigLockResponse from "./remove-stream-packaging-config-lock-response";
+export import RemoveStreamPackagingConfigLockResponse = RemoveStreamPackagingConfigLockResponse.RemoveStreamPackagingConfigLockResponse;
 import * as UpdateMediaAssetResponse from "./update-media-asset-response";
 export import UpdateMediaAssetResponse = UpdateMediaAssetResponse.UpdateMediaAssetResponse;
 import * as UpdateMediaWorkflowResponse from "./update-media-workflow-response";

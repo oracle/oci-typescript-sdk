@@ -45,6 +45,10 @@ export interface MediaAssetDistributionChannelAttachment {
    * The ingest MediaWorkflowJob ID that created this attachment.
    */
   "mediaWorkflowJobId"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace MediaAssetDistributionChannelAttachment {
@@ -61,12 +65,30 @@ export namespace MediaAssetDistributionChannelAttachment {
   }
 
   export function getJsonObj(obj: MediaAssetDistributionChannelAttachment): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MediaAssetDistributionChannelAttachment): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

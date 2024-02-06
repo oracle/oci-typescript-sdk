@@ -63,6 +63,13 @@ export interface SecretVersionSummary {
    * The version number of the secret. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "versionNumber": number;
+  /**
+    * System tags for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+* 
+    */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace SecretVersionSummary {

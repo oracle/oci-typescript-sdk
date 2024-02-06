@@ -14,6 +14,20 @@ Use the Media Services API to configure media workflows and run Media Flow jobs,
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddMediaAssetLockRequest from "./add-media-asset-lock-request";
+export import AddMediaAssetLockRequest = AddMediaAssetLockRequest.AddMediaAssetLockRequest;
+import * as AddMediaWorkflowConfigurationLockRequest from "./add-media-workflow-configuration-lock-request";
+export import AddMediaWorkflowConfigurationLockRequest = AddMediaWorkflowConfigurationLockRequest.AddMediaWorkflowConfigurationLockRequest;
+import * as AddMediaWorkflowJobLockRequest from "./add-media-workflow-job-lock-request";
+export import AddMediaWorkflowJobLockRequest = AddMediaWorkflowJobLockRequest.AddMediaWorkflowJobLockRequest;
+import * as AddMediaWorkflowLockRequest from "./add-media-workflow-lock-request";
+export import AddMediaWorkflowLockRequest = AddMediaWorkflowLockRequest.AddMediaWorkflowLockRequest;
+import * as AddStreamCdnConfigLockRequest from "./add-stream-cdn-config-lock-request";
+export import AddStreamCdnConfigLockRequest = AddStreamCdnConfigLockRequest.AddStreamCdnConfigLockRequest;
+import * as AddStreamDistributionChannelLockRequest from "./add-stream-distribution-channel-lock-request";
+export import AddStreamDistributionChannelLockRequest = AddStreamDistributionChannelLockRequest.AddStreamDistributionChannelLockRequest;
+import * as AddStreamPackagingConfigLockRequest from "./add-stream-packaging-config-lock-request";
+export import AddStreamPackagingConfigLockRequest = AddStreamPackagingConfigLockRequest.AddStreamPackagingConfigLockRequest;
 import * as ChangeMediaAssetCompartmentRequest from "./change-media-asset-compartment-request";
 export import ChangeMediaAssetCompartmentRequest = ChangeMediaAssetCompartmentRequest.ChangeMediaAssetCompartmentRequest;
 import * as ChangeMediaWorkflowCompartmentRequest from "./change-media-workflow-compartment-request";
@@ -64,8 +78,6 @@ import * as GetMediaWorkflowConfigurationRequest from "./get-media-workflow-conf
 export import GetMediaWorkflowConfigurationRequest = GetMediaWorkflowConfigurationRequest.GetMediaWorkflowConfigurationRequest;
 import * as GetMediaWorkflowJobRequest from "./get-media-workflow-job-request";
 export import GetMediaWorkflowJobRequest = GetMediaWorkflowJobRequest.GetMediaWorkflowJobRequest;
-import * as GetMediaWorkflowJobFactRequest from "./get-media-workflow-job-fact-request";
-export import GetMediaWorkflowJobFactRequest = GetMediaWorkflowJobFactRequest.GetMediaWorkflowJobFactRequest;
 import * as GetStreamCdnConfigRequest from "./get-stream-cdn-config-request";
 export import GetStreamCdnConfigRequest = GetStreamCdnConfigRequest.GetStreamCdnConfigRequest;
 import * as GetStreamDistributionChannelRequest from "./get-stream-distribution-channel-request";
@@ -80,8 +92,6 @@ import * as ListMediaAssetsRequest from "./list-media-assets-request";
 export import ListMediaAssetsRequest = ListMediaAssetsRequest.ListMediaAssetsRequest;
 import * as ListMediaWorkflowConfigurationsRequest from "./list-media-workflow-configurations-request";
 export import ListMediaWorkflowConfigurationsRequest = ListMediaWorkflowConfigurationsRequest.ListMediaWorkflowConfigurationsRequest;
-import * as ListMediaWorkflowJobFactsRequest from "./list-media-workflow-job-facts-request";
-export import ListMediaWorkflowJobFactsRequest = ListMediaWorkflowJobFactsRequest.ListMediaWorkflowJobFactsRequest;
 import * as ListMediaWorkflowJobsRequest from "./list-media-workflow-jobs-request";
 export import ListMediaWorkflowJobsRequest = ListMediaWorkflowJobsRequest.ListMediaWorkflowJobsRequest;
 import * as ListMediaWorkflowTaskDeclarationsRequest from "./list-media-workflow-task-declarations-request";
@@ -96,6 +106,20 @@ import * as ListStreamPackagingConfigsRequest from "./list-stream-packaging-conf
 export import ListStreamPackagingConfigsRequest = ListStreamPackagingConfigsRequest.ListStreamPackagingConfigsRequest;
 import * as ListSystemMediaWorkflowsRequest from "./list-system-media-workflows-request";
 export import ListSystemMediaWorkflowsRequest = ListSystemMediaWorkflowsRequest.ListSystemMediaWorkflowsRequest;
+import * as RemoveMediaAssetLockRequest from "./remove-media-asset-lock-request";
+export import RemoveMediaAssetLockRequest = RemoveMediaAssetLockRequest.RemoveMediaAssetLockRequest;
+import * as RemoveMediaWorkflowConfigurationLockRequest from "./remove-media-workflow-configuration-lock-request";
+export import RemoveMediaWorkflowConfigurationLockRequest = RemoveMediaWorkflowConfigurationLockRequest.RemoveMediaWorkflowConfigurationLockRequest;
+import * as RemoveMediaWorkflowJobLockRequest from "./remove-media-workflow-job-lock-request";
+export import RemoveMediaWorkflowJobLockRequest = RemoveMediaWorkflowJobLockRequest.RemoveMediaWorkflowJobLockRequest;
+import * as RemoveMediaWorkflowLockRequest from "./remove-media-workflow-lock-request";
+export import RemoveMediaWorkflowLockRequest = RemoveMediaWorkflowLockRequest.RemoveMediaWorkflowLockRequest;
+import * as RemoveStreamCdnConfigLockRequest from "./remove-stream-cdn-config-lock-request";
+export import RemoveStreamCdnConfigLockRequest = RemoveStreamCdnConfigLockRequest.RemoveStreamCdnConfigLockRequest;
+import * as RemoveStreamDistributionChannelLockRequest from "./remove-stream-distribution-channel-lock-request";
+export import RemoveStreamDistributionChannelLockRequest = RemoveStreamDistributionChannelLockRequest.RemoveStreamDistributionChannelLockRequest;
+import * as RemoveStreamPackagingConfigLockRequest from "./remove-stream-packaging-config-lock-request";
+export import RemoveStreamPackagingConfigLockRequest = RemoveStreamPackagingConfigLockRequest.RemoveStreamPackagingConfigLockRequest;
 import * as UpdateMediaAssetRequest from "./update-media-asset-request";
 export import UpdateMediaAssetRequest = UpdateMediaAssetRequest.UpdateMediaAssetRequest;
 import * as UpdateMediaWorkflowRequest from "./update-media-workflow-request";

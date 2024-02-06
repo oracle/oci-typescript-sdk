@@ -27,7 +27,7 @@ export interface MediaWorkflowTask {
    * The type of process to run at this task. Refers to the name of a MediaWorkflowTaskDeclaration.
    *
    */
-  "type"?: string;
+  "type": string;
   /**
    * The version of the MediaWorkflowTaskDeclaration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -64,7 +64,7 @@ export interface MediaWorkflowTask {
    * contain values or references to other parameters.
    *
    */
-  "parameters"?: { [key: string]: any };
+  "parameters": { [key: string]: any };
 }
 
 export namespace MediaWorkflowTask {

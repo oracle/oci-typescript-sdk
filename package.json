@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.78.0",
+  "version": "2.79.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -156,7 +156,8 @@
     "oci-psql": "file:lib/psql",
     "oci-generativeai": "file:lib/generativeai",
     "oci-generativeaiinference": "file:lib/generativeaiinference",
-    "oci-capacitymanagement": "file:lib/capacitymanagement"
+    "oci-capacitymanagement": "file:lib/capacitymanagement",
+    "oci-globallydistributeddatabase": "file:lib/globallydistributeddatabase"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

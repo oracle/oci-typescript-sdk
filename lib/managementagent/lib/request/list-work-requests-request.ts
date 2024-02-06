@@ -45,7 +45,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * The OperationType of the workRequest
    */
-  "type"?: model.OperationTypes;
+  "type"?: Array<model.OperationTypes>;
   /**
    * Filter for items with timeCreated greater or equal to provided value.
    * given {@code timeCreatedGreaterThanOrEqualTo} to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
