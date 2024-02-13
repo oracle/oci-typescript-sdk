@@ -55,7 +55,7 @@ export namespace ScmConfiguration {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.scmType}`);
+          common.logger.info(`Unknown value for: ${obj.scmType}`);
       }
     }
     return jsonObj;
@@ -76,7 +76,7 @@ export namespace ScmConfiguration {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.scmType}`);
+          common.logger.info(`Unknown value for: ${obj.scmType}`);
       }
     }
     return jsonObj;

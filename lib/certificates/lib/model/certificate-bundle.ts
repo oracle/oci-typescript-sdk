@@ -105,8 +105,7 @@ export namespace CertificateBundle {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.certificateBundleType}`);
+          common.logger.info(`Unknown value for: ${obj.certificateBundleType}`);
       }
     }
     return jsonObj;
@@ -136,8 +135,7 @@ export namespace CertificateBundle {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.certificateBundleType}`);
+          common.logger.info(`Unknown value for: ${obj.certificateBundleType}`);
       }
     }
     return jsonObj;

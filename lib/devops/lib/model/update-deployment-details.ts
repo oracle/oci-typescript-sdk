@@ -61,7 +61,7 @@ export namespace UpdateDeploymentDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.deploymentType}`);
+          common.logger.info(`Unknown value for: ${obj.deploymentType}`);
       }
     }
     return jsonObj;
@@ -92,7 +92,7 @@ export namespace UpdateDeploymentDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.deploymentType}`);
+          common.logger.info(`Unknown value for: ${obj.deploymentType}`);
       }
     }
     return jsonObj;

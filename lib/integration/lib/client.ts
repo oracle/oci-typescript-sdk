@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,12 +118,7 @@ export class IntegrationInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190131";
-    if (this.logger)
-      this.logger.info(`IntegrationInstanceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`IntegrationInstanceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +128,9 @@ export class IntegrationInstanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         IntegrationInstanceClient.serviceEndpointTemplate,
@@ -228,10 +223,9 @@ export class IntegrationInstanceClient {
   public async changeIntegrationInstanceCompartment(
     changeIntegrationInstanceCompartmentRequest: requests.ChangeIntegrationInstanceCompartmentRequest
   ): Promise<responses.ChangeIntegrationInstanceCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IntegrationInstanceClient#changeIntegrationInstanceCompartment."
-      );
+    logger.debug(
+      "Calling operation IntegrationInstanceClient#changeIntegrationInstanceCompartment."
+    );
     const operationName = "changeIntegrationInstanceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/ChangeIntegrationInstanceCompartment";
@@ -254,7 +248,6 @@ export class IntegrationInstanceClient {
       changeIntegrationInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -312,10 +305,9 @@ export class IntegrationInstanceClient {
   public async changeIntegrationInstanceNetworkEndpoint(
     changeIntegrationInstanceNetworkEndpointRequest: requests.ChangeIntegrationInstanceNetworkEndpointRequest
   ): Promise<responses.ChangeIntegrationInstanceNetworkEndpointResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IntegrationInstanceClient#changeIntegrationInstanceNetworkEndpoint."
-      );
+    logger.debug(
+      "Calling operation IntegrationInstanceClient#changeIntegrationInstanceNetworkEndpoint."
+    );
     const operationName = "changeIntegrationInstanceNetworkEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/ChangeIntegrationInstanceNetworkEndpoint";
@@ -339,7 +331,6 @@ export class IntegrationInstanceClient {
       changeIntegrationInstanceNetworkEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -397,10 +388,9 @@ export class IntegrationInstanceClient {
   public async changePrivateEndpointOutboundConnection(
     changePrivateEndpointOutboundConnectionRequest: requests.ChangePrivateEndpointOutboundConnectionRequest
   ): Promise<responses.ChangePrivateEndpointOutboundConnectionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IntegrationInstanceClient#changePrivateEndpointOutboundConnection."
-      );
+    logger.debug(
+      "Calling operation IntegrationInstanceClient#changePrivateEndpointOutboundConnection."
+    );
     const operationName = "changePrivateEndpointOutboundConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/ChangePrivateEndpointOutboundConnection";
@@ -424,7 +414,6 @@ export class IntegrationInstanceClient {
       changePrivateEndpointOutboundConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -482,8 +471,7 @@ export class IntegrationInstanceClient {
   public async createIntegrationInstance(
     createIntegrationInstanceRequest: requests.CreateIntegrationInstanceRequest
   ): Promise<responses.CreateIntegrationInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#createIntegrationInstance.");
+    logger.debug("Calling operation IntegrationInstanceClient#createIntegrationInstance.");
     const operationName = "createIntegrationInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/CreateIntegrationInstance";
@@ -503,7 +491,6 @@ export class IntegrationInstanceClient {
       createIntegrationInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -559,8 +546,7 @@ export class IntegrationInstanceClient {
   public async deleteIntegrationInstance(
     deleteIntegrationInstanceRequest: requests.DeleteIntegrationInstanceRequest
   ): Promise<responses.DeleteIntegrationInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#deleteIntegrationInstance.");
+    logger.debug("Calling operation IntegrationInstanceClient#deleteIntegrationInstance.");
     const operationName = "deleteIntegrationInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/DeleteIntegrationInstance";
@@ -582,7 +568,6 @@ export class IntegrationInstanceClient {
       deleteIntegrationInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -634,8 +619,7 @@ export class IntegrationInstanceClient {
   public async enableProcessAutomation(
     enableProcessAutomationRequest: requests.EnableProcessAutomationRequest
   ): Promise<responses.EnableProcessAutomationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#enableProcessAutomation.");
+    logger.debug("Calling operation IntegrationInstanceClient#enableProcessAutomation.");
     const operationName = "enableProcessAutomation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/EnableProcessAutomation";
@@ -658,7 +642,6 @@ export class IntegrationInstanceClient {
       enableProcessAutomationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -709,8 +692,7 @@ export class IntegrationInstanceClient {
   public async getIntegrationInstance(
     getIntegrationInstanceRequest: requests.GetIntegrationInstanceRequest
   ): Promise<responses.GetIntegrationInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#getIntegrationInstance.");
+    logger.debug("Calling operation IntegrationInstanceClient#getIntegrationInstance.");
     const operationName = "getIntegrationInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/GetIntegrationInstance";
@@ -731,7 +713,6 @@ export class IntegrationInstanceClient {
       getIntegrationInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -786,8 +767,7 @@ export class IntegrationInstanceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#getWorkRequest.");
+    logger.debug("Calling operation IntegrationInstanceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/WorkRequest/GetWorkRequest";
@@ -808,7 +788,6 @@ export class IntegrationInstanceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -869,8 +848,7 @@ export class IntegrationInstanceClient {
   public async listIntegrationInstances(
     listIntegrationInstancesRequest: requests.ListIntegrationInstancesRequest
   ): Promise<responses.ListIntegrationInstancesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#listIntegrationInstances.");
+    logger.debug("Calling operation IntegrationInstanceClient#listIntegrationInstances.");
     const operationName = "listIntegrationInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstanceSummary/ListIntegrationInstances";
@@ -897,7 +875,6 @@ export class IntegrationInstanceClient {
       listIntegrationInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1009,8 +986,7 @@ export class IntegrationInstanceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequestErrors.");
+    logger.debug("Calling operation IntegrationInstanceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/WorkRequestError/ListWorkRequestErrors";
@@ -1035,7 +1011,6 @@ export class IntegrationInstanceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1147,8 +1122,7 @@ export class IntegrationInstanceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequestLogs.");
+    logger.debug("Calling operation IntegrationInstanceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1173,7 +1147,6 @@ export class IntegrationInstanceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1286,8 +1259,7 @@ export class IntegrationInstanceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequests.");
+    logger.debug("Calling operation IntegrationInstanceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/WorkRequestSummary/ListWorkRequests";
@@ -1311,7 +1283,6 @@ export class IntegrationInstanceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1424,8 +1395,7 @@ export class IntegrationInstanceClient {
   public async startIntegrationInstance(
     startIntegrationInstanceRequest: requests.StartIntegrationInstanceRequest
   ): Promise<responses.StartIntegrationInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#startIntegrationInstance.");
+    logger.debug("Calling operation IntegrationInstanceClient#startIntegrationInstance.");
     const operationName = "startIntegrationInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/StartIntegrationInstance";
@@ -1448,7 +1418,6 @@ export class IntegrationInstanceClient {
       startIntegrationInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1500,8 +1469,7 @@ export class IntegrationInstanceClient {
   public async stopIntegrationInstance(
     stopIntegrationInstanceRequest: requests.StopIntegrationInstanceRequest
   ): Promise<responses.StopIntegrationInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#stopIntegrationInstance.");
+    logger.debug("Calling operation IntegrationInstanceClient#stopIntegrationInstance.");
     const operationName = "stopIntegrationInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/StopIntegrationInstance";
@@ -1524,7 +1492,6 @@ export class IntegrationInstanceClient {
       stopIntegrationInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1575,8 +1542,7 @@ export class IntegrationInstanceClient {
   public async updateIntegrationInstance(
     updateIntegrationInstanceRequest: requests.UpdateIntegrationInstanceRequest
   ): Promise<responses.UpdateIntegrationInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IntegrationInstanceClient#updateIntegrationInstance.");
+    logger.debug("Calling operation IntegrationInstanceClient#updateIntegrationInstance.");
     const operationName = "updateIntegrationInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/UpdateIntegrationInstance";
@@ -1598,7 +1564,6 @@ export class IntegrationInstanceClient {
       updateIntegrationInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

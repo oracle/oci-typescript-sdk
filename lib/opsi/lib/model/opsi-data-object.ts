@@ -96,7 +96,7 @@ export namespace OpsiDataObject {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dataObjectType}`);
+          common.logger.info(`Unknown value for: ${obj.dataObjectType}`);
       }
     }
     return jsonObj;
@@ -136,7 +136,7 @@ export namespace OpsiDataObject {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dataObjectType}`);
+          common.logger.info(`Unknown value for: ${obj.dataObjectType}`);
       }
     }
     return jsonObj;

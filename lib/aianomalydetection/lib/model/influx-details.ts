@@ -41,7 +41,7 @@ export namespace InfluxDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.influxVersion}`);
+          common.logger.info(`Unknown value for: ${obj.influxVersion}`);
       }
     }
     return jsonObj;
@@ -62,7 +62,7 @@ export namespace InfluxDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.influxVersion}`);
+          common.logger.info(`Unknown value for: ${obj.influxVersion}`);
       }
     }
     return jsonObj;

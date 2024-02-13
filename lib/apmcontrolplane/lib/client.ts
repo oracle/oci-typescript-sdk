@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -119,11 +120,7 @@ export class ApmDomainClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    if (this.logger) this.logger.info(`ApmDomainClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ApmDomainClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -133,10 +130,9 @@ export class ApmDomainClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ApmDomainClient.serviceEndpointTemplate,
@@ -228,8 +224,7 @@ export class ApmDomainClient {
   public async changeApmDomainCompartment(
     changeApmDomainCompartmentRequest: requests.ChangeApmDomainCompartmentRequest
   ): Promise<responses.ChangeApmDomainCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApmDomainClient#changeApmDomainCompartment.");
+    logger.debug("Calling operation ApmDomainClient#changeApmDomainCompartment.");
     const operationName = "changeApmDomainCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/ChangeApmDomainCompartment";
@@ -252,7 +247,6 @@ export class ApmDomainClient {
       changeApmDomainCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -309,7 +303,7 @@ export class ApmDomainClient {
   public async createApmDomain(
     createApmDomainRequest: requests.CreateApmDomainRequest
   ): Promise<responses.CreateApmDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#createApmDomain.");
+    logger.debug("Calling operation ApmDomainClient#createApmDomain.");
     const operationName = "createApmDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/CreateApmDomain";
@@ -329,7 +323,6 @@ export class ApmDomainClient {
       createApmDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -388,7 +381,7 @@ export class ApmDomainClient {
   public async deleteApmDomain(
     deleteApmDomainRequest: requests.DeleteApmDomainRequest
   ): Promise<responses.DeleteApmDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#deleteApmDomain.");
+    logger.debug("Calling operation ApmDomainClient#deleteApmDomain.");
     const operationName = "deleteApmDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/DeleteApmDomain";
@@ -410,7 +403,6 @@ export class ApmDomainClient {
       deleteApmDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -463,7 +455,7 @@ export class ApmDomainClient {
   public async generateDataKeys(
     generateDataKeysRequest: requests.GenerateDataKeysRequest
   ): Promise<responses.GenerateDataKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#generateDataKeys.");
+    logger.debug("Calling operation ApmDomainClient#generateDataKeys.");
     const operationName = "generateDataKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/DataKey/GenerateDataKeys";
@@ -485,7 +477,6 @@ export class ApmDomainClient {
       generateDataKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -541,7 +532,7 @@ export class ApmDomainClient {
   public async getApmDomain(
     getApmDomainRequest: requests.GetApmDomainRequest
   ): Promise<responses.GetApmDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#getApmDomain.");
+    logger.debug("Calling operation ApmDomainClient#getApmDomain.");
     const operationName = "getApmDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/GetApmDomain";
@@ -562,7 +553,6 @@ export class ApmDomainClient {
       getApmDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -617,7 +607,7 @@ export class ApmDomainClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#getWorkRequest.");
+    logger.debug("Calling operation ApmDomainClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequest/GetWorkRequest";
@@ -638,7 +628,6 @@ export class ApmDomainClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -699,8 +688,7 @@ export class ApmDomainClient {
   public async listApmDomainWorkRequests(
     listApmDomainWorkRequestsRequest: requests.ListApmDomainWorkRequestsRequest
   ): Promise<responses.ListApmDomainWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApmDomainClient#listApmDomainWorkRequests.");
+    logger.debug("Calling operation ApmDomainClient#listApmDomainWorkRequests.");
     const operationName = "listApmDomainWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequest/ListApmDomainWorkRequests";
@@ -724,7 +712,6 @@ export class ApmDomainClient {
       listApmDomainWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -832,7 +819,7 @@ export class ApmDomainClient {
   public async listApmDomains(
     listApmDomainsRequest: requests.ListApmDomainsRequest
   ): Promise<responses.ListApmDomainsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listApmDomains.");
+    logger.debug("Calling operation ApmDomainClient#listApmDomains.");
     const operationName = "listApmDomains";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomainSummary/ListApmDomains";
@@ -859,7 +846,6 @@ export class ApmDomainClient {
       listApmDomainsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -968,7 +954,7 @@ export class ApmDomainClient {
   public async listDataKeys(
     listDataKeysRequest: requests.ListDataKeysRequest
   ): Promise<responses.ListDataKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listDataKeys.");
+    logger.debug("Calling operation ApmDomainClient#listDataKeys.");
     const operationName = "listDataKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/DataKeySummary/ListDataKeys";
@@ -991,7 +977,6 @@ export class ApmDomainClient {
       listDataKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1042,7 +1027,7 @@ export class ApmDomainClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listWorkRequestErrors.");
+    logger.debug("Calling operation ApmDomainClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequestError/ListWorkRequestErrors";
@@ -1066,7 +1051,6 @@ export class ApmDomainClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1174,7 +1158,7 @@ export class ApmDomainClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listWorkRequestLogs.");
+    logger.debug("Calling operation ApmDomainClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1198,7 +1182,6 @@ export class ApmDomainClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1306,7 +1289,7 @@ export class ApmDomainClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listWorkRequests.");
+    logger.debug("Calling operation ApmDomainClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequest/ListWorkRequests";
@@ -1329,7 +1312,6 @@ export class ApmDomainClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1438,7 +1420,7 @@ export class ApmDomainClient {
   public async removeDataKeys(
     removeDataKeysRequest: requests.RemoveDataKeysRequest
   ): Promise<responses.RemoveDataKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#removeDataKeys.");
+    logger.debug("Calling operation ApmDomainClient#removeDataKeys.");
     const operationName = "removeDataKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/DataKey/RemoveDataKeys";
@@ -1460,7 +1442,6 @@ export class ApmDomainClient {
       removeDataKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1516,7 +1497,7 @@ export class ApmDomainClient {
   public async updateApmDomain(
     updateApmDomainRequest: requests.UpdateApmDomainRequest
   ): Promise<responses.UpdateApmDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApmDomainClient#updateApmDomain.");
+    logger.debug("Calling operation ApmDomainClient#updateApmDomain.");
     const operationName = "updateApmDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/UpdateApmDomain";
@@ -1538,7 +1519,6 @@ export class ApmDomainClient {
       updateApmDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

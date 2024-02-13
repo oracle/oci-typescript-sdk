@@ -33,7 +33,7 @@ export namespace ReportDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.reportType}`);
+          common.logger.info(`Unknown value for: ${obj.reportType}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace ReportDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.reportType}`);
+          common.logger.info(`Unknown value for: ${obj.reportType}`);
       }
     }
     return jsonObj;

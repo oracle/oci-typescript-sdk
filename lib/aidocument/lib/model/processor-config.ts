@@ -33,7 +33,7 @@ export namespace ProcessorConfig {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.processorType}`);
+          common.logger.info(`Unknown value for: ${obj.processorType}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace ProcessorConfig {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.processorType}`);
+          common.logger.info(`Unknown value for: ${obj.processorType}`);
       }
     }
     return jsonObj;

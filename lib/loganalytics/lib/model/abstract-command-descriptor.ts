@@ -94,6 +94,11 @@ export namespace AbstractCommandDescriptor {
             <model.TailCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "SEQUENCE":
+          return model.SequenceCommandDescriptor.getJsonObj(
+            <model.SequenceCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "OUTLIER":
           return model.OutlierCommandDescriptor.getJsonObj(
             <model.OutlierCommandDescriptor>(<object>jsonObj),
@@ -202,6 +207,11 @@ export namespace AbstractCommandDescriptor {
         case "MULTI_SEARCH":
           return model.MultiSearchCommandDescriptor.getJsonObj(
             <model.MultiSearchCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CREATETABLE":
+          return model.CreateTableCommandDescriptor.getJsonObj(
+            <model.CreateTableCommandDescriptor>(<object>jsonObj),
             true
           );
         case "COMPARE":
@@ -340,7 +350,7 @@ export namespace AbstractCommandDescriptor {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.name}`);
+          common.logger.info(`Unknown value for: ${obj.name}`);
       }
     }
     return jsonObj;
@@ -382,6 +392,11 @@ export namespace AbstractCommandDescriptor {
         case "TAIL":
           return model.TailCommandDescriptor.getDeserializedJsonObj(
             <model.TailCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "SEQUENCE":
+          return model.SequenceCommandDescriptor.getDeserializedJsonObj(
+            <model.SequenceCommandDescriptor>(<object>jsonObj),
             true
           );
         case "OUTLIER":
@@ -492,6 +507,11 @@ export namespace AbstractCommandDescriptor {
         case "MULTI_SEARCH":
           return model.MultiSearchCommandDescriptor.getDeserializedJsonObj(
             <model.MultiSearchCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CREATETABLE":
+          return model.CreateTableCommandDescriptor.getDeserializedJsonObj(
+            <model.CreateTableCommandDescriptor>(<object>jsonObj),
             true
           );
         case "COMPARE":
@@ -630,7 +650,7 @@ export namespace AbstractCommandDescriptor {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.name}`);
+          common.logger.info(`Unknown value for: ${obj.name}`);
       }
     }
     return jsonObj;

@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -118,11 +119,7 @@ export class EventClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190801";
-    if (this.logger) this.logger.info(`EventClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`EventClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +129,9 @@ export class EventClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         EventClient.serviceEndpointTemplate,
@@ -205,7 +201,7 @@ export class EventClient {
   public async deleteEventContent(
     deleteEventContentRequest: requests.DeleteEventContentRequest
   ): Promise<responses.DeleteEventContentResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventClient#deleteEventContent.");
+    logger.debug("Calling operation EventClient#deleteEventContent.");
     const operationName = "deleteEventContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/EventContent/DeleteEventContent";
@@ -231,7 +227,6 @@ export class EventClient {
       deleteEventContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -277,7 +272,7 @@ export class EventClient {
   public async getEvent(
     getEventRequest: requests.GetEventRequest
   ): Promise<responses.GetEventResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventClient#getEvent.");
+    logger.debug("Calling operation EventClient#getEvent.");
     const operationName = "getEvent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/Event/GetEvent";
@@ -301,7 +296,6 @@ export class EventClient {
       getEventRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -357,7 +351,7 @@ export class EventClient {
   public async getEventContent(
     getEventContentRequest: requests.GetEventContentRequest
   ): Promise<responses.GetEventContentResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventClient#getEventContent.");
+    logger.debug("Calling operation EventClient#getEventContent.");
     const operationName = "getEventContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -380,7 +374,6 @@ export class EventClient {
       getEventContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -436,7 +429,7 @@ export class EventClient {
   public async getEventReport(
     getEventReportRequest: requests.GetEventReportRequest
   ): Promise<responses.GetEventReportResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventClient#getEventReport.");
+    logger.debug("Calling operation EventClient#getEventReport.");
     const operationName = "getEventReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/EventReport/GetEventReport";
@@ -462,7 +455,6 @@ export class EventClient {
       getEventReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -513,7 +505,7 @@ export class EventClient {
   public async listEvents(
     listEventsRequest: requests.ListEventsRequest
   ): Promise<responses.ListEventsResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventClient#listEvents.");
+    logger.debug("Calling operation EventClient#listEvents.");
     const operationName = "listEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/EventCollection/ListEvents";
@@ -544,7 +536,6 @@ export class EventClient {
       listEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -600,7 +591,7 @@ export class EventClient {
   public async listRelatedEvents(
     listRelatedEventsRequest: requests.ListRelatedEventsRequest
   ): Promise<responses.ListRelatedEventsResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventClient#listRelatedEvents.");
+    logger.debug("Calling operation EventClient#listRelatedEvents.");
     const operationName = "listRelatedEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/RelatedEventCollection/ListRelatedEvents";
@@ -629,7 +620,6 @@ export class EventClient {
       listRelatedEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -684,7 +674,7 @@ export class EventClient {
   public async updateEvent(
     updateEventRequest: requests.UpdateEventRequest
   ): Promise<responses.UpdateEventResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventClient#updateEvent.");
+    logger.debug("Calling operation EventClient#updateEvent.");
     const operationName = "updateEvent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/Event/UpdateEvent";
@@ -709,7 +699,6 @@ export class EventClient {
       updateEventRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -770,7 +759,7 @@ export class EventClient {
   public async uploadEventContent(
     uploadEventContentRequest: requests.UploadEventContentRequest
   ): Promise<responses.UploadEventContentResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventClient#uploadEventContent.");
+    logger.debug("Calling operation EventClient#uploadEventContent.");
     const operationName = "uploadEventContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/EventContent/UploadEventContent";
@@ -796,7 +785,6 @@ export class EventClient {
       uploadEventContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -919,11 +907,7 @@ export class OsManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190801";
-    if (this.logger) this.logger.info(`OsManagementClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OsManagementClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -933,10 +917,9 @@ export class OsManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OsManagementClient.serviceEndpointTemplate,
@@ -1029,8 +1012,7 @@ export class OsManagementClient {
   public async addPackagesToSoftwareSource(
     addPackagesToSoftwareSourceRequest: requests.AddPackagesToSoftwareSourceRequest
   ): Promise<responses.AddPackagesToSoftwareSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#addPackagesToSoftwareSource.");
+    logger.debug("Calling operation OsManagementClient#addPackagesToSoftwareSource.");
     const operationName = "addPackagesToSoftwareSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/AddPackagesToSoftwareSource";
@@ -1051,7 +1033,6 @@ export class OsManagementClient {
       addPackagesToSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1105,10 +1086,9 @@ export class OsManagementClient {
   public async attachChildSoftwareSourceToManagedInstance(
     attachChildSoftwareSourceToManagedInstanceRequest: requests.AttachChildSoftwareSourceToManagedInstanceRequest
   ): Promise<responses.AttachChildSoftwareSourceToManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#attachChildSoftwareSourceToManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#attachChildSoftwareSourceToManagedInstance."
+    );
     const operationName = "attachChildSoftwareSourceToManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/AttachChildSoftwareSourceToManagedInstance";
@@ -1130,7 +1110,6 @@ export class OsManagementClient {
       attachChildSoftwareSourceToManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1185,10 +1164,9 @@ export class OsManagementClient {
   public async attachManagedInstanceToManagedInstanceGroup(
     attachManagedInstanceToManagedInstanceGroupRequest: requests.AttachManagedInstanceToManagedInstanceGroupRequest
   ): Promise<responses.AttachManagedInstanceToManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#attachManagedInstanceToManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#attachManagedInstanceToManagedInstanceGroup."
+    );
     const operationName = "attachManagedInstanceToManagedInstanceGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/AttachManagedInstanceToManagedInstanceGroup";
@@ -1213,7 +1191,6 @@ export class OsManagementClient {
       attachManagedInstanceToManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1263,10 +1240,9 @@ export class OsManagementClient {
   public async attachParentSoftwareSourceToManagedInstance(
     attachParentSoftwareSourceToManagedInstanceRequest: requests.AttachParentSoftwareSourceToManagedInstanceRequest
   ): Promise<responses.AttachParentSoftwareSourceToManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#attachParentSoftwareSourceToManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#attachParentSoftwareSourceToManagedInstance."
+    );
     const operationName = "attachParentSoftwareSourceToManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/AttachParentSoftwareSourceToManagedInstance";
@@ -1288,7 +1264,6 @@ export class OsManagementClient {
       attachParentSoftwareSourceToManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1341,10 +1316,7 @@ export class OsManagementClient {
   public async changeManagedInstanceGroupCompartment(
     changeManagedInstanceGroupCompartmentRequest: requests.ChangeManagedInstanceGroupCompartmentRequest
   ): Promise<responses.ChangeManagedInstanceGroupCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#changeManagedInstanceGroupCompartment."
-      );
+    logger.debug("Calling operation OsManagementClient#changeManagedInstanceGroupCompartment.");
     const operationName = "changeManagedInstanceGroupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/ChangeManagedInstanceGroupCompartment";
@@ -1368,7 +1340,6 @@ export class OsManagementClient {
       changeManagedInstanceGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1421,8 +1392,7 @@ export class OsManagementClient {
   public async changeScheduledJobCompartment(
     changeScheduledJobCompartmentRequest: requests.ChangeScheduledJobCompartmentRequest
   ): Promise<responses.ChangeScheduledJobCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#changeScheduledJobCompartment.");
+    logger.debug("Calling operation OsManagementClient#changeScheduledJobCompartment.");
     const operationName = "changeScheduledJobCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/ChangeScheduledJobCompartment";
@@ -1445,7 +1415,6 @@ export class OsManagementClient {
       changeScheduledJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1498,8 +1467,7 @@ export class OsManagementClient {
   public async changeSoftwareSourceCompartment(
     changeSoftwareSourceCompartmentRequest: requests.ChangeSoftwareSourceCompartmentRequest
   ): Promise<responses.ChangeSoftwareSourceCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#changeSoftwareSourceCompartment.");
+    logger.debug("Calling operation OsManagementClient#changeSoftwareSourceCompartment.");
     const operationName = "changeSoftwareSourceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/ChangeSoftwareSourceCompartment";
@@ -1522,7 +1490,6 @@ export class OsManagementClient {
       changeSoftwareSourceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1576,8 +1543,7 @@ export class OsManagementClient {
   public async createManagedInstanceGroup(
     createManagedInstanceGroupRequest: requests.CreateManagedInstanceGroupRequest
   ): Promise<responses.CreateManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#createManagedInstanceGroup.");
+    logger.debug("Calling operation OsManagementClient#createManagedInstanceGroup.");
     const operationName = "createManagedInstanceGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/CreateManagedInstanceGroup";
@@ -1597,7 +1563,6 @@ export class OsManagementClient {
       createManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1666,7 +1631,7 @@ export class OsManagementClient {
   public async createScheduledJob(
     createScheduledJobRequest: requests.CreateScheduledJobRequest
   ): Promise<responses.CreateScheduledJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#createScheduledJob.");
+    logger.debug("Calling operation OsManagementClient#createScheduledJob.");
     const operationName = "createScheduledJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/CreateScheduledJob";
@@ -1686,7 +1651,6 @@ export class OsManagementClient {
       createScheduledJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1754,8 +1718,7 @@ export class OsManagementClient {
   public async createSoftwareSource(
     createSoftwareSourceRequest: requests.CreateSoftwareSourceRequest
   ): Promise<responses.CreateSoftwareSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#createSoftwareSource.");
+    logger.debug("Calling operation OsManagementClient#createSoftwareSource.");
     const operationName = "createSoftwareSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/CreateSoftwareSource";
@@ -1775,7 +1738,6 @@ export class OsManagementClient {
       createSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1841,8 +1803,7 @@ export class OsManagementClient {
   public async deleteManagedInstanceGroup(
     deleteManagedInstanceGroupRequest: requests.DeleteManagedInstanceGroupRequest
   ): Promise<responses.DeleteManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#deleteManagedInstanceGroup.");
+    logger.debug("Calling operation OsManagementClient#deleteManagedInstanceGroup.");
     const operationName = "deleteManagedInstanceGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/DeleteManagedInstanceGroup";
@@ -1864,7 +1825,6 @@ export class OsManagementClient {
       deleteManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1911,7 +1871,7 @@ export class OsManagementClient {
   public async deleteScheduledJob(
     deleteScheduledJobRequest: requests.DeleteScheduledJobRequest
   ): Promise<responses.DeleteScheduledJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#deleteScheduledJob.");
+    logger.debug("Calling operation OsManagementClient#deleteScheduledJob.");
     const operationName = "deleteScheduledJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/DeleteScheduledJob";
@@ -1933,7 +1893,6 @@ export class OsManagementClient {
       deleteScheduledJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1980,8 +1939,7 @@ export class OsManagementClient {
   public async deleteSoftwareSource(
     deleteSoftwareSourceRequest: requests.DeleteSoftwareSourceRequest
   ): Promise<responses.DeleteSoftwareSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#deleteSoftwareSource.");
+    logger.debug("Calling operation OsManagementClient#deleteSoftwareSource.");
     const operationName = "deleteSoftwareSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/DeleteSoftwareSource";
@@ -2003,7 +1961,6 @@ export class OsManagementClient {
       deleteSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2051,10 +2008,9 @@ export class OsManagementClient {
   public async detachChildSoftwareSourceFromManagedInstance(
     detachChildSoftwareSourceFromManagedInstanceRequest: requests.DetachChildSoftwareSourceFromManagedInstanceRequest
   ): Promise<responses.DetachChildSoftwareSourceFromManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#detachChildSoftwareSourceFromManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#detachChildSoftwareSourceFromManagedInstance."
+    );
     const operationName = "detachChildSoftwareSourceFromManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/DetachChildSoftwareSourceFromManagedInstance";
@@ -2076,7 +2032,6 @@ export class OsManagementClient {
       detachChildSoftwareSourceFromManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2128,10 +2083,9 @@ export class OsManagementClient {
   public async detachManagedInstanceFromManagedInstanceGroup(
     detachManagedInstanceFromManagedInstanceGroupRequest: requests.DetachManagedInstanceFromManagedInstanceGroupRequest
   ): Promise<responses.DetachManagedInstanceFromManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#detachManagedInstanceFromManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#detachManagedInstanceFromManagedInstanceGroup."
+    );
     const operationName = "detachManagedInstanceFromManagedInstanceGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/DetachManagedInstanceFromManagedInstanceGroup";
@@ -2156,7 +2110,6 @@ export class OsManagementClient {
       detachManagedInstanceFromManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2204,10 +2157,9 @@ export class OsManagementClient {
   public async detachParentSoftwareSourceFromManagedInstance(
     detachParentSoftwareSourceFromManagedInstanceRequest: requests.DetachParentSoftwareSourceFromManagedInstanceRequest
   ): Promise<responses.DetachParentSoftwareSourceFromManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#detachParentSoftwareSourceFromManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#detachParentSoftwareSourceFromManagedInstance."
+    );
     const operationName = "detachParentSoftwareSourceFromManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/DetachParentSoftwareSourceFromManagedInstance";
@@ -2229,7 +2181,6 @@ export class OsManagementClient {
       detachParentSoftwareSourceFromManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2284,10 +2235,7 @@ export class OsManagementClient {
   public async disableModuleStreamOnManagedInstance(
     disableModuleStreamOnManagedInstanceRequest: requests.DisableModuleStreamOnManagedInstanceRequest
   ): Promise<responses.DisableModuleStreamOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#disableModuleStreamOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#disableModuleStreamOnManagedInstance.");
     const operationName = "disableModuleStreamOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamDetails/DisableModuleStreamOnManagedInstance";
@@ -2313,7 +2261,6 @@ export class OsManagementClient {
       disableModuleStreamOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2369,10 +2316,7 @@ export class OsManagementClient {
   public async enableModuleStreamOnManagedInstance(
     enableModuleStreamOnManagedInstanceRequest: requests.EnableModuleStreamOnManagedInstanceRequest
   ): Promise<responses.EnableModuleStreamOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#enableModuleStreamOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#enableModuleStreamOnManagedInstance.");
     const operationName = "enableModuleStreamOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamDetails/EnableModuleStreamOnManagedInstance";
@@ -2398,7 +2342,6 @@ export class OsManagementClient {
       enableModuleStreamOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2450,7 +2393,7 @@ export class OsManagementClient {
   public async getErratum(
     getErratumRequest: requests.GetErratumRequest
   ): Promise<responses.GetErratumResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getErratum.");
+    logger.debug("Calling operation OsManagementClient#getErratum.");
     const operationName = "getErratum";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/Erratum/GetErratum";
@@ -2471,7 +2414,6 @@ export class OsManagementClient {
       getErratumRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2522,7 +2464,7 @@ export class OsManagementClient {
   public async getManagedInstance(
     getManagedInstanceRequest: requests.GetManagedInstanceRequest
   ): Promise<responses.GetManagedInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getManagedInstance.");
+    logger.debug("Calling operation OsManagementClient#getManagedInstance.");
     const operationName = "getManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/GetManagedInstance";
@@ -2543,7 +2485,6 @@ export class OsManagementClient {
       getManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2599,8 +2540,7 @@ export class OsManagementClient {
   public async getManagedInstanceGroup(
     getManagedInstanceGroupRequest: requests.GetManagedInstanceGroupRequest
   ): Promise<responses.GetManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#getManagedInstanceGroup.");
+    logger.debug("Calling operation OsManagementClient#getManagedInstanceGroup.");
     const operationName = "getManagedInstanceGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/GetManagedInstanceGroup";
@@ -2621,7 +2561,6 @@ export class OsManagementClient {
       getManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2682,7 +2621,7 @@ export class OsManagementClient {
   public async getModuleStream(
     getModuleStreamRequest: requests.GetModuleStreamRequest
   ): Promise<responses.GetModuleStreamResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getModuleStream.");
+    logger.debug("Calling operation OsManagementClient#getModuleStream.");
     const operationName = "getModuleStream";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStream/GetModuleStream";
@@ -2705,7 +2644,6 @@ export class OsManagementClient {
       getModuleStreamRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2761,8 +2699,7 @@ export class OsManagementClient {
   public async getModuleStreamProfile(
     getModuleStreamProfileRequest: requests.GetModuleStreamProfileRequest
   ): Promise<responses.GetModuleStreamProfileResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#getModuleStreamProfile.");
+    logger.debug("Calling operation OsManagementClient#getModuleStreamProfile.");
     const operationName = "getModuleStreamProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamProfile/GetModuleStreamProfile";
@@ -2786,7 +2723,6 @@ export class OsManagementClient {
       getModuleStreamProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2843,7 +2779,7 @@ export class OsManagementClient {
   public async getScheduledJob(
     getScheduledJobRequest: requests.GetScheduledJobRequest
   ): Promise<responses.GetScheduledJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getScheduledJob.");
+    logger.debug("Calling operation OsManagementClient#getScheduledJob.");
     const operationName = "getScheduledJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/GetScheduledJob";
@@ -2864,7 +2800,6 @@ export class OsManagementClient {
       getScheduledJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2925,7 +2860,7 @@ export class OsManagementClient {
   public async getSoftwarePackage(
     getSoftwarePackageRequest: requests.GetSoftwarePackageRequest
   ): Promise<responses.GetSoftwarePackageResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getSoftwarePackage.");
+    logger.debug("Calling operation OsManagementClient#getSoftwarePackage.");
     const operationName = "getSoftwarePackage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/GetSoftwarePackage";
@@ -2947,7 +2882,6 @@ export class OsManagementClient {
       getSoftwarePackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2998,7 +2932,7 @@ export class OsManagementClient {
   public async getSoftwareSource(
     getSoftwareSourceRequest: requests.GetSoftwareSourceRequest
   ): Promise<responses.GetSoftwareSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getSoftwareSource.");
+    logger.debug("Calling operation OsManagementClient#getSoftwareSource.");
     const operationName = "getSoftwareSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/GetSoftwareSource";
@@ -3019,7 +2953,6 @@ export class OsManagementClient {
       getSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3080,7 +3013,7 @@ export class OsManagementClient {
   public async getWindowsUpdate(
     getWindowsUpdateRequest: requests.GetWindowsUpdateRequest
   ): Promise<responses.GetWindowsUpdateResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getWindowsUpdate.");
+    logger.debug("Calling operation OsManagementClient#getWindowsUpdate.");
     const operationName = "getWindowsUpdate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WindowsUpdate/GetWindowsUpdate";
@@ -3101,7 +3034,6 @@ export class OsManagementClient {
       getWindowsUpdateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3151,7 +3083,7 @@ export class OsManagementClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getWorkRequest.");
+    logger.debug("Calling operation OsManagementClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WorkRequest/GetWorkRequest";
@@ -3172,7 +3104,6 @@ export class OsManagementClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3233,10 +3164,7 @@ export class OsManagementClient {
   public async installAllPackageUpdatesOnManagedInstance(
     installAllPackageUpdatesOnManagedInstanceRequest: requests.InstallAllPackageUpdatesOnManagedInstanceRequest
   ): Promise<responses.InstallAllPackageUpdatesOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#installAllPackageUpdatesOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#installAllPackageUpdatesOnManagedInstance.");
     const operationName = "installAllPackageUpdatesOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallAllPackageUpdatesOnManagedInstance";
@@ -3260,7 +3188,6 @@ export class OsManagementClient {
       installAllPackageUpdatesOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3312,10 +3239,7 @@ export class OsManagementClient {
   public async installAllUpdatesOnManagedInstanceGroup(
     installAllUpdatesOnManagedInstanceGroupRequest: requests.InstallAllUpdatesOnManagedInstanceGroupRequest
   ): Promise<responses.InstallAllUpdatesOnManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#installAllUpdatesOnManagedInstanceGroup."
-      );
+    logger.debug("Calling operation OsManagementClient#installAllUpdatesOnManagedInstanceGroup.");
     const operationName = "installAllUpdatesOnManagedInstanceGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/InstallAllUpdatesOnManagedInstanceGroup";
@@ -3340,7 +3264,6 @@ export class OsManagementClient {
       installAllUpdatesOnManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3392,10 +3315,7 @@ export class OsManagementClient {
   public async installAllWindowsUpdatesOnManagedInstance(
     installAllWindowsUpdatesOnManagedInstanceRequest: requests.InstallAllWindowsUpdatesOnManagedInstanceRequest
   ): Promise<responses.InstallAllWindowsUpdatesOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#installAllWindowsUpdatesOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#installAllWindowsUpdatesOnManagedInstance.");
     const operationName = "installAllWindowsUpdatesOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallAllWindowsUpdatesOnManagedInstance";
@@ -3419,7 +3339,6 @@ export class OsManagementClient {
       installAllWindowsUpdatesOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3473,10 +3392,9 @@ export class OsManagementClient {
   public async installModuleStreamProfileOnManagedInstance(
     installModuleStreamProfileOnManagedInstanceRequest: requests.InstallModuleStreamProfileOnManagedInstanceRequest
   ): Promise<responses.InstallModuleStreamProfileOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#installModuleStreamProfileOnManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#installModuleStreamProfileOnManagedInstance."
+    );
     const operationName = "installModuleStreamProfileOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamProfileDetails/InstallModuleStreamProfileOnManagedInstance";
@@ -3503,7 +3421,6 @@ export class OsManagementClient {
       installModuleStreamProfileOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3555,8 +3472,7 @@ export class OsManagementClient {
   public async installPackageOnManagedInstance(
     installPackageOnManagedInstanceRequest: requests.InstallPackageOnManagedInstanceRequest
   ): Promise<responses.InstallPackageOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#installPackageOnManagedInstance.");
+    logger.debug("Calling operation OsManagementClient#installPackageOnManagedInstance.");
     const operationName = "installPackageOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallPackageOnManagedInstance";
@@ -3580,7 +3496,6 @@ export class OsManagementClient {
       installPackageOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3632,10 +3547,7 @@ export class OsManagementClient {
   public async installPackageUpdateOnManagedInstance(
     installPackageUpdateOnManagedInstanceRequest: requests.InstallPackageUpdateOnManagedInstanceRequest
   ): Promise<responses.InstallPackageUpdateOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#installPackageUpdateOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#installPackageUpdateOnManagedInstance.");
     const operationName = "installPackageUpdateOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallPackageUpdateOnManagedInstance";
@@ -3659,7 +3571,6 @@ export class OsManagementClient {
       installPackageUpdateOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3711,10 +3622,7 @@ export class OsManagementClient {
   public async installWindowsUpdateOnManagedInstance(
     installWindowsUpdateOnManagedInstanceRequest: requests.InstallWindowsUpdateOnManagedInstanceRequest
   ): Promise<responses.InstallWindowsUpdateOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#installWindowsUpdateOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#installWindowsUpdateOnManagedInstance.");
     const operationName = "installWindowsUpdateOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallWindowsUpdateOnManagedInstance";
@@ -3738,7 +3646,6 @@ export class OsManagementClient {
       installWindowsUpdateOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3790,10 +3697,7 @@ export class OsManagementClient {
   public async listAvailablePackagesForManagedInstance(
     listAvailablePackagesForManagedInstanceRequest: requests.ListAvailablePackagesForManagedInstanceRequest
   ): Promise<responses.ListAvailablePackagesForManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#listAvailablePackagesForManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#listAvailablePackagesForManagedInstance.");
     const operationName = "listAvailablePackagesForManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListAvailablePackagesForManagedInstance";
@@ -3821,7 +3725,6 @@ export class OsManagementClient {
       listAvailablePackagesForManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3929,10 +3832,9 @@ export class OsManagementClient {
   public async listAvailableSoftwareSourcesForManagedInstance(
     listAvailableSoftwareSourcesForManagedInstanceRequest: requests.ListAvailableSoftwareSourcesForManagedInstanceRequest
   ): Promise<responses.ListAvailableSoftwareSourcesForManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#listAvailableSoftwareSourcesForManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#listAvailableSoftwareSourcesForManagedInstance."
+    );
     const operationName = "listAvailableSoftwareSourcesForManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListAvailableSoftwareSourcesForManagedInstance";
@@ -3960,7 +3862,6 @@ export class OsManagementClient {
       listAvailableSoftwareSourcesForManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4076,10 +3977,7 @@ export class OsManagementClient {
   public async listAvailableUpdatesForManagedInstance(
     listAvailableUpdatesForManagedInstanceRequest: requests.ListAvailableUpdatesForManagedInstanceRequest
   ): Promise<responses.ListAvailableUpdatesForManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#listAvailableUpdatesForManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#listAvailableUpdatesForManagedInstance.");
     const operationName = "listAvailableUpdatesForManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListAvailableUpdatesForManagedInstance";
@@ -4107,7 +4005,6 @@ export class OsManagementClient {
       listAvailableUpdatesForManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4215,10 +4112,9 @@ export class OsManagementClient {
   public async listAvailableWindowsUpdatesForManagedInstance(
     listAvailableWindowsUpdatesForManagedInstanceRequest: requests.ListAvailableWindowsUpdatesForManagedInstanceRequest
   ): Promise<responses.ListAvailableWindowsUpdatesForManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#listAvailableWindowsUpdatesForManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#listAvailableWindowsUpdatesForManagedInstance."
+    );
     const operationName = "listAvailableWindowsUpdatesForManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListAvailableWindowsUpdatesForManagedInstance";
@@ -4248,7 +4144,6 @@ export class OsManagementClient {
       listAvailableWindowsUpdatesForManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4360,7 +4255,7 @@ export class OsManagementClient {
   public async listErrata(
     listErrataRequest: requests.ListErrataRequest
   ): Promise<responses.ListErrataResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listErrata.");
+    logger.debug("Calling operation OsManagementClient#listErrata.");
     const operationName = "listErrata";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ErratumSummary/ListErrata";
@@ -4389,7 +4284,6 @@ export class OsManagementClient {
       listErrataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4497,8 +4391,7 @@ export class OsManagementClient {
   public async listManagedInstanceErrata(
     listManagedInstanceErrataRequest: requests.ListManagedInstanceErrataRequest
   ): Promise<responses.ListManagedInstanceErrataResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#listManagedInstanceErrata.");
+    logger.debug("Calling operation OsManagementClient#listManagedInstanceErrata.");
     const operationName = "listManagedInstanceErrata";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListManagedInstanceErrata";
@@ -4526,7 +4419,6 @@ export class OsManagementClient {
       listManagedInstanceErrataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4634,8 +4526,7 @@ export class OsManagementClient {
   public async listManagedInstanceGroups(
     listManagedInstanceGroupsRequest: requests.ListManagedInstanceGroupsRequest
   ): Promise<responses.ListManagedInstanceGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#listManagedInstanceGroups.");
+    logger.debug("Calling operation OsManagementClient#listManagedInstanceGroups.");
     const operationName = "listManagedInstanceGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroupSummary/ListManagedInstanceGroups";
@@ -4663,7 +4554,6 @@ export class OsManagementClient {
       listManagedInstanceGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4771,8 +4661,7 @@ export class OsManagementClient {
   public async listManagedInstances(
     listManagedInstancesRequest: requests.ListManagedInstancesRequest
   ): Promise<responses.ListManagedInstancesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#listManagedInstances.");
+    logger.debug("Calling operation OsManagementClient#listManagedInstances.");
     const operationName = "listManagedInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceSummary/ListManagedInstances";
@@ -4799,7 +4688,6 @@ export class OsManagementClient {
       listManagedInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4919,8 +4807,7 @@ The \"moduleName\", \"streamName\", and \"profileName\" attributes combine
   public async listModuleStreamProfiles(
     listModuleStreamProfilesRequest: requests.ListModuleStreamProfilesRequest
   ): Promise<responses.ListModuleStreamProfilesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#listModuleStreamProfiles.");
+    logger.debug("Calling operation OsManagementClient#listModuleStreamProfiles.");
     const operationName = "listModuleStreamProfiles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamProfileSummary/ListModuleStreamProfiles";
@@ -4950,7 +4837,6 @@ The \"moduleName\", \"streamName\", and \"profileName\" attributes combine
       listModuleStreamProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5086,10 +4972,7 @@ When sorting by display name, the result set is sorted first by
   public async listModuleStreamProfilesOnManagedInstance(
     listModuleStreamProfilesOnManagedInstanceRequest: requests.ListModuleStreamProfilesOnManagedInstanceRequest
   ): Promise<responses.ListModuleStreamProfilesOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#listModuleStreamProfilesOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#listModuleStreamProfilesOnManagedInstance.");
     const operationName = "listModuleStreamProfilesOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListModuleStreamProfilesOnManagedInstance";
@@ -5120,7 +5003,6 @@ When sorting by display name, the result set is sorted first by
       listModuleStreamProfilesOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5249,7 +5131,7 @@ When sorting by display name, the result set is sorted first by
   public async listModuleStreams(
     listModuleStreamsRequest: requests.ListModuleStreamsRequest
   ): Promise<responses.ListModuleStreamsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listModuleStreams.");
+    logger.debug("Calling operation OsManagementClient#listModuleStreams.");
     const operationName = "listModuleStreams";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamSummary/ListModuleStreams";
@@ -5278,7 +5160,6 @@ When sorting by display name, the result set is sorted first by
       listModuleStreamsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5411,8 +5292,7 @@ When sorting by the display name, the result set is sorted first
   public async listModuleStreamsOnManagedInstance(
     listModuleStreamsOnManagedInstanceRequest: requests.ListModuleStreamsOnManagedInstanceRequest
   ): Promise<responses.ListModuleStreamsOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#listModuleStreamsOnManagedInstance.");
+    logger.debug("Calling operation OsManagementClient#listModuleStreamsOnManagedInstance.");
     const operationName = "listModuleStreamsOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListModuleStreamsOnManagedInstance";
@@ -5442,7 +5322,6 @@ When sorting by the display name, the result set is sorted first
       listModuleStreamsOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5555,10 +5434,7 @@ When sorting by the display name, the result set is sorted first
   public async listPackagesInstalledOnManagedInstance(
     listPackagesInstalledOnManagedInstanceRequest: requests.ListPackagesInstalledOnManagedInstanceRequest
   ): Promise<responses.ListPackagesInstalledOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#listPackagesInstalledOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#listPackagesInstalledOnManagedInstance.");
     const operationName = "listPackagesInstalledOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListPackagesInstalledOnManagedInstance";
@@ -5586,7 +5462,6 @@ When sorting by the display name, the result set is sorted first
       listPackagesInstalledOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5694,7 +5569,7 @@ When sorting by the display name, the result set is sorted first
   public async listScheduledJobs(
     listScheduledJobsRequest: requests.ListScheduledJobsRequest
   ): Promise<responses.ListScheduledJobsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listScheduledJobs.");
+    logger.debug("Calling operation OsManagementClient#listScheduledJobs.");
     const operationName = "listScheduledJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/ListScheduledJobs";
@@ -5726,7 +5601,6 @@ When sorting by the display name, the result set is sorted first
       listScheduledJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5834,8 +5708,7 @@ When sorting by the display name, the result set is sorted first
   public async listSoftwareSourcePackages(
     listSoftwareSourcePackagesRequest: requests.ListSoftwareSourcePackagesRequest
   ): Promise<responses.ListSoftwareSourcePackagesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#listSoftwareSourcePackages.");
+    logger.debug("Calling operation OsManagementClient#listSoftwareSourcePackages.");
     const operationName = "listSoftwareSourcePackages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/ListSoftwareSourcePackages";
@@ -5863,7 +5736,6 @@ When sorting by the display name, the result set is sorted first
       listSoftwareSourcePackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5971,7 +5843,7 @@ When sorting by the display name, the result set is sorted first
   public async listSoftwareSources(
     listSoftwareSourcesRequest: requests.ListSoftwareSourcesRequest
   ): Promise<responses.ListSoftwareSourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listSoftwareSources.");
+    logger.debug("Calling operation OsManagementClient#listSoftwareSources.");
     const operationName = "listSoftwareSources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSourceSummary/ListSoftwareSources";
@@ -5998,7 +5870,6 @@ When sorting by the display name, the result set is sorted first
       listSoftwareSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6106,8 +5977,7 @@ When sorting by the display name, the result set is sorted first
   public async listUpcomingScheduledJobs(
     listUpcomingScheduledJobsRequest: requests.ListUpcomingScheduledJobsRequest
   ): Promise<responses.ListUpcomingScheduledJobsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#listUpcomingScheduledJobs.");
+    logger.debug("Calling operation OsManagementClient#listUpcomingScheduledJobs.");
     const operationName = "listUpcomingScheduledJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/ListUpcomingScheduledJobs";
@@ -6138,7 +6008,6 @@ When sorting by the display name, the result set is sorted first
       listUpcomingScheduledJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6246,7 +6115,7 @@ When sorting by the display name, the result set is sorted first
   public async listWindowsUpdates(
     listWindowsUpdatesRequest: requests.ListWindowsUpdatesRequest
   ): Promise<responses.ListWindowsUpdatesResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWindowsUpdates.");
+    logger.debug("Calling operation OsManagementClient#listWindowsUpdates.");
     const operationName = "listWindowsUpdates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WindowsUpdateSummary/ListWindowsUpdates";
@@ -6272,7 +6141,6 @@ When sorting by the display name, the result set is sorted first
       listWindowsUpdatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6380,10 +6248,9 @@ When sorting by the display name, the result set is sorted first
   public async listWindowsUpdatesInstalledOnManagedInstance(
     listWindowsUpdatesInstalledOnManagedInstanceRequest: requests.ListWindowsUpdatesInstalledOnManagedInstanceRequest
   ): Promise<responses.ListWindowsUpdatesInstalledOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#listWindowsUpdatesInstalledOnManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#listWindowsUpdatesInstalledOnManagedInstance."
+    );
     const operationName = "listWindowsUpdatesInstalledOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListWindowsUpdatesInstalledOnManagedInstance";
@@ -6411,7 +6278,6 @@ When sorting by the display name, the result set is sorted first
       listWindowsUpdatesInstalledOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6522,8 +6388,7 @@ When sorting by the display name, the result set is sorted first
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#listWorkRequestErrors.");
+    logger.debug("Calling operation OsManagementClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WorkRequest/ListWorkRequestErrors";
@@ -6549,7 +6414,6 @@ When sorting by the display name, the result set is sorted first
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6661,7 +6525,7 @@ When sorting by the display name, the result set is sorted first
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWorkRequestLogs.");
+    logger.debug("Calling operation OsManagementClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WorkRequest/ListWorkRequestLogs";
@@ -6687,7 +6551,6 @@ When sorting by the display name, the result set is sorted first
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6800,7 +6663,7 @@ When sorting by the display name, the result set is sorted first
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWorkRequests.");
+    logger.debug("Calling operation OsManagementClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WorkRequestSummary/ListWorkRequests";
@@ -6828,7 +6691,6 @@ When sorting by the display name, the result set is sorted first
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6995,10 +6857,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async manageModuleStreamsOnManagedInstance(
     manageModuleStreamsOnManagedInstanceRequest: requests.ManageModuleStreamsOnManagedInstanceRequest
   ): Promise<responses.ManageModuleStreamsOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#manageModuleStreamsOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#manageModuleStreamsOnManagedInstance.");
     const operationName = "manageModuleStreamsOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ManageModuleStreamsOnManagedInstance";
@@ -7021,7 +6880,6 @@ The WorkRequest resulting from a dry run behaves differently than
       manageModuleStreamsOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7080,10 +6938,9 @@ The WorkRequest resulting from a dry run behaves differently than
   public async removeModuleStreamProfileFromManagedInstance(
     removeModuleStreamProfileFromManagedInstanceRequest: requests.RemoveModuleStreamProfileFromManagedInstanceRequest
   ): Promise<responses.RemoveModuleStreamProfileFromManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#removeModuleStreamProfileFromManagedInstance."
-      );
+    logger.debug(
+      "Calling operation OsManagementClient#removeModuleStreamProfileFromManagedInstance."
+    );
     const operationName = "removeModuleStreamProfileFromManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamProfileDetails/RemoveModuleStreamProfileFromManagedInstance";
@@ -7110,7 +6967,6 @@ The WorkRequest resulting from a dry run behaves differently than
       removeModuleStreamProfileFromManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7162,8 +7018,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async removePackageFromManagedInstance(
     removePackageFromManagedInstanceRequest: requests.RemovePackageFromManagedInstanceRequest
   ): Promise<responses.RemovePackageFromManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#removePackageFromManagedInstance.");
+    logger.debug("Calling operation OsManagementClient#removePackageFromManagedInstance.");
     const operationName = "removePackageFromManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/RemovePackageFromManagedInstance";
@@ -7187,7 +7042,6 @@ The WorkRequest resulting from a dry run behaves differently than
       removePackageFromManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7239,8 +7093,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async removePackagesFromSoftwareSource(
     removePackagesFromSoftwareSourceRequest: requests.RemovePackagesFromSoftwareSourceRequest
   ): Promise<responses.RemovePackagesFromSoftwareSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#removePackagesFromSoftwareSource.");
+    logger.debug("Calling operation OsManagementClient#removePackagesFromSoftwareSource.");
     const operationName = "removePackagesFromSoftwareSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/RemovePackagesFromSoftwareSource";
@@ -7261,7 +7114,6 @@ The WorkRequest resulting from a dry run behaves differently than
       removePackagesFromSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7314,7 +7166,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async runScheduledJobNow(
     runScheduledJobNowRequest: requests.RunScheduledJobNowRequest
   ): Promise<responses.RunScheduledJobNowResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#runScheduledJobNow.");
+    logger.debug("Calling operation OsManagementClient#runScheduledJobNow.");
     const operationName = "runScheduledJobNow";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/RunScheduledJobNow";
@@ -7337,7 +7189,6 @@ The WorkRequest resulting from a dry run behaves differently than
       runScheduledJobNowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7390,8 +7241,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async searchSoftwarePackages(
     searchSoftwarePackagesRequest: requests.SearchSoftwarePackagesRequest
   ): Promise<responses.SearchSoftwarePackagesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#searchSoftwarePackages.");
+    logger.debug("Calling operation OsManagementClient#searchSoftwarePackages.");
     const operationName = "searchSoftwarePackages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/SearchSoftwarePackages";
@@ -7418,7 +7268,6 @@ The WorkRequest resulting from a dry run behaves differently than
       searchSoftwarePackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7527,8 +7376,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async skipNextScheduledJobExecution(
     skipNextScheduledJobExecutionRequest: requests.SkipNextScheduledJobExecutionRequest
   ): Promise<responses.SkipNextScheduledJobExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#skipNextScheduledJobExecution.");
+    logger.debug("Calling operation OsManagementClient#skipNextScheduledJobExecution.");
     const operationName = "skipNextScheduledJobExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/SkipNextScheduledJobExecution";
@@ -7551,7 +7399,6 @@ The WorkRequest resulting from a dry run behaves differently than
       skipNextScheduledJobExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7606,10 +7453,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async switchModuleStreamOnManagedInstance(
     switchModuleStreamOnManagedInstanceRequest: requests.SwitchModuleStreamOnManagedInstanceRequest
   ): Promise<responses.SwitchModuleStreamOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OsManagementClient#switchModuleStreamOnManagedInstance."
-      );
+    logger.debug("Calling operation OsManagementClient#switchModuleStreamOnManagedInstance.");
     const operationName = "switchModuleStreamOnManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamDetails/SwitchModuleStreamOnManagedInstance";
@@ -7635,7 +7479,6 @@ The WorkRequest resulting from a dry run behaves differently than
       switchModuleStreamOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7687,8 +7530,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async updateManagedInstance(
     updateManagedInstanceRequest: requests.UpdateManagedInstanceRequest
   ): Promise<responses.UpdateManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#updateManagedInstance.");
+    logger.debug("Calling operation OsManagementClient#updateManagedInstance.");
     const operationName = "updateManagedInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/UpdateManagedInstanceDetails/UpdateManagedInstance";
@@ -7710,7 +7552,6 @@ The WorkRequest resulting from a dry run behaves differently than
       updateManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7771,8 +7612,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async updateManagedInstanceGroup(
     updateManagedInstanceGroupRequest: requests.UpdateManagedInstanceGroupRequest
   ): Promise<responses.UpdateManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#updateManagedInstanceGroup.");
+    logger.debug("Calling operation OsManagementClient#updateManagedInstanceGroup.");
     const operationName = "updateManagedInstanceGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/UpdateManagedInstanceGroup";
@@ -7794,7 +7634,6 @@ The WorkRequest resulting from a dry run behaves differently than
       updateManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7855,7 +7694,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async updateScheduledJob(
     updateScheduledJobRequest: requests.UpdateScheduledJobRequest
   ): Promise<responses.UpdateScheduledJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation OsManagementClient#updateScheduledJob.");
+    logger.debug("Calling operation OsManagementClient#updateScheduledJob.");
     const operationName = "updateScheduledJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/UpdateScheduledJob";
@@ -7877,7 +7716,6 @@ The WorkRequest resulting from a dry run behaves differently than
       updateScheduledJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7938,8 +7776,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async updateSoftwareSource(
     updateSoftwareSourceRequest: requests.UpdateSoftwareSourceRequest
   ): Promise<responses.UpdateSoftwareSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OsManagementClient#updateSoftwareSource.");
+    logger.debug("Calling operation OsManagementClient#updateSoftwareSource.");
     const operationName = "updateSoftwareSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/UpdateSoftwareSource";
@@ -7961,7 +7798,6 @@ The WorkRequest resulting from a dry run behaves differently than
       updateSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

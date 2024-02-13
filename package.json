@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.79.0",
+  "version": "2.79.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -171,6 +171,7 @@
     "mail": ""
   },
   "devDependencies": {
+    "@types/bunyan": "^1.8.8",
     "@types/asn1": "^0.2.1",
     "@types/chai": "4.1.7",
     "@types/isomorphic-fetch": "0.0.35",
@@ -184,6 +185,7 @@
     "@typescript-eslint/parser": "1.9.0",
     "@types/node-fetch": "2.6.5",
     "awesome-typescript-loader": "3.1.3",
+    "bunyan": "^1.8.15",
     "chai": "^4.2.0",
     "es6-promise": "4.2.6",
     "eslint": "^5.0.0",

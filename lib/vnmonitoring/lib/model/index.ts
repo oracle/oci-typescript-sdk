@@ -620,6 +620,8 @@ import * as NoRouteRoutingAction from "./no-route-routing-action";
 export import NoRouteRoutingAction = NoRouteRoutingAction.NoRouteRoutingAction;
 import * as NsgConfiguration from "./nsg-configuration";
 export import NsgConfiguration = NsgConfiguration.NsgConfiguration;
+import * as OnPremEndpoint from "./on-prem-endpoint";
+export import OnPremEndpoint = OnPremEndpoint.OnPremEndpoint;
 import * as PathAnalysisWorkRequestResult from "./path-analysis-work-request-result";
 export import PathAnalysisWorkRequestResult = PathAnalysisWorkRequestResult.PathAnalysisWorkRequestResult;
 import * as PathTopology from "./path-topology";

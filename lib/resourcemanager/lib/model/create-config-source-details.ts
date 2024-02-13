@@ -84,8 +84,7 @@ export namespace CreateConfigSourceDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.configSourceType}`);
+          common.logger.info(`Unknown value for: ${obj.configSourceType}`);
       }
     }
     return jsonObj;
@@ -136,8 +135,7 @@ export namespace CreateConfigSourceDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.configSourceType}`);
+          common.logger.info(`Unknown value for: ${obj.configSourceType}`);
       }
     }
     return jsonObj;

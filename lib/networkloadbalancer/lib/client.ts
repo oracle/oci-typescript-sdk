@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,12 +118,7 @@ export class NetworkLoadBalancerClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200501";
-    if (this.logger)
-      this.logger.info(`NetworkLoadBalancerClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`NetworkLoadBalancerClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +128,9 @@ export class NetworkLoadBalancerClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         NetworkLoadBalancerClient.serviceEndpointTemplate,
@@ -229,10 +224,9 @@ export class NetworkLoadBalancerClient {
   public async changeNetworkLoadBalancerCompartment(
     changeNetworkLoadBalancerCompartmentRequest: requests.ChangeNetworkLoadBalancerCompartmentRequest
   ): Promise<responses.ChangeNetworkLoadBalancerCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation NetworkLoadBalancerClient#changeNetworkLoadBalancerCompartment."
-      );
+    logger.debug(
+      "Calling operation NetworkLoadBalancerClient#changeNetworkLoadBalancerCompartment."
+    );
     const operationName = "changeNetworkLoadBalancerCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/ChangeNetworkLoadBalancerCompartment";
@@ -255,7 +249,6 @@ export class NetworkLoadBalancerClient {
       changeNetworkLoadBalancerCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -311,8 +304,7 @@ export class NetworkLoadBalancerClient {
   public async createBackend(
     createBackendRequest: requests.CreateBackendRequest
   ): Promise<responses.CreateBackendResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#createBackend.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#createBackend.");
     const operationName = "createBackend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Backend/CreateBackend";
@@ -336,7 +328,6 @@ export class NetworkLoadBalancerClient {
       createBackendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -392,8 +383,7 @@ export class NetworkLoadBalancerClient {
   public async createBackendSet(
     createBackendSetRequest: requests.CreateBackendSetRequest
   ): Promise<responses.CreateBackendSetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#createBackendSet.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#createBackendSet.");
     const operationName = "createBackendSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSet/CreateBackendSet";
@@ -416,7 +406,6 @@ export class NetworkLoadBalancerClient {
       createBackendSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -472,8 +461,7 @@ export class NetworkLoadBalancerClient {
   public async createListener(
     createListenerRequest: requests.CreateListenerRequest
   ): Promise<responses.CreateListenerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#createListener.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#createListener.");
     const operationName = "createListener";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Listener/CreateListener";
@@ -496,7 +484,6 @@ export class NetworkLoadBalancerClient {
       createListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -558,8 +545,7 @@ export class NetworkLoadBalancerClient {
   public async createNetworkLoadBalancer(
     createNetworkLoadBalancerRequest: requests.CreateNetworkLoadBalancerRequest
   ): Promise<responses.CreateNetworkLoadBalancerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#createNetworkLoadBalancer.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#createNetworkLoadBalancer.");
     const operationName = "createNetworkLoadBalancer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/CreateNetworkLoadBalancer";
@@ -579,7 +565,6 @@ export class NetworkLoadBalancerClient {
       createNetworkLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -644,8 +629,7 @@ export class NetworkLoadBalancerClient {
   public async deleteBackend(
     deleteBackendRequest: requests.DeleteBackendRequest
   ): Promise<responses.DeleteBackendResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#deleteBackend.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#deleteBackend.");
     const operationName = "deleteBackend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Backend/DeleteBackend";
@@ -669,7 +653,6 @@ export class NetworkLoadBalancerClient {
       deleteBackendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -724,8 +707,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteBackendSet(
     deleteBackendSetRequest: requests.DeleteBackendSetRequest
   ): Promise<responses.DeleteBackendSetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#deleteBackendSet.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#deleteBackendSet.");
     const operationName = "deleteBackendSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSet/DeleteBackendSet";
@@ -748,7 +730,6 @@ Before you can delete a backend set, you must remove it from any active listener
       deleteBackendSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -799,8 +780,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteListener(
     deleteListenerRequest: requests.DeleteListenerRequest
   ): Promise<responses.DeleteListenerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#deleteListener.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#deleteListener.");
     const operationName = "deleteListener";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Listener/DeleteListener";
@@ -823,7 +803,6 @@ Before you can delete a backend set, you must remove it from any active listener
       deleteListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -879,8 +858,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteNetworkLoadBalancer(
     deleteNetworkLoadBalancerRequest: requests.DeleteNetworkLoadBalancerRequest
   ): Promise<responses.DeleteNetworkLoadBalancerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#deleteNetworkLoadBalancer.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#deleteNetworkLoadBalancer.");
     const operationName = "deleteNetworkLoadBalancer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/DeleteNetworkLoadBalancer";
@@ -902,7 +880,6 @@ Before you can delete a backend set, you must remove it from any active listener
       deleteNetworkLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -953,7 +930,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getBackend(
     getBackendRequest: requests.GetBackendRequest
   ): Promise<responses.GetBackendResponse> {
-    if (this.logger) this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackend.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#getBackend.");
     const operationName = "getBackend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Backend/GetBackend";
@@ -977,7 +954,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getBackendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1033,8 +1009,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getBackendHealth(
     getBackendHealthRequest: requests.GetBackendHealthRequest
   ): Promise<responses.GetBackendHealthResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackendHealth.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#getBackendHealth.");
     const operationName = "getBackendHealth";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendHealth/GetBackendHealth";
@@ -1057,7 +1032,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getBackendHealthRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1108,8 +1082,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getBackendSet(
     getBackendSetRequest: requests.GetBackendSetRequest
   ): Promise<responses.GetBackendSetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackendSet.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#getBackendSet.");
     const operationName = "getBackendSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSet/GetBackendSet";
@@ -1132,7 +1105,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getBackendSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1187,8 +1159,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getBackendSetHealth(
     getBackendSetHealthRequest: requests.GetBackendSetHealthRequest
   ): Promise<responses.GetBackendSetHealthResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackendSetHealth.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#getBackendSetHealth.");
     const operationName = "getBackendSetHealth";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSetHealth/GetBackendSetHealth";
@@ -1210,7 +1181,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getBackendSetHealthRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1265,8 +1235,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getHealthChecker(
     getHealthCheckerRequest: requests.GetHealthCheckerRequest
   ): Promise<responses.GetHealthCheckerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#getHealthChecker.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#getHealthChecker.");
     const operationName = "getHealthChecker";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/HealthChecker/GetHealthChecker";
@@ -1290,7 +1259,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getHealthCheckerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1346,7 +1314,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getListener(
     getListenerRequest: requests.GetListenerRequest
   ): Promise<responses.GetListenerResponse> {
-    if (this.logger) this.logger.debug("Calling operation NetworkLoadBalancerClient#getListener.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#getListener.");
     const operationName = "getListener";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Listener/GetListener";
@@ -1369,7 +1337,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1424,8 +1391,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getNetworkLoadBalancer(
     getNetworkLoadBalancerRequest: requests.GetNetworkLoadBalancerRequest
   ): Promise<responses.GetNetworkLoadBalancerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#getNetworkLoadBalancer.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#getNetworkLoadBalancer.");
     const operationName = "getNetworkLoadBalancer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/GetNetworkLoadBalancer";
@@ -1447,7 +1413,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getNetworkLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1502,10 +1467,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getNetworkLoadBalancerHealth(
     getNetworkLoadBalancerHealthRequest: requests.GetNetworkLoadBalancerHealthRequest
   ): Promise<responses.GetNetworkLoadBalancerHealthResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation NetworkLoadBalancerClient#getNetworkLoadBalancerHealth."
-      );
+    logger.debug("Calling operation NetworkLoadBalancerClient#getNetworkLoadBalancerHealth.");
     const operationName = "getNetworkLoadBalancerHealth";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancerHealth/GetNetworkLoadBalancerHealth";
@@ -1526,7 +1488,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getNetworkLoadBalancerHealthRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1576,8 +1537,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#getWorkRequest.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/WorkRequest/GetWorkRequest";
@@ -1598,7 +1558,6 @@ Before you can delete a backend set, you must remove it from any active listener
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1653,8 +1612,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listBackendSets(
     listBackendSetsRequest: requests.ListBackendSetsRequest
   ): Promise<responses.ListBackendSetsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#listBackendSets.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#listBackendSets.");
     const operationName = "listBackendSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSetSummary/ListBackendSets";
@@ -1681,7 +1639,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listBackendSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1736,7 +1693,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listBackends(
     listBackendsRequest: requests.ListBackendsRequest
   ): Promise<responses.ListBackendsResponse> {
-    if (this.logger) this.logger.debug("Calling operation NetworkLoadBalancerClient#listBackends.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#listBackends.");
     const operationName = "listBackends";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSummary/ListBackends";
@@ -1764,7 +1721,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listBackendsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1819,8 +1775,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listListeners(
     listListenersRequest: requests.ListListenersRequest
   ): Promise<responses.ListListenersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#listListeners.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#listListeners.");
     const operationName = "listListeners";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/ListenerSummary/ListListeners";
@@ -1847,7 +1802,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listListenersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1902,10 +1856,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listNetworkLoadBalancerHealths(
     listNetworkLoadBalancerHealthsRequest: requests.ListNetworkLoadBalancerHealthsRequest
   ): Promise<responses.ListNetworkLoadBalancerHealthsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancerHealths."
-      );
+    logger.debug("Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancerHealths.");
     const operationName = "listNetworkLoadBalancerHealths";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancerHealth/ListNetworkLoadBalancerHealths";
@@ -1930,7 +1881,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listNetworkLoadBalancerHealthsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1986,8 +1936,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listNetworkLoadBalancers(
     listNetworkLoadBalancersRequest: requests.ListNetworkLoadBalancersRequest
   ): Promise<responses.ListNetworkLoadBalancersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancers.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancers.");
     const operationName = "listNetworkLoadBalancers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/ListNetworkLoadBalancers";
@@ -2014,7 +1963,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listNetworkLoadBalancersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2069,10 +2017,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listNetworkLoadBalancersPolicies(
     listNetworkLoadBalancersPoliciesRequest: requests.ListNetworkLoadBalancersPoliciesRequest
   ): Promise<responses.ListNetworkLoadBalancersPoliciesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancersPolicies."
-      );
+    logger.debug("Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancersPolicies.");
     const operationName = "listNetworkLoadBalancersPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancingPolicy/ListNetworkLoadBalancersPolicies";
@@ -2096,7 +2041,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listNetworkLoadBalancersPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2153,10 +2097,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listNetworkLoadBalancersProtocols(
     listNetworkLoadBalancersProtocolsRequest: requests.ListNetworkLoadBalancersProtocolsRequest
   ): Promise<responses.ListNetworkLoadBalancersProtocolsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancersProtocols."
-      );
+    logger.debug("Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancersProtocols.");
     const operationName = "listNetworkLoadBalancersProtocols";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/ListenerProtocols/ListNetworkLoadBalancersProtocols";
@@ -2180,7 +2121,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listNetworkLoadBalancersProtocolsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2236,8 +2176,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequestErrors.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/WorkRequestError/ListWorkRequestErrors";
@@ -2262,7 +2201,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2318,8 +2256,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequestLogs.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -2344,7 +2281,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2399,8 +2335,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequests.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/WorkRequest/ListWorkRequests";
@@ -2423,7 +2358,6 @@ Before you can delete a backend set, you must remove it from any active listener
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2478,8 +2412,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async updateBackend(
     updateBackendRequest: requests.UpdateBackendRequest
   ): Promise<responses.UpdateBackendResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#updateBackend.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#updateBackend.");
     const operationName = "updateBackend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Backend/UpdateBackend";
@@ -2504,7 +2437,6 @@ Before you can delete a backend set, you must remove it from any active listener
       updateBackendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2561,8 +2493,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async updateBackendSet(
     updateBackendSetRequest: requests.UpdateBackendSetRequest
   ): Promise<responses.UpdateBackendSetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#updateBackendSet.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#updateBackendSet.");
     const operationName = "updateBackendSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSet/UpdateBackendSet";
@@ -2586,7 +2517,6 @@ Before you can delete a backend set, you must remove it from any active listener
       updateBackendSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2642,8 +2572,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async updateHealthChecker(
     updateHealthCheckerRequest: requests.UpdateHealthCheckerRequest
   ): Promise<responses.UpdateHealthCheckerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#updateHealthChecker.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#updateHealthChecker.");
     const operationName = "updateHealthChecker";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/HealthChecker/UpdateHealthChecker";
@@ -2667,7 +2596,6 @@ Before you can delete a backend set, you must remove it from any active listener
       updateHealthCheckerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2724,8 +2652,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async updateListener(
     updateListenerRequest: requests.UpdateListenerRequest
   ): Promise<responses.UpdateListenerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#updateListener.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#updateListener.");
     const operationName = "updateListener";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Listener/UpdateListener";
@@ -2749,7 +2676,6 @@ Before you can delete a backend set, you must remove it from any active listener
       updateListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2805,8 +2731,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async updateNetworkLoadBalancer(
     updateNetworkLoadBalancerRequest: requests.UpdateNetworkLoadBalancerRequest
   ): Promise<responses.UpdateNetworkLoadBalancerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#updateNetworkLoadBalancer.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#updateNetworkLoadBalancer.");
     const operationName = "updateNetworkLoadBalancer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/UpdateNetworkLoadBalancer";
@@ -2828,7 +2753,6 @@ Before you can delete a backend set, you must remove it from any active listener
       updateNetworkLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2884,8 +2808,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async updateNetworkSecurityGroups(
     updateNetworkSecurityGroupsRequest: requests.UpdateNetworkSecurityGroupsRequest
   ): Promise<responses.UpdateNetworkSecurityGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NetworkLoadBalancerClient#updateNetworkSecurityGroups.");
+    logger.debug("Calling operation NetworkLoadBalancerClient#updateNetworkSecurityGroups.");
     const operationName = "updateNetworkSecurityGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/UpdateNetworkSecurityGroups";
@@ -2908,7 +2831,6 @@ Before you can delete a backend set, you must remove it from any active listener
       updateNetworkSecurityGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

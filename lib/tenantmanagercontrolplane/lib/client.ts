@@ -27,7 +27,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -124,11 +125,7 @@ export class DomainClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`DomainClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DomainClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -138,10 +135,9 @@ export class DomainClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DomainClient.serviceEndpointTemplate,
@@ -233,7 +229,7 @@ export class DomainClient {
   public async createDomain(
     createDomainRequest: requests.CreateDomainRequest
   ): Promise<responses.CreateDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation DomainClient#createDomain.");
+    logger.debug("Calling operation DomainClient#createDomain.");
     const operationName = "createDomain";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -252,7 +248,6 @@ export class DomainClient {
       createDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -317,7 +312,7 @@ export class DomainClient {
   public async deleteDomain(
     deleteDomainRequest: requests.DeleteDomainRequest
   ): Promise<responses.DeleteDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation DomainClient#deleteDomain.");
+    logger.debug("Calling operation DomainClient#deleteDomain.");
     const operationName = "deleteDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Domain/DeleteDomain";
@@ -339,7 +334,6 @@ export class DomainClient {
       deleteDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,7 +379,7 @@ export class DomainClient {
   public async getDomain(
     getDomainRequest: requests.GetDomainRequest
   ): Promise<responses.GetDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation DomainClient#getDomain.");
+    logger.debug("Calling operation DomainClient#getDomain.");
     const operationName = "getDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Domain/GetDomain";
@@ -406,7 +400,6 @@ export class DomainClient {
       getDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -462,7 +455,7 @@ export class DomainClient {
   public async listDomains(
     listDomainsRequest: requests.ListDomainsRequest
   ): Promise<responses.ListDomainsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DomainClient#listDomains.");
+    logger.debug("Calling operation DomainClient#listDomains.");
     const operationName = "listDomains";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Domain/ListDomains";
@@ -491,7 +484,6 @@ export class DomainClient {
       listDomainsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -546,7 +538,7 @@ export class DomainClient {
   public async updateDomain(
     updateDomainRequest: requests.UpdateDomainRequest
   ): Promise<responses.UpdateDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation DomainClient#updateDomain.");
+    logger.debug("Calling operation DomainClient#updateDomain.");
     const operationName = "updateDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Domain/UpdateDomain";
@@ -568,7 +560,6 @@ export class DomainClient {
       updateDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -706,11 +697,7 @@ export class DomainGovernanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`DomainGovernanceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DomainGovernanceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -720,10 +707,9 @@ export class DomainGovernanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DomainGovernanceClient.serviceEndpointTemplate,
@@ -815,8 +801,7 @@ export class DomainGovernanceClient {
   public async createDomainGovernance(
     createDomainGovernanceRequest: requests.CreateDomainGovernanceRequest
   ): Promise<responses.CreateDomainGovernanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DomainGovernanceClient#createDomainGovernance.");
+    logger.debug("Calling operation DomainGovernanceClient#createDomainGovernance.");
     const operationName = "createDomainGovernance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/DomainGovernance/CreateDomainGovernance";
@@ -836,7 +821,6 @@ export class DomainGovernanceClient {
       createDomainGovernanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -896,8 +880,7 @@ export class DomainGovernanceClient {
   public async deleteDomainGovernance(
     deleteDomainGovernanceRequest: requests.DeleteDomainGovernanceRequest
   ): Promise<responses.DeleteDomainGovernanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DomainGovernanceClient#deleteDomainGovernance.");
+    logger.debug("Calling operation DomainGovernanceClient#deleteDomainGovernance.");
     const operationName = "deleteDomainGovernance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/DomainGovernance/DeleteDomainGovernance";
@@ -919,7 +902,6 @@ export class DomainGovernanceClient {
       deleteDomainGovernanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -965,8 +947,7 @@ export class DomainGovernanceClient {
   public async getDomainGovernance(
     getDomainGovernanceRequest: requests.GetDomainGovernanceRequest
   ): Promise<responses.GetDomainGovernanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DomainGovernanceClient#getDomainGovernance.");
+    logger.debug("Calling operation DomainGovernanceClient#getDomainGovernance.");
     const operationName = "getDomainGovernance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/DomainGovernance/GetDomainGovernance";
@@ -987,7 +968,6 @@ export class DomainGovernanceClient {
       getDomainGovernanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1043,8 +1023,7 @@ export class DomainGovernanceClient {
   public async listDomainGovernances(
     listDomainGovernancesRequest: requests.ListDomainGovernancesRequest
   ): Promise<responses.ListDomainGovernancesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DomainGovernanceClient#listDomainGovernances.");
+    logger.debug("Calling operation DomainGovernanceClient#listDomainGovernances.");
     const operationName = "listDomainGovernances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/DomainGovernance/ListDomainGovernances";
@@ -1073,7 +1052,6 @@ export class DomainGovernanceClient {
       listDomainGovernancesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1128,8 +1106,7 @@ export class DomainGovernanceClient {
   public async updateDomainGovernance(
     updateDomainGovernanceRequest: requests.UpdateDomainGovernanceRequest
   ): Promise<responses.UpdateDomainGovernanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DomainGovernanceClient#updateDomainGovernance.");
+    logger.debug("Calling operation DomainGovernanceClient#updateDomainGovernance.");
     const operationName = "updateDomainGovernance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/DomainGovernance/UpdateDomainGovernance";
@@ -1151,7 +1128,6 @@ export class DomainGovernanceClient {
       updateDomainGovernanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1288,11 +1264,7 @@ export class GovernanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`GovernanceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`GovernanceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1302,10 +1274,9 @@ export class GovernanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         GovernanceClient.serviceEndpointTemplate,
@@ -1374,7 +1345,7 @@ export class GovernanceClient {
   public async addGovernance(
     addGovernanceRequest: requests.AddGovernanceRequest
   ): Promise<responses.AddGovernanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation GovernanceClient#addGovernance.");
+    logger.debug("Calling operation GovernanceClient#addGovernance.");
     const operationName = "addGovernance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/OrganizationTenancy/AddGovernance";
@@ -1398,7 +1369,6 @@ export class GovernanceClient {
       addGovernanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1450,7 +1420,7 @@ export class GovernanceClient {
   public async removeGovernance(
     removeGovernanceRequest: requests.RemoveGovernanceRequest
   ): Promise<responses.RemoveGovernanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation GovernanceClient#removeGovernance.");
+    logger.debug("Calling operation GovernanceClient#removeGovernance.");
     const operationName = "removeGovernance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/OrganizationTenancy/RemoveGovernance";
@@ -1474,7 +1444,6 @@ export class GovernanceClient {
       removeGovernanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1604,11 +1573,7 @@ export class LinkClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`LinkClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LinkClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1618,10 +1583,9 @@ export class LinkClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LinkClient.serviceEndpointTemplate,
@@ -1713,7 +1677,7 @@ export class LinkClient {
   public async deleteLink(
     deleteLinkRequest: requests.DeleteLinkRequest
   ): Promise<responses.DeleteLinkResponse> {
-    if (this.logger) this.logger.debug("Calling operation LinkClient#deleteLink.");
+    logger.debug("Calling operation LinkClient#deleteLink.");
     const operationName = "deleteLink";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Link/DeleteLink";
@@ -1735,7 +1699,6 @@ export class LinkClient {
       deleteLinkRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1786,7 +1749,7 @@ export class LinkClient {
   public async getLink(
     getLinkRequest: requests.GetLinkRequest
   ): Promise<responses.GetLinkResponse> {
-    if (this.logger) this.logger.debug("Calling operation LinkClient#getLink.");
+    logger.debug("Calling operation LinkClient#getLink.");
     const operationName = "getLink";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Link/GetLink";
@@ -1807,7 +1770,6 @@ export class LinkClient {
       getLinkRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1862,7 +1824,7 @@ export class LinkClient {
   public async listLinks(
     listLinksRequest: requests.ListLinksRequest
   ): Promise<responses.ListLinksResponse> {
-    if (this.logger) this.logger.debug("Calling operation LinkClient#listLinks.");
+    logger.debug("Calling operation LinkClient#listLinks.");
     const operationName = "listLinks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Link/ListLinks";
@@ -1888,7 +1850,6 @@ export class LinkClient {
       listLinksRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2020,11 +1981,7 @@ export class OrdersClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`OrdersClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OrdersClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -2034,10 +1991,9 @@ export class OrdersClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OrdersClient.serviceEndpointTemplate,
@@ -2106,7 +2062,7 @@ export class OrdersClient {
   public async activateOrder(
     activateOrderRequest: requests.ActivateOrderRequest
   ): Promise<responses.ActivateOrderResponse> {
-    if (this.logger) this.logger.debug("Calling operation OrdersClient#activateOrder.");
+    logger.debug("Calling operation OrdersClient#activateOrder.");
     const operationName = "activateOrder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Order/ActivateOrder";
@@ -2128,7 +2084,6 @@ export class OrdersClient {
       activateOrderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2185,7 +2140,7 @@ export class OrdersClient {
   public async getOrder(
     getOrderRequest: requests.GetOrderRequest
   ): Promise<responses.GetOrderResponse> {
-    if (this.logger) this.logger.debug("Calling operation OrdersClient#getOrder.");
+    logger.debug("Calling operation OrdersClient#getOrder.");
     const operationName = "getOrder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Order/GetOrder";
@@ -2206,7 +2161,6 @@ export class OrdersClient {
       getOrderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2334,11 +2288,7 @@ export class OrganizationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`OrganizationClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OrganizationClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -2348,10 +2298,9 @@ export class OrganizationClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OrganizationClient.serviceEndpointTemplate,
@@ -2443,10 +2392,7 @@ export class OrganizationClient {
   public async approveOrganizationTenancyForTransfer(
     approveOrganizationTenancyForTransferRequest: requests.ApproveOrganizationTenancyForTransferRequest
   ): Promise<responses.ApproveOrganizationTenancyForTransferResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OrganizationClient#approveOrganizationTenancyForTransfer."
-      );
+    logger.debug("Calling operation OrganizationClient#approveOrganizationTenancyForTransfer.");
     const operationName = "approveOrganizationTenancyForTransfer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/OrganizationTenancy/ApproveOrganizationTenancyForTransfer";
@@ -2471,7 +2417,6 @@ export class OrganizationClient {
       approveOrganizationTenancyForTransferRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2526,7 +2471,7 @@ export class OrganizationClient {
   public async createChildTenancy(
     createChildTenancyRequest: requests.CreateChildTenancyRequest
   ): Promise<responses.CreateChildTenancyResponse> {
-    if (this.logger) this.logger.debug("Calling operation OrganizationClient#createChildTenancy.");
+    logger.debug("Calling operation OrganizationClient#createChildTenancy.");
     const operationName = "createChildTenancy";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2545,7 +2490,6 @@ export class OrganizationClient {
       createChildTenancyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2601,8 +2545,7 @@ export class OrganizationClient {
   public async deleteOrganizationTenancy(
     deleteOrganizationTenancyRequest: requests.DeleteOrganizationTenancyRequest
   ): Promise<responses.DeleteOrganizationTenancyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OrganizationClient#deleteOrganizationTenancy.");
+    logger.debug("Calling operation OrganizationClient#deleteOrganizationTenancy.");
     const operationName = "deleteOrganizationTenancy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/OrganizationTenancy/DeleteOrganizationTenancy";
@@ -2625,7 +2568,6 @@ export class OrganizationClient {
       deleteOrganizationTenancyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2676,7 +2618,7 @@ export class OrganizationClient {
   public async getOrganization(
     getOrganizationRequest: requests.GetOrganizationRequest
   ): Promise<responses.GetOrganizationResponse> {
-    if (this.logger) this.logger.debug("Calling operation OrganizationClient#getOrganization.");
+    logger.debug("Calling operation OrganizationClient#getOrganization.");
     const operationName = "getOrganization";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Organization/GetOrganization";
@@ -2697,7 +2639,6 @@ export class OrganizationClient {
       getOrganizationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2752,8 +2693,7 @@ export class OrganizationClient {
   public async getOrganizationTenancy(
     getOrganizationTenancyRequest: requests.GetOrganizationTenancyRequest
   ): Promise<responses.GetOrganizationTenancyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OrganizationClient#getOrganizationTenancy.");
+    logger.debug("Calling operation OrganizationClient#getOrganizationTenancy.");
     const operationName = "getOrganizationTenancy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/OrganizationTenancy/GetOrganizationTenancy";
@@ -2775,7 +2715,6 @@ export class OrganizationClient {
       getOrganizationTenancyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2830,8 +2769,7 @@ export class OrganizationClient {
   public async listOrganizationTenancies(
     listOrganizationTenanciesRequest: requests.ListOrganizationTenanciesRequest
   ): Promise<responses.ListOrganizationTenanciesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OrganizationClient#listOrganizationTenancies.");
+    logger.debug("Calling operation OrganizationClient#listOrganizationTenancies.");
     const operationName = "listOrganizationTenancies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Organization/ListOrganizationTenancies";
@@ -2855,7 +2793,6 @@ export class OrganizationClient {
       listOrganizationTenanciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2910,7 +2847,7 @@ export class OrganizationClient {
   public async listOrganizations(
     listOrganizationsRequest: requests.ListOrganizationsRequest
   ): Promise<responses.ListOrganizationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OrganizationClient#listOrganizations.");
+    logger.debug("Calling operation OrganizationClient#listOrganizations.");
     const operationName = "listOrganizations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Organization/ListOrganizations";
@@ -2933,7 +2870,6 @@ export class OrganizationClient {
       listOrganizationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2988,8 +2924,7 @@ export class OrganizationClient {
   public async restoreOrganizationTenancy(
     restoreOrganizationTenancyRequest: requests.RestoreOrganizationTenancyRequest
   ): Promise<responses.RestoreOrganizationTenancyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OrganizationClient#restoreOrganizationTenancy.");
+    logger.debug("Calling operation OrganizationClient#restoreOrganizationTenancy.");
     const operationName = "restoreOrganizationTenancy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/OrganizationTenancy/RestoreOrganizationTenancy";
@@ -3011,7 +2946,6 @@ export class OrganizationClient {
       restoreOrganizationTenancyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3062,10 +2996,7 @@ export class OrganizationClient {
   public async unapproveOrganizationTenancyForTransfer(
     unapproveOrganizationTenancyForTransferRequest: requests.UnapproveOrganizationTenancyForTransferRequest
   ): Promise<responses.UnapproveOrganizationTenancyForTransferResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OrganizationClient#unapproveOrganizationTenancyForTransfer."
-      );
+    logger.debug("Calling operation OrganizationClient#unapproveOrganizationTenancyForTransfer.");
     const operationName = "unapproveOrganizationTenancyForTransfer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/OrganizationTenancy/UnapproveOrganizationTenancyForTransfer";
@@ -3091,7 +3022,6 @@ export class OrganizationClient {
       unapproveOrganizationTenancyForTransferRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3146,7 +3076,7 @@ export class OrganizationClient {
   public async updateOrganization(
     updateOrganizationRequest: requests.UpdateOrganizationRequest
   ): Promise<responses.UpdateOrganizationResponse> {
-    if (this.logger) this.logger.debug("Calling operation OrganizationClient#updateOrganization.");
+    logger.debug("Calling operation OrganizationClient#updateOrganization.");
     const operationName = "updateOrganization";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Organization/UpdateOrganization";
@@ -3169,7 +3099,6 @@ export class OrganizationClient {
       updateOrganizationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3303,12 +3232,7 @@ export class RecipientInvitationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger)
-      this.logger.info(`RecipientInvitationClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`RecipientInvitationClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -3318,10 +3242,9 @@ export class RecipientInvitationClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RecipientInvitationClient.serviceEndpointTemplate,
@@ -3413,8 +3336,7 @@ export class RecipientInvitationClient {
   public async acceptRecipientInvitation(
     acceptRecipientInvitationRequest: requests.AcceptRecipientInvitationRequest
   ): Promise<responses.AcceptRecipientInvitationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RecipientInvitationClient#acceptRecipientInvitation.");
+    logger.debug("Calling operation RecipientInvitationClient#acceptRecipientInvitation.");
     const operationName = "acceptRecipientInvitation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/RecipientInvitation/AcceptRecipientInvitation";
@@ -3437,7 +3359,6 @@ export class RecipientInvitationClient {
       acceptRecipientInvitationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3488,8 +3409,7 @@ export class RecipientInvitationClient {
   public async getRecipientInvitation(
     getRecipientInvitationRequest: requests.GetRecipientInvitationRequest
   ): Promise<responses.GetRecipientInvitationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RecipientInvitationClient#getRecipientInvitation.");
+    logger.debug("Calling operation RecipientInvitationClient#getRecipientInvitation.");
     const operationName = "getRecipientInvitation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/RecipientInvitation/GetRecipientInvitation";
@@ -3510,7 +3430,6 @@ export class RecipientInvitationClient {
       getRecipientInvitationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3565,8 +3484,7 @@ export class RecipientInvitationClient {
   public async ignoreRecipientInvitation(
     ignoreRecipientInvitationRequest: requests.IgnoreRecipientInvitationRequest
   ): Promise<responses.IgnoreRecipientInvitationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RecipientInvitationClient#ignoreRecipientInvitation.");
+    logger.debug("Calling operation RecipientInvitationClient#ignoreRecipientInvitation.");
     const operationName = "ignoreRecipientInvitation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/RecipientInvitation/IgnoreRecipientInvitation";
@@ -3589,7 +3507,6 @@ export class RecipientInvitationClient {
       ignoreRecipientInvitationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3645,8 +3562,7 @@ export class RecipientInvitationClient {
   public async listRecipientInvitations(
     listRecipientInvitationsRequest: requests.ListRecipientInvitationsRequest
   ): Promise<responses.ListRecipientInvitationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RecipientInvitationClient#listRecipientInvitations.");
+    logger.debug("Calling operation RecipientInvitationClient#listRecipientInvitations.");
     const operationName = "listRecipientInvitations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/RecipientInvitation/ListRecipientInvitations";
@@ -3671,7 +3587,6 @@ export class RecipientInvitationClient {
       listRecipientInvitationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3726,8 +3641,7 @@ export class RecipientInvitationClient {
   public async updateRecipientInvitation(
     updateRecipientInvitationRequest: requests.UpdateRecipientInvitationRequest
   ): Promise<responses.UpdateRecipientInvitationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RecipientInvitationClient#updateRecipientInvitation.");
+    logger.debug("Calling operation RecipientInvitationClient#updateRecipientInvitation.");
     const operationName = "updateRecipientInvitation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/RecipientInvitation/UpdateRecipientInvitation";
@@ -3749,7 +3663,6 @@ export class RecipientInvitationClient {
       updateRecipientInvitationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3887,11 +3800,7 @@ export class SenderInvitationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`SenderInvitationClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`SenderInvitationClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -3901,10 +3810,9 @@ export class SenderInvitationClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SenderInvitationClient.serviceEndpointTemplate,
@@ -3996,8 +3904,7 @@ export class SenderInvitationClient {
   public async cancelSenderInvitation(
     cancelSenderInvitationRequest: requests.CancelSenderInvitationRequest
   ): Promise<responses.CancelSenderInvitationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SenderInvitationClient#cancelSenderInvitation.");
+    logger.debug("Calling operation SenderInvitationClient#cancelSenderInvitation.");
     const operationName = "cancelSenderInvitation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SenderInvitation/CancelSenderInvitation";
@@ -4020,7 +3927,6 @@ export class SenderInvitationClient {
       cancelSenderInvitationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4071,8 +3977,7 @@ export class SenderInvitationClient {
   public async createSenderInvitation(
     createSenderInvitationRequest: requests.CreateSenderInvitationRequest
   ): Promise<responses.CreateSenderInvitationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SenderInvitationClient#createSenderInvitation.");
+    logger.debug("Calling operation SenderInvitationClient#createSenderInvitation.");
     const operationName = "createSenderInvitation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SenderInvitation/CreateSenderInvitation";
@@ -4092,7 +3997,6 @@ export class SenderInvitationClient {
       createSenderInvitationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4157,8 +4061,7 @@ export class SenderInvitationClient {
   public async getSenderInvitation(
     getSenderInvitationRequest: requests.GetSenderInvitationRequest
   ): Promise<responses.GetSenderInvitationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SenderInvitationClient#getSenderInvitation.");
+    logger.debug("Calling operation SenderInvitationClient#getSenderInvitation.");
     const operationName = "getSenderInvitation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SenderInvitation/GetSenderInvitation";
@@ -4179,7 +4082,6 @@ export class SenderInvitationClient {
       getSenderInvitationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4235,8 +4137,7 @@ export class SenderInvitationClient {
   public async listSenderInvitations(
     listSenderInvitationsRequest: requests.ListSenderInvitationsRequest
   ): Promise<responses.ListSenderInvitationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SenderInvitationClient#listSenderInvitations.");
+    logger.debug("Calling operation SenderInvitationClient#listSenderInvitations.");
     const operationName = "listSenderInvitations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SenderInvitation/ListSenderInvitations";
@@ -4265,7 +4166,6 @@ export class SenderInvitationClient {
       listSenderInvitationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4320,8 +4220,7 @@ export class SenderInvitationClient {
   public async updateSenderInvitation(
     updateSenderInvitationRequest: requests.UpdateSenderInvitationRequest
   ): Promise<responses.UpdateSenderInvitationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SenderInvitationClient#updateSenderInvitation.");
+    logger.debug("Calling operation SenderInvitationClient#updateSenderInvitation.");
     const operationName = "updateSenderInvitation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SenderInvitation/UpdateSenderInvitation";
@@ -4343,7 +4242,6 @@ export class SenderInvitationClient {
       updateSenderInvitationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4481,11 +4379,7 @@ export class SubscriptionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`SubscriptionClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`SubscriptionClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -4495,10 +4389,9 @@ export class SubscriptionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SubscriptionClient.serviceEndpointTemplate,
@@ -4590,8 +4483,7 @@ export class SubscriptionClient {
   public async createSubscriptionMapping(
     createSubscriptionMappingRequest: requests.CreateSubscriptionMappingRequest
   ): Promise<responses.CreateSubscriptionMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#createSubscriptionMapping.");
+    logger.debug("Calling operation SubscriptionClient#createSubscriptionMapping.");
     const operationName = "createSubscriptionMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SubscriptionMapping/CreateSubscriptionMapping";
@@ -4612,7 +4504,6 @@ export class SubscriptionClient {
       createSubscriptionMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4677,8 +4568,7 @@ export class SubscriptionClient {
   public async deleteSubscriptionMapping(
     deleteSubscriptionMappingRequest: requests.DeleteSubscriptionMappingRequest
   ): Promise<responses.DeleteSubscriptionMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#deleteSubscriptionMapping.");
+    logger.debug("Calling operation SubscriptionClient#deleteSubscriptionMapping.");
     const operationName = "deleteSubscriptionMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SubscriptionMapping/DeleteSubscriptionMapping";
@@ -4700,7 +4590,6 @@ export class SubscriptionClient {
       deleteSubscriptionMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4746,8 +4635,7 @@ export class SubscriptionClient {
   public async getAssignedSubscription(
     getAssignedSubscriptionRequest: requests.GetAssignedSubscriptionRequest
   ): Promise<responses.GetAssignedSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#getAssignedSubscription.");
+    logger.debug("Calling operation SubscriptionClient#getAssignedSubscription.");
     const operationName = "getAssignedSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/AssignedSubscription/GetAssignedSubscription";
@@ -4768,7 +4656,6 @@ export class SubscriptionClient {
       getAssignedSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4823,7 +4710,7 @@ export class SubscriptionClient {
   public async getSubscription(
     getSubscriptionRequest: requests.GetSubscriptionRequest
   ): Promise<responses.GetSubscriptionResponse> {
-    if (this.logger) this.logger.debug("Calling operation SubscriptionClient#getSubscription.");
+    logger.debug("Calling operation SubscriptionClient#getSubscription.");
     const operationName = "getSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Subscription/GetSubscription";
@@ -4844,7 +4731,6 @@ export class SubscriptionClient {
       getSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4899,8 +4785,7 @@ export class SubscriptionClient {
   public async getSubscriptionMapping(
     getSubscriptionMappingRequest: requests.GetSubscriptionMappingRequest
   ): Promise<responses.GetSubscriptionMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#getSubscriptionMapping.");
+    logger.debug("Calling operation SubscriptionClient#getSubscriptionMapping.");
     const operationName = "getSubscriptionMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SubscriptionMapping/GetSubscriptionMapping";
@@ -4921,7 +4806,6 @@ export class SubscriptionClient {
       getSubscriptionMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4976,8 +4860,7 @@ export class SubscriptionClient {
   public async listAssignedSubscriptionLineItems(
     listAssignedSubscriptionLineItemsRequest: requests.ListAssignedSubscriptionLineItemsRequest
   ): Promise<responses.ListAssignedSubscriptionLineItemsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#listAssignedSubscriptionLineItems.");
+    logger.debug("Calling operation SubscriptionClient#listAssignedSubscriptionLineItems.");
     const operationName = "listAssignedSubscriptionLineItems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/AssignedSubscriptionLineItemSummary/ListAssignedSubscriptionLineItems";
@@ -5003,7 +4886,6 @@ export class SubscriptionClient {
       listAssignedSubscriptionLineItemsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5058,8 +4940,7 @@ export class SubscriptionClient {
   public async listAssignedSubscriptions(
     listAssignedSubscriptionsRequest: requests.ListAssignedSubscriptionsRequest
   ): Promise<responses.ListAssignedSubscriptionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#listAssignedSubscriptions.");
+    logger.debug("Calling operation SubscriptionClient#listAssignedSubscriptions.");
     const operationName = "listAssignedSubscriptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/AssignedSubscription/ListAssignedSubscriptions";
@@ -5086,7 +4967,6 @@ export class SubscriptionClient {
       listAssignedSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5141,8 +5021,7 @@ export class SubscriptionClient {
   public async listAvailableRegions(
     listAvailableRegionsRequest: requests.ListAvailableRegionsRequest
   ): Promise<responses.ListAvailableRegionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#listAvailableRegions.");
+    logger.debug("Calling operation SubscriptionClient#listAvailableRegions.");
     const operationName = "listAvailableRegions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Subscription/ListAvailableRegions";
@@ -5165,7 +5044,6 @@ export class SubscriptionClient {
       listAvailableRegionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5220,8 +5098,7 @@ export class SubscriptionClient {
   public async listSubscriptionLineItems(
     listSubscriptionLineItemsRequest: requests.ListSubscriptionLineItemsRequest
   ): Promise<responses.ListSubscriptionLineItemsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#listSubscriptionLineItems.");
+    logger.debug("Calling operation SubscriptionClient#listSubscriptionLineItems.");
     const operationName = "listSubscriptionLineItems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SubscriptionLineItemSummary/ListSubscriptionLineItems";
@@ -5247,7 +5124,6 @@ export class SubscriptionClient {
       listSubscriptionLineItemsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5302,8 +5178,7 @@ export class SubscriptionClient {
   public async listSubscriptionMappings(
     listSubscriptionMappingsRequest: requests.ListSubscriptionMappingsRequest
   ): Promise<responses.ListSubscriptionMappingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionClient#listSubscriptionMappings.");
+    logger.debug("Calling operation SubscriptionClient#listSubscriptionMappings.");
     const operationName = "listSubscriptionMappings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/SubscriptionMapping/ListSubscriptionMappings";
@@ -5331,7 +5206,6 @@ export class SubscriptionClient {
       listSubscriptionMappingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5386,7 +5260,7 @@ export class SubscriptionClient {
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
   ): Promise<responses.ListSubscriptionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation SubscriptionClient#listSubscriptions.");
+    logger.debug("Calling operation SubscriptionClient#listSubscriptions.");
     const operationName = "listSubscriptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/Subscription/ListSubscriptions";
@@ -5413,7 +5287,6 @@ export class SubscriptionClient {
       listSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5546,11 +5419,7 @@ export class WorkRequestClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230401";
-    if (this.logger) this.logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -5560,10 +5429,9 @@ export class WorkRequestClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WorkRequestClient.serviceEndpointTemplate,
@@ -5655,7 +5523,7 @@ export class WorkRequestClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
+    logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/WorkRequest/GetWorkRequest";
@@ -5676,7 +5544,6 @@ export class WorkRequestClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5732,8 +5599,7 @@ export class WorkRequestClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/WorkRequestError/ListWorkRequestErrors";
@@ -5758,7 +5624,6 @@ export class WorkRequestClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5814,7 +5679,7 @@ export class WorkRequestClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -5839,7 +5704,6 @@ export class WorkRequestClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5895,7 +5759,7 @@ export class WorkRequestClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/organizations/20230401/WorkRequest/ListWorkRequests";
@@ -5919,7 +5783,6 @@ export class WorkRequestClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

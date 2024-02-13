@@ -33,8 +33,7 @@ export namespace ContainerConfig {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.containerConfigType}`);
+          common.logger.info(`Unknown value for: ${obj.containerConfigType}`);
       }
     }
     return jsonObj;
@@ -50,8 +49,7 @@ export namespace ContainerConfig {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.containerConfigType}`);
+          common.logger.info(`Unknown value for: ${obj.containerConfigType}`);
       }
     }
     return jsonObj;

@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,11 +118,7 @@ export class LicenseManagerClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220430";
-    if (this.logger) this.logger.info(`LicenseManagerClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LicenseManagerClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -131,10 +128,9 @@ export class LicenseManagerClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LicenseManagerClient.serviceEndpointTemplate,
@@ -226,8 +222,7 @@ export class LicenseManagerClient {
   public async bulkUploadLicenseRecords(
     bulkUploadLicenseRecordsRequest: requests.BulkUploadLicenseRecordsRequest
   ): Promise<responses.BulkUploadLicenseRecordsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#bulkUploadLicenseRecords.");
+    logger.debug("Calling operation LicenseManagerClient#bulkUploadLicenseRecords.");
     const operationName = "bulkUploadLicenseRecords";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -245,7 +240,6 @@ export class LicenseManagerClient {
       bulkUploadLicenseRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -300,8 +294,7 @@ export class LicenseManagerClient {
   public async createLicenseRecord(
     createLicenseRecordRequest: requests.CreateLicenseRecordRequest
   ): Promise<responses.CreateLicenseRecordResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#createLicenseRecord.");
+    logger.debug("Calling operation LicenseManagerClient#createLicenseRecord.");
     const operationName = "createLicenseRecord";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -322,7 +315,6 @@ export class LicenseManagerClient {
       createLicenseRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -392,8 +384,7 @@ export class LicenseManagerClient {
   public async createProductLicense(
     createProductLicenseRequest: requests.CreateProductLicenseRequest
   ): Promise<responses.CreateProductLicenseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#createProductLicense.");
+    logger.debug("Calling operation LicenseManagerClient#createProductLicense.");
     const operationName = "createProductLicense";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -412,7 +403,6 @@ export class LicenseManagerClient {
       createProductLicenseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -482,8 +472,7 @@ export class LicenseManagerClient {
   public async deleteLicenseRecord(
     deleteLicenseRecordRequest: requests.DeleteLicenseRecordRequest
   ): Promise<responses.DeleteLicenseRecordResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#deleteLicenseRecord.");
+    logger.debug("Calling operation LicenseManagerClient#deleteLicenseRecord.");
     const operationName = "deleteLicenseRecord";
     const apiReferenceLink = "";
     const pathParams = {
@@ -504,7 +493,6 @@ export class LicenseManagerClient {
       deleteLicenseRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -560,8 +548,7 @@ export class LicenseManagerClient {
   public async deleteProductLicense(
     deleteProductLicenseRequest: requests.DeleteProductLicenseRequest
   ): Promise<responses.DeleteProductLicenseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#deleteProductLicense.");
+    logger.debug("Calling operation LicenseManagerClient#deleteProductLicense.");
     const operationName = "deleteProductLicense";
     const apiReferenceLink = "";
     const pathParams = {
@@ -582,7 +569,6 @@ export class LicenseManagerClient {
       deleteProductLicenseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -638,8 +624,7 @@ export class LicenseManagerClient {
   public async getBulkUploadTemplate(
     getBulkUploadTemplateRequest: requests.GetBulkUploadTemplateRequest
   ): Promise<responses.GetBulkUploadTemplateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#getBulkUploadTemplate.");
+    logger.debug("Calling operation LicenseManagerClient#getBulkUploadTemplate.");
     const operationName = "getBulkUploadTemplate";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -657,7 +642,6 @@ export class LicenseManagerClient {
       getBulkUploadTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -712,7 +696,7 @@ export class LicenseManagerClient {
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
-    if (this.logger) this.logger.debug("Calling operation LicenseManagerClient#getConfiguration.");
+    logger.debug("Calling operation LicenseManagerClient#getConfiguration.");
     const operationName = "getConfiguration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -732,7 +716,6 @@ export class LicenseManagerClient {
       getConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -787,7 +770,7 @@ export class LicenseManagerClient {
   public async getLicenseMetric(
     getLicenseMetricRequest: requests.GetLicenseMetricRequest
   ): Promise<responses.GetLicenseMetricResponse> {
-    if (this.logger) this.logger.debug("Calling operation LicenseManagerClient#getLicenseMetric.");
+    logger.debug("Calling operation LicenseManagerClient#getLicenseMetric.");
     const operationName = "getLicenseMetric";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -808,7 +791,6 @@ export class LicenseManagerClient {
       getLicenseMetricRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -863,7 +845,7 @@ export class LicenseManagerClient {
   public async getLicenseRecord(
     getLicenseRecordRequest: requests.GetLicenseRecordRequest
   ): Promise<responses.GetLicenseRecordResponse> {
-    if (this.logger) this.logger.debug("Calling operation LicenseManagerClient#getLicenseRecord.");
+    logger.debug("Calling operation LicenseManagerClient#getLicenseRecord.");
     const operationName = "getLicenseRecord";
     const apiReferenceLink = "";
     const pathParams = {
@@ -883,7 +865,6 @@ export class LicenseManagerClient {
       getLicenseRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -938,7 +919,7 @@ export class LicenseManagerClient {
   public async getProductLicense(
     getProductLicenseRequest: requests.GetProductLicenseRequest
   ): Promise<responses.GetProductLicenseResponse> {
-    if (this.logger) this.logger.debug("Calling operation LicenseManagerClient#getProductLicense.");
+    logger.debug("Calling operation LicenseManagerClient#getProductLicense.");
     const operationName = "getProductLicense";
     const apiReferenceLink = "";
     const pathParams = {
@@ -958,7 +939,6 @@ export class LicenseManagerClient {
       getProductLicenseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1013,8 +993,7 @@ export class LicenseManagerClient {
   public async listLicenseRecords(
     listLicenseRecordsRequest: requests.ListLicenseRecordsRequest
   ): Promise<responses.ListLicenseRecordsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#listLicenseRecords.");
+    logger.debug("Calling operation LicenseManagerClient#listLicenseRecords.");
     const operationName = "listLicenseRecords";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1038,7 +1017,6 @@ export class LicenseManagerClient {
       listLicenseRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1093,8 +1071,7 @@ export class LicenseManagerClient {
   public async listProductLicenseConsumers(
     listProductLicenseConsumersRequest: requests.ListProductLicenseConsumersRequest
   ): Promise<responses.ListProductLicenseConsumersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#listProductLicenseConsumers.");
+    logger.debug("Calling operation LicenseManagerClient#listProductLicenseConsumers.");
     const operationName = "listProductLicenseConsumers";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1120,7 +1097,6 @@ export class LicenseManagerClient {
       listProductLicenseConsumersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1175,8 +1151,7 @@ export class LicenseManagerClient {
   public async listProductLicenses(
     listProductLicensesRequest: requests.ListProductLicensesRequest
   ): Promise<responses.ListProductLicensesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#listProductLicenses.");
+    logger.debug("Calling operation LicenseManagerClient#listProductLicenses.");
     const operationName = "listProductLicenses";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1201,7 +1176,6 @@ export class LicenseManagerClient {
       listProductLicensesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1256,8 +1230,7 @@ export class LicenseManagerClient {
   public async listTopUtilizedProductLicenses(
     listTopUtilizedProductLicensesRequest: requests.ListTopUtilizedProductLicensesRequest
   ): Promise<responses.ListTopUtilizedProductLicensesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#listTopUtilizedProductLicenses.");
+    logger.debug("Calling operation LicenseManagerClient#listTopUtilizedProductLicenses.");
     const operationName = "listTopUtilizedProductLicenses";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1282,7 +1255,6 @@ export class LicenseManagerClient {
       listTopUtilizedProductLicensesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1337,8 +1309,7 @@ export class LicenseManagerClient {
   public async listTopUtilizedResources(
     listTopUtilizedResourcesRequest: requests.ListTopUtilizedResourcesRequest
   ): Promise<responses.ListTopUtilizedResourcesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#listTopUtilizedResources.");
+    logger.debug("Calling operation LicenseManagerClient#listTopUtilizedResources.");
     const operationName = "listTopUtilizedResources";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1364,7 +1335,6 @@ export class LicenseManagerClient {
       listTopUtilizedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1419,8 +1389,7 @@ export class LicenseManagerClient {
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#updateConfiguration.");
+    logger.debug("Calling operation LicenseManagerClient#updateConfiguration.");
     const operationName = "updateConfiguration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1441,7 +1410,6 @@ export class LicenseManagerClient {
       updateConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1501,8 +1469,7 @@ export class LicenseManagerClient {
   public async updateLicenseRecord(
     updateLicenseRecordRequest: requests.UpdateLicenseRecordRequest
   ): Promise<responses.UpdateLicenseRecordResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#updateLicenseRecord.");
+    logger.debug("Calling operation LicenseManagerClient#updateLicenseRecord.");
     const operationName = "updateLicenseRecord";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1523,7 +1490,6 @@ export class LicenseManagerClient {
       updateLicenseRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1583,8 +1549,7 @@ export class LicenseManagerClient {
   public async updateProductLicense(
     updateProductLicenseRequest: requests.UpdateProductLicenseRequest
   ): Promise<responses.UpdateProductLicenseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LicenseManagerClient#updateProductLicense.");
+    logger.debug("Calling operation LicenseManagerClient#updateProductLicense.");
     const operationName = "updateProductLicense";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1605,7 +1570,6 @@ export class LicenseManagerClient {
       updateProductLicenseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

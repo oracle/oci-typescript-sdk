@@ -38,7 +38,7 @@ export namespace Dataset {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.datasetType}`);
+          common.logger.info(`Unknown value for: ${obj.datasetType}`);
       }
     }
     return jsonObj;
@@ -59,7 +59,7 @@ export namespace Dataset {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.datasetType}`);
+          common.logger.info(`Unknown value for: ${obj.datasetType}`);
       }
     }
     return jsonObj;

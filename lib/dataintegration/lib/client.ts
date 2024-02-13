@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -118,11 +119,7 @@ export class DataIntegrationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200430";
-    if (this.logger) this.logger.info(`DataIntegrationClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DataIntegrationClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +129,9 @@ export class DataIntegrationClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DataIntegrationClient.serviceEndpointTemplate,
@@ -228,8 +224,7 @@ export class DataIntegrationClient {
   public async changeCompartment(
     changeCompartmentRequest: requests.ChangeCompartmentRequest
   ): Promise<responses.ChangeCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#changeCompartment.");
+    logger.debug("Calling operation DataIntegrationClient#changeCompartment.");
     const operationName = "changeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/ChangeCompartment";
@@ -252,7 +247,6 @@ export class DataIntegrationClient {
       changeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -309,8 +303,7 @@ export class DataIntegrationClient {
   public async changeDisApplicationCompartment(
     changeDisApplicationCompartmentRequest: requests.ChangeDisApplicationCompartmentRequest
   ): Promise<responses.ChangeDisApplicationCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#changeDisApplicationCompartment.");
+    logger.debug("Calling operation DataIntegrationClient#changeDisApplicationCompartment.");
     const operationName = "changeDisApplicationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/ChangeDisApplicationCompartment";
@@ -334,7 +327,6 @@ export class DataIntegrationClient {
       changeDisApplicationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -392,8 +384,7 @@ export class DataIntegrationClient {
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
   ): Promise<responses.CreateApplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createApplication.");
+    logger.debug("Calling operation DataIntegrationClient#createApplication.");
     const operationName = "createApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/CreateApplication";
@@ -415,7 +406,6 @@ export class DataIntegrationClient {
       createApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -475,10 +465,7 @@ export class DataIntegrationClient {
   public async createApplicationDetailedDescription(
     createApplicationDetailedDescriptionRequest: requests.CreateApplicationDetailedDescriptionRequest
   ): Promise<responses.CreateApplicationDetailedDescriptionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#createApplicationDetailedDescription."
-      );
+    logger.debug("Calling operation DataIntegrationClient#createApplicationDetailedDescription.");
     const operationName = "createApplicationDetailedDescription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DetailedDescription/CreateApplicationDetailedDescription";
@@ -501,7 +488,6 @@ export class DataIntegrationClient {
       createApplicationDetailedDescriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -561,7 +547,7 @@ export class DataIntegrationClient {
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createConnection.");
+    logger.debug("Calling operation DataIntegrationClient#createConnection.");
     const operationName = "createConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/CreateConnection";
@@ -583,7 +569,6 @@ export class DataIntegrationClient {
       createConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -643,8 +628,7 @@ export class DataIntegrationClient {
   public async createConnectionValidation(
     createConnectionValidationRequest: requests.CreateConnectionValidationRequest
   ): Promise<responses.CreateConnectionValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createConnectionValidation.");
+    logger.debug("Calling operation DataIntegrationClient#createConnectionValidation.");
     const operationName = "createConnectionValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ConnectionValidation/CreateConnectionValidation";
@@ -666,7 +650,6 @@ export class DataIntegrationClient {
       createConnectionValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -727,8 +710,7 @@ export class DataIntegrationClient {
   public async createCopyObjectRequest(
     createCopyObjectRequestRequest: requests.CreateCopyObjectRequestRequest
   ): Promise<responses.CreateCopyObjectRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createCopyObjectRequest.");
+    logger.debug("Calling operation DataIntegrationClient#createCopyObjectRequest.");
     const operationName = "createCopyObjectRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -749,7 +731,6 @@ export class DataIntegrationClient {
       createCopyObjectRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -814,7 +795,7 @@ export class DataIntegrationClient {
   public async createDataAsset(
     createDataAssetRequest: requests.CreateDataAssetRequest
   ): Promise<responses.CreateDataAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createDataAsset.");
+    logger.debug("Calling operation DataIntegrationClient#createDataAsset.");
     const operationName = "createDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/CreateDataAsset";
@@ -836,7 +817,6 @@ export class DataIntegrationClient {
       createDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -897,7 +877,7 @@ export class DataIntegrationClient {
   public async createDataFlow(
     createDataFlowRequest: requests.CreateDataFlowRequest
   ): Promise<responses.CreateDataFlowResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createDataFlow.");
+    logger.debug("Calling operation DataIntegrationClient#createDataFlow.");
     const operationName = "createDataFlow";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/CreateDataFlow";
@@ -919,7 +899,6 @@ export class DataIntegrationClient {
       createDataFlowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -980,8 +959,7 @@ export class DataIntegrationClient {
   public async createDataFlowValidation(
     createDataFlowValidationRequest: requests.CreateDataFlowValidationRequest
   ): Promise<responses.CreateDataFlowValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createDataFlowValidation.");
+    logger.debug("Calling operation DataIntegrationClient#createDataFlowValidation.");
     const operationName = "createDataFlowValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlowValidation/CreateDataFlowValidation";
@@ -1003,7 +981,6 @@ export class DataIntegrationClient {
       createDataFlowValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1064,8 +1041,7 @@ export class DataIntegrationClient {
   public async createDisApplication(
     createDisApplicationRequest: requests.CreateDisApplicationRequest
   ): Promise<responses.CreateDisApplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createDisApplication.");
+    logger.debug("Calling operation DataIntegrationClient#createDisApplication.");
     const operationName = "createDisApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/CreateDisApplication";
@@ -1087,7 +1063,6 @@ export class DataIntegrationClient {
       createDisApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1147,10 +1122,9 @@ export class DataIntegrationClient {
   public async createDisApplicationDetailedDescription(
     createDisApplicationDetailedDescriptionRequest: requests.CreateDisApplicationDetailedDescriptionRequest
   ): Promise<responses.CreateDisApplicationDetailedDescriptionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#createDisApplicationDetailedDescription."
-      );
+    logger.debug(
+      "Calling operation DataIntegrationClient#createDisApplicationDetailedDescription."
+    );
     const operationName = "createDisApplicationDetailedDescription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DetailedDescription/CreateDisApplicationDetailedDescription";
@@ -1173,7 +1147,6 @@ export class DataIntegrationClient {
       createDisApplicationDetailedDescriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1233,8 +1206,7 @@ export class DataIntegrationClient {
   public async createEntityShape(
     createEntityShapeRequest: requests.CreateEntityShapeRequest
   ): Promise<responses.CreateEntityShapeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createEntityShape.");
+    logger.debug("Calling operation DataIntegrationClient#createEntityShape.");
     const operationName = "createEntityShape";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataEntity/CreateEntityShape";
@@ -1259,7 +1231,6 @@ export class DataIntegrationClient {
       createEntityShapeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1315,8 +1286,7 @@ export class DataIntegrationClient {
   public async createExportRequest(
     createExportRequestRequest: requests.CreateExportRequestRequest
   ): Promise<responses.CreateExportRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createExportRequest.");
+    logger.debug("Calling operation DataIntegrationClient#createExportRequest.");
     const operationName = "createExportRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1337,7 +1307,6 @@ export class DataIntegrationClient {
       createExportRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1402,8 +1371,7 @@ export class DataIntegrationClient {
   public async createExternalPublication(
     createExternalPublicationRequest: requests.CreateExternalPublicationRequest
   ): Promise<responses.CreateExternalPublicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createExternalPublication.");
+    logger.debug("Calling operation DataIntegrationClient#createExternalPublication.");
     const operationName = "createExternalPublication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/CreateExternalPublication";
@@ -1426,7 +1394,6 @@ export class DataIntegrationClient {
       createExternalPublicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1486,10 +1453,7 @@ export class DataIntegrationClient {
   public async createExternalPublicationValidation(
     createExternalPublicationValidationRequest: requests.CreateExternalPublicationValidationRequest
   ): Promise<responses.CreateExternalPublicationValidationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#createExternalPublicationValidation."
-      );
+    logger.debug("Calling operation DataIntegrationClient#createExternalPublicationValidation.");
     const operationName = "createExternalPublicationValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublicationValidation/CreateExternalPublicationValidation";
@@ -1512,7 +1476,6 @@ export class DataIntegrationClient {
       createExternalPublicationValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1574,7 +1537,7 @@ export class DataIntegrationClient {
   public async createFolder(
     createFolderRequest: requests.CreateFolderRequest
   ): Promise<responses.CreateFolderResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createFolder.");
+    logger.debug("Calling operation DataIntegrationClient#createFolder.");
     const operationName = "createFolder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/CreateFolder";
@@ -1596,7 +1559,6 @@ export class DataIntegrationClient {
       createFolderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1658,8 +1620,7 @@ export class DataIntegrationClient {
   public async createFunctionLibrary(
     createFunctionLibraryRequest: requests.CreateFunctionLibraryRequest
   ): Promise<responses.CreateFunctionLibraryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createFunctionLibrary.");
+    logger.debug("Calling operation DataIntegrationClient#createFunctionLibrary.");
     const operationName = "createFunctionLibrary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/CreateFunctionLibrary";
@@ -1681,7 +1642,6 @@ export class DataIntegrationClient {
       createFunctionLibraryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1741,8 +1701,7 @@ export class DataIntegrationClient {
   public async createImportRequest(
     createImportRequestRequest: requests.CreateImportRequestRequest
   ): Promise<responses.CreateImportRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createImportRequest.");
+    logger.debug("Calling operation DataIntegrationClient#createImportRequest.");
     const operationName = "createImportRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1763,7 +1722,6 @@ export class DataIntegrationClient {
       createImportRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1828,7 +1786,7 @@ export class DataIntegrationClient {
   public async createPatch(
     createPatchRequest: requests.CreatePatchRequest
   ): Promise<responses.CreatePatchResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createPatch.");
+    logger.debug("Calling operation DataIntegrationClient#createPatch.");
     const operationName = "createPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/CreatePatch";
@@ -1851,7 +1809,6 @@ export class DataIntegrationClient {
       createPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1912,7 +1869,7 @@ export class DataIntegrationClient {
   public async createPipeline(
     createPipelineRequest: requests.CreatePipelineRequest
   ): Promise<responses.CreatePipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createPipeline.");
+    logger.debug("Calling operation DataIntegrationClient#createPipeline.");
     const operationName = "createPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/CreatePipeline";
@@ -1934,7 +1891,6 @@ export class DataIntegrationClient {
       createPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1995,8 +1951,7 @@ export class DataIntegrationClient {
   public async createPipelineValidation(
     createPipelineValidationRequest: requests.CreatePipelineValidationRequest
   ): Promise<responses.CreatePipelineValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createPipelineValidation.");
+    logger.debug("Calling operation DataIntegrationClient#createPipelineValidation.");
     const operationName = "createPipelineValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/PipelineValidation/CreatePipelineValidation";
@@ -2018,7 +1973,6 @@ export class DataIntegrationClient {
       createPipelineValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2079,7 +2033,7 @@ export class DataIntegrationClient {
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createProject.");
+    logger.debug("Calling operation DataIntegrationClient#createProject.");
     const operationName = "createProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/CreateProject";
@@ -2101,7 +2055,6 @@ export class DataIntegrationClient {
       createProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2161,7 +2114,7 @@ export class DataIntegrationClient {
   public async createSchedule(
     createScheduleRequest: requests.CreateScheduleRequest
   ): Promise<responses.CreateScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createSchedule.");
+    logger.debug("Calling operation DataIntegrationClient#createSchedule.");
     const operationName = "createSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/CreateSchedule";
@@ -2184,7 +2137,6 @@ export class DataIntegrationClient {
       createScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2245,7 +2197,7 @@ export class DataIntegrationClient {
   public async createTask(
     createTaskRequest: requests.CreateTaskRequest
   ): Promise<responses.CreateTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createTask.");
+    logger.debug("Calling operation DataIntegrationClient#createTask.");
     const operationName = "createTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/CreateTask";
@@ -2267,7 +2219,6 @@ export class DataIntegrationClient {
       createTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2327,7 +2278,7 @@ export class DataIntegrationClient {
   public async createTaskRun(
     createTaskRunRequest: requests.CreateTaskRunRequest
   ): Promise<responses.CreateTaskRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createTaskRun.");
+    logger.debug("Calling operation DataIntegrationClient#createTaskRun.");
     const operationName = "createTaskRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/CreateTaskRun";
@@ -2350,7 +2301,6 @@ export class DataIntegrationClient {
       createTaskRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2410,8 +2360,7 @@ export class DataIntegrationClient {
   public async createTaskSchedule(
     createTaskScheduleRequest: requests.CreateTaskScheduleRequest
   ): Promise<responses.CreateTaskScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createTaskSchedule.");
+    logger.debug("Calling operation DataIntegrationClient#createTaskSchedule.");
     const operationName = "createTaskSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/CreateTaskSchedule";
@@ -2434,7 +2383,6 @@ export class DataIntegrationClient {
       createTaskScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2494,8 +2442,7 @@ export class DataIntegrationClient {
   public async createTaskValidation(
     createTaskValidationRequest: requests.CreateTaskValidationRequest
   ): Promise<responses.CreateTaskValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createTaskValidation.");
+    logger.debug("Calling operation DataIntegrationClient#createTaskValidation.");
     const operationName = "createTaskValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskValidation/CreateTaskValidation";
@@ -2517,7 +2464,6 @@ export class DataIntegrationClient {
       createTaskValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2578,8 +2524,7 @@ export class DataIntegrationClient {
   public async createUserDefinedFunction(
     createUserDefinedFunctionRequest: requests.CreateUserDefinedFunctionRequest
   ): Promise<responses.CreateUserDefinedFunctionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#createUserDefinedFunction.");
+    logger.debug("Calling operation DataIntegrationClient#createUserDefinedFunction.");
     const operationName = "createUserDefinedFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/CreateUserDefinedFunction";
@@ -2601,7 +2546,6 @@ export class DataIntegrationClient {
       createUserDefinedFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2662,10 +2606,7 @@ export class DataIntegrationClient {
   public async createUserDefinedFunctionValidation(
     createUserDefinedFunctionValidationRequest: requests.CreateUserDefinedFunctionValidationRequest
   ): Promise<responses.CreateUserDefinedFunctionValidationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#createUserDefinedFunctionValidation."
-      );
+    logger.debug("Calling operation DataIntegrationClient#createUserDefinedFunctionValidation.");
     const operationName = "createUserDefinedFunctionValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunctionValidation/CreateUserDefinedFunctionValidation";
@@ -2687,7 +2628,6 @@ export class DataIntegrationClient {
       createUserDefinedFunctionValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2748,7 +2688,7 @@ export class DataIntegrationClient {
   public async createWorkspace(
     createWorkspaceRequest: requests.CreateWorkspaceRequest
   ): Promise<responses.CreateWorkspaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createWorkspace.");
+    logger.debug("Calling operation DataIntegrationClient#createWorkspace.");
     const operationName = "createWorkspace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/CreateWorkspace";
@@ -2768,7 +2708,6 @@ export class DataIntegrationClient {
       createWorkspaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2824,8 +2763,7 @@ export class DataIntegrationClient {
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
   ): Promise<responses.DeleteApplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteApplication.");
+    logger.debug("Calling operation DataIntegrationClient#deleteApplication.");
     const operationName = "deleteApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/DeleteApplication";
@@ -2848,7 +2786,6 @@ export class DataIntegrationClient {
       deleteApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2894,10 +2831,7 @@ export class DataIntegrationClient {
   public async deleteApplicationDetailedDescription(
     deleteApplicationDetailedDescriptionRequest: requests.DeleteApplicationDetailedDescriptionRequest
   ): Promise<responses.DeleteApplicationDetailedDescriptionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#deleteApplicationDetailedDescription."
-      );
+    logger.debug("Calling operation DataIntegrationClient#deleteApplicationDetailedDescription.");
     const operationName = "deleteApplicationDetailedDescription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DetailedDescription/DeleteApplicationDetailedDescription";
@@ -2920,7 +2854,6 @@ export class DataIntegrationClient {
       deleteApplicationDetailedDescriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2966,7 +2899,7 @@ export class DataIntegrationClient {
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteConnection.");
+    logger.debug("Calling operation DataIntegrationClient#deleteConnection.");
     const operationName = "deleteConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/DeleteConnection";
@@ -2989,7 +2922,6 @@ export class DataIntegrationClient {
       deleteConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3035,8 +2967,7 @@ export class DataIntegrationClient {
   public async deleteConnectionValidation(
     deleteConnectionValidationRequest: requests.DeleteConnectionValidationRequest
   ): Promise<responses.DeleteConnectionValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteConnectionValidation.");
+    logger.debug("Calling operation DataIntegrationClient#deleteConnectionValidation.");
     const operationName = "deleteConnectionValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ConnectionValidation/DeleteConnectionValidation";
@@ -3059,7 +2990,6 @@ export class DataIntegrationClient {
       deleteConnectionValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3105,8 +3035,7 @@ export class DataIntegrationClient {
   public async deleteCopyObjectRequest(
     deleteCopyObjectRequestRequest: requests.DeleteCopyObjectRequestRequest
   ): Promise<responses.DeleteCopyObjectRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteCopyObjectRequest.");
+    logger.debug("Calling operation DataIntegrationClient#deleteCopyObjectRequest.");
     const operationName = "deleteCopyObjectRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/DeleteCopyObjectRequest";
@@ -3129,7 +3058,6 @@ export class DataIntegrationClient {
       deleteCopyObjectRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3175,7 +3103,7 @@ export class DataIntegrationClient {
   public async deleteDataAsset(
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
   ): Promise<responses.DeleteDataAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteDataAsset.");
+    logger.debug("Calling operation DataIntegrationClient#deleteDataAsset.");
     const operationName = "deleteDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/DeleteDataAsset";
@@ -3198,7 +3126,6 @@ export class DataIntegrationClient {
       deleteDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3244,7 +3171,7 @@ export class DataIntegrationClient {
   public async deleteDataFlow(
     deleteDataFlowRequest: requests.DeleteDataFlowRequest
   ): Promise<responses.DeleteDataFlowResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteDataFlow.");
+    logger.debug("Calling operation DataIntegrationClient#deleteDataFlow.");
     const operationName = "deleteDataFlow";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/DeleteDataFlow";
@@ -3267,7 +3194,6 @@ export class DataIntegrationClient {
       deleteDataFlowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3313,8 +3239,7 @@ export class DataIntegrationClient {
   public async deleteDataFlowValidation(
     deleteDataFlowValidationRequest: requests.DeleteDataFlowValidationRequest
   ): Promise<responses.DeleteDataFlowValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteDataFlowValidation.");
+    logger.debug("Calling operation DataIntegrationClient#deleteDataFlowValidation.");
     const operationName = "deleteDataFlowValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlowValidation/DeleteDataFlowValidation";
@@ -3337,7 +3262,6 @@ export class DataIntegrationClient {
       deleteDataFlowValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3383,8 +3307,7 @@ export class DataIntegrationClient {
   public async deleteDisApplication(
     deleteDisApplicationRequest: requests.DeleteDisApplicationRequest
   ): Promise<responses.DeleteDisApplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteDisApplication.");
+    logger.debug("Calling operation DataIntegrationClient#deleteDisApplication.");
     const operationName = "deleteDisApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/DeleteDisApplication";
@@ -3407,7 +3330,6 @@ export class DataIntegrationClient {
       deleteDisApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3453,10 +3375,9 @@ export class DataIntegrationClient {
   public async deleteDisApplicationDetailedDescription(
     deleteDisApplicationDetailedDescriptionRequest: requests.DeleteDisApplicationDetailedDescriptionRequest
   ): Promise<responses.DeleteDisApplicationDetailedDescriptionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#deleteDisApplicationDetailedDescription."
-      );
+    logger.debug(
+      "Calling operation DataIntegrationClient#deleteDisApplicationDetailedDescription."
+    );
     const operationName = "deleteDisApplicationDetailedDescription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DetailedDescription/DeleteDisApplicationDetailedDescription";
@@ -3479,7 +3400,6 @@ export class DataIntegrationClient {
       deleteDisApplicationDetailedDescriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3526,8 +3446,7 @@ export class DataIntegrationClient {
   public async deleteExportRequest(
     deleteExportRequestRequest: requests.DeleteExportRequestRequest
   ): Promise<responses.DeleteExportRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteExportRequest.");
+    logger.debug("Calling operation DataIntegrationClient#deleteExportRequest.");
     const operationName = "deleteExportRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/DeleteExportRequest";
@@ -3550,7 +3469,6 @@ export class DataIntegrationClient {
       deleteExportRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3596,8 +3514,7 @@ export class DataIntegrationClient {
   public async deleteExternalPublication(
     deleteExternalPublicationRequest: requests.DeleteExternalPublicationRequest
   ): Promise<responses.DeleteExternalPublicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteExternalPublication.");
+    logger.debug("Calling operation DataIntegrationClient#deleteExternalPublication.");
     const operationName = "deleteExternalPublication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/DeleteExternalPublication";
@@ -3621,7 +3538,6 @@ export class DataIntegrationClient {
       deleteExternalPublicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3669,10 +3585,7 @@ export class DataIntegrationClient {
   public async deleteExternalPublicationValidation(
     deleteExternalPublicationValidationRequest: requests.DeleteExternalPublicationValidationRequest
   ): Promise<responses.DeleteExternalPublicationValidationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#deleteExternalPublicationValidation."
-      );
+    logger.debug("Calling operation DataIntegrationClient#deleteExternalPublicationValidation.");
     const operationName = "deleteExternalPublicationValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublicationValidation/DeleteExternalPublicationValidation";
@@ -3697,7 +3610,6 @@ export class DataIntegrationClient {
       deleteExternalPublicationValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3744,7 +3656,7 @@ export class DataIntegrationClient {
   public async deleteFolder(
     deleteFolderRequest: requests.DeleteFolderRequest
   ): Promise<responses.DeleteFolderResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteFolder.");
+    logger.debug("Calling operation DataIntegrationClient#deleteFolder.");
     const operationName = "deleteFolder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/DeleteFolder";
@@ -3767,7 +3679,6 @@ export class DataIntegrationClient {
       deleteFolderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3813,8 +3724,7 @@ export class DataIntegrationClient {
   public async deleteFunctionLibrary(
     deleteFunctionLibraryRequest: requests.DeleteFunctionLibraryRequest
   ): Promise<responses.DeleteFunctionLibraryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteFunctionLibrary.");
+    logger.debug("Calling operation DataIntegrationClient#deleteFunctionLibrary.");
     const operationName = "deleteFunctionLibrary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/DeleteFunctionLibrary";
@@ -3837,7 +3747,6 @@ export class DataIntegrationClient {
       deleteFunctionLibraryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3884,8 +3793,7 @@ export class DataIntegrationClient {
   public async deleteImportRequest(
     deleteImportRequestRequest: requests.DeleteImportRequestRequest
   ): Promise<responses.DeleteImportRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteImportRequest.");
+    logger.debug("Calling operation DataIntegrationClient#deleteImportRequest.");
     const operationName = "deleteImportRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/DeleteImportRequest";
@@ -3908,7 +3816,6 @@ export class DataIntegrationClient {
       deleteImportRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3954,7 +3861,7 @@ export class DataIntegrationClient {
   public async deletePatch(
     deletePatchRequest: requests.DeletePatchRequest
   ): Promise<responses.DeletePatchResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deletePatch.");
+    logger.debug("Calling operation DataIntegrationClient#deletePatch.");
     const operationName = "deletePatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/DeletePatch";
@@ -3978,7 +3885,6 @@ export class DataIntegrationClient {
       deletePatchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4024,7 +3930,7 @@ export class DataIntegrationClient {
   public async deletePipeline(
     deletePipelineRequest: requests.DeletePipelineRequest
   ): Promise<responses.DeletePipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deletePipeline.");
+    logger.debug("Calling operation DataIntegrationClient#deletePipeline.");
     const operationName = "deletePipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/DeletePipeline";
@@ -4047,7 +3953,6 @@ export class DataIntegrationClient {
       deletePipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4093,8 +3998,7 @@ export class DataIntegrationClient {
   public async deletePipelineValidation(
     deletePipelineValidationRequest: requests.DeletePipelineValidationRequest
   ): Promise<responses.DeletePipelineValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deletePipelineValidation.");
+    logger.debug("Calling operation DataIntegrationClient#deletePipelineValidation.");
     const operationName = "deletePipelineValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/PipelineValidation/DeletePipelineValidation";
@@ -4117,7 +4021,6 @@ export class DataIntegrationClient {
       deletePipelineValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4163,7 +4066,7 @@ export class DataIntegrationClient {
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteProject.");
+    logger.debug("Calling operation DataIntegrationClient#deleteProject.");
     const operationName = "deleteProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/DeleteProject";
@@ -4186,7 +4089,6 @@ export class DataIntegrationClient {
       deleteProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4232,7 +4134,7 @@ export class DataIntegrationClient {
   public async deleteSchedule(
     deleteScheduleRequest: requests.DeleteScheduleRequest
   ): Promise<responses.DeleteScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteSchedule.");
+    logger.debug("Calling operation DataIntegrationClient#deleteSchedule.");
     const operationName = "deleteSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/DeleteSchedule";
@@ -4256,7 +4158,6 @@ export class DataIntegrationClient {
       deleteScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4302,7 +4203,7 @@ export class DataIntegrationClient {
   public async deleteTask(
     deleteTaskRequest: requests.DeleteTaskRequest
   ): Promise<responses.DeleteTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteTask.");
+    logger.debug("Calling operation DataIntegrationClient#deleteTask.");
     const operationName = "deleteTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/DeleteTask";
@@ -4325,7 +4226,6 @@ export class DataIntegrationClient {
       deleteTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4371,7 +4271,7 @@ export class DataIntegrationClient {
   public async deleteTaskRun(
     deleteTaskRunRequest: requests.DeleteTaskRunRequest
   ): Promise<responses.DeleteTaskRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteTaskRun.");
+    logger.debug("Calling operation DataIntegrationClient#deleteTaskRun.");
     const operationName = "deleteTaskRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/DeleteTaskRun";
@@ -4395,7 +4295,6 @@ export class DataIntegrationClient {
       deleteTaskRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4441,8 +4340,7 @@ export class DataIntegrationClient {
   public async deleteTaskSchedule(
     deleteTaskScheduleRequest: requests.DeleteTaskScheduleRequest
   ): Promise<responses.DeleteTaskScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteTaskSchedule.");
+    logger.debug("Calling operation DataIntegrationClient#deleteTaskSchedule.");
     const operationName = "deleteTaskSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/DeleteTaskSchedule";
@@ -4466,7 +4364,6 @@ export class DataIntegrationClient {
       deleteTaskScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4514,8 +4411,7 @@ export class DataIntegrationClient {
   public async deleteTaskValidation(
     deleteTaskValidationRequest: requests.DeleteTaskValidationRequest
   ): Promise<responses.DeleteTaskValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteTaskValidation.");
+    logger.debug("Calling operation DataIntegrationClient#deleteTaskValidation.");
     const operationName = "deleteTaskValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskValidation/DeleteTaskValidation";
@@ -4538,7 +4434,6 @@ export class DataIntegrationClient {
       deleteTaskValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4584,8 +4479,7 @@ export class DataIntegrationClient {
   public async deleteUserDefinedFunction(
     deleteUserDefinedFunctionRequest: requests.DeleteUserDefinedFunctionRequest
   ): Promise<responses.DeleteUserDefinedFunctionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#deleteUserDefinedFunction.");
+    logger.debug("Calling operation DataIntegrationClient#deleteUserDefinedFunction.");
     const operationName = "deleteUserDefinedFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/DeleteUserDefinedFunction";
@@ -4608,7 +4502,6 @@ export class DataIntegrationClient {
       deleteUserDefinedFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4654,10 +4547,7 @@ export class DataIntegrationClient {
   public async deleteUserDefinedFunctionValidation(
     deleteUserDefinedFunctionValidationRequest: requests.DeleteUserDefinedFunctionValidationRequest
   ): Promise<responses.DeleteUserDefinedFunctionValidationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#deleteUserDefinedFunctionValidation."
-      );
+    logger.debug("Calling operation DataIntegrationClient#deleteUserDefinedFunctionValidation.");
     const operationName = "deleteUserDefinedFunctionValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunctionValidation/DeleteUserDefinedFunctionValidation";
@@ -4681,7 +4571,6 @@ export class DataIntegrationClient {
       deleteUserDefinedFunctionValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4728,7 +4617,7 @@ export class DataIntegrationClient {
   public async deleteWorkspace(
     deleteWorkspaceRequest: requests.DeleteWorkspaceRequest
   ): Promise<responses.DeleteWorkspaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteWorkspace.");
+    logger.debug("Calling operation DataIntegrationClient#deleteWorkspace.");
     const operationName = "deleteWorkspace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/DeleteWorkspace";
@@ -4753,7 +4642,6 @@ export class DataIntegrationClient {
       deleteWorkspaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4804,7 +4692,7 @@ export class DataIntegrationClient {
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
   ): Promise<responses.GetApplicationResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getApplication.");
+    logger.debug("Calling operation DataIntegrationClient#getApplication.");
     const operationName = "getApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/GetApplication";
@@ -4826,7 +4714,6 @@ export class DataIntegrationClient {
       getApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4881,10 +4768,7 @@ export class DataIntegrationClient {
   public async getApplicationDetailedDescription(
     getApplicationDetailedDescriptionRequest: requests.GetApplicationDetailedDescriptionRequest
   ): Promise<responses.GetApplicationDetailedDescriptionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#getApplicationDetailedDescription."
-      );
+    logger.debug("Calling operation DataIntegrationClient#getApplicationDetailedDescription.");
     const operationName = "getApplicationDetailedDescription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DetailedDescription/GetApplicationDetailedDescription";
@@ -4906,7 +4790,6 @@ export class DataIntegrationClient {
       getApplicationDetailedDescriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4962,8 +4845,7 @@ export class DataIntegrationClient {
   public async getCompositeState(
     getCompositeStateRequest: requests.GetCompositeStateRequest
   ): Promise<responses.GetCompositeStateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getCompositeState.");
+    logger.debug("Calling operation DataIntegrationClient#getCompositeState.");
     const operationName = "getCompositeState";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/CompositeState/GetCompositeState";
@@ -4987,7 +4869,6 @@ export class DataIntegrationClient {
       getCompositeStateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5037,7 +4918,7 @@ export class DataIntegrationClient {
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getConnection.");
+    logger.debug("Calling operation DataIntegrationClient#getConnection.");
     const operationName = "getConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/GetConnection";
@@ -5059,7 +4940,6 @@ export class DataIntegrationClient {
       getConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5114,8 +4994,7 @@ export class DataIntegrationClient {
   public async getConnectionValidation(
     getConnectionValidationRequest: requests.GetConnectionValidationRequest
   ): Promise<responses.GetConnectionValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getConnectionValidation.");
+    logger.debug("Calling operation DataIntegrationClient#getConnectionValidation.");
     const operationName = "getConnectionValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ConnectionValidation/GetConnectionValidation";
@@ -5137,7 +5016,6 @@ export class DataIntegrationClient {
       getConnectionValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5193,8 +5071,7 @@ export class DataIntegrationClient {
   public async getCopyObjectRequest(
     getCopyObjectRequestRequest: requests.GetCopyObjectRequestRequest
   ): Promise<responses.GetCopyObjectRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getCopyObjectRequest.");
+    logger.debug("Calling operation DataIntegrationClient#getCopyObjectRequest.");
     const operationName = "getCopyObjectRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/CopyObjectRequest/GetCopyObjectRequest";
@@ -5216,7 +5093,6 @@ export class DataIntegrationClient {
       getCopyObjectRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5273,8 +5149,7 @@ export class DataIntegrationClient {
   public async getCountStatistic(
     getCountStatisticRequest: requests.GetCountStatisticRequest
   ): Promise<responses.GetCountStatisticResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getCountStatistic.");
+    logger.debug("Calling operation DataIntegrationClient#getCountStatistic.");
     const operationName = "getCountStatistic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/GetCountStatistic";
@@ -5296,7 +5171,6 @@ export class DataIntegrationClient {
       getCountStatisticRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5351,7 +5225,7 @@ export class DataIntegrationClient {
   public async getDataAsset(
     getDataAssetRequest: requests.GetDataAssetRequest
   ): Promise<responses.GetDataAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getDataAsset.");
+    logger.debug("Calling operation DataIntegrationClient#getDataAsset.");
     const operationName = "getDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/GetDataAsset";
@@ -5373,7 +5247,6 @@ export class DataIntegrationClient {
       getDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5428,7 +5301,7 @@ export class DataIntegrationClient {
   public async getDataEntity(
     getDataEntityRequest: requests.GetDataEntityRequest
   ): Promise<responses.GetDataEntityResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getDataEntity.");
+    logger.debug("Calling operation DataIntegrationClient#getDataEntity.");
     const operationName = "getDataEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataEntity/GetDataEntity";
@@ -5452,7 +5325,6 @@ export class DataIntegrationClient {
       getDataEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5503,7 +5375,7 @@ export class DataIntegrationClient {
   public async getDataFlow(
     getDataFlowRequest: requests.GetDataFlowRequest
   ): Promise<responses.GetDataFlowResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getDataFlow.");
+    logger.debug("Calling operation DataIntegrationClient#getDataFlow.");
     const operationName = "getDataFlow";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/GetDataFlow";
@@ -5527,7 +5399,6 @@ export class DataIntegrationClient {
       getDataFlowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5582,8 +5453,7 @@ export class DataIntegrationClient {
   public async getDataFlowValidation(
     getDataFlowValidationRequest: requests.GetDataFlowValidationRequest
   ): Promise<responses.GetDataFlowValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getDataFlowValidation.");
+    logger.debug("Calling operation DataIntegrationClient#getDataFlowValidation.");
     const operationName = "getDataFlowValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlowValidation/GetDataFlowValidation";
@@ -5605,7 +5475,6 @@ export class DataIntegrationClient {
       getDataFlowValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5660,8 +5529,7 @@ export class DataIntegrationClient {
   public async getDependentObject(
     getDependentObjectRequest: requests.GetDependentObjectRequest
   ): Promise<responses.GetDependentObjectResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getDependentObject.");
+    logger.debug("Calling operation DataIntegrationClient#getDependentObject.");
     const operationName = "getDependentObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/GetDependentObject";
@@ -5684,7 +5552,6 @@ export class DataIntegrationClient {
       getDependentObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5740,8 +5607,7 @@ export class DataIntegrationClient {
   public async getDisApplication(
     getDisApplicationRequest: requests.GetDisApplicationRequest
   ): Promise<responses.GetDisApplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getDisApplication.");
+    logger.debug("Calling operation DataIntegrationClient#getDisApplication.");
     const operationName = "getDisApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/GetDisApplication";
@@ -5763,7 +5629,6 @@ export class DataIntegrationClient {
       getDisApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5818,10 +5683,7 @@ export class DataIntegrationClient {
   public async getDisApplicationDetailedDescription(
     getDisApplicationDetailedDescriptionRequest: requests.GetDisApplicationDetailedDescriptionRequest
   ): Promise<responses.GetDisApplicationDetailedDescriptionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#getDisApplicationDetailedDescription."
-      );
+    logger.debug("Calling operation DataIntegrationClient#getDisApplicationDetailedDescription.");
     const operationName = "getDisApplicationDetailedDescription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DetailedDescription/GetDisApplicationDetailedDescription";
@@ -5843,7 +5705,6 @@ export class DataIntegrationClient {
       getDisApplicationDetailedDescriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5899,7 +5760,7 @@ export class DataIntegrationClient {
   public async getExportRequest(
     getExportRequestRequest: requests.GetExportRequestRequest
   ): Promise<responses.GetExportRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getExportRequest.");
+    logger.debug("Calling operation DataIntegrationClient#getExportRequest.");
     const operationName = "getExportRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExportRequest/GetExportRequest";
@@ -5921,7 +5782,6 @@ export class DataIntegrationClient {
       getExportRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5976,8 +5836,7 @@ export class DataIntegrationClient {
   public async getExternalPublication(
     getExternalPublicationRequest: requests.GetExternalPublicationRequest
   ): Promise<responses.GetExternalPublicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getExternalPublication.");
+    logger.debug("Calling operation DataIntegrationClient#getExternalPublication.");
     const operationName = "getExternalPublication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/GetExternalPublication";
@@ -6000,7 +5859,6 @@ export class DataIntegrationClient {
       getExternalPublicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6056,10 +5914,7 @@ export class DataIntegrationClient {
   public async getExternalPublicationValidation(
     getExternalPublicationValidationRequest: requests.GetExternalPublicationValidationRequest
   ): Promise<responses.GetExternalPublicationValidationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#getExternalPublicationValidation."
-      );
+    logger.debug("Calling operation DataIntegrationClient#getExternalPublicationValidation.");
     const operationName = "getExternalPublicationValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublicationValidation/GetExternalPublicationValidation";
@@ -6083,7 +5938,6 @@ export class DataIntegrationClient {
       getExternalPublicationValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6139,7 +5993,7 @@ export class DataIntegrationClient {
   public async getFolder(
     getFolderRequest: requests.GetFolderRequest
   ): Promise<responses.GetFolderResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getFolder.");
+    logger.debug("Calling operation DataIntegrationClient#getFolder.");
     const operationName = "getFolder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/GetFolder";
@@ -6163,7 +6017,6 @@ export class DataIntegrationClient {
       getFolderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6218,8 +6071,7 @@ export class DataIntegrationClient {
   public async getFunctionLibrary(
     getFunctionLibraryRequest: requests.GetFunctionLibraryRequest
   ): Promise<responses.GetFunctionLibraryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getFunctionLibrary.");
+    logger.debug("Calling operation DataIntegrationClient#getFunctionLibrary.");
     const operationName = "getFunctionLibrary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/GetFunctionLibrary";
@@ -6243,7 +6095,6 @@ export class DataIntegrationClient {
       getFunctionLibraryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6299,7 +6150,7 @@ export class DataIntegrationClient {
   public async getImportRequest(
     getImportRequestRequest: requests.GetImportRequestRequest
   ): Promise<responses.GetImportRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getImportRequest.");
+    logger.debug("Calling operation DataIntegrationClient#getImportRequest.");
     const operationName = "getImportRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ImportRequest/GetImportRequest";
@@ -6324,7 +6175,6 @@ export class DataIntegrationClient {
       getImportRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6379,7 +6229,7 @@ export class DataIntegrationClient {
   public async getPatch(
     getPatchRequest: requests.GetPatchRequest
   ): Promise<responses.GetPatchResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getPatch.");
+    logger.debug("Calling operation DataIntegrationClient#getPatch.");
     const operationName = "getPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/GetPatch";
@@ -6402,7 +6252,6 @@ export class DataIntegrationClient {
       getPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6457,7 +6306,7 @@ export class DataIntegrationClient {
   public async getPipeline(
     getPipelineRequest: requests.GetPipelineRequest
   ): Promise<responses.GetPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getPipeline.");
+    logger.debug("Calling operation DataIntegrationClient#getPipeline.");
     const operationName = "getPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/GetPipeline";
@@ -6481,7 +6330,6 @@ export class DataIntegrationClient {
       getPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6536,8 +6384,7 @@ export class DataIntegrationClient {
   public async getPipelineValidation(
     getPipelineValidationRequest: requests.GetPipelineValidationRequest
   ): Promise<responses.GetPipelineValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getPipelineValidation.");
+    logger.debug("Calling operation DataIntegrationClient#getPipelineValidation.");
     const operationName = "getPipelineValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/PipelineValidation/GetPipelineValidation";
@@ -6559,7 +6406,6 @@ export class DataIntegrationClient {
       getPipelineValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6614,7 +6460,7 @@ export class DataIntegrationClient {
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getProject.");
+    logger.debug("Calling operation DataIntegrationClient#getProject.");
     const operationName = "getProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/GetProject";
@@ -6638,7 +6484,6 @@ export class DataIntegrationClient {
       getProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6693,8 +6538,7 @@ export class DataIntegrationClient {
   public async getPublishedObject(
     getPublishedObjectRequest: requests.GetPublishedObjectRequest
   ): Promise<responses.GetPublishedObjectResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getPublishedObject.");
+    logger.debug("Calling operation DataIntegrationClient#getPublishedObject.");
     const operationName = "getPublishedObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/GetPublishedObject";
@@ -6719,7 +6563,6 @@ export class DataIntegrationClient {
       getPublishedObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6775,7 +6618,7 @@ export class DataIntegrationClient {
   public async getReference(
     getReferenceRequest: requests.GetReferenceRequest
   ): Promise<responses.GetReferenceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getReference.");
+    logger.debug("Calling operation DataIntegrationClient#getReference.");
     const operationName = "getReference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Reference/GetReference";
@@ -6798,7 +6641,6 @@ export class DataIntegrationClient {
       getReferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6853,8 +6695,7 @@ export class DataIntegrationClient {
   public async getRuntimeOperator(
     getRuntimeOperatorRequest: requests.GetRuntimeOperatorRequest
   ): Promise<responses.GetRuntimeOperatorResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getRuntimeOperator.");
+    logger.debug("Calling operation DataIntegrationClient#getRuntimeOperator.");
     const operationName = "getRuntimeOperator";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/RuntimeOperator/GetRuntimeOperator";
@@ -6878,7 +6719,6 @@ export class DataIntegrationClient {
       getRuntimeOperatorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6934,8 +6774,7 @@ export class DataIntegrationClient {
   public async getRuntimePipeline(
     getRuntimePipelineRequest: requests.GetRuntimePipelineRequest
   ): Promise<responses.GetRuntimePipelineResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getRuntimePipeline.");
+    logger.debug("Calling operation DataIntegrationClient#getRuntimePipeline.");
     const operationName = "getRuntimePipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/RuntimePipeline/GetRuntimePipeline";
@@ -6960,7 +6799,6 @@ export class DataIntegrationClient {
       getRuntimePipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7016,7 +6854,7 @@ export class DataIntegrationClient {
   public async getSchedule(
     getScheduleRequest: requests.GetScheduleRequest
   ): Promise<responses.GetScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getSchedule.");
+    logger.debug("Calling operation DataIntegrationClient#getSchedule.");
     const operationName = "getSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/GetSchedule";
@@ -7039,7 +6877,6 @@ export class DataIntegrationClient {
       getScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7094,7 +6931,7 @@ export class DataIntegrationClient {
   public async getSchema(
     getSchemaRequest: requests.GetSchemaRequest
   ): Promise<responses.GetSchemaResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getSchema.");
+    logger.debug("Calling operation DataIntegrationClient#getSchema.");
     const operationName = "getSchema";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schema/GetSchema";
@@ -7117,7 +6954,6 @@ export class DataIntegrationClient {
       getSchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7167,7 +7003,7 @@ export class DataIntegrationClient {
   public async getTask(
     getTaskRequest: requests.GetTaskRequest
   ): Promise<responses.GetTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getTask.");
+    logger.debug("Calling operation DataIntegrationClient#getTask.");
     const operationName = "getTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/GetTask";
@@ -7191,7 +7027,6 @@ export class DataIntegrationClient {
       getTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7246,7 +7081,7 @@ export class DataIntegrationClient {
   public async getTaskRun(
     getTaskRunRequest: requests.GetTaskRunRequest
   ): Promise<responses.GetTaskRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getTaskRun.");
+    logger.debug("Calling operation DataIntegrationClient#getTaskRun.");
     const operationName = "getTaskRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/GetTaskRun";
@@ -7269,7 +7104,6 @@ export class DataIntegrationClient {
       getTaskRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7324,7 +7158,7 @@ export class DataIntegrationClient {
   public async getTaskSchedule(
     getTaskScheduleRequest: requests.GetTaskScheduleRequest
   ): Promise<responses.GetTaskScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getTaskSchedule.");
+    logger.debug("Calling operation DataIntegrationClient#getTaskSchedule.");
     const operationName = "getTaskSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/GetTaskSchedule";
@@ -7347,7 +7181,6 @@ export class DataIntegrationClient {
       getTaskScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7404,8 +7237,7 @@ export class DataIntegrationClient {
   public async getTaskValidation(
     getTaskValidationRequest: requests.GetTaskValidationRequest
   ): Promise<responses.GetTaskValidationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getTaskValidation.");
+    logger.debug("Calling operation DataIntegrationClient#getTaskValidation.");
     const operationName = "getTaskValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskValidation/GetTaskValidation";
@@ -7427,7 +7259,6 @@ export class DataIntegrationClient {
       getTaskValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7482,7 +7313,7 @@ export class DataIntegrationClient {
   public async getTemplate(
     getTemplateRequest: requests.GetTemplateRequest
   ): Promise<responses.GetTemplateResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getTemplate.");
+    logger.debug("Calling operation DataIntegrationClient#getTemplate.");
     const operationName = "getTemplate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Template/GetTemplate";
@@ -7504,7 +7335,6 @@ export class DataIntegrationClient {
       getTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7554,8 +7384,7 @@ export class DataIntegrationClient {
   public async getUserDefinedFunction(
     getUserDefinedFunctionRequest: requests.GetUserDefinedFunctionRequest
   ): Promise<responses.GetUserDefinedFunctionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#getUserDefinedFunction.");
+    logger.debug("Calling operation DataIntegrationClient#getUserDefinedFunction.");
     const operationName = "getUserDefinedFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/GetUserDefinedFunction";
@@ -7577,7 +7406,6 @@ export class DataIntegrationClient {
       getUserDefinedFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7632,10 +7460,7 @@ export class DataIntegrationClient {
   public async getUserDefinedFunctionValidation(
     getUserDefinedFunctionValidationRequest: requests.GetUserDefinedFunctionValidationRequest
   ): Promise<responses.GetUserDefinedFunctionValidationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#getUserDefinedFunctionValidation."
-      );
+    logger.debug("Calling operation DataIntegrationClient#getUserDefinedFunctionValidation.");
     const operationName = "getUserDefinedFunctionValidation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunctionValidation/GetUserDefinedFunctionValidation";
@@ -7658,7 +7483,6 @@ export class DataIntegrationClient {
       getUserDefinedFunctionValidationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7714,7 +7538,7 @@ export class DataIntegrationClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getWorkRequest.");
+    logger.debug("Calling operation DataIntegrationClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/WorkRequest/GetWorkRequest";
@@ -7735,7 +7559,6 @@ export class DataIntegrationClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7795,7 +7618,7 @@ export class DataIntegrationClient {
   public async getWorkspace(
     getWorkspaceRequest: requests.GetWorkspaceRequest
   ): Promise<responses.GetWorkspaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getWorkspace.");
+    logger.debug("Calling operation DataIntegrationClient#getWorkspace.");
     const operationName = "getWorkspace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/GetWorkspace";
@@ -7816,7 +7639,6 @@ export class DataIntegrationClient {
       getWorkspaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7871,7 +7693,7 @@ export class DataIntegrationClient {
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listApplications.");
+    logger.debug("Calling operation DataIntegrationClient#listApplications.");
     const operationName = "listApplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListApplications";
@@ -7901,7 +7723,6 @@ export class DataIntegrationClient {
       listApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7966,8 +7787,7 @@ export class DataIntegrationClient {
   public async listConnectionValidations(
     listConnectionValidationsRequest: requests.ListConnectionValidationsRequest
   ): Promise<responses.ListConnectionValidationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listConnectionValidations.");
+    logger.debug("Calling operation DataIntegrationClient#listConnectionValidations.");
     const operationName = "listConnectionValidations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ConnectionValidation/ListConnectionValidations";
@@ -7997,7 +7817,6 @@ export class DataIntegrationClient {
       listConnectionValidationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8062,7 +7881,7 @@ export class DataIntegrationClient {
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listConnections.");
+    logger.debug("Calling operation DataIntegrationClient#listConnections.");
     const operationName = "listConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/ListConnections";
@@ -8092,7 +7911,6 @@ export class DataIntegrationClient {
       listConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8158,8 +7976,7 @@ export class DataIntegrationClient {
   public async listCopyObjectRequests(
     listCopyObjectRequestsRequest: requests.ListCopyObjectRequestsRequest
   ): Promise<responses.ListCopyObjectRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listCopyObjectRequests.");
+    logger.debug("Calling operation DataIntegrationClient#listCopyObjectRequests.");
     const operationName = "listCopyObjectRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/CopyObjectRequestSummaryCollection/ListCopyObjectRequests";
@@ -8190,7 +8007,6 @@ export class DataIntegrationClient {
       listCopyObjectRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8246,7 +8062,7 @@ export class DataIntegrationClient {
   public async listDataAssets(
     listDataAssetsRequest: requests.ListDataAssetsRequest
   ): Promise<responses.ListDataAssetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listDataAssets.");
+    logger.debug("Calling operation DataIntegrationClient#listDataAssets.");
     const operationName = "listDataAssets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/ListDataAssets";
@@ -8275,7 +8091,6 @@ export class DataIntegrationClient {
       listDataAssetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8341,7 +8156,7 @@ export class DataIntegrationClient {
   public async listDataEntities(
     listDataEntitiesRequest: requests.ListDataEntitiesRequest
   ): Promise<responses.ListDataEntitiesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listDataEntities.");
+    logger.debug("Calling operation DataIntegrationClient#listDataEntities.");
     const operationName = "listDataEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataEntity/ListDataEntities";
@@ -8375,7 +8190,6 @@ export class DataIntegrationClient {
       listDataEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8441,8 +8255,7 @@ export class DataIntegrationClient {
   public async listDataFlowValidations(
     listDataFlowValidationsRequest: requests.ListDataFlowValidationsRequest
   ): Promise<responses.ListDataFlowValidationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listDataFlowValidations.");
+    logger.debug("Calling operation DataIntegrationClient#listDataFlowValidations.");
     const operationName = "listDataFlowValidations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlowValidation/ListDataFlowValidations";
@@ -8472,7 +8285,6 @@ export class DataIntegrationClient {
       listDataFlowValidationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8538,7 +8350,7 @@ export class DataIntegrationClient {
   public async listDataFlows(
     listDataFlowsRequest: requests.ListDataFlowsRequest
   ): Promise<responses.ListDataFlowsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listDataFlows.");
+    logger.debug("Calling operation DataIntegrationClient#listDataFlows.");
     const operationName = "listDataFlows";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/ListDataFlows";
@@ -8568,7 +8380,6 @@ export class DataIntegrationClient {
       listDataFlowsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8633,8 +8444,7 @@ export class DataIntegrationClient {
   public async listDependentObjects(
     listDependentObjectsRequest: requests.ListDependentObjectsRequest
   ): Promise<responses.ListDependentObjectsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listDependentObjects.");
+    logger.debug("Calling operation DataIntegrationClient#listDependentObjects.");
     const operationName = "listDependentObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListDependentObjects";
@@ -8667,7 +8477,6 @@ export class DataIntegrationClient {
       listDependentObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8733,10 +8542,7 @@ export class DataIntegrationClient {
   public async listDisApplicationTaskRunLineages(
     listDisApplicationTaskRunLineagesRequest: requests.ListDisApplicationTaskRunLineagesRequest
   ): Promise<responses.ListDisApplicationTaskRunLineagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#listDisApplicationTaskRunLineages."
-      );
+    logger.debug("Calling operation DataIntegrationClient#listDisApplicationTaskRunLineages.");
     const operationName = "listDisApplicationTaskRunLineages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRunLineageSummaryCollection/ListDisApplicationTaskRunLineages";
@@ -8771,7 +8577,6 @@ export class DataIntegrationClient {
       listDisApplicationTaskRunLineagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8826,8 +8631,7 @@ export class DataIntegrationClient {
   public async listDisApplications(
     listDisApplicationsRequest: requests.ListDisApplicationsRequest
   ): Promise<responses.ListDisApplicationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listDisApplications.");
+    logger.debug("Calling operation DataIntegrationClient#listDisApplications.");
     const operationName = "listDisApplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/ListDisApplications";
@@ -8858,7 +8662,6 @@ export class DataIntegrationClient {
       listDisApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8924,8 +8727,7 @@ export class DataIntegrationClient {
   public async listExportRequests(
     listExportRequestsRequest: requests.ListExportRequestsRequest
   ): Promise<responses.ListExportRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listExportRequests.");
+    logger.debug("Calling operation DataIntegrationClient#listExportRequests.");
     const operationName = "listExportRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExportRequestSummaryCollection/ListExportRequests";
@@ -8956,7 +8758,6 @@ export class DataIntegrationClient {
       listExportRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9012,10 +8813,7 @@ export class DataIntegrationClient {
   public async listExternalPublicationValidations(
     listExternalPublicationValidationsRequest: requests.ListExternalPublicationValidationsRequest
   ): Promise<responses.ListExternalPublicationValidationsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#listExternalPublicationValidations."
-      );
+    logger.debug("Calling operation DataIntegrationClient#listExternalPublicationValidations.");
     const operationName = "listExternalPublicationValidations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublicationValidation/ListExternalPublicationValidations";
@@ -9045,7 +8843,6 @@ export class DataIntegrationClient {
       listExternalPublicationValidationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9110,8 +8907,7 @@ export class DataIntegrationClient {
   public async listExternalPublications(
     listExternalPublicationsRequest: requests.ListExternalPublicationsRequest
   ): Promise<responses.ListExternalPublicationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listExternalPublications.");
+    logger.debug("Calling operation DataIntegrationClient#listExternalPublications.");
     const operationName = "listExternalPublications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/ListExternalPublications";
@@ -9140,7 +8936,6 @@ export class DataIntegrationClient {
       listExternalPublicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9206,7 +9001,7 @@ export class DataIntegrationClient {
   public async listFolders(
     listFoldersRequest: requests.ListFoldersRequest
   ): Promise<responses.ListFoldersResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listFolders.");
+    logger.debug("Calling operation DataIntegrationClient#listFolders.");
     const operationName = "listFolders";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/ListFolders";
@@ -9237,7 +9032,6 @@ export class DataIntegrationClient {
       listFoldersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9303,8 +9097,7 @@ export class DataIntegrationClient {
   public async listFunctionLibraries(
     listFunctionLibrariesRequest: requests.ListFunctionLibrariesRequest
   ): Promise<responses.ListFunctionLibrariesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listFunctionLibraries.");
+    logger.debug("Calling operation DataIntegrationClient#listFunctionLibraries.");
     const operationName = "listFunctionLibraries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/ListFunctionLibraries";
@@ -9334,7 +9127,6 @@ export class DataIntegrationClient {
       listFunctionLibrariesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9400,8 +9192,7 @@ export class DataIntegrationClient {
   public async listImportRequests(
     listImportRequestsRequest: requests.ListImportRequestsRequest
   ): Promise<responses.ListImportRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listImportRequests.");
+    logger.debug("Calling operation DataIntegrationClient#listImportRequests.");
     const operationName = "listImportRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ImportRequestSummaryCollection/ListImportRequests";
@@ -9432,7 +9223,6 @@ export class DataIntegrationClient {
       listImportRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9487,7 +9277,7 @@ export class DataIntegrationClient {
   public async listPatchChanges(
     listPatchChangesRequest: requests.ListPatchChangesRequest
   ): Promise<responses.ListPatchChangesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listPatchChanges.");
+    logger.debug("Calling operation DataIntegrationClient#listPatchChanges.");
     const operationName = "listPatchChanges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListPatchChanges";
@@ -9517,7 +9307,6 @@ export class DataIntegrationClient {
       listPatchChangesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9582,7 +9371,7 @@ export class DataIntegrationClient {
   public async listPatches(
     listPatchesRequest: requests.ListPatchesRequest
   ): Promise<responses.ListPatchesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listPatches.");
+    logger.debug("Calling operation DataIntegrationClient#listPatches.");
     const operationName = "listPatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListPatches";
@@ -9612,7 +9401,6 @@ export class DataIntegrationClient {
       listPatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9677,8 +9465,7 @@ export class DataIntegrationClient {
   public async listPipelineValidations(
     listPipelineValidationsRequest: requests.ListPipelineValidationsRequest
   ): Promise<responses.ListPipelineValidationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listPipelineValidations.");
+    logger.debug("Calling operation DataIntegrationClient#listPipelineValidations.");
     const operationName = "listPipelineValidations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/PipelineValidation/ListPipelineValidations";
@@ -9708,7 +9495,6 @@ export class DataIntegrationClient {
       listPipelineValidationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9774,7 +9560,7 @@ export class DataIntegrationClient {
   public async listPipelines(
     listPipelinesRequest: requests.ListPipelinesRequest
   ): Promise<responses.ListPipelinesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listPipelines.");
+    logger.debug("Calling operation DataIntegrationClient#listPipelines.");
     const operationName = "listPipelines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/ListPipelines";
@@ -9804,7 +9590,6 @@ export class DataIntegrationClient {
       listPipelinesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9870,7 +9655,7 @@ export class DataIntegrationClient {
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listProjects.");
+    logger.debug("Calling operation DataIntegrationClient#listProjects.");
     const operationName = "listProjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/ListProjects";
@@ -9900,7 +9685,6 @@ export class DataIntegrationClient {
       listProjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9965,8 +9749,7 @@ export class DataIntegrationClient {
   public async listPublishedObjects(
     listPublishedObjectsRequest: requests.ListPublishedObjectsRequest
   ): Promise<responses.ListPublishedObjectsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listPublishedObjects.");
+    logger.debug("Calling operation DataIntegrationClient#listPublishedObjects.");
     const operationName = "listPublishedObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListPublishedObjects";
@@ -10000,7 +9783,6 @@ export class DataIntegrationClient {
       listPublishedObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10065,7 +9847,7 @@ export class DataIntegrationClient {
   public async listReferences(
     listReferencesRequest: requests.ListReferencesRequest
   ): Promise<responses.ListReferencesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listReferences.");
+    logger.debug("Calling operation DataIntegrationClient#listReferences.");
     const operationName = "listReferences";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Reference/ListReferences";
@@ -10093,7 +9875,6 @@ export class DataIntegrationClient {
       listReferencesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10164,8 +9945,7 @@ export class DataIntegrationClient {
   public async listRuntimeOperators(
     listRuntimeOperatorsRequest: requests.ListRuntimeOperatorsRequest
   ): Promise<responses.ListRuntimeOperatorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listRuntimeOperators.");
+    logger.debug("Calling operation DataIntegrationClient#listRuntimeOperators.");
     const operationName = "listRuntimeOperators";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/RuntimeOperatorSummaryCollection/ListRuntimeOperators";
@@ -10198,7 +9978,6 @@ export class DataIntegrationClient {
       listRuntimeOperatorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10255,8 +10034,7 @@ export class DataIntegrationClient {
   public async listRuntimePipelines(
     listRuntimePipelinesRequest: requests.ListRuntimePipelinesRequest
   ): Promise<responses.ListRuntimePipelinesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listRuntimePipelines.");
+    logger.debug("Calling operation DataIntegrationClient#listRuntimePipelines.");
     const operationName = "listRuntimePipelines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/RuntimePipelineSummaryCollection/ListRuntimePipelines";
@@ -10290,7 +10068,6 @@ export class DataIntegrationClient {
       listRuntimePipelinesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10346,7 +10123,7 @@ export class DataIntegrationClient {
   public async listSchedules(
     listSchedulesRequest: requests.ListSchedulesRequest
   ): Promise<responses.ListSchedulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listSchedules.");
+    logger.debug("Calling operation DataIntegrationClient#listSchedules.");
     const operationName = "listSchedules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/ListSchedules";
@@ -10377,7 +10154,6 @@ export class DataIntegrationClient {
       listSchedulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10442,7 +10218,7 @@ export class DataIntegrationClient {
   public async listSchemas(
     listSchemasRequest: requests.ListSchemasRequest
   ): Promise<responses.ListSchemasResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listSchemas.");
+    logger.debug("Calling operation DataIntegrationClient#listSchemas.");
     const operationName = "listSchemas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schema/ListSchemas";
@@ -10474,7 +10250,6 @@ export class DataIntegrationClient {
       listSchemasRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10540,8 +10315,7 @@ export class DataIntegrationClient {
   public async listTaskRunLineages(
     listTaskRunLineagesRequest: requests.ListTaskRunLineagesRequest
   ): Promise<responses.ListTaskRunLineagesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listTaskRunLineages.");
+    logger.debug("Calling operation DataIntegrationClient#listTaskRunLineages.");
     const operationName = "listTaskRunLineages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRunLineageSummaryCollection/ListTaskRunLineages";
@@ -10574,7 +10348,6 @@ export class DataIntegrationClient {
       listTaskRunLineagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10629,7 +10402,7 @@ export class DataIntegrationClient {
   public async listTaskRunLogs(
     listTaskRunLogsRequest: requests.ListTaskRunLogsRequest
   ): Promise<responses.ListTaskRunLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listTaskRunLogs.");
+    logger.debug("Calling operation DataIntegrationClient#listTaskRunLogs.");
     const operationName = "listTaskRunLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRunLogSummary/ListTaskRunLogs";
@@ -10657,7 +10430,6 @@ export class DataIntegrationClient {
       listTaskRunLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10774,7 +10546,7 @@ export class DataIntegrationClient {
   public async listTaskRuns(
     listTaskRunsRequest: requests.ListTaskRunsRequest
   ): Promise<responses.ListTaskRunsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listTaskRuns.");
+    logger.debug("Calling operation DataIntegrationClient#listTaskRuns.");
     const operationName = "listTaskRuns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/ListTaskRuns";
@@ -10809,7 +10581,6 @@ export class DataIntegrationClient {
       listTaskRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10875,8 +10646,7 @@ export class DataIntegrationClient {
   public async listTaskSchedules(
     listTaskSchedulesRequest: requests.ListTaskSchedulesRequest
   ): Promise<responses.ListTaskSchedulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listTaskSchedules.");
+    logger.debug("Calling operation DataIntegrationClient#listTaskSchedules.");
     const operationName = "listTaskSchedules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/ListTaskSchedules";
@@ -10908,7 +10678,6 @@ export class DataIntegrationClient {
       listTaskSchedulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10974,8 +10743,7 @@ export class DataIntegrationClient {
   public async listTaskValidations(
     listTaskValidationsRequest: requests.ListTaskValidationsRequest
   ): Promise<responses.ListTaskValidationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listTaskValidations.");
+    logger.debug("Calling operation DataIntegrationClient#listTaskValidations.");
     const operationName = "listTaskValidations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskValidation/ListTaskValidations";
@@ -11005,7 +10773,6 @@ export class DataIntegrationClient {
       listTaskValidationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11071,7 +10838,7 @@ export class DataIntegrationClient {
   public async listTasks(
     listTasksRequest: requests.ListTasksRequest
   ): Promise<responses.ListTasksResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listTasks.");
+    logger.debug("Calling operation DataIntegrationClient#listTasks.");
     const operationName = "listTasks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/ListTasks";
@@ -11103,7 +10870,6 @@ export class DataIntegrationClient {
       listTasksRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11168,7 +10934,7 @@ export class DataIntegrationClient {
   public async listTemplates(
     listTemplatesRequest: requests.ListTemplatesRequest
   ): Promise<responses.ListTemplatesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listTemplates.");
+    logger.debug("Calling operation DataIntegrationClient#listTemplates.");
     const operationName = "listTemplates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Template/ListTemplates";
@@ -11197,7 +10963,6 @@ export class DataIntegrationClient {
       listTemplatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11262,10 +11027,7 @@ export class DataIntegrationClient {
   public async listUserDefinedFunctionValidations(
     listUserDefinedFunctionValidationsRequest: requests.ListUserDefinedFunctionValidationsRequest
   ): Promise<responses.ListUserDefinedFunctionValidationsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#listUserDefinedFunctionValidations."
-      );
+    logger.debug("Calling operation DataIntegrationClient#listUserDefinedFunctionValidations.");
     const operationName = "listUserDefinedFunctionValidations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunctionValidation/ListUserDefinedFunctionValidations";
@@ -11295,7 +11057,6 @@ export class DataIntegrationClient {
       listUserDefinedFunctionValidationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11361,8 +11122,7 @@ export class DataIntegrationClient {
   public async listUserDefinedFunctions(
     listUserDefinedFunctionsRequest: requests.ListUserDefinedFunctionsRequest
   ): Promise<responses.ListUserDefinedFunctionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listUserDefinedFunctions.");
+    logger.debug("Calling operation DataIntegrationClient#listUserDefinedFunctions.");
     const operationName = "listUserDefinedFunctions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/ListUserDefinedFunctions";
@@ -11392,7 +11152,6 @@ export class DataIntegrationClient {
       listUserDefinedFunctionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11458,8 +11217,7 @@ export class DataIntegrationClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listWorkRequestErrors.");
+    logger.debug("Calling operation DataIntegrationClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/WorkRequest/ListWorkRequestErrors";
@@ -11485,7 +11243,6 @@ export class DataIntegrationClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11593,8 +11350,7 @@ export class DataIntegrationClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#listWorkRequestLogs.");
+    logger.debug("Calling operation DataIntegrationClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/WorkRequest/ListWorkRequestLogs";
@@ -11620,7 +11376,6 @@ export class DataIntegrationClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11728,7 +11483,7 @@ export class DataIntegrationClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listWorkRequests.");
+    logger.debug("Calling operation DataIntegrationClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/WorkRequest/ListWorkRequests";
@@ -11755,7 +11510,6 @@ export class DataIntegrationClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11863,7 +11617,7 @@ export class DataIntegrationClient {
   public async listWorkspaces(
     listWorkspacesRequest: requests.ListWorkspacesRequest
   ): Promise<responses.ListWorkspacesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listWorkspaces.");
+    logger.debug("Calling operation DataIntegrationClient#listWorkspaces.");
     const operationName = "listWorkspaces";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/ListWorkspaces";
@@ -11890,7 +11644,6 @@ export class DataIntegrationClient {
       listWorkspacesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11998,7 +11751,7 @@ export class DataIntegrationClient {
   public async startWorkspace(
     startWorkspaceRequest: requests.StartWorkspaceRequest
   ): Promise<responses.StartWorkspaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#startWorkspace.");
+    logger.debug("Calling operation DataIntegrationClient#startWorkspace.");
     const operationName = "startWorkspace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/StartWorkspace";
@@ -12021,7 +11774,6 @@ export class DataIntegrationClient {
       startWorkspaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12073,7 +11825,7 @@ export class DataIntegrationClient {
   public async stopWorkspace(
     stopWorkspaceRequest: requests.StopWorkspaceRequest
   ): Promise<responses.StopWorkspaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#stopWorkspace.");
+    logger.debug("Calling operation DataIntegrationClient#stopWorkspace.");
     const operationName = "stopWorkspace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/StopWorkspace";
@@ -12099,7 +11851,6 @@ export class DataIntegrationClient {
       stopWorkspaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12150,8 +11901,7 @@ export class DataIntegrationClient {
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
   ): Promise<responses.UpdateApplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateApplication.");
+    logger.debug("Calling operation DataIntegrationClient#updateApplication.");
     const operationName = "updateApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/UpdateApplication";
@@ -12174,7 +11924,6 @@ export class DataIntegrationClient {
       updateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12234,10 +11983,7 @@ export class DataIntegrationClient {
   public async updateApplicationDetailedDescription(
     updateApplicationDetailedDescriptionRequest: requests.UpdateApplicationDetailedDescriptionRequest
   ): Promise<responses.UpdateApplicationDetailedDescriptionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#updateApplicationDetailedDescription."
-      );
+    logger.debug("Calling operation DataIntegrationClient#updateApplicationDetailedDescription.");
     const operationName = "updateApplicationDetailedDescription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DetailedDescription/UpdateApplicationDetailedDescription";
@@ -12260,7 +12006,6 @@ export class DataIntegrationClient {
       updateApplicationDetailedDescriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12320,7 +12065,7 @@ export class DataIntegrationClient {
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateConnection.");
+    logger.debug("Calling operation DataIntegrationClient#updateConnection.");
     const operationName = "updateConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/UpdateConnection";
@@ -12343,7 +12088,6 @@ export class DataIntegrationClient {
       updateConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12403,8 +12147,7 @@ export class DataIntegrationClient {
   public async updateCopyObjectRequest(
     updateCopyObjectRequestRequest: requests.UpdateCopyObjectRequestRequest
   ): Promise<responses.UpdateCopyObjectRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateCopyObjectRequest.");
+    logger.debug("Calling operation DataIntegrationClient#updateCopyObjectRequest.");
     const operationName = "updateCopyObjectRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/UpdateCopyObjectRequest";
@@ -12427,7 +12170,6 @@ export class DataIntegrationClient {
       updateCopyObjectRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12487,7 +12229,7 @@ export class DataIntegrationClient {
   public async updateDataAsset(
     updateDataAssetRequest: requests.UpdateDataAssetRequest
   ): Promise<responses.UpdateDataAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateDataAsset.");
+    logger.debug("Calling operation DataIntegrationClient#updateDataAsset.");
     const operationName = "updateDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/UpdateDataAsset";
@@ -12510,7 +12252,6 @@ export class DataIntegrationClient {
       updateDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12570,7 +12311,7 @@ export class DataIntegrationClient {
   public async updateDataFlow(
     updateDataFlowRequest: requests.UpdateDataFlowRequest
   ): Promise<responses.UpdateDataFlowResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateDataFlow.");
+    logger.debug("Calling operation DataIntegrationClient#updateDataFlow.");
     const operationName = "updateDataFlow";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/UpdateDataFlow";
@@ -12593,7 +12334,6 @@ export class DataIntegrationClient {
       updateDataFlowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12653,8 +12393,7 @@ export class DataIntegrationClient {
   public async updateDisApplication(
     updateDisApplicationRequest: requests.UpdateDisApplicationRequest
   ): Promise<responses.UpdateDisApplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateDisApplication.");
+    logger.debug("Calling operation DataIntegrationClient#updateDisApplication.");
     const operationName = "updateDisApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/UpdateDisApplication";
@@ -12677,7 +12416,6 @@ export class DataIntegrationClient {
       updateDisApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12737,10 +12475,9 @@ export class DataIntegrationClient {
   public async updateDisApplicationDetailedDescription(
     updateDisApplicationDetailedDescriptionRequest: requests.UpdateDisApplicationDetailedDescriptionRequest
   ): Promise<responses.UpdateDisApplicationDetailedDescriptionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataIntegrationClient#updateDisApplicationDetailedDescription."
-      );
+    logger.debug(
+      "Calling operation DataIntegrationClient#updateDisApplicationDetailedDescription."
+    );
     const operationName = "updateDisApplicationDetailedDescription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DetailedDescription/UpdateDisApplicationDetailedDescription";
@@ -12763,7 +12500,6 @@ export class DataIntegrationClient {
       updateDisApplicationDetailedDescriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12823,8 +12559,7 @@ export class DataIntegrationClient {
   public async updateExportRequest(
     updateExportRequestRequest: requests.UpdateExportRequestRequest
   ): Promise<responses.UpdateExportRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateExportRequest.");
+    logger.debug("Calling operation DataIntegrationClient#updateExportRequest.");
     const operationName = "updateExportRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/UpdateExportRequest";
@@ -12847,7 +12582,6 @@ export class DataIntegrationClient {
       updateExportRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12907,8 +12641,7 @@ export class DataIntegrationClient {
   public async updateExternalPublication(
     updateExternalPublicationRequest: requests.UpdateExternalPublicationRequest
   ): Promise<responses.UpdateExternalPublicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateExternalPublication.");
+    logger.debug("Calling operation DataIntegrationClient#updateExternalPublication.");
     const operationName = "updateExternalPublication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/UpdateExternalPublication";
@@ -12932,7 +12665,6 @@ export class DataIntegrationClient {
       updateExternalPublicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12993,7 +12725,7 @@ export class DataIntegrationClient {
   public async updateFolder(
     updateFolderRequest: requests.UpdateFolderRequest
   ): Promise<responses.UpdateFolderResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateFolder.");
+    logger.debug("Calling operation DataIntegrationClient#updateFolder.");
     const operationName = "updateFolder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/UpdateFolder";
@@ -13016,7 +12748,6 @@ export class DataIntegrationClient {
       updateFolderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13076,8 +12807,7 @@ export class DataIntegrationClient {
   public async updateFunctionLibrary(
     updateFunctionLibraryRequest: requests.UpdateFunctionLibraryRequest
   ): Promise<responses.UpdateFunctionLibraryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateFunctionLibrary.");
+    logger.debug("Calling operation DataIntegrationClient#updateFunctionLibrary.");
     const operationName = "updateFunctionLibrary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/UpdateFunctionLibrary";
@@ -13100,7 +12830,6 @@ export class DataIntegrationClient {
       updateFunctionLibraryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13160,8 +12889,7 @@ export class DataIntegrationClient {
   public async updateImportRequest(
     updateImportRequestRequest: requests.UpdateImportRequestRequest
   ): Promise<responses.UpdateImportRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateImportRequest.");
+    logger.debug("Calling operation DataIntegrationClient#updateImportRequest.");
     const operationName = "updateImportRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/UpdateImportRequest";
@@ -13184,7 +12912,6 @@ export class DataIntegrationClient {
       updateImportRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13244,7 +12971,7 @@ export class DataIntegrationClient {
   public async updatePipeline(
     updatePipelineRequest: requests.UpdatePipelineRequest
   ): Promise<responses.UpdatePipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updatePipeline.");
+    logger.debug("Calling operation DataIntegrationClient#updatePipeline.");
     const operationName = "updatePipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/UpdatePipeline";
@@ -13267,7 +12994,6 @@ export class DataIntegrationClient {
       updatePipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13327,7 +13053,7 @@ export class DataIntegrationClient {
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateProject.");
+    logger.debug("Calling operation DataIntegrationClient#updateProject.");
     const operationName = "updateProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/UpdateProject";
@@ -13350,7 +13076,6 @@ export class DataIntegrationClient {
       updateProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13410,7 +13135,7 @@ export class DataIntegrationClient {
   public async updateReference(
     updateReferenceRequest: requests.UpdateReferenceRequest
   ): Promise<responses.UpdateReferenceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateReference.");
+    logger.debug("Calling operation DataIntegrationClient#updateReference.");
     const operationName = "updateReference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Reference/UpdateReference";
@@ -13435,7 +13160,6 @@ export class DataIntegrationClient {
       updateReferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13495,7 +13219,7 @@ export class DataIntegrationClient {
   public async updateSchedule(
     updateScheduleRequest: requests.UpdateScheduleRequest
   ): Promise<responses.UpdateScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateSchedule.");
+    logger.debug("Calling operation DataIntegrationClient#updateSchedule.");
     const operationName = "updateSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/UpdateSchedule";
@@ -13519,7 +13243,6 @@ export class DataIntegrationClient {
       updateScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13579,7 +13302,7 @@ export class DataIntegrationClient {
   public async updateTask(
     updateTaskRequest: requests.UpdateTaskRequest
   ): Promise<responses.UpdateTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateTask.");
+    logger.debug("Calling operation DataIntegrationClient#updateTask.");
     const operationName = "updateTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/UpdateTask";
@@ -13602,7 +13325,6 @@ export class DataIntegrationClient {
       updateTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13662,7 +13384,7 @@ export class DataIntegrationClient {
   public async updateTaskRun(
     updateTaskRunRequest: requests.UpdateTaskRunRequest
   ): Promise<responses.UpdateTaskRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateTaskRun.");
+    logger.debug("Calling operation DataIntegrationClient#updateTaskRun.");
     const operationName = "updateTaskRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/UpdateTaskRun";
@@ -13686,7 +13408,6 @@ export class DataIntegrationClient {
       updateTaskRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13746,8 +13467,7 @@ export class DataIntegrationClient {
   public async updateTaskSchedule(
     updateTaskScheduleRequest: requests.UpdateTaskScheduleRequest
   ): Promise<responses.UpdateTaskScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateTaskSchedule.");
+    logger.debug("Calling operation DataIntegrationClient#updateTaskSchedule.");
     const operationName = "updateTaskSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/UpdateTaskSchedule";
@@ -13771,7 +13491,6 @@ export class DataIntegrationClient {
       updateTaskScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13832,8 +13551,7 @@ export class DataIntegrationClient {
   public async updateUserDefinedFunction(
     updateUserDefinedFunctionRequest: requests.UpdateUserDefinedFunctionRequest
   ): Promise<responses.UpdateUserDefinedFunctionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataIntegrationClient#updateUserDefinedFunction.");
+    logger.debug("Calling operation DataIntegrationClient#updateUserDefinedFunction.");
     const operationName = "updateUserDefinedFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/UpdateUserDefinedFunction";
@@ -13856,7 +13574,6 @@ export class DataIntegrationClient {
       updateUserDefinedFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13916,7 +13633,7 @@ export class DataIntegrationClient {
   public async updateWorkspace(
     updateWorkspaceRequest: requests.UpdateWorkspaceRequest
   ): Promise<responses.UpdateWorkspaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateWorkspace.");
+    logger.debug("Calling operation DataIntegrationClient#updateWorkspace.");
     const operationName = "updateWorkspace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/UpdateWorkspace";
@@ -13938,7 +13655,6 @@ export class DataIntegrationClient {
       updateWorkspaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -42,7 +42,7 @@ export namespace PasswordDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.passwordType}`);
+          common.logger.info(`Unknown value for: ${obj.passwordType}`);
       }
     }
     return jsonObj;
@@ -63,7 +63,7 @@ export namespace PasswordDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.passwordType}`);
+          common.logger.info(`Unknown value for: ${obj.passwordType}`);
       }
     }
     return jsonObj;

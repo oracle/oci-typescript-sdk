@@ -24,7 +24,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -120,11 +121,7 @@ export class NosqlClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190828";
-    if (this.logger) this.logger.info(`NosqlClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`NosqlClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -134,10 +131,9 @@ export class NosqlClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         NosqlClient.serviceEndpointTemplate,
@@ -229,7 +225,7 @@ export class NosqlClient {
   public async changeTableCompartment(
     changeTableCompartmentRequest: requests.ChangeTableCompartmentRequest
   ): Promise<responses.ChangeTableCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#changeTableCompartment.");
+    logger.debug("Calling operation NosqlClient#changeTableCompartment.");
     const operationName = "changeTableCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/ChangeTableCompartment";
@@ -252,7 +248,6 @@ export class NosqlClient {
       changeTableCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -308,7 +303,7 @@ export class NosqlClient {
   public async createIndex(
     createIndexRequest: requests.CreateIndexRequest
   ): Promise<responses.CreateIndexResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#createIndex.");
+    logger.debug("Calling operation NosqlClient#createIndex.");
     const operationName = "createIndex";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Index/CreateIndex";
@@ -330,7 +325,6 @@ export class NosqlClient {
       createIndexRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -386,7 +380,7 @@ export class NosqlClient {
   public async createReplica(
     createReplicaRequest: requests.CreateReplicaRequest
   ): Promise<responses.CreateReplicaResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#createReplica.");
+    logger.debug("Calling operation NosqlClient#createReplica.");
     const operationName = "createReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/CreateReplica";
@@ -409,7 +403,6 @@ export class NosqlClient {
       createReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -465,7 +458,7 @@ export class NosqlClient {
   public async createTable(
     createTableRequest: requests.CreateTableRequest
   ): Promise<responses.CreateTableResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#createTable.");
+    logger.debug("Calling operation NosqlClient#createTable.");
     const operationName = "createTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/CreateTable";
@@ -485,7 +478,6 @@ export class NosqlClient {
       createTableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -541,7 +533,7 @@ export class NosqlClient {
   public async deleteIndex(
     deleteIndexRequest: requests.DeleteIndexRequest
   ): Promise<responses.DeleteIndexResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteIndex.");
+    logger.debug("Calling operation NosqlClient#deleteIndex.");
     const operationName = "deleteIndex";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Index/DeleteIndex";
@@ -567,7 +559,6 @@ export class NosqlClient {
       deleteIndexRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -618,7 +609,7 @@ export class NosqlClient {
   public async deleteReplica(
     deleteReplicaRequest: requests.DeleteReplicaRequest
   ): Promise<responses.DeleteReplicaResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteReplica.");
+    logger.debug("Calling operation NosqlClient#deleteReplica.");
     const operationName = "deleteReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/DeleteReplica";
@@ -643,7 +634,6 @@ export class NosqlClient {
       deleteReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -694,7 +684,7 @@ export class NosqlClient {
   public async deleteRow(
     deleteRowRequest: requests.DeleteRowRequest
   ): Promise<responses.DeleteRowResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteRow.");
+    logger.debug("Calling operation NosqlClient#deleteRow.");
     const operationName = "deleteRow";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Row/DeleteRow";
@@ -721,7 +711,6 @@ export class NosqlClient {
       deleteRowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -771,7 +760,7 @@ export class NosqlClient {
   public async deleteTable(
     deleteTableRequest: requests.DeleteTableRequest
   ): Promise<responses.DeleteTableResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteTable.");
+    logger.debug("Calling operation NosqlClient#deleteTable.");
     const operationName = "deleteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/DeleteTable";
@@ -796,7 +785,6 @@ export class NosqlClient {
       deleteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -847,7 +835,7 @@ export class NosqlClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteWorkRequest.");
+    logger.debug("Calling operation NosqlClient#deleteWorkRequest.");
     const operationName = "deleteWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/DeleteWorkRequest";
@@ -869,7 +857,6 @@ export class NosqlClient {
       deleteWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -920,7 +907,7 @@ export class NosqlClient {
   public async getIndex(
     getIndexRequest: requests.GetIndexRequest
   ): Promise<responses.GetIndexResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#getIndex.");
+    logger.debug("Calling operation NosqlClient#getIndex.");
     const operationName = "getIndex";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Index/GetIndex";
@@ -944,7 +931,6 @@ export class NosqlClient {
       getIndexRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -997,7 +983,7 @@ export class NosqlClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetRow.ts.html |here} to see how to use GetRow API.
    */
   public async getRow(getRowRequest: requests.GetRowRequest): Promise<responses.GetRowResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#getRow.");
+    logger.debug("Calling operation NosqlClient#getRow.");
     const operationName = "getRow";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Row/GetRow";
@@ -1023,7 +1009,6 @@ export class NosqlClient {
       getRowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1078,7 +1063,7 @@ export class NosqlClient {
   public async getTable(
     getTableRequest: requests.GetTableRequest
   ): Promise<responses.GetTableResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#getTable.");
+    logger.debug("Calling operation NosqlClient#getTable.");
     const operationName = "getTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/GetTable";
@@ -1101,7 +1086,6 @@ export class NosqlClient {
       getTableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1156,7 +1140,7 @@ export class NosqlClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#getWorkRequest.");
+    logger.debug("Calling operation NosqlClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/GetWorkRequest";
@@ -1177,7 +1161,6 @@ export class NosqlClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1237,7 +1220,7 @@ export class NosqlClient {
   public async listIndexes(
     listIndexesRequest: requests.ListIndexesRequest
   ): Promise<responses.ListIndexesResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#listIndexes.");
+    logger.debug("Calling operation NosqlClient#listIndexes.");
     const operationName = "listIndexes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Index/ListIndexes";
@@ -1266,7 +1249,6 @@ export class NosqlClient {
       listIndexesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1321,7 +1303,7 @@ export class NosqlClient {
   public async listTableUsage(
     listTableUsageRequest: requests.ListTableUsageRequest
   ): Promise<responses.ListTableUsageResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#listTableUsage.");
+    logger.debug("Calling operation NosqlClient#listTableUsage.");
     const operationName = "listTableUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/ListTableUsage";
@@ -1348,7 +1330,6 @@ export class NosqlClient {
       listTableUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1403,7 +1384,7 @@ export class NosqlClient {
   public async listTables(
     listTablesRequest: requests.ListTablesRequest
   ): Promise<responses.ListTablesResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#listTables.");
+    logger.debug("Calling operation NosqlClient#listTables.");
     const operationName = "listTables";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/ListTables";
@@ -1430,7 +1411,6 @@ export class NosqlClient {
       listTablesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1486,7 +1466,7 @@ export class NosqlClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequestErrors.");
+    logger.debug("Calling operation NosqlClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/ListWorkRequestErrors";
@@ -1510,7 +1490,6 @@ export class NosqlClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1566,7 +1545,7 @@ export class NosqlClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequestLogs.");
+    logger.debug("Calling operation NosqlClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/ListWorkRequestLogs";
@@ -1590,7 +1569,6 @@ export class NosqlClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1645,7 +1623,7 @@ export class NosqlClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequests.");
+    logger.debug("Calling operation NosqlClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/ListWorkRequests";
@@ -1668,7 +1646,6 @@ export class NosqlClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1724,7 +1701,7 @@ export class NosqlClient {
   public async prepareStatement(
     prepareStatementRequest: requests.PrepareStatementRequest
   ): Promise<responses.PrepareStatementResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#prepareStatement.");
+    logger.debug("Calling operation NosqlClient#prepareStatement.");
     const operationName = "prepareStatement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/QueryResultCollection/PrepareStatement";
@@ -1747,7 +1724,6 @@ export class NosqlClient {
       prepareStatementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1795,7 +1771,7 @@ export class NosqlClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/Query.ts.html |here} to see how to use Query API.
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#query.");
+    logger.debug("Calling operation NosqlClient#query.");
     const operationName = "query";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/QueryResultCollection/Query";
@@ -1817,7 +1793,6 @@ export class NosqlClient {
       queryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1878,7 +1853,7 @@ export class NosqlClient {
   public async summarizeStatement(
     summarizeStatementRequest: requests.SummarizeStatementRequest
   ): Promise<responses.SummarizeStatementResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#summarizeStatement.");
+    logger.debug("Calling operation NosqlClient#summarizeStatement.");
     const operationName = "summarizeStatement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/QueryResultCollection/SummarizeStatement";
@@ -1900,7 +1875,6 @@ export class NosqlClient {
       summarizeStatementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1950,7 +1924,7 @@ export class NosqlClient {
   public async updateRow(
     updateRowRequest: requests.UpdateRowRequest
   ): Promise<responses.UpdateRowResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#updateRow.");
+    logger.debug("Calling operation NosqlClient#updateRow.");
     const operationName = "updateRow";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Row/UpdateRow";
@@ -1972,7 +1946,6 @@ export class NosqlClient {
       updateRowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2034,7 +2007,7 @@ export class NosqlClient {
   public async updateTable(
     updateTableRequest: requests.UpdateTableRequest
   ): Promise<responses.UpdateTableResponse> {
-    if (this.logger) this.logger.debug("Calling operation NosqlClient#updateTable.");
+    logger.debug("Calling operation NosqlClient#updateTable.");
     const operationName = "updateTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/UpdateTable";
@@ -2056,7 +2029,6 @@ export class NosqlClient {
       updateTableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

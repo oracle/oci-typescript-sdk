@@ -1,6 +1,6 @@
 {
   "name": "oci-osmanagement",
-  "version": "2.79.0",
+  "version": "2.79.1",
   "description": "OCI NodeJS client for OS Management",
   "repository": {
     "type": "git",

@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -119,11 +120,7 @@ export class HealthChecksClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180501";
-    if (this.logger) this.logger.info(`HealthChecksClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`HealthChecksClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -133,10 +130,9 @@ export class HealthChecksClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         HealthChecksClient.serviceEndpointTemplate,
@@ -207,8 +203,7 @@ export class HealthChecksClient {
   public async changeHttpMonitorCompartment(
     changeHttpMonitorCompartmentRequest: requests.ChangeHttpMonitorCompartmentRequest
   ): Promise<responses.ChangeHttpMonitorCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation HealthChecksClient#changeHttpMonitorCompartment.");
+    logger.debug("Calling operation HealthChecksClient#changeHttpMonitorCompartment.");
     const operationName = "changeHttpMonitorCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/ChangeHttpMonitorCompartment";
@@ -231,7 +226,6 @@ export class HealthChecksClient {
       changeHttpMonitorCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -284,8 +278,7 @@ export class HealthChecksClient {
   public async changePingMonitorCompartment(
     changePingMonitorCompartmentRequest: requests.ChangePingMonitorCompartmentRequest
   ): Promise<responses.ChangePingMonitorCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation HealthChecksClient#changePingMonitorCompartment.");
+    logger.debug("Calling operation HealthChecksClient#changePingMonitorCompartment.");
     const operationName = "changePingMonitorCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/ChangePingMonitorCompartment";
@@ -308,7 +301,6 @@ export class HealthChecksClient {
       changePingMonitorCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -362,7 +354,7 @@ export class HealthChecksClient {
   public async createHttpMonitor(
     createHttpMonitorRequest: requests.CreateHttpMonitorRequest
   ): Promise<responses.CreateHttpMonitorResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#createHttpMonitor.");
+    logger.debug("Calling operation HealthChecksClient#createHttpMonitor.");
     const operationName = "createHttpMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/CreateHttpMonitor";
@@ -382,7 +374,6 @@ export class HealthChecksClient {
       createHttpMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -451,8 +442,7 @@ export class HealthChecksClient {
   public async createOnDemandHttpProbe(
     createOnDemandHttpProbeRequest: requests.CreateOnDemandHttpProbeRequest
   ): Promise<responses.CreateOnDemandHttpProbeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation HealthChecksClient#createOnDemandHttpProbe.");
+    logger.debug("Calling operation HealthChecksClient#createOnDemandHttpProbe.");
     const operationName = "createOnDemandHttpProbe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpProbe/CreateOnDemandHttpProbe";
@@ -471,7 +461,6 @@ export class HealthChecksClient {
       createOnDemandHttpProbeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -535,8 +524,7 @@ export class HealthChecksClient {
   public async createOnDemandPingProbe(
     createOnDemandPingProbeRequest: requests.CreateOnDemandPingProbeRequest
   ): Promise<responses.CreateOnDemandPingProbeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation HealthChecksClient#createOnDemandPingProbe.");
+    logger.debug("Calling operation HealthChecksClient#createOnDemandPingProbe.");
     const operationName = "createOnDemandPingProbe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingProbe/CreateOnDemandPingProbe";
@@ -555,7 +543,6 @@ export class HealthChecksClient {
       createOnDemandPingProbeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -618,7 +605,7 @@ export class HealthChecksClient {
   public async createPingMonitor(
     createPingMonitorRequest: requests.CreatePingMonitorRequest
   ): Promise<responses.CreatePingMonitorResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#createPingMonitor.");
+    logger.debug("Calling operation HealthChecksClient#createPingMonitor.");
     const operationName = "createPingMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/CreatePingMonitor";
@@ -638,7 +625,6 @@ export class HealthChecksClient {
       createPingMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -705,7 +691,7 @@ export class HealthChecksClient {
   public async deleteHttpMonitor(
     deleteHttpMonitorRequest: requests.DeleteHttpMonitorRequest
   ): Promise<responses.DeleteHttpMonitorResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#deleteHttpMonitor.");
+    logger.debug("Calling operation HealthChecksClient#deleteHttpMonitor.");
     const operationName = "deleteHttpMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/DeleteHttpMonitor";
@@ -727,7 +713,6 @@ export class HealthChecksClient {
       deleteHttpMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -775,7 +760,7 @@ export class HealthChecksClient {
   public async deletePingMonitor(
     deletePingMonitorRequest: requests.DeletePingMonitorRequest
   ): Promise<responses.DeletePingMonitorResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#deletePingMonitor.");
+    logger.debug("Calling operation HealthChecksClient#deletePingMonitor.");
     const operationName = "deletePingMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/DeletePingMonitor";
@@ -797,7 +782,6 @@ export class HealthChecksClient {
       deletePingMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -844,7 +828,7 @@ export class HealthChecksClient {
   public async getHttpMonitor(
     getHttpMonitorRequest: requests.GetHttpMonitorRequest
   ): Promise<responses.GetHttpMonitorResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#getHttpMonitor.");
+    logger.debug("Calling operation HealthChecksClient#getHttpMonitor.");
     const operationName = "getHttpMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/GetHttpMonitor";
@@ -866,7 +850,6 @@ export class HealthChecksClient {
       getHttpMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -922,7 +905,7 @@ export class HealthChecksClient {
   public async getPingMonitor(
     getPingMonitorRequest: requests.GetPingMonitorRequest
   ): Promise<responses.GetPingMonitorResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#getPingMonitor.");
+    logger.debug("Calling operation HealthChecksClient#getPingMonitor.");
     const operationName = "getPingMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/GetPingMonitor";
@@ -944,7 +927,6 @@ export class HealthChecksClient {
       getPingMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1000,8 +982,7 @@ export class HealthChecksClient {
   public async listHealthChecksVantagePoints(
     listHealthChecksVantagePointsRequest: requests.ListHealthChecksVantagePointsRequest
   ): Promise<responses.ListHealthChecksVantagePointsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation HealthChecksClient#listHealthChecksVantagePoints.");
+    logger.debug("Calling operation HealthChecksClient#listHealthChecksVantagePoints.");
     const operationName = "listHealthChecksVantagePoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HealthChecksVantagePointSummary/ListHealthChecksVantagePoints";
@@ -1027,7 +1008,6 @@ export class HealthChecksClient {
       listHealthChecksVantagePointsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1135,7 +1115,7 @@ export class HealthChecksClient {
   public async listHttpMonitors(
     listHttpMonitorsRequest: requests.ListHttpMonitorsRequest
   ): Promise<responses.ListHttpMonitorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#listHttpMonitors.");
+    logger.debug("Calling operation HealthChecksClient#listHttpMonitors.");
     const operationName = "listHttpMonitors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitorSummary/ListHttpMonitors";
@@ -1162,7 +1142,6 @@ export class HealthChecksClient {
       listHttpMonitorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1272,8 +1251,7 @@ export class HealthChecksClient {
   public async listHttpProbeResults(
     listHttpProbeResultsRequest: requests.ListHttpProbeResultsRequest
   ): Promise<responses.ListHttpProbeResultsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation HealthChecksClient#listHttpProbeResults.");
+    logger.debug("Calling operation HealthChecksClient#listHttpProbeResults.");
     const operationName = "listHttpProbeResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpProbeResultSummary/ListHttpProbeResults";
@@ -1301,7 +1279,6 @@ export class HealthChecksClient {
       listHttpProbeResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1412,7 +1389,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   public async listPingMonitors(
     listPingMonitorsRequest: requests.ListPingMonitorsRequest
   ): Promise<responses.ListPingMonitorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#listPingMonitors.");
+    logger.debug("Calling operation HealthChecksClient#listPingMonitors.");
     const operationName = "listPingMonitors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitorSummary/ListPingMonitors";
@@ -1439,7 +1416,6 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       listPingMonitorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1553,8 +1529,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   public async listPingProbeResults(
     listPingProbeResultsRequest: requests.ListPingProbeResultsRequest
   ): Promise<responses.ListPingProbeResultsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation HealthChecksClient#listPingProbeResults.");
+    logger.debug("Calling operation HealthChecksClient#listPingProbeResults.");
     const operationName = "listPingProbeResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingProbeResultSummary/ListPingProbeResults";
@@ -1582,7 +1557,6 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       listPingProbeResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1692,7 +1666,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   public async updateHttpMonitor(
     updateHttpMonitorRequest: requests.UpdateHttpMonitorRequest
   ): Promise<responses.UpdateHttpMonitorResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#updateHttpMonitor.");
+    logger.debug("Calling operation HealthChecksClient#updateHttpMonitor.");
     const operationName = "updateHttpMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/UpdateHttpMonitor";
@@ -1714,7 +1688,6 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       updateHttpMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1777,7 +1750,7 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   public async updatePingMonitor(
     updatePingMonitorRequest: requests.UpdatePingMonitorRequest
   ): Promise<responses.UpdatePingMonitorResponse> {
-    if (this.logger) this.logger.debug("Calling operation HealthChecksClient#updatePingMonitor.");
+    logger.debug("Calling operation HealthChecksClient#updatePingMonitor.");
     const operationName = "updatePingMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/UpdatePingMonitor";
@@ -1799,7 +1772,6 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       updatePingMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

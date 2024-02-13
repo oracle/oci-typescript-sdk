@@ -36,7 +36,7 @@ export namespace UpdateExternalDbSystemConnectorDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectorType}`);
+          common.logger.info(`Unknown value for: ${obj.connectorType}`);
       }
     }
     return jsonObj;
@@ -52,7 +52,7 @@ export namespace UpdateExternalDbSystemConnectorDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectorType}`);
+          common.logger.info(`Unknown value for: ${obj.connectorType}`);
       }
     }
     return jsonObj;

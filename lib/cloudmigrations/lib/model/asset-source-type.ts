@@ -18,7 +18,13 @@ import common = require("oci-common");
  * The type of asset source. Indicates external origin of the assets that are read by assigning this asset source.
  **/
 export enum AssetSourceType {
-  Vmware = "VMWARE"
+  Vmware = "VMWARE",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace AssetSourceType {

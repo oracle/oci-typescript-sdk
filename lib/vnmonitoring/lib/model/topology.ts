@@ -70,7 +70,7 @@ export namespace Topology {
         case "SUBNET":
           return model.SubnetTopology.getJsonObj(<model.SubnetTopology>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -110,7 +110,7 @@ export namespace Topology {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

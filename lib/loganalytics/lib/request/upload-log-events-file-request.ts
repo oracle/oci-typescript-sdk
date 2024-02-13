@@ -72,6 +72,11 @@ export interface UploadLogEventsFileRequest extends common.BaseRequest {
    */
   "opcRetryToken"?: string;
   /**
+   * Metadata key and value pairs separated by a semicolon. Example k1:v1;k2:v2;k3:v3
+   *
+   */
+  "opcMetaProperties"?: string;
+  /**
    * A value of {@code 100-continue} requests preliminary verification of the request method, path, and headers before the request body is sent.
    * If no error results from such verification, the server will send a 100 (Continue) interim response to indicate readiness for the request body.
    * The only allowed value for this parameter is \"100-Continue\" (case-insensitive).

@@ -34,7 +34,7 @@ export namespace HorizontalScalingScheduleDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.scheduleType}`);
+          common.logger.info(`Unknown value for: ${obj.scheduleType}`);
       }
     }
     return jsonObj;
@@ -50,7 +50,7 @@ export namespace HorizontalScalingScheduleDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.scheduleType}`);
+          common.logger.info(`Unknown value for: ${obj.scheduleType}`);
       }
     }
     return jsonObj;

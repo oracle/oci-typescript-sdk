@@ -72,8 +72,7 @@ export namespace DrPlanExecutionOptions {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.planExecutionType}`);
+          common.logger.info(`Unknown value for: ${obj.planExecutionType}`);
       }
     }
     return jsonObj;
@@ -124,8 +123,7 @@ export namespace DrPlanExecutionOptions {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.planExecutionType}`);
+          common.logger.info(`Unknown value for: ${obj.planExecutionType}`);
       }
     }
     return jsonObj;

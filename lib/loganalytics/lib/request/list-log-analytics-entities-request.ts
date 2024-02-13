@@ -115,6 +115,12 @@ export interface ListLogAnalyticsEntitiesRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only log analytics entities whose metadata name, value and type matches the specified string.
+   * Each item in the array has the format \"{name}:{value}:{type}\".  All inputs are case-insensitive.
+   *
+   */
+  "metadataEquals"?: Array<string>;
 }
 
 export namespace ListLogAnalyticsEntitiesRequest {

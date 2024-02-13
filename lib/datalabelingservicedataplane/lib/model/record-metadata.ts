@@ -35,7 +35,7 @@ export namespace RecordMetadata {
         case "TEXT_METADATA":
           return model.TextMetadata.getJsonObj(<model.TextMetadata>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.recordType}`);
+          common.logger.info(`Unknown value for: ${obj.recordType}`);
       }
     }
     return jsonObj;
@@ -61,7 +61,7 @@ export namespace RecordMetadata {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.recordType}`);
+          common.logger.info(`Unknown value for: ${obj.recordType}`);
       }
     }
     return jsonObj;

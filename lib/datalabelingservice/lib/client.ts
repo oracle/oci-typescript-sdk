@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,12 +118,7 @@ export class DataLabelingManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20211001";
-    if (this.logger)
-      this.logger.info(`DataLabelingManagementClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DataLabelingManagementClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +128,9 @@ export class DataLabelingManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DataLabelingManagementClient.serviceEndpointTemplate,
@@ -228,8 +223,7 @@ export class DataLabelingManagementClient {
   public async addDatasetLabels(
     addDatasetLabelsRequest: requests.AddDatasetLabelsRequest
   ): Promise<responses.AddDatasetLabelsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#addDatasetLabels.");
+    logger.debug("Calling operation DataLabelingManagementClient#addDatasetLabels.");
     const operationName = "addDatasetLabels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/AddDatasetLabels";
@@ -252,7 +246,6 @@ export class DataLabelingManagementClient {
       addDatasetLabelsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -308,8 +301,7 @@ export class DataLabelingManagementClient {
   public async changeDatasetCompartment(
     changeDatasetCompartmentRequest: requests.ChangeDatasetCompartmentRequest
   ): Promise<responses.ChangeDatasetCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#changeDatasetCompartment.");
+    logger.debug("Calling operation DataLabelingManagementClient#changeDatasetCompartment.");
     const operationName = "changeDatasetCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/ChangeDatasetCompartment";
@@ -331,7 +323,6 @@ export class DataLabelingManagementClient {
       changeDatasetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -388,8 +379,7 @@ export class DataLabelingManagementClient {
   public async createDataset(
     createDatasetRequest: requests.CreateDatasetRequest
   ): Promise<responses.CreateDatasetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#createDataset.");
+    logger.debug("Calling operation DataLabelingManagementClient#createDataset.");
     const operationName = "createDataset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/CreateDataset";
@@ -409,7 +399,6 @@ export class DataLabelingManagementClient {
       createDatasetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -484,8 +473,7 @@ export class DataLabelingManagementClient {
   public async deleteDataset(
     deleteDatasetRequest: requests.DeleteDatasetRequest
   ): Promise<responses.DeleteDatasetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#deleteDataset.");
+    logger.debug("Calling operation DataLabelingManagementClient#deleteDataset.");
     const operationName = "deleteDataset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/DeleteDataset";
@@ -507,7 +495,6 @@ export class DataLabelingManagementClient {
       deleteDatasetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -558,8 +545,7 @@ export class DataLabelingManagementClient {
   public async generateDatasetRecords(
     generateDatasetRecordsRequest: requests.GenerateDatasetRecordsRequest
   ): Promise<responses.GenerateDatasetRecordsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#generateDatasetRecords.");
+    logger.debug("Calling operation DataLabelingManagementClient#generateDatasetRecords.");
     const operationName = "generateDatasetRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/GenerateDatasetRecords";
@@ -582,7 +568,6 @@ export class DataLabelingManagementClient {
       generateDatasetRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -638,8 +623,7 @@ export class DataLabelingManagementClient {
   public async getDataset(
     getDatasetRequest: requests.GetDatasetRequest
   ): Promise<responses.GetDatasetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#getDataset.");
+    logger.debug("Calling operation DataLabelingManagementClient#getDataset.");
     const operationName = "getDataset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/GetDataset";
@@ -660,7 +644,6 @@ export class DataLabelingManagementClient {
       getDatasetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -715,8 +698,7 @@ export class DataLabelingManagementClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#getWorkRequest.");
+    logger.debug("Calling operation DataLabelingManagementClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/WorkRequest/GetWorkRequest";
@@ -737,7 +719,6 @@ export class DataLabelingManagementClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -792,8 +773,7 @@ export class DataLabelingManagementClient {
   public async importPreAnnotatedData(
     importPreAnnotatedDataRequest: requests.ImportPreAnnotatedDataRequest
   ): Promise<responses.ImportPreAnnotatedDataResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#importPreAnnotatedData.");
+    logger.debug("Calling operation DataLabelingManagementClient#importPreAnnotatedData.");
     const operationName = "importPreAnnotatedData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/ImportPreAnnotatedData";
@@ -816,7 +796,6 @@ export class DataLabelingManagementClient {
       importPreAnnotatedDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -872,8 +851,7 @@ export class DataLabelingManagementClient {
   public async listAnnotationFormats(
     listAnnotationFormatsRequest: requests.ListAnnotationFormatsRequest
   ): Promise<responses.ListAnnotationFormatsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#listAnnotationFormats.");
+    logger.debug("Calling operation DataLabelingManagementClient#listAnnotationFormats.");
     const operationName = "listAnnotationFormats";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/AnnotationFormat/ListAnnotationFormats";
@@ -897,7 +875,6 @@ export class DataLabelingManagementClient {
       listAnnotationFormatsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -953,8 +930,7 @@ export class DataLabelingManagementClient {
   public async listDatasets(
     listDatasetsRequest: requests.ListDatasetsRequest
   ): Promise<responses.ListDatasetsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#listDatasets.");
+    logger.debug("Calling operation DataLabelingManagementClient#listDatasets.");
     const operationName = "listDatasets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/DatasetCollection/ListDatasets";
@@ -983,7 +959,6 @@ export class DataLabelingManagementClient {
       listDatasetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1039,8 +1014,7 @@ export class DataLabelingManagementClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#listWorkRequestErrors.");
+    logger.debug("Calling operation DataLabelingManagementClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/WorkRequest/ListWorkRequestErrors";
@@ -1064,7 +1038,6 @@ export class DataLabelingManagementClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1120,8 +1093,7 @@ export class DataLabelingManagementClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#listWorkRequestLogs.");
+    logger.debug("Calling operation DataLabelingManagementClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/WorkRequest/ListWorkRequestLogs";
@@ -1145,7 +1117,6 @@ export class DataLabelingManagementClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1201,8 +1172,7 @@ export class DataLabelingManagementClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#listWorkRequests.");
+    logger.debug("Calling operation DataLabelingManagementClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/WorkRequest/ListWorkRequests";
@@ -1226,7 +1196,6 @@ export class DataLabelingManagementClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1282,8 +1251,7 @@ export class DataLabelingManagementClient {
   public async removeDatasetLabels(
     removeDatasetLabelsRequest: requests.RemoveDatasetLabelsRequest
   ): Promise<responses.RemoveDatasetLabelsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#removeDatasetLabels.");
+    logger.debug("Calling operation DataLabelingManagementClient#removeDatasetLabels.");
     const operationName = "removeDatasetLabels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/RemoveDatasetLabels";
@@ -1306,7 +1274,6 @@ export class DataLabelingManagementClient {
       removeDatasetLabelsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1363,8 +1330,7 @@ export class DataLabelingManagementClient {
   public async renameDatasetLabels(
     renameDatasetLabelsRequest: requests.RenameDatasetLabelsRequest
   ): Promise<responses.RenameDatasetLabelsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#renameDatasetLabels.");
+    logger.debug("Calling operation DataLabelingManagementClient#renameDatasetLabels.");
     const operationName = "renameDatasetLabels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/RenameDatasetLabels";
@@ -1387,7 +1353,6 @@ export class DataLabelingManagementClient {
       renameDatasetLabelsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1445,8 +1410,7 @@ export class DataLabelingManagementClient {
   public async snapshotDataset(
     snapshotDatasetRequest: requests.SnapshotDatasetRequest
   ): Promise<responses.SnapshotDatasetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#snapshotDataset.");
+    logger.debug("Calling operation DataLabelingManagementClient#snapshotDataset.");
     const operationName = "snapshotDataset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/SnapshotDataset";
@@ -1469,7 +1433,6 @@ export class DataLabelingManagementClient {
       snapshotDatasetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1525,8 +1488,7 @@ export class DataLabelingManagementClient {
   public async updateDataset(
     updateDatasetRequest: requests.UpdateDatasetRequest
   ): Promise<responses.UpdateDatasetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DataLabelingManagementClient#updateDataset.");
+    logger.debug("Calling operation DataLabelingManagementClient#updateDataset.");
     const operationName = "updateDataset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/UpdateDataset";
@@ -1548,7 +1510,6 @@ export class DataLabelingManagementClient {
       updateDatasetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

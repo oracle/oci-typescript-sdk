@@ -37,7 +37,7 @@ export namespace PiiEntityMasking {
         case "MASK":
           return model.PiiEntityMask.getJsonObj(<model.PiiEntityMask>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.mode}`);
+          common.logger.info(`Unknown value for: ${obj.mode}`);
       }
     }
     return jsonObj;
@@ -63,7 +63,7 @@ export namespace PiiEntityMasking {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.mode}`);
+          common.logger.info(`Unknown value for: ${obj.mode}`);
       }
     }
     return jsonObj;

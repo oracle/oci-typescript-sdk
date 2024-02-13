@@ -51,6 +51,14 @@ export interface OverlappingRecallSummary {
    * This is the user who initiated the recall request
    */
   "createdBy": string;
+  /**
+   * This is the id of the associated recalled data collection Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "collectionId": number;
+  /**
+   * This is the id for the recall request Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "recallId": number;
 }
 
 export namespace OverlappingRecallSummary {

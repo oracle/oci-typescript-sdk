@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,11 +118,7 @@ export class MigrationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220919";
-    if (this.logger) this.logger.info(`MigrationClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`MigrationClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -131,10 +128,9 @@ export class MigrationClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         MigrationClient.serviceEndpointTemplate,
@@ -226,7 +222,7 @@ export class MigrationClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#cancelWorkRequest.");
+    logger.debug("Calling operation MigrationClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -247,7 +243,6 @@ export class MigrationClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -293,8 +288,7 @@ export class MigrationClient {
   public async changeMigrationCompartment(
     changeMigrationCompartmentRequest: requests.ChangeMigrationCompartmentRequest
   ): Promise<responses.ChangeMigrationCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MigrationClient#changeMigrationCompartment.");
+    logger.debug("Calling operation MigrationClient#changeMigrationCompartment.");
     const operationName = "changeMigrationCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -316,7 +310,6 @@ export class MigrationClient {
       changeMigrationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -372,8 +365,7 @@ export class MigrationClient {
   public async changeMigrationPlanCompartment(
     changeMigrationPlanCompartmentRequest: requests.ChangeMigrationPlanCompartmentRequest
   ): Promise<responses.ChangeMigrationPlanCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MigrationClient#changeMigrationPlanCompartment.");
+    logger.debug("Calling operation MigrationClient#changeMigrationPlanCompartment.");
     const operationName = "changeMigrationPlanCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -395,7 +387,6 @@ export class MigrationClient {
       changeMigrationPlanCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -451,8 +442,7 @@ export class MigrationClient {
   public async changeReplicationScheduleCompartment(
     changeReplicationScheduleCompartmentRequest: requests.ChangeReplicationScheduleCompartmentRequest
   ): Promise<responses.ChangeReplicationScheduleCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MigrationClient#changeReplicationScheduleCompartment.");
+    logger.debug("Calling operation MigrationClient#changeReplicationScheduleCompartment.");
     const operationName = "changeReplicationScheduleCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -474,7 +464,6 @@ export class MigrationClient {
       changeReplicationScheduleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -531,7 +520,7 @@ export class MigrationClient {
   public async createMigration(
     createMigrationRequest: requests.CreateMigrationRequest
   ): Promise<responses.CreateMigrationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#createMigration.");
+    logger.debug("Calling operation MigrationClient#createMigration.");
     const operationName = "createMigration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -550,7 +539,6 @@ export class MigrationClient {
       createMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -611,7 +599,7 @@ export class MigrationClient {
   public async createMigrationAsset(
     createMigrationAssetRequest: requests.CreateMigrationAssetRequest
   ): Promise<responses.CreateMigrationAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#createMigrationAsset.");
+    logger.debug("Calling operation MigrationClient#createMigrationAsset.");
     const operationName = "createMigrationAsset";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -630,7 +618,6 @@ export class MigrationClient {
       createMigrationAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -706,7 +693,7 @@ export class MigrationClient {
   public async createMigrationPlan(
     createMigrationPlanRequest: requests.CreateMigrationPlanRequest
   ): Promise<responses.CreateMigrationPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#createMigrationPlan.");
+    logger.debug("Calling operation MigrationClient#createMigrationPlan.");
     const operationName = "createMigrationPlan";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -725,7 +712,6 @@ export class MigrationClient {
       createMigrationPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -801,8 +787,7 @@ export class MigrationClient {
   public async createReplicationSchedule(
     createReplicationScheduleRequest: requests.CreateReplicationScheduleRequest
   ): Promise<responses.CreateReplicationScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MigrationClient#createReplicationSchedule.");
+    logger.debug("Calling operation MigrationClient#createReplicationSchedule.");
     const operationName = "createReplicationSchedule";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -821,7 +806,6 @@ export class MigrationClient {
       createReplicationScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -897,7 +881,7 @@ export class MigrationClient {
   public async createTargetAsset(
     createTargetAssetRequest: requests.CreateTargetAssetRequest
   ): Promise<responses.CreateTargetAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#createTargetAsset.");
+    logger.debug("Calling operation MigrationClient#createTargetAsset.");
     const operationName = "createTargetAsset";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -916,7 +900,6 @@ export class MigrationClient {
       createTargetAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -991,7 +974,7 @@ export class MigrationClient {
   public async deleteMigration(
     deleteMigrationRequest: requests.DeleteMigrationRequest
   ): Promise<responses.DeleteMigrationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#deleteMigration.");
+    logger.debug("Calling operation MigrationClient#deleteMigration.");
     const operationName = "deleteMigration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1012,7 +995,6 @@ export class MigrationClient {
       deleteMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1063,7 +1045,7 @@ export class MigrationClient {
   public async deleteMigrationAsset(
     deleteMigrationAssetRequest: requests.DeleteMigrationAssetRequest
   ): Promise<responses.DeleteMigrationAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#deleteMigrationAsset.");
+    logger.debug("Calling operation MigrationClient#deleteMigrationAsset.");
     const operationName = "deleteMigrationAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1084,7 +1066,6 @@ export class MigrationClient {
       deleteMigrationAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1135,7 +1116,7 @@ export class MigrationClient {
   public async deleteMigrationPlan(
     deleteMigrationPlanRequest: requests.DeleteMigrationPlanRequest
   ): Promise<responses.DeleteMigrationPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#deleteMigrationPlan.");
+    logger.debug("Calling operation MigrationClient#deleteMigrationPlan.");
     const operationName = "deleteMigrationPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1156,7 +1137,6 @@ export class MigrationClient {
       deleteMigrationPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1207,8 +1187,7 @@ export class MigrationClient {
   public async deleteReplicationSchedule(
     deleteReplicationScheduleRequest: requests.DeleteReplicationScheduleRequest
   ): Promise<responses.DeleteReplicationScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MigrationClient#deleteReplicationSchedule.");
+    logger.debug("Calling operation MigrationClient#deleteReplicationSchedule.");
     const operationName = "deleteReplicationSchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1229,7 +1208,6 @@ export class MigrationClient {
       deleteReplicationScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1280,7 +1258,7 @@ export class MigrationClient {
   public async deleteTargetAsset(
     deleteTargetAssetRequest: requests.DeleteTargetAssetRequest
   ): Promise<responses.DeleteTargetAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#deleteTargetAsset.");
+    logger.debug("Calling operation MigrationClient#deleteTargetAsset.");
     const operationName = "deleteTargetAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1301,7 +1279,6 @@ export class MigrationClient {
       deleteTargetAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1353,7 +1330,7 @@ export class MigrationClient {
   public async executeMigrationPlan(
     executeMigrationPlanRequest: requests.ExecuteMigrationPlanRequest
   ): Promise<responses.ExecuteMigrationPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#executeMigrationPlan.");
+    logger.debug("Calling operation MigrationClient#executeMigrationPlan.");
     const operationName = "executeMigrationPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1375,7 +1352,6 @@ export class MigrationClient {
       executeMigrationPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1426,7 +1402,7 @@ export class MigrationClient {
   public async exportMigrationPlan(
     exportMigrationPlanRequest: requests.ExportMigrationPlanRequest
   ): Promise<responses.ExportMigrationPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#exportMigrationPlan.");
+    logger.debug("Calling operation MigrationClient#exportMigrationPlan.");
     const operationName = "exportMigrationPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1446,7 +1422,6 @@ export class MigrationClient {
       exportMigrationPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1496,7 +1471,7 @@ export class MigrationClient {
   public async getMigration(
     getMigrationRequest: requests.GetMigrationRequest
   ): Promise<responses.GetMigrationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#getMigration.");
+    logger.debug("Calling operation MigrationClient#getMigration.");
     const operationName = "getMigration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1516,7 +1491,6 @@ export class MigrationClient {
       getMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1571,7 +1545,7 @@ export class MigrationClient {
   public async getMigrationAsset(
     getMigrationAssetRequest: requests.GetMigrationAssetRequest
   ): Promise<responses.GetMigrationAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#getMigrationAsset.");
+    logger.debug("Calling operation MigrationClient#getMigrationAsset.");
     const operationName = "getMigrationAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1591,7 +1565,6 @@ export class MigrationClient {
       getMigrationAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1646,7 +1619,7 @@ export class MigrationClient {
   public async getMigrationPlan(
     getMigrationPlanRequest: requests.GetMigrationPlanRequest
   ): Promise<responses.GetMigrationPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#getMigrationPlan.");
+    logger.debug("Calling operation MigrationClient#getMigrationPlan.");
     const operationName = "getMigrationPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1666,7 +1639,6 @@ export class MigrationClient {
       getMigrationPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1722,7 +1694,7 @@ export class MigrationClient {
   public async getReplicationProgress(
     getReplicationProgressRequest: requests.GetReplicationProgressRequest
   ): Promise<responses.GetReplicationProgressResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#getReplicationProgress.");
+    logger.debug("Calling operation MigrationClient#getReplicationProgress.");
     const operationName = "getReplicationProgress";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1742,7 +1714,6 @@ export class MigrationClient {
       getReplicationProgressRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1792,7 +1763,7 @@ export class MigrationClient {
   public async getReplicationSchedule(
     getReplicationScheduleRequest: requests.GetReplicationScheduleRequest
   ): Promise<responses.GetReplicationScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#getReplicationSchedule.");
+    logger.debug("Calling operation MigrationClient#getReplicationSchedule.");
     const operationName = "getReplicationSchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1812,7 +1783,6 @@ export class MigrationClient {
       getReplicationScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1867,7 +1837,7 @@ export class MigrationClient {
   public async getTargetAsset(
     getTargetAssetRequest: requests.GetTargetAssetRequest
   ): Promise<responses.GetTargetAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#getTargetAsset.");
+    logger.debug("Calling operation MigrationClient#getTargetAsset.");
     const operationName = "getTargetAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1887,7 +1857,6 @@ export class MigrationClient {
       getTargetAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1942,7 +1911,7 @@ export class MigrationClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#getWorkRequest.");
+    logger.debug("Calling operation MigrationClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1962,7 +1931,6 @@ export class MigrationClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2022,7 +1990,7 @@ export class MigrationClient {
   public async importMigrationPlan(
     importMigrationPlanRequest: requests.ImportMigrationPlanRequest
   ): Promise<responses.ImportMigrationPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#importMigrationPlan.");
+    logger.debug("Calling operation MigrationClient#importMigrationPlan.");
     const operationName = "importMigrationPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2043,7 +2011,6 @@ export class MigrationClient {
       importMigrationPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2096,7 +2063,7 @@ export class MigrationClient {
   public async listAvailableShapes(
     listAvailableShapesRequest: requests.ListAvailableShapesRequest
   ): Promise<responses.ListAvailableShapesResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#listAvailableShapes.");
+    logger.debug("Calling operation MigrationClient#listAvailableShapes.");
     const operationName = "listAvailableShapes";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2125,7 +2092,6 @@ export class MigrationClient {
       listAvailableShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2181,7 +2147,7 @@ export class MigrationClient {
   public async listMigrationAssets(
     listMigrationAssetsRequest: requests.ListMigrationAssetsRequest
   ): Promise<responses.ListMigrationAssetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#listMigrationAssets.");
+    logger.debug("Calling operation MigrationClient#listMigrationAssets.");
     const operationName = "listMigrationAssets";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2208,7 +2174,6 @@ export class MigrationClient {
       listMigrationAssetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2264,7 +2229,7 @@ export class MigrationClient {
   public async listMigrationPlans(
     listMigrationPlansRequest: requests.ListMigrationPlansRequest
   ): Promise<responses.ListMigrationPlansResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#listMigrationPlans.");
+    logger.debug("Calling operation MigrationClient#listMigrationPlans.");
     const operationName = "listMigrationPlans";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2292,7 +2257,6 @@ export class MigrationClient {
       listMigrationPlansRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2348,7 +2312,7 @@ export class MigrationClient {
   public async listMigrations(
     listMigrationsRequest: requests.ListMigrationsRequest
   ): Promise<responses.ListMigrationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#listMigrations.");
+    logger.debug("Calling operation MigrationClient#listMigrations.");
     const operationName = "listMigrations";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2375,7 +2339,6 @@ export class MigrationClient {
       listMigrationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2431,8 +2394,7 @@ export class MigrationClient {
   public async listReplicationSchedules(
     listReplicationSchedulesRequest: requests.ListReplicationSchedulesRequest
   ): Promise<responses.ListReplicationSchedulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MigrationClient#listReplicationSchedules.");
+    logger.debug("Calling operation MigrationClient#listReplicationSchedules.");
     const operationName = "listReplicationSchedules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2459,7 +2421,6 @@ export class MigrationClient {
       listReplicationSchedulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2515,7 +2476,7 @@ export class MigrationClient {
   public async listTargetAssets(
     listTargetAssetsRequest: requests.ListTargetAssetsRequest
   ): Promise<responses.ListTargetAssetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#listTargetAssets.");
+    logger.debug("Calling operation MigrationClient#listTargetAssets.");
     const operationName = "listTargetAssets";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2542,7 +2503,6 @@ export class MigrationClient {
       listTargetAssetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2598,7 +2558,7 @@ export class MigrationClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#listWorkRequestErrors.");
+    logger.debug("Calling operation MigrationClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2623,7 +2583,6 @@ export class MigrationClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2679,7 +2638,7 @@ export class MigrationClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#listWorkRequestLogs.");
+    logger.debug("Calling operation MigrationClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2704,7 +2663,6 @@ export class MigrationClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2760,7 +2718,7 @@ export class MigrationClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#listWorkRequests.");
+    logger.debug("Calling operation MigrationClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2788,7 +2746,6 @@ export class MigrationClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2844,7 +2801,7 @@ export class MigrationClient {
   public async refreshMigration(
     refreshMigrationRequest: requests.RefreshMigrationRequest
   ): Promise<responses.RefreshMigrationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#refreshMigration.");
+    logger.debug("Calling operation MigrationClient#refreshMigration.");
     const operationName = "refreshMigration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2866,7 +2823,6 @@ export class MigrationClient {
       refreshMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2918,7 +2874,7 @@ export class MigrationClient {
   public async refreshMigrationAsset(
     refreshMigrationAssetRequest: requests.RefreshMigrationAssetRequest
   ): Promise<responses.RefreshMigrationAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#refreshMigrationAsset.");
+    logger.debug("Calling operation MigrationClient#refreshMigrationAsset.");
     const operationName = "refreshMigrationAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2940,7 +2896,6 @@ export class MigrationClient {
       refreshMigrationAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2992,7 +2947,7 @@ export class MigrationClient {
   public async refreshMigrationPlan(
     refreshMigrationPlanRequest: requests.RefreshMigrationPlanRequest
   ): Promise<responses.RefreshMigrationPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#refreshMigrationPlan.");
+    logger.debug("Calling operation MigrationClient#refreshMigrationPlan.");
     const operationName = "refreshMigrationPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3014,7 +2969,6 @@ export class MigrationClient {
       refreshMigrationPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3066,7 +3020,7 @@ export class MigrationClient {
   public async startAssetReplication(
     startAssetReplicationRequest: requests.StartAssetReplicationRequest
   ): Promise<responses.StartAssetReplicationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#startAssetReplication.");
+    logger.debug("Calling operation MigrationClient#startAssetReplication.");
     const operationName = "startAssetReplication";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3088,7 +3042,6 @@ export class MigrationClient {
       startAssetReplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3140,8 +3093,7 @@ export class MigrationClient {
   public async startMigrationReplication(
     startMigrationReplicationRequest: requests.StartMigrationReplicationRequest
   ): Promise<responses.StartMigrationReplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MigrationClient#startMigrationReplication.");
+    logger.debug("Calling operation MigrationClient#startMigrationReplication.");
     const operationName = "startMigrationReplication";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3163,7 +3115,6 @@ export class MigrationClient {
       startMigrationReplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3214,7 +3165,7 @@ export class MigrationClient {
   public async updateMigration(
     updateMigrationRequest: requests.UpdateMigrationRequest
   ): Promise<responses.UpdateMigrationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#updateMigration.");
+    logger.debug("Calling operation MigrationClient#updateMigration.");
     const operationName = "updateMigration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3235,7 +3186,6 @@ export class MigrationClient {
       updateMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3295,7 +3245,7 @@ export class MigrationClient {
   public async updateMigrationAsset(
     updateMigrationAssetRequest: requests.UpdateMigrationAssetRequest
   ): Promise<responses.UpdateMigrationAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#updateMigrationAsset.");
+    logger.debug("Calling operation MigrationClient#updateMigrationAsset.");
     const operationName = "updateMigrationAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3316,7 +3266,6 @@ export class MigrationClient {
       updateMigrationAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3376,7 +3325,7 @@ export class MigrationClient {
   public async updateMigrationPlan(
     updateMigrationPlanRequest: requests.UpdateMigrationPlanRequest
   ): Promise<responses.UpdateMigrationPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#updateMigrationPlan.");
+    logger.debug("Calling operation MigrationClient#updateMigrationPlan.");
     const operationName = "updateMigrationPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3398,7 +3347,6 @@ export class MigrationClient {
       updateMigrationPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3454,8 +3402,7 @@ export class MigrationClient {
   public async updateReplicationSchedule(
     updateReplicationScheduleRequest: requests.UpdateReplicationScheduleRequest
   ): Promise<responses.UpdateReplicationScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MigrationClient#updateReplicationSchedule.");
+    logger.debug("Calling operation MigrationClient#updateReplicationSchedule.");
     const operationName = "updateReplicationSchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3477,7 +3424,6 @@ export class MigrationClient {
       updateReplicationScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3533,7 +3479,7 @@ export class MigrationClient {
   public async updateTargetAsset(
     updateTargetAssetRequest: requests.UpdateTargetAssetRequest
   ): Promise<responses.UpdateTargetAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MigrationClient#updateTargetAsset.");
+    logger.debug("Calling operation MigrationClient#updateTargetAsset.");
     const operationName = "updateTargetAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3555,7 +3501,6 @@ export class MigrationClient {
       updateTargetAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

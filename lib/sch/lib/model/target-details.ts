@@ -67,7 +67,7 @@ export namespace TargetDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.kind}`);
+          common.logger.info(`Unknown value for: ${obj.kind}`);
       }
     }
     return jsonObj;
@@ -108,7 +108,7 @@ export namespace TargetDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.kind}`);
+          common.logger.info(`Unknown value for: ${obj.kind}`);
       }
     }
     return jsonObj;

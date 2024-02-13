@@ -131,6 +131,11 @@ export interface TestParserPayloadDetails {
    *
    */
   "isNamespaceAware"?: boolean;
+  /**
+   * A flag indicating whether the parser is positionally aware.
+   *
+   */
+  "isPositionAware"?: boolean;
 }
 
 export namespace TestParserPayloadDetails {

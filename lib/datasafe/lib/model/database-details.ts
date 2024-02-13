@@ -49,7 +49,7 @@ export namespace DatabaseDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.databaseType}`);
+          common.logger.info(`Unknown value for: ${obj.databaseType}`);
       }
     }
     return jsonObj;
@@ -75,7 +75,7 @@ export namespace DatabaseDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.databaseType}`);
+          common.logger.info(`Unknown value for: ${obj.databaseType}`);
       }
     }
     return jsonObj;

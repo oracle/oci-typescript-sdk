@@ -34,7 +34,7 @@ export namespace Argument {
         case "FIELD":
           return model.FieldArgument.getJsonObj(<model.FieldArgument>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -55,7 +55,7 @@ export namespace Argument {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

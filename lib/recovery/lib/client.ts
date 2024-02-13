@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class DatabaseRecoveryClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210216";
-    if (this.logger) this.logger.info(`DatabaseRecoveryClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DatabaseRecoveryClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class DatabaseRecoveryClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DatabaseRecoveryClient.serviceEndpointTemplate,
@@ -225,10 +221,7 @@ export class DatabaseRecoveryClient {
   public async changeProtectedDatabaseCompartment(
     changeProtectedDatabaseCompartmentRequest: requests.ChangeProtectedDatabaseCompartmentRequest
   ): Promise<responses.ChangeProtectedDatabaseCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseRecoveryClient#changeProtectedDatabaseCompartment."
-      );
+    logger.debug("Calling operation DatabaseRecoveryClient#changeProtectedDatabaseCompartment.");
     const operationName = "changeProtectedDatabaseCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -249,7 +242,6 @@ export class DatabaseRecoveryClient {
       changeProtectedDatabaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,10 +297,7 @@ export class DatabaseRecoveryClient {
   public async changeProtectionPolicyCompartment(
     changeProtectionPolicyCompartmentRequest: requests.ChangeProtectionPolicyCompartmentRequest
   ): Promise<responses.ChangeProtectionPolicyCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseRecoveryClient#changeProtectionPolicyCompartment."
-      );
+    logger.debug("Calling operation DatabaseRecoveryClient#changeProtectionPolicyCompartment.");
     const operationName = "changeProtectionPolicyCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -329,7 +318,6 @@ export class DatabaseRecoveryClient {
       changeProtectionPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,10 +373,9 @@ export class DatabaseRecoveryClient {
   public async changeRecoveryServiceSubnetCompartment(
     changeRecoveryServiceSubnetCompartmentRequest: requests.ChangeRecoveryServiceSubnetCompartmentRequest
   ): Promise<responses.ChangeRecoveryServiceSubnetCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseRecoveryClient#changeRecoveryServiceSubnetCompartment."
-      );
+    logger.debug(
+      "Calling operation DatabaseRecoveryClient#changeRecoveryServiceSubnetCompartment."
+    );
     const operationName = "changeRecoveryServiceSubnetCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -410,7 +397,6 @@ export class DatabaseRecoveryClient {
       changeRecoveryServiceSubnetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -467,8 +453,7 @@ export class DatabaseRecoveryClient {
   public async createProtectedDatabase(
     createProtectedDatabaseRequest: requests.CreateProtectedDatabaseRequest
   ): Promise<responses.CreateProtectedDatabaseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#createProtectedDatabase.");
+    logger.debug("Calling operation DatabaseRecoveryClient#createProtectedDatabase.");
     const operationName = "createProtectedDatabase";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -487,7 +472,6 @@ export class DatabaseRecoveryClient {
       createProtectedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -558,8 +542,7 @@ export class DatabaseRecoveryClient {
   public async createProtectionPolicy(
     createProtectionPolicyRequest: requests.CreateProtectionPolicyRequest
   ): Promise<responses.CreateProtectionPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#createProtectionPolicy.");
+    logger.debug("Calling operation DatabaseRecoveryClient#createProtectionPolicy.");
     const operationName = "createProtectionPolicy";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -578,7 +561,6 @@ export class DatabaseRecoveryClient {
       createProtectionPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -649,8 +631,7 @@ export class DatabaseRecoveryClient {
   public async createRecoveryServiceSubnet(
     createRecoveryServiceSubnetRequest: requests.CreateRecoveryServiceSubnetRequest
   ): Promise<responses.CreateRecoveryServiceSubnetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#createRecoveryServiceSubnet.");
+    logger.debug("Calling operation DatabaseRecoveryClient#createRecoveryServiceSubnet.");
     const operationName = "createRecoveryServiceSubnet";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -669,7 +650,6 @@ export class DatabaseRecoveryClient {
       createRecoveryServiceSubnetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -739,8 +719,7 @@ export class DatabaseRecoveryClient {
   public async deleteProtectedDatabase(
     deleteProtectedDatabaseRequest: requests.DeleteProtectedDatabaseRequest
   ): Promise<responses.DeleteProtectedDatabaseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#deleteProtectedDatabase.");
+    logger.debug("Calling operation DatabaseRecoveryClient#deleteProtectedDatabase.");
     const operationName = "deleteProtectedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -761,7 +740,6 @@ export class DatabaseRecoveryClient {
       deleteProtectedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -814,8 +792,7 @@ export class DatabaseRecoveryClient {
   public async deleteProtectionPolicy(
     deleteProtectionPolicyRequest: requests.DeleteProtectionPolicyRequest
   ): Promise<responses.DeleteProtectionPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#deleteProtectionPolicy.");
+    logger.debug("Calling operation DatabaseRecoveryClient#deleteProtectionPolicy.");
     const operationName = "deleteProtectionPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -836,7 +813,6 @@ export class DatabaseRecoveryClient {
       deleteProtectionPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -887,8 +863,7 @@ export class DatabaseRecoveryClient {
   public async deleteRecoveryServiceSubnet(
     deleteRecoveryServiceSubnetRequest: requests.DeleteRecoveryServiceSubnetRequest
   ): Promise<responses.DeleteRecoveryServiceSubnetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#deleteRecoveryServiceSubnet.");
+    logger.debug("Calling operation DatabaseRecoveryClient#deleteRecoveryServiceSubnet.");
     const operationName = "deleteRecoveryServiceSubnet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -909,7 +884,6 @@ export class DatabaseRecoveryClient {
       deleteRecoveryServiceSubnetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -960,10 +934,7 @@ export class DatabaseRecoveryClient {
   public async fetchProtectedDatabaseConfiguration(
     fetchProtectedDatabaseConfigurationRequest: requests.FetchProtectedDatabaseConfigurationRequest
   ): Promise<responses.FetchProtectedDatabaseConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseRecoveryClient#fetchProtectedDatabaseConfiguration."
-      );
+    logger.debug("Calling operation DatabaseRecoveryClient#fetchProtectedDatabaseConfiguration.");
     const operationName = "fetchProtectedDatabaseConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -984,7 +955,6 @@ export class DatabaseRecoveryClient {
       fetchProtectedDatabaseConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1044,8 +1014,7 @@ export class DatabaseRecoveryClient {
   public async getProtectedDatabase(
     getProtectedDatabaseRequest: requests.GetProtectedDatabaseRequest
   ): Promise<responses.GetProtectedDatabaseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#getProtectedDatabase.");
+    logger.debug("Calling operation DatabaseRecoveryClient#getProtectedDatabase.");
     const operationName = "getProtectedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1065,7 +1034,6 @@ export class DatabaseRecoveryClient {
       getProtectedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1120,8 +1088,7 @@ export class DatabaseRecoveryClient {
   public async getProtectionPolicy(
     getProtectionPolicyRequest: requests.GetProtectionPolicyRequest
   ): Promise<responses.GetProtectionPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#getProtectionPolicy.");
+    logger.debug("Calling operation DatabaseRecoveryClient#getProtectionPolicy.");
     const operationName = "getProtectionPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1141,7 +1108,6 @@ export class DatabaseRecoveryClient {
       getProtectionPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1196,8 +1162,7 @@ export class DatabaseRecoveryClient {
   public async getRecoveryServiceSubnet(
     getRecoveryServiceSubnetRequest: requests.GetRecoveryServiceSubnetRequest
   ): Promise<responses.GetRecoveryServiceSubnetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#getRecoveryServiceSubnet.");
+    logger.debug("Calling operation DatabaseRecoveryClient#getRecoveryServiceSubnet.");
     const operationName = "getRecoveryServiceSubnet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1217,7 +1182,6 @@ export class DatabaseRecoveryClient {
       getRecoveryServiceSubnetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1272,7 +1236,7 @@ export class DatabaseRecoveryClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation DatabaseRecoveryClient#getWorkRequest.");
+    logger.debug("Calling operation DatabaseRecoveryClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1292,7 +1256,6 @@ export class DatabaseRecoveryClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1348,8 +1311,7 @@ export class DatabaseRecoveryClient {
   public async listProtectedDatabases(
     listProtectedDatabasesRequest: requests.ListProtectedDatabasesRequest
   ): Promise<responses.ListProtectedDatabasesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#listProtectedDatabases.");
+    logger.debug("Calling operation DatabaseRecoveryClient#listProtectedDatabases.");
     const operationName = "listProtectedDatabases";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1378,7 +1340,6 @@ export class DatabaseRecoveryClient {
       listProtectedDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1434,8 +1395,7 @@ export class DatabaseRecoveryClient {
   public async listProtectionPolicies(
     listProtectionPoliciesRequest: requests.ListProtectionPoliciesRequest
   ): Promise<responses.ListProtectionPoliciesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#listProtectionPolicies.");
+    logger.debug("Calling operation DatabaseRecoveryClient#listProtectionPolicies.");
     const operationName = "listProtectionPolicies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1463,7 +1423,6 @@ export class DatabaseRecoveryClient {
       listProtectionPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1519,8 +1478,7 @@ export class DatabaseRecoveryClient {
   public async listRecoveryServiceSubnets(
     listRecoveryServiceSubnetsRequest: requests.ListRecoveryServiceSubnetsRequest
   ): Promise<responses.ListRecoveryServiceSubnetsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#listRecoveryServiceSubnets.");
+    logger.debug("Calling operation DatabaseRecoveryClient#listRecoveryServiceSubnets.");
     const operationName = "listRecoveryServiceSubnets";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1548,7 +1506,6 @@ export class DatabaseRecoveryClient {
       listRecoveryServiceSubnetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1604,8 +1561,7 @@ export class DatabaseRecoveryClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#listWorkRequestErrors.");
+    logger.debug("Calling operation DatabaseRecoveryClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1630,7 +1586,6 @@ export class DatabaseRecoveryClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1686,8 +1641,7 @@ export class DatabaseRecoveryClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#listWorkRequestLogs.");
+    logger.debug("Calling operation DatabaseRecoveryClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1712,7 +1666,6 @@ export class DatabaseRecoveryClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1768,8 +1721,7 @@ export class DatabaseRecoveryClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#listWorkRequests.");
+    logger.debug("Calling operation DatabaseRecoveryClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1796,7 +1748,6 @@ export class DatabaseRecoveryClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1851,8 +1802,7 @@ export class DatabaseRecoveryClient {
   public async updateProtectedDatabase(
     updateProtectedDatabaseRequest: requests.UpdateProtectedDatabaseRequest
   ): Promise<responses.UpdateProtectedDatabaseResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#updateProtectedDatabase.");
+    logger.debug("Calling operation DatabaseRecoveryClient#updateProtectedDatabase.");
     const operationName = "updateProtectedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1873,7 +1823,6 @@ export class DatabaseRecoveryClient {
       updateProtectedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1929,8 +1878,7 @@ export class DatabaseRecoveryClient {
   public async updateProtectionPolicy(
     updateProtectionPolicyRequest: requests.UpdateProtectionPolicyRequest
   ): Promise<responses.UpdateProtectionPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#updateProtectionPolicy.");
+    logger.debug("Calling operation DatabaseRecoveryClient#updateProtectionPolicy.");
     const operationName = "updateProtectionPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1951,7 +1899,6 @@ export class DatabaseRecoveryClient {
       updateProtectionPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2007,8 +1954,7 @@ export class DatabaseRecoveryClient {
   public async updateRecoveryServiceSubnet(
     updateRecoveryServiceSubnetRequest: requests.UpdateRecoveryServiceSubnetRequest
   ): Promise<responses.UpdateRecoveryServiceSubnetResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseRecoveryClient#updateRecoveryServiceSubnet.");
+    logger.debug("Calling operation DatabaseRecoveryClient#updateRecoveryServiceSubnet.");
     const operationName = "updateRecoveryServiceSubnet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2029,7 +1975,6 @@ export class DatabaseRecoveryClient {
       updateRecoveryServiceSubnetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

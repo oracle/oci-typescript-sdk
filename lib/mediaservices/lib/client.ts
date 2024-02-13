@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -120,11 +121,7 @@ export class MediaServicesClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20211101";
-    if (this.logger) this.logger.info(`MediaServicesClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`MediaServicesClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -134,10 +131,9 @@ export class MediaServicesClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         MediaServicesClient.serviceEndpointTemplate,
@@ -230,7 +226,7 @@ export class MediaServicesClient {
   public async addMediaAssetLock(
     addMediaAssetLockRequest: requests.AddMediaAssetLockRequest
   ): Promise<responses.AddMediaAssetLockResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#addMediaAssetLock.");
+    logger.debug("Calling operation MediaServicesClient#addMediaAssetLock.");
     const operationName = "addMediaAssetLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -252,7 +248,6 @@ export class MediaServicesClient {
       addMediaAssetLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -313,8 +308,7 @@ export class MediaServicesClient {
   public async addMediaWorkflowConfigurationLock(
     addMediaWorkflowConfigurationLockRequest: requests.AddMediaWorkflowConfigurationLockRequest
   ): Promise<responses.AddMediaWorkflowConfigurationLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#addMediaWorkflowConfigurationLock.");
+    logger.debug("Calling operation MediaServicesClient#addMediaWorkflowConfigurationLock.");
     const operationName = "addMediaWorkflowConfigurationLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -337,7 +331,6 @@ export class MediaServicesClient {
       addMediaWorkflowConfigurationLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -398,8 +391,7 @@ export class MediaServicesClient {
   public async addMediaWorkflowJobLock(
     addMediaWorkflowJobLockRequest: requests.AddMediaWorkflowJobLockRequest
   ): Promise<responses.AddMediaWorkflowJobLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#addMediaWorkflowJobLock.");
+    logger.debug("Calling operation MediaServicesClient#addMediaWorkflowJobLock.");
     const operationName = "addMediaWorkflowJobLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -421,7 +413,6 @@ export class MediaServicesClient {
       addMediaWorkflowJobLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -482,8 +473,7 @@ export class MediaServicesClient {
   public async addMediaWorkflowLock(
     addMediaWorkflowLockRequest: requests.AddMediaWorkflowLockRequest
   ): Promise<responses.AddMediaWorkflowLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#addMediaWorkflowLock.");
+    logger.debug("Calling operation MediaServicesClient#addMediaWorkflowLock.");
     const operationName = "addMediaWorkflowLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -505,7 +495,6 @@ export class MediaServicesClient {
       addMediaWorkflowLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -566,8 +555,7 @@ export class MediaServicesClient {
   public async addStreamCdnConfigLock(
     addStreamCdnConfigLockRequest: requests.AddStreamCdnConfigLockRequest
   ): Promise<responses.AddStreamCdnConfigLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#addStreamCdnConfigLock.");
+    logger.debug("Calling operation MediaServicesClient#addStreamCdnConfigLock.");
     const operationName = "addStreamCdnConfigLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -589,7 +577,6 @@ export class MediaServicesClient {
       addStreamCdnConfigLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -650,8 +637,7 @@ export class MediaServicesClient {
   public async addStreamDistributionChannelLock(
     addStreamDistributionChannelLockRequest: requests.AddStreamDistributionChannelLockRequest
   ): Promise<responses.AddStreamDistributionChannelLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#addStreamDistributionChannelLock.");
+    logger.debug("Calling operation MediaServicesClient#addStreamDistributionChannelLock.");
     const operationName = "addStreamDistributionChannelLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -674,7 +660,6 @@ export class MediaServicesClient {
       addStreamDistributionChannelLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -735,8 +720,7 @@ export class MediaServicesClient {
   public async addStreamPackagingConfigLock(
     addStreamPackagingConfigLockRequest: requests.AddStreamPackagingConfigLockRequest
   ): Promise<responses.AddStreamPackagingConfigLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#addStreamPackagingConfigLock.");
+    logger.debug("Calling operation MediaServicesClient#addStreamPackagingConfigLock.");
     const operationName = "addStreamPackagingConfigLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -758,7 +742,6 @@ export class MediaServicesClient {
       addStreamPackagingConfigLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -818,8 +801,7 @@ export class MediaServicesClient {
   public async changeMediaAssetCompartment(
     changeMediaAssetCompartmentRequest: requests.ChangeMediaAssetCompartmentRequest
   ): Promise<responses.ChangeMediaAssetCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#changeMediaAssetCompartment.");
+    logger.debug("Calling operation MediaServicesClient#changeMediaAssetCompartment.");
     const operationName = "changeMediaAssetCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -843,7 +825,6 @@ export class MediaServicesClient {
       changeMediaAssetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -894,8 +875,7 @@ export class MediaServicesClient {
   public async changeMediaWorkflowCompartment(
     changeMediaWorkflowCompartmentRequest: requests.ChangeMediaWorkflowCompartmentRequest
   ): Promise<responses.ChangeMediaWorkflowCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#changeMediaWorkflowCompartment.");
+    logger.debug("Calling operation MediaServicesClient#changeMediaWorkflowCompartment.");
     const operationName = "changeMediaWorkflowCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -919,7 +899,6 @@ export class MediaServicesClient {
       changeMediaWorkflowCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -970,10 +949,9 @@ export class MediaServicesClient {
   public async changeMediaWorkflowConfigurationCompartment(
     changeMediaWorkflowConfigurationCompartmentRequest: requests.ChangeMediaWorkflowConfigurationCompartmentRequest
   ): Promise<responses.ChangeMediaWorkflowConfigurationCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MediaServicesClient#changeMediaWorkflowConfigurationCompartment."
-      );
+    logger.debug(
+      "Calling operation MediaServicesClient#changeMediaWorkflowConfigurationCompartment."
+    );
     const operationName = "changeMediaWorkflowConfigurationCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -998,7 +976,6 @@ export class MediaServicesClient {
       changeMediaWorkflowConfigurationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1049,8 +1026,7 @@ export class MediaServicesClient {
   public async changeMediaWorkflowJobCompartment(
     changeMediaWorkflowJobCompartmentRequest: requests.ChangeMediaWorkflowJobCompartmentRequest
   ): Promise<responses.ChangeMediaWorkflowJobCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#changeMediaWorkflowJobCompartment.");
+    logger.debug("Calling operation MediaServicesClient#changeMediaWorkflowJobCompartment.");
     const operationName = "changeMediaWorkflowJobCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1074,7 +1050,6 @@ export class MediaServicesClient {
       changeMediaWorkflowJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1125,10 +1100,9 @@ export class MediaServicesClient {
   public async changeStreamDistributionChannelCompartment(
     changeStreamDistributionChannelCompartmentRequest: requests.ChangeStreamDistributionChannelCompartmentRequest
   ): Promise<responses.ChangeStreamDistributionChannelCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MediaServicesClient#changeStreamDistributionChannelCompartment."
-      );
+    logger.debug(
+      "Calling operation MediaServicesClient#changeStreamDistributionChannelCompartment."
+    );
     const operationName = "changeStreamDistributionChannelCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1153,7 +1127,6 @@ export class MediaServicesClient {
       changeStreamDistributionChannelCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1205,7 +1178,7 @@ export class MediaServicesClient {
   public async createMediaAsset(
     createMediaAssetRequest: requests.CreateMediaAssetRequest
   ): Promise<responses.CreateMediaAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#createMediaAsset.");
+    logger.debug("Calling operation MediaServicesClient#createMediaAsset.");
     const operationName = "createMediaAsset";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1224,7 +1197,6 @@ export class MediaServicesClient {
       createMediaAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1285,8 +1257,7 @@ export class MediaServicesClient {
   public async createMediaWorkflow(
     createMediaWorkflowRequest: requests.CreateMediaWorkflowRequest
   ): Promise<responses.CreateMediaWorkflowResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#createMediaWorkflow.");
+    logger.debug("Calling operation MediaServicesClient#createMediaWorkflow.");
     const operationName = "createMediaWorkflow";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1305,7 +1276,6 @@ export class MediaServicesClient {
       createMediaWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1366,8 +1336,7 @@ export class MediaServicesClient {
   public async createMediaWorkflowConfiguration(
     createMediaWorkflowConfigurationRequest: requests.CreateMediaWorkflowConfigurationRequest
   ): Promise<responses.CreateMediaWorkflowConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#createMediaWorkflowConfiguration.");
+    logger.debug("Calling operation MediaServicesClient#createMediaWorkflowConfiguration.");
     const operationName = "createMediaWorkflowConfiguration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1386,7 +1355,6 @@ export class MediaServicesClient {
       createMediaWorkflowConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1446,8 +1414,7 @@ export class MediaServicesClient {
   public async createMediaWorkflowJob(
     createMediaWorkflowJobRequest: requests.CreateMediaWorkflowJobRequest
   ): Promise<responses.CreateMediaWorkflowJobResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#createMediaWorkflowJob.");
+    logger.debug("Calling operation MediaServicesClient#createMediaWorkflowJob.");
     const operationName = "createMediaWorkflowJob";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1466,7 +1433,6 @@ export class MediaServicesClient {
       createMediaWorkflowJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1527,8 +1493,7 @@ export class MediaServicesClient {
   public async createStreamCdnConfig(
     createStreamCdnConfigRequest: requests.CreateStreamCdnConfigRequest
   ): Promise<responses.CreateStreamCdnConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#createStreamCdnConfig.");
+    logger.debug("Calling operation MediaServicesClient#createStreamCdnConfig.");
     const operationName = "createStreamCdnConfig";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1547,7 +1512,6 @@ export class MediaServicesClient {
       createStreamCdnConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1608,8 +1572,7 @@ export class MediaServicesClient {
   public async createStreamDistributionChannel(
     createStreamDistributionChannelRequest: requests.CreateStreamDistributionChannelRequest
   ): Promise<responses.CreateStreamDistributionChannelResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#createStreamDistributionChannel.");
+    logger.debug("Calling operation MediaServicesClient#createStreamDistributionChannel.");
     const operationName = "createStreamDistributionChannel";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1628,7 +1591,6 @@ export class MediaServicesClient {
       createStreamDistributionChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1689,8 +1651,7 @@ export class MediaServicesClient {
   public async createStreamPackagingConfig(
     createStreamPackagingConfigRequest: requests.CreateStreamPackagingConfigRequest
   ): Promise<responses.CreateStreamPackagingConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#createStreamPackagingConfig.");
+    logger.debug("Calling operation MediaServicesClient#createStreamPackagingConfig.");
     const operationName = "createStreamPackagingConfig";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1709,7 +1670,6 @@ export class MediaServicesClient {
       createStreamPackagingConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1769,7 +1729,7 @@ export class MediaServicesClient {
   public async deleteMediaAsset(
     deleteMediaAssetRequest: requests.DeleteMediaAssetRequest
   ): Promise<responses.DeleteMediaAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#deleteMediaAsset.");
+    logger.debug("Calling operation MediaServicesClient#deleteMediaAsset.");
     const operationName = "deleteMediaAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1793,7 +1753,6 @@ export class MediaServicesClient {
       deleteMediaAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1839,10 +1798,9 @@ export class MediaServicesClient {
   public async deleteMediaAssetDistributionChannelAttachment(
     deleteMediaAssetDistributionChannelAttachmentRequest: requests.DeleteMediaAssetDistributionChannelAttachmentRequest
   ): Promise<responses.DeleteMediaAssetDistributionChannelAttachmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MediaServicesClient#deleteMediaAssetDistributionChannelAttachment."
-      );
+    logger.debug(
+      "Calling operation MediaServicesClient#deleteMediaAssetDistributionChannelAttachment."
+    );
     const operationName = "deleteMediaAssetDistributionChannelAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1868,7 +1826,6 @@ export class MediaServicesClient {
       deleteMediaAssetDistributionChannelAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1914,8 +1871,7 @@ export class MediaServicesClient {
   public async deleteMediaWorkflow(
     deleteMediaWorkflowRequest: requests.DeleteMediaWorkflowRequest
   ): Promise<responses.DeleteMediaWorkflowResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#deleteMediaWorkflow.");
+    logger.debug("Calling operation MediaServicesClient#deleteMediaWorkflow.");
     const operationName = "deleteMediaWorkflow";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1938,7 +1894,6 @@ export class MediaServicesClient {
       deleteMediaWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1984,8 +1939,7 @@ export class MediaServicesClient {
   public async deleteMediaWorkflowConfiguration(
     deleteMediaWorkflowConfigurationRequest: requests.DeleteMediaWorkflowConfigurationRequest
   ): Promise<responses.DeleteMediaWorkflowConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#deleteMediaWorkflowConfiguration.");
+    logger.debug("Calling operation MediaServicesClient#deleteMediaWorkflowConfiguration.");
     const operationName = "deleteMediaWorkflowConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2009,7 +1963,6 @@ export class MediaServicesClient {
       deleteMediaWorkflowConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2055,8 +2008,7 @@ export class MediaServicesClient {
   public async deleteMediaWorkflowJob(
     deleteMediaWorkflowJobRequest: requests.DeleteMediaWorkflowJobRequest
   ): Promise<responses.DeleteMediaWorkflowJobResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#deleteMediaWorkflowJob.");
+    logger.debug("Calling operation MediaServicesClient#deleteMediaWorkflowJob.");
     const operationName = "deleteMediaWorkflowJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2079,7 +2031,6 @@ export class MediaServicesClient {
       deleteMediaWorkflowJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2125,8 +2076,7 @@ export class MediaServicesClient {
   public async deleteStreamCdnConfig(
     deleteStreamCdnConfigRequest: requests.DeleteStreamCdnConfigRequest
   ): Promise<responses.DeleteStreamCdnConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#deleteStreamCdnConfig.");
+    logger.debug("Calling operation MediaServicesClient#deleteStreamCdnConfig.");
     const operationName = "deleteStreamCdnConfig";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2149,7 +2099,6 @@ export class MediaServicesClient {
       deleteStreamCdnConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2195,8 +2144,7 @@ export class MediaServicesClient {
   public async deleteStreamDistributionChannel(
     deleteStreamDistributionChannelRequest: requests.DeleteStreamDistributionChannelRequest
   ): Promise<responses.DeleteStreamDistributionChannelResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#deleteStreamDistributionChannel.");
+    logger.debug("Calling operation MediaServicesClient#deleteStreamDistributionChannel.");
     const operationName = "deleteStreamDistributionChannel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2220,7 +2168,6 @@ export class MediaServicesClient {
       deleteStreamDistributionChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2266,8 +2213,7 @@ export class MediaServicesClient {
   public async deleteStreamPackagingConfig(
     deleteStreamPackagingConfigRequest: requests.DeleteStreamPackagingConfigRequest
   ): Promise<responses.DeleteStreamPackagingConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#deleteStreamPackagingConfig.");
+    logger.debug("Calling operation MediaServicesClient#deleteStreamPackagingConfig.");
     const operationName = "deleteStreamPackagingConfig";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2290,7 +2236,6 @@ export class MediaServicesClient {
       deleteStreamPackagingConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2336,7 +2281,7 @@ export class MediaServicesClient {
   public async getMediaAsset(
     getMediaAssetRequest: requests.GetMediaAssetRequest
   ): Promise<responses.GetMediaAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#getMediaAsset.");
+    logger.debug("Calling operation MediaServicesClient#getMediaAsset.");
     const operationName = "getMediaAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2356,7 +2301,6 @@ export class MediaServicesClient {
       getMediaAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2411,10 +2355,9 @@ export class MediaServicesClient {
   public async getMediaAssetDistributionChannelAttachment(
     getMediaAssetDistributionChannelAttachmentRequest: requests.GetMediaAssetDistributionChannelAttachmentRequest
   ): Promise<responses.GetMediaAssetDistributionChannelAttachmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MediaServicesClient#getMediaAssetDistributionChannelAttachment."
-      );
+    logger.debug(
+      "Calling operation MediaServicesClient#getMediaAssetDistributionChannelAttachment."
+    );
     const operationName = "getMediaAssetDistributionChannelAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2438,7 +2381,6 @@ export class MediaServicesClient {
       getMediaAssetDistributionChannelAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2493,7 +2435,7 @@ export class MediaServicesClient {
   public async getMediaWorkflow(
     getMediaWorkflowRequest: requests.GetMediaWorkflowRequest
   ): Promise<responses.GetMediaWorkflowResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#getMediaWorkflow.");
+    logger.debug("Calling operation MediaServicesClient#getMediaWorkflow.");
     const operationName = "getMediaWorkflow";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2513,7 +2455,6 @@ export class MediaServicesClient {
       getMediaWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2568,8 +2509,7 @@ export class MediaServicesClient {
   public async getMediaWorkflowConfiguration(
     getMediaWorkflowConfigurationRequest: requests.GetMediaWorkflowConfigurationRequest
   ): Promise<responses.GetMediaWorkflowConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#getMediaWorkflowConfiguration.");
+    logger.debug("Calling operation MediaServicesClient#getMediaWorkflowConfiguration.");
     const operationName = "getMediaWorkflowConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2590,7 +2530,6 @@ export class MediaServicesClient {
       getMediaWorkflowConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2645,8 +2584,7 @@ export class MediaServicesClient {
   public async getMediaWorkflowJob(
     getMediaWorkflowJobRequest: requests.GetMediaWorkflowJobRequest
   ): Promise<responses.GetMediaWorkflowJobResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#getMediaWorkflowJob.");
+    logger.debug("Calling operation MediaServicesClient#getMediaWorkflowJob.");
     const operationName = "getMediaWorkflowJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2666,7 +2604,6 @@ export class MediaServicesClient {
       getMediaWorkflowJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2721,7 +2658,7 @@ export class MediaServicesClient {
   public async getStreamCdnConfig(
     getStreamCdnConfigRequest: requests.GetStreamCdnConfigRequest
   ): Promise<responses.GetStreamCdnConfigResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#getStreamCdnConfig.");
+    logger.debug("Calling operation MediaServicesClient#getStreamCdnConfig.");
     const operationName = "getStreamCdnConfig";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2741,7 +2678,6 @@ export class MediaServicesClient {
       getStreamCdnConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2796,8 +2732,7 @@ export class MediaServicesClient {
   public async getStreamDistributionChannel(
     getStreamDistributionChannelRequest: requests.GetStreamDistributionChannelRequest
   ): Promise<responses.GetStreamDistributionChannelResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#getStreamDistributionChannel.");
+    logger.debug("Calling operation MediaServicesClient#getStreamDistributionChannel.");
     const operationName = "getStreamDistributionChannel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2818,7 +2753,6 @@ export class MediaServicesClient {
       getStreamDistributionChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2873,8 +2807,7 @@ export class MediaServicesClient {
   public async getStreamPackagingConfig(
     getStreamPackagingConfigRequest: requests.GetStreamPackagingConfigRequest
   ): Promise<responses.GetStreamPackagingConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#getStreamPackagingConfig.");
+    logger.debug("Calling operation MediaServicesClient#getStreamPackagingConfig.");
     const operationName = "getStreamPackagingConfig";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2894,7 +2827,6 @@ export class MediaServicesClient {
       getStreamPackagingConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2949,8 +2881,7 @@ export class MediaServicesClient {
   public async ingestStreamDistributionChannel(
     ingestStreamDistributionChannelRequest: requests.IngestStreamDistributionChannelRequest
   ): Promise<responses.IngestStreamDistributionChannelResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#ingestStreamDistributionChannel.");
+    logger.debug("Calling operation MediaServicesClient#ingestStreamDistributionChannel.");
     const operationName = "ingestStreamDistributionChannel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2972,7 +2903,6 @@ export class MediaServicesClient {
       ingestStreamDistributionChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3027,10 +2957,9 @@ export class MediaServicesClient {
   public async listMediaAssetDistributionChannelAttachments(
     listMediaAssetDistributionChannelAttachmentsRequest: requests.ListMediaAssetDistributionChannelAttachmentsRequest
   ): Promise<responses.ListMediaAssetDistributionChannelAttachmentsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MediaServicesClient#listMediaAssetDistributionChannelAttachments."
-      );
+    logger.debug(
+      "Calling operation MediaServicesClient#listMediaAssetDistributionChannelAttachments."
+    );
     const operationName = "listMediaAssetDistributionChannelAttachments";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3058,7 +2987,6 @@ export class MediaServicesClient {
       listMediaAssetDistributionChannelAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3114,7 +3042,7 @@ export class MediaServicesClient {
   public async listMediaAssets(
     listMediaAssetsRequest: requests.ListMediaAssetsRequest
   ): Promise<responses.ListMediaAssetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#listMediaAssets.");
+    logger.debug("Calling operation MediaServicesClient#listMediaAssets.");
     const operationName = "listMediaAssets";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3149,7 +3077,6 @@ export class MediaServicesClient {
       listMediaAssetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3205,8 +3132,7 @@ export class MediaServicesClient {
   public async listMediaWorkflowConfigurations(
     listMediaWorkflowConfigurationsRequest: requests.ListMediaWorkflowConfigurationsRequest
   ): Promise<responses.ListMediaWorkflowConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#listMediaWorkflowConfigurations.");
+    logger.debug("Calling operation MediaServicesClient#listMediaWorkflowConfigurations.");
     const operationName = "listMediaWorkflowConfigurations";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3233,7 +3159,6 @@ export class MediaServicesClient {
       listMediaWorkflowConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3288,8 +3213,7 @@ export class MediaServicesClient {
   public async listMediaWorkflowJobs(
     listMediaWorkflowJobsRequest: requests.ListMediaWorkflowJobsRequest
   ): Promise<responses.ListMediaWorkflowJobsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#listMediaWorkflowJobs.");
+    logger.debug("Calling operation MediaServicesClient#listMediaWorkflowJobs.");
     const operationName = "listMediaWorkflowJobs";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3317,7 +3241,6 @@ export class MediaServicesClient {
       listMediaWorkflowJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3373,8 +3296,7 @@ export class MediaServicesClient {
   public async listMediaWorkflowTaskDeclarations(
     listMediaWorkflowTaskDeclarationsRequest: requests.ListMediaWorkflowTaskDeclarationsRequest
   ): Promise<responses.ListMediaWorkflowTaskDeclarationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#listMediaWorkflowTaskDeclarations.");
+    logger.debug("Calling operation MediaServicesClient#listMediaWorkflowTaskDeclarations.");
     const operationName = "listMediaWorkflowTaskDeclarations";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3401,7 +3323,6 @@ export class MediaServicesClient {
       listMediaWorkflowTaskDeclarationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3456,7 +3377,7 @@ export class MediaServicesClient {
   public async listMediaWorkflows(
     listMediaWorkflowsRequest: requests.ListMediaWorkflowsRequest
   ): Promise<responses.ListMediaWorkflowsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#listMediaWorkflows.");
+    logger.debug("Calling operation MediaServicesClient#listMediaWorkflows.");
     const operationName = "listMediaWorkflows";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3483,7 +3404,6 @@ export class MediaServicesClient {
       listMediaWorkflowsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3538,8 +3458,7 @@ export class MediaServicesClient {
   public async listStreamCdnConfigs(
     listStreamCdnConfigsRequest: requests.ListStreamCdnConfigsRequest
   ): Promise<responses.ListStreamCdnConfigsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#listStreamCdnConfigs.");
+    logger.debug("Calling operation MediaServicesClient#listStreamCdnConfigs.");
     const operationName = "listStreamCdnConfigs";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3566,7 +3485,6 @@ export class MediaServicesClient {
       listStreamCdnConfigsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3621,8 +3539,7 @@ export class MediaServicesClient {
   public async listStreamDistributionChannels(
     listStreamDistributionChannelsRequest: requests.ListStreamDistributionChannelsRequest
   ): Promise<responses.ListStreamDistributionChannelsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#listStreamDistributionChannels.");
+    logger.debug("Calling operation MediaServicesClient#listStreamDistributionChannels.");
     const operationName = "listStreamDistributionChannels";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3649,7 +3566,6 @@ export class MediaServicesClient {
       listStreamDistributionChannelsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3704,8 +3620,7 @@ export class MediaServicesClient {
   public async listStreamPackagingConfigs(
     listStreamPackagingConfigsRequest: requests.ListStreamPackagingConfigsRequest
   ): Promise<responses.ListStreamPackagingConfigsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#listStreamPackagingConfigs.");
+    logger.debug("Calling operation MediaServicesClient#listStreamPackagingConfigs.");
     const operationName = "listStreamPackagingConfigs";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3732,7 +3647,6 @@ export class MediaServicesClient {
       listStreamPackagingConfigsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3788,8 +3702,7 @@ export class MediaServicesClient {
   public async listSystemMediaWorkflows(
     listSystemMediaWorkflowsRequest: requests.ListSystemMediaWorkflowsRequest
   ): Promise<responses.ListSystemMediaWorkflowsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#listSystemMediaWorkflows.");
+    logger.debug("Calling operation MediaServicesClient#listSystemMediaWorkflows.");
     const operationName = "listSystemMediaWorkflows";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3813,7 +3726,6 @@ export class MediaServicesClient {
       listSystemMediaWorkflowsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3869,8 +3781,7 @@ export class MediaServicesClient {
   public async removeMediaAssetLock(
     removeMediaAssetLockRequest: requests.RemoveMediaAssetLockRequest
   ): Promise<responses.RemoveMediaAssetLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#removeMediaAssetLock.");
+    logger.debug("Calling operation MediaServicesClient#removeMediaAssetLock.");
     const operationName = "removeMediaAssetLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3892,7 +3803,6 @@ export class MediaServicesClient {
       removeMediaAssetLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3953,10 +3863,7 @@ export class MediaServicesClient {
   public async removeMediaWorkflowConfigurationLock(
     removeMediaWorkflowConfigurationLockRequest: requests.RemoveMediaWorkflowConfigurationLockRequest
   ): Promise<responses.RemoveMediaWorkflowConfigurationLockResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MediaServicesClient#removeMediaWorkflowConfigurationLock."
-      );
+    logger.debug("Calling operation MediaServicesClient#removeMediaWorkflowConfigurationLock.");
     const operationName = "removeMediaWorkflowConfigurationLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3979,7 +3886,6 @@ export class MediaServicesClient {
       removeMediaWorkflowConfigurationLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4040,8 +3946,7 @@ export class MediaServicesClient {
   public async removeMediaWorkflowJobLock(
     removeMediaWorkflowJobLockRequest: requests.RemoveMediaWorkflowJobLockRequest
   ): Promise<responses.RemoveMediaWorkflowJobLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#removeMediaWorkflowJobLock.");
+    logger.debug("Calling operation MediaServicesClient#removeMediaWorkflowJobLock.");
     const operationName = "removeMediaWorkflowJobLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4063,7 +3968,6 @@ export class MediaServicesClient {
       removeMediaWorkflowJobLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4124,8 +4028,7 @@ export class MediaServicesClient {
   public async removeMediaWorkflowLock(
     removeMediaWorkflowLockRequest: requests.RemoveMediaWorkflowLockRequest
   ): Promise<responses.RemoveMediaWorkflowLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#removeMediaWorkflowLock.");
+    logger.debug("Calling operation MediaServicesClient#removeMediaWorkflowLock.");
     const operationName = "removeMediaWorkflowLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4147,7 +4050,6 @@ export class MediaServicesClient {
       removeMediaWorkflowLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4208,8 +4110,7 @@ export class MediaServicesClient {
   public async removeStreamCdnConfigLock(
     removeStreamCdnConfigLockRequest: requests.RemoveStreamCdnConfigLockRequest
   ): Promise<responses.RemoveStreamCdnConfigLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#removeStreamCdnConfigLock.");
+    logger.debug("Calling operation MediaServicesClient#removeStreamCdnConfigLock.");
     const operationName = "removeStreamCdnConfigLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4231,7 +4132,6 @@ export class MediaServicesClient {
       removeStreamCdnConfigLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4292,10 +4192,7 @@ export class MediaServicesClient {
   public async removeStreamDistributionChannelLock(
     removeStreamDistributionChannelLockRequest: requests.RemoveStreamDistributionChannelLockRequest
   ): Promise<responses.RemoveStreamDistributionChannelLockResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MediaServicesClient#removeStreamDistributionChannelLock."
-      );
+    logger.debug("Calling operation MediaServicesClient#removeStreamDistributionChannelLock.");
     const operationName = "removeStreamDistributionChannelLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4318,7 +4215,6 @@ export class MediaServicesClient {
       removeStreamDistributionChannelLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4379,8 +4275,7 @@ export class MediaServicesClient {
   public async removeStreamPackagingConfigLock(
     removeStreamPackagingConfigLockRequest: requests.RemoveStreamPackagingConfigLockRequest
   ): Promise<responses.RemoveStreamPackagingConfigLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#removeStreamPackagingConfigLock.");
+    logger.debug("Calling operation MediaServicesClient#removeStreamPackagingConfigLock.");
     const operationName = "removeStreamPackagingConfigLock";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4402,7 +4297,6 @@ export class MediaServicesClient {
       removeStreamPackagingConfigLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4462,7 +4356,7 @@ export class MediaServicesClient {
   public async updateMediaAsset(
     updateMediaAssetRequest: requests.UpdateMediaAssetRequest
   ): Promise<responses.UpdateMediaAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaServicesClient#updateMediaAsset.");
+    logger.debug("Calling operation MediaServicesClient#updateMediaAsset.");
     const operationName = "updateMediaAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4485,7 +4379,6 @@ export class MediaServicesClient {
       updateMediaAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4545,8 +4438,7 @@ export class MediaServicesClient {
   public async updateMediaWorkflow(
     updateMediaWorkflowRequest: requests.UpdateMediaWorkflowRequest
   ): Promise<responses.UpdateMediaWorkflowResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#updateMediaWorkflow.");
+    logger.debug("Calling operation MediaServicesClient#updateMediaWorkflow.");
     const operationName = "updateMediaWorkflow";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4569,7 +4461,6 @@ export class MediaServicesClient {
       updateMediaWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4629,8 +4520,7 @@ export class MediaServicesClient {
   public async updateMediaWorkflowConfiguration(
     updateMediaWorkflowConfigurationRequest: requests.UpdateMediaWorkflowConfigurationRequest
   ): Promise<responses.UpdateMediaWorkflowConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#updateMediaWorkflowConfiguration.");
+    logger.debug("Calling operation MediaServicesClient#updateMediaWorkflowConfiguration.");
     const operationName = "updateMediaWorkflowConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4654,7 +4544,6 @@ export class MediaServicesClient {
       updateMediaWorkflowConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4714,8 +4603,7 @@ export class MediaServicesClient {
   public async updateMediaWorkflowJob(
     updateMediaWorkflowJobRequest: requests.UpdateMediaWorkflowJobRequest
   ): Promise<responses.UpdateMediaWorkflowJobResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#updateMediaWorkflowJob.");
+    logger.debug("Calling operation MediaServicesClient#updateMediaWorkflowJob.");
     const operationName = "updateMediaWorkflowJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4738,7 +4626,6 @@ export class MediaServicesClient {
       updateMediaWorkflowJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4798,8 +4685,7 @@ export class MediaServicesClient {
   public async updateStreamCdnConfig(
     updateStreamCdnConfigRequest: requests.UpdateStreamCdnConfigRequest
   ): Promise<responses.UpdateStreamCdnConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#updateStreamCdnConfig.");
+    logger.debug("Calling operation MediaServicesClient#updateStreamCdnConfig.");
     const operationName = "updateStreamCdnConfig";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4822,7 +4708,6 @@ export class MediaServicesClient {
       updateStreamCdnConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4882,8 +4767,7 @@ export class MediaServicesClient {
   public async updateStreamDistributionChannel(
     updateStreamDistributionChannelRequest: requests.UpdateStreamDistributionChannelRequest
   ): Promise<responses.UpdateStreamDistributionChannelResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#updateStreamDistributionChannel.");
+    logger.debug("Calling operation MediaServicesClient#updateStreamDistributionChannel.");
     const operationName = "updateStreamDistributionChannel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4907,7 +4791,6 @@ export class MediaServicesClient {
       updateStreamDistributionChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4967,8 +4850,7 @@ export class MediaServicesClient {
   public async updateStreamPackagingConfig(
     updateStreamPackagingConfigRequest: requests.UpdateStreamPackagingConfigRequest
   ): Promise<responses.UpdateStreamPackagingConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MediaServicesClient#updateStreamPackagingConfig.");
+    logger.debug("Calling operation MediaServicesClient#updateStreamPackagingConfig.");
     const operationName = "updateStreamPackagingConfig";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4991,7 +4873,6 @@ export class MediaServicesClient {
       updateStreamPackagingConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5128,11 +5009,7 @@ export class MediaStreamClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20211101";
-    if (this.logger) this.logger.info(`MediaStreamClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`MediaStreamClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -5142,10 +5019,9 @@ export class MediaStreamClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         MediaStreamClient.serviceEndpointTemplate,
@@ -5214,7 +5090,7 @@ export class MediaStreamClient {
   public async generatePlaylist(
     generatePlaylistRequest: requests.GeneratePlaylistRequest
   ): Promise<responses.GeneratePlaylistResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaStreamClient#generatePlaylist.");
+    logger.debug("Calling operation MediaStreamClient#generatePlaylist.");
     const operationName = "generatePlaylist";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -5236,7 +5112,6 @@ export class MediaStreamClient {
       generatePlaylistRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5291,7 +5166,7 @@ export class MediaStreamClient {
   public async generateSessionToken(
     generateSessionTokenRequest: requests.GenerateSessionTokenRequest
   ): Promise<responses.GenerateSessionTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation MediaStreamClient#generateSessionToken.");
+    logger.debug("Calling operation MediaStreamClient#generateSessionToken.");
     const operationName = "generateSessionToken";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -5309,7 +5184,6 @@ export class MediaStreamClient {
       generateSessionTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

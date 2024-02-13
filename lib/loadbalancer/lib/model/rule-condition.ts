@@ -50,7 +50,7 @@ export namespace RuleCondition {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.attributeName}`);
+          common.logger.info(`Unknown value for: ${obj.attributeName}`);
       }
     }
     return jsonObj;
@@ -81,7 +81,7 @@ export namespace RuleCondition {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.attributeName}`);
+          common.logger.info(`Unknown value for: ${obj.attributeName}`);
       }
     }
     return jsonObj;

@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -119,11 +120,7 @@ export class CommonClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220509";
-    if (this.logger) this.logger.info(`CommonClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`CommonClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -133,10 +130,9 @@ export class CommonClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         CommonClient.serviceEndpointTemplate,
@@ -228,7 +224,7 @@ export class CommonClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation CommonClient#cancelWorkRequest.");
+    logger.debug("Calling operation CommonClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -249,7 +245,6 @@ export class CommonClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -295,7 +290,7 @@ export class CommonClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation CommonClient#getWorkRequest.");
+    logger.debug("Calling operation CommonClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -315,7 +310,6 @@ export class CommonClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -376,7 +370,7 @@ export class CommonClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation CommonClient#listWorkRequestErrors.");
+    logger.debug("Calling operation CommonClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -401,7 +395,6 @@ export class CommonClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -457,7 +450,7 @@ export class CommonClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation CommonClient#listWorkRequestLogs.");
+    logger.debug("Calling operation CommonClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -482,7 +475,6 @@ export class CommonClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -538,7 +530,7 @@ export class CommonClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation CommonClient#listWorkRequests.");
+    logger.debug("Calling operation CommonClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -565,7 +557,6 @@ export class CommonClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -697,11 +688,7 @@ export class DiscoveryClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220509";
-    if (this.logger) this.logger.info(`DiscoveryClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DiscoveryClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -711,10 +698,9 @@ export class DiscoveryClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DiscoveryClient.serviceEndpointTemplate,
@@ -806,8 +792,7 @@ export class DiscoveryClient {
   public async changeAssetSourceCompartment(
     changeAssetSourceCompartmentRequest: requests.ChangeAssetSourceCompartmentRequest
   ): Promise<responses.ChangeAssetSourceCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DiscoveryClient#changeAssetSourceCompartment.");
+    logger.debug("Calling operation DiscoveryClient#changeAssetSourceCompartment.");
     const operationName = "changeAssetSourceCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -829,7 +814,6 @@ export class DiscoveryClient {
       changeAssetSourceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -880,8 +864,7 @@ export class DiscoveryClient {
   public async changeDiscoveryScheduleCompartment(
     changeDiscoveryScheduleCompartmentRequest: requests.ChangeDiscoveryScheduleCompartmentRequest
   ): Promise<responses.ChangeDiscoveryScheduleCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DiscoveryClient#changeDiscoveryScheduleCompartment.");
+    logger.debug("Calling operation DiscoveryClient#changeDiscoveryScheduleCompartment.");
     const operationName = "changeDiscoveryScheduleCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -903,7 +886,6 @@ export class DiscoveryClient {
       changeDiscoveryScheduleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -955,7 +937,7 @@ export class DiscoveryClient {
   public async createAssetSource(
     createAssetSourceRequest: requests.CreateAssetSourceRequest
   ): Promise<responses.CreateAssetSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DiscoveryClient#createAssetSource.");
+    logger.debug("Calling operation DiscoveryClient#createAssetSource.");
     const operationName = "createAssetSource";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -974,7 +956,6 @@ export class DiscoveryClient {
       createAssetSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1044,8 +1025,7 @@ export class DiscoveryClient {
   public async createDiscoverySchedule(
     createDiscoveryScheduleRequest: requests.CreateDiscoveryScheduleRequest
   ): Promise<responses.CreateDiscoveryScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DiscoveryClient#createDiscoverySchedule.");
+    logger.debug("Calling operation DiscoveryClient#createDiscoverySchedule.");
     const operationName = "createDiscoverySchedule";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1064,7 +1044,6 @@ export class DiscoveryClient {
       createDiscoveryScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1124,7 +1103,7 @@ export class DiscoveryClient {
   public async deleteAssetSource(
     deleteAssetSourceRequest: requests.DeleteAssetSourceRequest
   ): Promise<responses.DeleteAssetSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DiscoveryClient#deleteAssetSource.");
+    logger.debug("Calling operation DiscoveryClient#deleteAssetSource.");
     const operationName = "deleteAssetSource";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1145,7 +1124,6 @@ export class DiscoveryClient {
       deleteAssetSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1196,8 +1174,7 @@ export class DiscoveryClient {
   public async deleteDiscoverySchedule(
     deleteDiscoveryScheduleRequest: requests.DeleteDiscoveryScheduleRequest
   ): Promise<responses.DeleteDiscoveryScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DiscoveryClient#deleteDiscoverySchedule.");
+    logger.debug("Calling operation DiscoveryClient#deleteDiscoverySchedule.");
     const operationName = "deleteDiscoverySchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1218,7 +1195,6 @@ export class DiscoveryClient {
       deleteDiscoveryScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1264,7 +1240,7 @@ export class DiscoveryClient {
   public async getAssetSource(
     getAssetSourceRequest: requests.GetAssetSourceRequest
   ): Promise<responses.GetAssetSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DiscoveryClient#getAssetSource.");
+    logger.debug("Calling operation DiscoveryClient#getAssetSource.");
     const operationName = "getAssetSource";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1284,7 +1260,6 @@ export class DiscoveryClient {
       getAssetSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1339,7 +1314,7 @@ export class DiscoveryClient {
   public async getDiscoverySchedule(
     getDiscoveryScheduleRequest: requests.GetDiscoveryScheduleRequest
   ): Promise<responses.GetDiscoveryScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation DiscoveryClient#getDiscoverySchedule.");
+    logger.debug("Calling operation DiscoveryClient#getDiscoverySchedule.");
     const operationName = "getDiscoverySchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1359,7 +1334,6 @@ export class DiscoveryClient {
       getDiscoveryScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1414,8 +1388,7 @@ export class DiscoveryClient {
   public async listAssetSourceConnections(
     listAssetSourceConnectionsRequest: requests.ListAssetSourceConnectionsRequest
   ): Promise<responses.ListAssetSourceConnectionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DiscoveryClient#listAssetSourceConnections.");
+    logger.debug("Calling operation DiscoveryClient#listAssetSourceConnections.");
     const operationName = "listAssetSourceConnections";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1438,7 +1411,6 @@ export class DiscoveryClient {
       listAssetSourceConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1494,7 +1466,7 @@ export class DiscoveryClient {
   public async listAssetSources(
     listAssetSourcesRequest: requests.ListAssetSourcesRequest
   ): Promise<responses.ListAssetSourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DiscoveryClient#listAssetSources.");
+    logger.debug("Calling operation DiscoveryClient#listAssetSources.");
     const operationName = "listAssetSources";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1521,7 +1493,6 @@ export class DiscoveryClient {
       listAssetSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1576,7 +1547,7 @@ export class DiscoveryClient {
   public async listDiscoverySchedules(
     listDiscoverySchedulesRequest: requests.ListDiscoverySchedulesRequest
   ): Promise<responses.ListDiscoverySchedulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DiscoveryClient#listDiscoverySchedules.");
+    logger.debug("Calling operation DiscoveryClient#listDiscoverySchedules.");
     const operationName = "listDiscoverySchedules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1603,7 +1574,6 @@ export class DiscoveryClient {
       listDiscoverySchedulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1658,7 +1628,7 @@ export class DiscoveryClient {
   public async refreshAssetSource(
     refreshAssetSourceRequest: requests.RefreshAssetSourceRequest
   ): Promise<responses.RefreshAssetSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DiscoveryClient#refreshAssetSource.");
+    logger.debug("Calling operation DiscoveryClient#refreshAssetSource.");
     const operationName = "refreshAssetSource";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1679,7 +1649,6 @@ export class DiscoveryClient {
       refreshAssetSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1730,7 +1699,7 @@ export class DiscoveryClient {
   public async updateAssetSource(
     updateAssetSourceRequest: requests.UpdateAssetSourceRequest
   ): Promise<responses.UpdateAssetSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation DiscoveryClient#updateAssetSource.");
+    logger.debug("Calling operation DiscoveryClient#updateAssetSource.");
     const operationName = "updateAssetSource";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1751,7 +1720,6 @@ export class DiscoveryClient {
       updateAssetSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1807,8 +1775,7 @@ export class DiscoveryClient {
   public async updateDiscoverySchedule(
     updateDiscoveryScheduleRequest: requests.UpdateDiscoveryScheduleRequest
   ): Promise<responses.UpdateDiscoveryScheduleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DiscoveryClient#updateDiscoverySchedule.");
+    logger.debug("Calling operation DiscoveryClient#updateDiscoverySchedule.");
     const operationName = "updateDiscoverySchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1829,7 +1796,6 @@ export class DiscoveryClient {
       updateDiscoveryScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1966,11 +1932,7 @@ export class InventoryClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220509";
-    if (this.logger) this.logger.info(`InventoryClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`InventoryClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1980,10 +1942,9 @@ export class InventoryClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         InventoryClient.serviceEndpointTemplate,
@@ -2077,7 +2038,7 @@ export class InventoryClient {
   public async analyzeAssets(
     analyzeAssetsRequest: requests.AnalyzeAssetsRequest
   ): Promise<responses.AnalyzeAssetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#analyzeAssets.");
+    logger.debug("Calling operation InventoryClient#analyzeAssets.");
     const operationName = "analyzeAssets";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2107,7 +2068,6 @@ export class InventoryClient {
       analyzeAssetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2162,7 +2122,7 @@ export class InventoryClient {
   public async changeAssetCompartment(
     changeAssetCompartmentRequest: requests.ChangeAssetCompartmentRequest
   ): Promise<responses.ChangeAssetCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#changeAssetCompartment.");
+    logger.debug("Calling operation InventoryClient#changeAssetCompartment.");
     const operationName = "changeAssetCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2184,7 +2144,6 @@ export class InventoryClient {
       changeAssetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2235,7 +2194,7 @@ export class InventoryClient {
   public async changeAssetTags(
     changeAssetTagsRequest: requests.ChangeAssetTagsRequest
   ): Promise<responses.ChangeAssetTagsResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#changeAssetTags.");
+    logger.debug("Calling operation InventoryClient#changeAssetTags.");
     const operationName = "changeAssetTags";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2257,7 +2216,6 @@ export class InventoryClient {
       changeAssetTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2317,7 +2275,7 @@ export class InventoryClient {
   public async createAsset(
     createAssetRequest: requests.CreateAssetRequest
   ): Promise<responses.CreateAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#createAsset.");
+    logger.debug("Calling operation InventoryClient#createAsset.");
     const operationName = "createAsset";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2336,7 +2294,6 @@ export class InventoryClient {
       createAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2396,7 +2353,7 @@ export class InventoryClient {
   public async createInventory(
     createInventoryRequest: requests.CreateInventoryRequest
   ): Promise<responses.CreateInventoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#createInventory.");
+    logger.debug("Calling operation InventoryClient#createInventory.");
     const operationName = "createInventory";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2415,7 +2372,6 @@ export class InventoryClient {
       createInventoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2471,7 +2427,7 @@ export class InventoryClient {
   public async deleteAsset(
     deleteAssetRequest: requests.DeleteAssetRequest
   ): Promise<responses.DeleteAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#deleteAsset.");
+    logger.debug("Calling operation InventoryClient#deleteAsset.");
     const operationName = "deleteAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2492,7 +2448,6 @@ export class InventoryClient {
       deleteAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2538,7 +2493,7 @@ export class InventoryClient {
   public async deleteInventory(
     deleteInventoryRequest: requests.DeleteInventoryRequest
   ): Promise<responses.DeleteInventoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#deleteInventory.");
+    logger.debug("Calling operation InventoryClient#deleteInventory.");
     const operationName = "deleteInventory";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2559,7 +2514,6 @@ export class InventoryClient {
       deleteInventoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2610,7 +2564,7 @@ export class InventoryClient {
   public async getAsset(
     getAssetRequest: requests.GetAssetRequest
   ): Promise<responses.GetAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#getAsset.");
+    logger.debug("Calling operation InventoryClient#getAsset.");
     const operationName = "getAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2630,7 +2584,6 @@ export class InventoryClient {
       getAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2685,7 +2638,7 @@ export class InventoryClient {
   public async getInventory(
     getInventoryRequest: requests.GetInventoryRequest
   ): Promise<responses.GetInventoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#getInventory.");
+    logger.debug("Calling operation InventoryClient#getInventory.");
     const operationName = "getInventory";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2705,7 +2658,6 @@ export class InventoryClient {
       getInventoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2765,7 +2717,7 @@ export class InventoryClient {
   public async importInventory(
     importInventoryRequest: requests.ImportInventoryRequest
   ): Promise<responses.ImportInventoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#importInventory.");
+    logger.debug("Calling operation InventoryClient#importInventory.");
     const operationName = "importInventory";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2786,7 +2738,6 @@ export class InventoryClient {
       importInventoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2843,7 +2794,7 @@ export class InventoryClient {
   public async listAssets(
     listAssetsRequest: requests.ListAssetsRequest
   ): Promise<responses.ListAssetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#listAssets.");
+    logger.debug("Calling operation InventoryClient#listAssets.");
     const operationName = "listAssets";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2874,7 +2825,6 @@ export class InventoryClient {
       listAssetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2929,7 +2879,7 @@ export class InventoryClient {
   public async listHistoricalMetrics(
     listHistoricalMetricsRequest: requests.ListHistoricalMetricsRequest
   ): Promise<responses.ListHistoricalMetricsResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#listHistoricalMetrics.");
+    logger.debug("Calling operation InventoryClient#listHistoricalMetrics.");
     const operationName = "listHistoricalMetrics";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2954,7 +2904,6 @@ export class InventoryClient {
       listHistoricalMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3010,7 +2959,7 @@ export class InventoryClient {
   public async listInventories(
     listInventoriesRequest: requests.ListInventoriesRequest
   ): Promise<responses.ListInventoriesResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#listInventories.");
+    logger.debug("Calling operation InventoryClient#listInventories.");
     const operationName = "listInventories";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3035,7 +2984,6 @@ export class InventoryClient {
       listInventoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3090,8 +3038,7 @@ export class InventoryClient {
   public async submitHistoricalMetrics(
     submitHistoricalMetricsRequest: requests.SubmitHistoricalMetricsRequest
   ): Promise<responses.SubmitHistoricalMetricsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation InventoryClient#submitHistoricalMetrics.");
+    logger.debug("Calling operation InventoryClient#submitHistoricalMetrics.");
     const operationName = "submitHistoricalMetrics";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3112,7 +3059,6 @@ export class InventoryClient {
       submitHistoricalMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3172,7 +3118,7 @@ export class InventoryClient {
   public async updateAsset(
     updateAssetRequest: requests.UpdateAssetRequest
   ): Promise<responses.UpdateAssetResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#updateAsset.");
+    logger.debug("Calling operation InventoryClient#updateAsset.");
     const operationName = "updateAsset";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3193,7 +3139,6 @@ export class InventoryClient {
       updateAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3253,7 +3198,7 @@ export class InventoryClient {
   public async updateInventory(
     updateInventoryRequest: requests.UpdateInventoryRequest
   ): Promise<responses.UpdateInventoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation InventoryClient#updateInventory.");
+    logger.debug("Calling operation InventoryClient#updateInventory.");
     const operationName = "updateInventory";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3274,7 +3219,6 @@ export class InventoryClient {
       updateInventoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3411,11 +3355,7 @@ export class OcbAgentSvcClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220509";
-    if (this.logger) this.logger.info(`OcbAgentSvcClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OcbAgentSvcClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -3425,10 +3365,9 @@ export class OcbAgentSvcClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OcbAgentSvcClient.serviceEndpointTemplate,
@@ -3520,7 +3459,7 @@ export class OcbAgentSvcClient {
   public async addAgentDependency(
     addAgentDependencyRequest: requests.AddAgentDependencyRequest
   ): Promise<responses.AddAgentDependencyResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#addAgentDependency.");
+    logger.debug("Calling operation OcbAgentSvcClient#addAgentDependency.");
     const operationName = "addAgentDependency";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3542,7 +3481,6 @@ export class OcbAgentSvcClient {
       addAgentDependencyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3602,8 +3540,7 @@ export class OcbAgentSvcClient {
   public async changeAgentCompartment(
     changeAgentCompartmentRequest: requests.ChangeAgentCompartmentRequest
   ): Promise<responses.ChangeAgentCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OcbAgentSvcClient#changeAgentCompartment.");
+    logger.debug("Calling operation OcbAgentSvcClient#changeAgentCompartment.");
     const operationName = "changeAgentCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3625,7 +3562,6 @@ export class OcbAgentSvcClient {
       changeAgentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3681,8 +3617,7 @@ export class OcbAgentSvcClient {
   public async changeAgentDependencyCompartment(
     changeAgentDependencyCompartmentRequest: requests.ChangeAgentDependencyCompartmentRequest
   ): Promise<responses.ChangeAgentDependencyCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OcbAgentSvcClient#changeAgentDependencyCompartment.");
+    logger.debug("Calling operation OcbAgentSvcClient#changeAgentDependencyCompartment.");
     const operationName = "changeAgentDependencyCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3704,7 +3639,6 @@ export class OcbAgentSvcClient {
       changeAgentDependencyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3755,8 +3689,7 @@ export class OcbAgentSvcClient {
   public async changeEnvironmentCompartment(
     changeEnvironmentCompartmentRequest: requests.ChangeEnvironmentCompartmentRequest
   ): Promise<responses.ChangeEnvironmentCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OcbAgentSvcClient#changeEnvironmentCompartment.");
+    logger.debug("Calling operation OcbAgentSvcClient#changeEnvironmentCompartment.");
     const operationName = "changeEnvironmentCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3778,7 +3711,6 @@ export class OcbAgentSvcClient {
       changeEnvironmentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3835,7 +3767,7 @@ export class OcbAgentSvcClient {
   public async createAgent(
     createAgentRequest: requests.CreateAgentRequest
   ): Promise<responses.CreateAgentResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#createAgent.");
+    logger.debug("Calling operation OcbAgentSvcClient#createAgent.");
     const operationName = "createAgent";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3854,7 +3786,6 @@ export class OcbAgentSvcClient {
       createAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3915,8 +3846,7 @@ export class OcbAgentSvcClient {
   public async createAgentDependency(
     createAgentDependencyRequest: requests.CreateAgentDependencyRequest
   ): Promise<responses.CreateAgentDependencyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OcbAgentSvcClient#createAgentDependency.");
+    logger.debug("Calling operation OcbAgentSvcClient#createAgentDependency.");
     const operationName = "createAgentDependency";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3935,7 +3865,6 @@ export class OcbAgentSvcClient {
       createAgentDependencyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4001,7 +3930,7 @@ export class OcbAgentSvcClient {
   public async createEnvironment(
     createEnvironmentRequest: requests.CreateEnvironmentRequest
   ): Promise<responses.CreateEnvironmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#createEnvironment.");
+    logger.debug("Calling operation OcbAgentSvcClient#createEnvironment.");
     const operationName = "createEnvironment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4020,7 +3949,6 @@ export class OcbAgentSvcClient {
       createEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4080,7 +4008,7 @@ export class OcbAgentSvcClient {
   public async deleteAgent(
     deleteAgentRequest: requests.DeleteAgentRequest
   ): Promise<responses.DeleteAgentResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#deleteAgent.");
+    logger.debug("Calling operation OcbAgentSvcClient#deleteAgent.");
     const operationName = "deleteAgent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4102,7 +4030,6 @@ export class OcbAgentSvcClient {
       deleteAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4148,8 +4075,7 @@ export class OcbAgentSvcClient {
   public async deleteAgentDependency(
     deleteAgentDependencyRequest: requests.DeleteAgentDependencyRequest
   ): Promise<responses.DeleteAgentDependencyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OcbAgentSvcClient#deleteAgentDependency.");
+    logger.debug("Calling operation OcbAgentSvcClient#deleteAgentDependency.");
     const operationName = "deleteAgentDependency";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4170,7 +4096,6 @@ export class OcbAgentSvcClient {
       deleteAgentDependencyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4216,7 +4141,7 @@ export class OcbAgentSvcClient {
   public async deleteEnvironment(
     deleteEnvironmentRequest: requests.DeleteEnvironmentRequest
   ): Promise<responses.DeleteEnvironmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#deleteEnvironment.");
+    logger.debug("Calling operation OcbAgentSvcClient#deleteEnvironment.");
     const operationName = "deleteEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4237,7 +4162,6 @@ export class OcbAgentSvcClient {
       deleteEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4283,7 +4207,7 @@ export class OcbAgentSvcClient {
   public async getAgent(
     getAgentRequest: requests.GetAgentRequest
   ): Promise<responses.GetAgentResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#getAgent.");
+    logger.debug("Calling operation OcbAgentSvcClient#getAgent.");
     const operationName = "getAgent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4303,7 +4227,6 @@ export class OcbAgentSvcClient {
       getAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4358,7 +4281,7 @@ export class OcbAgentSvcClient {
   public async getAgentDependency(
     getAgentDependencyRequest: requests.GetAgentDependencyRequest
   ): Promise<responses.GetAgentDependencyResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#getAgentDependency.");
+    logger.debug("Calling operation OcbAgentSvcClient#getAgentDependency.");
     const operationName = "getAgentDependency";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4378,7 +4301,6 @@ export class OcbAgentSvcClient {
       getAgentDependencyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4433,7 +4355,7 @@ export class OcbAgentSvcClient {
   public async getEnvironment(
     getEnvironmentRequest: requests.GetEnvironmentRequest
   ): Promise<responses.GetEnvironmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#getEnvironment.");
+    logger.debug("Calling operation OcbAgentSvcClient#getEnvironment.");
     const operationName = "getEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4453,7 +4375,6 @@ export class OcbAgentSvcClient {
       getEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4508,7 +4429,7 @@ export class OcbAgentSvcClient {
   public async getPlugin(
     getPluginRequest: requests.GetPluginRequest
   ): Promise<responses.GetPluginResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#getPlugin.");
+    logger.debug("Calling operation OcbAgentSvcClient#getPlugin.");
     const operationName = "getPlugin";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4529,7 +4450,6 @@ export class OcbAgentSvcClient {
       getPluginRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4585,8 +4505,7 @@ export class OcbAgentSvcClient {
   public async listAgentDependencies(
     listAgentDependenciesRequest: requests.ListAgentDependenciesRequest
   ): Promise<responses.ListAgentDependenciesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OcbAgentSvcClient#listAgentDependencies.");
+    logger.debug("Calling operation OcbAgentSvcClient#listAgentDependencies.");
     const operationName = "listAgentDependencies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4614,7 +4533,6 @@ export class OcbAgentSvcClient {
       listAgentDependenciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4670,7 +4588,7 @@ export class OcbAgentSvcClient {
   public async listAgents(
     listAgentsRequest: requests.ListAgentsRequest
   ): Promise<responses.ListAgentsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#listAgents.");
+    logger.debug("Calling operation OcbAgentSvcClient#listAgents.");
     const operationName = "listAgents";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4698,7 +4616,6 @@ export class OcbAgentSvcClient {
       listAgentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4754,7 +4671,7 @@ export class OcbAgentSvcClient {
   public async listApplianceImages(
     listApplianceImagesRequest: requests.ListApplianceImagesRequest
   ): Promise<responses.ListApplianceImagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#listApplianceImages.");
+    logger.debug("Calling operation OcbAgentSvcClient#listApplianceImages.");
     const operationName = "listApplianceImages";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4779,7 +4696,6 @@ export class OcbAgentSvcClient {
       listApplianceImagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4835,7 +4751,7 @@ export class OcbAgentSvcClient {
   public async listEnvironments(
     listEnvironmentsRequest: requests.ListEnvironmentsRequest
   ): Promise<responses.ListEnvironmentsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#listEnvironments.");
+    logger.debug("Calling operation OcbAgentSvcClient#listEnvironments.");
     const operationName = "listEnvironments";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4862,7 +4778,6 @@ export class OcbAgentSvcClient {
       listEnvironmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4917,8 +4832,7 @@ export class OcbAgentSvcClient {
   public async removeAgentDependency(
     removeAgentDependencyRequest: requests.RemoveAgentDependencyRequest
   ): Promise<responses.RemoveAgentDependencyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OcbAgentSvcClient#removeAgentDependency.");
+    logger.debug("Calling operation OcbAgentSvcClient#removeAgentDependency.");
     const operationName = "removeAgentDependency";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4940,7 +4854,6 @@ export class OcbAgentSvcClient {
       removeAgentDependencyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5000,7 +4913,7 @@ export class OcbAgentSvcClient {
   public async updateAgent(
     updateAgentRequest: requests.UpdateAgentRequest
   ): Promise<responses.UpdateAgentResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#updateAgent.");
+    logger.debug("Calling operation OcbAgentSvcClient#updateAgent.");
     const operationName = "updateAgent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5022,7 +4935,6 @@ export class OcbAgentSvcClient {
       updateAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5082,8 +4994,7 @@ export class OcbAgentSvcClient {
   public async updateAgentDependency(
     updateAgentDependencyRequest: requests.UpdateAgentDependencyRequest
   ): Promise<responses.UpdateAgentDependencyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OcbAgentSvcClient#updateAgentDependency.");
+    logger.debug("Calling operation OcbAgentSvcClient#updateAgentDependency.");
     const operationName = "updateAgentDependency";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5105,7 +5016,6 @@ export class OcbAgentSvcClient {
       updateAgentDependencyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5161,7 +5071,7 @@ export class OcbAgentSvcClient {
   public async updateEnvironment(
     updateEnvironmentRequest: requests.UpdateEnvironmentRequest
   ): Promise<responses.UpdateEnvironmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#updateEnvironment.");
+    logger.debug("Calling operation OcbAgentSvcClient#updateEnvironment.");
     const operationName = "updateEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5183,7 +5093,6 @@ export class OcbAgentSvcClient {
       updateEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5243,7 +5152,7 @@ export class OcbAgentSvcClient {
   public async updatePlugin(
     updatePluginRequest: requests.UpdatePluginRequest
   ): Promise<responses.UpdatePluginResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#updatePlugin.");
+    logger.debug("Calling operation OcbAgentSvcClient#updatePlugin.");
     const operationName = "updatePlugin";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5265,7 +5174,6 @@ export class OcbAgentSvcClient {
       updatePluginRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

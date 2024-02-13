@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -102,11 +103,7 @@ export class IdentityDomainsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "";
-    if (this.logger) this.logger.info(`IdentityDomainsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`IdentityDomainsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -116,10 +113,9 @@ export class IdentityDomainsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
   }
 
   /**
@@ -142,7 +138,7 @@ export class IdentityDomainsClient {
   public async createApiKey(
     createApiKeyRequest: requests.CreateApiKeyRequest
   ): Promise<responses.CreateApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createApiKey.");
+    logger.debug("Calling operation IdentityDomainsClient#createApiKey.");
     const operationName = "createApiKey";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -165,7 +161,6 @@ export class IdentityDomainsClient {
       createApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -225,7 +220,7 @@ export class IdentityDomainsClient {
   public async createApp(
     createAppRequest: requests.CreateAppRequest
   ): Promise<responses.CreateAppResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createApp.");
+    logger.debug("Calling operation IdentityDomainsClient#createApp.");
     const operationName = "createApp";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -248,7 +243,6 @@ export class IdentityDomainsClient {
       createAppRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -308,7 +302,7 @@ export class IdentityDomainsClient {
   public async createAppRole(
     createAppRoleRequest: requests.CreateAppRoleRequest
   ): Promise<responses.CreateAppRoleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createAppRole.");
+    logger.debug("Calling operation IdentityDomainsClient#createAppRole.");
     const operationName = "createAppRole";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -331,7 +325,6 @@ export class IdentityDomainsClient {
       createAppRoleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -391,8 +384,7 @@ export class IdentityDomainsClient {
   public async createApprovalWorkflow(
     createApprovalWorkflowRequest: requests.CreateApprovalWorkflowRequest
   ): Promise<responses.CreateApprovalWorkflowResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createApprovalWorkflow.");
+    logger.debug("Calling operation IdentityDomainsClient#createApprovalWorkflow.");
     const operationName = "createApprovalWorkflow";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -415,7 +407,6 @@ export class IdentityDomainsClient {
       createApprovalWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -475,10 +466,7 @@ export class IdentityDomainsClient {
   public async createApprovalWorkflowAssignment(
     createApprovalWorkflowAssignmentRequest: requests.CreateApprovalWorkflowAssignmentRequest
   ): Promise<responses.CreateApprovalWorkflowAssignmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#createApprovalWorkflowAssignment."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#createApprovalWorkflowAssignment.");
     const operationName = "createApprovalWorkflowAssignment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -502,7 +490,6 @@ export class IdentityDomainsClient {
       createApprovalWorkflowAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -562,8 +549,7 @@ export class IdentityDomainsClient {
   public async createApprovalWorkflowStep(
     createApprovalWorkflowStepRequest: requests.CreateApprovalWorkflowStepRequest
   ): Promise<responses.CreateApprovalWorkflowStepResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createApprovalWorkflowStep.");
+    logger.debug("Calling operation IdentityDomainsClient#createApprovalWorkflowStep.");
     const operationName = "createApprovalWorkflowStep";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -586,7 +572,6 @@ export class IdentityDomainsClient {
       createApprovalWorkflowStepRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -646,7 +631,7 @@ export class IdentityDomainsClient {
   public async createAuthToken(
     createAuthTokenRequest: requests.CreateAuthTokenRequest
   ): Promise<responses.CreateAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createAuthToken.");
+    logger.debug("Calling operation IdentityDomainsClient#createAuthToken.");
     const operationName = "createAuthToken";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -669,7 +654,6 @@ export class IdentityDomainsClient {
       createAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -729,10 +713,7 @@ export class IdentityDomainsClient {
   public async createAuthenticationFactorsRemover(
     createAuthenticationFactorsRemoverRequest: requests.CreateAuthenticationFactorsRemoverRequest
   ): Promise<responses.CreateAuthenticationFactorsRemoverResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#createAuthenticationFactorsRemover."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#createAuthenticationFactorsRemover.");
     const operationName = "createAuthenticationFactorsRemover";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -753,7 +734,6 @@ export class IdentityDomainsClient {
       createAuthenticationFactorsRemoverRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -813,7 +793,7 @@ export class IdentityDomainsClient {
   public async createCloudGate(
     createCloudGateRequest: requests.CreateCloudGateRequest
   ): Promise<responses.CreateCloudGateResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createCloudGate.");
+    logger.debug("Calling operation IdentityDomainsClient#createCloudGate.");
     const operationName = "createCloudGate";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -836,7 +816,6 @@ export class IdentityDomainsClient {
       createCloudGateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -896,8 +875,7 @@ export class IdentityDomainsClient {
   public async createCloudGateMapping(
     createCloudGateMappingRequest: requests.CreateCloudGateMappingRequest
   ): Promise<responses.CreateCloudGateMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createCloudGateMapping.");
+    logger.debug("Calling operation IdentityDomainsClient#createCloudGateMapping.");
     const operationName = "createCloudGateMapping";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -920,7 +898,6 @@ export class IdentityDomainsClient {
       createCloudGateMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -980,8 +957,7 @@ export class IdentityDomainsClient {
   public async createCloudGateServer(
     createCloudGateServerRequest: requests.CreateCloudGateServerRequest
   ): Promise<responses.CreateCloudGateServerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createCloudGateServer.");
+    logger.debug("Calling operation IdentityDomainsClient#createCloudGateServer.");
     const operationName = "createCloudGateServer";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1004,7 +980,6 @@ export class IdentityDomainsClient {
       createCloudGateServerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1064,7 +1039,7 @@ export class IdentityDomainsClient {
   public async createCondition(
     createConditionRequest: requests.CreateConditionRequest
   ): Promise<responses.CreateConditionResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createCondition.");
+    logger.debug("Calling operation IdentityDomainsClient#createCondition.");
     const operationName = "createCondition";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1087,7 +1062,6 @@ export class IdentityDomainsClient {
       createConditionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1147,8 +1121,7 @@ export class IdentityDomainsClient {
   public async createCustomerSecretKey(
     createCustomerSecretKeyRequest: requests.CreateCustomerSecretKeyRequest
   ): Promise<responses.CreateCustomerSecretKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createCustomerSecretKey.");
+    logger.debug("Calling operation IdentityDomainsClient#createCustomerSecretKey.");
     const operationName = "createCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1171,7 +1144,6 @@ export class IdentityDomainsClient {
       createCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1231,8 +1203,7 @@ export class IdentityDomainsClient {
   public async createDynamicResourceGroup(
     createDynamicResourceGroupRequest: requests.CreateDynamicResourceGroupRequest
   ): Promise<responses.CreateDynamicResourceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createDynamicResourceGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#createDynamicResourceGroup.");
     const operationName = "createDynamicResourceGroup";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1255,7 +1226,6 @@ export class IdentityDomainsClient {
       createDynamicResourceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1315,7 +1285,7 @@ export class IdentityDomainsClient {
   public async createGrant(
     createGrantRequest: requests.CreateGrantRequest
   ): Promise<responses.CreateGrantResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createGrant.");
+    logger.debug("Calling operation IdentityDomainsClient#createGrant.");
     const operationName = "createGrant";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1338,7 +1308,6 @@ export class IdentityDomainsClient {
       createGrantRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1398,7 +1367,7 @@ export class IdentityDomainsClient {
   public async createGroup(
     createGroupRequest: requests.CreateGroupRequest
   ): Promise<responses.CreateGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#createGroup.");
     const operationName = "createGroup";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1421,7 +1390,6 @@ export class IdentityDomainsClient {
       createGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1481,8 +1449,7 @@ export class IdentityDomainsClient {
   public async createIdentityPropagationTrust(
     createIdentityPropagationTrustRequest: requests.CreateIdentityPropagationTrustRequest
   ): Promise<responses.CreateIdentityPropagationTrustResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createIdentityPropagationTrust.");
+    logger.debug("Calling operation IdentityDomainsClient#createIdentityPropagationTrust.");
     const operationName = "createIdentityPropagationTrust";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1506,7 +1473,6 @@ export class IdentityDomainsClient {
       createIdentityPropagationTrustRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1566,8 +1532,7 @@ export class IdentityDomainsClient {
   public async createIdentityProvider(
     createIdentityProviderRequest: requests.CreateIdentityProviderRequest
   ): Promise<responses.CreateIdentityProviderResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createIdentityProvider.");
+    logger.debug("Calling operation IdentityDomainsClient#createIdentityProvider.");
     const operationName = "createIdentityProvider";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1590,7 +1555,6 @@ export class IdentityDomainsClient {
       createIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1650,7 +1614,7 @@ export class IdentityDomainsClient {
   public async createMe(
     createMeRequest: requests.CreateMeRequest
   ): Promise<responses.CreateMeResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createMe.");
+    logger.debug("Calling operation IdentityDomainsClient#createMe.");
     const operationName = "createMe";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1673,7 +1637,6 @@ export class IdentityDomainsClient {
       createMeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1729,7 +1692,7 @@ export class IdentityDomainsClient {
   public async createMyApiKey(
     createMyApiKeyRequest: requests.CreateMyApiKeyRequest
   ): Promise<responses.CreateMyApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createMyApiKey.");
+    logger.debug("Calling operation IdentityDomainsClient#createMyApiKey.");
     const operationName = "createMyApiKey";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1749,7 +1712,6 @@ export class IdentityDomainsClient {
       createMyApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1809,8 +1771,7 @@ export class IdentityDomainsClient {
   public async createMyAuthToken(
     createMyAuthTokenRequest: requests.CreateMyAuthTokenRequest
   ): Promise<responses.CreateMyAuthTokenResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createMyAuthToken.");
+    logger.debug("Calling operation IdentityDomainsClient#createMyAuthToken.");
     const operationName = "createMyAuthToken";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1830,7 +1791,6 @@ export class IdentityDomainsClient {
       createMyAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1890,10 +1850,7 @@ export class IdentityDomainsClient {
   public async createMyAuthenticationFactorInitiator(
     createMyAuthenticationFactorInitiatorRequest: requests.CreateMyAuthenticationFactorInitiatorRequest
   ): Promise<responses.CreateMyAuthenticationFactorInitiatorResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#createMyAuthenticationFactorInitiator."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#createMyAuthenticationFactorInitiator.");
     const operationName = "createMyAuthenticationFactorInitiator";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1914,7 +1871,6 @@ export class IdentityDomainsClient {
       createMyAuthenticationFactorInitiatorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1974,10 +1930,7 @@ export class IdentityDomainsClient {
   public async createMyAuthenticationFactorValidator(
     createMyAuthenticationFactorValidatorRequest: requests.CreateMyAuthenticationFactorValidatorRequest
   ): Promise<responses.CreateMyAuthenticationFactorValidatorResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#createMyAuthenticationFactorValidator."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#createMyAuthenticationFactorValidator.");
     const operationName = "createMyAuthenticationFactorValidator";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1998,7 +1951,6 @@ export class IdentityDomainsClient {
       createMyAuthenticationFactorValidatorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2058,10 +2010,7 @@ export class IdentityDomainsClient {
   public async createMyAuthenticationFactorsRemover(
     createMyAuthenticationFactorsRemoverRequest: requests.CreateMyAuthenticationFactorsRemoverRequest
   ): Promise<responses.CreateMyAuthenticationFactorsRemoverResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#createMyAuthenticationFactorsRemover."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#createMyAuthenticationFactorsRemover.");
     const operationName = "createMyAuthenticationFactorsRemover";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2082,7 +2031,6 @@ export class IdentityDomainsClient {
       createMyAuthenticationFactorsRemoverRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2142,8 +2090,7 @@ export class IdentityDomainsClient {
   public async createMyCustomerSecretKey(
     createMyCustomerSecretKeyRequest: requests.CreateMyCustomerSecretKeyRequest
   ): Promise<responses.CreateMyCustomerSecretKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createMyCustomerSecretKey.");
+    logger.debug("Calling operation IdentityDomainsClient#createMyCustomerSecretKey.");
     const operationName = "createMyCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2163,7 +2110,6 @@ export class IdentityDomainsClient {
       createMyCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2223,8 +2169,7 @@ export class IdentityDomainsClient {
   public async createMyOAuth2ClientCredential(
     createMyOAuth2ClientCredentialRequest: requests.CreateMyOAuth2ClientCredentialRequest
   ): Promise<responses.CreateMyOAuth2ClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createMyOAuth2ClientCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#createMyOAuth2ClientCredential.");
     const operationName = "createMyOAuth2ClientCredential";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2245,7 +2190,6 @@ export class IdentityDomainsClient {
       createMyOAuth2ClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2305,7 +2249,7 @@ export class IdentityDomainsClient {
   public async createMyRequest(
     createMyRequestRequest: requests.CreateMyRequestRequest
   ): Promise<responses.CreateMyRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createMyRequest.");
+    logger.debug("Calling operation IdentityDomainsClient#createMyRequest.");
     const operationName = "createMyRequest";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2328,7 +2272,6 @@ export class IdentityDomainsClient {
       createMyRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2388,8 +2331,7 @@ export class IdentityDomainsClient {
   public async createMySmtpCredential(
     createMySmtpCredentialRequest: requests.CreateMySmtpCredentialRequest
   ): Promise<responses.CreateMySmtpCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createMySmtpCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#createMySmtpCredential.");
     const operationName = "createMySmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2409,7 +2351,6 @@ export class IdentityDomainsClient {
       createMySmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2469,8 +2410,7 @@ export class IdentityDomainsClient {
   public async createMySupportAccount(
     createMySupportAccountRequest: requests.CreateMySupportAccountRequest
   ): Promise<responses.CreateMySupportAccountResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createMySupportAccount.");
+    logger.debug("Calling operation IdentityDomainsClient#createMySupportAccount.");
     const operationName = "createMySupportAccount";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2490,7 +2430,6 @@ export class IdentityDomainsClient {
       createMySupportAccountRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2550,8 +2489,7 @@ export class IdentityDomainsClient {
   public async createMyUserDbCredential(
     createMyUserDbCredentialRequest: requests.CreateMyUserDbCredentialRequest
   ): Promise<responses.CreateMyUserDbCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createMyUserDbCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#createMyUserDbCredential.");
     const operationName = "createMyUserDbCredential";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2571,7 +2509,6 @@ export class IdentityDomainsClient {
       createMyUserDbCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2631,8 +2568,7 @@ export class IdentityDomainsClient {
   public async createNetworkPerimeter(
     createNetworkPerimeterRequest: requests.CreateNetworkPerimeterRequest
   ): Promise<responses.CreateNetworkPerimeterResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createNetworkPerimeter.");
+    logger.debug("Calling operation IdentityDomainsClient#createNetworkPerimeter.");
     const operationName = "createNetworkPerimeter";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2655,7 +2591,6 @@ export class IdentityDomainsClient {
       createNetworkPerimeterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2715,8 +2650,7 @@ export class IdentityDomainsClient {
   public async createOAuth2ClientCredential(
     createOAuth2ClientCredentialRequest: requests.CreateOAuth2ClientCredentialRequest
   ): Promise<responses.CreateOAuth2ClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createOAuth2ClientCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#createOAuth2ClientCredential.");
     const operationName = "createOAuth2ClientCredential";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2739,7 +2673,6 @@ export class IdentityDomainsClient {
       createOAuth2ClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2799,8 +2732,7 @@ export class IdentityDomainsClient {
   public async createOAuthClientCertificate(
     createOAuthClientCertificateRequest: requests.CreateOAuthClientCertificateRequest
   ): Promise<responses.CreateOAuthClientCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createOAuthClientCertificate.");
+    logger.debug("Calling operation IdentityDomainsClient#createOAuthClientCertificate.");
     const operationName = "createOAuthClientCertificate";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2820,7 +2752,6 @@ export class IdentityDomainsClient {
       createOAuthClientCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2880,8 +2811,7 @@ export class IdentityDomainsClient {
   public async createOAuthPartnerCertificate(
     createOAuthPartnerCertificateRequest: requests.CreateOAuthPartnerCertificateRequest
   ): Promise<responses.CreateOAuthPartnerCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createOAuthPartnerCertificate.");
+    logger.debug("Calling operation IdentityDomainsClient#createOAuthPartnerCertificate.");
     const operationName = "createOAuthPartnerCertificate";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2902,7 +2832,6 @@ export class IdentityDomainsClient {
       createOAuthPartnerCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2962,8 +2891,7 @@ export class IdentityDomainsClient {
   public async createPasswordPolicy(
     createPasswordPolicyRequest: requests.CreatePasswordPolicyRequest
   ): Promise<responses.CreatePasswordPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createPasswordPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#createPasswordPolicy.");
     const operationName = "createPasswordPolicy";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2986,7 +2914,6 @@ export class IdentityDomainsClient {
       createPasswordPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3046,7 +2973,7 @@ export class IdentityDomainsClient {
   public async createPolicy(
     createPolicyRequest: requests.CreatePolicyRequest
   ): Promise<responses.CreatePolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#createPolicy.");
     const operationName = "createPolicy";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3069,7 +2996,6 @@ export class IdentityDomainsClient {
       createPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3129,7 +3055,7 @@ export class IdentityDomainsClient {
   public async createRule(
     createRuleRequest: requests.CreateRuleRequest
   ): Promise<responses.CreateRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createRule.");
+    logger.debug("Calling operation IdentityDomainsClient#createRule.");
     const operationName = "createRule";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3152,7 +3078,6 @@ export class IdentityDomainsClient {
       createRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3212,8 +3137,7 @@ export class IdentityDomainsClient {
   public async createSecurityQuestion(
     createSecurityQuestionRequest: requests.CreateSecurityQuestionRequest
   ): Promise<responses.CreateSecurityQuestionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createSecurityQuestion.");
+    logger.debug("Calling operation IdentityDomainsClient#createSecurityQuestion.");
     const operationName = "createSecurityQuestion";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3236,7 +3160,6 @@ export class IdentityDomainsClient {
       createSecurityQuestionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3296,8 +3219,7 @@ export class IdentityDomainsClient {
   public async createSelfRegistrationProfile(
     createSelfRegistrationProfileRequest: requests.CreateSelfRegistrationProfileRequest
   ): Promise<responses.CreateSelfRegistrationProfileResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createSelfRegistrationProfile.");
+    logger.debug("Calling operation IdentityDomainsClient#createSelfRegistrationProfile.");
     const operationName = "createSelfRegistrationProfile";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3321,7 +3243,6 @@ export class IdentityDomainsClient {
       createSelfRegistrationProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3381,8 +3302,7 @@ export class IdentityDomainsClient {
   public async createSmtpCredential(
     createSmtpCredentialRequest: requests.CreateSmtpCredentialRequest
   ): Promise<responses.CreateSmtpCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createSmtpCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#createSmtpCredential.");
     const operationName = "createSmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3405,7 +3325,6 @@ export class IdentityDomainsClient {
       createSmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3465,7 +3384,7 @@ export class IdentityDomainsClient {
   public async createUser(
     createUserRequest: requests.CreateUserRequest
   ): Promise<responses.CreateUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#createUser.");
+    logger.debug("Calling operation IdentityDomainsClient#createUser.");
     const operationName = "createUser";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3488,7 +3407,6 @@ export class IdentityDomainsClient {
       createUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3548,8 +3466,7 @@ export class IdentityDomainsClient {
   public async createUserDbCredential(
     createUserDbCredentialRequest: requests.CreateUserDbCredentialRequest
   ): Promise<responses.CreateUserDbCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#createUserDbCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#createUserDbCredential.");
     const operationName = "createUserDbCredential";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3572,7 +3489,6 @@ export class IdentityDomainsClient {
       createUserDbCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3632,7 +3548,7 @@ export class IdentityDomainsClient {
   public async deleteApiKey(
     deleteApiKeyRequest: requests.DeleteApiKeyRequest
   ): Promise<responses.DeleteApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteApiKey.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteApiKey.");
     const operationName = "deleteApiKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3657,7 +3573,6 @@ export class IdentityDomainsClient {
       deleteApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3703,7 +3618,7 @@ export class IdentityDomainsClient {
   public async deleteApp(
     deleteAppRequest: requests.DeleteAppRequest
   ): Promise<responses.DeleteAppResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteApp.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteApp.");
     const operationName = "deleteApp";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3728,7 +3643,6 @@ export class IdentityDomainsClient {
       deleteAppRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3774,7 +3688,7 @@ export class IdentityDomainsClient {
   public async deleteAppRole(
     deleteAppRoleRequest: requests.DeleteAppRoleRequest
   ): Promise<responses.DeleteAppRoleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteAppRole.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteAppRole.");
     const operationName = "deleteAppRole";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3799,7 +3713,6 @@ export class IdentityDomainsClient {
       deleteAppRoleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3845,8 +3758,7 @@ export class IdentityDomainsClient {
   public async deleteApprovalWorkflow(
     deleteApprovalWorkflowRequest: requests.DeleteApprovalWorkflowRequest
   ): Promise<responses.DeleteApprovalWorkflowResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteApprovalWorkflow.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteApprovalWorkflow.");
     const operationName = "deleteApprovalWorkflow";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3871,7 +3783,6 @@ export class IdentityDomainsClient {
       deleteApprovalWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3917,10 +3828,7 @@ export class IdentityDomainsClient {
   public async deleteApprovalWorkflowAssignment(
     deleteApprovalWorkflowAssignmentRequest: requests.DeleteApprovalWorkflowAssignmentRequest
   ): Promise<responses.DeleteApprovalWorkflowAssignmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#deleteApprovalWorkflowAssignment."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#deleteApprovalWorkflowAssignment.");
     const operationName = "deleteApprovalWorkflowAssignment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3947,7 +3855,6 @@ export class IdentityDomainsClient {
       deleteApprovalWorkflowAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3993,8 +3900,7 @@ export class IdentityDomainsClient {
   public async deleteApprovalWorkflowStep(
     deleteApprovalWorkflowStepRequest: requests.DeleteApprovalWorkflowStepRequest
   ): Promise<responses.DeleteApprovalWorkflowStepResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteApprovalWorkflowStep.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteApprovalWorkflowStep.");
     const operationName = "deleteApprovalWorkflowStep";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4019,7 +3925,6 @@ export class IdentityDomainsClient {
       deleteApprovalWorkflowStepRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4065,7 +3970,7 @@ export class IdentityDomainsClient {
   public async deleteAuthToken(
     deleteAuthTokenRequest: requests.DeleteAuthTokenRequest
   ): Promise<responses.DeleteAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteAuthToken.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteAuthToken.");
     const operationName = "deleteAuthToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4090,7 +3995,6 @@ export class IdentityDomainsClient {
       deleteAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4136,7 +4040,7 @@ export class IdentityDomainsClient {
   public async deleteCloudGate(
     deleteCloudGateRequest: requests.DeleteCloudGateRequest
   ): Promise<responses.DeleteCloudGateResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteCloudGate.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteCloudGate.");
     const operationName = "deleteCloudGate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4161,7 +4065,6 @@ export class IdentityDomainsClient {
       deleteCloudGateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4207,8 +4110,7 @@ export class IdentityDomainsClient {
   public async deleteCloudGateMapping(
     deleteCloudGateMappingRequest: requests.DeleteCloudGateMappingRequest
   ): Promise<responses.DeleteCloudGateMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteCloudGateMapping.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteCloudGateMapping.");
     const operationName = "deleteCloudGateMapping";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4233,7 +4135,6 @@ export class IdentityDomainsClient {
       deleteCloudGateMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4279,8 +4180,7 @@ export class IdentityDomainsClient {
   public async deleteCloudGateServer(
     deleteCloudGateServerRequest: requests.DeleteCloudGateServerRequest
   ): Promise<responses.DeleteCloudGateServerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteCloudGateServer.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteCloudGateServer.");
     const operationName = "deleteCloudGateServer";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4305,7 +4205,6 @@ export class IdentityDomainsClient {
       deleteCloudGateServerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4351,7 +4250,7 @@ export class IdentityDomainsClient {
   public async deleteCondition(
     deleteConditionRequest: requests.DeleteConditionRequest
   ): Promise<responses.DeleteConditionResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteCondition.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteCondition.");
     const operationName = "deleteCondition";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4376,7 +4275,6 @@ export class IdentityDomainsClient {
       deleteConditionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4422,8 +4320,7 @@ export class IdentityDomainsClient {
   public async deleteCustomerSecretKey(
     deleteCustomerSecretKeyRequest: requests.DeleteCustomerSecretKeyRequest
   ): Promise<responses.DeleteCustomerSecretKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteCustomerSecretKey.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteCustomerSecretKey.");
     const operationName = "deleteCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4448,7 +4345,6 @@ export class IdentityDomainsClient {
       deleteCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4494,8 +4390,7 @@ export class IdentityDomainsClient {
   public async deleteDynamicResourceGroup(
     deleteDynamicResourceGroupRequest: requests.DeleteDynamicResourceGroupRequest
   ): Promise<responses.DeleteDynamicResourceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteDynamicResourceGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteDynamicResourceGroup.");
     const operationName = "deleteDynamicResourceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4520,7 +4415,6 @@ export class IdentityDomainsClient {
       deleteDynamicResourceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4566,7 +4460,7 @@ export class IdentityDomainsClient {
   public async deleteGrant(
     deleteGrantRequest: requests.DeleteGrantRequest
   ): Promise<responses.DeleteGrantResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteGrant.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteGrant.");
     const operationName = "deleteGrant";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4591,7 +4485,6 @@ export class IdentityDomainsClient {
       deleteGrantRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4637,7 +4530,7 @@ export class IdentityDomainsClient {
   public async deleteGroup(
     deleteGroupRequest: requests.DeleteGroupRequest
   ): Promise<responses.DeleteGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteGroup.");
     const operationName = "deleteGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4662,7 +4555,6 @@ export class IdentityDomainsClient {
       deleteGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4708,8 +4600,7 @@ export class IdentityDomainsClient {
   public async deleteIdentityPropagationTrust(
     deleteIdentityPropagationTrustRequest: requests.DeleteIdentityPropagationTrustRequest
   ): Promise<responses.DeleteIdentityPropagationTrustResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteIdentityPropagationTrust.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteIdentityPropagationTrust.");
     const operationName = "deleteIdentityPropagationTrust";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4736,7 +4627,6 @@ export class IdentityDomainsClient {
       deleteIdentityPropagationTrustRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4782,8 +4672,7 @@ export class IdentityDomainsClient {
   public async deleteIdentityProvider(
     deleteIdentityProviderRequest: requests.DeleteIdentityProviderRequest
   ): Promise<responses.DeleteIdentityProviderResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteIdentityProvider.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteIdentityProvider.");
     const operationName = "deleteIdentityProvider";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4808,7 +4697,6 @@ export class IdentityDomainsClient {
       deleteIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4854,7 +4742,7 @@ export class IdentityDomainsClient {
   public async deleteMyApiKey(
     deleteMyApiKeyRequest: requests.DeleteMyApiKeyRequest
   ): Promise<responses.DeleteMyApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteMyApiKey.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMyApiKey.");
     const operationName = "deleteMyApiKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4879,7 +4767,6 @@ export class IdentityDomainsClient {
       deleteMyApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4925,8 +4812,7 @@ export class IdentityDomainsClient {
   public async deleteMyAuthToken(
     deleteMyAuthTokenRequest: requests.DeleteMyAuthTokenRequest
   ): Promise<responses.DeleteMyAuthTokenResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteMyAuthToken.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMyAuthToken.");
     const operationName = "deleteMyAuthToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4951,7 +4837,6 @@ export class IdentityDomainsClient {
       deleteMyAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4997,8 +4882,7 @@ export class IdentityDomainsClient {
   public async deleteMyCustomerSecretKey(
     deleteMyCustomerSecretKeyRequest: requests.DeleteMyCustomerSecretKeyRequest
   ): Promise<responses.DeleteMyCustomerSecretKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteMyCustomerSecretKey.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMyCustomerSecretKey.");
     const operationName = "deleteMyCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5023,7 +4907,6 @@ export class IdentityDomainsClient {
       deleteMyCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5069,7 +4952,7 @@ export class IdentityDomainsClient {
   public async deleteMyDevice(
     deleteMyDeviceRequest: requests.DeleteMyDeviceRequest
   ): Promise<responses.DeleteMyDeviceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteMyDevice.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMyDevice.");
     const operationName = "deleteMyDevice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5094,7 +4977,6 @@ export class IdentityDomainsClient {
       deleteMyDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5140,8 +5022,7 @@ export class IdentityDomainsClient {
   public async deleteMyOAuth2ClientCredential(
     deleteMyOAuth2ClientCredentialRequest: requests.DeleteMyOAuth2ClientCredentialRequest
   ): Promise<responses.DeleteMyOAuth2ClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteMyOAuth2ClientCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMyOAuth2ClientCredential.");
     const operationName = "deleteMyOAuth2ClientCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5168,7 +5049,6 @@ export class IdentityDomainsClient {
       deleteMyOAuth2ClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5214,8 +5094,7 @@ export class IdentityDomainsClient {
   public async deleteMySmtpCredential(
     deleteMySmtpCredentialRequest: requests.DeleteMySmtpCredentialRequest
   ): Promise<responses.DeleteMySmtpCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteMySmtpCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMySmtpCredential.");
     const operationName = "deleteMySmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5240,7 +5119,6 @@ export class IdentityDomainsClient {
       deleteMySmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5286,8 +5164,7 @@ export class IdentityDomainsClient {
   public async deleteMySupportAccount(
     deleteMySupportAccountRequest: requests.DeleteMySupportAccountRequest
   ): Promise<responses.DeleteMySupportAccountResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteMySupportAccount.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMySupportAccount.");
     const operationName = "deleteMySupportAccount";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5312,7 +5189,6 @@ export class IdentityDomainsClient {
       deleteMySupportAccountRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5358,8 +5234,7 @@ export class IdentityDomainsClient {
   public async deleteMyTrustedUserAgent(
     deleteMyTrustedUserAgentRequest: requests.DeleteMyTrustedUserAgentRequest
   ): Promise<responses.DeleteMyTrustedUserAgentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteMyTrustedUserAgent.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMyTrustedUserAgent.");
     const operationName = "deleteMyTrustedUserAgent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5384,7 +5259,6 @@ export class IdentityDomainsClient {
       deleteMyTrustedUserAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5430,8 +5304,7 @@ export class IdentityDomainsClient {
   public async deleteMyUserDbCredential(
     deleteMyUserDbCredentialRequest: requests.DeleteMyUserDbCredentialRequest
   ): Promise<responses.DeleteMyUserDbCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteMyUserDbCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteMyUserDbCredential.");
     const operationName = "deleteMyUserDbCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5456,7 +5329,6 @@ export class IdentityDomainsClient {
       deleteMyUserDbCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5502,8 +5374,7 @@ export class IdentityDomainsClient {
   public async deleteNetworkPerimeter(
     deleteNetworkPerimeterRequest: requests.DeleteNetworkPerimeterRequest
   ): Promise<responses.DeleteNetworkPerimeterResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteNetworkPerimeter.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteNetworkPerimeter.");
     const operationName = "deleteNetworkPerimeter";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5528,7 +5399,6 @@ export class IdentityDomainsClient {
       deleteNetworkPerimeterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5574,8 +5444,7 @@ export class IdentityDomainsClient {
   public async deleteOAuth2ClientCredential(
     deleteOAuth2ClientCredentialRequest: requests.DeleteOAuth2ClientCredentialRequest
   ): Promise<responses.DeleteOAuth2ClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteOAuth2ClientCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteOAuth2ClientCredential.");
     const operationName = "deleteOAuth2ClientCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5600,7 +5469,6 @@ export class IdentityDomainsClient {
       deleteOAuth2ClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5646,8 +5514,7 @@ export class IdentityDomainsClient {
   public async deleteOAuthClientCertificate(
     deleteOAuthClientCertificateRequest: requests.DeleteOAuthClientCertificateRequest
   ): Promise<responses.DeleteOAuthClientCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteOAuthClientCertificate.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteOAuthClientCertificate.");
     const operationName = "deleteOAuthClientCertificate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5672,7 +5539,6 @@ export class IdentityDomainsClient {
       deleteOAuthClientCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5718,8 +5584,7 @@ export class IdentityDomainsClient {
   public async deleteOAuthPartnerCertificate(
     deleteOAuthPartnerCertificateRequest: requests.DeleteOAuthPartnerCertificateRequest
   ): Promise<responses.DeleteOAuthPartnerCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteOAuthPartnerCertificate.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteOAuthPartnerCertificate.");
     const operationName = "deleteOAuthPartnerCertificate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5745,7 +5610,6 @@ export class IdentityDomainsClient {
       deleteOAuthPartnerCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5791,8 +5655,7 @@ export class IdentityDomainsClient {
   public async deletePasswordPolicy(
     deletePasswordPolicyRequest: requests.DeletePasswordPolicyRequest
   ): Promise<responses.DeletePasswordPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deletePasswordPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#deletePasswordPolicy.");
     const operationName = "deletePasswordPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5817,7 +5680,6 @@ export class IdentityDomainsClient {
       deletePasswordPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5863,7 +5725,7 @@ export class IdentityDomainsClient {
   public async deletePolicy(
     deletePolicyRequest: requests.DeletePolicyRequest
   ): Promise<responses.DeletePolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deletePolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#deletePolicy.");
     const operationName = "deletePolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5888,7 +5750,6 @@ export class IdentityDomainsClient {
       deletePolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5934,7 +5795,7 @@ export class IdentityDomainsClient {
   public async deleteRule(
     deleteRuleRequest: requests.DeleteRuleRequest
   ): Promise<responses.DeleteRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteRule.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteRule.");
     const operationName = "deleteRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5959,7 +5820,6 @@ export class IdentityDomainsClient {
       deleteRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6005,8 +5865,7 @@ export class IdentityDomainsClient {
   public async deleteSecurityQuestion(
     deleteSecurityQuestionRequest: requests.DeleteSecurityQuestionRequest
   ): Promise<responses.DeleteSecurityQuestionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteSecurityQuestion.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteSecurityQuestion.");
     const operationName = "deleteSecurityQuestion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6031,7 +5890,6 @@ export class IdentityDomainsClient {
       deleteSecurityQuestionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6077,8 +5935,7 @@ export class IdentityDomainsClient {
   public async deleteSelfRegistrationProfile(
     deleteSelfRegistrationProfileRequest: requests.DeleteSelfRegistrationProfileRequest
   ): Promise<responses.DeleteSelfRegistrationProfileResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteSelfRegistrationProfile.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteSelfRegistrationProfile.");
     const operationName = "deleteSelfRegistrationProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6104,7 +5961,6 @@ export class IdentityDomainsClient {
       deleteSelfRegistrationProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6150,8 +6006,7 @@ export class IdentityDomainsClient {
   public async deleteSmtpCredential(
     deleteSmtpCredentialRequest: requests.DeleteSmtpCredentialRequest
   ): Promise<responses.DeleteSmtpCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteSmtpCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteSmtpCredential.");
     const operationName = "deleteSmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6176,7 +6031,6 @@ export class IdentityDomainsClient {
       deleteSmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6222,7 +6076,7 @@ export class IdentityDomainsClient {
   public async deleteUser(
     deleteUserRequest: requests.DeleteUserRequest
   ): Promise<responses.DeleteUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#deleteUser.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteUser.");
     const operationName = "deleteUser";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6247,7 +6101,6 @@ export class IdentityDomainsClient {
       deleteUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6293,8 +6146,7 @@ export class IdentityDomainsClient {
   public async deleteUserDbCredential(
     deleteUserDbCredentialRequest: requests.DeleteUserDbCredentialRequest
   ): Promise<responses.DeleteUserDbCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#deleteUserDbCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#deleteUserDbCredential.");
     const operationName = "deleteUserDbCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6319,7 +6171,6 @@ export class IdentityDomainsClient {
       deleteUserDbCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6365,8 +6216,7 @@ export class IdentityDomainsClient {
   public async getAccountMgmtInfo(
     getAccountMgmtInfoRequest: requests.GetAccountMgmtInfoRequest
   ): Promise<responses.GetAccountMgmtInfoResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getAccountMgmtInfo.");
+    logger.debug("Calling operation IdentityDomainsClient#getAccountMgmtInfo.");
     const operationName = "getAccountMgmtInfo";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6391,7 +6241,6 @@ export class IdentityDomainsClient {
       getAccountMgmtInfoRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6441,8 +6290,7 @@ export class IdentityDomainsClient {
   public async getAccountRecoverySetting(
     getAccountRecoverySettingRequest: requests.GetAccountRecoverySettingRequest
   ): Promise<responses.GetAccountRecoverySettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getAccountRecoverySetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getAccountRecoverySetting.");
     const operationName = "getAccountRecoverySetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6467,7 +6315,6 @@ export class IdentityDomainsClient {
       getAccountRecoverySettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6517,7 +6364,7 @@ export class IdentityDomainsClient {
   public async getApiKey(
     getApiKeyRequest: requests.GetApiKeyRequest
   ): Promise<responses.GetApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getApiKey.");
+    logger.debug("Calling operation IdentityDomainsClient#getApiKey.");
     const operationName = "getApiKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6542,7 +6389,6 @@ export class IdentityDomainsClient {
       getApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6590,7 +6436,7 @@ export class IdentityDomainsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApp.ts.html |here} to see how to use GetApp API.
    */
   public async getApp(getAppRequest: requests.GetAppRequest): Promise<responses.GetAppResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getApp.");
+    logger.debug("Calling operation IdentityDomainsClient#getApp.");
     const operationName = "getApp";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6615,7 +6461,6 @@ export class IdentityDomainsClient {
       getAppRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6665,7 +6510,7 @@ export class IdentityDomainsClient {
   public async getAppRole(
     getAppRoleRequest: requests.GetAppRoleRequest
   ): Promise<responses.GetAppRoleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getAppRole.");
+    logger.debug("Calling operation IdentityDomainsClient#getAppRole.");
     const operationName = "getAppRole";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6690,7 +6535,6 @@ export class IdentityDomainsClient {
       getAppRoleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6740,8 +6584,7 @@ export class IdentityDomainsClient {
   public async getApprovalWorkflow(
     getApprovalWorkflowRequest: requests.GetApprovalWorkflowRequest
   ): Promise<responses.GetApprovalWorkflowResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflow.");
+    logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflow.");
     const operationName = "getApprovalWorkflow";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6766,7 +6609,6 @@ export class IdentityDomainsClient {
       getApprovalWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6816,8 +6658,7 @@ export class IdentityDomainsClient {
   public async getApprovalWorkflowAssignment(
     getApprovalWorkflowAssignmentRequest: requests.GetApprovalWorkflowAssignmentRequest
   ): Promise<responses.GetApprovalWorkflowAssignmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflowAssignment.");
+    logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflowAssignment.");
     const operationName = "getApprovalWorkflowAssignment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6844,7 +6685,6 @@ export class IdentityDomainsClient {
       getApprovalWorkflowAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6894,8 +6734,7 @@ export class IdentityDomainsClient {
   public async getApprovalWorkflowStep(
     getApprovalWorkflowStepRequest: requests.GetApprovalWorkflowStepRequest
   ): Promise<responses.GetApprovalWorkflowStepResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflowStep.");
+    logger.debug("Calling operation IdentityDomainsClient#getApprovalWorkflowStep.");
     const operationName = "getApprovalWorkflowStep";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6920,7 +6759,6 @@ export class IdentityDomainsClient {
       getApprovalWorkflowStepRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6970,7 +6808,7 @@ export class IdentityDomainsClient {
   public async getAuthToken(
     getAuthTokenRequest: requests.GetAuthTokenRequest
   ): Promise<responses.GetAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getAuthToken.");
+    logger.debug("Calling operation IdentityDomainsClient#getAuthToken.");
     const operationName = "getAuthToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6995,7 +6833,6 @@ export class IdentityDomainsClient {
       getAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7045,8 +6882,7 @@ export class IdentityDomainsClient {
   public async getAuthenticationFactorSetting(
     getAuthenticationFactorSettingRequest: requests.GetAuthenticationFactorSettingRequest
   ): Promise<responses.GetAuthenticationFactorSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getAuthenticationFactorSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getAuthenticationFactorSetting.");
     const operationName = "getAuthenticationFactorSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7073,7 +6909,6 @@ export class IdentityDomainsClient {
       getAuthenticationFactorSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7123,8 +6958,7 @@ export class IdentityDomainsClient {
   public async getBrandingSetting(
     getBrandingSettingRequest: requests.GetBrandingSettingRequest
   ): Promise<responses.GetBrandingSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getBrandingSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getBrandingSetting.");
     const operationName = "getBrandingSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7149,7 +6983,6 @@ export class IdentityDomainsClient {
       getBrandingSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7199,7 +7032,7 @@ export class IdentityDomainsClient {
   public async getCloudGate(
     getCloudGateRequest: requests.GetCloudGateRequest
   ): Promise<responses.GetCloudGateResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getCloudGate.");
+    logger.debug("Calling operation IdentityDomainsClient#getCloudGate.");
     const operationName = "getCloudGate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7224,7 +7057,6 @@ export class IdentityDomainsClient {
       getCloudGateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7274,8 +7106,7 @@ export class IdentityDomainsClient {
   public async getCloudGateMapping(
     getCloudGateMappingRequest: requests.GetCloudGateMappingRequest
   ): Promise<responses.GetCloudGateMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getCloudGateMapping.");
+    logger.debug("Calling operation IdentityDomainsClient#getCloudGateMapping.");
     const operationName = "getCloudGateMapping";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7300,7 +7131,6 @@ export class IdentityDomainsClient {
       getCloudGateMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7350,8 +7180,7 @@ export class IdentityDomainsClient {
   public async getCloudGateServer(
     getCloudGateServerRequest: requests.GetCloudGateServerRequest
   ): Promise<responses.GetCloudGateServerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getCloudGateServer.");
+    logger.debug("Calling operation IdentityDomainsClient#getCloudGateServer.");
     const operationName = "getCloudGateServer";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7376,7 +7205,6 @@ export class IdentityDomainsClient {
       getCloudGateServerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7426,7 +7254,7 @@ export class IdentityDomainsClient {
   public async getCondition(
     getConditionRequest: requests.GetConditionRequest
   ): Promise<responses.GetConditionResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getCondition.");
+    logger.debug("Calling operation IdentityDomainsClient#getCondition.");
     const operationName = "getCondition";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7451,7 +7279,6 @@ export class IdentityDomainsClient {
       getConditionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7501,8 +7328,7 @@ export class IdentityDomainsClient {
   public async getCustomerSecretKey(
     getCustomerSecretKeyRequest: requests.GetCustomerSecretKeyRequest
   ): Promise<responses.GetCustomerSecretKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getCustomerSecretKey.");
+    logger.debug("Calling operation IdentityDomainsClient#getCustomerSecretKey.");
     const operationName = "getCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7527,7 +7353,6 @@ export class IdentityDomainsClient {
       getCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7577,8 +7402,7 @@ export class IdentityDomainsClient {
   public async getDynamicResourceGroup(
     getDynamicResourceGroupRequest: requests.GetDynamicResourceGroupRequest
   ): Promise<responses.GetDynamicResourceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getDynamicResourceGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#getDynamicResourceGroup.");
     const operationName = "getDynamicResourceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7603,7 +7427,6 @@ export class IdentityDomainsClient {
       getDynamicResourceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7653,7 +7476,7 @@ export class IdentityDomainsClient {
   public async getGrant(
     getGrantRequest: requests.GetGrantRequest
   ): Promise<responses.GetGrantResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getGrant.");
+    logger.debug("Calling operation IdentityDomainsClient#getGrant.");
     const operationName = "getGrant";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7678,7 +7501,6 @@ export class IdentityDomainsClient {
       getGrantRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7728,7 +7550,7 @@ export class IdentityDomainsClient {
   public async getGroup(
     getGroupRequest: requests.GetGroupRequest
   ): Promise<responses.GetGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#getGroup.");
     const operationName = "getGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7753,7 +7575,6 @@ export class IdentityDomainsClient {
       getGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7803,8 +7624,7 @@ export class IdentityDomainsClient {
   public async getIdentityPropagationTrust(
     getIdentityPropagationTrustRequest: requests.GetIdentityPropagationTrustRequest
   ): Promise<responses.GetIdentityPropagationTrustResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getIdentityPropagationTrust.");
+    logger.debug("Calling operation IdentityDomainsClient#getIdentityPropagationTrust.");
     const operationName = "getIdentityPropagationTrust";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7829,7 +7649,6 @@ export class IdentityDomainsClient {
       getIdentityPropagationTrustRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7879,8 +7698,7 @@ export class IdentityDomainsClient {
   public async getIdentityProvider(
     getIdentityProviderRequest: requests.GetIdentityProviderRequest
   ): Promise<responses.GetIdentityProviderResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getIdentityProvider.");
+    logger.debug("Calling operation IdentityDomainsClient#getIdentityProvider.");
     const operationName = "getIdentityProvider";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7905,7 +7723,6 @@ export class IdentityDomainsClient {
       getIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7955,8 +7772,7 @@ export class IdentityDomainsClient {
   public async getIdentitySetting(
     getIdentitySettingRequest: requests.GetIdentitySettingRequest
   ): Promise<responses.GetIdentitySettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getIdentitySetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getIdentitySetting.");
     const operationName = "getIdentitySetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7981,7 +7797,6 @@ export class IdentityDomainsClient {
       getIdentitySettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8031,7 +7846,7 @@ export class IdentityDomainsClient {
   public async getKmsiSetting(
     getKmsiSettingRequest: requests.GetKmsiSettingRequest
   ): Promise<responses.GetKmsiSettingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getKmsiSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getKmsiSetting.");
     const operationName = "getKmsiSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8056,7 +7871,6 @@ export class IdentityDomainsClient {
       getKmsiSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8104,7 +7918,7 @@ export class IdentityDomainsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMe.ts.html |here} to see how to use GetMe API.
    */
   public async getMe(getMeRequest: requests.GetMeRequest): Promise<responses.GetMeResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getMe.");
+    logger.debug("Calling operation IdentityDomainsClient#getMe.");
     const operationName = "getMe";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -8127,7 +7941,6 @@ export class IdentityDomainsClient {
       getMeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8177,7 +7990,7 @@ export class IdentityDomainsClient {
   public async getMyApiKey(
     getMyApiKeyRequest: requests.GetMyApiKeyRequest
   ): Promise<responses.GetMyApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getMyApiKey.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyApiKey.");
     const operationName = "getMyApiKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8199,7 +8012,6 @@ export class IdentityDomainsClient {
       getMyApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8249,7 +8061,7 @@ export class IdentityDomainsClient {
   public async getMyAuthToken(
     getMyAuthTokenRequest: requests.GetMyAuthTokenRequest
   ): Promise<responses.GetMyAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getMyAuthToken.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyAuthToken.");
     const operationName = "getMyAuthToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8271,7 +8083,6 @@ export class IdentityDomainsClient {
       getMyAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8321,8 +8132,7 @@ export class IdentityDomainsClient {
   public async getMyCompletedApproval(
     getMyCompletedApprovalRequest: requests.GetMyCompletedApprovalRequest
   ): Promise<responses.GetMyCompletedApprovalResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getMyCompletedApproval.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyCompletedApproval.");
     const operationName = "getMyCompletedApproval";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8344,7 +8154,6 @@ export class IdentityDomainsClient {
       getMyCompletedApprovalRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8394,8 +8203,7 @@ export class IdentityDomainsClient {
   public async getMyCustomerSecretKey(
     getMyCustomerSecretKeyRequest: requests.GetMyCustomerSecretKeyRequest
   ): Promise<responses.GetMyCustomerSecretKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getMyCustomerSecretKey.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyCustomerSecretKey.");
     const operationName = "getMyCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8417,7 +8225,6 @@ export class IdentityDomainsClient {
       getMyCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8467,7 +8274,7 @@ export class IdentityDomainsClient {
   public async getMyDevice(
     getMyDeviceRequest: requests.GetMyDeviceRequest
   ): Promise<responses.GetMyDeviceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getMyDevice.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyDevice.");
     const operationName = "getMyDevice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8492,7 +8299,6 @@ export class IdentityDomainsClient {
       getMyDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8542,8 +8348,7 @@ export class IdentityDomainsClient {
   public async getMyOAuth2ClientCredential(
     getMyOAuth2ClientCredentialRequest: requests.GetMyOAuth2ClientCredentialRequest
   ): Promise<responses.GetMyOAuth2ClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getMyOAuth2ClientCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyOAuth2ClientCredential.");
     const operationName = "getMyOAuth2ClientCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8565,7 +8370,6 @@ export class IdentityDomainsClient {
       getMyOAuth2ClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8615,8 +8419,7 @@ export class IdentityDomainsClient {
   public async getMyPendingApproval(
     getMyPendingApprovalRequest: requests.GetMyPendingApprovalRequest
   ): Promise<responses.GetMyPendingApprovalResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getMyPendingApproval.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyPendingApproval.");
     const operationName = "getMyPendingApproval";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8638,7 +8441,6 @@ export class IdentityDomainsClient {
       getMyPendingApprovalRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8688,7 +8490,7 @@ export class IdentityDomainsClient {
   public async getMyRequest(
     getMyRequestRequest: requests.GetMyRequestRequest
   ): Promise<responses.GetMyRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getMyRequest.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyRequest.");
     const operationName = "getMyRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8713,7 +8515,6 @@ export class IdentityDomainsClient {
       getMyRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8763,8 +8564,7 @@ export class IdentityDomainsClient {
   public async getMySmtpCredential(
     getMySmtpCredentialRequest: requests.GetMySmtpCredentialRequest
   ): Promise<responses.GetMySmtpCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getMySmtpCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#getMySmtpCredential.");
     const operationName = "getMySmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8786,7 +8586,6 @@ export class IdentityDomainsClient {
       getMySmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8836,8 +8635,7 @@ export class IdentityDomainsClient {
   public async getMySupportAccount(
     getMySupportAccountRequest: requests.GetMySupportAccountRequest
   ): Promise<responses.GetMySupportAccountResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getMySupportAccount.");
+    logger.debug("Calling operation IdentityDomainsClient#getMySupportAccount.");
     const operationName = "getMySupportAccount";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8859,7 +8657,6 @@ export class IdentityDomainsClient {
       getMySupportAccountRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8909,8 +8706,7 @@ export class IdentityDomainsClient {
   public async getMyTrustedUserAgent(
     getMyTrustedUserAgentRequest: requests.GetMyTrustedUserAgentRequest
   ): Promise<responses.GetMyTrustedUserAgentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getMyTrustedUserAgent.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyTrustedUserAgent.");
     const operationName = "getMyTrustedUserAgent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8935,7 +8731,6 @@ export class IdentityDomainsClient {
       getMyTrustedUserAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8985,8 +8780,7 @@ export class IdentityDomainsClient {
   public async getMyUserDbCredential(
     getMyUserDbCredentialRequest: requests.GetMyUserDbCredentialRequest
   ): Promise<responses.GetMyUserDbCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getMyUserDbCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#getMyUserDbCredential.");
     const operationName = "getMyUserDbCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9008,7 +8802,6 @@ export class IdentityDomainsClient {
       getMyUserDbCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9058,8 +8851,7 @@ export class IdentityDomainsClient {
   public async getNetworkPerimeter(
     getNetworkPerimeterRequest: requests.GetNetworkPerimeterRequest
   ): Promise<responses.GetNetworkPerimeterResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getNetworkPerimeter.");
+    logger.debug("Calling operation IdentityDomainsClient#getNetworkPerimeter.");
     const operationName = "getNetworkPerimeter";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9084,7 +8876,6 @@ export class IdentityDomainsClient {
       getNetworkPerimeterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9134,8 +8925,7 @@ export class IdentityDomainsClient {
   public async getNotificationSetting(
     getNotificationSettingRequest: requests.GetNotificationSettingRequest
   ): Promise<responses.GetNotificationSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getNotificationSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getNotificationSetting.");
     const operationName = "getNotificationSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9160,7 +8950,6 @@ export class IdentityDomainsClient {
       getNotificationSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9210,8 +8999,7 @@ export class IdentityDomainsClient {
   public async getOAuth2ClientCredential(
     getOAuth2ClientCredentialRequest: requests.GetOAuth2ClientCredentialRequest
   ): Promise<responses.GetOAuth2ClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getOAuth2ClientCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#getOAuth2ClientCredential.");
     const operationName = "getOAuth2ClientCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9236,7 +9024,6 @@ export class IdentityDomainsClient {
       getOAuth2ClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9286,8 +9073,7 @@ export class IdentityDomainsClient {
   public async getOAuthClientCertificate(
     getOAuthClientCertificateRequest: requests.GetOAuthClientCertificateRequest
   ): Promise<responses.GetOAuthClientCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getOAuthClientCertificate.");
+    logger.debug("Calling operation IdentityDomainsClient#getOAuthClientCertificate.");
     const operationName = "getOAuthClientCertificate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9309,7 +9095,6 @@ export class IdentityDomainsClient {
       getOAuthClientCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9359,8 +9144,7 @@ export class IdentityDomainsClient {
   public async getOAuthPartnerCertificate(
     getOAuthPartnerCertificateRequest: requests.GetOAuthPartnerCertificateRequest
   ): Promise<responses.GetOAuthPartnerCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getOAuthPartnerCertificate.");
+    logger.debug("Calling operation IdentityDomainsClient#getOAuthPartnerCertificate.");
     const operationName = "getOAuthPartnerCertificate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9382,7 +9166,6 @@ export class IdentityDomainsClient {
       getOAuthPartnerCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9432,8 +9215,7 @@ export class IdentityDomainsClient {
   public async getPasswordPolicy(
     getPasswordPolicyRequest: requests.GetPasswordPolicyRequest
   ): Promise<responses.GetPasswordPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getPasswordPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#getPasswordPolicy.");
     const operationName = "getPasswordPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9458,7 +9240,6 @@ export class IdentityDomainsClient {
       getPasswordPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9508,7 +9289,7 @@ export class IdentityDomainsClient {
   public async getPolicy(
     getPolicyRequest: requests.GetPolicyRequest
   ): Promise<responses.GetPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#getPolicy.");
     const operationName = "getPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9533,7 +9314,6 @@ export class IdentityDomainsClient {
       getPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9583,7 +9363,7 @@ export class IdentityDomainsClient {
   public async getRule(
     getRuleRequest: requests.GetRuleRequest
   ): Promise<responses.GetRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getRule.");
+    logger.debug("Calling operation IdentityDomainsClient#getRule.");
     const operationName = "getRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9608,7 +9388,6 @@ export class IdentityDomainsClient {
       getRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9658,7 +9437,7 @@ export class IdentityDomainsClient {
   public async getSchema(
     getSchemaRequest: requests.GetSchemaRequest
   ): Promise<responses.GetSchemaResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getSchema.");
+    logger.debug("Calling operation IdentityDomainsClient#getSchema.");
     const operationName = "getSchema";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9680,7 +9459,6 @@ export class IdentityDomainsClient {
       getSchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9730,8 +9508,7 @@ export class IdentityDomainsClient {
   public async getSecurityQuestion(
     getSecurityQuestionRequest: requests.GetSecurityQuestionRequest
   ): Promise<responses.GetSecurityQuestionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getSecurityQuestion.");
+    logger.debug("Calling operation IdentityDomainsClient#getSecurityQuestion.");
     const operationName = "getSecurityQuestion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9756,7 +9533,6 @@ export class IdentityDomainsClient {
       getSecurityQuestionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9806,8 +9582,7 @@ export class IdentityDomainsClient {
   public async getSecurityQuestionSetting(
     getSecurityQuestionSettingRequest: requests.GetSecurityQuestionSettingRequest
   ): Promise<responses.GetSecurityQuestionSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getSecurityQuestionSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getSecurityQuestionSetting.");
     const operationName = "getSecurityQuestionSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9832,7 +9607,6 @@ export class IdentityDomainsClient {
       getSecurityQuestionSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9882,8 +9656,7 @@ export class IdentityDomainsClient {
   public async getSelfRegistrationProfile(
     getSelfRegistrationProfileRequest: requests.GetSelfRegistrationProfileRequest
   ): Promise<responses.GetSelfRegistrationProfileResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getSelfRegistrationProfile.");
+    logger.debug("Calling operation IdentityDomainsClient#getSelfRegistrationProfile.");
     const operationName = "getSelfRegistrationProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9908,7 +9681,6 @@ export class IdentityDomainsClient {
       getSelfRegistrationProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9958,7 +9730,7 @@ export class IdentityDomainsClient {
   public async getSetting(
     getSettingRequest: requests.GetSettingRequest
   ): Promise<responses.GetSettingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getSetting.");
     const operationName = "getSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9983,7 +9755,6 @@ export class IdentityDomainsClient {
       getSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10033,8 +9804,7 @@ export class IdentityDomainsClient {
   public async getSmtpCredential(
     getSmtpCredentialRequest: requests.GetSmtpCredentialRequest
   ): Promise<responses.GetSmtpCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getSmtpCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#getSmtpCredential.");
     const operationName = "getSmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -10059,7 +9829,6 @@ export class IdentityDomainsClient {
       getSmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10109,7 +9878,7 @@ export class IdentityDomainsClient {
   public async getUser(
     getUserRequest: requests.GetUserRequest
   ): Promise<responses.GetUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getUser.");
+    logger.debug("Calling operation IdentityDomainsClient#getUser.");
     const operationName = "getUser";
     const apiReferenceLink = "";
     const pathParams = {
@@ -10134,7 +9903,6 @@ export class IdentityDomainsClient {
       getUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10184,8 +9952,7 @@ export class IdentityDomainsClient {
   public async getUserAttributesSetting(
     getUserAttributesSettingRequest: requests.GetUserAttributesSettingRequest
   ): Promise<responses.GetUserAttributesSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getUserAttributesSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#getUserAttributesSetting.");
     const operationName = "getUserAttributesSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -10210,7 +9977,6 @@ export class IdentityDomainsClient {
       getUserAttributesSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10260,8 +10026,7 @@ export class IdentityDomainsClient {
   public async getUserDbCredential(
     getUserDbCredentialRequest: requests.GetUserDbCredentialRequest
   ): Promise<responses.GetUserDbCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#getUserDbCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#getUserDbCredential.");
     const operationName = "getUserDbCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -10286,7 +10051,6 @@ export class IdentityDomainsClient {
       getUserDbCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10336,8 +10100,7 @@ export class IdentityDomainsClient {
   public async listAccountMgmtInfos(
     listAccountMgmtInfosRequest: requests.ListAccountMgmtInfosRequest
   ): Promise<responses.ListAccountMgmtInfosResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listAccountMgmtInfos.");
+    logger.debug("Calling operation IdentityDomainsClient#listAccountMgmtInfos.");
     const operationName = "listAccountMgmtInfos";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10367,7 +10130,6 @@ export class IdentityDomainsClient {
       listAccountMgmtInfosRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10422,8 +10184,7 @@ export class IdentityDomainsClient {
   public async listAccountRecoverySettings(
     listAccountRecoverySettingsRequest: requests.ListAccountRecoverySettingsRequest
   ): Promise<responses.ListAccountRecoverySettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listAccountRecoverySettings.");
+    logger.debug("Calling operation IdentityDomainsClient#listAccountRecoverySettings.");
     const operationName = "listAccountRecoverySettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10448,7 +10209,6 @@ export class IdentityDomainsClient {
       listAccountRecoverySettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10503,7 +10263,7 @@ export class IdentityDomainsClient {
   public async listApiKeys(
     listApiKeysRequest: requests.ListApiKeysRequest
   ): Promise<responses.ListApiKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listApiKeys.");
+    logger.debug("Calling operation IdentityDomainsClient#listApiKeys.");
     const operationName = "listApiKeys";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10533,7 +10293,6 @@ export class IdentityDomainsClient {
       listApiKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10588,7 +10347,7 @@ export class IdentityDomainsClient {
   public async listAppRoles(
     listAppRolesRequest: requests.ListAppRolesRequest
   ): Promise<responses.ListAppRolesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listAppRoles.");
+    logger.debug("Calling operation IdentityDomainsClient#listAppRoles.");
     const operationName = "listAppRoles";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10618,7 +10377,6 @@ export class IdentityDomainsClient {
       listAppRolesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10673,8 +10431,7 @@ export class IdentityDomainsClient {
   public async listApprovalWorkflowAssignments(
     listApprovalWorkflowAssignmentsRequest: requests.ListApprovalWorkflowAssignmentsRequest
   ): Promise<responses.ListApprovalWorkflowAssignmentsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflowAssignments.");
+    logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflowAssignments.");
     const operationName = "listApprovalWorkflowAssignments";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10705,7 +10462,6 @@ export class IdentityDomainsClient {
       listApprovalWorkflowAssignmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10760,8 +10516,7 @@ export class IdentityDomainsClient {
   public async listApprovalWorkflowSteps(
     listApprovalWorkflowStepsRequest: requests.ListApprovalWorkflowStepsRequest
   ): Promise<responses.ListApprovalWorkflowStepsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflowSteps.");
+    logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflowSteps.");
     const operationName = "listApprovalWorkflowSteps";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10791,7 +10546,6 @@ export class IdentityDomainsClient {
       listApprovalWorkflowStepsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10846,8 +10600,7 @@ export class IdentityDomainsClient {
   public async listApprovalWorkflows(
     listApprovalWorkflowsRequest: requests.ListApprovalWorkflowsRequest
   ): Promise<responses.ListApprovalWorkflowsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflows.");
+    logger.debug("Calling operation IdentityDomainsClient#listApprovalWorkflows.");
     const operationName = "listApprovalWorkflows";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10877,7 +10630,6 @@ export class IdentityDomainsClient {
       listApprovalWorkflowsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10932,7 +10684,7 @@ export class IdentityDomainsClient {
   public async listApps(
     listAppsRequest: requests.ListAppsRequest
   ): Promise<responses.ListAppsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listApps.");
+    logger.debug("Calling operation IdentityDomainsClient#listApps.");
     const operationName = "listApps";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10962,7 +10714,6 @@ export class IdentityDomainsClient {
       listAppsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11017,7 +10768,7 @@ export class IdentityDomainsClient {
   public async listAuthTokens(
     listAuthTokensRequest: requests.ListAuthTokensRequest
   ): Promise<responses.ListAuthTokensResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listAuthTokens.");
+    logger.debug("Calling operation IdentityDomainsClient#listAuthTokens.");
     const operationName = "listAuthTokens";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11047,7 +10798,6 @@ export class IdentityDomainsClient {
       listAuthTokensRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11102,10 +10852,7 @@ export class IdentityDomainsClient {
   public async listAuthenticationFactorSettings(
     listAuthenticationFactorSettingsRequest: requests.ListAuthenticationFactorSettingsRequest
   ): Promise<responses.ListAuthenticationFactorSettingsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#listAuthenticationFactorSettings."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#listAuthenticationFactorSettings.");
     const operationName = "listAuthenticationFactorSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11131,7 +10878,6 @@ export class IdentityDomainsClient {
       listAuthenticationFactorSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11186,8 +10932,7 @@ export class IdentityDomainsClient {
   public async listBrandingSettings(
     listBrandingSettingsRequest: requests.ListBrandingSettingsRequest
   ): Promise<responses.ListBrandingSettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listBrandingSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#listBrandingSettings.");
     const operationName = "listBrandingSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11212,7 +10957,6 @@ export class IdentityDomainsClient {
       listBrandingSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11267,8 +11011,7 @@ export class IdentityDomainsClient {
   public async listCloudGateMappings(
     listCloudGateMappingsRequest: requests.ListCloudGateMappingsRequest
   ): Promise<responses.ListCloudGateMappingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listCloudGateMappings.");
+    logger.debug("Calling operation IdentityDomainsClient#listCloudGateMappings.");
     const operationName = "listCloudGateMappings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11298,7 +11041,6 @@ export class IdentityDomainsClient {
       listCloudGateMappingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11353,8 +11095,7 @@ export class IdentityDomainsClient {
   public async listCloudGateServers(
     listCloudGateServersRequest: requests.ListCloudGateServersRequest
   ): Promise<responses.ListCloudGateServersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listCloudGateServers.");
+    logger.debug("Calling operation IdentityDomainsClient#listCloudGateServers.");
     const operationName = "listCloudGateServers";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11384,7 +11125,6 @@ export class IdentityDomainsClient {
       listCloudGateServersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11439,7 +11179,7 @@ export class IdentityDomainsClient {
   public async listCloudGates(
     listCloudGatesRequest: requests.ListCloudGatesRequest
   ): Promise<responses.ListCloudGatesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listCloudGates.");
+    logger.debug("Calling operation IdentityDomainsClient#listCloudGates.");
     const operationName = "listCloudGates";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11469,7 +11209,6 @@ export class IdentityDomainsClient {
       listCloudGatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11524,7 +11263,7 @@ export class IdentityDomainsClient {
   public async listConditions(
     listConditionsRequest: requests.ListConditionsRequest
   ): Promise<responses.ListConditionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listConditions.");
+    logger.debug("Calling operation IdentityDomainsClient#listConditions.");
     const operationName = "listConditions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11554,7 +11293,6 @@ export class IdentityDomainsClient {
       listConditionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11609,8 +11347,7 @@ export class IdentityDomainsClient {
   public async listCustomerSecretKeys(
     listCustomerSecretKeysRequest: requests.ListCustomerSecretKeysRequest
   ): Promise<responses.ListCustomerSecretKeysResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listCustomerSecretKeys.");
+    logger.debug("Calling operation IdentityDomainsClient#listCustomerSecretKeys.");
     const operationName = "listCustomerSecretKeys";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11640,7 +11377,6 @@ export class IdentityDomainsClient {
       listCustomerSecretKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11695,8 +11431,7 @@ export class IdentityDomainsClient {
   public async listDynamicResourceGroups(
     listDynamicResourceGroupsRequest: requests.ListDynamicResourceGroupsRequest
   ): Promise<responses.ListDynamicResourceGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listDynamicResourceGroups.");
+    logger.debug("Calling operation IdentityDomainsClient#listDynamicResourceGroups.");
     const operationName = "listDynamicResourceGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11726,7 +11461,6 @@ export class IdentityDomainsClient {
       listDynamicResourceGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11781,7 +11515,7 @@ export class IdentityDomainsClient {
   public async listGrants(
     listGrantsRequest: requests.ListGrantsRequest
   ): Promise<responses.ListGrantsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listGrants.");
+    logger.debug("Calling operation IdentityDomainsClient#listGrants.");
     const operationName = "listGrants";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11811,7 +11545,6 @@ export class IdentityDomainsClient {
       listGrantsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11866,7 +11599,7 @@ export class IdentityDomainsClient {
   public async listGroups(
     listGroupsRequest: requests.ListGroupsRequest
   ): Promise<responses.ListGroupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listGroups.");
+    logger.debug("Calling operation IdentityDomainsClient#listGroups.");
     const operationName = "listGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11896,7 +11629,6 @@ export class IdentityDomainsClient {
       listGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11951,8 +11683,7 @@ export class IdentityDomainsClient {
   public async listIdentityPropagationTrusts(
     listIdentityPropagationTrustsRequest: requests.ListIdentityPropagationTrustsRequest
   ): Promise<responses.ListIdentityPropagationTrustsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listIdentityPropagationTrusts.");
+    logger.debug("Calling operation IdentityDomainsClient#listIdentityPropagationTrusts.");
     const operationName = "listIdentityPropagationTrusts";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -11983,7 +11714,6 @@ export class IdentityDomainsClient {
       listIdentityPropagationTrustsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12038,8 +11768,7 @@ export class IdentityDomainsClient {
   public async listIdentityProviders(
     listIdentityProvidersRequest: requests.ListIdentityProvidersRequest
   ): Promise<responses.ListIdentityProvidersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listIdentityProviders.");
+    logger.debug("Calling operation IdentityDomainsClient#listIdentityProviders.");
     const operationName = "listIdentityProviders";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12069,7 +11798,6 @@ export class IdentityDomainsClient {
       listIdentityProvidersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12124,8 +11852,7 @@ export class IdentityDomainsClient {
   public async listIdentitySettings(
     listIdentitySettingsRequest: requests.ListIdentitySettingsRequest
   ): Promise<responses.ListIdentitySettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listIdentitySettings.");
+    logger.debug("Calling operation IdentityDomainsClient#listIdentitySettings.");
     const operationName = "listIdentitySettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12150,7 +11877,6 @@ export class IdentityDomainsClient {
       listIdentitySettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12205,7 +11931,7 @@ export class IdentityDomainsClient {
   public async listKmsiSettings(
     listKmsiSettingsRequest: requests.ListKmsiSettingsRequest
   ): Promise<responses.ListKmsiSettingsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listKmsiSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#listKmsiSettings.");
     const operationName = "listKmsiSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12230,7 +11956,6 @@ export class IdentityDomainsClient {
       listKmsiSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12285,7 +12010,7 @@ export class IdentityDomainsClient {
   public async listMyApiKeys(
     listMyApiKeysRequest: requests.ListMyApiKeysRequest
   ): Promise<responses.ListMyApiKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listMyApiKeys.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyApiKeys.");
     const operationName = "listMyApiKeys";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12313,7 +12038,6 @@ export class IdentityDomainsClient {
       listMyApiKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12368,7 +12092,7 @@ export class IdentityDomainsClient {
   public async listMyApps(
     listMyAppsRequest: requests.ListMyAppsRequest
   ): Promise<responses.ListMyAppsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listMyApps.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyApps.");
     const operationName = "listMyApps";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12396,7 +12120,6 @@ export class IdentityDomainsClient {
       listMyAppsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12451,7 +12174,7 @@ export class IdentityDomainsClient {
   public async listMyAuthTokens(
     listMyAuthTokensRequest: requests.ListMyAuthTokensRequest
   ): Promise<responses.ListMyAuthTokensResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listMyAuthTokens.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyAuthTokens.");
     const operationName = "listMyAuthTokens";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12479,7 +12202,6 @@ export class IdentityDomainsClient {
       listMyAuthTokensRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12534,8 +12256,7 @@ export class IdentityDomainsClient {
   public async listMyCompletedApprovals(
     listMyCompletedApprovalsRequest: requests.ListMyCompletedApprovalsRequest
   ): Promise<responses.ListMyCompletedApprovalsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMyCompletedApprovals.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyCompletedApprovals.");
     const operationName = "listMyCompletedApprovals";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12563,7 +12284,6 @@ export class IdentityDomainsClient {
       listMyCompletedApprovalsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12618,8 +12338,7 @@ export class IdentityDomainsClient {
   public async listMyCustomerSecretKeys(
     listMyCustomerSecretKeysRequest: requests.ListMyCustomerSecretKeysRequest
   ): Promise<responses.ListMyCustomerSecretKeysResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMyCustomerSecretKeys.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyCustomerSecretKeys.");
     const operationName = "listMyCustomerSecretKeys";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12647,7 +12366,6 @@ export class IdentityDomainsClient {
       listMyCustomerSecretKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12702,7 +12420,7 @@ export class IdentityDomainsClient {
   public async listMyDevices(
     listMyDevicesRequest: requests.ListMyDevicesRequest
   ): Promise<responses.ListMyDevicesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listMyDevices.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyDevices.");
     const operationName = "listMyDevices";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12732,7 +12450,6 @@ export class IdentityDomainsClient {
       listMyDevicesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12787,7 +12504,7 @@ export class IdentityDomainsClient {
   public async listMyGroups(
     listMyGroupsRequest: requests.ListMyGroupsRequest
   ): Promise<responses.ListMyGroupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listMyGroups.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyGroups.");
     const operationName = "listMyGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12817,7 +12534,6 @@ export class IdentityDomainsClient {
       listMyGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12872,8 +12588,7 @@ export class IdentityDomainsClient {
   public async listMyOAuth2ClientCredentials(
     listMyOAuth2ClientCredentialsRequest: requests.ListMyOAuth2ClientCredentialsRequest
   ): Promise<responses.ListMyOAuth2ClientCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMyOAuth2ClientCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyOAuth2ClientCredentials.");
     const operationName = "listMyOAuth2ClientCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12902,7 +12617,6 @@ export class IdentityDomainsClient {
       listMyOAuth2ClientCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12957,8 +12671,7 @@ export class IdentityDomainsClient {
   public async listMyPendingApprovals(
     listMyPendingApprovalsRequest: requests.ListMyPendingApprovalsRequest
   ): Promise<responses.ListMyPendingApprovalsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMyPendingApprovals.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyPendingApprovals.");
     const operationName = "listMyPendingApprovals";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -12986,7 +12699,6 @@ export class IdentityDomainsClient {
       listMyPendingApprovalsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13041,8 +12753,7 @@ export class IdentityDomainsClient {
   public async listMyRequestableGroups(
     listMyRequestableGroupsRequest: requests.ListMyRequestableGroupsRequest
   ): Promise<responses.ListMyRequestableGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMyRequestableGroups.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyRequestableGroups.");
     const operationName = "listMyRequestableGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13070,7 +12781,6 @@ export class IdentityDomainsClient {
       listMyRequestableGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13125,7 +12835,7 @@ export class IdentityDomainsClient {
   public async listMyRequests(
     listMyRequestsRequest: requests.ListMyRequestsRequest
   ): Promise<responses.ListMyRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listMyRequests.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyRequests.");
     const operationName = "listMyRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13155,7 +12865,6 @@ export class IdentityDomainsClient {
       listMyRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13210,8 +12919,7 @@ export class IdentityDomainsClient {
   public async listMySmtpCredentials(
     listMySmtpCredentialsRequest: requests.ListMySmtpCredentialsRequest
   ): Promise<responses.ListMySmtpCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMySmtpCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#listMySmtpCredentials.");
     const operationName = "listMySmtpCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13239,7 +12947,6 @@ export class IdentityDomainsClient {
       listMySmtpCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13294,8 +13001,7 @@ export class IdentityDomainsClient {
   public async listMySupportAccounts(
     listMySupportAccountsRequest: requests.ListMySupportAccountsRequest
   ): Promise<responses.ListMySupportAccountsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMySupportAccounts.");
+    logger.debug("Calling operation IdentityDomainsClient#listMySupportAccounts.");
     const operationName = "listMySupportAccounts";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13323,7 +13029,6 @@ export class IdentityDomainsClient {
       listMySupportAccountsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13378,8 +13083,7 @@ export class IdentityDomainsClient {
   public async listMyTrustedUserAgents(
     listMyTrustedUserAgentsRequest: requests.ListMyTrustedUserAgentsRequest
   ): Promise<responses.ListMyTrustedUserAgentsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMyTrustedUserAgents.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyTrustedUserAgents.");
     const operationName = "listMyTrustedUserAgents";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13409,7 +13113,6 @@ export class IdentityDomainsClient {
       listMyTrustedUserAgentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13464,8 +13167,7 @@ export class IdentityDomainsClient {
   public async listMyUserDbCredentials(
     listMyUserDbCredentialsRequest: requests.ListMyUserDbCredentialsRequest
   ): Promise<responses.ListMyUserDbCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listMyUserDbCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#listMyUserDbCredentials.");
     const operationName = "listMyUserDbCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13493,7 +13195,6 @@ export class IdentityDomainsClient {
       listMyUserDbCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13548,8 +13249,7 @@ export class IdentityDomainsClient {
   public async listNetworkPerimeters(
     listNetworkPerimetersRequest: requests.ListNetworkPerimetersRequest
   ): Promise<responses.ListNetworkPerimetersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listNetworkPerimeters.");
+    logger.debug("Calling operation IdentityDomainsClient#listNetworkPerimeters.");
     const operationName = "listNetworkPerimeters";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13579,7 +13279,6 @@ export class IdentityDomainsClient {
       listNetworkPerimetersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13634,8 +13333,7 @@ export class IdentityDomainsClient {
   public async listNotificationSettings(
     listNotificationSettingsRequest: requests.ListNotificationSettingsRequest
   ): Promise<responses.ListNotificationSettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listNotificationSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#listNotificationSettings.");
     const operationName = "listNotificationSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13660,7 +13358,6 @@ export class IdentityDomainsClient {
       listNotificationSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13715,8 +13412,7 @@ export class IdentityDomainsClient {
   public async listOAuth2ClientCredentials(
     listOAuth2ClientCredentialsRequest: requests.ListOAuth2ClientCredentialsRequest
   ): Promise<responses.ListOAuth2ClientCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listOAuth2ClientCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#listOAuth2ClientCredentials.");
     const operationName = "listOAuth2ClientCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13746,7 +13442,6 @@ export class IdentityDomainsClient {
       listOAuth2ClientCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13801,8 +13496,7 @@ export class IdentityDomainsClient {
   public async listOAuthClientCertificates(
     listOAuthClientCertificatesRequest: requests.ListOAuthClientCertificatesRequest
   ): Promise<responses.ListOAuthClientCertificatesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listOAuthClientCertificates.");
+    logger.debug("Calling operation IdentityDomainsClient#listOAuthClientCertificates.");
     const operationName = "listOAuthClientCertificates";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13830,7 +13524,6 @@ export class IdentityDomainsClient {
       listOAuthClientCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13885,8 +13578,7 @@ export class IdentityDomainsClient {
   public async listOAuthPartnerCertificates(
     listOAuthPartnerCertificatesRequest: requests.ListOAuthPartnerCertificatesRequest
   ): Promise<responses.ListOAuthPartnerCertificatesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listOAuthPartnerCertificates.");
+    logger.debug("Calling operation IdentityDomainsClient#listOAuthPartnerCertificates.");
     const operationName = "listOAuthPartnerCertificates";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -13914,7 +13606,6 @@ export class IdentityDomainsClient {
       listOAuthPartnerCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13969,8 +13660,7 @@ export class IdentityDomainsClient {
   public async listPasswordPolicies(
     listPasswordPoliciesRequest: requests.ListPasswordPoliciesRequest
   ): Promise<responses.ListPasswordPoliciesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listPasswordPolicies.");
+    logger.debug("Calling operation IdentityDomainsClient#listPasswordPolicies.");
     const operationName = "listPasswordPolicies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14000,7 +13690,6 @@ export class IdentityDomainsClient {
       listPasswordPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14055,7 +13744,7 @@ export class IdentityDomainsClient {
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listPolicies.");
+    logger.debug("Calling operation IdentityDomainsClient#listPolicies.");
     const operationName = "listPolicies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14085,7 +13774,6 @@ export class IdentityDomainsClient {
       listPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14140,10 +13828,7 @@ export class IdentityDomainsClient {
   public async listResourceTypeSchemaAttributes(
     listResourceTypeSchemaAttributesRequest: requests.ListResourceTypeSchemaAttributesRequest
   ): Promise<responses.ListResourceTypeSchemaAttributesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#listResourceTypeSchemaAttributes."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#listResourceTypeSchemaAttributes.");
     const operationName = "listResourceTypeSchemaAttributes";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14174,7 +13859,6 @@ export class IdentityDomainsClient {
       listResourceTypeSchemaAttributesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14229,7 +13913,7 @@ export class IdentityDomainsClient {
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
   ): Promise<responses.ListRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listRules.");
+    logger.debug("Calling operation IdentityDomainsClient#listRules.");
     const operationName = "listRules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14259,7 +13943,6 @@ export class IdentityDomainsClient {
       listRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14314,7 +13997,7 @@ export class IdentityDomainsClient {
   public async listSchemas(
     listSchemasRequest: requests.ListSchemasRequest
   ): Promise<responses.ListSchemasResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listSchemas.");
+    logger.debug("Calling operation IdentityDomainsClient#listSchemas.");
     const operationName = "listSchemas";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14341,7 +14024,6 @@ export class IdentityDomainsClient {
       listSchemasRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14396,8 +14078,7 @@ export class IdentityDomainsClient {
   public async listSecurityQuestionSettings(
     listSecurityQuestionSettingsRequest: requests.ListSecurityQuestionSettingsRequest
   ): Promise<responses.ListSecurityQuestionSettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listSecurityQuestionSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#listSecurityQuestionSettings.");
     const operationName = "listSecurityQuestionSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14422,7 +14103,6 @@ export class IdentityDomainsClient {
       listSecurityQuestionSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14477,8 +14157,7 @@ export class IdentityDomainsClient {
   public async listSecurityQuestions(
     listSecurityQuestionsRequest: requests.ListSecurityQuestionsRequest
   ): Promise<responses.ListSecurityQuestionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listSecurityQuestions.");
+    logger.debug("Calling operation IdentityDomainsClient#listSecurityQuestions.");
     const operationName = "listSecurityQuestions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14508,7 +14187,6 @@ export class IdentityDomainsClient {
       listSecurityQuestionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14563,8 +14241,7 @@ export class IdentityDomainsClient {
   public async listSelfRegistrationProfiles(
     listSelfRegistrationProfilesRequest: requests.ListSelfRegistrationProfilesRequest
   ): Promise<responses.ListSelfRegistrationProfilesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listSelfRegistrationProfiles.");
+    logger.debug("Calling operation IdentityDomainsClient#listSelfRegistrationProfiles.");
     const operationName = "listSelfRegistrationProfiles";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14594,7 +14271,6 @@ export class IdentityDomainsClient {
       listSelfRegistrationProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14649,7 +14325,7 @@ export class IdentityDomainsClient {
   public async listSettings(
     listSettingsRequest: requests.ListSettingsRequest
   ): Promise<responses.ListSettingsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#listSettings.");
     const operationName = "listSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14674,7 +14350,6 @@ export class IdentityDomainsClient {
       listSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14729,8 +14404,7 @@ export class IdentityDomainsClient {
   public async listSmtpCredentials(
     listSmtpCredentialsRequest: requests.ListSmtpCredentialsRequest
   ): Promise<responses.ListSmtpCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listSmtpCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#listSmtpCredentials.");
     const operationName = "listSmtpCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14760,7 +14434,6 @@ export class IdentityDomainsClient {
       listSmtpCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14815,8 +14488,7 @@ export class IdentityDomainsClient {
   public async listUserAttributesSettings(
     listUserAttributesSettingsRequest: requests.ListUserAttributesSettingsRequest
   ): Promise<responses.ListUserAttributesSettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listUserAttributesSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#listUserAttributesSettings.");
     const operationName = "listUserAttributesSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14841,7 +14513,6 @@ export class IdentityDomainsClient {
       listUserAttributesSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14896,8 +14567,7 @@ export class IdentityDomainsClient {
   public async listUserDbCredentials(
     listUserDbCredentialsRequest: requests.ListUserDbCredentialsRequest
   ): Promise<responses.ListUserDbCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#listUserDbCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#listUserDbCredentials.");
     const operationName = "listUserDbCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -14927,7 +14597,6 @@ export class IdentityDomainsClient {
       listUserDbCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14982,7 +14651,7 @@ export class IdentityDomainsClient {
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
   ): Promise<responses.ListUsersResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#listUsers.");
+    logger.debug("Calling operation IdentityDomainsClient#listUsers.");
     const operationName = "listUsers";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -15012,7 +14681,6 @@ export class IdentityDomainsClient {
       listUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15067,8 +14735,7 @@ export class IdentityDomainsClient {
   public async patchAccountRecoverySetting(
     patchAccountRecoverySettingRequest: requests.PatchAccountRecoverySettingRequest
   ): Promise<responses.PatchAccountRecoverySettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchAccountRecoverySetting.");
+    logger.debug("Calling operation IdentityDomainsClient#patchAccountRecoverySetting.");
     const operationName = "patchAccountRecoverySetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15094,7 +14761,6 @@ export class IdentityDomainsClient {
       patchAccountRecoverySettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15154,7 +14820,7 @@ export class IdentityDomainsClient {
   public async patchApiKey(
     patchApiKeyRequest: requests.PatchApiKeyRequest
   ): Promise<responses.PatchApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchApiKey.");
+    logger.debug("Calling operation IdentityDomainsClient#patchApiKey.");
     const operationName = "patchApiKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15180,7 +14846,6 @@ export class IdentityDomainsClient {
       patchApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15240,7 +14905,7 @@ export class IdentityDomainsClient {
   public async patchApp(
     patchAppRequest: requests.PatchAppRequest
   ): Promise<responses.PatchAppResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchApp.");
+    logger.debug("Calling operation IdentityDomainsClient#patchApp.");
     const operationName = "patchApp";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15266,7 +14931,6 @@ export class IdentityDomainsClient {
       patchAppRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15326,7 +14990,7 @@ export class IdentityDomainsClient {
   public async patchAppRole(
     patchAppRoleRequest: requests.PatchAppRoleRequest
   ): Promise<responses.PatchAppRoleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchAppRole.");
+    logger.debug("Calling operation IdentityDomainsClient#patchAppRole.");
     const operationName = "patchAppRole";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15352,7 +15016,6 @@ export class IdentityDomainsClient {
       patchAppRoleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15412,8 +15075,7 @@ export class IdentityDomainsClient {
   public async patchApprovalWorkflow(
     patchApprovalWorkflowRequest: requests.PatchApprovalWorkflowRequest
   ): Promise<responses.PatchApprovalWorkflowResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchApprovalWorkflow.");
+    logger.debug("Calling operation IdentityDomainsClient#patchApprovalWorkflow.");
     const operationName = "patchApprovalWorkflow";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15439,7 +15101,6 @@ export class IdentityDomainsClient {
       patchApprovalWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15499,8 +15160,7 @@ export class IdentityDomainsClient {
   public async patchApprovalWorkflowStep(
     patchApprovalWorkflowStepRequest: requests.PatchApprovalWorkflowStepRequest
   ): Promise<responses.PatchApprovalWorkflowStepResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchApprovalWorkflowStep.");
+    logger.debug("Calling operation IdentityDomainsClient#patchApprovalWorkflowStep.");
     const operationName = "patchApprovalWorkflowStep";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15526,7 +15186,6 @@ export class IdentityDomainsClient {
       patchApprovalWorkflowStepRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15586,7 +15245,7 @@ export class IdentityDomainsClient {
   public async patchAuthToken(
     patchAuthTokenRequest: requests.PatchAuthTokenRequest
   ): Promise<responses.PatchAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchAuthToken.");
+    logger.debug("Calling operation IdentityDomainsClient#patchAuthToken.");
     const operationName = "patchAuthToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15612,7 +15271,6 @@ export class IdentityDomainsClient {
       patchAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15672,7 +15330,7 @@ export class IdentityDomainsClient {
   public async patchCloudGate(
     patchCloudGateRequest: requests.PatchCloudGateRequest
   ): Promise<responses.PatchCloudGateResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchCloudGate.");
+    logger.debug("Calling operation IdentityDomainsClient#patchCloudGate.");
     const operationName = "patchCloudGate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15698,7 +15356,6 @@ export class IdentityDomainsClient {
       patchCloudGateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15758,8 +15415,7 @@ export class IdentityDomainsClient {
   public async patchCloudGateMapping(
     patchCloudGateMappingRequest: requests.PatchCloudGateMappingRequest
   ): Promise<responses.PatchCloudGateMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchCloudGateMapping.");
+    logger.debug("Calling operation IdentityDomainsClient#patchCloudGateMapping.");
     const operationName = "patchCloudGateMapping";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15785,7 +15441,6 @@ export class IdentityDomainsClient {
       patchCloudGateMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15845,8 +15500,7 @@ export class IdentityDomainsClient {
   public async patchCloudGateServer(
     patchCloudGateServerRequest: requests.PatchCloudGateServerRequest
   ): Promise<responses.PatchCloudGateServerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchCloudGateServer.");
+    logger.debug("Calling operation IdentityDomainsClient#patchCloudGateServer.");
     const operationName = "patchCloudGateServer";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15872,7 +15526,6 @@ export class IdentityDomainsClient {
       patchCloudGateServerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15932,7 +15585,7 @@ export class IdentityDomainsClient {
   public async patchCondition(
     patchConditionRequest: requests.PatchConditionRequest
   ): Promise<responses.PatchConditionResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchCondition.");
+    logger.debug("Calling operation IdentityDomainsClient#patchCondition.");
     const operationName = "patchCondition";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15958,7 +15611,6 @@ export class IdentityDomainsClient {
       patchConditionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16018,8 +15670,7 @@ export class IdentityDomainsClient {
   public async patchCustomerSecretKey(
     patchCustomerSecretKeyRequest: requests.PatchCustomerSecretKeyRequest
   ): Promise<responses.PatchCustomerSecretKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchCustomerSecretKey.");
+    logger.debug("Calling operation IdentityDomainsClient#patchCustomerSecretKey.");
     const operationName = "patchCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16045,7 +15696,6 @@ export class IdentityDomainsClient {
       patchCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16105,8 +15755,7 @@ export class IdentityDomainsClient {
   public async patchDynamicResourceGroup(
     patchDynamicResourceGroupRequest: requests.PatchDynamicResourceGroupRequest
   ): Promise<responses.PatchDynamicResourceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchDynamicResourceGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#patchDynamicResourceGroup.");
     const operationName = "patchDynamicResourceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16132,7 +15781,6 @@ export class IdentityDomainsClient {
       patchDynamicResourceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16192,7 +15840,7 @@ export class IdentityDomainsClient {
   public async patchGrant(
     patchGrantRequest: requests.PatchGrantRequest
   ): Promise<responses.PatchGrantResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchGrant.");
+    logger.debug("Calling operation IdentityDomainsClient#patchGrant.");
     const operationName = "patchGrant";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16218,7 +15866,6 @@ export class IdentityDomainsClient {
       patchGrantRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16278,7 +15925,7 @@ export class IdentityDomainsClient {
   public async patchGroup(
     patchGroupRequest: requests.PatchGroupRequest
   ): Promise<responses.PatchGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#patchGroup.");
     const operationName = "patchGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16304,7 +15951,6 @@ export class IdentityDomainsClient {
       patchGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16364,8 +16010,7 @@ export class IdentityDomainsClient {
   public async patchIdentityPropagationTrust(
     patchIdentityPropagationTrustRequest: requests.PatchIdentityPropagationTrustRequest
   ): Promise<responses.PatchIdentityPropagationTrustResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchIdentityPropagationTrust.");
+    logger.debug("Calling operation IdentityDomainsClient#patchIdentityPropagationTrust.");
     const operationName = "patchIdentityPropagationTrust";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16393,7 +16038,6 @@ export class IdentityDomainsClient {
       patchIdentityPropagationTrustRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16453,8 +16097,7 @@ export class IdentityDomainsClient {
   public async patchIdentityProvider(
     patchIdentityProviderRequest: requests.PatchIdentityProviderRequest
   ): Promise<responses.PatchIdentityProviderResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchIdentityProvider.");
+    logger.debug("Calling operation IdentityDomainsClient#patchIdentityProvider.");
     const operationName = "patchIdentityProvider";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16480,7 +16123,6 @@ export class IdentityDomainsClient {
       patchIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16540,8 +16182,7 @@ export class IdentityDomainsClient {
   public async patchIdentitySetting(
     patchIdentitySettingRequest: requests.PatchIdentitySettingRequest
   ): Promise<responses.PatchIdentitySettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchIdentitySetting.");
+    logger.debug("Calling operation IdentityDomainsClient#patchIdentitySetting.");
     const operationName = "patchIdentitySetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16567,7 +16208,6 @@ export class IdentityDomainsClient {
       patchIdentitySettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16627,7 +16267,7 @@ export class IdentityDomainsClient {
   public async patchKmsiSetting(
     patchKmsiSettingRequest: requests.PatchKmsiSettingRequest
   ): Promise<responses.PatchKmsiSettingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchKmsiSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#patchKmsiSetting.");
     const operationName = "patchKmsiSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16653,7 +16293,6 @@ export class IdentityDomainsClient {
       patchKmsiSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16713,7 +16352,7 @@ export class IdentityDomainsClient {
   public async patchMe(
     patchMeRequest: requests.PatchMeRequest
   ): Promise<responses.PatchMeResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchMe.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMe.");
     const operationName = "patchMe";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -16737,7 +16376,6 @@ export class IdentityDomainsClient {
       patchMeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16797,7 +16435,7 @@ export class IdentityDomainsClient {
   public async patchMyApiKey(
     patchMyApiKeyRequest: requests.PatchMyApiKeyRequest
   ): Promise<responses.PatchMyApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchMyApiKey.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMyApiKey.");
     const operationName = "patchMyApiKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16820,7 +16458,6 @@ export class IdentityDomainsClient {
       patchMyApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16880,7 +16517,7 @@ export class IdentityDomainsClient {
   public async patchMyAuthToken(
     patchMyAuthTokenRequest: requests.PatchMyAuthTokenRequest
   ): Promise<responses.PatchMyAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchMyAuthToken.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMyAuthToken.");
     const operationName = "patchMyAuthToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16903,7 +16540,6 @@ export class IdentityDomainsClient {
       patchMyAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16963,8 +16599,7 @@ export class IdentityDomainsClient {
   public async patchMyCustomerSecretKey(
     patchMyCustomerSecretKeyRequest: requests.PatchMyCustomerSecretKeyRequest
   ): Promise<responses.PatchMyCustomerSecretKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchMyCustomerSecretKey.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMyCustomerSecretKey.");
     const operationName = "patchMyCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -16987,7 +16622,6 @@ export class IdentityDomainsClient {
       patchMyCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17047,7 +16681,7 @@ export class IdentityDomainsClient {
   public async patchMyDevice(
     patchMyDeviceRequest: requests.PatchMyDeviceRequest
   ): Promise<responses.PatchMyDeviceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchMyDevice.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMyDevice.");
     const operationName = "patchMyDevice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17073,7 +16707,6 @@ export class IdentityDomainsClient {
       patchMyDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17133,8 +16766,7 @@ export class IdentityDomainsClient {
   public async patchMyOAuth2ClientCredential(
     patchMyOAuth2ClientCredentialRequest: requests.PatchMyOAuth2ClientCredentialRequest
   ): Promise<responses.PatchMyOAuth2ClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchMyOAuth2ClientCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMyOAuth2ClientCredential.");
     const operationName = "patchMyOAuth2ClientCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17159,7 +16791,6 @@ export class IdentityDomainsClient {
       patchMyOAuth2ClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17219,8 +16850,7 @@ export class IdentityDomainsClient {
   public async patchMyPendingApproval(
     patchMyPendingApprovalRequest: requests.PatchMyPendingApprovalRequest
   ): Promise<responses.PatchMyPendingApprovalResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchMyPendingApproval.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMyPendingApproval.");
     const operationName = "patchMyPendingApproval";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17243,7 +16873,6 @@ export class IdentityDomainsClient {
       patchMyPendingApprovalRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17303,7 +16932,7 @@ export class IdentityDomainsClient {
   public async patchMyRequest(
     patchMyRequestRequest: requests.PatchMyRequestRequest
   ): Promise<responses.PatchMyRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchMyRequest.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMyRequest.");
     const operationName = "patchMyRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17329,7 +16958,6 @@ export class IdentityDomainsClient {
       patchMyRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17389,8 +17017,7 @@ export class IdentityDomainsClient {
   public async patchMySmtpCredential(
     patchMySmtpCredentialRequest: requests.PatchMySmtpCredentialRequest
   ): Promise<responses.PatchMySmtpCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchMySmtpCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#patchMySmtpCredential.");
     const operationName = "patchMySmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17413,7 +17040,6 @@ export class IdentityDomainsClient {
       patchMySmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17473,8 +17099,7 @@ export class IdentityDomainsClient {
   public async patchNetworkPerimeter(
     patchNetworkPerimeterRequest: requests.PatchNetworkPerimeterRequest
   ): Promise<responses.PatchNetworkPerimeterResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchNetworkPerimeter.");
+    logger.debug("Calling operation IdentityDomainsClient#patchNetworkPerimeter.");
     const operationName = "patchNetworkPerimeter";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17500,7 +17125,6 @@ export class IdentityDomainsClient {
       patchNetworkPerimeterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17560,8 +17184,7 @@ export class IdentityDomainsClient {
   public async patchOAuth2ClientCredential(
     patchOAuth2ClientCredentialRequest: requests.PatchOAuth2ClientCredentialRequest
   ): Promise<responses.PatchOAuth2ClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchOAuth2ClientCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#patchOAuth2ClientCredential.");
     const operationName = "patchOAuth2ClientCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17587,7 +17210,6 @@ export class IdentityDomainsClient {
       patchOAuth2ClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17647,8 +17269,7 @@ export class IdentityDomainsClient {
   public async patchPasswordPolicy(
     patchPasswordPolicyRequest: requests.PatchPasswordPolicyRequest
   ): Promise<responses.PatchPasswordPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchPasswordPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#patchPasswordPolicy.");
     const operationName = "patchPasswordPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17674,7 +17295,6 @@ export class IdentityDomainsClient {
       patchPasswordPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17734,7 +17354,7 @@ export class IdentityDomainsClient {
   public async patchPolicy(
     patchPolicyRequest: requests.PatchPolicyRequest
   ): Promise<responses.PatchPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#patchPolicy.");
     const operationName = "patchPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17760,7 +17380,6 @@ export class IdentityDomainsClient {
       patchPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17820,7 +17439,7 @@ export class IdentityDomainsClient {
   public async patchRule(
     patchRuleRequest: requests.PatchRuleRequest
   ): Promise<responses.PatchRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchRule.");
+    logger.debug("Calling operation IdentityDomainsClient#patchRule.");
     const operationName = "patchRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17846,7 +17465,6 @@ export class IdentityDomainsClient {
       patchRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17906,7 +17524,7 @@ export class IdentityDomainsClient {
   public async patchSchema(
     patchSchemaRequest: requests.PatchSchemaRequest
   ): Promise<responses.PatchSchemaResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchSchema.");
+    logger.debug("Calling operation IdentityDomainsClient#patchSchema.");
     const operationName = "patchSchema";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17929,7 +17547,6 @@ export class IdentityDomainsClient {
       patchSchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17989,8 +17606,7 @@ export class IdentityDomainsClient {
   public async patchSecurityQuestion(
     patchSecurityQuestionRequest: requests.PatchSecurityQuestionRequest
   ): Promise<responses.PatchSecurityQuestionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchSecurityQuestion.");
+    logger.debug("Calling operation IdentityDomainsClient#patchSecurityQuestion.");
     const operationName = "patchSecurityQuestion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18016,7 +17632,6 @@ export class IdentityDomainsClient {
       patchSecurityQuestionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18076,8 +17691,7 @@ export class IdentityDomainsClient {
   public async patchSecurityQuestionSetting(
     patchSecurityQuestionSettingRequest: requests.PatchSecurityQuestionSettingRequest
   ): Promise<responses.PatchSecurityQuestionSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchSecurityQuestionSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#patchSecurityQuestionSetting.");
     const operationName = "patchSecurityQuestionSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18103,7 +17717,6 @@ export class IdentityDomainsClient {
       patchSecurityQuestionSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18163,8 +17776,7 @@ export class IdentityDomainsClient {
   public async patchSelfRegistrationProfile(
     patchSelfRegistrationProfileRequest: requests.PatchSelfRegistrationProfileRequest
   ): Promise<responses.PatchSelfRegistrationProfileResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchSelfRegistrationProfile.");
+    logger.debug("Calling operation IdentityDomainsClient#patchSelfRegistrationProfile.");
     const operationName = "patchSelfRegistrationProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18190,7 +17802,6 @@ export class IdentityDomainsClient {
       patchSelfRegistrationProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18250,7 +17861,7 @@ export class IdentityDomainsClient {
   public async patchSetting(
     patchSettingRequest: requests.PatchSettingRequest
   ): Promise<responses.PatchSettingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#patchSetting.");
     const operationName = "patchSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18276,7 +17887,6 @@ export class IdentityDomainsClient {
       patchSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18336,8 +17946,7 @@ export class IdentityDomainsClient {
   public async patchSmtpCredential(
     patchSmtpCredentialRequest: requests.PatchSmtpCredentialRequest
   ): Promise<responses.PatchSmtpCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchSmtpCredential.");
+    logger.debug("Calling operation IdentityDomainsClient#patchSmtpCredential.");
     const operationName = "patchSmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18363,7 +17972,6 @@ export class IdentityDomainsClient {
       patchSmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18423,7 +18031,7 @@ export class IdentityDomainsClient {
   public async patchUser(
     patchUserRequest: requests.PatchUserRequest
   ): Promise<responses.PatchUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#patchUser.");
+    logger.debug("Calling operation IdentityDomainsClient#patchUser.");
     const operationName = "patchUser";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18449,7 +18057,6 @@ export class IdentityDomainsClient {
       patchUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18509,8 +18116,7 @@ export class IdentityDomainsClient {
   public async patchUserAttributesSetting(
     patchUserAttributesSettingRequest: requests.PatchUserAttributesSettingRequest
   ): Promise<responses.PatchUserAttributesSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#patchUserAttributesSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#patchUserAttributesSetting.");
     const operationName = "patchUserAttributesSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18536,7 +18142,6 @@ export class IdentityDomainsClient {
       patchUserAttributesSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18596,8 +18201,7 @@ export class IdentityDomainsClient {
   public async putAccountRecoverySetting(
     putAccountRecoverySettingRequest: requests.PutAccountRecoverySettingRequest
   ): Promise<responses.PutAccountRecoverySettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putAccountRecoverySetting.");
+    logger.debug("Calling operation IdentityDomainsClient#putAccountRecoverySetting.");
     const operationName = "putAccountRecoverySetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18623,7 +18227,6 @@ export class IdentityDomainsClient {
       putAccountRecoverySettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18681,7 +18284,7 @@ export class IdentityDomainsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutApp.ts.html |here} to see how to use PutApp API.
    */
   public async putApp(putAppRequest: requests.PutAppRequest): Promise<responses.PutAppResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putApp.");
+    logger.debug("Calling operation IdentityDomainsClient#putApp.");
     const operationName = "putApp";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18707,7 +18310,6 @@ export class IdentityDomainsClient {
       putAppRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18767,8 +18369,7 @@ export class IdentityDomainsClient {
   public async putAppStatusChanger(
     putAppStatusChangerRequest: requests.PutAppStatusChangerRequest
   ): Promise<responses.PutAppStatusChangerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putAppStatusChanger.");
+    logger.debug("Calling operation IdentityDomainsClient#putAppStatusChanger.");
     const operationName = "putAppStatusChanger";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18794,7 +18395,6 @@ export class IdentityDomainsClient {
       putAppStatusChangerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18854,8 +18454,7 @@ export class IdentityDomainsClient {
   public async putApprovalWorkflow(
     putApprovalWorkflowRequest: requests.PutApprovalWorkflowRequest
   ): Promise<responses.PutApprovalWorkflowResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putApprovalWorkflow.");
+    logger.debug("Calling operation IdentityDomainsClient#putApprovalWorkflow.");
     const operationName = "putApprovalWorkflow";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18881,7 +18480,6 @@ export class IdentityDomainsClient {
       putApprovalWorkflowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18941,8 +18539,7 @@ export class IdentityDomainsClient {
   public async putAuthenticationFactorSetting(
     putAuthenticationFactorSettingRequest: requests.PutAuthenticationFactorSettingRequest
   ): Promise<responses.PutAuthenticationFactorSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putAuthenticationFactorSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#putAuthenticationFactorSetting.");
     const operationName = "putAuthenticationFactorSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -18970,7 +18567,6 @@ export class IdentityDomainsClient {
       putAuthenticationFactorSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19030,7 +18626,7 @@ export class IdentityDomainsClient {
   public async putCloudGate(
     putCloudGateRequest: requests.PutCloudGateRequest
   ): Promise<responses.PutCloudGateResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putCloudGate.");
+    logger.debug("Calling operation IdentityDomainsClient#putCloudGate.");
     const operationName = "putCloudGate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19056,7 +18652,6 @@ export class IdentityDomainsClient {
       putCloudGateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19116,8 +18711,7 @@ export class IdentityDomainsClient {
   public async putCloudGateMapping(
     putCloudGateMappingRequest: requests.PutCloudGateMappingRequest
   ): Promise<responses.PutCloudGateMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putCloudGateMapping.");
+    logger.debug("Calling operation IdentityDomainsClient#putCloudGateMapping.");
     const operationName = "putCloudGateMapping";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19143,7 +18737,6 @@ export class IdentityDomainsClient {
       putCloudGateMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19203,8 +18796,7 @@ export class IdentityDomainsClient {
   public async putCloudGateServer(
     putCloudGateServerRequest: requests.PutCloudGateServerRequest
   ): Promise<responses.PutCloudGateServerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putCloudGateServer.");
+    logger.debug("Calling operation IdentityDomainsClient#putCloudGateServer.");
     const operationName = "putCloudGateServer";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19230,7 +18822,6 @@ export class IdentityDomainsClient {
       putCloudGateServerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19290,7 +18881,7 @@ export class IdentityDomainsClient {
   public async putCondition(
     putConditionRequest: requests.PutConditionRequest
   ): Promise<responses.PutConditionResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putCondition.");
+    logger.debug("Calling operation IdentityDomainsClient#putCondition.");
     const operationName = "putCondition";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19316,7 +18907,6 @@ export class IdentityDomainsClient {
       putConditionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19376,8 +18966,7 @@ export class IdentityDomainsClient {
   public async putDynamicResourceGroup(
     putDynamicResourceGroupRequest: requests.PutDynamicResourceGroupRequest
   ): Promise<responses.PutDynamicResourceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putDynamicResourceGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#putDynamicResourceGroup.");
     const operationName = "putDynamicResourceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19403,7 +18992,6 @@ export class IdentityDomainsClient {
       putDynamicResourceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19463,7 +19051,7 @@ export class IdentityDomainsClient {
   public async putGroup(
     putGroupRequest: requests.PutGroupRequest
   ): Promise<responses.PutGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putGroup.");
+    logger.debug("Calling operation IdentityDomainsClient#putGroup.");
     const operationName = "putGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19489,7 +19077,6 @@ export class IdentityDomainsClient {
       putGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19549,8 +19136,7 @@ export class IdentityDomainsClient {
   public async putIdentityPropagationTrust(
     putIdentityPropagationTrustRequest: requests.PutIdentityPropagationTrustRequest
   ): Promise<responses.PutIdentityPropagationTrustResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putIdentityPropagationTrust.");
+    logger.debug("Calling operation IdentityDomainsClient#putIdentityPropagationTrust.");
     const operationName = "putIdentityPropagationTrust";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19576,7 +19162,6 @@ export class IdentityDomainsClient {
       putIdentityPropagationTrustRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19636,8 +19221,7 @@ export class IdentityDomainsClient {
   public async putIdentityProvider(
     putIdentityProviderRequest: requests.PutIdentityProviderRequest
   ): Promise<responses.PutIdentityProviderResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putIdentityProvider.");
+    logger.debug("Calling operation IdentityDomainsClient#putIdentityProvider.");
     const operationName = "putIdentityProvider";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19663,7 +19247,6 @@ export class IdentityDomainsClient {
       putIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19723,8 +19306,7 @@ export class IdentityDomainsClient {
   public async putIdentitySetting(
     putIdentitySettingRequest: requests.PutIdentitySettingRequest
   ): Promise<responses.PutIdentitySettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putIdentitySetting.");
+    logger.debug("Calling operation IdentityDomainsClient#putIdentitySetting.");
     const operationName = "putIdentitySetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19750,7 +19332,6 @@ export class IdentityDomainsClient {
       putIdentitySettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19810,7 +19391,7 @@ export class IdentityDomainsClient {
   public async putKmsiSetting(
     putKmsiSettingRequest: requests.PutKmsiSettingRequest
   ): Promise<responses.PutKmsiSettingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putKmsiSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#putKmsiSetting.");
     const operationName = "putKmsiSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -19836,7 +19417,6 @@ export class IdentityDomainsClient {
       putKmsiSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19894,7 +19474,7 @@ export class IdentityDomainsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutMe.ts.html |here} to see how to use PutMe API.
    */
   public async putMe(putMeRequest: requests.PutMeRequest): Promise<responses.PutMeResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putMe.");
+    logger.debug("Calling operation IdentityDomainsClient#putMe.");
     const operationName = "putMe";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -19918,7 +19498,6 @@ export class IdentityDomainsClient {
       putMeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19974,8 +19553,7 @@ export class IdentityDomainsClient {
   public async putMePasswordChanger(
     putMePasswordChangerRequest: requests.PutMePasswordChangerRequest
   ): Promise<responses.PutMePasswordChangerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putMePasswordChanger.");
+    logger.debug("Calling operation IdentityDomainsClient#putMePasswordChanger.");
     const operationName = "putMePasswordChanger";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -19996,7 +19574,6 @@ export class IdentityDomainsClient {
       putMePasswordChangerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20056,8 +19633,7 @@ export class IdentityDomainsClient {
   public async putNetworkPerimeter(
     putNetworkPerimeterRequest: requests.PutNetworkPerimeterRequest
   ): Promise<responses.PutNetworkPerimeterResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putNetworkPerimeter.");
+    logger.debug("Calling operation IdentityDomainsClient#putNetworkPerimeter.");
     const operationName = "putNetworkPerimeter";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20083,7 +19659,6 @@ export class IdentityDomainsClient {
       putNetworkPerimeterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20143,8 +19718,7 @@ export class IdentityDomainsClient {
   public async putNotificationSetting(
     putNotificationSettingRequest: requests.PutNotificationSettingRequest
   ): Promise<responses.PutNotificationSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putNotificationSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#putNotificationSetting.");
     const operationName = "putNotificationSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20170,7 +19744,6 @@ export class IdentityDomainsClient {
       putNotificationSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20230,8 +19803,7 @@ export class IdentityDomainsClient {
   public async putPasswordPolicy(
     putPasswordPolicyRequest: requests.PutPasswordPolicyRequest
   ): Promise<responses.PutPasswordPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putPasswordPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#putPasswordPolicy.");
     const operationName = "putPasswordPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20257,7 +19829,6 @@ export class IdentityDomainsClient {
       putPasswordPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20317,7 +19888,7 @@ export class IdentityDomainsClient {
   public async putPolicy(
     putPolicyRequest: requests.PutPolicyRequest
   ): Promise<responses.PutPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putPolicy.");
+    logger.debug("Calling operation IdentityDomainsClient#putPolicy.");
     const operationName = "putPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20343,7 +19914,6 @@ export class IdentityDomainsClient {
       putPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20403,7 +19973,7 @@ export class IdentityDomainsClient {
   public async putRule(
     putRuleRequest: requests.PutRuleRequest
   ): Promise<responses.PutRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putRule.");
+    logger.debug("Calling operation IdentityDomainsClient#putRule.");
     const operationName = "putRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20429,7 +19999,6 @@ export class IdentityDomainsClient {
       putRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20489,7 +20058,7 @@ export class IdentityDomainsClient {
   public async putSchema(
     putSchemaRequest: requests.PutSchemaRequest
   ): Promise<responses.PutSchemaResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putSchema.");
+    logger.debug("Calling operation IdentityDomainsClient#putSchema.");
     const operationName = "putSchema";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20512,7 +20081,6 @@ export class IdentityDomainsClient {
       putSchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20572,8 +20140,7 @@ export class IdentityDomainsClient {
   public async putSecurityQuestionSetting(
     putSecurityQuestionSettingRequest: requests.PutSecurityQuestionSettingRequest
   ): Promise<responses.PutSecurityQuestionSettingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putSecurityQuestionSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#putSecurityQuestionSetting.");
     const operationName = "putSecurityQuestionSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20599,7 +20166,6 @@ export class IdentityDomainsClient {
       putSecurityQuestionSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20659,8 +20225,7 @@ export class IdentityDomainsClient {
   public async putSelfRegistrationProfile(
     putSelfRegistrationProfileRequest: requests.PutSelfRegistrationProfileRequest
   ): Promise<responses.PutSelfRegistrationProfileResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putSelfRegistrationProfile.");
+    logger.debug("Calling operation IdentityDomainsClient#putSelfRegistrationProfile.");
     const operationName = "putSelfRegistrationProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20686,7 +20251,6 @@ export class IdentityDomainsClient {
       putSelfRegistrationProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20746,7 +20310,7 @@ export class IdentityDomainsClient {
   public async putSetting(
     putSettingRequest: requests.PutSettingRequest
   ): Promise<responses.PutSettingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putSetting.");
+    logger.debug("Calling operation IdentityDomainsClient#putSetting.");
     const operationName = "putSetting";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20772,7 +20336,6 @@ export class IdentityDomainsClient {
       putSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20832,7 +20395,7 @@ export class IdentityDomainsClient {
   public async putUser(
     putUserRequest: requests.PutUserRequest
   ): Promise<responses.PutUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putUser.");
+    logger.debug("Calling operation IdentityDomainsClient#putUser.");
     const operationName = "putUser";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20858,7 +20421,6 @@ export class IdentityDomainsClient {
       putUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20918,8 +20480,7 @@ export class IdentityDomainsClient {
   public async putUserCapabilitiesChanger(
     putUserCapabilitiesChangerRequest: requests.PutUserCapabilitiesChangerRequest
   ): Promise<responses.PutUserCapabilitiesChangerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putUserCapabilitiesChanger.");
+    logger.debug("Calling operation IdentityDomainsClient#putUserCapabilitiesChanger.");
     const operationName = "putUserCapabilitiesChanger";
     const apiReferenceLink = "";
     const pathParams = {
@@ -20942,7 +20503,6 @@ export class IdentityDomainsClient {
       putUserCapabilitiesChangerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21002,8 +20562,7 @@ export class IdentityDomainsClient {
   public async putUserPasswordChanger(
     putUserPasswordChangerRequest: requests.PutUserPasswordChangerRequest
   ): Promise<responses.PutUserPasswordChangerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putUserPasswordChanger.");
+    logger.debug("Calling operation IdentityDomainsClient#putUserPasswordChanger.");
     const operationName = "putUserPasswordChanger";
     const apiReferenceLink = "";
     const pathParams = {
@@ -21026,7 +20585,6 @@ export class IdentityDomainsClient {
       putUserPasswordChangerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21086,8 +20644,7 @@ export class IdentityDomainsClient {
   public async putUserPasswordResetter(
     putUserPasswordResetterRequest: requests.PutUserPasswordResetterRequest
   ): Promise<responses.PutUserPasswordResetterResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putUserPasswordResetter.");
+    logger.debug("Calling operation IdentityDomainsClient#putUserPasswordResetter.");
     const operationName = "putUserPasswordResetter";
     const apiReferenceLink = "";
     const pathParams = {
@@ -21110,7 +20667,6 @@ export class IdentityDomainsClient {
       putUserPasswordResetterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21170,8 +20726,7 @@ export class IdentityDomainsClient {
   public async putUserStatusChanger(
     putUserStatusChangerRequest: requests.PutUserStatusChangerRequest
   ): Promise<responses.PutUserStatusChangerResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#putUserStatusChanger.");
+    logger.debug("Calling operation IdentityDomainsClient#putUserStatusChanger.");
     const operationName = "putUserStatusChanger";
     const apiReferenceLink = "";
     const pathParams = {
@@ -21197,7 +20752,6 @@ export class IdentityDomainsClient {
       putUserStatusChangerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21257,8 +20811,7 @@ export class IdentityDomainsClient {
   public async searchAccountMgmtInfos(
     searchAccountMgmtInfosRequest: requests.SearchAccountMgmtInfosRequest
   ): Promise<responses.SearchAccountMgmtInfosResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchAccountMgmtInfos.");
+    logger.debug("Calling operation IdentityDomainsClient#searchAccountMgmtInfos.");
     const operationName = "searchAccountMgmtInfos";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21281,7 +20834,6 @@ export class IdentityDomainsClient {
       searchAccountMgmtInfosRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21341,7 +20893,7 @@ export class IdentityDomainsClient {
   public async searchApiKeys(
     searchApiKeysRequest: requests.SearchApiKeysRequest
   ): Promise<responses.SearchApiKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchApiKeys.");
+    logger.debug("Calling operation IdentityDomainsClient#searchApiKeys.");
     const operationName = "searchApiKeys";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21364,7 +20916,6 @@ export class IdentityDomainsClient {
       searchApiKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21424,7 +20975,7 @@ export class IdentityDomainsClient {
   public async searchAppRoles(
     searchAppRolesRequest: requests.SearchAppRolesRequest
   ): Promise<responses.SearchAppRolesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchAppRoles.");
+    logger.debug("Calling operation IdentityDomainsClient#searchAppRoles.");
     const operationName = "searchAppRoles";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21447,7 +20998,6 @@ export class IdentityDomainsClient {
       searchAppRolesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21507,7 +21057,7 @@ export class IdentityDomainsClient {
   public async searchApps(
     searchAppsRequest: requests.SearchAppsRequest
   ): Promise<responses.SearchAppsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchApps.");
+    logger.debug("Calling operation IdentityDomainsClient#searchApps.");
     const operationName = "searchApps";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21530,7 +21080,6 @@ export class IdentityDomainsClient {
       searchAppsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21590,7 +21139,7 @@ export class IdentityDomainsClient {
   public async searchAuthTokens(
     searchAuthTokensRequest: requests.SearchAuthTokensRequest
   ): Promise<responses.SearchAuthTokensResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchAuthTokens.");
+    logger.debug("Calling operation IdentityDomainsClient#searchAuthTokens.");
     const operationName = "searchAuthTokens";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21613,7 +21162,6 @@ export class IdentityDomainsClient {
       searchAuthTokensRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21673,10 +21221,7 @@ export class IdentityDomainsClient {
   public async searchAuthenticationFactorSettings(
     searchAuthenticationFactorSettingsRequest: requests.SearchAuthenticationFactorSettingsRequest
   ): Promise<responses.SearchAuthenticationFactorSettingsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#searchAuthenticationFactorSettings."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#searchAuthenticationFactorSettings.");
     const operationName = "searchAuthenticationFactorSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21700,7 +21245,6 @@ export class IdentityDomainsClient {
       searchAuthenticationFactorSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21760,8 +21304,7 @@ export class IdentityDomainsClient {
   public async searchCloudGateMappings(
     searchCloudGateMappingsRequest: requests.SearchCloudGateMappingsRequest
   ): Promise<responses.SearchCloudGateMappingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchCloudGateMappings.");
+    logger.debug("Calling operation IdentityDomainsClient#searchCloudGateMappings.");
     const operationName = "searchCloudGateMappings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21784,7 +21327,6 @@ export class IdentityDomainsClient {
       searchCloudGateMappingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21844,8 +21386,7 @@ export class IdentityDomainsClient {
   public async searchCloudGateServers(
     searchCloudGateServersRequest: requests.SearchCloudGateServersRequest
   ): Promise<responses.SearchCloudGateServersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchCloudGateServers.");
+    logger.debug("Calling operation IdentityDomainsClient#searchCloudGateServers.");
     const operationName = "searchCloudGateServers";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21868,7 +21409,6 @@ export class IdentityDomainsClient {
       searchCloudGateServersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21928,7 +21468,7 @@ export class IdentityDomainsClient {
   public async searchCloudGates(
     searchCloudGatesRequest: requests.SearchCloudGatesRequest
   ): Promise<responses.SearchCloudGatesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchCloudGates.");
+    logger.debug("Calling operation IdentityDomainsClient#searchCloudGates.");
     const operationName = "searchCloudGates";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -21951,7 +21491,6 @@ export class IdentityDomainsClient {
       searchCloudGatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22011,7 +21550,7 @@ export class IdentityDomainsClient {
   public async searchConditions(
     searchConditionsRequest: requests.SearchConditionsRequest
   ): Promise<responses.SearchConditionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchConditions.");
+    logger.debug("Calling operation IdentityDomainsClient#searchConditions.");
     const operationName = "searchConditions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22034,7 +21573,6 @@ export class IdentityDomainsClient {
       searchConditionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22094,8 +21632,7 @@ export class IdentityDomainsClient {
   public async searchCustomerSecretKeys(
     searchCustomerSecretKeysRequest: requests.SearchCustomerSecretKeysRequest
   ): Promise<responses.SearchCustomerSecretKeysResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchCustomerSecretKeys.");
+    logger.debug("Calling operation IdentityDomainsClient#searchCustomerSecretKeys.");
     const operationName = "searchCustomerSecretKeys";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22118,7 +21655,6 @@ export class IdentityDomainsClient {
       searchCustomerSecretKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22178,8 +21714,7 @@ export class IdentityDomainsClient {
   public async searchDynamicResourceGroups(
     searchDynamicResourceGroupsRequest: requests.SearchDynamicResourceGroupsRequest
   ): Promise<responses.SearchDynamicResourceGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchDynamicResourceGroups.");
+    logger.debug("Calling operation IdentityDomainsClient#searchDynamicResourceGroups.");
     const operationName = "searchDynamicResourceGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22202,7 +21737,6 @@ export class IdentityDomainsClient {
       searchDynamicResourceGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22262,7 +21796,7 @@ export class IdentityDomainsClient {
   public async searchGrants(
     searchGrantsRequest: requests.SearchGrantsRequest
   ): Promise<responses.SearchGrantsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchGrants.");
+    logger.debug("Calling operation IdentityDomainsClient#searchGrants.");
     const operationName = "searchGrants";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22285,7 +21819,6 @@ export class IdentityDomainsClient {
       searchGrantsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22345,7 +21878,7 @@ export class IdentityDomainsClient {
   public async searchGroups(
     searchGroupsRequest: requests.SearchGroupsRequest
   ): Promise<responses.SearchGroupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchGroups.");
+    logger.debug("Calling operation IdentityDomainsClient#searchGroups.");
     const operationName = "searchGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22368,7 +21901,6 @@ export class IdentityDomainsClient {
       searchGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22428,8 +21960,7 @@ export class IdentityDomainsClient {
   public async searchIdentityProviders(
     searchIdentityProvidersRequest: requests.SearchIdentityProvidersRequest
   ): Promise<responses.SearchIdentityProvidersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchIdentityProviders.");
+    logger.debug("Calling operation IdentityDomainsClient#searchIdentityProviders.");
     const operationName = "searchIdentityProviders";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22452,7 +21983,6 @@ export class IdentityDomainsClient {
       searchIdentityProvidersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22512,8 +22042,7 @@ export class IdentityDomainsClient {
   public async searchIdentitySettings(
     searchIdentitySettingsRequest: requests.SearchIdentitySettingsRequest
   ): Promise<responses.SearchIdentitySettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchIdentitySettings.");
+    logger.debug("Calling operation IdentityDomainsClient#searchIdentitySettings.");
     const operationName = "searchIdentitySettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22536,7 +22065,6 @@ export class IdentityDomainsClient {
       searchIdentitySettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22596,8 +22124,7 @@ export class IdentityDomainsClient {
   public async searchKmsiSettings(
     searchKmsiSettingsRequest: requests.SearchKmsiSettingsRequest
   ): Promise<responses.SearchKmsiSettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchKmsiSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#searchKmsiSettings.");
     const operationName = "searchKmsiSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22620,7 +22147,6 @@ export class IdentityDomainsClient {
       searchKmsiSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22680,7 +22206,7 @@ export class IdentityDomainsClient {
   public async searchMyApps(
     searchMyAppsRequest: requests.SearchMyAppsRequest
   ): Promise<responses.SearchMyAppsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchMyApps.");
+    logger.debug("Calling operation IdentityDomainsClient#searchMyApps.");
     const operationName = "searchMyApps";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22703,7 +22229,6 @@ export class IdentityDomainsClient {
       searchMyAppsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22763,7 +22288,7 @@ export class IdentityDomainsClient {
   public async searchMyGroups(
     searchMyGroupsRequest: requests.SearchMyGroupsRequest
   ): Promise<responses.SearchMyGroupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchMyGroups.");
+    logger.debug("Calling operation IdentityDomainsClient#searchMyGroups.");
     const operationName = "searchMyGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22786,7 +22311,6 @@ export class IdentityDomainsClient {
       searchMyGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22846,8 +22370,7 @@ export class IdentityDomainsClient {
   public async searchMyRequestableGroups(
     searchMyRequestableGroupsRequest: requests.SearchMyRequestableGroupsRequest
   ): Promise<responses.SearchMyRequestableGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchMyRequestableGroups.");
+    logger.debug("Calling operation IdentityDomainsClient#searchMyRequestableGroups.");
     const operationName = "searchMyRequestableGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22870,7 +22393,6 @@ export class IdentityDomainsClient {
       searchMyRequestableGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22930,7 +22452,7 @@ export class IdentityDomainsClient {
   public async searchMyRequests(
     searchMyRequestsRequest: requests.SearchMyRequestsRequest
   ): Promise<responses.SearchMyRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchMyRequests.");
+    logger.debug("Calling operation IdentityDomainsClient#searchMyRequests.");
     const operationName = "searchMyRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -22953,7 +22475,6 @@ export class IdentityDomainsClient {
       searchMyRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23013,8 +22534,7 @@ export class IdentityDomainsClient {
   public async searchNetworkPerimeters(
     searchNetworkPerimetersRequest: requests.SearchNetworkPerimetersRequest
   ): Promise<responses.SearchNetworkPerimetersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchNetworkPerimeters.");
+    logger.debug("Calling operation IdentityDomainsClient#searchNetworkPerimeters.");
     const operationName = "searchNetworkPerimeters";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23037,7 +22557,6 @@ export class IdentityDomainsClient {
       searchNetworkPerimetersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23097,8 +22616,7 @@ export class IdentityDomainsClient {
   public async searchNotificationSettings(
     searchNotificationSettingsRequest: requests.SearchNotificationSettingsRequest
   ): Promise<responses.SearchNotificationSettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchNotificationSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#searchNotificationSettings.");
     const operationName = "searchNotificationSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23121,7 +22639,6 @@ export class IdentityDomainsClient {
       searchNotificationSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23181,8 +22698,7 @@ export class IdentityDomainsClient {
   public async searchOAuth2ClientCredentials(
     searchOAuth2ClientCredentialsRequest: requests.SearchOAuth2ClientCredentialsRequest
   ): Promise<responses.SearchOAuth2ClientCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchOAuth2ClientCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#searchOAuth2ClientCredentials.");
     const operationName = "searchOAuth2ClientCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23206,7 +22722,6 @@ export class IdentityDomainsClient {
       searchOAuth2ClientCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23266,8 +22781,7 @@ export class IdentityDomainsClient {
   public async searchOAuthClientCertificates(
     searchOAuthClientCertificatesRequest: requests.SearchOAuthClientCertificatesRequest
   ): Promise<responses.SearchOAuthClientCertificatesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchOAuthClientCertificates.");
+    logger.debug("Calling operation IdentityDomainsClient#searchOAuthClientCertificates.");
     const operationName = "searchOAuthClientCertificates";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23291,7 +22805,6 @@ export class IdentityDomainsClient {
       searchOAuthClientCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23351,8 +22864,7 @@ export class IdentityDomainsClient {
   public async searchOAuthPartnerCertificates(
     searchOAuthPartnerCertificatesRequest: requests.SearchOAuthPartnerCertificatesRequest
   ): Promise<responses.SearchOAuthPartnerCertificatesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchOAuthPartnerCertificates.");
+    logger.debug("Calling operation IdentityDomainsClient#searchOAuthPartnerCertificates.");
     const operationName = "searchOAuthPartnerCertificates";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23376,7 +22888,6 @@ export class IdentityDomainsClient {
       searchOAuthPartnerCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23436,8 +22947,7 @@ export class IdentityDomainsClient {
   public async searchPasswordPolicies(
     searchPasswordPoliciesRequest: requests.SearchPasswordPoliciesRequest
   ): Promise<responses.SearchPasswordPoliciesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchPasswordPolicies.");
+    logger.debug("Calling operation IdentityDomainsClient#searchPasswordPolicies.");
     const operationName = "searchPasswordPolicies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23460,7 +22970,6 @@ export class IdentityDomainsClient {
       searchPasswordPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23520,7 +23029,7 @@ export class IdentityDomainsClient {
   public async searchPolicies(
     searchPoliciesRequest: requests.SearchPoliciesRequest
   ): Promise<responses.SearchPoliciesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchPolicies.");
+    logger.debug("Calling operation IdentityDomainsClient#searchPolicies.");
     const operationName = "searchPolicies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23543,7 +23052,6 @@ export class IdentityDomainsClient {
       searchPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23603,10 +23111,7 @@ export class IdentityDomainsClient {
   public async searchResourceTypeSchemaAttributes(
     searchResourceTypeSchemaAttributesRequest: requests.SearchResourceTypeSchemaAttributesRequest
   ): Promise<responses.SearchResourceTypeSchemaAttributesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation IdentityDomainsClient#searchResourceTypeSchemaAttributes."
-      );
+    logger.debug("Calling operation IdentityDomainsClient#searchResourceTypeSchemaAttributes.");
     const operationName = "searchResourceTypeSchemaAttributes";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23630,7 +23135,6 @@ export class IdentityDomainsClient {
       searchResourceTypeSchemaAttributesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23690,7 +23194,7 @@ export class IdentityDomainsClient {
   public async searchRules(
     searchRulesRequest: requests.SearchRulesRequest
   ): Promise<responses.SearchRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchRules.");
+    logger.debug("Calling operation IdentityDomainsClient#searchRules.");
     const operationName = "searchRules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23713,7 +23217,6 @@ export class IdentityDomainsClient {
       searchRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23773,7 +23276,7 @@ export class IdentityDomainsClient {
   public async searchSchemas(
     searchSchemasRequest: requests.SearchSchemasRequest
   ): Promise<responses.SearchSchemasResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchSchemas.");
+    logger.debug("Calling operation IdentityDomainsClient#searchSchemas.");
     const operationName = "searchSchemas";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23796,7 +23299,6 @@ export class IdentityDomainsClient {
       searchSchemasRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23856,8 +23358,7 @@ export class IdentityDomainsClient {
   public async searchSecurityQuestionSettings(
     searchSecurityQuestionSettingsRequest: requests.SearchSecurityQuestionSettingsRequest
   ): Promise<responses.SearchSecurityQuestionSettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchSecurityQuestionSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#searchSecurityQuestionSettings.");
     const operationName = "searchSecurityQuestionSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23881,7 +23382,6 @@ export class IdentityDomainsClient {
       searchSecurityQuestionSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23941,8 +23441,7 @@ export class IdentityDomainsClient {
   public async searchSecurityQuestions(
     searchSecurityQuestionsRequest: requests.SearchSecurityQuestionsRequest
   ): Promise<responses.SearchSecurityQuestionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchSecurityQuestions.");
+    logger.debug("Calling operation IdentityDomainsClient#searchSecurityQuestions.");
     const operationName = "searchSecurityQuestions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -23965,7 +23464,6 @@ export class IdentityDomainsClient {
       searchSecurityQuestionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24025,8 +23523,7 @@ export class IdentityDomainsClient {
   public async searchSelfRegistrationProfiles(
     searchSelfRegistrationProfilesRequest: requests.SearchSelfRegistrationProfilesRequest
   ): Promise<responses.SearchSelfRegistrationProfilesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchSelfRegistrationProfiles.");
+    logger.debug("Calling operation IdentityDomainsClient#searchSelfRegistrationProfiles.");
     const operationName = "searchSelfRegistrationProfiles";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -24050,7 +23547,6 @@ export class IdentityDomainsClient {
       searchSelfRegistrationProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24110,7 +23606,7 @@ export class IdentityDomainsClient {
   public async searchSettings(
     searchSettingsRequest: requests.SearchSettingsRequest
   ): Promise<responses.SearchSettingsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#searchSettings.");
     const operationName = "searchSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -24133,7 +23629,6 @@ export class IdentityDomainsClient {
       searchSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24193,8 +23688,7 @@ export class IdentityDomainsClient {
   public async searchSmtpCredentials(
     searchSmtpCredentialsRequest: requests.SearchSmtpCredentialsRequest
   ): Promise<responses.SearchSmtpCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchSmtpCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#searchSmtpCredentials.");
     const operationName = "searchSmtpCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -24217,7 +23711,6 @@ export class IdentityDomainsClient {
       searchSmtpCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24277,8 +23770,7 @@ export class IdentityDomainsClient {
   public async searchUserAttributesSettings(
     searchUserAttributesSettingsRequest: requests.SearchUserAttributesSettingsRequest
   ): Promise<responses.SearchUserAttributesSettingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchUserAttributesSettings.");
+    logger.debug("Calling operation IdentityDomainsClient#searchUserAttributesSettings.");
     const operationName = "searchUserAttributesSettings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -24301,7 +23793,6 @@ export class IdentityDomainsClient {
       searchUserAttributesSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24361,8 +23852,7 @@ export class IdentityDomainsClient {
   public async searchUserDbCredentials(
     searchUserDbCredentialsRequest: requests.SearchUserDbCredentialsRequest
   ): Promise<responses.SearchUserDbCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityDomainsClient#searchUserDbCredentials.");
+    logger.debug("Calling operation IdentityDomainsClient#searchUserDbCredentials.");
     const operationName = "searchUserDbCredentials";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -24385,7 +23875,6 @@ export class IdentityDomainsClient {
       searchUserDbCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24445,7 +23934,7 @@ export class IdentityDomainsClient {
   public async searchUsers(
     searchUsersRequest: requests.SearchUsersRequest
   ): Promise<responses.SearchUsersResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#searchUsers.");
+    logger.debug("Calling operation IdentityDomainsClient#searchUsers.");
     const operationName = "searchUsers";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -24468,7 +23957,6 @@ export class IdentityDomainsClient {
       searchUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

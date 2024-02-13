@@ -87,7 +87,7 @@ export namespace Event {
         case "KERNEL_CRASH":
           return model.KernelCrashEvent.getJsonObj(<model.KernelCrashEvent>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.eventType}`);
+          common.logger.info(`Unknown value for: ${obj.eventType}`);
       }
     }
     return jsonObj;
@@ -108,7 +108,7 @@ export namespace Event {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.eventType}`);
+          common.logger.info(`Unknown value for: ${obj.eventType}`);
       }
     }
     return jsonObj;

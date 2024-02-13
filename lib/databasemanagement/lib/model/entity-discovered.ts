@@ -104,7 +104,7 @@ export namespace EntityDiscovered {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`);
+          common.logger.info(`Unknown value for: ${obj.entityType}`);
       }
     }
     return jsonObj;
@@ -140,7 +140,7 @@ export namespace EntityDiscovered {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`);
+          common.logger.info(`Unknown value for: ${obj.entityType}`);
       }
     }
     return jsonObj;

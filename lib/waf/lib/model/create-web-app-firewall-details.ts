@@ -66,7 +66,7 @@ export namespace CreateWebAppFirewallDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.backendType}`);
+          common.logger.info(`Unknown value for: ${obj.backendType}`);
       }
     }
     return jsonObj;
@@ -82,7 +82,7 @@ export namespace CreateWebAppFirewallDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.backendType}`);
+          common.logger.info(`Unknown value for: ${obj.backendType}`);
       }
     }
     return jsonObj;

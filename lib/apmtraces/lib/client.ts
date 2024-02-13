@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class QueryClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    if (this.logger) this.logger.info(`QueryClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`QueryClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class QueryClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         QueryClient.serviceEndpointTemplate,
@@ -204,7 +200,7 @@ export class QueryClient {
   public async listQuickPicks(
     listQuickPicksRequest: requests.ListQuickPicksRequest
   ): Promise<responses.ListQuickPicksResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueryClient#listQuickPicks.");
+    logger.debug("Calling operation QueryClient#listQuickPicks.");
     const operationName = "listQuickPicks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/QuickPickSummary/ListQuickPicks";
@@ -227,7 +223,6 @@ export class QueryClient {
       listQuickPicksRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -341,7 +336,7 @@ export class QueryClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/Query.ts.html |here} to see how to use Query API.
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueryClient#query.");
+    logger.debug("Calling operation QueryClient#query.");
     const operationName = "query";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/QueryResultResponse/Query";
@@ -366,7 +361,6 @@ export class QueryClient {
       queryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -507,11 +501,7 @@ export class TraceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    if (this.logger) this.logger.info(`TraceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`TraceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -521,10 +511,9 @@ export class TraceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         TraceClient.serviceEndpointTemplate,
@@ -594,7 +583,7 @@ export class TraceClient {
   public async getAggregatedSnapshot(
     getAggregatedSnapshotRequest: requests.GetAggregatedSnapshotRequest
   ): Promise<responses.GetAggregatedSnapshotResponse> {
-    if (this.logger) this.logger.debug("Calling operation TraceClient#getAggregatedSnapshot.");
+    logger.debug("Calling operation TraceClient#getAggregatedSnapshot.");
     const operationName = "getAggregatedSnapshot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/AggregatedSnapshot/GetAggregatedSnapshot";
@@ -617,7 +606,6 @@ export class TraceClient {
       getAggregatedSnapshotRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -668,7 +656,7 @@ export class TraceClient {
   public async getSpan(
     getSpanRequest: requests.GetSpanRequest
   ): Promise<responses.GetSpanResponse> {
-    if (this.logger) this.logger.debug("Calling operation TraceClient#getSpan.");
+    logger.debug("Calling operation TraceClient#getSpan.");
     const operationName = "getSpan";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/Span/GetSpan";
@@ -692,7 +680,6 @@ export class TraceClient {
       getSpanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -743,7 +730,7 @@ export class TraceClient {
   public async getTrace(
     getTraceRequest: requests.GetTraceRequest
   ): Promise<responses.GetTraceResponse> {
-    if (this.logger) this.logger.debug("Calling operation TraceClient#getTrace.");
+    logger.debug("Calling operation TraceClient#getTrace.");
     const operationName = "getTrace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/Trace/GetTrace";
@@ -766,7 +753,6 @@ export class TraceClient {
       getTraceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -817,7 +803,7 @@ export class TraceClient {
   public async getTraceSnapshot(
     getTraceSnapshotRequest: requests.GetTraceSnapshotRequest
   ): Promise<responses.GetTraceSnapshotResponse> {
-    if (this.logger) this.logger.debug("Calling operation TraceClient#getTraceSnapshot.");
+    logger.debug("Calling operation TraceClient#getTraceSnapshot.");
     const operationName = "getTraceSnapshot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/TraceSnapshot/GetTraceSnapshot";
@@ -843,7 +829,6 @@ export class TraceClient {
       getTraceSnapshotRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

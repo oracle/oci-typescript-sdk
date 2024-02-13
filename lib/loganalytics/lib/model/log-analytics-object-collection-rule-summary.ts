@@ -81,6 +81,11 @@ export interface LogAnalyticsObjectCollectionRuleSummary {
    */
   "objectNameFilters"?: Array<string>;
   /**
+   * Type of files/objects in this object collection rule.
+   *
+   */
+  "logType"?: model.LogTypes;
+  /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *

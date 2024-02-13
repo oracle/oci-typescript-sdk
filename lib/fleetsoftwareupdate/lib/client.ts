@@ -22,7 +22,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -119,12 +120,7 @@ export class FleetSoftwareUpdateClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220528";
-    if (this.logger)
-      this.logger.info(`FleetSoftwareUpdateClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`FleetSoftwareUpdateClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -134,10 +130,9 @@ export class FleetSoftwareUpdateClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         FleetSoftwareUpdateClient.serviceEndpointTemplate,
@@ -230,8 +225,7 @@ export class FleetSoftwareUpdateClient {
   public async abortFsuDiscovery(
     abortFsuDiscoveryRequest: requests.AbortFsuDiscoveryRequest
   ): Promise<responses.AbortFsuDiscoveryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#abortFsuDiscovery.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#abortFsuDiscovery.");
     const operationName = "abortFsuDiscovery";
     const apiReferenceLink = "";
     const pathParams = {
@@ -253,7 +247,6 @@ export class FleetSoftwareUpdateClient {
       abortFsuDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -303,8 +296,7 @@ export class FleetSoftwareUpdateClient {
   public async addFsuCollectionTargets(
     addFsuCollectionTargetsRequest: requests.AddFsuCollectionTargetsRequest
   ): Promise<responses.AddFsuCollectionTargetsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#addFsuCollectionTargets.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#addFsuCollectionTargets.");
     const operationName = "addFsuCollectionTargets";
     const apiReferenceLink = "";
     const pathParams = {
@@ -326,7 +318,6 @@ export class FleetSoftwareUpdateClient {
       addFsuCollectionTargetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -383,8 +374,7 @@ export class FleetSoftwareUpdateClient {
   public async cancelFsuAction(
     cancelFsuActionRequest: requests.CancelFsuActionRequest
   ): Promise<responses.CancelFsuActionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#cancelFsuAction.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#cancelFsuAction.");
     const operationName = "cancelFsuAction";
     const apiReferenceLink = "";
     const pathParams = {
@@ -406,7 +396,6 @@ export class FleetSoftwareUpdateClient {
       cancelFsuActionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -454,8 +443,7 @@ export class FleetSoftwareUpdateClient {
   public async changeFsuActionCompartment(
     changeFsuActionCompartmentRequest: requests.ChangeFsuActionCompartmentRequest
   ): Promise<responses.ChangeFsuActionCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#changeFsuActionCompartment.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#changeFsuActionCompartment.");
     const operationName = "changeFsuActionCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -477,7 +465,6 @@ export class FleetSoftwareUpdateClient {
       changeFsuActionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -535,10 +522,7 @@ export class FleetSoftwareUpdateClient {
   public async changeFsuCollectionCompartment(
     changeFsuCollectionCompartmentRequest: requests.ChangeFsuCollectionCompartmentRequest
   ): Promise<responses.ChangeFsuCollectionCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation FleetSoftwareUpdateClient#changeFsuCollectionCompartment."
-      );
+    logger.debug("Calling operation FleetSoftwareUpdateClient#changeFsuCollectionCompartment.");
     const operationName = "changeFsuCollectionCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -560,7 +544,6 @@ export class FleetSoftwareUpdateClient {
       changeFsuCollectionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -618,8 +601,7 @@ export class FleetSoftwareUpdateClient {
   public async changeFsuCycleCompartment(
     changeFsuCycleCompartmentRequest: requests.ChangeFsuCycleCompartmentRequest
   ): Promise<responses.ChangeFsuCycleCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#changeFsuCycleCompartment.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#changeFsuCycleCompartment.");
     const operationName = "changeFsuCycleCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -641,7 +623,6 @@ export class FleetSoftwareUpdateClient {
       changeFsuCycleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -699,10 +680,7 @@ export class FleetSoftwareUpdateClient {
   public async changeFsuDiscoveryCompartment(
     changeFsuDiscoveryCompartmentRequest: requests.ChangeFsuDiscoveryCompartmentRequest
   ): Promise<responses.ChangeFsuDiscoveryCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation FleetSoftwareUpdateClient#changeFsuDiscoveryCompartment."
-      );
+    logger.debug("Calling operation FleetSoftwareUpdateClient#changeFsuDiscoveryCompartment.");
     const operationName = "changeFsuDiscoveryCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -724,7 +702,6 @@ export class FleetSoftwareUpdateClient {
       changeFsuDiscoveryCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -776,8 +753,7 @@ export class FleetSoftwareUpdateClient {
   public async cloneFsuCycle(
     cloneFsuCycleRequest: requests.CloneFsuCycleRequest
   ): Promise<responses.CloneFsuCycleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#cloneFsuCycle.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#cloneFsuCycle.");
     const operationName = "cloneFsuCycle";
     const apiReferenceLink = "";
     const pathParams = {
@@ -798,7 +774,6 @@ export class FleetSoftwareUpdateClient {
       cloneFsuCycleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -869,8 +844,7 @@ export class FleetSoftwareUpdateClient {
   public async createFsuAction(
     createFsuActionRequest: requests.CreateFsuActionRequest
   ): Promise<responses.CreateFsuActionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuAction.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuAction.");
     const operationName = "createFsuAction";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -889,7 +863,6 @@ export class FleetSoftwareUpdateClient {
       createFsuActionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -960,8 +933,7 @@ export class FleetSoftwareUpdateClient {
   public async createFsuCollection(
     createFsuCollectionRequest: requests.CreateFsuCollectionRequest
   ): Promise<responses.CreateFsuCollectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuCollection.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuCollection.");
     const operationName = "createFsuCollection";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -980,7 +952,6 @@ export class FleetSoftwareUpdateClient {
       createFsuCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1051,8 +1022,7 @@ export class FleetSoftwareUpdateClient {
   public async createFsuCycle(
     createFsuCycleRequest: requests.CreateFsuCycleRequest
   ): Promise<responses.CreateFsuCycleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuCycle.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuCycle.");
     const operationName = "createFsuCycle";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1071,7 +1041,6 @@ export class FleetSoftwareUpdateClient {
       createFsuCycleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1142,8 +1111,7 @@ export class FleetSoftwareUpdateClient {
   public async createFsuDiscovery(
     createFsuDiscoveryRequest: requests.CreateFsuDiscoveryRequest
   ): Promise<responses.CreateFsuDiscoveryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuDiscovery.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuDiscovery.");
     const operationName = "createFsuDiscovery";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1162,7 +1130,6 @@ export class FleetSoftwareUpdateClient {
       createFsuDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1233,8 +1200,7 @@ export class FleetSoftwareUpdateClient {
   public async deleteFsuAction(
     deleteFsuActionRequest: requests.DeleteFsuActionRequest
   ): Promise<responses.DeleteFsuActionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuAction.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuAction.");
     const operationName = "deleteFsuAction";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1255,7 +1221,6 @@ export class FleetSoftwareUpdateClient {
       deleteFsuActionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1307,8 +1272,7 @@ export class FleetSoftwareUpdateClient {
   public async deleteFsuCollection(
     deleteFsuCollectionRequest: requests.DeleteFsuCollectionRequest
   ): Promise<responses.DeleteFsuCollectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuCollection.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuCollection.");
     const operationName = "deleteFsuCollection";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1329,7 +1293,6 @@ export class FleetSoftwareUpdateClient {
       deleteFsuCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1381,8 +1344,7 @@ export class FleetSoftwareUpdateClient {
   public async deleteFsuCycle(
     deleteFsuCycleRequest: requests.DeleteFsuCycleRequest
   ): Promise<responses.DeleteFsuCycleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuCycle.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuCycle.");
     const operationName = "deleteFsuCycle";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1403,7 +1365,6 @@ export class FleetSoftwareUpdateClient {
       deleteFsuCycleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1455,8 +1416,7 @@ export class FleetSoftwareUpdateClient {
   public async deleteFsuDiscovery(
     deleteFsuDiscoveryRequest: requests.DeleteFsuDiscoveryRequest
   ): Promise<responses.DeleteFsuDiscoveryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuDiscovery.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuDiscovery.");
     const operationName = "deleteFsuDiscovery";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1477,7 +1437,6 @@ export class FleetSoftwareUpdateClient {
       deleteFsuDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1529,7 +1488,7 @@ export class FleetSoftwareUpdateClient {
   public async deleteFsuJob(
     deleteFsuJobRequest: requests.DeleteFsuJobRequest
   ): Promise<responses.DeleteFsuJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuJob.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuJob.");
     const operationName = "deleteFsuJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1550,7 +1509,6 @@ export class FleetSoftwareUpdateClient {
       deleteFsuJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1597,7 +1555,7 @@ export class FleetSoftwareUpdateClient {
   public async getFsuAction(
     getFsuActionRequest: requests.GetFsuActionRequest
   ): Promise<responses.GetFsuActionResponse> {
-    if (this.logger) this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuAction.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuAction.");
     const operationName = "getFsuAction";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1617,7 +1575,6 @@ export class FleetSoftwareUpdateClient {
       getFsuActionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1674,8 +1631,7 @@ export class FleetSoftwareUpdateClient {
   public async getFsuActionOutputContent(
     getFsuActionOutputContentRequest: requests.GetFsuActionOutputContentRequest
   ): Promise<responses.GetFsuActionOutputContentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuActionOutputContent.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuActionOutputContent.");
     const operationName = "getFsuActionOutputContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1695,7 +1651,6 @@ export class FleetSoftwareUpdateClient {
       getFsuActionOutputContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1746,8 +1701,7 @@ export class FleetSoftwareUpdateClient {
   public async getFsuCollection(
     getFsuCollectionRequest: requests.GetFsuCollectionRequest
   ): Promise<responses.GetFsuCollectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuCollection.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuCollection.");
     const operationName = "getFsuCollection";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1767,7 +1721,6 @@ export class FleetSoftwareUpdateClient {
       getFsuCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1823,7 +1776,7 @@ export class FleetSoftwareUpdateClient {
   public async getFsuCycle(
     getFsuCycleRequest: requests.GetFsuCycleRequest
   ): Promise<responses.GetFsuCycleResponse> {
-    if (this.logger) this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuCycle.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuCycle.");
     const operationName = "getFsuCycle";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1843,7 +1796,6 @@ export class FleetSoftwareUpdateClient {
       getFsuCycleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1899,8 +1851,7 @@ export class FleetSoftwareUpdateClient {
   public async getFsuDiscovery(
     getFsuDiscoveryRequest: requests.GetFsuDiscoveryRequest
   ): Promise<responses.GetFsuDiscoveryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuDiscovery.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuDiscovery.");
     const operationName = "getFsuDiscovery";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1920,7 +1871,6 @@ export class FleetSoftwareUpdateClient {
       getFsuDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1976,7 +1926,7 @@ export class FleetSoftwareUpdateClient {
   public async getFsuJob(
     getFsuJobRequest: requests.GetFsuJobRequest
   ): Promise<responses.GetFsuJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuJob.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuJob.");
     const operationName = "getFsuJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1996,7 +1946,6 @@ export class FleetSoftwareUpdateClient {
       getFsuJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2052,8 +2001,7 @@ export class FleetSoftwareUpdateClient {
   public async getFsuJobOutputContent(
     getFsuJobOutputContentRequest: requests.GetFsuJobOutputContentRequest
   ): Promise<responses.GetFsuJobOutputContentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuJobOutputContent.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuJobOutputContent.");
     const operationName = "getFsuJobOutputContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2073,7 +2021,6 @@ export class FleetSoftwareUpdateClient {
       getFsuJobOutputContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2124,8 +2071,7 @@ export class FleetSoftwareUpdateClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#getWorkRequest.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2145,7 +2091,6 @@ export class FleetSoftwareUpdateClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2206,8 +2151,7 @@ export class FleetSoftwareUpdateClient {
   public async listFsuActions(
     listFsuActionsRequest: requests.ListFsuActionsRequest
   ): Promise<responses.ListFsuActionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuActions.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuActions.");
     const operationName = "listFsuActions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2235,7 +2179,6 @@ export class FleetSoftwareUpdateClient {
       listFsuActionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2291,8 +2234,7 @@ export class FleetSoftwareUpdateClient {
   public async listFsuCollectionTargets(
     listFsuCollectionTargetsRequest: requests.ListFsuCollectionTargetsRequest
   ): Promise<responses.ListFsuCollectionTargetsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuCollectionTargets.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuCollectionTargets.");
     const operationName = "listFsuCollectionTargets";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2320,7 +2262,6 @@ export class FleetSoftwareUpdateClient {
       listFsuCollectionTargetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2376,8 +2317,7 @@ export class FleetSoftwareUpdateClient {
   public async listFsuCollections(
     listFsuCollectionsRequest: requests.ListFsuCollectionsRequest
   ): Promise<responses.ListFsuCollectionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuCollections.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuCollections.");
     const operationName = "listFsuCollections";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2404,7 +2344,6 @@ export class FleetSoftwareUpdateClient {
       listFsuCollectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2460,8 +2399,7 @@ export class FleetSoftwareUpdateClient {
   public async listFsuCycles(
     listFsuCyclesRequest: requests.ListFsuCyclesRequest
   ): Promise<responses.ListFsuCyclesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuCycles.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuCycles.");
     const operationName = "listFsuCycles";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2490,7 +2428,6 @@ export class FleetSoftwareUpdateClient {
       listFsuCyclesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2546,8 +2483,7 @@ export class FleetSoftwareUpdateClient {
   public async listFsuDiscoveries(
     listFsuDiscoveriesRequest: requests.ListFsuDiscoveriesRequest
   ): Promise<responses.ListFsuDiscoveriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuDiscoveries.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuDiscoveries.");
     const operationName = "listFsuDiscoveries";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2573,7 +2509,6 @@ export class FleetSoftwareUpdateClient {
       listFsuDiscoveriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2629,8 +2564,7 @@ export class FleetSoftwareUpdateClient {
   public async listFsuDiscoveryTargets(
     listFsuDiscoveryTargetsRequest: requests.ListFsuDiscoveryTargetsRequest
   ): Promise<responses.ListFsuDiscoveryTargetsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuDiscoveryTargets.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuDiscoveryTargets.");
     const operationName = "listFsuDiscoveryTargets";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2658,7 +2592,6 @@ export class FleetSoftwareUpdateClient {
       listFsuDiscoveryTargetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2714,8 +2647,7 @@ export class FleetSoftwareUpdateClient {
   public async listFsuJobOutputs(
     listFsuJobOutputsRequest: requests.ListFsuJobOutputsRequest
   ): Promise<responses.ListFsuJobOutputsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuJobOutputs.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuJobOutputs.");
     const operationName = "listFsuJobOutputs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2738,7 +2670,6 @@ export class FleetSoftwareUpdateClient {
       listFsuJobOutputsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2794,7 +2725,7 @@ export class FleetSoftwareUpdateClient {
   public async listFsuJobs(
     listFsuJobsRequest: requests.ListFsuJobsRequest
   ): Promise<responses.ListFsuJobsResponse> {
-    if (this.logger) this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuJobs.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuJobs.");
     const operationName = "listFsuJobs";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2820,7 +2751,6 @@ export class FleetSoftwareUpdateClient {
       listFsuJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2876,8 +2806,7 @@ export class FleetSoftwareUpdateClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listWorkRequestErrors.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2902,7 +2831,6 @@ export class FleetSoftwareUpdateClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2958,8 +2886,7 @@ export class FleetSoftwareUpdateClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listWorkRequestLogs.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2984,7 +2911,6 @@ export class FleetSoftwareUpdateClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3040,8 +2966,7 @@ export class FleetSoftwareUpdateClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listWorkRequests.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3068,7 +2993,6 @@ export class FleetSoftwareUpdateClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3126,8 +3050,7 @@ export class FleetSoftwareUpdateClient {
   public async removeFsuCollectionTargets(
     removeFsuCollectionTargetsRequest: requests.RemoveFsuCollectionTargetsRequest
   ): Promise<responses.RemoveFsuCollectionTargetsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#removeFsuCollectionTargets.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#removeFsuCollectionTargets.");
     const operationName = "removeFsuCollectionTargets";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3149,7 +3072,6 @@ export class FleetSoftwareUpdateClient {
       removeFsuCollectionTargetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3206,8 +3128,7 @@ export class FleetSoftwareUpdateClient {
   public async resumeFsuAction(
     resumeFsuActionRequest: requests.ResumeFsuActionRequest
   ): Promise<responses.ResumeFsuActionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#resumeFsuAction.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#resumeFsuAction.");
     const operationName = "resumeFsuAction";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3229,7 +3150,6 @@ export class FleetSoftwareUpdateClient {
       resumeFsuActionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3277,7 +3197,7 @@ export class FleetSoftwareUpdateClient {
   public async retryFsuJob(
     retryFsuJobRequest: requests.RetryFsuJobRequest
   ): Promise<responses.RetryFsuJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation FleetSoftwareUpdateClient#retryFsuJob.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#retryFsuJob.");
     const operationName = "retryFsuJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3299,7 +3219,6 @@ export class FleetSoftwareUpdateClient {
       retryFsuJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3346,8 +3265,7 @@ export class FleetSoftwareUpdateClient {
   public async updateFsuAction(
     updateFsuActionRequest: requests.UpdateFsuActionRequest
   ): Promise<responses.UpdateFsuActionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuAction.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuAction.");
     const operationName = "updateFsuAction";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3368,7 +3286,6 @@ export class FleetSoftwareUpdateClient {
       updateFsuActionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3425,8 +3342,7 @@ export class FleetSoftwareUpdateClient {
   public async updateFsuCollection(
     updateFsuCollectionRequest: requests.UpdateFsuCollectionRequest
   ): Promise<responses.UpdateFsuCollectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuCollection.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuCollection.");
     const operationName = "updateFsuCollection";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3447,7 +3363,6 @@ export class FleetSoftwareUpdateClient {
       updateFsuCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3504,8 +3419,7 @@ export class FleetSoftwareUpdateClient {
   public async updateFsuCycle(
     updateFsuCycleRequest: requests.UpdateFsuCycleRequest
   ): Promise<responses.UpdateFsuCycleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuCycle.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuCycle.");
     const operationName = "updateFsuCycle";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3526,7 +3440,6 @@ export class FleetSoftwareUpdateClient {
       updateFsuCycleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3583,8 +3496,7 @@ export class FleetSoftwareUpdateClient {
   public async updateFsuDiscovery(
     updateFsuDiscoveryRequest: requests.UpdateFsuDiscoveryRequest
   ): Promise<responses.UpdateFsuDiscoveryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuDiscovery.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuDiscovery.");
     const operationName = "updateFsuDiscovery";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3605,7 +3517,6 @@ export class FleetSoftwareUpdateClient {
       updateFsuDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3657,7 +3568,7 @@ export class FleetSoftwareUpdateClient {
   public async updateFsuJob(
     updateFsuJobRequest: requests.UpdateFsuJobRequest
   ): Promise<responses.UpdateFsuJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuJob.");
+    logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuJob.");
     const operationName = "updateFsuJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3678,7 +3589,6 @@ export class FleetSoftwareUpdateClient {
       updateFsuJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class BillingScheduleClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/oalapp/service/onesubs/proxy/20210501";
-    if (this.logger) this.logger.info(`BillingScheduleClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`BillingScheduleClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class BillingScheduleClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         BillingScheduleClient.serviceEndpointTemplate,
@@ -204,8 +200,7 @@ export class BillingScheduleClient {
   public async listBillingSchedules(
     listBillingSchedulesRequest: requests.ListBillingSchedulesRequest
   ): Promise<responses.ListBillingSchedulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BillingScheduleClient#listBillingSchedules.");
+    logger.debug("Calling operation BillingScheduleClient#listBillingSchedules.");
     const operationName = "listBillingSchedules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -232,7 +227,6 @@ export class BillingScheduleClient {
       listBillingSchedulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

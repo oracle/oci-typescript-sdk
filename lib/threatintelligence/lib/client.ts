@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,11 +118,7 @@ export class ThreatintelClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger) this.logger.info(`ThreatintelClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ThreatintelClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -131,10 +128,9 @@ export class ThreatintelClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ThreatintelClient.serviceEndpointTemplate,
@@ -226,7 +222,7 @@ export class ThreatintelClient {
   public async getIndicator(
     getIndicatorRequest: requests.GetIndicatorRequest
   ): Promise<responses.GetIndicatorResponse> {
-    if (this.logger) this.logger.debug("Calling operation ThreatintelClient#getIndicator.");
+    logger.debug("Calling operation ThreatintelClient#getIndicator.");
     const operationName = "getIndicator";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/threat-intel/20220901/Indicator/GetIndicator";
@@ -249,7 +245,6 @@ export class ThreatintelClient {
       getIndicatorRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -299,7 +294,7 @@ export class ThreatintelClient {
   public async listIndicatorCounts(
     listIndicatorCountsRequest: requests.ListIndicatorCountsRequest
   ): Promise<responses.ListIndicatorCountsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ThreatintelClient#listIndicatorCounts.");
+    logger.debug("Calling operation ThreatintelClient#listIndicatorCounts.");
     const operationName = "listIndicatorCounts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/threat-intel/20220901/IndicatorCountCollection/ListIndicatorCounts";
@@ -321,7 +316,6 @@ export class ThreatintelClient {
       listIndicatorCountsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -372,7 +366,7 @@ export class ThreatintelClient {
   public async listIndicators(
     listIndicatorsRequest: requests.ListIndicatorsRequest
   ): Promise<responses.ListIndicatorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ThreatintelClient#listIndicators.");
+    logger.debug("Calling operation ThreatintelClient#listIndicators.");
     const operationName = "listIndicators";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/threat-intel/20220901/IndicatorSummaryCollection/ListIndicators";
@@ -407,7 +401,6 @@ export class ThreatintelClient {
       listIndicatorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -464,7 +457,7 @@ export class ThreatintelClient {
   public async listThreatTypes(
     listThreatTypesRequest: requests.ListThreatTypesRequest
   ): Promise<responses.ListThreatTypesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ThreatintelClient#listThreatTypes.");
+    logger.debug("Calling operation ThreatintelClient#listThreatTypes.");
     const operationName = "listThreatTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/threat-intel/20220901/ThreatTypesCollection/ListThreatTypes";
@@ -488,7 +481,6 @@ export class ThreatintelClient {
       listThreatTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -543,7 +535,7 @@ export class ThreatintelClient {
   public async summarizeIndicators(
     summarizeIndicatorsRequest: requests.SummarizeIndicatorsRequest
   ): Promise<responses.SummarizeIndicatorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ThreatintelClient#summarizeIndicators.");
+    logger.debug("Calling operation ThreatintelClient#summarizeIndicators.");
     const operationName = "summarizeIndicators";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/threat-intel/20220901/Indicator/SummarizeIndicators";
@@ -566,7 +558,6 @@ export class ThreatintelClient {
       summarizeIndicatorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

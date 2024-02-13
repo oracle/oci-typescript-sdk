@@ -60,7 +60,7 @@ export namespace PipelineStepDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.stepType}`);
+          common.logger.info(`Unknown value for: ${obj.stepType}`);
       }
     }
     return jsonObj;
@@ -90,7 +90,7 @@ export namespace PipelineStepDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.stepType}`);
+          common.logger.info(`Unknown value for: ${obj.stepType}`);
       }
     }
     return jsonObj;

@@ -47,7 +47,7 @@ export namespace Action {
         case "CHECK":
           return model.CheckAction.getJsonObj(<model.CheckAction>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -73,7 +73,7 @@ export namespace Action {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

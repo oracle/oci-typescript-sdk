@@ -40,6 +40,11 @@ export interface ListRulesRequest extends common.BaseRequest {
    */
   "kind"?: ListRulesRequest.Kind;
   /**
+   * The target service to use for filtering.
+   *
+   */
+  "targetService"?: string;
+  /**
    * The rule lifecycle state used for filtering. Currently supported
    * values are ACTIVE and DELETED.
    *

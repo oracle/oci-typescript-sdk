@@ -77,7 +77,7 @@ export namespace AutoScalingPolicy {
         case "threshold":
           return model.ThresholdPolicy.getJsonObj(<model.ThresholdPolicy>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.policyType}`);
+          common.logger.info(`Unknown value for: ${obj.policyType}`);
       }
     }
     return jsonObj;
@@ -103,7 +103,7 @@ export namespace AutoScalingPolicy {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.policyType}`);
+          common.logger.info(`Unknown value for: ${obj.policyType}`);
       }
     }
     return jsonObj;

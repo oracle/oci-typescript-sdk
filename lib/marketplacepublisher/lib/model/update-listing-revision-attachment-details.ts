@@ -65,7 +65,7 @@ export namespace UpdateListingRevisionAttachmentDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.attachmentType}`);
+          common.logger.info(`Unknown value for: ${obj.attachmentType}`);
       }
     }
     return jsonObj;
@@ -91,7 +91,7 @@ export namespace UpdateListingRevisionAttachmentDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.attachmentType}`);
+          common.logger.info(`Unknown value for: ${obj.attachmentType}`);
       }
     }
     return jsonObj;

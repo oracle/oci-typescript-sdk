@@ -54,7 +54,7 @@ export namespace Filter {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.triggerSource}`);
+          common.logger.info(`Unknown value for: ${obj.triggerSource}`);
       }
     }
     return jsonObj;
@@ -97,7 +97,7 @@ export namespace Filter {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.triggerSource}`);
+          common.logger.info(`Unknown value for: ${obj.triggerSource}`);
       }
     }
     return jsonObj;

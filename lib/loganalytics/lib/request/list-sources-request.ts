@@ -76,6 +76,10 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
+   * The source type.
+   */
+  "sourceType"?: string;
+  /**
    * A comma-separated list of categories used for filtering
    */
   "categories"?: string;

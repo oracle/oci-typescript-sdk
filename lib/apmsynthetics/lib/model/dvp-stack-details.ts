@@ -35,7 +35,7 @@ export namespace DvpStackDetails {
         case "ORACLE_RM_STACK":
           return model.OracleRMStack.getJsonObj(<model.OracleRMStack>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dvpStackType}`);
+          common.logger.info(`Unknown value for: ${obj.dvpStackType}`);
       }
     }
     return jsonObj;
@@ -51,7 +51,7 @@ export namespace DvpStackDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dvpStackType}`);
+          common.logger.info(`Unknown value for: ${obj.dvpStackType}`);
       }
     }
     return jsonObj;

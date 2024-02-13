@@ -40,6 +40,7 @@ export interface ParseQueryOutput {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "responseTimeInMs"?: number;
+  "timeFilter"?: model.TimeRange;
   /**
    * List of querylanguage command descriptors, describing the specfied query string.
    *
@@ -58,6 +59,7 @@ export namespace ParseQueryOutput {
             })
           : undefined,
 
+        "timeFilter": obj.timeFilter ? model.TimeRange.getJsonObj(obj.timeFilter) : undefined,
         "commands": obj.commands
           ? obj.commands.map(item => {
               return model.AbstractCommandDescriptor.getJsonObj(item);
@@ -78,6 +80,9 @@ export namespace ParseQueryOutput {
             })
           : undefined,
 
+        "timeFilter": obj.timeFilter
+          ? model.TimeRange.getDeserializedJsonObj(obj.timeFilter)
+          : undefined,
         "commands": obj.commands
           ? obj.commands.map(item => {
               return model.AbstractCommandDescriptor.getDeserializedJsonObj(item);

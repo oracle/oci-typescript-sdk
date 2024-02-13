@@ -26,7 +26,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -122,12 +123,7 @@ export class GenerativeAiInferenceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20231130";
-    if (this.logger)
-      this.logger.info(`GenerativeAiInferenceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`GenerativeAiInferenceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -137,10 +133,9 @@ export class GenerativeAiInferenceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         GenerativeAiInferenceClient.serviceEndpointTemplate,
@@ -212,7 +207,7 @@ An embedding is numeric representation of a piece of text. This text can be a ph
   public async embedText(
     embedTextRequest: requests.EmbedTextRequest
   ): Promise<responses.EmbedTextResponse> {
-    if (this.logger) this.logger.debug("Calling operation GenerativeAiInferenceClient#embedText.");
+    logger.debug("Calling operation GenerativeAiInferenceClient#embedText.");
     const operationName = "embedText";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -231,7 +226,6 @@ An embedding is numeric representation of a piece of text. This text can be a ph
       embedTextRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -292,8 +286,7 @@ An embedding is numeric representation of a piece of text. This text can be a ph
   public async generateText(
     generateTextRequest: requests.GenerateTextRequest
   ): Promise<responses.GenerateTextResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GenerativeAiInferenceClient#generateText.");
+    logger.debug("Calling operation GenerativeAiInferenceClient#generateText.");
     const operationName = "generateText";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -312,7 +305,6 @@ An embedding is numeric representation of a piece of text. This text can be a ph
       generateTextRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -373,8 +365,7 @@ An embedding is numeric representation of a piece of text. This text can be a ph
   public async summarizeText(
     summarizeTextRequest: requests.SummarizeTextRequest
   ): Promise<responses.SummarizeTextResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GenerativeAiInferenceClient#summarizeText.");
+    logger.debug("Calling operation GenerativeAiInferenceClient#summarizeText.");
     const operationName = "summarizeText";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -393,7 +384,6 @@ An embedding is numeric representation of a piece of text. This text can be a ph
       summarizeTextRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -25,7 +25,7 @@ export interface RegisterLookupRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * The lookup type.  Valid values are Lookup or Dictionary.
+   * The lookup type.  Valid values are Lookup, Dictionary or Module.
    */
   "type": RegisterLookupRequest.Type;
   /**
@@ -83,6 +83,7 @@ export interface RegisterLookupRequest extends common.BaseRequest {
 export namespace RegisterLookupRequest {
   export enum Type {
     Lookup = "Lookup",
-    Dictionary = "Dictionary"
+    Dictionary = "Dictionary",
+    Module = "Module"
   }
 }

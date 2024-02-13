@@ -64,7 +64,7 @@ export namespace ResourceAssessmentStrategy {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.strategyType}`);
+          common.logger.info(`Unknown value for: ${obj.strategyType}`);
       }
     }
     return jsonObj;
@@ -95,7 +95,7 @@ export namespace ResourceAssessmentStrategy {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.strategyType}`);
+          common.logger.info(`Unknown value for: ${obj.strategyType}`);
       }
     }
     return jsonObj;

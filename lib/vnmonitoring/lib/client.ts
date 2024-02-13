@@ -22,7 +22,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -118,11 +119,7 @@ export class VnMonitoringClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    if (this.logger) this.logger.info(`VnMonitoringClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`VnMonitoringClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +129,9 @@ export class VnMonitoringClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         VnMonitoringClient.serviceEndpointTemplate,
@@ -228,8 +224,7 @@ export class VnMonitoringClient {
   public async changePathAnalyzerTestCompartment(
     changePathAnalyzerTestCompartmentRequest: requests.ChangePathAnalyzerTestCompartmentRequest
   ): Promise<responses.ChangePathAnalyzerTestCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation VnMonitoringClient#changePathAnalyzerTestCompartment.");
+    logger.debug("Calling operation VnMonitoringClient#changePathAnalyzerTestCompartment.");
     const operationName = "changePathAnalyzerTestCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -250,7 +245,6 @@ export class VnMonitoringClient {
       changePathAnalyzerTestCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -306,8 +300,7 @@ export class VnMonitoringClient {
   public async createPathAnalyzerTest(
     createPathAnalyzerTestRequest: requests.CreatePathAnalyzerTestRequest
   ): Promise<responses.CreatePathAnalyzerTestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation VnMonitoringClient#createPathAnalyzerTest.");
+    logger.debug("Calling operation VnMonitoringClient#createPathAnalyzerTest.");
     const operationName = "createPathAnalyzerTest";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -326,7 +319,6 @@ export class VnMonitoringClient {
       createPathAnalyzerTestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -386,8 +378,7 @@ export class VnMonitoringClient {
   public async deletePathAnalyzerTest(
     deletePathAnalyzerTestRequest: requests.DeletePathAnalyzerTestRequest
   ): Promise<responses.DeletePathAnalyzerTestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation VnMonitoringClient#deletePathAnalyzerTest.");
+    logger.debug("Calling operation VnMonitoringClient#deletePathAnalyzerTest.");
     const operationName = "deletePathAnalyzerTest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -408,7 +399,6 @@ export class VnMonitoringClient {
       deletePathAnalyzerTestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -462,7 +452,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async getPathAnalysis(
     getPathAnalysisRequest: requests.GetPathAnalysisRequest
   ): Promise<responses.GetPathAnalysisResponse> {
-    if (this.logger) this.logger.debug("Calling operation VnMonitoringClient#getPathAnalysis.");
+    logger.debug("Calling operation VnMonitoringClient#getPathAnalysis.");
     const operationName = "getPathAnalysis";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -482,7 +472,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       getPathAnalysisRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -538,7 +527,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async getPathAnalyzerTest(
     getPathAnalyzerTestRequest: requests.GetPathAnalyzerTestRequest
   ): Promise<responses.GetPathAnalyzerTestResponse> {
-    if (this.logger) this.logger.debug("Calling operation VnMonitoringClient#getPathAnalyzerTest.");
+    logger.debug("Calling operation VnMonitoringClient#getPathAnalyzerTest.");
     const operationName = "getPathAnalyzerTest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -558,7 +547,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       getPathAnalyzerTestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -613,7 +601,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation VnMonitoringClient#getWorkRequest.");
+    logger.debug("Calling operation VnMonitoringClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -633,7 +621,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -694,8 +681,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async listPathAnalyzerTests(
     listPathAnalyzerTestsRequest: requests.ListPathAnalyzerTestsRequest
   ): Promise<responses.ListPathAnalyzerTestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation VnMonitoringClient#listPathAnalyzerTests.");
+    logger.debug("Calling operation VnMonitoringClient#listPathAnalyzerTests.");
     const operationName = "listPathAnalyzerTests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -721,7 +707,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       listPathAnalyzerTestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -777,8 +762,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation VnMonitoringClient#listWorkRequestErrors.");
+    logger.debug("Calling operation VnMonitoringClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -803,7 +787,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -859,7 +842,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation VnMonitoringClient#listWorkRequestLogs.");
+    logger.debug("Calling operation VnMonitoringClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -884,7 +867,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -941,8 +923,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async listWorkRequestResults(
     listWorkRequestResultsRequest: requests.ListWorkRequestResultsRequest
   ): Promise<responses.ListWorkRequestResultsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation VnMonitoringClient#listWorkRequestResults.");
+    logger.debug("Calling operation VnMonitoringClient#listWorkRequestResults.");
     const operationName = "listWorkRequestResults";
     const apiReferenceLink = "";
     const pathParams = {
@@ -966,7 +947,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       listWorkRequestResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1021,7 +1001,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation VnMonitoringClient#listWorkRequests.");
+    logger.debug("Calling operation VnMonitoringClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1048,7 +1028,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1103,8 +1082,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
   public async updatePathAnalyzerTest(
     updatePathAnalyzerTestRequest: requests.UpdatePathAnalyzerTestRequest
   ): Promise<responses.UpdatePathAnalyzerTestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation VnMonitoringClient#updatePathAnalyzerTest.");
+    logger.debug("Calling operation VnMonitoringClient#updatePathAnalyzerTest.");
     const operationName = "updatePathAnalyzerTest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1126,7 +1104,6 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
       updatePathAnalyzerTestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -25,7 +25,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -121,11 +122,7 @@ export class LoggingManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200531";
-    if (this.logger) this.logger.info(`LoggingManagementClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LoggingManagementClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -135,10 +132,9 @@ export class LoggingManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LoggingManagementClient.serviceEndpointTemplate,
@@ -232,8 +228,7 @@ export class LoggingManagementClient {
   public async changeLogGroupCompartment(
     changeLogGroupCompartmentRequest: requests.ChangeLogGroupCompartmentRequest
   ): Promise<responses.ChangeLogGroupCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#changeLogGroupCompartment.");
+    logger.debug("Calling operation LoggingManagementClient#changeLogGroupCompartment.");
     const operationName = "changeLogGroupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/ChangeLogGroupCompartment";
@@ -255,7 +250,6 @@ export class LoggingManagementClient {
       changeLogGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -312,8 +306,7 @@ export class LoggingManagementClient {
   public async changeLogLogGroup(
     changeLogLogGroupRequest: requests.ChangeLogLogGroupRequest
   ): Promise<responses.ChangeLogLogGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#changeLogLogGroup.");
+    logger.debug("Calling operation LoggingManagementClient#changeLogLogGroup.");
     const operationName = "changeLogLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/ChangeLogLogGroup";
@@ -336,7 +329,6 @@ export class LoggingManagementClient {
       changeLogLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -394,10 +386,7 @@ export class LoggingManagementClient {
   public async changeLogSavedSearchCompartment(
     changeLogSavedSearchCompartmentRequest: requests.ChangeLogSavedSearchCompartmentRequest
   ): Promise<responses.ChangeLogSavedSearchCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LoggingManagementClient#changeLogSavedSearchCompartment."
-      );
+    logger.debug("Calling operation LoggingManagementClient#changeLogSavedSearchCompartment.");
     const operationName = "changeLogSavedSearchCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/ChangeLogSavedSearchCompartment";
@@ -420,7 +409,6 @@ export class LoggingManagementClient {
       changeLogSavedSearchCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -473,10 +461,9 @@ export class LoggingManagementClient {
   public async changeUnifiedAgentConfigurationCompartment(
     changeUnifiedAgentConfigurationCompartmentRequest: requests.ChangeUnifiedAgentConfigurationCompartmentRequest
   ): Promise<responses.ChangeUnifiedAgentConfigurationCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LoggingManagementClient#changeUnifiedAgentConfigurationCompartment."
-      );
+    logger.debug(
+      "Calling operation LoggingManagementClient#changeUnifiedAgentConfigurationCompartment."
+    );
     const operationName = "changeUnifiedAgentConfigurationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/ChangeUnifiedAgentConfigurationCompartment";
@@ -500,7 +487,6 @@ export class LoggingManagementClient {
       changeUnifiedAgentConfigurationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -558,7 +544,7 @@ export class LoggingManagementClient {
   public async createLog(
     createLogRequest: requests.CreateLogRequest
   ): Promise<responses.CreateLogResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#createLog.");
+    logger.debug("Calling operation LoggingManagementClient#createLog.");
     const operationName = "createLog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/CreateLog";
@@ -580,7 +566,6 @@ export class LoggingManagementClient {
       createLogRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -638,7 +623,7 @@ export class LoggingManagementClient {
   public async createLogGroup(
     createLogGroupRequest: requests.CreateLogGroupRequest
   ): Promise<responses.CreateLogGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#createLogGroup.");
+    logger.debug("Calling operation LoggingManagementClient#createLogGroup.");
     const operationName = "createLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/CreateLogGroup";
@@ -658,7 +643,6 @@ export class LoggingManagementClient {
       createLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -715,8 +699,7 @@ export class LoggingManagementClient {
   public async createLogSavedSearch(
     createLogSavedSearchRequest: requests.CreateLogSavedSearchRequest
   ): Promise<responses.CreateLogSavedSearchResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#createLogSavedSearch.");
+    logger.debug("Calling operation LoggingManagementClient#createLogSavedSearch.");
     const operationName = "createLogSavedSearch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/CreateLogSavedSearch";
@@ -736,7 +719,6 @@ export class LoggingManagementClient {
       createLogSavedSearchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -796,10 +778,7 @@ export class LoggingManagementClient {
   public async createUnifiedAgentConfiguration(
     createUnifiedAgentConfigurationRequest: requests.CreateUnifiedAgentConfigurationRequest
   ): Promise<responses.CreateUnifiedAgentConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LoggingManagementClient#createUnifiedAgentConfiguration."
-      );
+    logger.debug("Calling operation LoggingManagementClient#createUnifiedAgentConfiguration.");
     const operationName = "createUnifiedAgentConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/CreateUnifiedAgentConfiguration";
@@ -819,7 +798,6 @@ export class LoggingManagementClient {
       createUnifiedAgentConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -875,7 +853,7 @@ export class LoggingManagementClient {
   public async deleteLog(
     deleteLogRequest: requests.DeleteLogRequest
   ): Promise<responses.DeleteLogResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#deleteLog.");
+    logger.debug("Calling operation LoggingManagementClient#deleteLog.");
     const operationName = "deleteLog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/DeleteLog";
@@ -898,7 +876,6 @@ export class LoggingManagementClient {
       deleteLogRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -949,7 +926,7 @@ export class LoggingManagementClient {
   public async deleteLogGroup(
     deleteLogGroupRequest: requests.DeleteLogGroupRequest
   ): Promise<responses.DeleteLogGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#deleteLogGroup.");
+    logger.debug("Calling operation LoggingManagementClient#deleteLogGroup.");
     const operationName = "deleteLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/DeleteLogGroup";
@@ -971,7 +948,6 @@ export class LoggingManagementClient {
       deleteLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1022,8 +998,7 @@ export class LoggingManagementClient {
   public async deleteLogSavedSearch(
     deleteLogSavedSearchRequest: requests.DeleteLogSavedSearchRequest
   ): Promise<responses.DeleteLogSavedSearchResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#deleteLogSavedSearch.");
+    logger.debug("Calling operation LoggingManagementClient#deleteLogSavedSearch.");
     const operationName = "deleteLogSavedSearch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/DeleteLogSavedSearch";
@@ -1045,7 +1020,6 @@ export class LoggingManagementClient {
       deleteLogSavedSearchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1091,10 +1065,7 @@ export class LoggingManagementClient {
   public async deleteUnifiedAgentConfiguration(
     deleteUnifiedAgentConfigurationRequest: requests.DeleteUnifiedAgentConfigurationRequest
   ): Promise<responses.DeleteUnifiedAgentConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LoggingManagementClient#deleteUnifiedAgentConfiguration."
-      );
+    logger.debug("Calling operation LoggingManagementClient#deleteUnifiedAgentConfiguration.");
     const operationName = "deleteUnifiedAgentConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/DeleteUnifiedAgentConfiguration";
@@ -1117,7 +1088,6 @@ export class LoggingManagementClient {
       deleteUnifiedAgentConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1169,8 +1139,7 @@ export class LoggingManagementClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#deleteWorkRequest.");
+    logger.debug("Calling operation LoggingManagementClient#deleteWorkRequest.");
     const operationName = "deleteWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequest/DeleteWorkRequest";
@@ -1192,7 +1161,6 @@ export class LoggingManagementClient {
       deleteWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1242,7 +1210,7 @@ export class LoggingManagementClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetLog.ts.html |here} to see how to use GetLog API.
    */
   public async getLog(getLogRequest: requests.GetLogRequest): Promise<responses.GetLogResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#getLog.");
+    logger.debug("Calling operation LoggingManagementClient#getLog.");
     const operationName = "getLog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/GetLog";
@@ -1264,7 +1232,6 @@ export class LoggingManagementClient {
       getLogRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1319,7 +1286,7 @@ export class LoggingManagementClient {
   public async getLogGroup(
     getLogGroupRequest: requests.GetLogGroupRequest
   ): Promise<responses.GetLogGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#getLogGroup.");
+    logger.debug("Calling operation LoggingManagementClient#getLogGroup.");
     const operationName = "getLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/GetLogGroup";
@@ -1340,7 +1307,6 @@ export class LoggingManagementClient {
       getLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1395,8 +1361,7 @@ export class LoggingManagementClient {
   public async getLogSavedSearch(
     getLogSavedSearchRequest: requests.GetLogSavedSearchRequest
   ): Promise<responses.GetLogSavedSearchResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#getLogSavedSearch.");
+    logger.debug("Calling operation LoggingManagementClient#getLogSavedSearch.");
     const operationName = "getLogSavedSearch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/GetLogSavedSearch";
@@ -1417,7 +1382,6 @@ export class LoggingManagementClient {
       getLogSavedSearchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1472,8 +1436,7 @@ export class LoggingManagementClient {
   public async getUnifiedAgentConfiguration(
     getUnifiedAgentConfigurationRequest: requests.GetUnifiedAgentConfigurationRequest
   ): Promise<responses.GetUnifiedAgentConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#getUnifiedAgentConfiguration.");
+    logger.debug("Calling operation LoggingManagementClient#getUnifiedAgentConfiguration.");
     const operationName = "getUnifiedAgentConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/GetUnifiedAgentConfiguration";
@@ -1495,7 +1458,6 @@ export class LoggingManagementClient {
       getUnifiedAgentConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1550,7 +1512,7 @@ export class LoggingManagementClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#getWorkRequest.");
+    logger.debug("Calling operation LoggingManagementClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequest/GetWorkRequest";
@@ -1571,7 +1533,6 @@ export class LoggingManagementClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1631,7 +1592,7 @@ export class LoggingManagementClient {
   public async listLogGroups(
     listLogGroupsRequest: requests.ListLogGroupsRequest
   ): Promise<responses.ListLogGroupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#listLogGroups.");
+    logger.debug("Calling operation LoggingManagementClient#listLogGroups.");
     const operationName = "listLogGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroupSummary/ListLogGroups";
@@ -1658,7 +1619,6 @@ export class LoggingManagementClient {
       listLogGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1771,8 +1731,7 @@ export class LoggingManagementClient {
   public async listLogSavedSearches(
     listLogSavedSearchesRequest: requests.ListLogSavedSearchesRequest
   ): Promise<responses.ListLogSavedSearchesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#listLogSavedSearches.");
+    logger.debug("Calling operation LoggingManagementClient#listLogSavedSearches.");
     const operationName = "listLogSavedSearches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/ListLogSavedSearches";
@@ -1799,7 +1758,6 @@ export class LoggingManagementClient {
       listLogSavedSearchesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1859,7 +1817,7 @@ export class LoggingManagementClient {
   public async listLogs(
     listLogsRequest: requests.ListLogsRequest
   ): Promise<responses.ListLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#listLogs.");
+    logger.debug("Calling operation LoggingManagementClient#listLogs.");
     const operationName = "listLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSummary/ListLogs";
@@ -1890,7 +1848,6 @@ export class LoggingManagementClient {
       listLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2000,7 +1957,7 @@ export class LoggingManagementClient {
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#listServices.");
+    logger.debug("Calling operation LoggingManagementClient#listServices.");
     const operationName = "listServices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/ServiceSummary/ListServices";
@@ -2019,7 +1976,6 @@ export class LoggingManagementClient {
       listServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2079,10 +2035,7 @@ export class LoggingManagementClient {
   public async listUnifiedAgentConfigurations(
     listUnifiedAgentConfigurationsRequest: requests.ListUnifiedAgentConfigurationsRequest
   ): Promise<responses.ListUnifiedAgentConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LoggingManagementClient#listUnifiedAgentConfigurations."
-      );
+    logger.debug("Calling operation LoggingManagementClient#listUnifiedAgentConfigurations.");
     const operationName = "listUnifiedAgentConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/ListUnifiedAgentConfigurations";
@@ -2112,7 +2065,6 @@ export class LoggingManagementClient {
       listUnifiedAgentConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2173,8 +2125,7 @@ export class LoggingManagementClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#listWorkRequestErrors.");
+    logger.debug("Calling operation LoggingManagementClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequestError/ListWorkRequestErrors";
@@ -2198,7 +2149,6 @@ export class LoggingManagementClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2306,8 +2256,7 @@ export class LoggingManagementClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#listWorkRequestLogs.");
+    logger.debug("Calling operation LoggingManagementClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequestLog/ListWorkRequestLogs";
@@ -2331,7 +2280,6 @@ export class LoggingManagementClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2439,8 +2387,7 @@ export class LoggingManagementClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#listWorkRequests.");
+    logger.debug("Calling operation LoggingManagementClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequest/ListWorkRequests";
@@ -2467,7 +2414,6 @@ export class LoggingManagementClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2581,7 +2527,7 @@ export class LoggingManagementClient {
   public async updateLog(
     updateLogRequest: requests.UpdateLogRequest
   ): Promise<responses.UpdateLogResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#updateLog.");
+    logger.debug("Calling operation LoggingManagementClient#updateLog.");
     const operationName = "updateLog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/UpdateLog";
@@ -2604,7 +2550,6 @@ export class LoggingManagementClient {
       updateLogRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2662,7 +2607,7 @@ export class LoggingManagementClient {
   public async updateLogGroup(
     updateLogGroupRequest: requests.UpdateLogGroupRequest
   ): Promise<responses.UpdateLogGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#updateLogGroup.");
+    logger.debug("Calling operation LoggingManagementClient#updateLogGroup.");
     const operationName = "updateLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/UpdateLogGroup";
@@ -2684,7 +2629,6 @@ export class LoggingManagementClient {
       updateLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2741,8 +2685,7 @@ export class LoggingManagementClient {
   public async updateLogSavedSearch(
     updateLogSavedSearchRequest: requests.UpdateLogSavedSearchRequest
   ): Promise<responses.UpdateLogSavedSearchResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoggingManagementClient#updateLogSavedSearch.");
+    logger.debug("Calling operation LoggingManagementClient#updateLogSavedSearch.");
     const operationName = "updateLogSavedSearch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/UpdateLogSavedSearch";
@@ -2764,7 +2707,6 @@ export class LoggingManagementClient {
       updateLogSavedSearchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2826,10 +2768,7 @@ export class LoggingManagementClient {
   public async updateUnifiedAgentConfiguration(
     updateUnifiedAgentConfigurationRequest: requests.UpdateUnifiedAgentConfigurationRequest
   ): Promise<responses.UpdateUnifiedAgentConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LoggingManagementClient#updateUnifiedAgentConfiguration."
-      );
+    logger.debug("Calling operation LoggingManagementClient#updateUnifiedAgentConfiguration.");
     const operationName = "updateUnifiedAgentConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/UpdateUnifiedAgentConfiguration";
@@ -2852,7 +2791,6 @@ export class LoggingManagementClient {
       updateUnifiedAgentConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

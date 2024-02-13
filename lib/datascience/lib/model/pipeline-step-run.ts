@@ -77,7 +77,7 @@ export namespace PipelineStepRun {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.stepType}`);
+          common.logger.info(`Unknown value for: ${obj.stepType}`);
       }
     }
     return jsonObj;
@@ -98,7 +98,7 @@ export namespace PipelineStepRun {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.stepType}`);
+          common.logger.info(`Unknown value for: ${obj.stepType}`);
       }
     }
     return jsonObj;

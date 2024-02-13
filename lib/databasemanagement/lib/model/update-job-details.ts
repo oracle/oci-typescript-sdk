@@ -57,7 +57,7 @@ export namespace UpdateJobDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.jobType}`);
+          common.logger.info(`Unknown value for: ${obj.jobType}`);
       }
     }
     return jsonObj;
@@ -83,7 +83,7 @@ export namespace UpdateJobDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.jobType}`);
+          common.logger.info(`Unknown value for: ${obj.jobType}`);
       }
     }
     return jsonObj;

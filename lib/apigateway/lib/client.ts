@@ -28,7 +28,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -124,11 +125,7 @@ export class ApiGatewayClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
-    if (this.logger) this.logger.info(`ApiGatewayClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ApiGatewayClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -138,10 +135,9 @@ export class ApiGatewayClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ApiGatewayClient.serviceEndpointTemplate,
@@ -233,7 +229,7 @@ export class ApiGatewayClient {
   public async changeApiCompartment(
     changeApiCompartmentRequest: requests.ChangeApiCompartmentRequest
   ): Promise<responses.ChangeApiCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#changeApiCompartment.");
+    logger.debug("Calling operation ApiGatewayClient#changeApiCompartment.");
     const operationName = "changeApiCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Api/ChangeApiCompartment";
@@ -256,7 +252,6 @@ export class ApiGatewayClient {
       changeApiCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -312,8 +307,7 @@ export class ApiGatewayClient {
   public async changeCertificateCompartment(
     changeCertificateCompartmentRequest: requests.ChangeCertificateCompartmentRequest
   ): Promise<responses.ChangeCertificateCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApiGatewayClient#changeCertificateCompartment.");
+    logger.debug("Calling operation ApiGatewayClient#changeCertificateCompartment.");
     const operationName = "changeCertificateCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Certificate/ChangeCertificateCompartment";
@@ -336,7 +330,6 @@ export class ApiGatewayClient {
       changeCertificateCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -388,7 +381,7 @@ export class ApiGatewayClient {
   public async createApi(
     createApiRequest: requests.CreateApiRequest
   ): Promise<responses.CreateApiResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#createApi.");
+    logger.debug("Calling operation ApiGatewayClient#createApi.");
     const operationName = "createApi";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -407,7 +400,6 @@ export class ApiGatewayClient {
       createApiRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -478,7 +470,7 @@ export class ApiGatewayClient {
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#createCertificate.");
+    logger.debug("Calling operation ApiGatewayClient#createCertificate.");
     const operationName = "createCertificate";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -497,7 +489,6 @@ export class ApiGatewayClient {
       createCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -567,7 +558,7 @@ export class ApiGatewayClient {
   public async createSdk(
     createSdkRequest: requests.CreateSdkRequest
   ): Promise<responses.CreateSdkResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#createSdk.");
+    logger.debug("Calling operation ApiGatewayClient#createSdk.");
     const operationName = "createSdk";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Sdk/CreateSdk";
@@ -587,7 +578,6 @@ export class ApiGatewayClient {
       createSdkRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -657,7 +647,7 @@ export class ApiGatewayClient {
   public async deleteApi(
     deleteApiRequest: requests.DeleteApiRequest
   ): Promise<responses.DeleteApiResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#deleteApi.");
+    logger.debug("Calling operation ApiGatewayClient#deleteApi.");
     const operationName = "deleteApi";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Api/DeleteApi";
@@ -679,7 +669,6 @@ export class ApiGatewayClient {
       deleteApiRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -730,7 +719,7 @@ export class ApiGatewayClient {
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
   ): Promise<responses.DeleteCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#deleteCertificate.");
+    logger.debug("Calling operation ApiGatewayClient#deleteCertificate.");
     const operationName = "deleteCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Certificate/DeleteCertificate";
@@ -752,7 +741,6 @@ export class ApiGatewayClient {
       deleteCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -803,7 +791,7 @@ export class ApiGatewayClient {
   public async deleteSdk(
     deleteSdkRequest: requests.DeleteSdkRequest
   ): Promise<responses.DeleteSdkResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#deleteSdk.");
+    logger.debug("Calling operation ApiGatewayClient#deleteSdk.");
     const operationName = "deleteSdk";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Sdk/DeleteSdk";
@@ -825,7 +813,6 @@ export class ApiGatewayClient {
       deleteSdkRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -874,7 +861,7 @@ export class ApiGatewayClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetApi.ts.html |here} to see how to use GetApi API.
    */
   public async getApi(getApiRequest: requests.GetApiRequest): Promise<responses.GetApiResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getApi.");
+    logger.debug("Calling operation ApiGatewayClient#getApi.");
     const operationName = "getApi";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Api/GetApi";
@@ -895,7 +882,6 @@ export class ApiGatewayClient {
       getApiRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -950,7 +936,7 @@ export class ApiGatewayClient {
   public async getApiContent(
     getApiContentRequest: requests.GetApiContentRequest
   ): Promise<responses.GetApiContentResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getApiContent.");
+    logger.debug("Calling operation ApiGatewayClient#getApiContent.");
     const operationName = "getApiContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Api/GetApiContent";
@@ -973,7 +959,6 @@ export class ApiGatewayClient {
       getApiContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1033,8 +1018,7 @@ export class ApiGatewayClient {
   public async getApiDeploymentSpecification(
     getApiDeploymentSpecificationRequest: requests.GetApiDeploymentSpecificationRequest
   ): Promise<responses.GetApiDeploymentSpecificationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApiGatewayClient#getApiDeploymentSpecification.");
+    logger.debug("Calling operation ApiGatewayClient#getApiDeploymentSpecification.");
     const operationName = "getApiDeploymentSpecification";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/ApiSpecification/GetApiDeploymentSpecification";
@@ -1056,7 +1040,6 @@ export class ApiGatewayClient {
       getApiDeploymentSpecificationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1111,7 +1094,7 @@ export class ApiGatewayClient {
   public async getApiValidations(
     getApiValidationsRequest: requests.GetApiValidationsRequest
   ): Promise<responses.GetApiValidationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getApiValidations.");
+    logger.debug("Calling operation ApiGatewayClient#getApiValidations.");
     const operationName = "getApiValidations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/ApiValidations/GetApiValidations";
@@ -1133,7 +1116,6 @@ export class ApiGatewayClient {
       getApiValidationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1188,7 +1170,7 @@ export class ApiGatewayClient {
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
   ): Promise<responses.GetCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getCertificate.");
+    logger.debug("Calling operation ApiGatewayClient#getCertificate.");
     const operationName = "getCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Certificate/GetCertificate";
@@ -1209,7 +1191,6 @@ export class ApiGatewayClient {
       getCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1262,7 +1243,7 @@ export class ApiGatewayClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/GetSdk.ts.html |here} to see how to use GetSdk API.
    */
   public async getSdk(getSdkRequest: requests.GetSdkRequest): Promise<responses.GetSdkResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#getSdk.");
+    logger.debug("Calling operation ApiGatewayClient#getSdk.");
     const operationName = "getSdk";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Sdk/GetSdk";
@@ -1283,7 +1264,6 @@ export class ApiGatewayClient {
       getSdkRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1339,7 +1319,7 @@ export class ApiGatewayClient {
   public async listApis(
     listApisRequest: requests.ListApisRequest
   ): Promise<responses.ListApisResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#listApis.");
+    logger.debug("Calling operation ApiGatewayClient#listApis.");
     const operationName = "listApis";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Api/ListApis";
@@ -1366,7 +1346,6 @@ export class ApiGatewayClient {
       listApisRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1427,7 +1406,7 @@ export class ApiGatewayClient {
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#listCertificates.");
+    logger.debug("Calling operation ApiGatewayClient#listCertificates.");
     const operationName = "listCertificates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Certificate/ListCertificates";
@@ -1454,7 +1433,6 @@ export class ApiGatewayClient {
       listCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1514,7 +1492,7 @@ export class ApiGatewayClient {
   public async listSdkLanguageTypes(
     listSdkLanguageTypesRequest: requests.ListSdkLanguageTypesRequest
   ): Promise<responses.ListSdkLanguageTypesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#listSdkLanguageTypes.");
+    logger.debug("Calling operation ApiGatewayClient#listSdkLanguageTypes.");
     const operationName = "listSdkLanguageTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/SdkLanguageTypeSummary/ListSdkLanguageTypes";
@@ -1540,7 +1518,6 @@ export class ApiGatewayClient {
       listSdkLanguageTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1600,7 +1577,7 @@ export class ApiGatewayClient {
   public async listSdks(
     listSdksRequest: requests.ListSdksRequest
   ): Promise<responses.ListSdksResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#listSdks.");
+    logger.debug("Calling operation ApiGatewayClient#listSdks.");
     const operationName = "listSdks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Sdk/ListSdks";
@@ -1628,7 +1605,6 @@ export class ApiGatewayClient {
       listSdksRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1688,7 +1664,7 @@ export class ApiGatewayClient {
   public async updateApi(
     updateApiRequest: requests.UpdateApiRequest
   ): Promise<responses.UpdateApiResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#updateApi.");
+    logger.debug("Calling operation ApiGatewayClient#updateApi.");
     const operationName = "updateApi";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Api/UpdateApi";
@@ -1710,7 +1686,6 @@ export class ApiGatewayClient {
       updateApiRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1766,7 +1741,7 @@ export class ApiGatewayClient {
   public async updateCertificate(
     updateCertificateRequest: requests.UpdateCertificateRequest
   ): Promise<responses.UpdateCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#updateCertificate.");
+    logger.debug("Calling operation ApiGatewayClient#updateCertificate.");
     const operationName = "updateCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Certificate/UpdateCertificate";
@@ -1788,7 +1763,6 @@ export class ApiGatewayClient {
       updateCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1844,7 +1818,7 @@ export class ApiGatewayClient {
   public async updateSdk(
     updateSdkRequest: requests.UpdateSdkRequest
   ): Promise<responses.UpdateSdkResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#updateSdk.");
+    logger.debug("Calling operation ApiGatewayClient#updateSdk.");
     const operationName = "updateSdk";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Sdk/UpdateSdk";
@@ -1866,7 +1840,6 @@ export class ApiGatewayClient {
       updateSdkRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1994,11 +1967,7 @@ export class DeploymentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
-    if (this.logger) this.logger.info(`DeploymentClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DeploymentClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -2008,10 +1977,9 @@ export class DeploymentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DeploymentClient.serviceEndpointTemplate,
@@ -2103,8 +2071,7 @@ export class DeploymentClient {
   public async changeDeploymentCompartment(
     changeDeploymentCompartmentRequest: requests.ChangeDeploymentCompartmentRequest
   ): Promise<responses.ChangeDeploymentCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DeploymentClient#changeDeploymentCompartment.");
+    logger.debug("Calling operation DeploymentClient#changeDeploymentCompartment.");
     const operationName = "changeDeploymentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Deployment/ChangeDeploymentCompartment";
@@ -2127,7 +2094,6 @@ export class DeploymentClient {
       changeDeploymentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2184,7 +2150,7 @@ export class DeploymentClient {
   public async createDeployment(
     createDeploymentRequest: requests.CreateDeploymentRequest
   ): Promise<responses.CreateDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DeploymentClient#createDeployment.");
+    logger.debug("Calling operation DeploymentClient#createDeployment.");
     const operationName = "createDeployment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2203,7 +2169,6 @@ export class DeploymentClient {
       createDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2273,7 +2238,7 @@ export class DeploymentClient {
   public async deleteDeployment(
     deleteDeploymentRequest: requests.DeleteDeploymentRequest
   ): Promise<responses.DeleteDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DeploymentClient#deleteDeployment.");
+    logger.debug("Calling operation DeploymentClient#deleteDeployment.");
     const operationName = "deleteDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Deployment/DeleteDeployment";
@@ -2295,7 +2260,6 @@ export class DeploymentClient {
       deleteDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2346,7 +2310,7 @@ export class DeploymentClient {
   public async getDeployment(
     getDeploymentRequest: requests.GetDeploymentRequest
   ): Promise<responses.GetDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DeploymentClient#getDeployment.");
+    logger.debug("Calling operation DeploymentClient#getDeployment.");
     const operationName = "getDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Deployment/GetDeployment";
@@ -2367,7 +2331,6 @@ export class DeploymentClient {
       getDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2423,7 +2386,7 @@ export class DeploymentClient {
   public async listDeployments(
     listDeploymentsRequest: requests.ListDeploymentsRequest
   ): Promise<responses.ListDeploymentsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DeploymentClient#listDeployments.");
+    logger.debug("Calling operation DeploymentClient#listDeployments.");
     const operationName = "listDeployments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/DeploymentSummary/ListDeployments";
@@ -2451,7 +2414,6 @@ export class DeploymentClient {
       listDeploymentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2511,7 +2473,7 @@ export class DeploymentClient {
   public async updateDeployment(
     updateDeploymentRequest: requests.UpdateDeploymentRequest
   ): Promise<responses.UpdateDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DeploymentClient#updateDeployment.");
+    logger.debug("Calling operation DeploymentClient#updateDeployment.");
     const operationName = "updateDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Deployment/UpdateDeployment";
@@ -2533,7 +2495,6 @@ export class DeploymentClient {
       updateDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2666,11 +2627,7 @@ export class GatewayClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
-    if (this.logger) this.logger.info(`GatewayClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`GatewayClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -2680,10 +2637,9 @@ export class GatewayClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         GatewayClient.serviceEndpointTemplate,
@@ -2775,7 +2731,7 @@ export class GatewayClient {
   public async changeGatewayCompartment(
     changeGatewayCompartmentRequest: requests.ChangeGatewayCompartmentRequest
   ): Promise<responses.ChangeGatewayCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation GatewayClient#changeGatewayCompartment.");
+    logger.debug("Calling operation GatewayClient#changeGatewayCompartment.");
     const operationName = "changeGatewayCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Gateway/ChangeGatewayCompartment";
@@ -2798,7 +2754,6 @@ export class GatewayClient {
       changeGatewayCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2855,7 +2810,7 @@ export class GatewayClient {
   public async createGateway(
     createGatewayRequest: requests.CreateGatewayRequest
   ): Promise<responses.CreateGatewayResponse> {
-    if (this.logger) this.logger.debug("Calling operation GatewayClient#createGateway.");
+    logger.debug("Calling operation GatewayClient#createGateway.");
     const operationName = "createGateway";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2874,7 +2829,6 @@ export class GatewayClient {
       createGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2944,7 +2898,7 @@ export class GatewayClient {
   public async deleteGateway(
     deleteGatewayRequest: requests.DeleteGatewayRequest
   ): Promise<responses.DeleteGatewayResponse> {
-    if (this.logger) this.logger.debug("Calling operation GatewayClient#deleteGateway.");
+    logger.debug("Calling operation GatewayClient#deleteGateway.");
     const operationName = "deleteGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Gateway/DeleteGateway";
@@ -2966,7 +2920,6 @@ export class GatewayClient {
       deleteGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3017,7 +2970,7 @@ export class GatewayClient {
   public async getGateway(
     getGatewayRequest: requests.GetGatewayRequest
   ): Promise<responses.GetGatewayResponse> {
-    if (this.logger) this.logger.debug("Calling operation GatewayClient#getGateway.");
+    logger.debug("Calling operation GatewayClient#getGateway.");
     const operationName = "getGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Gateway/GetGateway";
@@ -3038,7 +2991,6 @@ export class GatewayClient {
       getGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3094,7 +3046,7 @@ export class GatewayClient {
   public async listGateways(
     listGatewaysRequest: requests.ListGatewaysRequest
   ): Promise<responses.ListGatewaysResponse> {
-    if (this.logger) this.logger.debug("Calling operation GatewayClient#listGateways.");
+    logger.debug("Calling operation GatewayClient#listGateways.");
     const operationName = "listGateways";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/GatewaySummary/ListGateways";
@@ -3122,7 +3074,6 @@ export class GatewayClient {
       listGatewaysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3182,7 +3133,7 @@ export class GatewayClient {
   public async updateGateway(
     updateGatewayRequest: requests.UpdateGatewayRequest
   ): Promise<responses.UpdateGatewayResponse> {
-    if (this.logger) this.logger.debug("Calling operation GatewayClient#updateGateway.");
+    logger.debug("Calling operation GatewayClient#updateGateway.");
     const operationName = "updateGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Gateway/UpdateGateway";
@@ -3204,7 +3155,6 @@ export class GatewayClient {
       updateGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3337,11 +3287,7 @@ export class SubscribersClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
-    if (this.logger) this.logger.info(`SubscribersClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`SubscribersClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -3351,10 +3297,9 @@ export class SubscribersClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SubscribersClient.serviceEndpointTemplate,
@@ -3446,8 +3391,7 @@ export class SubscribersClient {
   public async changeSubscriberCompartment(
     changeSubscriberCompartmentRequest: requests.ChangeSubscriberCompartmentRequest
   ): Promise<responses.ChangeSubscriberCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscribersClient#changeSubscriberCompartment.");
+    logger.debug("Calling operation SubscribersClient#changeSubscriberCompartment.");
     const operationName = "changeSubscriberCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Subscriber/ChangeSubscriberCompartment";
@@ -3470,7 +3414,6 @@ export class SubscribersClient {
       changeSubscriberCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3526,7 +3469,7 @@ export class SubscribersClient {
   public async createSubscriber(
     createSubscriberRequest: requests.CreateSubscriberRequest
   ): Promise<responses.CreateSubscriberResponse> {
-    if (this.logger) this.logger.debug("Calling operation SubscribersClient#createSubscriber.");
+    logger.debug("Calling operation SubscribersClient#createSubscriber.");
     const operationName = "createSubscriber";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3545,7 +3488,6 @@ export class SubscribersClient {
       createSubscriberRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3615,7 +3557,7 @@ export class SubscribersClient {
   public async deleteSubscriber(
     deleteSubscriberRequest: requests.DeleteSubscriberRequest
   ): Promise<responses.DeleteSubscriberResponse> {
-    if (this.logger) this.logger.debug("Calling operation SubscribersClient#deleteSubscriber.");
+    logger.debug("Calling operation SubscribersClient#deleteSubscriber.");
     const operationName = "deleteSubscriber";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Subscriber/DeleteSubscriber";
@@ -3637,7 +3579,6 @@ export class SubscribersClient {
       deleteSubscriberRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3688,7 +3629,7 @@ export class SubscribersClient {
   public async getSubscriber(
     getSubscriberRequest: requests.GetSubscriberRequest
   ): Promise<responses.GetSubscriberResponse> {
-    if (this.logger) this.logger.debug("Calling operation SubscribersClient#getSubscriber.");
+    logger.debug("Calling operation SubscribersClient#getSubscriber.");
     const operationName = "getSubscriber";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Subscriber/GetSubscriber";
@@ -3709,7 +3650,6 @@ export class SubscribersClient {
       getSubscriberRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3764,7 +3704,7 @@ export class SubscribersClient {
   public async listSubscribers(
     listSubscribersRequest: requests.ListSubscribersRequest
   ): Promise<responses.ListSubscribersResponse> {
-    if (this.logger) this.logger.debug("Calling operation SubscribersClient#listSubscribers.");
+    logger.debug("Calling operation SubscribersClient#listSubscribers.");
     const operationName = "listSubscribers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Subscriber/ListSubscribers";
@@ -3791,7 +3731,6 @@ export class SubscribersClient {
       listSubscribersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3851,7 +3790,7 @@ export class SubscribersClient {
   public async updateSubscriber(
     updateSubscriberRequest: requests.UpdateSubscriberRequest
   ): Promise<responses.UpdateSubscriberResponse> {
-    if (this.logger) this.logger.debug("Calling operation SubscribersClient#updateSubscriber.");
+    logger.debug("Calling operation SubscribersClient#updateSubscriber.");
     const operationName = "updateSubscriber";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Subscriber/UpdateSubscriber";
@@ -3873,7 +3812,6 @@ export class SubscribersClient {
       updateSubscriberRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4006,11 +3944,7 @@ export class UsagePlansClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
-    if (this.logger) this.logger.info(`UsagePlansClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`UsagePlansClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -4020,10 +3954,9 @@ export class UsagePlansClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         UsagePlansClient.serviceEndpointTemplate,
@@ -4115,8 +4048,7 @@ export class UsagePlansClient {
   public async changeUsagePlanCompartment(
     changeUsagePlanCompartmentRequest: requests.ChangeUsagePlanCompartmentRequest
   ): Promise<responses.ChangeUsagePlanCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsagePlansClient#changeUsagePlanCompartment.");
+    logger.debug("Calling operation UsagePlansClient#changeUsagePlanCompartment.");
     const operationName = "changeUsagePlanCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/UsagePlan/ChangeUsagePlanCompartment";
@@ -4139,7 +4071,6 @@ export class UsagePlansClient {
       changeUsagePlanCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4195,7 +4126,7 @@ export class UsagePlansClient {
   public async createUsagePlan(
     createUsagePlanRequest: requests.CreateUsagePlanRequest
   ): Promise<responses.CreateUsagePlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsagePlansClient#createUsagePlan.");
+    logger.debug("Calling operation UsagePlansClient#createUsagePlan.");
     const operationName = "createUsagePlan";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4214,7 +4145,6 @@ export class UsagePlansClient {
       createUsagePlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4284,7 +4214,7 @@ export class UsagePlansClient {
   public async deleteUsagePlan(
     deleteUsagePlanRequest: requests.DeleteUsagePlanRequest
   ): Promise<responses.DeleteUsagePlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsagePlansClient#deleteUsagePlan.");
+    logger.debug("Calling operation UsagePlansClient#deleteUsagePlan.");
     const operationName = "deleteUsagePlan";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/UsagePlan/DeleteUsagePlan";
@@ -4306,7 +4236,6 @@ export class UsagePlansClient {
       deleteUsagePlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4357,7 +4286,7 @@ export class UsagePlansClient {
   public async getUsagePlan(
     getUsagePlanRequest: requests.GetUsagePlanRequest
   ): Promise<responses.GetUsagePlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsagePlansClient#getUsagePlan.");
+    logger.debug("Calling operation UsagePlansClient#getUsagePlan.");
     const operationName = "getUsagePlan";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/UsagePlan/GetUsagePlan";
@@ -4378,7 +4307,6 @@ export class UsagePlansClient {
       getUsagePlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4433,7 +4361,7 @@ export class UsagePlansClient {
   public async listUsagePlans(
     listUsagePlansRequest: requests.ListUsagePlansRequest
   ): Promise<responses.ListUsagePlansResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsagePlansClient#listUsagePlans.");
+    logger.debug("Calling operation UsagePlansClient#listUsagePlans.");
     const operationName = "listUsagePlans";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/UsagePlan/ListUsagePlans";
@@ -4460,7 +4388,6 @@ export class UsagePlansClient {
       listUsagePlansRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4520,7 +4447,7 @@ export class UsagePlansClient {
   public async updateUsagePlan(
     updateUsagePlanRequest: requests.UpdateUsagePlanRequest
   ): Promise<responses.UpdateUsagePlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsagePlansClient#updateUsagePlan.");
+    logger.debug("Calling operation UsagePlansClient#updateUsagePlan.");
     const operationName = "updateUsagePlan";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/UsagePlan/UpdateUsagePlan";
@@ -4542,7 +4469,6 @@ export class UsagePlansClient {
       updateUsagePlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4675,11 +4601,7 @@ export class WorkRequestsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190501";
-    if (this.logger) this.logger.info(`WorkRequestsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`WorkRequestsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -4689,10 +4611,9 @@ export class WorkRequestsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WorkRequestsClient.serviceEndpointTemplate,
@@ -4784,7 +4705,7 @@ export class WorkRequestsClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#cancelWorkRequest.");
+    logger.debug("Calling operation WorkRequestsClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/WorkRequest/CancelWorkRequest";
@@ -4807,7 +4728,6 @@ export class WorkRequestsClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4853,7 +4773,7 @@ export class WorkRequestsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
+    logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/WorkRequest/GetWorkRequest";
@@ -4874,7 +4794,6 @@ export class WorkRequestsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4935,8 +4854,7 @@ export class WorkRequestsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
+    logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/WorkRequestError/ListWorkRequestErrors";
@@ -4962,7 +4880,6 @@ export class WorkRequestsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5023,7 +4940,7 @@ export class WorkRequestsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
+    logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/WorkRequestLog/ListWorkRequestLogs";
@@ -5049,7 +4966,6 @@ export class WorkRequestsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5110,7 +5026,7 @@ export class WorkRequestsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
+    logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/WorkRequestSummary/ListWorkRequests";
@@ -5136,7 +5052,6 @@ export class WorkRequestsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

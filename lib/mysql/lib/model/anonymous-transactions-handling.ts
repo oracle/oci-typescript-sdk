@@ -45,7 +45,7 @@ export namespace AnonymousTransactionsHandling {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.policy}`);
+          common.logger.info(`Unknown value for: ${obj.policy}`);
       }
     }
     return jsonObj;
@@ -71,7 +71,7 @@ export namespace AnonymousTransactionsHandling {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.policy}`);
+          common.logger.info(`Unknown value for: ${obj.policy}`);
       }
     }
     return jsonObj;

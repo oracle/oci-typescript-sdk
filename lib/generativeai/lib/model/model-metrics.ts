@@ -40,8 +40,7 @@ export namespace ModelMetrics {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.modelMetricsType}`);
+          common.logger.info(`Unknown value for: ${obj.modelMetricsType}`);
       }
     }
     return jsonObj;
@@ -57,8 +56,7 @@ export namespace ModelMetrics {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.modelMetricsType}`);
+          common.logger.info(`Unknown value for: ${obj.modelMetricsType}`);
       }
     }
     return jsonObj;

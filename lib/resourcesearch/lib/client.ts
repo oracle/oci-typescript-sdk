@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -115,11 +116,7 @@ export class ResourceSearchClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180409";
-    if (this.logger) this.logger.info(`ResourceSearchClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ResourceSearchClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -129,10 +126,9 @@ export class ResourceSearchClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ResourceSearchClient.serviceEndpointTemplate,
@@ -202,7 +198,7 @@ export class ResourceSearchClient {
   public async getResourceType(
     getResourceTypeRequest: requests.GetResourceTypeRequest
   ): Promise<responses.GetResourceTypeResponse> {
-    if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#getResourceType.");
+    logger.debug("Calling operation ResourceSearchClient#getResourceType.");
     const operationName = "getResourceType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/search/20180409/ResourceType/GetResourceType";
@@ -223,7 +219,6 @@ export class ResourceSearchClient {
       getResourceTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -274,7 +269,7 @@ export class ResourceSearchClient {
   public async listResourceTypes(
     listResourceTypesRequest: requests.ListResourceTypesRequest
   ): Promise<responses.ListResourceTypesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#listResourceTypes.");
+    logger.debug("Calling operation ResourceSearchClient#listResourceTypes.");
     const operationName = "listResourceTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/search/20180409/ResourceType/ListResourceTypes";
@@ -296,7 +291,6 @@ export class ResourceSearchClient {
       listResourceTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -406,7 +400,7 @@ export class ResourceSearchClient {
   public async searchResources(
     searchResourcesRequest: requests.SearchResourcesRequest
   ): Promise<responses.SearchResourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#searchResources.");
+    logger.debug("Calling operation ResourceSearchClient#searchResources.");
     const operationName = "searchResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/search/20180409/ResourceSummary/SearchResources";
@@ -429,7 +423,6 @@ export class ResourceSearchClient {
       searchResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

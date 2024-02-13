@@ -41,8 +41,7 @@ export namespace ClassificationType {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.classificationMode}`);
+          common.logger.info(`Unknown value for: ${obj.classificationMode}`);
       }
     }
     return jsonObj;
@@ -63,8 +62,7 @@ export namespace ClassificationType {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.classificationMode}`);
+          common.logger.info(`Unknown value for: ${obj.classificationMode}`);
       }
     }
     return jsonObj;

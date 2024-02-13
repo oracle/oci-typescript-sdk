@@ -67,7 +67,7 @@ export namespace DataEntity {
         case "DERIVED_ENTITY":
           return model.DerivedEntity.getJsonObj(<model.DerivedEntity>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
+          common.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -120,7 +120,7 @@ export namespace DataEntity {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
+          common.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

@@ -26,7 +26,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -123,11 +124,7 @@ export class AccessRequestsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    if (this.logger) this.logger.info(`AccessRequestsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`AccessRequestsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -137,10 +134,9 @@ export class AccessRequestsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AccessRequestsClient.serviceEndpointTemplate,
@@ -233,8 +229,7 @@ export class AccessRequestsClient {
   public async approveAccessRequest(
     approveAccessRequestRequest: requests.ApproveAccessRequestRequest
   ): Promise<responses.ApproveAccessRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AccessRequestsClient#approveAccessRequest.");
+    logger.debug("Calling operation AccessRequestsClient#approveAccessRequest.");
     const operationName = "approveAccessRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ApproveAccessRequest";
@@ -257,7 +252,6 @@ export class AccessRequestsClient {
       approveAccessRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -313,7 +307,7 @@ export class AccessRequestsClient {
   public async getAccessRequest(
     getAccessRequestRequest: requests.GetAccessRequestRequest
   ): Promise<responses.GetAccessRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#getAccessRequest.");
+    logger.debug("Calling operation AccessRequestsClient#getAccessRequest.");
     const operationName = "getAccessRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/GetAccessRequest";
@@ -334,7 +328,6 @@ export class AccessRequestsClient {
       getAccessRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,8 +378,7 @@ export class AccessRequestsClient {
   public async interactionRequest(
     interactionRequestRequest: requests.InteractionRequestRequest
   ): Promise<responses.InteractionRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AccessRequestsClient#interactionRequest.");
+    logger.debug("Calling operation AccessRequestsClient#interactionRequest.");
     const operationName = "interactionRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/InteractionRequest";
@@ -409,7 +401,6 @@ export class AccessRequestsClient {
       interactionRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -470,8 +461,7 @@ export class AccessRequestsClient {
   public async listAccessRequestHistories(
     listAccessRequestHistoriesRequest: requests.ListAccessRequestHistoriesRequest
   ): Promise<responses.ListAccessRequestHistoriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AccessRequestsClient#listAccessRequestHistories.");
+    logger.debug("Calling operation AccessRequestsClient#listAccessRequestHistories.");
     const operationName = "listAccessRequestHistories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListAccessRequestHistories";
@@ -495,7 +485,6 @@ export class AccessRequestsClient {
       listAccessRequestHistoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -551,8 +540,7 @@ export class AccessRequestsClient {
   public async listAccessRequests(
     listAccessRequestsRequest: requests.ListAccessRequestsRequest
   ): Promise<responses.ListAccessRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AccessRequestsClient#listAccessRequests.");
+    logger.debug("Calling operation AccessRequestsClient#listAccessRequests.");
     const operationName = "listAccessRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListAccessRequests";
@@ -582,7 +570,6 @@ export class AccessRequestsClient {
       listAccessRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -638,7 +625,7 @@ export class AccessRequestsClient {
   public async listInteractions(
     listInteractionsRequest: requests.ListInteractionsRequest
   ): Promise<responses.ListInteractionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#listInteractions.");
+    logger.debug("Calling operation AccessRequestsClient#listInteractions.");
     const operationName = "listInteractions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListInteractions";
@@ -662,7 +649,6 @@ export class AccessRequestsClient {
       listInteractionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -718,8 +704,7 @@ export class AccessRequestsClient {
   public async rejectAccessRequest(
     rejectAccessRequestRequest: requests.RejectAccessRequestRequest
   ): Promise<responses.RejectAccessRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AccessRequestsClient#rejectAccessRequest.");
+    logger.debug("Calling operation AccessRequestsClient#rejectAccessRequest.");
     const operationName = "rejectAccessRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/RejectAccessRequest";
@@ -742,7 +727,6 @@ export class AccessRequestsClient {
       rejectAccessRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -799,8 +783,7 @@ export class AccessRequestsClient {
   public async reviewAccessRequest(
     reviewAccessRequestRequest: requests.ReviewAccessRequestRequest
   ): Promise<responses.ReviewAccessRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AccessRequestsClient#reviewAccessRequest.");
+    logger.debug("Calling operation AccessRequestsClient#reviewAccessRequest.");
     const operationName = "reviewAccessRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ReviewAccessRequest";
@@ -823,7 +806,6 @@ export class AccessRequestsClient {
       reviewAccessRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -884,8 +866,7 @@ export class AccessRequestsClient {
   public async revokeAccessRequest(
     revokeAccessRequestRequest: requests.RevokeAccessRequestRequest
   ): Promise<responses.RevokeAccessRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AccessRequestsClient#revokeAccessRequest.");
+    logger.debug("Calling operation AccessRequestsClient#revokeAccessRequest.");
     const operationName = "revokeAccessRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/RevokeAccessRequest";
@@ -908,7 +889,6 @@ export class AccessRequestsClient {
       revokeAccessRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1041,11 +1021,7 @@ export class OperatorActionsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    if (this.logger) this.logger.info(`OperatorActionsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OperatorActionsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1055,10 +1031,9 @@ export class OperatorActionsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OperatorActionsClient.serviceEndpointTemplate,
@@ -1127,8 +1102,7 @@ export class OperatorActionsClient {
   public async getOperatorAction(
     getOperatorActionRequest: requests.GetOperatorActionRequest
   ): Promise<responses.GetOperatorActionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperatorActionsClient#getOperatorAction.");
+    logger.debug("Calling operation OperatorActionsClient#getOperatorAction.");
     const operationName = "getOperatorAction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorAction/GetOperatorAction";
@@ -1149,7 +1123,6 @@ export class OperatorActionsClient {
       getOperatorActionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1200,8 +1173,7 @@ export class OperatorActionsClient {
   public async listOperatorActions(
     listOperatorActionsRequest: requests.ListOperatorActionsRequest
   ): Promise<responses.ListOperatorActionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperatorActionsClient#listOperatorActions.");
+    logger.debug("Calling operation OperatorActionsClient#listOperatorActions.");
     const operationName = "listOperatorActions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorAction/ListOperatorActions";
@@ -1229,7 +1201,6 @@ export class OperatorActionsClient {
       listOperatorActionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1362,11 +1333,7 @@ export class OperatorControlClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    if (this.logger) this.logger.info(`OperatorControlClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OperatorControlClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1376,10 +1343,9 @@ export class OperatorControlClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OperatorControlClient.serviceEndpointTemplate,
@@ -1472,10 +1438,7 @@ export class OperatorControlClient {
   public async changeOperatorControlCompartment(
     changeOperatorControlCompartmentRequest: requests.ChangeOperatorControlCompartmentRequest
   ): Promise<responses.ChangeOperatorControlCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperatorControlClient#changeOperatorControlCompartment."
-      );
+    logger.debug("Calling operation OperatorControlClient#changeOperatorControlCompartment.");
     const operationName = "changeOperatorControlCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/ChangeOperatorControlCompartment";
@@ -1498,7 +1461,6 @@ export class OperatorControlClient {
       changeOperatorControlCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1550,8 +1512,7 @@ export class OperatorControlClient {
   public async createOperatorControl(
     createOperatorControlRequest: requests.CreateOperatorControlRequest
   ): Promise<responses.CreateOperatorControlResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperatorControlClient#createOperatorControl.");
+    logger.debug("Calling operation OperatorControlClient#createOperatorControl.");
     const operationName = "createOperatorControl";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/CreateOperatorControl";
@@ -1571,7 +1532,6 @@ export class OperatorControlClient {
       createOperatorControlRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1636,8 +1596,7 @@ export class OperatorControlClient {
   public async deleteOperatorControl(
     deleteOperatorControlRequest: requests.DeleteOperatorControlRequest
   ): Promise<responses.DeleteOperatorControlResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperatorControlClient#deleteOperatorControl.");
+    logger.debug("Calling operation OperatorControlClient#deleteOperatorControl.");
     const operationName = "deleteOperatorControl";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/DeleteOperatorControl";
@@ -1661,7 +1620,6 @@ export class OperatorControlClient {
       deleteOperatorControlRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1707,8 +1665,7 @@ export class OperatorControlClient {
   public async getOperatorControl(
     getOperatorControlRequest: requests.GetOperatorControlRequest
   ): Promise<responses.GetOperatorControlResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperatorControlClient#getOperatorControl.");
+    logger.debug("Calling operation OperatorControlClient#getOperatorControl.");
     const operationName = "getOperatorControl";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/GetOperatorControl";
@@ -1729,7 +1686,6 @@ export class OperatorControlClient {
       getOperatorControlRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1785,8 +1741,7 @@ export class OperatorControlClient {
   public async listOperatorControls(
     listOperatorControlsRequest: requests.ListOperatorControlsRequest
   ): Promise<responses.ListOperatorControlsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperatorControlClient#listOperatorControls.");
+    logger.debug("Calling operation OperatorControlClient#listOperatorControls.");
     const operationName = "listOperatorControls";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/ListOperatorControls";
@@ -1814,7 +1769,6 @@ export class OperatorControlClient {
       listOperatorControlsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1870,8 +1824,7 @@ export class OperatorControlClient {
   public async updateOperatorControl(
     updateOperatorControlRequest: requests.UpdateOperatorControlRequest
   ): Promise<responses.UpdateOperatorControlResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperatorControlClient#updateOperatorControl.");
+    logger.debug("Calling operation OperatorControlClient#updateOperatorControl.");
     const operationName = "updateOperatorControl";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/UpdateOperatorControl";
@@ -1893,7 +1846,6 @@ export class OperatorControlClient {
       updateOperatorControlRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2031,12 +1983,7 @@ export class OperatorControlAssignmentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    if (this.logger)
-      this.logger.info(`OperatorControlAssignmentClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OperatorControlAssignmentClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -2046,10 +1993,9 @@ export class OperatorControlAssignmentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OperatorControlAssignmentClient.serviceEndpointTemplate,
@@ -2142,10 +2088,9 @@ export class OperatorControlAssignmentClient {
   public async changeOperatorControlAssignmentCompartment(
     changeOperatorControlAssignmentCompartmentRequest: requests.ChangeOperatorControlAssignmentCompartmentRequest
   ): Promise<responses.ChangeOperatorControlAssignmentCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperatorControlAssignmentClient#changeOperatorControlAssignmentCompartment."
-      );
+    logger.debug(
+      "Calling operation OperatorControlAssignmentClient#changeOperatorControlAssignmentCompartment."
+    );
     const operationName = "changeOperatorControlAssignmentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/ChangeOperatorControlAssignmentCompartment";
@@ -2169,7 +2114,6 @@ export class OperatorControlAssignmentClient {
       changeOperatorControlAssignmentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2220,10 +2164,9 @@ export class OperatorControlAssignmentClient {
   public async createOperatorControlAssignment(
     createOperatorControlAssignmentRequest: requests.CreateOperatorControlAssignmentRequest
   ): Promise<responses.CreateOperatorControlAssignmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperatorControlAssignmentClient#createOperatorControlAssignment."
-      );
+    logger.debug(
+      "Calling operation OperatorControlAssignmentClient#createOperatorControlAssignment."
+    );
     const operationName = "createOperatorControlAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/CreateOperatorControlAssignment";
@@ -2243,7 +2186,6 @@ export class OperatorControlAssignmentClient {
       createOperatorControlAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2308,10 +2250,9 @@ export class OperatorControlAssignmentClient {
   public async deleteOperatorControlAssignment(
     deleteOperatorControlAssignmentRequest: requests.DeleteOperatorControlAssignmentRequest
   ): Promise<responses.DeleteOperatorControlAssignmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperatorControlAssignmentClient#deleteOperatorControlAssignment."
-      );
+    logger.debug(
+      "Calling operation OperatorControlAssignmentClient#deleteOperatorControlAssignment."
+    );
     const operationName = "deleteOperatorControlAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/DeleteOperatorControlAssignment";
@@ -2336,7 +2277,6 @@ export class OperatorControlAssignmentClient {
       deleteOperatorControlAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2382,10 +2322,7 @@ export class OperatorControlAssignmentClient {
   public async getOperatorControlAssignment(
     getOperatorControlAssignmentRequest: requests.GetOperatorControlAssignmentRequest
   ): Promise<responses.GetOperatorControlAssignmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperatorControlAssignmentClient#getOperatorControlAssignment."
-      );
+    logger.debug("Calling operation OperatorControlAssignmentClient#getOperatorControlAssignment.");
     const operationName = "getOperatorControlAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/GetOperatorControlAssignment";
@@ -2407,7 +2344,6 @@ export class OperatorControlAssignmentClient {
       getOperatorControlAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2462,10 +2398,9 @@ export class OperatorControlAssignmentClient {
   public async listOperatorControlAssignments(
     listOperatorControlAssignmentsRequest: requests.ListOperatorControlAssignmentsRequest
   ): Promise<responses.ListOperatorControlAssignmentsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperatorControlAssignmentClient#listOperatorControlAssignments."
-      );
+    logger.debug(
+      "Calling operation OperatorControlAssignmentClient#listOperatorControlAssignments."
+    );
     const operationName = "listOperatorControlAssignments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/ListOperatorControlAssignments";
@@ -2494,7 +2429,6 @@ export class OperatorControlAssignmentClient {
       listOperatorControlAssignmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2550,10 +2484,9 @@ export class OperatorControlAssignmentClient {
   public async updateOperatorControlAssignment(
     updateOperatorControlAssignmentRequest: requests.UpdateOperatorControlAssignmentRequest
   ): Promise<responses.UpdateOperatorControlAssignmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperatorControlAssignmentClient#updateOperatorControlAssignment."
-      );
+    logger.debug(
+      "Calling operation OperatorControlAssignmentClient#updateOperatorControlAssignment."
+    );
     const operationName = "updateOperatorControlAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/UpdateOperatorControlAssignment";
@@ -2576,7 +2509,6 @@ export class OperatorControlAssignmentClient {
       updateOperatorControlAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -39,8 +39,7 @@ export namespace ModelDeploymentEnvironmentConfigurationDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.environmentConfigurationType}`);
+          common.logger.info(`Unknown value for: ${obj.environmentConfigurationType}`);
       }
     }
     return jsonObj;
@@ -63,8 +62,7 @@ export namespace ModelDeploymentEnvironmentConfigurationDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.environmentConfigurationType}`);
+          common.logger.info(`Unknown value for: ${obj.environmentConfigurationType}`);
       }
     }
     return jsonObj;

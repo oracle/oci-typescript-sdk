@@ -38,7 +38,7 @@ export namespace PutRepositoryRefDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.refType}`);
+          common.logger.info(`Unknown value for: ${obj.refType}`);
       }
     }
     return jsonObj;
@@ -59,7 +59,7 @@ export namespace PutRepositoryRefDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.refType}`);
+          common.logger.info(`Unknown value for: ${obj.refType}`);
       }
     }
     return jsonObj;

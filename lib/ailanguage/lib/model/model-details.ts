@@ -96,7 +96,7 @@ export namespace ModelDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
+          common.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -167,7 +167,7 @@ export namespace ModelDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
+          common.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

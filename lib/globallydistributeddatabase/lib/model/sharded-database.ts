@@ -97,8 +97,7 @@ export namespace ShardedDatabase {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.dbDeploymentType}`);
+          common.logger.info(`Unknown value for: ${obj.dbDeploymentType}`);
       }
     }
     return jsonObj;
@@ -114,8 +113,7 @@ export namespace ShardedDatabase {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.dbDeploymentType}`);
+          common.logger.info(`Unknown value for: ${obj.dbDeploymentType}`);
       }
     }
     return jsonObj;

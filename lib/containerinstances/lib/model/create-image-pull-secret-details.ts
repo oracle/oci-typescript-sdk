@@ -44,7 +44,7 @@ export namespace CreateImagePullSecretDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.secretType}`);
+          common.logger.info(`Unknown value for: ${obj.secretType}`);
       }
     }
     return jsonObj;
@@ -65,7 +65,7 @@ export namespace CreateImagePullSecretDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.secretType}`);
+          common.logger.info(`Unknown value for: ${obj.secretType}`);
       }
     }
     return jsonObj;

@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -118,12 +119,7 @@ export class NotificationControlPlaneClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
-    if (this.logger)
-      this.logger.info(`NotificationControlPlaneClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`NotificationControlPlaneClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -133,10 +129,9 @@ export class NotificationControlPlaneClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         NotificationControlPlaneClient.serviceEndpointTemplate,
@@ -210,8 +205,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async changeTopicCompartment(
     changeTopicCompartmentRequest: requests.ChangeTopicCompartmentRequest
   ): Promise<responses.ChangeTopicCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationControlPlaneClient#changeTopicCompartment.");
+    logger.debug("Calling operation NotificationControlPlaneClient#changeTopicCompartment.");
     const operationName = "changeTopicCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/ChangeTopicCompartment";
@@ -234,7 +228,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       changeTopicCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -299,8 +292,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async createTopic(
     createTopicRequest: requests.CreateTopicRequest
   ): Promise<responses.CreateTopicResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationControlPlaneClient#createTopic.");
+    logger.debug("Calling operation NotificationControlPlaneClient#createTopic.");
     const operationName = "createTopic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/CreateTopic";
@@ -320,7 +312,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       createTopicRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -383,8 +374,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async deleteTopic(
     deleteTopicRequest: requests.DeleteTopicRequest
   ): Promise<responses.DeleteTopicResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationControlPlaneClient#deleteTopic.");
+    logger.debug("Calling operation NotificationControlPlaneClient#deleteTopic.");
     const operationName = "deleteTopic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/DeleteTopic";
@@ -406,7 +396,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       deleteTopicRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -453,8 +442,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async getTopic(
     getTopicRequest: requests.GetTopicRequest
   ): Promise<responses.GetTopicResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationControlPlaneClient#getTopic.");
+    logger.debug("Calling operation NotificationControlPlaneClient#getTopic.");
     const operationName = "getTopic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/GetTopic";
@@ -475,7 +463,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       getTopicRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -533,8 +520,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
   public async listTopics(
     listTopicsRequest: requests.ListTopicsRequest
   ): Promise<responses.ListTopicsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationControlPlaneClient#listTopics.");
+    logger.debug("Calling operation NotificationControlPlaneClient#listTopics.");
     const operationName = "listTopics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/ListTopics";
@@ -562,7 +548,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
       listTopicsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -677,8 +662,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async updateTopic(
     updateTopicRequest: requests.UpdateTopicRequest
   ): Promise<responses.UpdateTopicResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationControlPlaneClient#updateTopic.");
+    logger.debug("Calling operation NotificationControlPlaneClient#updateTopic.");
     const operationName = "updateTopic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/UpdateTopic";
@@ -700,7 +684,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       updateTopicRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -837,12 +820,7 @@ export class NotificationDataPlaneClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
-    if (this.logger)
-      this.logger.info(`NotificationDataPlaneClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`NotificationDataPlaneClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -852,10 +830,9 @@ export class NotificationDataPlaneClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         NotificationDataPlaneClient.serviceEndpointTemplate,
@@ -952,10 +929,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async changeSubscriptionCompartment(
     changeSubscriptionCompartmentRequest: requests.ChangeSubscriptionCompartmentRequest
   ): Promise<responses.ChangeSubscriptionCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation NotificationDataPlaneClient#changeSubscriptionCompartment."
-      );
+    logger.debug("Calling operation NotificationDataPlaneClient#changeSubscriptionCompartment.");
     const operationName = "changeSubscriptionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/ChangeSubscriptionCompartment";
@@ -978,7 +952,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       changeSubscriptionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1034,8 +1007,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async createSubscription(
     createSubscriptionRequest: requests.CreateSubscriptionRequest
   ): Promise<responses.CreateSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationDataPlaneClient#createSubscription.");
+    logger.debug("Calling operation NotificationDataPlaneClient#createSubscription.");
     const operationName = "createSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/CreateSubscription";
@@ -1055,7 +1027,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       createSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1118,8 +1089,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async deleteSubscription(
     deleteSubscriptionRequest: requests.DeleteSubscriptionRequest
   ): Promise<responses.DeleteSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationDataPlaneClient#deleteSubscription.");
+    logger.debug("Calling operation NotificationDataPlaneClient#deleteSubscription.");
     const operationName = "deleteSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/DeleteSubscription";
@@ -1141,7 +1111,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       deleteSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1190,8 +1159,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async getConfirmSubscription(
     getConfirmSubscriptionRequest: requests.GetConfirmSubscriptionRequest
   ): Promise<responses.GetConfirmSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationDataPlaneClient#getConfirmSubscription.");
+    logger.debug("Calling operation NotificationDataPlaneClient#getConfirmSubscription.");
     const operationName = "getConfirmSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/GetConfirmSubscription";
@@ -1215,7 +1183,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       getConfirmSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1273,8 +1240,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async getSubscription(
     getSubscriptionRequest: requests.GetSubscriptionRequest
   ): Promise<responses.GetSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationDataPlaneClient#getSubscription.");
+    logger.debug("Calling operation NotificationDataPlaneClient#getSubscription.");
     const operationName = "getSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/GetSubscription";
@@ -1295,7 +1261,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       getSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1353,8 +1318,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async getUnsubscription(
     getUnsubscriptionRequest: requests.GetUnsubscriptionRequest
   ): Promise<responses.GetUnsubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationDataPlaneClient#getUnsubscription.");
+    logger.debug("Calling operation NotificationDataPlaneClient#getUnsubscription.");
     const operationName = "getUnsubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/GetUnsubscription";
@@ -1378,7 +1342,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       getUnsubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1431,8 +1394,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
   ): Promise<responses.ListSubscriptionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationDataPlaneClient#listSubscriptions.");
+    logger.debug("Calling operation NotificationDataPlaneClient#listSubscriptions.");
     const operationName = "listSubscriptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/ListSubscriptions";
@@ -1456,7 +1418,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       listSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1580,8 +1541,7 @@ For more information about publishing messages, see [Publishing Messages](https:
   public async publishMessage(
     publishMessageRequest: requests.PublishMessageRequest
   ): Promise<responses.PublishMessageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationDataPlaneClient#publishMessage.");
+    logger.debug("Calling operation NotificationDataPlaneClient#publishMessage.");
     const operationName = "publishMessage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/PublishMessage";
@@ -1603,7 +1563,6 @@ For more information about publishing messages, see [Publishing Messages](https:
       publishMessageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1661,10 +1620,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async resendSubscriptionConfirmation(
     resendSubscriptionConfirmationRequest: requests.ResendSubscriptionConfirmationRequest
   ): Promise<responses.ResendSubscriptionConfirmationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation NotificationDataPlaneClient#resendSubscriptionConfirmation."
-      );
+    logger.debug("Calling operation NotificationDataPlaneClient#resendSubscriptionConfirmation.");
     const operationName = "resendSubscriptionConfirmation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/ResendSubscriptionConfirmation";
@@ -1685,7 +1641,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       resendSubscriptionConfirmationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1738,8 +1693,7 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   public async updateSubscription(
     updateSubscriptionRequest: requests.UpdateSubscriptionRequest
   ): Promise<responses.UpdateSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation NotificationDataPlaneClient#updateSubscription.");
+    logger.debug("Calling operation NotificationDataPlaneClient#updateSubscription.");
     const operationName = "updateSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/UpdateSubscription";
@@ -1761,7 +1715,6 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       updateSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

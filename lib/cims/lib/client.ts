@@ -26,7 +26,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -122,11 +123,7 @@ export class IncidentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181231";
-    if (this.logger) this.logger.info(`IncidentClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`IncidentClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -136,10 +133,9 @@ export class IncidentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         IncidentClient.serviceEndpointTemplate,
@@ -208,7 +204,7 @@ export class IncidentClient {
   public async createIncident(
     createIncidentRequest: requests.CreateIncidentRequest
   ): Promise<responses.CreateIncidentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#createIncident.");
+    logger.debug("Calling operation IncidentClient#createIncident.");
     const operationName = "createIncident";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Incident/CreateIncident";
@@ -233,7 +229,6 @@ export class IncidentClient {
       createIncidentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -288,7 +283,7 @@ export class IncidentClient {
   public async getCsiNumber(
     getCsiNumberRequest: requests.GetCsiNumberRequest
   ): Promise<responses.GetCsiNumberResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#getCsiNumber.");
+    logger.debug("Calling operation IncidentClient#getCsiNumber.");
     const operationName = "getCsiNumber";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -315,7 +310,6 @@ export class IncidentClient {
       getCsiNumberRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -365,7 +359,7 @@ export class IncidentClient {
   public async getIncident(
     getIncidentRequest: requests.GetIncidentRequest
   ): Promise<responses.GetIncidentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#getIncident.");
+    logger.debug("Calling operation IncidentClient#getIncident.");
     const operationName = "getIncident";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Incident/GetIncident";
@@ -396,7 +390,6 @@ export class IncidentClient {
       getIncidentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -446,7 +439,7 @@ export class IncidentClient {
   public async getStatus(
     getStatusRequest: requests.GetStatusRequest
   ): Promise<responses.GetStatusResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#getStatus.");
+    logger.debug("Calling operation IncidentClient#getStatus.");
     const operationName = "getStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Status/GetStatus";
@@ -467,7 +460,6 @@ export class IncidentClient {
       getStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -517,8 +509,7 @@ export class IncidentClient {
   public async listIncidentResourceTypes(
     listIncidentResourceTypesRequest: requests.ListIncidentResourceTypesRequest
   ): Promise<responses.ListIncidentResourceTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IncidentClient#listIncidentResourceTypes.");
+    logger.debug("Calling operation IncidentClient#listIncidentResourceTypes.");
     const operationName = "listIncidentResourceTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/IncidentResourceType/ListIncidentResourceTypes";
@@ -549,7 +540,6 @@ export class IncidentClient {
       listIncidentResourceTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -656,7 +646,7 @@ export class IncidentClient {
   public async listIncidents(
     listIncidentsRequest: requests.ListIncidentsRequest
   ): Promise<responses.ListIncidentsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#listIncidents.");
+    logger.debug("Calling operation IncidentClient#listIncidents.");
     const operationName = "listIncidents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/IncidentSummary/ListIncidents";
@@ -690,7 +680,6 @@ export class IncidentClient {
       listIncidentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -807,7 +796,7 @@ export class IncidentClient {
   public async updateIncident(
     updateIncidentRequest: requests.UpdateIncidentRequest
   ): Promise<responses.UpdateIncidentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#updateIncident.");
+    logger.debug("Calling operation IncidentClient#updateIncident.");
     const operationName = "updateIncident";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/UpdateIncident/UpdateIncident";
@@ -838,7 +827,6 @@ export class IncidentClient {
       updateIncidentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -893,7 +881,7 @@ export class IncidentClient {
   public async validateUser(
     validateUserRequest: requests.ValidateUserRequest
   ): Promise<responses.ValidateUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#validateUser.");
+    logger.debug("Calling operation IncidentClient#validateUser.");
     const operationName = "validateUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/ValidationResponse/ValidateUser";
@@ -921,7 +909,6 @@ export class IncidentClient {
       validateUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

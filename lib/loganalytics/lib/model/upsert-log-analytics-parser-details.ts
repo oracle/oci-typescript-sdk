@@ -132,6 +132,11 @@ export interface UpsertLogAnalyticsParserDetails {
    *
    */
   "categories"?: Array<model.LogAnalyticsCategory>;
+  /**
+   * A flag indicating whether the parser is positionally aware.
+   *
+   */
+  "isPositionAware"?: boolean;
 }
 
 export namespace UpsertLogAnalyticsParserDetails {

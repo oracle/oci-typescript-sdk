@@ -33,7 +33,7 @@ export namespace EntryDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entryType}`);
+          common.logger.info(`Unknown value for: ${obj.entryType}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace EntryDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entryType}`);
+          common.logger.info(`Unknown value for: ${obj.entryType}`);
       }
     }
     return jsonObj;

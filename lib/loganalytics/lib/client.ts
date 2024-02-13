@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -118,11 +119,7 @@ export class LogAnalyticsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200601";
-    if (this.logger) this.logger.info(`LogAnalyticsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LogAnalyticsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +129,9 @@ export class LogAnalyticsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LogAnalyticsClient.serviceEndpointTemplate,
@@ -227,8 +223,7 @@ export class LogAnalyticsClient {
   public async addEntityAssociation(
     addEntityAssociationRequest: requests.AddEntityAssociationRequest
   ): Promise<responses.AddEntityAssociationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#addEntityAssociation.");
+    logger.debug("Calling operation LogAnalyticsClient#addEntityAssociation.");
     const operationName = "addEntityAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/AddEntityAssociation";
@@ -252,7 +247,6 @@ export class LogAnalyticsClient {
       addEntityAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,7 +299,7 @@ export class LogAnalyticsClient {
   public async addSourceEventTypes(
     addSourceEventTypesRequest: requests.AddSourceEventTypesRequest
   ): Promise<responses.AddSourceEventTypesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#addSourceEventTypes.");
+    logger.debug("Calling operation LogAnalyticsClient#addSourceEventTypes.");
     const operationName = "addSourceEventTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/AddSourceEventTypes";
@@ -328,7 +322,6 @@ export class LogAnalyticsClient {
       addSourceEventTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -380,7 +373,7 @@ export class LogAnalyticsClient {
   public async appendLookupData(
     appendLookupDataRequest: requests.AppendLookupDataRequest
   ): Promise<responses.AppendLookupDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#appendLookupData.");
+    logger.debug("Calling operation LogAnalyticsClient#appendLookupData.");
     const operationName = "appendLookupData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/AppendLookupData";
@@ -407,7 +400,6 @@ export class LogAnalyticsClient {
       appendLookupDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -461,7 +453,7 @@ export class LogAnalyticsClient {
   public async assignEncryptionKey(
     assignEncryptionKeyRequest: requests.AssignEncryptionKeyRequest
   ): Promise<responses.AssignEncryptionKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#assignEncryptionKey.");
+    logger.debug("Calling operation LogAnalyticsClient#assignEncryptionKey.");
     const operationName = "assignEncryptionKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/AssignEncryptionKey";
@@ -484,7 +476,6 @@ export class LogAnalyticsClient {
       assignEncryptionKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -546,7 +537,7 @@ export class LogAnalyticsClient {
   public async batchGetBasicInfo(
     batchGetBasicInfoRequest: requests.BatchGetBasicInfoRequest
   ): Promise<responses.BatchGetBasicInfoResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#batchGetBasicInfo.");
+    logger.debug("Calling operation LogAnalyticsClient#batchGetBasicInfo.");
     const operationName = "batchGetBasicInfo";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/BatchGetBasicInfo";
@@ -573,7 +564,6 @@ export class LogAnalyticsClient {
       batchGetBasicInfoRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -638,8 +628,7 @@ export class LogAnalyticsClient {
   public async cancelQueryWorkRequest(
     cancelQueryWorkRequestRequest: requests.CancelQueryWorkRequestRequest
   ): Promise<responses.CancelQueryWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#cancelQueryWorkRequest.");
+    logger.debug("Calling operation LogAnalyticsClient#cancelQueryWorkRequest.");
     const operationName = "cancelQueryWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryWorkRequest/CancelQueryWorkRequest";
@@ -662,7 +651,6 @@ export class LogAnalyticsClient {
       cancelQueryWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -709,8 +697,7 @@ export class LogAnalyticsClient {
   public async changeIngestTimeRuleCompartment(
     changeIngestTimeRuleCompartmentRequest: requests.ChangeIngestTimeRuleCompartmentRequest
   ): Promise<responses.ChangeIngestTimeRuleCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#changeIngestTimeRuleCompartment.");
+    logger.debug("Calling operation LogAnalyticsClient#changeIngestTimeRuleCompartment.");
     const operationName = "changeIngestTimeRuleCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/ChangeIngestTimeRuleCompartment";
@@ -734,7 +721,6 @@ export class LogAnalyticsClient {
       changeIngestTimeRuleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -786,10 +772,7 @@ export class LogAnalyticsClient {
   public async changeLogAnalyticsEmBridgeCompartment(
     changeLogAnalyticsEmBridgeCompartmentRequest: requests.ChangeLogAnalyticsEmBridgeCompartmentRequest
   ): Promise<responses.ChangeLogAnalyticsEmBridgeCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#changeLogAnalyticsEmBridgeCompartment."
-      );
+    logger.debug("Calling operation LogAnalyticsClient#changeLogAnalyticsEmBridgeCompartment.");
     const operationName = "changeLogAnalyticsEmBridgeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/ChangeLogAnalyticsEmBridgeCompartment";
@@ -814,7 +797,6 @@ export class LogAnalyticsClient {
       changeLogAnalyticsEmBridgeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -866,10 +848,7 @@ export class LogAnalyticsClient {
   public async changeLogAnalyticsEntityCompartment(
     changeLogAnalyticsEntityCompartmentRequest: requests.ChangeLogAnalyticsEntityCompartmentRequest
   ): Promise<responses.ChangeLogAnalyticsEntityCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#changeLogAnalyticsEntityCompartment."
-      );
+    logger.debug("Calling operation LogAnalyticsClient#changeLogAnalyticsEntityCompartment.");
     const operationName = "changeLogAnalyticsEntityCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/ChangeLogAnalyticsEntityCompartment";
@@ -893,7 +872,6 @@ export class LogAnalyticsClient {
       changeLogAnalyticsEntityCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -946,10 +924,7 @@ export class LogAnalyticsClient {
   public async changeLogAnalyticsLogGroupCompartment(
     changeLogAnalyticsLogGroupCompartmentRequest: requests.ChangeLogAnalyticsLogGroupCompartmentRequest
   ): Promise<responses.ChangeLogAnalyticsLogGroupCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#changeLogAnalyticsLogGroupCompartment."
-      );
+    logger.debug("Calling operation LogAnalyticsClient#changeLogAnalyticsLogGroupCompartment.");
     const operationName = "changeLogAnalyticsLogGroupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/ChangeLogAnalyticsLogGroupCompartment";
@@ -974,7 +949,6 @@ export class LogAnalyticsClient {
       changeLogAnalyticsLogGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1026,10 +1000,9 @@ export class LogAnalyticsClient {
   public async changeLogAnalyticsObjectCollectionRuleCompartment(
     changeLogAnalyticsObjectCollectionRuleCompartmentRequest: requests.ChangeLogAnalyticsObjectCollectionRuleCompartmentRequest
   ): Promise<responses.ChangeLogAnalyticsObjectCollectionRuleCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#changeLogAnalyticsObjectCollectionRuleCompartment."
-      );
+    logger.debug(
+      "Calling operation LogAnalyticsClient#changeLogAnalyticsObjectCollectionRuleCompartment."
+    );
     const operationName = "changeLogAnalyticsObjectCollectionRuleCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/ChangeLogAnalyticsObjectCollectionRuleCompartment";
@@ -1053,7 +1026,6 @@ export class LogAnalyticsClient {
       changeLogAnalyticsObjectCollectionRuleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1106,8 +1078,7 @@ export class LogAnalyticsClient {
   public async changeScheduledTaskCompartment(
     changeScheduledTaskCompartmentRequest: requests.ChangeScheduledTaskCompartmentRequest
   ): Promise<responses.ChangeScheduledTaskCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#changeScheduledTaskCompartment.");
+    logger.debug("Calling operation LogAnalyticsClient#changeScheduledTaskCompartment.");
     const operationName = "changeScheduledTaskCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/ChangeScheduledTaskCompartment";
@@ -1131,7 +1102,6 @@ export class LogAnalyticsClient {
       changeScheduledTaskCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1183,7 +1153,7 @@ export class LogAnalyticsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Clean.ts.html |here} to see how to use Clean API.
    */
   public async clean(cleanRequest: requests.CleanRequest): Promise<responses.CleanResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#clean.");
+    logger.debug("Calling operation LogAnalyticsClient#clean.");
     const operationName = "clean";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/Clean";
@@ -1209,7 +1179,6 @@ export class LogAnalyticsClient {
       cleanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1256,7 +1225,7 @@ export class LogAnalyticsClient {
   public async compareContent(
     compareContentRequest: requests.CompareContentRequest
   ): Promise<responses.CompareContentResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#compareContent.");
+    logger.debug("Calling operation LogAnalyticsClient#compareContent.");
     const operationName = "compareContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/CompareContent";
@@ -1277,7 +1246,6 @@ export class LogAnalyticsClient {
       compareContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1333,8 +1301,7 @@ export class LogAnalyticsClient {
   public async createIngestTimeRule(
     createIngestTimeRuleRequest: requests.CreateIngestTimeRuleRequest
   ): Promise<responses.CreateIngestTimeRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#createIngestTimeRule.");
+    logger.debug("Calling operation LogAnalyticsClient#createIngestTimeRule.");
     const operationName = "createIngestTimeRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/CreateIngestTimeRule";
@@ -1356,7 +1323,6 @@ export class LogAnalyticsClient {
       createIngestTimeRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1416,8 +1382,7 @@ export class LogAnalyticsClient {
   public async createLogAnalyticsEmBridge(
     createLogAnalyticsEmBridgeRequest: requests.CreateLogAnalyticsEmBridgeRequest
   ): Promise<responses.CreateLogAnalyticsEmBridgeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEmBridge.");
+    logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEmBridge.");
     const operationName = "createLogAnalyticsEmBridge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/CreateLogAnalyticsEmBridge";
@@ -1439,7 +1404,6 @@ export class LogAnalyticsClient {
       createLogAnalyticsEmBridgeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1499,8 +1463,7 @@ export class LogAnalyticsClient {
   public async createLogAnalyticsEntity(
     createLogAnalyticsEntityRequest: requests.CreateLogAnalyticsEntityRequest
   ): Promise<responses.CreateLogAnalyticsEntityResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEntity.");
+    logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEntity.");
     const operationName = "createLogAnalyticsEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/CreateLogAnalyticsEntity";
@@ -1522,7 +1485,6 @@ export class LogAnalyticsClient {
       createLogAnalyticsEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1582,8 +1544,7 @@ export class LogAnalyticsClient {
   public async createLogAnalyticsEntityType(
     createLogAnalyticsEntityTypeRequest: requests.CreateLogAnalyticsEntityTypeRequest
   ): Promise<responses.CreateLogAnalyticsEntityTypeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEntityType.");
+    logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEntityType.");
     const operationName = "createLogAnalyticsEntityType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/CreateLogAnalyticsEntityType";
@@ -1605,7 +1566,6 @@ export class LogAnalyticsClient {
       createLogAnalyticsEntityTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1657,8 +1617,7 @@ export class LogAnalyticsClient {
   public async createLogAnalyticsLogGroup(
     createLogAnalyticsLogGroupRequest: requests.CreateLogAnalyticsLogGroupRequest
   ): Promise<responses.CreateLogAnalyticsLogGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsLogGroup.");
+    logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsLogGroup.");
     const operationName = "createLogAnalyticsLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/CreateLogAnalyticsLogGroup";
@@ -1680,7 +1639,6 @@ export class LogAnalyticsClient {
       createLogAnalyticsLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1740,10 +1698,7 @@ export class LogAnalyticsClient {
   public async createLogAnalyticsObjectCollectionRule(
     createLogAnalyticsObjectCollectionRuleRequest: requests.CreateLogAnalyticsObjectCollectionRuleRequest
   ): Promise<responses.CreateLogAnalyticsObjectCollectionRuleResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#createLogAnalyticsObjectCollectionRule."
-      );
+    logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsObjectCollectionRule.");
     const operationName = "createLogAnalyticsObjectCollectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/CreateLogAnalyticsObjectCollectionRule";
@@ -1764,7 +1719,6 @@ export class LogAnalyticsClient {
       createLogAnalyticsObjectCollectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1824,7 +1778,7 @@ export class LogAnalyticsClient {
   public async createScheduledTask(
     createScheduledTaskRequest: requests.CreateScheduledTaskRequest
   ): Promise<responses.CreateScheduledTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#createScheduledTask.");
+    logger.debug("Calling operation LogAnalyticsClient#createScheduledTask.");
     const operationName = "createScheduledTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/CreateScheduledTask";
@@ -1846,7 +1800,6 @@ export class LogAnalyticsClient {
       createScheduledTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1907,7 +1860,7 @@ export class LogAnalyticsClient {
   public async deleteAssociations(
     deleteAssociationsRequest: requests.DeleteAssociationsRequest
   ): Promise<responses.DeleteAssociationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteAssociations.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteAssociations.");
     const operationName = "deleteAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/DeleteAssociations";
@@ -1929,7 +1882,6 @@ export class LogAnalyticsClient {
       deleteAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1986,7 +1938,7 @@ export class LogAnalyticsClient {
   public async deleteField(
     deleteFieldRequest: requests.DeleteFieldRequest
   ): Promise<responses.DeleteFieldResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteField.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteField.");
     const operationName = "deleteField";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/DeleteField";
@@ -2010,7 +1962,6 @@ export class LogAnalyticsClient {
       deleteFieldRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2057,8 +2008,7 @@ export class LogAnalyticsClient {
   public async deleteIngestTimeRule(
     deleteIngestTimeRuleRequest: requests.DeleteIngestTimeRuleRequest
   ): Promise<responses.DeleteIngestTimeRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#deleteIngestTimeRule.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteIngestTimeRule.");
     const operationName = "deleteIngestTimeRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/DeleteIngestTimeRule";
@@ -2081,7 +2031,6 @@ export class LogAnalyticsClient {
       deleteIngestTimeRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2128,7 +2077,7 @@ export class LogAnalyticsClient {
   public async deleteLabel(
     deleteLabelRequest: requests.DeleteLabelRequest
   ): Promise<responses.DeleteLabelResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteLabel.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteLabel.");
     const operationName = "deleteLabel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/DeleteLabel";
@@ -2152,7 +2101,6 @@ export class LogAnalyticsClient {
       deleteLabelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2198,8 +2146,7 @@ export class LogAnalyticsClient {
   public async deleteLogAnalyticsEmBridge(
     deleteLogAnalyticsEmBridgeRequest: requests.DeleteLogAnalyticsEmBridgeRequest
   ): Promise<responses.DeleteLogAnalyticsEmBridgeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEmBridge.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEmBridge.");
     const operationName = "deleteLogAnalyticsEmBridge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/DeleteLogAnalyticsEmBridge";
@@ -2224,7 +2171,6 @@ export class LogAnalyticsClient {
       deleteLogAnalyticsEmBridgeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2270,8 +2216,7 @@ export class LogAnalyticsClient {
   public async deleteLogAnalyticsEntity(
     deleteLogAnalyticsEntityRequest: requests.DeleteLogAnalyticsEntityRequest
   ): Promise<responses.DeleteLogAnalyticsEntityResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEntity.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEntity.");
     const operationName = "deleteLogAnalyticsEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/DeleteLogAnalyticsEntity";
@@ -2294,7 +2239,6 @@ export class LogAnalyticsClient {
       deleteLogAnalyticsEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2340,8 +2284,7 @@ export class LogAnalyticsClient {
   public async deleteLogAnalyticsEntityType(
     deleteLogAnalyticsEntityTypeRequest: requests.DeleteLogAnalyticsEntityTypeRequest
   ): Promise<responses.DeleteLogAnalyticsEntityTypeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEntityType.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEntityType.");
     const operationName = "deleteLogAnalyticsEntityType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/DeleteLogAnalyticsEntityType";
@@ -2364,7 +2307,6 @@ export class LogAnalyticsClient {
       deleteLogAnalyticsEntityTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2411,8 +2353,7 @@ export class LogAnalyticsClient {
   public async deleteLogAnalyticsLogGroup(
     deleteLogAnalyticsLogGroupRequest: requests.DeleteLogAnalyticsLogGroupRequest
   ): Promise<responses.DeleteLogAnalyticsLogGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsLogGroup.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsLogGroup.");
     const operationName = "deleteLogAnalyticsLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/DeleteLogAnalyticsLogGroup";
@@ -2435,7 +2376,6 @@ export class LogAnalyticsClient {
       deleteLogAnalyticsLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2483,10 +2423,7 @@ export class LogAnalyticsClient {
   public async deleteLogAnalyticsObjectCollectionRule(
     deleteLogAnalyticsObjectCollectionRuleRequest: requests.DeleteLogAnalyticsObjectCollectionRuleRequest
   ): Promise<responses.DeleteLogAnalyticsObjectCollectionRuleResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#deleteLogAnalyticsObjectCollectionRule."
-      );
+    logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsObjectCollectionRule.");
     const operationName = "deleteLogAnalyticsObjectCollectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/DeleteLogAnalyticsObjectCollectionRule";
@@ -2510,7 +2447,6 @@ export class LogAnalyticsClient {
       deleteLogAnalyticsObjectCollectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2558,7 +2494,7 @@ export class LogAnalyticsClient {
   public async deleteLookup(
     deleteLookupRequest: requests.DeleteLookupRequest
   ): Promise<responses.DeleteLookupResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteLookup.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteLookup.");
     const operationName = "deleteLookup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/DeleteLookup";
@@ -2584,7 +2520,6 @@ export class LogAnalyticsClient {
       deleteLookupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2636,7 +2571,7 @@ export class LogAnalyticsClient {
   public async deleteParser(
     deleteParserRequest: requests.DeleteParserRequest
   ): Promise<responses.DeleteParserResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteParser.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteParser.");
     const operationName = "deleteParser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/DeleteParser";
@@ -2660,7 +2595,6 @@ export class LogAnalyticsClient {
       deleteParserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2706,7 +2640,7 @@ export class LogAnalyticsClient {
   public async deleteScheduledTask(
     deleteScheduledTaskRequest: requests.DeleteScheduledTaskRequest
   ): Promise<responses.DeleteScheduledTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteScheduledTask.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteScheduledTask.");
     const operationName = "deleteScheduledTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/DeleteScheduledTask";
@@ -2729,7 +2663,6 @@ export class LogAnalyticsClient {
       deleteScheduledTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2776,7 +2709,7 @@ export class LogAnalyticsClient {
   public async deleteSource(
     deleteSourceRequest: requests.DeleteSourceRequest
   ): Promise<responses.DeleteSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteSource.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteSource.");
     const operationName = "deleteSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/DeleteSource";
@@ -2800,7 +2733,6 @@ export class LogAnalyticsClient {
       deleteSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2848,7 +2780,7 @@ export class LogAnalyticsClient {
   public async deleteUpload(
     deleteUploadRequest: requests.DeleteUploadRequest
   ): Promise<responses.DeleteUploadResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteUpload.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteUpload.");
     const operationName = "deleteUpload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/DeleteUpload";
@@ -2871,7 +2803,6 @@ export class LogAnalyticsClient {
       deleteUploadRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2929,7 +2860,7 @@ export class LogAnalyticsClient {
   public async deleteUploadFile(
     deleteUploadFileRequest: requests.DeleteUploadFileRequest
   ): Promise<responses.DeleteUploadFileResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteUploadFile.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteUploadFile.");
     const operationName = "deleteUploadFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/DeleteUploadFile";
@@ -2952,7 +2883,6 @@ export class LogAnalyticsClient {
       deleteUploadFileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3009,7 +2939,7 @@ export class LogAnalyticsClient {
   public async deleteUploadWarning(
     deleteUploadWarningRequest: requests.DeleteUploadWarningRequest
   ): Promise<responses.DeleteUploadWarningResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteUploadWarning.");
+    logger.debug("Calling operation LogAnalyticsClient#deleteUploadWarning.");
     const operationName = "deleteUploadWarning";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/DeleteUploadWarning";
@@ -3032,7 +2962,6 @@ export class LogAnalyticsClient {
       deleteUploadWarningRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3079,7 +3008,7 @@ export class LogAnalyticsClient {
   public async disableArchiving(
     disableArchivingRequest: requests.DisableArchivingRequest
   ): Promise<responses.DisableArchivingResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#disableArchiving.");
+    logger.debug("Calling operation LogAnalyticsClient#disableArchiving.");
     const operationName = "disableArchiving";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/DisableArchiving";
@@ -3101,7 +3030,6 @@ export class LogAnalyticsClient {
       disableArchivingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3159,8 +3087,7 @@ export class LogAnalyticsClient {
   public async disableAutoAssociation(
     disableAutoAssociationRequest: requests.DisableAutoAssociationRequest
   ): Promise<responses.DisableAutoAssociationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#disableAutoAssociation.");
+    logger.debug("Calling operation LogAnalyticsClient#disableAutoAssociation.");
     const operationName = "disableAutoAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/DisableAutoAssociation";
@@ -3183,7 +3110,6 @@ export class LogAnalyticsClient {
       disableAutoAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3240,8 +3166,7 @@ export class LogAnalyticsClient {
   public async disableIngestTimeRule(
     disableIngestTimeRuleRequest: requests.DisableIngestTimeRuleRequest
   ): Promise<responses.DisableIngestTimeRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#disableIngestTimeRule.");
+    logger.debug("Calling operation LogAnalyticsClient#disableIngestTimeRule.");
     const operationName = "disableIngestTimeRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/DisableIngestTimeRule";
@@ -3264,7 +3189,6 @@ export class LogAnalyticsClient {
       disableIngestTimeRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3317,8 +3241,7 @@ export class LogAnalyticsClient {
   public async disableSourceEventTypes(
     disableSourceEventTypesRequest: requests.DisableSourceEventTypesRequest
   ): Promise<responses.DisableSourceEventTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#disableSourceEventTypes.");
+    logger.debug("Calling operation LogAnalyticsClient#disableSourceEventTypes.");
     const operationName = "disableSourceEventTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/DisableSourceEventTypes";
@@ -3341,7 +3264,6 @@ export class LogAnalyticsClient {
       disableSourceEventTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3393,7 +3315,7 @@ export class LogAnalyticsClient {
   public async enableArchiving(
     enableArchivingRequest: requests.EnableArchivingRequest
   ): Promise<responses.EnableArchivingResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#enableArchiving.");
+    logger.debug("Calling operation LogAnalyticsClient#enableArchiving.");
     const operationName = "enableArchiving";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/EnableArchiving";
@@ -3415,7 +3337,6 @@ export class LogAnalyticsClient {
       enableArchivingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3473,8 +3394,7 @@ export class LogAnalyticsClient {
   public async enableAutoAssociation(
     enableAutoAssociationRequest: requests.EnableAutoAssociationRequest
   ): Promise<responses.EnableAutoAssociationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#enableAutoAssociation.");
+    logger.debug("Calling operation LogAnalyticsClient#enableAutoAssociation.");
     const operationName = "enableAutoAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/EnableAutoAssociation";
@@ -3497,7 +3417,6 @@ export class LogAnalyticsClient {
       enableAutoAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3554,8 +3473,7 @@ export class LogAnalyticsClient {
   public async enableIngestTimeRule(
     enableIngestTimeRuleRequest: requests.EnableIngestTimeRuleRequest
   ): Promise<responses.EnableIngestTimeRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#enableIngestTimeRule.");
+    logger.debug("Calling operation LogAnalyticsClient#enableIngestTimeRule.");
     const operationName = "enableIngestTimeRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/EnableIngestTimeRule";
@@ -3578,7 +3496,6 @@ export class LogAnalyticsClient {
       enableIngestTimeRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3631,8 +3548,7 @@ export class LogAnalyticsClient {
   public async enableSourceEventTypes(
     enableSourceEventTypesRequest: requests.EnableSourceEventTypesRequest
   ): Promise<responses.EnableSourceEventTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#enableSourceEventTypes.");
+    logger.debug("Calling operation LogAnalyticsClient#enableSourceEventTypes.");
     const operationName = "enableSourceEventTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/EnableSourceEventTypes";
@@ -3655,7 +3571,6 @@ export class LogAnalyticsClient {
       enableSourceEventTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3707,8 +3622,7 @@ export class LogAnalyticsClient {
   public async estimatePurgeDataSize(
     estimatePurgeDataSizeRequest: requests.EstimatePurgeDataSizeRequest
   ): Promise<responses.EstimatePurgeDataSizeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#estimatePurgeDataSize.");
+    logger.debug("Calling operation LogAnalyticsClient#estimatePurgeDataSize.");
     const operationName = "estimatePurgeDataSize";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/EstimatePurgeDataSize";
@@ -3731,7 +3645,6 @@ export class LogAnalyticsClient {
       estimatePurgeDataSizeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3792,8 +3705,7 @@ export class LogAnalyticsClient {
   public async estimateRecallDataSize(
     estimateRecallDataSizeRequest: requests.EstimateRecallDataSizeRequest
   ): Promise<responses.EstimateRecallDataSizeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#estimateRecallDataSize.");
+    logger.debug("Calling operation LogAnalyticsClient#estimateRecallDataSize.");
     const operationName = "estimateRecallDataSize";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/EstimateRecallDataSize";
@@ -3814,7 +3726,6 @@ export class LogAnalyticsClient {
       estimateRecallDataSizeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3870,8 +3781,7 @@ export class LogAnalyticsClient {
   public async estimateReleaseDataSize(
     estimateReleaseDataSizeRequest: requests.EstimateReleaseDataSizeRequest
   ): Promise<responses.EstimateReleaseDataSizeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#estimateReleaseDataSize.");
+    logger.debug("Calling operation LogAnalyticsClient#estimateReleaseDataSize.");
     const operationName = "estimateReleaseDataSize";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/EstimateReleaseDataSize";
@@ -3892,7 +3802,6 @@ export class LogAnalyticsClient {
       estimateReleaseDataSizeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3948,7 +3857,7 @@ export class LogAnalyticsClient {
   public async exportCustomContent(
     exportCustomContentRequest: requests.ExportCustomContentRequest
   ): Promise<responses.ExportCustomContentResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#exportCustomContent.");
+    logger.debug("Calling operation LogAnalyticsClient#exportCustomContent.");
     const operationName = "exportCustomContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3969,7 +3878,6 @@ export class LogAnalyticsClient {
       exportCustomContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4024,7 +3932,7 @@ export class LogAnalyticsClient {
   public async exportQueryResult(
     exportQueryResultRequest: requests.ExportQueryResultRequest
   ): Promise<responses.ExportQueryResultResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#exportQueryResult.");
+    logger.debug("Calling operation LogAnalyticsClient#exportQueryResult.");
     const operationName = "exportQueryResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/ExportQueryResult";
@@ -4045,7 +3953,6 @@ export class LogAnalyticsClient {
       exportQueryResultRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4101,8 +4008,7 @@ export class LogAnalyticsClient {
   public async extractStructuredLogFieldPaths(
     extractStructuredLogFieldPathsRequest: requests.ExtractStructuredLogFieldPathsRequest
   ): Promise<responses.ExtractStructuredLogFieldPathsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#extractStructuredLogFieldPaths.");
+    logger.debug("Calling operation LogAnalyticsClient#extractStructuredLogFieldPaths.");
     const operationName = "extractStructuredLogFieldPaths";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ExtractStructuredLogFieldPaths";
@@ -4126,7 +4032,6 @@ export class LogAnalyticsClient {
       extractStructuredLogFieldPathsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4182,8 +4087,7 @@ export class LogAnalyticsClient {
   public async extractStructuredLogHeaderPaths(
     extractStructuredLogHeaderPathsRequest: requests.ExtractStructuredLogHeaderPathsRequest
   ): Promise<responses.ExtractStructuredLogHeaderPathsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#extractStructuredLogHeaderPaths.");
+    logger.debug("Calling operation LogAnalyticsClient#extractStructuredLogHeaderPaths.");
     const operationName = "extractStructuredLogHeaderPaths";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ExtractStructuredLogHeaderPaths";
@@ -4207,7 +4111,6 @@ export class LogAnalyticsClient {
       extractStructuredLogHeaderPathsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4260,7 +4163,7 @@ export class LogAnalyticsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Filter.ts.html |here} to see how to use Filter API.
    */
   public async filter(filterRequest: requests.FilterRequest): Promise<responses.FilterResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#filter.");
+    logger.debug("Calling operation LogAnalyticsClient#filter.");
     const operationName = "filter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/Filter";
@@ -4281,7 +4184,6 @@ export class LogAnalyticsClient {
       filterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4337,8 +4239,7 @@ export class LogAnalyticsClient {
   public async getAssociationSummary(
     getAssociationSummaryRequest: requests.GetAssociationSummaryRequest
   ): Promise<responses.GetAssociationSummaryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getAssociationSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getAssociationSummary.");
     const operationName = "getAssociationSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/GetAssociationSummary";
@@ -4361,7 +4262,6 @@ export class LogAnalyticsClient {
       getAssociationSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4412,7 +4312,7 @@ export class LogAnalyticsClient {
   public async getCategory(
     getCategoryRequest: requests.GetCategoryRequest
   ): Promise<responses.GetCategoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getCategory.");
+    logger.debug("Calling operation LogAnalyticsClient#getCategory.");
     const operationName = "getCategory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/GetCategory";
@@ -4434,7 +4334,6 @@ export class LogAnalyticsClient {
       getCategoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4485,7 +4384,7 @@ export class LogAnalyticsClient {
   public async getColumnNames(
     getColumnNamesRequest: requests.GetColumnNamesRequest
   ): Promise<responses.GetColumnNamesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getColumnNames.");
+    logger.debug("Calling operation LogAnalyticsClient#getColumnNames.");
     const operationName = "getColumnNames";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/GetColumnNames";
@@ -4509,7 +4408,6 @@ export class LogAnalyticsClient {
       getColumnNamesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4560,8 +4458,7 @@ export class LogAnalyticsClient {
   public async getConfigWorkRequest(
     getConfigWorkRequestRequest: requests.GetConfigWorkRequestRequest
   ): Promise<responses.GetConfigWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getConfigWorkRequest.");
+    logger.debug("Calling operation LogAnalyticsClient#getConfigWorkRequest.");
     const operationName = "getConfigWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsConfigWorkRequest/GetConfigWorkRequest";
@@ -4583,7 +4480,6 @@ export class LogAnalyticsClient {
       getConfigWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4634,7 +4530,7 @@ export class LogAnalyticsClient {
   public async getField(
     getFieldRequest: requests.GetFieldRequest
   ): Promise<responses.GetFieldResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getField.");
+    logger.debug("Calling operation LogAnalyticsClient#getField.");
     const operationName = "getField";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/GetField";
@@ -4656,7 +4552,6 @@ export class LogAnalyticsClient {
       getFieldRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4712,7 +4607,7 @@ export class LogAnalyticsClient {
   public async getFieldsSummary(
     getFieldsSummaryRequest: requests.GetFieldsSummaryRequest
   ): Promise<responses.GetFieldsSummaryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getFieldsSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getFieldsSummary.");
     const operationName = "getFieldsSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/GetFieldsSummary";
@@ -4735,7 +4630,6 @@ export class LogAnalyticsClient {
       getFieldsSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4786,7 +4680,7 @@ export class LogAnalyticsClient {
   public async getIngestTimeRule(
     getIngestTimeRuleRequest: requests.GetIngestTimeRuleRequest
   ): Promise<responses.GetIngestTimeRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getIngestTimeRule.");
+    logger.debug("Calling operation LogAnalyticsClient#getIngestTimeRule.");
     const operationName = "getIngestTimeRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/GetIngestTimeRule";
@@ -4808,7 +4702,6 @@ export class LogAnalyticsClient {
       getIngestTimeRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4864,7 +4757,7 @@ export class LogAnalyticsClient {
   public async getLabel(
     getLabelRequest: requests.GetLabelRequest
   ): Promise<responses.GetLabelResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLabel.");
+    logger.debug("Calling operation LogAnalyticsClient#getLabel.");
     const operationName = "getLabel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/GetLabel";
@@ -4886,7 +4779,6 @@ export class LogAnalyticsClient {
       getLabelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4942,7 +4834,7 @@ export class LogAnalyticsClient {
   public async getLabelSummary(
     getLabelSummaryRequest: requests.GetLabelSummaryRequest
   ): Promise<responses.GetLabelSummaryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLabelSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getLabelSummary.");
     const operationName = "getLabelSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/GetLabelSummary";
@@ -4963,7 +4855,6 @@ export class LogAnalyticsClient {
       getLabelSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5013,8 +4904,7 @@ export class LogAnalyticsClient {
   public async getLogAnalyticsEmBridge(
     getLogAnalyticsEmBridgeRequest: requests.GetLogAnalyticsEmBridgeRequest
   ): Promise<responses.GetLogAnalyticsEmBridgeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEmBridge.");
+    logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEmBridge.");
     const operationName = "getLogAnalyticsEmBridge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/GetLogAnalyticsEmBridge";
@@ -5036,7 +4926,6 @@ export class LogAnalyticsClient {
       getLogAnalyticsEmBridgeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5091,8 +4980,7 @@ export class LogAnalyticsClient {
   public async getLogAnalyticsEmBridgeSummary(
     getLogAnalyticsEmBridgeSummaryRequest: requests.GetLogAnalyticsEmBridgeSummaryRequest
   ): Promise<responses.GetLogAnalyticsEmBridgeSummaryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEmBridgeSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEmBridgeSummary.");
     const operationName = "getLogAnalyticsEmBridgeSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/GetLogAnalyticsEmBridgeSummary";
@@ -5115,7 +5003,6 @@ export class LogAnalyticsClient {
       getLogAnalyticsEmBridgeSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5165,8 +5052,7 @@ export class LogAnalyticsClient {
   public async getLogAnalyticsEntitiesSummary(
     getLogAnalyticsEntitiesSummaryRequest: requests.GetLogAnalyticsEntitiesSummaryRequest
   ): Promise<responses.GetLogAnalyticsEntitiesSummaryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntitiesSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntitiesSummary.");
     const operationName = "getLogAnalyticsEntitiesSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/GetLogAnalyticsEntitiesSummary";
@@ -5189,7 +5075,6 @@ export class LogAnalyticsClient {
       getLogAnalyticsEntitiesSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5239,8 +5124,7 @@ export class LogAnalyticsClient {
   public async getLogAnalyticsEntity(
     getLogAnalyticsEntityRequest: requests.GetLogAnalyticsEntityRequest
   ): Promise<responses.GetLogAnalyticsEntityResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntity.");
+    logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntity.");
     const operationName = "getLogAnalyticsEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/GetLogAnalyticsEntity";
@@ -5262,7 +5146,6 @@ export class LogAnalyticsClient {
       getLogAnalyticsEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5317,8 +5200,7 @@ export class LogAnalyticsClient {
   public async getLogAnalyticsEntityType(
     getLogAnalyticsEntityTypeRequest: requests.GetLogAnalyticsEntityTypeRequest
   ): Promise<responses.GetLogAnalyticsEntityTypeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntityType.");
+    logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntityType.");
     const operationName = "getLogAnalyticsEntityType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/GetLogAnalyticsEntityType";
@@ -5340,7 +5222,6 @@ export class LogAnalyticsClient {
       getLogAnalyticsEntityTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5396,8 +5277,7 @@ export class LogAnalyticsClient {
   public async getLogAnalyticsLogGroup(
     getLogAnalyticsLogGroupRequest: requests.GetLogAnalyticsLogGroupRequest
   ): Promise<responses.GetLogAnalyticsLogGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsLogGroup.");
+    logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsLogGroup.");
     const operationName = "getLogAnalyticsLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/GetLogAnalyticsLogGroup";
@@ -5419,7 +5299,6 @@ export class LogAnalyticsClient {
       getLogAnalyticsLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5475,8 +5354,7 @@ export class LogAnalyticsClient {
   public async getLogAnalyticsLogGroupsSummary(
     getLogAnalyticsLogGroupsSummaryRequest: requests.GetLogAnalyticsLogGroupsSummaryRequest
   ): Promise<responses.GetLogAnalyticsLogGroupsSummaryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsLogGroupsSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsLogGroupsSummary.");
     const operationName = "getLogAnalyticsLogGroupsSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/GetLogAnalyticsLogGroupsSummary";
@@ -5499,7 +5377,6 @@ export class LogAnalyticsClient {
       getLogAnalyticsLogGroupsSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5549,10 +5426,7 @@ export class LogAnalyticsClient {
   public async getLogAnalyticsObjectCollectionRule(
     getLogAnalyticsObjectCollectionRuleRequest: requests.GetLogAnalyticsObjectCollectionRuleRequest
   ): Promise<responses.GetLogAnalyticsObjectCollectionRuleResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#getLogAnalyticsObjectCollectionRule."
-      );
+    logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsObjectCollectionRule.");
     const operationName = "getLogAnalyticsObjectCollectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/GetLogAnalyticsObjectCollectionRule";
@@ -5575,7 +5449,6 @@ export class LogAnalyticsClient {
       getLogAnalyticsObjectCollectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5632,7 +5505,7 @@ export class LogAnalyticsClient {
   public async getLogSetsCount(
     getLogSetsCountRequest: requests.GetLogSetsCountRequest
   ): Promise<responses.GetLogSetsCountResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLogSetsCount.");
+    logger.debug("Calling operation LogAnalyticsClient#getLogSetsCount.");
     const operationName = "getLogSetsCount";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetLogSetsCount";
@@ -5653,7 +5526,6 @@ export class LogAnalyticsClient {
       getLogSetsCountRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5704,7 +5576,7 @@ export class LogAnalyticsClient {
   public async getLookup(
     getLookupRequest: requests.GetLookupRequest
   ): Promise<responses.GetLookupResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLookup.");
+    logger.debug("Calling operation LogAnalyticsClient#getLookup.");
     const operationName = "getLookup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/GetLookup";
@@ -5726,7 +5598,6 @@ export class LogAnalyticsClient {
       getLookupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5781,7 +5652,7 @@ export class LogAnalyticsClient {
   public async getLookupSummary(
     getLookupSummaryRequest: requests.GetLookupSummaryRequest
   ): Promise<responses.GetLookupSummaryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLookupSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getLookupSummary.");
     const operationName = "getLookupSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/GetLookupSummary";
@@ -5802,7 +5673,6 @@ export class LogAnalyticsClient {
       getLookupSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5853,7 +5723,7 @@ export class LogAnalyticsClient {
   public async getNamespace(
     getNamespaceRequest: requests.GetNamespaceRequest
   ): Promise<responses.GetNamespaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getNamespace.");
+    logger.debug("Calling operation LogAnalyticsClient#getNamespace.");
     const operationName = "getNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Namespace/GetNamespace";
@@ -5874,7 +5744,6 @@ export class LogAnalyticsClient {
       getNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5930,7 +5799,7 @@ export class LogAnalyticsClient {
   public async getParser(
     getParserRequest: requests.GetParserRequest
   ): Promise<responses.GetParserResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getParser.");
+    logger.debug("Calling operation LogAnalyticsClient#getParser.");
     const operationName = "getParser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/GetParser";
@@ -5952,7 +5821,6 @@ export class LogAnalyticsClient {
       getParserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6008,7 +5876,7 @@ export class LogAnalyticsClient {
   public async getParserSummary(
     getParserSummaryRequest: requests.GetParserSummaryRequest
   ): Promise<responses.GetParserSummaryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getParserSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getParserSummary.");
     const operationName = "getParserSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/GetParserSummary";
@@ -6029,7 +5897,6 @@ export class LogAnalyticsClient {
       getParserSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6080,7 +5947,7 @@ export class LogAnalyticsClient {
   public async getPreferences(
     getPreferencesRequest: requests.GetPreferencesRequest
   ): Promise<responses.GetPreferencesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getPreferences.");
+    logger.debug("Calling operation LogAnalyticsClient#getPreferences.");
     const operationName = "getPreferences";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsPreference/GetPreferences";
@@ -6106,7 +5973,6 @@ export class LogAnalyticsClient {
       getPreferencesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6168,7 +6034,7 @@ export class LogAnalyticsClient {
   public async getQueryResult(
     getQueryResultRequest: requests.GetQueryResultRequest
   ): Promise<responses.GetQueryResultResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getQueryResult.");
+    logger.debug("Calling operation LogAnalyticsClient#getQueryResult.");
     const operationName = "getQueryResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/GetQueryResult";
@@ -6196,7 +6062,6 @@ export class LogAnalyticsClient {
       getQueryResultRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6261,7 +6126,7 @@ export class LogAnalyticsClient {
   public async getQueryWorkRequest(
     getQueryWorkRequestRequest: requests.GetQueryWorkRequestRequest
   ): Promise<responses.GetQueryWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getQueryWorkRequest.");
+    logger.debug("Calling operation LogAnalyticsClient#getQueryWorkRequest.");
     const operationName = "getQueryWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryWorkRequest/GetQueryWorkRequest";
@@ -6283,7 +6148,6 @@ export class LogAnalyticsClient {
       getQueryWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6344,7 +6208,7 @@ export class LogAnalyticsClient {
   public async getRecallCount(
     getRecallCountRequest: requests.GetRecallCountRequest
   ): Promise<responses.GetRecallCountResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getRecallCount.");
+    logger.debug("Calling operation LogAnalyticsClient#getRecallCount.");
     const operationName = "getRecallCount";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetRecallCount";
@@ -6365,7 +6229,6 @@ export class LogAnalyticsClient {
       getRecallCountRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6416,7 +6279,7 @@ export class LogAnalyticsClient {
   public async getRecalledDataSize(
     getRecalledDataSizeRequest: requests.GetRecalledDataSizeRequest
   ): Promise<responses.GetRecalledDataSizeResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getRecalledDataSize.");
+    logger.debug("Calling operation LogAnalyticsClient#getRecalledDataSize.");
     const operationName = "getRecalledDataSize";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetRecalledDataSize";
@@ -6440,7 +6303,6 @@ export class LogAnalyticsClient {
       getRecalledDataSizeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6501,7 +6363,7 @@ export class LogAnalyticsClient {
   public async getRulesSummary(
     getRulesSummaryRequest: requests.GetRulesSummaryRequest
   ): Promise<responses.GetRulesSummaryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getRulesSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getRulesSummary.");
     const operationName = "getRulesSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Rule/GetRulesSummary";
@@ -6524,7 +6386,6 @@ export class LogAnalyticsClient {
       getRulesSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6574,7 +6435,7 @@ export class LogAnalyticsClient {
   public async getScheduledTask(
     getScheduledTaskRequest: requests.GetScheduledTaskRequest
   ): Promise<responses.GetScheduledTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getScheduledTask.");
+    logger.debug("Calling operation LogAnalyticsClient#getScheduledTask.");
     const operationName = "getScheduledTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/GetScheduledTask";
@@ -6596,7 +6457,6 @@ export class LogAnalyticsClient {
       getScheduledTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6652,7 +6512,7 @@ export class LogAnalyticsClient {
   public async getSource(
     getSourceRequest: requests.GetSourceRequest
   ): Promise<responses.GetSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getSource.");
+    logger.debug("Calling operation LogAnalyticsClient#getSource.");
     const operationName = "getSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/GetSource";
@@ -6676,7 +6536,6 @@ export class LogAnalyticsClient {
       getSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6732,7 +6591,7 @@ export class LogAnalyticsClient {
   public async getSourceSummary(
     getSourceSummaryRequest: requests.GetSourceSummaryRequest
   ): Promise<responses.GetSourceSummaryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getSourceSummary.");
+    logger.debug("Calling operation LogAnalyticsClient#getSourceSummary.");
     const operationName = "getSourceSummary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/GetSourceSummary";
@@ -6753,7 +6612,6 @@ export class LogAnalyticsClient {
       getSourceSummaryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6804,7 +6662,7 @@ export class LogAnalyticsClient {
   public async getStorage(
     getStorageRequest: requests.GetStorageRequest
   ): Promise<responses.GetStorageResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getStorage.");
+    logger.debug("Calling operation LogAnalyticsClient#getStorage.");
     const operationName = "getStorage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetStorage";
@@ -6825,7 +6683,6 @@ export class LogAnalyticsClient {
       getStorageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6882,7 +6739,7 @@ export class LogAnalyticsClient {
   public async getStorageUsage(
     getStorageUsageRequest: requests.GetStorageUsageRequest
   ): Promise<responses.GetStorageUsageResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getStorageUsage.");
+    logger.debug("Calling operation LogAnalyticsClient#getStorageUsage.");
     const operationName = "getStorageUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetStorageUsage";
@@ -6903,7 +6760,6 @@ export class LogAnalyticsClient {
       getStorageUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6955,8 +6811,7 @@ export class LogAnalyticsClient {
   public async getStorageWorkRequest(
     getStorageWorkRequestRequest: requests.GetStorageWorkRequestRequest
   ): Promise<responses.GetStorageWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getStorageWorkRequest.");
+    logger.debug("Calling operation LogAnalyticsClient#getStorageWorkRequest.");
     const operationName = "getStorageWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetStorageWorkRequest";
@@ -6978,7 +6833,6 @@ export class LogAnalyticsClient {
       getStorageWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7039,8 +6893,7 @@ export class LogAnalyticsClient {
   public async getUnprocessedDataBucket(
     getUnprocessedDataBucketRequest: requests.GetUnprocessedDataBucketRequest
   ): Promise<responses.GetUnprocessedDataBucketResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#getUnprocessedDataBucket.");
+    logger.debug("Calling operation LogAnalyticsClient#getUnprocessedDataBucket.");
     const operationName = "getUnprocessedDataBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/GetUnprocessedDataBucket";
@@ -7061,7 +6914,6 @@ export class LogAnalyticsClient {
       getUnprocessedDataBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7111,7 +6963,7 @@ export class LogAnalyticsClient {
   public async getUpload(
     getUploadRequest: requests.GetUploadRequest
   ): Promise<responses.GetUploadResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getUpload.");
+    logger.debug("Calling operation LogAnalyticsClient#getUpload.");
     const operationName = "getUpload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/GetUpload";
@@ -7133,7 +6985,6 @@ export class LogAnalyticsClient {
       getUploadRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7188,7 +7039,7 @@ export class LogAnalyticsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getWorkRequest.");
+    logger.debug("Calling operation LogAnalyticsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/WorkRequest/GetWorkRequest";
@@ -7210,7 +7061,6 @@ export class LogAnalyticsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7266,7 +7116,7 @@ export class LogAnalyticsClient {
   public async importCustomContent(
     importCustomContentRequest: requests.ImportCustomContentRequest
   ): Promise<responses.ImportCustomContentResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#importCustomContent.");
+    logger.debug("Calling operation LogAnalyticsClient#importCustomContent.");
     const operationName = "importCustomContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsImportCustomContent/ImportCustomContent";
@@ -7290,7 +7140,6 @@ export class LogAnalyticsClient {
       importCustomContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7343,8 +7192,7 @@ export class LogAnalyticsClient {
   public async listAssociableEntities(
     listAssociableEntitiesRequest: requests.ListAssociableEntitiesRequest
   ): Promise<responses.ListAssociableEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listAssociableEntities.");
+    logger.debug("Calling operation LogAnalyticsClient#listAssociableEntities.");
     const operationName = "listAssociableEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListAssociableEntities";
@@ -7374,7 +7222,6 @@ export class LogAnalyticsClient {
       listAssociableEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7435,8 +7282,7 @@ export class LogAnalyticsClient {
   public async listAssociatedEntities(
     listAssociatedEntitiesRequest: requests.ListAssociatedEntitiesRequest
   ): Promise<responses.ListAssociatedEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listAssociatedEntities.");
+    logger.debug("Calling operation LogAnalyticsClient#listAssociatedEntities.");
     const operationName = "listAssociatedEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/ListAssociatedEntities";
@@ -7466,7 +7312,6 @@ export class LogAnalyticsClient {
       listAssociatedEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7527,8 +7372,7 @@ export class LogAnalyticsClient {
   public async listAutoAssociations(
     listAutoAssociationsRequest: requests.ListAutoAssociationsRequest
   ): Promise<responses.ListAutoAssociationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listAutoAssociations.");
+    logger.debug("Calling operation LogAnalyticsClient#listAutoAssociations.");
     const operationName = "listAutoAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListAutoAssociations";
@@ -7555,7 +7399,6 @@ export class LogAnalyticsClient {
       listAutoAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7616,7 +7459,7 @@ export class LogAnalyticsClient {
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
   ): Promise<responses.ListCategoriesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listCategories.");
+    logger.debug("Calling operation LogAnalyticsClient#listCategories.");
     const operationName = "listCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/ListCategories";
@@ -7645,7 +7488,6 @@ export class LogAnalyticsClient {
       listCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7706,8 +7548,7 @@ export class LogAnalyticsClient {
   public async listConfigWorkRequests(
     listConfigWorkRequestsRequest: requests.ListConfigWorkRequestsRequest
   ): Promise<responses.ListConfigWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listConfigWorkRequests.");
+    logger.debug("Calling operation LogAnalyticsClient#listConfigWorkRequests.");
     const operationName = "listConfigWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsConfigWorkRequest/ListConfigWorkRequests";
@@ -7733,7 +7574,6 @@ export class LogAnalyticsClient {
       listConfigWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7794,8 +7634,7 @@ export class LogAnalyticsClient {
   public async listEffectiveProperties(
     listEffectivePropertiesRequest: requests.ListEffectivePropertiesRequest
   ): Promise<responses.ListEffectivePropertiesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listEffectiveProperties.");
+    logger.debug("Calling operation LogAnalyticsClient#listEffectiveProperties.");
     const operationName = "listEffectiveProperties";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsProperty/ListEffectiveProperties";
@@ -7827,7 +7666,6 @@ export class LogAnalyticsClient {
       listEffectivePropertiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7887,8 +7725,7 @@ export class LogAnalyticsClient {
   public async listEncryptionKeyInfo(
     listEncryptionKeyInfoRequest: requests.ListEncryptionKeyInfoRequest
   ): Promise<responses.ListEncryptionKeyInfoResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listEncryptionKeyInfo.");
+    logger.debug("Calling operation LogAnalyticsClient#listEncryptionKeyInfo.");
     const operationName = "listEncryptionKeyInfo";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListEncryptionKeyInfo";
@@ -7909,7 +7746,6 @@ export class LogAnalyticsClient {
       listEncryptionKeyInfoRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7959,8 +7795,7 @@ export class LogAnalyticsClient {
   public async listEntityAssociations(
     listEntityAssociationsRequest: requests.ListEntityAssociationsRequest
   ): Promise<responses.ListEntityAssociationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listEntityAssociations.");
+    logger.debug("Calling operation LogAnalyticsClient#listEntityAssociations.");
     const operationName = "listEntityAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/ListEntityAssociations";
@@ -7988,7 +7823,6 @@ export class LogAnalyticsClient {
       listEntityAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8045,8 +7879,7 @@ export class LogAnalyticsClient {
   public async listEntitySourceAssociations(
     listEntitySourceAssociationsRequest: requests.ListEntitySourceAssociationsRequest
   ): Promise<responses.ListEntitySourceAssociationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listEntitySourceAssociations.");
+    logger.debug("Calling operation LogAnalyticsClient#listEntitySourceAssociations.");
     const operationName = "listEntitySourceAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/ListEntitySourceAssociations";
@@ -8078,7 +7911,6 @@ export class LogAnalyticsClient {
       listEntitySourceAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8139,7 +7971,7 @@ export class LogAnalyticsClient {
   public async listFields(
     listFieldsRequest: requests.ListFieldsRequest
   ): Promise<responses.ListFieldsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listFields.");
+    logger.debug("Calling operation LogAnalyticsClient#listFields.");
     const operationName = "listFields";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/ListFields";
@@ -8173,7 +8005,6 @@ export class LogAnalyticsClient {
       listFieldsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8234,7 +8065,7 @@ export class LogAnalyticsClient {
   public async listIngestTimeRules(
     listIngestTimeRulesRequest: requests.ListIngestTimeRulesRequest
   ): Promise<responses.ListIngestTimeRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listIngestTimeRules.");
+    logger.debug("Calling operation LogAnalyticsClient#listIngestTimeRules.");
     const operationName = "listIngestTimeRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/ListIngestTimeRules";
@@ -8266,7 +8097,6 @@ export class LogAnalyticsClient {
       listIngestTimeRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8327,7 +8157,7 @@ export class LogAnalyticsClient {
   public async listLabelPriorities(
     listLabelPrioritiesRequest: requests.ListLabelPrioritiesRequest
   ): Promise<responses.ListLabelPrioritiesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLabelPriorities.");
+    logger.debug("Calling operation LogAnalyticsClient#listLabelPriorities.");
     const operationName = "listLabelPriorities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/ListLabelPriorities";
@@ -8351,7 +8181,6 @@ export class LogAnalyticsClient {
       listLabelPrioritiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8412,8 +8241,7 @@ export class LogAnalyticsClient {
   public async listLabelSourceDetails(
     listLabelSourceDetailsRequest: requests.ListLabelSourceDetailsRequest
   ): Promise<responses.ListLabelSourceDetailsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listLabelSourceDetails.");
+    logger.debug("Calling operation LogAnalyticsClient#listLabelSourceDetails.");
     const operationName = "listLabelSourceDetails";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/ListLabelSourceDetails";
@@ -8440,7 +8268,6 @@ export class LogAnalyticsClient {
       listLabelSourceDetailsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8501,7 +8328,7 @@ export class LogAnalyticsClient {
   public async listLabels(
     listLabelsRequest: requests.ListLabelsRequest
   ): Promise<responses.ListLabelsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLabels.");
+    logger.debug("Calling operation LogAnalyticsClient#listLabels.");
     const operationName = "listLabels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/ListLabels";
@@ -8533,7 +8360,6 @@ export class LogAnalyticsClient {
       listLabelsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8593,8 +8419,7 @@ export class LogAnalyticsClient {
   public async listLogAnalyticsEmBridges(
     listLogAnalyticsEmBridgesRequest: requests.ListLogAnalyticsEmBridgesRequest
   ): Promise<responses.ListLogAnalyticsEmBridgesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEmBridges.");
+    logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEmBridges.");
     const operationName = "listLogAnalyticsEmBridges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/ListLogAnalyticsEmBridges";
@@ -8625,7 +8450,6 @@ export class LogAnalyticsClient {
       listLogAnalyticsEmBridgesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8680,8 +8504,7 @@ export class LogAnalyticsClient {
   public async listLogAnalyticsEntities(
     listLogAnalyticsEntitiesRequest: requests.ListLogAnalyticsEntitiesRequest
   ): Promise<responses.ListLogAnalyticsEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntities.");
+    logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntities.");
     const operationName = "listLogAnalyticsEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/ListLogAnalyticsEntities";
@@ -8706,7 +8529,8 @@ export class LogAnalyticsClient {
       "limit": listLogAnalyticsEntitiesRequest.limit,
       "page": listLogAnalyticsEntitiesRequest.page,
       "sortOrder": listLogAnalyticsEntitiesRequest.sortOrder,
-      "sortBy": listLogAnalyticsEntitiesRequest.sortBy
+      "sortBy": listLogAnalyticsEntitiesRequest.sortBy,
+      "metadataEquals": listLogAnalyticsEntitiesRequest.metadataEquals
     };
 
     let headerParams = {
@@ -8720,7 +8544,6 @@ export class LogAnalyticsClient {
       listLogAnalyticsEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8775,8 +8598,7 @@ export class LogAnalyticsClient {
   public async listLogAnalyticsEntityTopology(
     listLogAnalyticsEntityTopologyRequest: requests.ListLogAnalyticsEntityTopologyRequest
   ): Promise<responses.ListLogAnalyticsEntityTopologyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntityTopology.");
+    logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntityTopology.");
     const operationName = "listLogAnalyticsEntityTopology";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntitySummary/ListLogAnalyticsEntityTopology";
@@ -8790,7 +8612,8 @@ export class LogAnalyticsClient {
       "limit": listLogAnalyticsEntityTopologyRequest.limit,
       "page": listLogAnalyticsEntityTopologyRequest.page,
       "sortOrder": listLogAnalyticsEntityTopologyRequest.sortOrder,
-      "sortBy": listLogAnalyticsEntityTopologyRequest.sortBy
+      "sortBy": listLogAnalyticsEntityTopologyRequest.sortBy,
+      "metadataEquals": listLogAnalyticsEntityTopologyRequest.metadataEquals
     };
 
     let headerParams = {
@@ -8804,7 +8627,6 @@ export class LogAnalyticsClient {
       listLogAnalyticsEntityTopologyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8860,8 +8682,7 @@ export class LogAnalyticsClient {
   public async listLogAnalyticsEntityTypes(
     listLogAnalyticsEntityTypesRequest: requests.ListLogAnalyticsEntityTypesRequest
   ): Promise<responses.ListLogAnalyticsEntityTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntityTypes.");
+    logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntityTypes.");
     const operationName = "listLogAnalyticsEntityTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/ListLogAnalyticsEntityTypes";
@@ -8891,7 +8712,6 @@ export class LogAnalyticsClient {
       listLogAnalyticsEntityTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8947,8 +8767,7 @@ export class LogAnalyticsClient {
   public async listLogAnalyticsLogGroups(
     listLogAnalyticsLogGroupsRequest: requests.ListLogAnalyticsLogGroupsRequest
   ): Promise<responses.ListLogAnalyticsLogGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsLogGroups.");
+    logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsLogGroups.");
     const operationName = "listLogAnalyticsLogGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/ListLogAnalyticsLogGroups";
@@ -8976,7 +8795,6 @@ export class LogAnalyticsClient {
       listLogAnalyticsLogGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9036,10 +8854,7 @@ export class LogAnalyticsClient {
   public async listLogAnalyticsObjectCollectionRules(
     listLogAnalyticsObjectCollectionRulesRequest: requests.ListLogAnalyticsObjectCollectionRulesRequest
   ): Promise<responses.ListLogAnalyticsObjectCollectionRulesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#listLogAnalyticsObjectCollectionRules."
-      );
+    logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsObjectCollectionRules.");
     const operationName = "listLogAnalyticsObjectCollectionRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/ListLogAnalyticsObjectCollectionRules";
@@ -9068,7 +8883,6 @@ export class LogAnalyticsClient {
       listLogAnalyticsObjectCollectionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9124,7 +8938,7 @@ export class LogAnalyticsClient {
   public async listLogSets(
     listLogSetsRequest: requests.ListLogSetsRequest
   ): Promise<responses.ListLogSetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLogSets.");
+    logger.debug("Calling operation LogAnalyticsClient#listLogSets.");
     const operationName = "listLogSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListLogSets";
@@ -9150,7 +8964,6 @@ export class LogAnalyticsClient {
       listLogSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9206,7 +9019,7 @@ export class LogAnalyticsClient {
   public async listLookups(
     listLookupsRequest: requests.ListLookupsRequest
   ): Promise<responses.ListLookupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLookups.");
+    logger.debug("Calling operation LogAnalyticsClient#listLookups.");
     const operationName = "listLookups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/ListLookups";
@@ -9238,7 +9051,6 @@ export class LogAnalyticsClient {
       listLookupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9299,7 +9111,7 @@ export class LogAnalyticsClient {
   public async listMetaSourceTypes(
     listMetaSourceTypesRequest: requests.ListMetaSourceTypesRequest
   ): Promise<responses.ListMetaSourceTypesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listMetaSourceTypes.");
+    logger.debug("Calling operation LogAnalyticsClient#listMetaSourceTypes.");
     const operationName = "listMetaSourceTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListMetaSourceTypes";
@@ -9325,7 +9137,6 @@ export class LogAnalyticsClient {
       listMetaSourceTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9387,7 +9198,7 @@ export class LogAnalyticsClient {
   public async listNamespaces(
     listNamespacesRequest: requests.ListNamespacesRequest
   ): Promise<responses.ListNamespacesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listNamespaces.");
+    logger.debug("Calling operation LogAnalyticsClient#listNamespaces.");
     const operationName = "listNamespaces";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Namespace/ListNamespaces";
@@ -9408,7 +9219,6 @@ export class LogAnalyticsClient {
       listNamespacesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9459,8 +9269,7 @@ export class LogAnalyticsClient {
   public async listOverlappingRecalls(
     listOverlappingRecallsRequest: requests.ListOverlappingRecallsRequest
   ): Promise<responses.ListOverlappingRecallsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listOverlappingRecalls.");
+    logger.debug("Calling operation LogAnalyticsClient#listOverlappingRecalls.");
     const operationName = "listOverlappingRecalls";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListOverlappingRecalls";
@@ -9488,7 +9297,6 @@ export class LogAnalyticsClient {
       listOverlappingRecallsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9549,7 +9357,7 @@ export class LogAnalyticsClient {
   public async listParserFunctions(
     listParserFunctionsRequest: requests.ListParserFunctionsRequest
   ): Promise<responses.ListParserFunctionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listParserFunctions.");
+    logger.debug("Calling operation LogAnalyticsClient#listParserFunctions.");
     const operationName = "listParserFunctions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ListParserFunctions";
@@ -9576,7 +9384,6 @@ export class LogAnalyticsClient {
       listParserFunctionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9637,8 +9444,7 @@ export class LogAnalyticsClient {
   public async listParserMetaPlugins(
     listParserMetaPluginsRequest: requests.ListParserMetaPluginsRequest
   ): Promise<responses.ListParserMetaPluginsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listParserMetaPlugins.");
+    logger.debug("Calling operation LogAnalyticsClient#listParserMetaPlugins.");
     const operationName = "listParserMetaPlugins";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ListParserMetaPlugins";
@@ -9664,7 +9470,6 @@ export class LogAnalyticsClient {
       listParserMetaPluginsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9725,7 +9530,7 @@ export class LogAnalyticsClient {
   public async listParsers(
     listParsersRequest: requests.ListParsersRequest
   ): Promise<responses.ListParsersResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listParsers.");
+    logger.debug("Calling operation LogAnalyticsClient#listParsers.");
     const operationName = "listParsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ListParsers";
@@ -9758,7 +9563,6 @@ export class LogAnalyticsClient {
       listParsersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9819,8 +9623,7 @@ export class LogAnalyticsClient {
   public async listPropertiesMetadata(
     listPropertiesMetadataRequest: requests.ListPropertiesMetadataRequest
   ): Promise<responses.ListPropertiesMetadataResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listPropertiesMetadata.");
+    logger.debug("Calling operation LogAnalyticsClient#listPropertiesMetadata.");
     const operationName = "listPropertiesMetadata";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsProperty/ListPropertiesMetadata";
@@ -9850,7 +9653,6 @@ export class LogAnalyticsClient {
       listPropertiesMetadataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9910,8 +9712,7 @@ export class LogAnalyticsClient {
   public async listQueryWorkRequests(
     listQueryWorkRequestsRequest: requests.ListQueryWorkRequestsRequest
   ): Promise<responses.ListQueryWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listQueryWorkRequests.");
+    logger.debug("Calling operation LogAnalyticsClient#listQueryWorkRequests.");
     const operationName = "listQueryWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryWorkRequest/ListQueryWorkRequests";
@@ -9939,7 +9740,6 @@ export class LogAnalyticsClient {
       listQueryWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10000,7 +9800,7 @@ export class LogAnalyticsClient {
   public async listRecalledData(
     listRecalledDataRequest: requests.ListRecalledDataRequest
   ): Promise<responses.ListRecalledDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listRecalledData.");
+    logger.debug("Calling operation LogAnalyticsClient#listRecalledData.");
     const operationName = "listRecalledData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListRecalledData";
@@ -10029,7 +9829,6 @@ export class LogAnalyticsClient {
       listRecalledDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10091,8 +9890,7 @@ export class LogAnalyticsClient {
   public async listResourceCategories(
     listResourceCategoriesRequest: requests.ListResourceCategoriesRequest
   ): Promise<responses.ListResourceCategoriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listResourceCategories.");
+    logger.debug("Calling operation LogAnalyticsClient#listResourceCategories.");
     const operationName = "listResourceCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/ListResourceCategories";
@@ -10121,7 +9919,6 @@ export class LogAnalyticsClient {
       listResourceCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10182,7 +9979,7 @@ export class LogAnalyticsClient {
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
   ): Promise<responses.ListRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listRules.");
+    logger.debug("Calling operation LogAnalyticsClient#listRules.");
     const operationName = "listRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Rule/ListRules";
@@ -10194,6 +9991,7 @@ export class LogAnalyticsClient {
       "compartmentId": listRulesRequest.compartmentId,
       "displayName": listRulesRequest.displayName,
       "kind": listRulesRequest.kind,
+      "targetService": listRulesRequest.targetService,
       "lifecycleState": listRulesRequest.lifecycleState,
       "limit": listRulesRequest.limit,
       "page": listRulesRequest.page,
@@ -10212,7 +10010,6 @@ export class LogAnalyticsClient {
       listRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10272,7 +10069,7 @@ export class LogAnalyticsClient {
   public async listScheduledTasks(
     listScheduledTasksRequest: requests.ListScheduledTasksRequest
   ): Promise<responses.ListScheduledTasksResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listScheduledTasks.");
+    logger.debug("Calling operation LogAnalyticsClient#listScheduledTasks.");
     const operationName = "listScheduledTasks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/ListScheduledTasks";
@@ -10289,7 +10086,8 @@ export class LogAnalyticsClient {
       "sortOrder": listScheduledTasksRequest.sortOrder,
       "sortBy": listScheduledTasksRequest.sortBy,
       "savedSearchId": listScheduledTasksRequest.savedSearchId,
-      "displayNameContains": listScheduledTasksRequest.displayNameContains
+      "displayNameContains": listScheduledTasksRequest.displayNameContains,
+      "targetService": listScheduledTasksRequest.targetService
     };
 
     let headerParams = {
@@ -10303,7 +10101,6 @@ export class LogAnalyticsClient {
       listScheduledTasksRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10364,8 +10161,7 @@ export class LogAnalyticsClient {
   public async listSourceAssociations(
     listSourceAssociationsRequest: requests.ListSourceAssociationsRequest
   ): Promise<responses.ListSourceAssociationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listSourceAssociations.");
+    logger.debug("Calling operation LogAnalyticsClient#listSourceAssociations.");
     const operationName = "listSourceAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/ListSourceAssociations";
@@ -10396,7 +10192,6 @@ export class LogAnalyticsClient {
       listSourceAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10457,8 +10252,7 @@ export class LogAnalyticsClient {
   public async listSourceEventTypes(
     listSourceEventTypesRequest: requests.ListSourceEventTypesRequest
   ): Promise<responses.ListSourceEventTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listSourceEventTypes.");
+    logger.debug("Calling operation LogAnalyticsClient#listSourceEventTypes.");
     const operationName = "listSourceEventTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourceEventTypes";
@@ -10488,7 +10282,6 @@ export class LogAnalyticsClient {
       listSourceEventTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10549,8 +10342,7 @@ export class LogAnalyticsClient {
   public async listSourceExtendedFieldDefinitions(
     listSourceExtendedFieldDefinitionsRequest: requests.ListSourceExtendedFieldDefinitionsRequest
   ): Promise<responses.ListSourceExtendedFieldDefinitionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listSourceExtendedFieldDefinitions.");
+    logger.debug("Calling operation LogAnalyticsClient#listSourceExtendedFieldDefinitions.");
     const operationName = "listSourceExtendedFieldDefinitions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourceExtendedFieldDefinitions";
@@ -10577,7 +10369,6 @@ export class LogAnalyticsClient {
       listSourceExtendedFieldDefinitionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10638,8 +10429,7 @@ export class LogAnalyticsClient {
   public async listSourceLabelOperators(
     listSourceLabelOperatorsRequest: requests.ListSourceLabelOperatorsRequest
   ): Promise<responses.ListSourceLabelOperatorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listSourceLabelOperators.");
+    logger.debug("Calling operation LogAnalyticsClient#listSourceLabelOperators.");
     const operationName = "listSourceLabelOperators";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourceLabelOperators";
@@ -10665,7 +10455,6 @@ export class LogAnalyticsClient {
       listSourceLabelOperatorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10726,8 +10515,7 @@ export class LogAnalyticsClient {
   public async listSourceMetaFunctions(
     listSourceMetaFunctionsRequest: requests.ListSourceMetaFunctionsRequest
   ): Promise<responses.ListSourceMetaFunctionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listSourceMetaFunctions.");
+    logger.debug("Calling operation LogAnalyticsClient#listSourceMetaFunctions.");
     const operationName = "listSourceMetaFunctions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourceMetaFunctions";
@@ -10753,7 +10541,6 @@ export class LogAnalyticsClient {
       listSourceMetaFunctionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10814,7 +10601,7 @@ export class LogAnalyticsClient {
   public async listSourcePatterns(
     listSourcePatternsRequest: requests.ListSourcePatternsRequest
   ): Promise<responses.ListSourcePatternsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listSourcePatterns.");
+    logger.debug("Calling operation LogAnalyticsClient#listSourcePatterns.");
     const operationName = "listSourcePatterns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourcePatterns";
@@ -10842,7 +10629,6 @@ export class LogAnalyticsClient {
       listSourcePatternsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10903,7 +10689,7 @@ export class LogAnalyticsClient {
   public async listSources(
     listSourcesRequest: requests.ListSourcesRequest
   ): Promise<responses.ListSourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listSources.");
+    logger.debug("Calling operation LogAnalyticsClient#listSources.");
     const operationName = "listSources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSources";
@@ -10921,6 +10707,7 @@ export class LogAnalyticsClient {
       "limit": listSourcesRequest.limit,
       "page": listSourcesRequest.page,
       "name": listSourcesRequest.name,
+      "sourceType": listSourcesRequest.sourceType,
       "categories": listSourcesRequest.categories,
       "isSimplified": listSourcesRequest.isSimplified,
       "compartmentId": listSourcesRequest.compartmentId
@@ -10937,7 +10724,6 @@ export class LogAnalyticsClient {
       listSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10997,8 +10783,7 @@ export class LogAnalyticsClient {
   public async listStorageWorkRequestErrors(
     listStorageWorkRequestErrorsRequest: requests.ListStorageWorkRequestErrorsRequest
   ): Promise<responses.ListStorageWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listStorageWorkRequestErrors.");
+    logger.debug("Calling operation LogAnalyticsClient#listStorageWorkRequestErrors.");
     const operationName = "listStorageWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListStorageWorkRequestErrors";
@@ -11026,7 +10811,6 @@ export class LogAnalyticsClient {
       listStorageWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11087,8 +10871,7 @@ export class LogAnalyticsClient {
   public async listStorageWorkRequests(
     listStorageWorkRequestsRequest: requests.ListStorageWorkRequestsRequest
   ): Promise<responses.ListStorageWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listStorageWorkRequests.");
+    logger.debug("Calling operation LogAnalyticsClient#listStorageWorkRequests.");
     const operationName = "listStorageWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListStorageWorkRequests";
@@ -11121,7 +10904,6 @@ export class LogAnalyticsClient {
       listStorageWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11181,8 +10963,7 @@ export class LogAnalyticsClient {
   public async listSupportedCharEncodings(
     listSupportedCharEncodingsRequest: requests.ListSupportedCharEncodingsRequest
   ): Promise<responses.ListSupportedCharEncodingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listSupportedCharEncodings.");
+    logger.debug("Calling operation LogAnalyticsClient#listSupportedCharEncodings.");
     const operationName = "listSupportedCharEncodings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/CharEncodingCollection/ListSupportedCharEncodings";
@@ -11206,7 +10987,6 @@ export class LogAnalyticsClient {
       listSupportedCharEncodingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11266,8 +11046,7 @@ export class LogAnalyticsClient {
   public async listSupportedTimezones(
     listSupportedTimezonesRequest: requests.ListSupportedTimezonesRequest
   ): Promise<responses.ListSupportedTimezonesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listSupportedTimezones.");
+    logger.debug("Calling operation LogAnalyticsClient#listSupportedTimezones.");
     const operationName = "listSupportedTimezones";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/TimezoneCollection/ListSupportedTimezones";
@@ -11291,7 +11070,6 @@ export class LogAnalyticsClient {
       listSupportedTimezonesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11351,7 +11129,7 @@ export class LogAnalyticsClient {
   public async listUploadFiles(
     listUploadFilesRequest: requests.ListUploadFilesRequest
   ): Promise<responses.ListUploadFilesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listUploadFiles.");
+    logger.debug("Calling operation LogAnalyticsClient#listUploadFiles.");
     const operationName = "listUploadFiles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ListUploadFiles";
@@ -11380,7 +11158,6 @@ export class LogAnalyticsClient {
       listUploadFilesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11435,7 +11212,7 @@ export class LogAnalyticsClient {
   public async listUploadWarnings(
     listUploadWarningsRequest: requests.ListUploadWarningsRequest
   ): Promise<responses.ListUploadWarningsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listUploadWarnings.");
+    logger.debug("Calling operation LogAnalyticsClient#listUploadWarnings.");
     const operationName = "listUploadWarnings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ListUploadWarnings";
@@ -11460,7 +11237,6 @@ export class LogAnalyticsClient {
       listUploadWarningsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11517,7 +11293,7 @@ export class LogAnalyticsClient {
   public async listUploads(
     listUploadsRequest: requests.ListUploadsRequest
   ): Promise<responses.ListUploadsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listUploads.");
+    logger.debug("Calling operation LogAnalyticsClient#listUploads.");
     const operationName = "listUploads";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ListUploads";
@@ -11546,7 +11322,6 @@ export class LogAnalyticsClient {
       listUploadsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11607,7 +11382,7 @@ export class LogAnalyticsClient {
   public async listWarnings(
     listWarningsRequest: requests.ListWarningsRequest
   ): Promise<responses.ListWarningsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listWarnings.");
+    logger.debug("Calling operation LogAnalyticsClient#listWarnings.");
     const operationName = "listWarnings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsWarning/ListWarnings";
@@ -11644,7 +11419,6 @@ export class LogAnalyticsClient {
       listWarningsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11705,8 +11479,7 @@ export class LogAnalyticsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#listWorkRequestErrors.");
+    logger.debug("Calling operation LogAnalyticsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/WorkRequestError/ListWorkRequestErrors";
@@ -11731,7 +11504,6 @@ export class LogAnalyticsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11787,7 +11559,7 @@ export class LogAnalyticsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listWorkRequestLogs.");
+    logger.debug("Calling operation LogAnalyticsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/WorkRequestLog/ListWorkRequestLogs";
@@ -11812,7 +11584,6 @@ export class LogAnalyticsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11868,7 +11639,7 @@ export class LogAnalyticsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listWorkRequests.");
+    logger.debug("Calling operation LogAnalyticsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/WorkRequest/ListWorkRequests";
@@ -11893,7 +11664,6 @@ export class LogAnalyticsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11948,7 +11718,7 @@ export class LogAnalyticsClient {
   public async offboardNamespace(
     offboardNamespaceRequest: requests.OffboardNamespaceRequest
   ): Promise<responses.OffboardNamespaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#offboardNamespace.");
+    logger.debug("Calling operation LogAnalyticsClient#offboardNamespace.");
     const operationName = "offboardNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Namespace/OffboardNamespace";
@@ -11970,7 +11740,6 @@ export class LogAnalyticsClient {
       offboardNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12022,7 +11791,7 @@ export class LogAnalyticsClient {
   public async onboardNamespace(
     onboardNamespaceRequest: requests.OnboardNamespaceRequest
   ): Promise<responses.OnboardNamespaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#onboardNamespace.");
+    logger.debug("Calling operation LogAnalyticsClient#onboardNamespace.");
     const operationName = "onboardNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Namespace/OnboardNamespace";
@@ -12044,7 +11813,6 @@ export class LogAnalyticsClient {
       onboardNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12095,7 +11863,7 @@ export class LogAnalyticsClient {
   public async parseQuery(
     parseQueryRequest: requests.ParseQueryRequest
   ): Promise<responses.ParseQueryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#parseQuery.");
+    logger.debug("Calling operation LogAnalyticsClient#parseQuery.");
     const operationName = "parseQuery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/ParseQuery";
@@ -12116,7 +11884,6 @@ export class LogAnalyticsClient {
       parseQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12172,7 +11939,7 @@ export class LogAnalyticsClient {
   public async pauseScheduledTask(
     pauseScheduledTaskRequest: requests.PauseScheduledTaskRequest
   ): Promise<responses.PauseScheduledTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#pauseScheduledTask.");
+    logger.debug("Calling operation LogAnalyticsClient#pauseScheduledTask.");
     const operationName = "pauseScheduledTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/PauseScheduledTask";
@@ -12195,7 +11962,6 @@ export class LogAnalyticsClient {
       pauseScheduledTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12252,7 +12018,7 @@ export class LogAnalyticsClient {
   public async purgeStorageData(
     purgeStorageDataRequest: requests.PurgeStorageDataRequest
   ): Promise<responses.PurgeStorageDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#purgeStorageData.");
+    logger.debug("Calling operation LogAnalyticsClient#purgeStorageData.");
     const operationName = "purgeStorageData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/PurgeStorageData";
@@ -12275,7 +12041,6 @@ export class LogAnalyticsClient {
       purgeStorageDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12336,8 +12101,7 @@ export class LogAnalyticsClient {
   public async putQueryWorkRequestBackground(
     putQueryWorkRequestBackgroundRequest: requests.PutQueryWorkRequestBackgroundRequest
   ): Promise<responses.PutQueryWorkRequestBackgroundResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#putQueryWorkRequestBackground.");
+    logger.debug("Calling operation LogAnalyticsClient#putQueryWorkRequestBackground.");
     const operationName = "putQueryWorkRequestBackground";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryWorkRequest/PutQueryWorkRequestBackground";
@@ -12360,7 +12124,6 @@ export class LogAnalyticsClient {
       putQueryWorkRequestBackgroundRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12414,7 +12177,7 @@ export class LogAnalyticsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Query.ts.html |here} to see how to use Query API.
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#query.");
+    logger.debug("Calling operation LogAnalyticsClient#query.");
     const operationName = "query";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/Query";
@@ -12438,7 +12201,6 @@ export class LogAnalyticsClient {
       queryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12514,7 +12276,7 @@ export class LogAnalyticsClient {
   public async recallArchivedData(
     recallArchivedDataRequest: requests.RecallArchivedDataRequest
   ): Promise<responses.RecallArchivedDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#recallArchivedData.");
+    logger.debug("Calling operation LogAnalyticsClient#recallArchivedData.");
     const operationName = "recallArchivedData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/RecallArchivedData";
@@ -12537,7 +12299,6 @@ export class LogAnalyticsClient {
       recallArchivedDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12608,7 +12369,7 @@ export class LogAnalyticsClient {
   public async registerLookup(
     registerLookupRequest: requests.RegisterLookupRequest
   ): Promise<responses.RegisterLookupResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#registerLookup.");
+    logger.debug("Calling operation LogAnalyticsClient#registerLookup.");
     const operationName = "registerLookup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/RegisterLookup";
@@ -12636,7 +12397,6 @@ export class LogAnalyticsClient {
       registerLookupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12694,7 +12454,7 @@ export class LogAnalyticsClient {
   public async releaseRecalledData(
     releaseRecalledDataRequest: requests.ReleaseRecalledDataRequest
   ): Promise<responses.ReleaseRecalledDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#releaseRecalledData.");
+    logger.debug("Calling operation LogAnalyticsClient#releaseRecalledData.");
     const operationName = "releaseRecalledData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ReleaseRecalledData";
@@ -12717,7 +12477,6 @@ export class LogAnalyticsClient {
       releaseRecalledDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12778,8 +12537,7 @@ export class LogAnalyticsClient {
   public async removeEntityAssociations(
     removeEntityAssociationsRequest: requests.RemoveEntityAssociationsRequest
   ): Promise<responses.RemoveEntityAssociationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#removeEntityAssociations.");
+    logger.debug("Calling operation LogAnalyticsClient#removeEntityAssociations.");
     const operationName = "removeEntityAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/RemoveEntityAssociations";
@@ -12803,7 +12561,6 @@ export class LogAnalyticsClient {
       removeEntityAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12856,7 +12613,7 @@ export class LogAnalyticsClient {
   public async removePreferences(
     removePreferencesRequest: requests.RemovePreferencesRequest
   ): Promise<responses.RemovePreferencesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#removePreferences.");
+    logger.debug("Calling operation LogAnalyticsClient#removePreferences.");
     const operationName = "removePreferences";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsPreference/RemovePreferences";
@@ -12878,7 +12635,6 @@ export class LogAnalyticsClient {
       removePreferencesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12930,8 +12686,7 @@ export class LogAnalyticsClient {
   public async removeResourceCategories(
     removeResourceCategoriesRequest: requests.RemoveResourceCategoriesRequest
   ): Promise<responses.RemoveResourceCategoriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#removeResourceCategories.");
+    logger.debug("Calling operation LogAnalyticsClient#removeResourceCategories.");
     const operationName = "removeResourceCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/RemoveResourceCategories";
@@ -12952,7 +12707,6 @@ export class LogAnalyticsClient {
       removeResourceCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13004,8 +12758,7 @@ export class LogAnalyticsClient {
   public async removeSourceEventTypes(
     removeSourceEventTypesRequest: requests.RemoveSourceEventTypesRequest
   ): Promise<responses.RemoveSourceEventTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#removeSourceEventTypes.");
+    logger.debug("Calling operation LogAnalyticsClient#removeSourceEventTypes.");
     const operationName = "removeSourceEventTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/RemoveSourceEventTypes";
@@ -13028,7 +12781,6 @@ export class LogAnalyticsClient {
       removeSourceEventTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13080,7 +12832,7 @@ export class LogAnalyticsClient {
   public async resumeScheduledTask(
     resumeScheduledTaskRequest: requests.ResumeScheduledTaskRequest
   ): Promise<responses.ResumeScheduledTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#resumeScheduledTask.");
+    logger.debug("Calling operation LogAnalyticsClient#resumeScheduledTask.");
     const operationName = "resumeScheduledTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/ResumeScheduledTask";
@@ -13103,7 +12855,6 @@ export class LogAnalyticsClient {
       resumeScheduledTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13159,7 +12910,7 @@ export class LogAnalyticsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Run.ts.html |here} to see how to use Run API.
    */
   public async run(runRequest: requests.RunRequest): Promise<responses.RunResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#run.");
+    logger.debug("Calling operation LogAnalyticsClient#run.");
     const operationName = "run";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/Run";
@@ -13185,7 +12936,6 @@ export class LogAnalyticsClient {
       runRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13234,8 +12984,7 @@ export class LogAnalyticsClient {
   public async setUnprocessedDataBucket(
     setUnprocessedDataBucketRequest: requests.SetUnprocessedDataBucketRequest
   ): Promise<responses.SetUnprocessedDataBucketResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#setUnprocessedDataBucket.");
+    logger.debug("Calling operation LogAnalyticsClient#setUnprocessedDataBucket.");
     const operationName = "setUnprocessedDataBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/SetUnprocessedDataBucket";
@@ -13259,7 +13008,6 @@ export class LogAnalyticsClient {
       setUnprocessedDataBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13309,7 +13057,7 @@ export class LogAnalyticsClient {
   public async suggest(
     suggestRequest: requests.SuggestRequest
   ): Promise<responses.SuggestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#suggest.");
+    logger.debug("Calling operation LogAnalyticsClient#suggest.");
     const operationName = "suggest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/Suggest";
@@ -13330,7 +13078,6 @@ export class LogAnalyticsClient {
       suggestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13386,7 +13133,7 @@ export class LogAnalyticsClient {
   public async suppressWarning(
     suppressWarningRequest: requests.SuppressWarningRequest
   ): Promise<responses.SuppressWarningResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#suppressWarning.");
+    logger.debug("Calling operation LogAnalyticsClient#suppressWarning.");
     const operationName = "suppressWarning";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsWarning/SuppressWarning";
@@ -13410,7 +13157,6 @@ export class LogAnalyticsClient {
       suppressWarningRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13462,7 +13208,7 @@ export class LogAnalyticsClient {
   public async testParser(
     testParserRequest: requests.TestParserRequest
   ): Promise<responses.TestParserResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#testParser.");
+    logger.debug("Calling operation LogAnalyticsClient#testParser.");
     const operationName = "testParser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/TestParser";
@@ -13487,7 +13233,6 @@ export class LogAnalyticsClient {
       testParserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13543,7 +13288,7 @@ export class LogAnalyticsClient {
   public async unsuppressWarning(
     unsuppressWarningRequest: requests.UnsuppressWarningRequest
   ): Promise<responses.UnsuppressWarningResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#unsuppressWarning.");
+    logger.debug("Calling operation LogAnalyticsClient#unsuppressWarning.");
     const operationName = "unsuppressWarning";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsWarning/UnsuppressWarning";
@@ -13567,7 +13312,6 @@ export class LogAnalyticsClient {
       unsuppressWarningRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13619,8 +13363,7 @@ export class LogAnalyticsClient {
   public async updateIngestTimeRule(
     updateIngestTimeRuleRequest: requests.UpdateIngestTimeRuleRequest
   ): Promise<responses.UpdateIngestTimeRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#updateIngestTimeRule.");
+    logger.debug("Calling operation LogAnalyticsClient#updateIngestTimeRule.");
     const operationName = "updateIngestTimeRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/UpdateIngestTimeRule";
@@ -13643,7 +13386,6 @@ export class LogAnalyticsClient {
       updateIngestTimeRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13703,8 +13445,7 @@ export class LogAnalyticsClient {
   public async updateLogAnalyticsEmBridge(
     updateLogAnalyticsEmBridgeRequest: requests.UpdateLogAnalyticsEmBridgeRequest
   ): Promise<responses.UpdateLogAnalyticsEmBridgeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEmBridge.");
+    logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEmBridge.");
     const operationName = "updateLogAnalyticsEmBridge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/UpdateLogAnalyticsEmBridge";
@@ -13727,7 +13468,6 @@ export class LogAnalyticsClient {
       updateLogAnalyticsEmBridgeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13787,8 +13527,7 @@ export class LogAnalyticsClient {
   public async updateLogAnalyticsEntity(
     updateLogAnalyticsEntityRequest: requests.UpdateLogAnalyticsEntityRequest
   ): Promise<responses.UpdateLogAnalyticsEntityResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEntity.");
+    logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEntity.");
     const operationName = "updateLogAnalyticsEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/UpdateLogAnalyticsEntity";
@@ -13811,7 +13550,6 @@ export class LogAnalyticsClient {
       updateLogAnalyticsEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13871,8 +13609,7 @@ export class LogAnalyticsClient {
   public async updateLogAnalyticsEntityType(
     updateLogAnalyticsEntityTypeRequest: requests.UpdateLogAnalyticsEntityTypeRequest
   ): Promise<responses.UpdateLogAnalyticsEntityTypeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEntityType.");
+    logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEntityType.");
     const operationName = "updateLogAnalyticsEntityType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/UpdateLogAnalyticsEntityType";
@@ -13895,7 +13632,6 @@ export class LogAnalyticsClient {
       updateLogAnalyticsEntityTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13947,8 +13683,7 @@ export class LogAnalyticsClient {
   public async updateLogAnalyticsLogGroup(
     updateLogAnalyticsLogGroupRequest: requests.UpdateLogAnalyticsLogGroupRequest
   ): Promise<responses.UpdateLogAnalyticsLogGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsLogGroup.");
+    logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsLogGroup.");
     const operationName = "updateLogAnalyticsLogGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/UpdateLogAnalyticsLogGroup";
@@ -13971,7 +13706,6 @@ export class LogAnalyticsClient {
       updateLogAnalyticsLogGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14031,10 +13765,7 @@ export class LogAnalyticsClient {
   public async updateLogAnalyticsObjectCollectionRule(
     updateLogAnalyticsObjectCollectionRuleRequest: requests.UpdateLogAnalyticsObjectCollectionRuleRequest
   ): Promise<responses.UpdateLogAnalyticsObjectCollectionRuleResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LogAnalyticsClient#updateLogAnalyticsObjectCollectionRule."
-      );
+    logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsObjectCollectionRule.");
     const operationName = "updateLogAnalyticsObjectCollectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/UpdateLogAnalyticsObjectCollectionRule";
@@ -14058,7 +13789,6 @@ export class LogAnalyticsClient {
       updateLogAnalyticsObjectCollectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14120,7 +13850,7 @@ export class LogAnalyticsClient {
   public async updateLookup(
     updateLookupRequest: requests.UpdateLookupRequest
   ): Promise<responses.UpdateLookupResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateLookup.");
+    logger.debug("Calling operation LogAnalyticsClient#updateLookup.");
     const operationName = "updateLookup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/UpdateLookup";
@@ -14144,7 +13874,6 @@ export class LogAnalyticsClient {
       updateLookupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14205,7 +13934,7 @@ export class LogAnalyticsClient {
   public async updateLookupData(
     updateLookupDataRequest: requests.UpdateLookupDataRequest
   ): Promise<responses.UpdateLookupDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateLookupData.");
+    logger.debug("Calling operation LogAnalyticsClient#updateLookupData.");
     const operationName = "updateLookupData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/UpdateLookupData";
@@ -14232,7 +13961,6 @@ export class LogAnalyticsClient {
       updateLookupDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14286,7 +14014,7 @@ export class LogAnalyticsClient {
   public async updatePreferences(
     updatePreferencesRequest: requests.UpdatePreferencesRequest
   ): Promise<responses.UpdatePreferencesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updatePreferences.");
+    logger.debug("Calling operation LogAnalyticsClient#updatePreferences.");
     const operationName = "updatePreferences";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsPreference/UpdatePreferences";
@@ -14308,7 +14036,6 @@ export class LogAnalyticsClient {
       updatePreferencesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14360,8 +14087,7 @@ export class LogAnalyticsClient {
   public async updateResourceCategories(
     updateResourceCategoriesRequest: requests.UpdateResourceCategoriesRequest
   ): Promise<responses.UpdateResourceCategoriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#updateResourceCategories.");
+    logger.debug("Calling operation LogAnalyticsClient#updateResourceCategories.");
     const operationName = "updateResourceCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/UpdateResourceCategories";
@@ -14382,7 +14108,6 @@ export class LogAnalyticsClient {
       updateResourceCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14433,7 +14158,7 @@ export class LogAnalyticsClient {
   public async updateScheduledTask(
     updateScheduledTaskRequest: requests.UpdateScheduledTaskRequest
   ): Promise<responses.UpdateScheduledTaskResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateScheduledTask.");
+    logger.debug("Calling operation LogAnalyticsClient#updateScheduledTask.");
     const operationName = "updateScheduledTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/UpdateScheduledTask";
@@ -14456,7 +14181,6 @@ export class LogAnalyticsClient {
       updateScheduledTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14517,7 +14241,7 @@ export class LogAnalyticsClient {
   public async updateStorage(
     updateStorageRequest: requests.UpdateStorageRequest
   ): Promise<responses.UpdateStorageResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateStorage.");
+    logger.debug("Calling operation LogAnalyticsClient#updateStorage.");
     const operationName = "updateStorage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/UpdateStorage";
@@ -14539,7 +14263,6 @@ export class LogAnalyticsClient {
       updateStorageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14600,7 +14323,7 @@ export class LogAnalyticsClient {
   public async uploadDiscoveryData(
     uploadDiscoveryDataRequest: requests.UploadDiscoveryDataRequest
   ): Promise<responses.UploadDiscoveryDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#uploadDiscoveryData.");
+    logger.debug("Calling operation LogAnalyticsClient#uploadDiscoveryData.");
     const operationName = "uploadDiscoveryData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/UploadDiscoveryData";
@@ -14610,6 +14333,7 @@ export class LogAnalyticsClient {
 
     const queryParams = {
       "discoveryDataType": uploadDiscoveryDataRequest.discoveryDataType,
+      "logGroupId": uploadDiscoveryDataRequest.logGroupId,
       "payloadType": uploadDiscoveryDataRequest.payloadType
     };
 
@@ -14627,7 +14351,6 @@ export class LogAnalyticsClient {
       uploadDiscoveryDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14687,7 +14410,7 @@ export class LogAnalyticsClient {
   public async uploadLogEventsFile(
     uploadLogEventsFileRequest: requests.UploadLogEventsFileRequest
   ): Promise<responses.UploadLogEventsFileResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#uploadLogEventsFile.");
+    logger.debug("Calling operation LogAnalyticsClient#uploadLogEventsFile.");
     const operationName = "uploadLogEventsFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/UploadLogEventsFile";
@@ -14705,6 +14428,7 @@ export class LogAnalyticsClient {
       "opc-request-id": uploadLogEventsFileRequest.opcRequestId,
       "content-type": uploadLogEventsFileRequest.contentType,
       "opc-retry-token": uploadLogEventsFileRequest.opcRetryToken,
+      "opc-meta-properties": uploadLogEventsFileRequest.opcMetaProperties,
       "expect": uploadLogEventsFileRequest.expect
     };
 
@@ -14714,7 +14438,6 @@ export class LogAnalyticsClient {
       uploadLogEventsFileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14774,7 +14497,7 @@ export class LogAnalyticsClient {
   public async uploadLogFile(
     uploadLogFileRequest: requests.UploadLogFileRequest
   ): Promise<responses.UploadLogFileResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#uploadLogFile.");
+    logger.debug("Calling operation LogAnalyticsClient#uploadLogFile.");
     const operationName = "uploadLogFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/UploadLogFile";
@@ -14810,7 +14533,6 @@ export class LogAnalyticsClient {
       uploadLogFileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14874,7 +14596,7 @@ export class LogAnalyticsClient {
   public async upsertAssociations(
     upsertAssociationsRequest: requests.UpsertAssociationsRequest
   ): Promise<responses.UpsertAssociationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertAssociations.");
+    logger.debug("Calling operation LogAnalyticsClient#upsertAssociations.");
     const operationName = "upsertAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/UpsertAssociations";
@@ -14898,7 +14620,6 @@ export class LogAnalyticsClient {
       upsertAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14955,7 +14676,7 @@ export class LogAnalyticsClient {
   public async upsertField(
     upsertFieldRequest: requests.UpsertFieldRequest
   ): Promise<responses.UpsertFieldResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertField.");
+    logger.debug("Calling operation LogAnalyticsClient#upsertField.");
     const operationName = "upsertField";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/UpsertField";
@@ -14978,7 +14699,6 @@ export class LogAnalyticsClient {
       upsertFieldRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15039,7 +14759,7 @@ export class LogAnalyticsClient {
   public async upsertLabel(
     upsertLabelRequest: requests.UpsertLabelRequest
   ): Promise<responses.UpsertLabelResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertLabel.");
+    logger.debug("Calling operation LogAnalyticsClient#upsertLabel.");
     const operationName = "upsertLabel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/UpsertLabel";
@@ -15062,7 +14782,6 @@ export class LogAnalyticsClient {
       upsertLabelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15123,7 +14842,7 @@ export class LogAnalyticsClient {
   public async upsertParser(
     upsertParserRequest: requests.UpsertParserRequest
   ): Promise<responses.UpsertParserResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertParser.");
+    logger.debug("Calling operation LogAnalyticsClient#upsertParser.");
     const operationName = "upsertParser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/UpsertParser";
@@ -15146,7 +14865,6 @@ export class LogAnalyticsClient {
       upsertParserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15207,7 +14925,7 @@ export class LogAnalyticsClient {
   public async upsertSource(
     upsertSourceRequest: requests.UpsertSourceRequest
   ): Promise<responses.UpsertSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertSource.");
+    logger.debug("Calling operation LogAnalyticsClient#upsertSource.");
     const operationName = "upsertSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/UpsertSource";
@@ -15234,7 +14952,6 @@ export class LogAnalyticsClient {
       upsertSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15295,8 +15012,7 @@ export class LogAnalyticsClient {
   public async validateAssociationParameters(
     validateAssociationParametersRequest: requests.ValidateAssociationParametersRequest
   ): Promise<responses.ValidateAssociationParametersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#validateAssociationParameters.");
+    logger.debug("Calling operation LogAnalyticsClient#validateAssociationParameters.");
     const operationName = "validateAssociationParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/ValidateAssociationParameters";
@@ -15323,7 +15039,6 @@ export class LogAnalyticsClient {
       validateAssociationParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15384,7 +15099,7 @@ export class LogAnalyticsClient {
   public async validateEndpoint(
     validateEndpointRequest: requests.ValidateEndpointRequest
   ): Promise<responses.ValidateEndpointResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#validateEndpoint.");
+    logger.debug("Calling operation LogAnalyticsClient#validateEndpoint.");
     const operationName = "validateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ValidateEndpoint";
@@ -15405,7 +15120,6 @@ export class LogAnalyticsClient {
       validateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15460,7 +15174,7 @@ export class LogAnalyticsClient {
   public async validateFile(
     validateFileRequest: requests.ValidateFileRequest
   ): Promise<responses.ValidateFileResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#validateFile.");
+    logger.debug("Calling operation LogAnalyticsClient#validateFile.");
     const operationName = "validateFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ValidateFile";
@@ -15484,7 +15198,6 @@ export class LogAnalyticsClient {
       validateFileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15539,8 +15252,7 @@ export class LogAnalyticsClient {
   public async validateLabelCondition(
     validateLabelConditionRequest: requests.ValidateLabelConditionRequest
   ): Promise<responses.ValidateLabelConditionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#validateLabelCondition.");
+    logger.debug("Calling operation LogAnalyticsClient#validateLabelCondition.");
     const operationName = "validateLabelCondition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ValidateLabelCondition";
@@ -15561,7 +15273,6 @@ export class LogAnalyticsClient {
       validateLabelConditionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15617,7 +15328,7 @@ export class LogAnalyticsClient {
   public async validateSource(
     validateSourceRequest: requests.ValidateSourceRequest
   ): Promise<responses.ValidateSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#validateSource.");
+    logger.debug("Calling operation LogAnalyticsClient#validateSource.");
     const operationName = "validateSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ValidateSource";
@@ -15643,7 +15354,6 @@ export class LogAnalyticsClient {
       validateSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15699,8 +15409,7 @@ export class LogAnalyticsClient {
   public async validateSourceExtendedFieldDetails(
     validateSourceExtendedFieldDetailsRequest: requests.ValidateSourceExtendedFieldDetailsRequest
   ): Promise<responses.ValidateSourceExtendedFieldDetailsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#validateSourceExtendedFieldDetails.");
+    logger.debug("Calling operation LogAnalyticsClient#validateSourceExtendedFieldDetails.");
     const operationName = "validateSourceExtendedFieldDetails";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ValidateSourceExtendedFieldDetails";
@@ -15722,7 +15431,6 @@ export class LogAnalyticsClient {
       validateSourceExtendedFieldDetailsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15777,8 +15485,7 @@ export class LogAnalyticsClient {
   public async validateSourceMapping(
     validateSourceMappingRequest: requests.ValidateSourceMappingRequest
   ): Promise<responses.ValidateSourceMappingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LogAnalyticsClient#validateSourceMapping.");
+    logger.debug("Calling operation LogAnalyticsClient#validateSourceMapping.");
     const operationName = "validateSourceMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ValidateSourceMapping";
@@ -15803,7 +15510,6 @@ export class LogAnalyticsClient {
       validateSourceMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15855,7 +15561,7 @@ export class LogAnalyticsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Verify.ts.html |here} to see how to use Verify API.
    */
   public async verify(verifyRequest: requests.VerifyRequest): Promise<responses.VerifyResponse> {
-    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#verify.");
+    logger.debug("Calling operation LogAnalyticsClient#verify.");
     const operationName = "verify";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/Verify";
@@ -15880,7 +15586,6 @@ export class LogAnalyticsClient {
       verifyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

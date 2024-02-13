@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -115,11 +116,7 @@ export class LimitsClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    if (this.logger) this.logger.info(`LimitsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LimitsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -129,10 +126,9 @@ export class LimitsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LimitsClient.serviceEndpointTemplate,
@@ -205,7 +201,7 @@ export class LimitsClient {
   public async getResourceAvailability(
     getResourceAvailabilityRequest: requests.GetResourceAvailabilityRequest
   ): Promise<responses.GetResourceAvailabilityResponse> {
-    if (this.logger) this.logger.debug("Calling operation LimitsClient#getResourceAvailability.");
+    logger.debug("Calling operation LimitsClient#getResourceAvailability.");
     const operationName = "getResourceAvailability";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/ResourceAvailability/GetResourceAvailability";
@@ -230,7 +226,6 @@ export class LimitsClient {
       getResourceAvailabilityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -283,7 +278,7 @@ export class LimitsClient {
   public async listLimitDefinitions(
     listLimitDefinitionsRequest: requests.ListLimitDefinitionsRequest
   ): Promise<responses.ListLimitDefinitionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LimitsClient#listLimitDefinitions.");
+    logger.debug("Calling operation LimitsClient#listLimitDefinitions.");
     const operationName = "listLimitDefinitions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/LimitDefinitionSummary/ListLimitDefinitions";
@@ -310,7 +305,6 @@ export class LimitsClient {
       listLimitDefinitionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -418,7 +412,7 @@ export class LimitsClient {
   public async listLimitValues(
     listLimitValuesRequest: requests.ListLimitValuesRequest
   ): Promise<responses.ListLimitValuesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LimitsClient#listLimitValues.");
+    logger.debug("Calling operation LimitsClient#listLimitValues.");
     const operationName = "listLimitValues";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/LimitValueSummary/ListLimitValues";
@@ -447,7 +441,6 @@ export class LimitsClient {
       listLimitValuesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -556,7 +549,7 @@ export class LimitsClient {
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LimitsClient#listServices.");
+    logger.debug("Calling operation LimitsClient#listServices.");
     const operationName = "listServices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/ServiceSummary/ListServices";
@@ -581,7 +574,6 @@ export class LimitsClient {
       listServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -764,11 +756,7 @@ export class QuotasClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    if (this.logger) this.logger.info(`QuotasClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`QuotasClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -778,10 +766,9 @@ export class QuotasClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         QuotasClient.serviceEndpointTemplate,
@@ -873,7 +860,7 @@ export class QuotasClient {
   public async addQuotaLock(
     addQuotaLockRequest: requests.AddQuotaLockRequest
   ): Promise<responses.AddQuotaLockResponse> {
-    if (this.logger) this.logger.debug("Calling operation QuotasClient#addQuotaLock.");
+    logger.debug("Calling operation QuotasClient#addQuotaLock.");
     const operationName = "addQuotaLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/AddQuotaLock";
@@ -895,7 +882,6 @@ export class QuotasClient {
       addQuotaLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -955,7 +941,7 @@ export class QuotasClient {
   public async createQuota(
     createQuotaRequest: requests.CreateQuotaRequest
   ): Promise<responses.CreateQuotaResponse> {
-    if (this.logger) this.logger.debug("Calling operation QuotasClient#createQuota.");
+    logger.debug("Calling operation QuotasClient#createQuota.");
     const operationName = "createQuota";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/CreateQuota";
@@ -975,7 +961,6 @@ export class QuotasClient {
       createQuotaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1035,7 +1020,7 @@ export class QuotasClient {
   public async deleteQuota(
     deleteQuotaRequest: requests.DeleteQuotaRequest
   ): Promise<responses.DeleteQuotaResponse> {
-    if (this.logger) this.logger.debug("Calling operation QuotasClient#deleteQuota.");
+    logger.debug("Calling operation QuotasClient#deleteQuota.");
     const operationName = "deleteQuota";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/DeleteQuota";
@@ -1059,7 +1044,6 @@ export class QuotasClient {
       deleteQuotaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1105,7 +1089,7 @@ export class QuotasClient {
   public async getQuota(
     getQuotaRequest: requests.GetQuotaRequest
   ): Promise<responses.GetQuotaResponse> {
-    if (this.logger) this.logger.debug("Calling operation QuotasClient#getQuota.");
+    logger.debug("Calling operation QuotasClient#getQuota.");
     const operationName = "getQuota";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/GetQuota";
     const pathParams = {
@@ -1125,7 +1109,6 @@ export class QuotasClient {
       getQuotaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1180,7 +1163,7 @@ export class QuotasClient {
   public async listQuotas(
     listQuotasRequest: requests.ListQuotasRequest
   ): Promise<responses.ListQuotasResponse> {
-    if (this.logger) this.logger.debug("Calling operation QuotasClient#listQuotas.");
+    logger.debug("Calling operation QuotasClient#listQuotas.");
     const operationName = "listQuotas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/QuotaSummary/ListQuotas";
@@ -1207,7 +1190,6 @@ export class QuotasClient {
       listQuotasRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1314,7 +1296,7 @@ export class QuotasClient {
   public async removeQuotaLock(
     removeQuotaLockRequest: requests.RemoveQuotaLockRequest
   ): Promise<responses.RemoveQuotaLockResponse> {
-    if (this.logger) this.logger.debug("Calling operation QuotasClient#removeQuotaLock.");
+    logger.debug("Calling operation QuotasClient#removeQuotaLock.");
     const operationName = "removeQuotaLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/RemoveQuotaLock";
@@ -1336,7 +1318,6 @@ export class QuotasClient {
       removeQuotaLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1396,7 +1377,7 @@ export class QuotasClient {
   public async updateQuota(
     updateQuotaRequest: requests.UpdateQuotaRequest
   ): Promise<responses.UpdateQuotaResponse> {
-    if (this.logger) this.logger.debug("Calling operation QuotasClient#updateQuota.");
+    logger.debug("Calling operation QuotasClient#updateQuota.");
     const operationName = "updateQuota";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/UpdateQuota";
@@ -1420,7 +1401,6 @@ export class QuotasClient {
       updateQuotaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

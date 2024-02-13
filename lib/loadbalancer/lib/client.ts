@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -119,11 +120,7 @@ export class LoadBalancerClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20170115";
-    if (this.logger) this.logger.info(`LoadBalancerClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LoadBalancerClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -133,10 +130,9 @@ export class LoadBalancerClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LoadBalancerClient.serviceEndpointTemplate,
@@ -230,8 +226,7 @@ export class LoadBalancerClient {
   public async changeLoadBalancerCompartment(
     changeLoadBalancerCompartmentRequest: requests.ChangeLoadBalancerCompartmentRequest
   ): Promise<responses.ChangeLoadBalancerCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoadBalancerClient#changeLoadBalancerCompartment.");
+    logger.debug("Calling operation LoadBalancerClient#changeLoadBalancerCompartment.");
     const operationName = "changeLoadBalancerCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/ChangeLoadBalancerCompartment";
@@ -254,7 +249,6 @@ export class LoadBalancerClient {
       changeLoadBalancerCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -310,7 +304,7 @@ export class LoadBalancerClient {
   public async createBackend(
     createBackendRequest: requests.CreateBackendRequest
   ): Promise<responses.CreateBackendResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createBackend.");
+    logger.debug("Calling operation LoadBalancerClient#createBackend.");
     const operationName = "createBackend";
     const apiReferenceLink = "";
     const pathParams = {
@@ -333,7 +327,6 @@ export class LoadBalancerClient {
       createBackendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -389,7 +382,7 @@ export class LoadBalancerClient {
   public async createBackendSet(
     createBackendSetRequest: requests.CreateBackendSetRequest
   ): Promise<responses.CreateBackendSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createBackendSet.");
+    logger.debug("Calling operation LoadBalancerClient#createBackendSet.");
     const operationName = "createBackendSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -411,7 +404,6 @@ export class LoadBalancerClient {
       createBackendSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -467,7 +459,7 @@ export class LoadBalancerClient {
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createCertificate.");
+    logger.debug("Calling operation LoadBalancerClient#createCertificate.");
     const operationName = "createCertificate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -489,7 +481,6 @@ export class LoadBalancerClient {
       createCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -547,7 +538,7 @@ export class LoadBalancerClient {
   public async createHostname(
     createHostnameRequest: requests.CreateHostnameRequest
   ): Promise<responses.CreateHostnameResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createHostname.");
+    logger.debug("Calling operation LoadBalancerClient#createHostname.");
     const operationName = "createHostname";
     const apiReferenceLink = "";
     const pathParams = {
@@ -569,7 +560,6 @@ export class LoadBalancerClient {
       createHostnameRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -625,7 +615,7 @@ export class LoadBalancerClient {
   public async createListener(
     createListenerRequest: requests.CreateListenerRequest
   ): Promise<responses.CreateListenerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createListener.");
+    logger.debug("Calling operation LoadBalancerClient#createListener.");
     const operationName = "createListener";
     const apiReferenceLink = "";
     const pathParams = {
@@ -647,7 +637,6 @@ export class LoadBalancerClient {
       createListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -730,7 +719,7 @@ When you create a load balancer, the system assigns an IP address.
   public async createLoadBalancer(
     createLoadBalancerRequest: requests.CreateLoadBalancerRequest
   ): Promise<responses.CreateLoadBalancerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createLoadBalancer.");
+    logger.debug("Calling operation LoadBalancerClient#createLoadBalancer.");
     const operationName = "createLoadBalancer";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -749,7 +738,6 @@ When you create a load balancer, the system assigns an IP address.
       createLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -807,7 +795,7 @@ When you create a load balancer, the system assigns an IP address.
   public async createPathRouteSet(
     createPathRouteSetRequest: requests.CreatePathRouteSetRequest
   ): Promise<responses.CreatePathRouteSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createPathRouteSet.");
+    logger.debug("Calling operation LoadBalancerClient#createPathRouteSet.");
     const operationName = "createPathRouteSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -829,7 +817,6 @@ When you create a load balancer, the system assigns an IP address.
       createPathRouteSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -887,7 +874,7 @@ When you create a load balancer, the system assigns an IP address.
   public async createRoutingPolicy(
     createRoutingPolicyRequest: requests.CreateRoutingPolicyRequest
   ): Promise<responses.CreateRoutingPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createRoutingPolicy.");
+    logger.debug("Calling operation LoadBalancerClient#createRoutingPolicy.");
     const operationName = "createRoutingPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -909,7 +896,6 @@ When you create a load balancer, the system assigns an IP address.
       createRoutingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -967,7 +953,7 @@ When you create a load balancer, the system assigns an IP address.
   public async createRuleSet(
     createRuleSetRequest: requests.CreateRuleSetRequest
   ): Promise<responses.CreateRuleSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createRuleSet.");
+    logger.debug("Calling operation LoadBalancerClient#createRuleSet.");
     const operationName = "createRuleSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -989,7 +975,6 @@ When you create a load balancer, the system assigns an IP address.
       createRuleSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1045,8 +1030,7 @@ When you create a load balancer, the system assigns an IP address.
   public async createSSLCipherSuite(
     createSSLCipherSuiteRequest: requests.CreateSSLCipherSuiteRequest
   ): Promise<responses.CreateSSLCipherSuiteResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoadBalancerClient#createSSLCipherSuite.");
+    logger.debug("Calling operation LoadBalancerClient#createSSLCipherSuite.");
     const operationName = "createSSLCipherSuite";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1068,7 +1052,6 @@ When you create a load balancer, the system assigns an IP address.
       createSSLCipherSuiteRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1124,7 +1107,7 @@ When you create a load balancer, the system assigns an IP address.
   public async deleteBackend(
     deleteBackendRequest: requests.DeleteBackendRequest
   ): Promise<responses.DeleteBackendResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteBackend.");
+    logger.debug("Calling operation LoadBalancerClient#deleteBackend.");
     const operationName = "deleteBackend";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1147,7 +1130,6 @@ When you create a load balancer, the system assigns an IP address.
       deleteBackendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1201,7 +1183,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteBackendSet(
     deleteBackendSetRequest: requests.DeleteBackendSetRequest
   ): Promise<responses.DeleteBackendSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteBackendSet.");
+    logger.debug("Calling operation LoadBalancerClient#deleteBackendSet.");
     const operationName = "deleteBackendSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1223,7 +1205,6 @@ Before you can delete a backend set, you must remove it from any active listener
       deleteBackendSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1274,7 +1255,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
   ): Promise<responses.DeleteCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteCertificate.");
+    logger.debug("Calling operation LoadBalancerClient#deleteCertificate.");
     const operationName = "deleteCertificate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1296,7 +1277,6 @@ Before you can delete a backend set, you must remove it from any active listener
       deleteCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1348,7 +1328,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteHostname(
     deleteHostnameRequest: requests.DeleteHostnameRequest
   ): Promise<responses.DeleteHostnameResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteHostname.");
+    logger.debug("Calling operation LoadBalancerClient#deleteHostname.");
     const operationName = "deleteHostname";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1370,7 +1350,6 @@ Before you can delete a backend set, you must remove it from any active listener
       deleteHostnameRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1421,7 +1400,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteListener(
     deleteListenerRequest: requests.DeleteListenerRequest
   ): Promise<responses.DeleteListenerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteListener.");
+    logger.debug("Calling operation LoadBalancerClient#deleteListener.");
     const operationName = "deleteListener";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1443,7 +1422,6 @@ Before you can delete a backend set, you must remove it from any active listener
       deleteListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1494,7 +1472,7 @@ Before you can delete a backend set, you must remove it from any active listener
   public async deleteLoadBalancer(
     deleteLoadBalancerRequest: requests.DeleteLoadBalancerRequest
   ): Promise<responses.DeleteLoadBalancerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteLoadBalancer.");
+    logger.debug("Calling operation LoadBalancerClient#deleteLoadBalancer.");
     const operationName = "deleteLoadBalancer";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1515,7 +1493,6 @@ Before you can delete a backend set, you must remove it from any active listener
       deleteLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1570,7 +1547,7 @@ To delete a path route rule from a path route set, use the
   public async deletePathRouteSet(
     deletePathRouteSetRequest: requests.DeletePathRouteSetRequest
   ): Promise<responses.DeletePathRouteSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deletePathRouteSet.");
+    logger.debug("Calling operation LoadBalancerClient#deletePathRouteSet.");
     const operationName = "deletePathRouteSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1592,7 +1569,6 @@ To delete a path route rule from a path route set, use the
       deletePathRouteSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1647,7 +1623,7 @@ To delete a routing rule from a routing policy, use the
   public async deleteRoutingPolicy(
     deleteRoutingPolicyRequest: requests.DeleteRoutingPolicyRequest
   ): Promise<responses.DeleteRoutingPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteRoutingPolicy.");
+    logger.debug("Calling operation LoadBalancerClient#deleteRoutingPolicy.");
     const operationName = "deleteRoutingPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1669,7 +1645,6 @@ To delete a routing rule from a routing policy, use the
       deleteRoutingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1724,7 +1699,7 @@ To delete a rule from a rule set, use the
   public async deleteRuleSet(
     deleteRuleSetRequest: requests.DeleteRuleSetRequest
   ): Promise<responses.DeleteRuleSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteRuleSet.");
+    logger.debug("Calling operation LoadBalancerClient#deleteRuleSet.");
     const operationName = "deleteRuleSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1746,7 +1721,6 @@ To delete a rule from a rule set, use the
       deleteRuleSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1797,8 +1771,7 @@ To delete a rule from a rule set, use the
   public async deleteSSLCipherSuite(
     deleteSSLCipherSuiteRequest: requests.DeleteSSLCipherSuiteRequest
   ): Promise<responses.DeleteSSLCipherSuiteResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoadBalancerClient#deleteSSLCipherSuite.");
+    logger.debug("Calling operation LoadBalancerClient#deleteSSLCipherSuite.");
     const operationName = "deleteSSLCipherSuite";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1820,7 +1793,6 @@ To delete a rule from a rule set, use the
       deleteSSLCipherSuiteRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1871,7 +1843,7 @@ To delete a rule from a rule set, use the
   public async getBackend(
     getBackendRequest: requests.GetBackendRequest
   ): Promise<responses.GetBackendResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackend.");
+    logger.debug("Calling operation LoadBalancerClient#getBackend.");
     const operationName = "getBackend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Backend/GetBackend";
@@ -1895,7 +1867,6 @@ To delete a rule from a rule set, use the
       getBackendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1950,7 +1921,7 @@ To delete a rule from a rule set, use the
   public async getBackendHealth(
     getBackendHealthRequest: requests.GetBackendHealthRequest
   ): Promise<responses.GetBackendHealthResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendHealth.");
+    logger.debug("Calling operation LoadBalancerClient#getBackendHealth.");
     const operationName = "getBackendHealth";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/BackendHealth/GetBackendHealth";
@@ -1974,7 +1945,6 @@ To delete a rule from a rule set, use the
       getBackendHealthRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2030,7 +2000,7 @@ To delete a rule from a rule set, use the
   public async getBackendSet(
     getBackendSetRequest: requests.GetBackendSetRequest
   ): Promise<responses.GetBackendSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendSet.");
+    logger.debug("Calling operation LoadBalancerClient#getBackendSet.");
     const operationName = "getBackendSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/BackendSet/GetBackendSet";
@@ -2053,7 +2023,6 @@ To delete a rule from a rule set, use the
       getBackendSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2108,7 +2077,7 @@ To delete a rule from a rule set, use the
   public async getBackendSetHealth(
     getBackendSetHealthRequest: requests.GetBackendSetHealthRequest
   ): Promise<responses.GetBackendSetHealthResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendSetHealth.");
+    logger.debug("Calling operation LoadBalancerClient#getBackendSetHealth.");
     const operationName = "getBackendSetHealth";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/BackendSetHealth/GetBackendSetHealth";
@@ -2131,7 +2100,6 @@ To delete a rule from a rule set, use the
       getBackendSetHealthRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2186,7 +2154,7 @@ To delete a rule from a rule set, use the
   public async getHealthChecker(
     getHealthCheckerRequest: requests.GetHealthCheckerRequest
   ): Promise<responses.GetHealthCheckerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getHealthChecker.");
+    logger.debug("Calling operation LoadBalancerClient#getHealthChecker.");
     const operationName = "getHealthChecker";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/HealthChecker/GetHealthChecker";
@@ -2209,7 +2177,6 @@ To delete a rule from a rule set, use the
       getHealthCheckerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2264,7 +2231,7 @@ To delete a rule from a rule set, use the
   public async getHostname(
     getHostnameRequest: requests.GetHostnameRequest
   ): Promise<responses.GetHostnameResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getHostname.");
+    logger.debug("Calling operation LoadBalancerClient#getHostname.");
     const operationName = "getHostname";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Hostname/GetHostname";
@@ -2287,7 +2254,6 @@ To delete a rule from a rule set, use the
       getHostnameRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2342,7 +2308,7 @@ To delete a rule from a rule set, use the
   public async getLoadBalancer(
     getLoadBalancerRequest: requests.GetLoadBalancerRequest
   ): Promise<responses.GetLoadBalancerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getLoadBalancer.");
+    logger.debug("Calling operation LoadBalancerClient#getLoadBalancer.");
     const operationName = "getLoadBalancer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/GetLoadBalancer";
@@ -2364,7 +2330,6 @@ To delete a rule from a rule set, use the
       getLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2419,8 +2384,7 @@ To delete a rule from a rule set, use the
   public async getLoadBalancerHealth(
     getLoadBalancerHealthRequest: requests.GetLoadBalancerHealthRequest
   ): Promise<responses.GetLoadBalancerHealthResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoadBalancerClient#getLoadBalancerHealth.");
+    logger.debug("Calling operation LoadBalancerClient#getLoadBalancerHealth.");
     const operationName = "getLoadBalancerHealth";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerHealth/GetLoadBalancerHealth";
@@ -2442,7 +2406,6 @@ To delete a rule from a rule set, use the
       getLoadBalancerHealthRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2497,7 +2460,7 @@ To delete a rule from a rule set, use the
   public async getPathRouteSet(
     getPathRouteSetRequest: requests.GetPathRouteSetRequest
   ): Promise<responses.GetPathRouteSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getPathRouteSet.");
+    logger.debug("Calling operation LoadBalancerClient#getPathRouteSet.");
     const operationName = "getPathRouteSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/PathRouteSet/GetPathRouteSet";
@@ -2520,7 +2483,6 @@ To delete a rule from a rule set, use the
       getPathRouteSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2575,7 +2537,7 @@ To delete a rule from a rule set, use the
   public async getRoutingPolicy(
     getRoutingPolicyRequest: requests.GetRoutingPolicyRequest
   ): Promise<responses.GetRoutingPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getRoutingPolicy.");
+    logger.debug("Calling operation LoadBalancerClient#getRoutingPolicy.");
     const operationName = "getRoutingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/RoutingPolicy/GetRoutingPolicy";
@@ -2598,7 +2560,6 @@ To delete a rule from a rule set, use the
       getRoutingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2653,7 +2614,7 @@ To delete a rule from a rule set, use the
   public async getRuleSet(
     getRuleSetRequest: requests.GetRuleSetRequest
   ): Promise<responses.GetRuleSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getRuleSet.");
+    logger.debug("Calling operation LoadBalancerClient#getRuleSet.");
     const operationName = "getRuleSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/RuleSet/GetRuleSet";
@@ -2676,7 +2637,6 @@ To delete a rule from a rule set, use the
       getRuleSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2731,7 +2691,7 @@ To delete a rule from a rule set, use the
   public async getSSLCipherSuite(
     getSSLCipherSuiteRequest: requests.GetSSLCipherSuiteRequest
   ): Promise<responses.GetSSLCipherSuiteResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getSSLCipherSuite.");
+    logger.debug("Calling operation LoadBalancerClient#getSSLCipherSuite.");
     const operationName = "getSSLCipherSuite";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/SSLCipherSuite/GetSSLCipherSuite";
@@ -2754,7 +2714,6 @@ To delete a rule from a rule set, use the
       getSSLCipherSuiteRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2809,7 +2768,7 @@ To delete a rule from a rule set, use the
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getWorkRequest.");
+    logger.debug("Calling operation LoadBalancerClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/WorkRequest/GetWorkRequest";
@@ -2830,7 +2789,6 @@ To delete a rule from a rule set, use the
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2880,7 +2838,7 @@ To delete a rule from a rule set, use the
   public async listBackendSets(
     listBackendSetsRequest: requests.ListBackendSetsRequest
   ): Promise<responses.ListBackendSetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listBackendSets.");
+    logger.debug("Calling operation LoadBalancerClient#listBackendSets.");
     const operationName = "listBackendSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/BackendSet/ListBackendSets";
@@ -2902,7 +2860,6 @@ To delete a rule from a rule set, use the
       listBackendSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2957,7 +2914,7 @@ To delete a rule from a rule set, use the
   public async listBackends(
     listBackendsRequest: requests.ListBackendsRequest
   ): Promise<responses.ListBackendsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listBackends.");
+    logger.debug("Calling operation LoadBalancerClient#listBackends.");
     const operationName = "listBackends";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Backend/ListBackends";
@@ -2980,7 +2937,6 @@ To delete a rule from a rule set, use the
       listBackendsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3035,7 +2991,7 @@ To delete a rule from a rule set, use the
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listCertificates.");
+    logger.debug("Calling operation LoadBalancerClient#listCertificates.");
     const operationName = "listCertificates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Certificate/ListCertificates";
@@ -3057,7 +3013,6 @@ To delete a rule from a rule set, use the
       listCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3112,7 +3067,7 @@ To delete a rule from a rule set, use the
   public async listHostnames(
     listHostnamesRequest: requests.ListHostnamesRequest
   ): Promise<responses.ListHostnamesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listHostnames.");
+    logger.debug("Calling operation LoadBalancerClient#listHostnames.");
     const operationName = "listHostnames";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Hostname/ListHostnames";
@@ -3134,7 +3089,6 @@ To delete a rule from a rule set, use the
       listHostnamesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3196,7 +3150,7 @@ To delete a rule from a rule set, use the
   public async listListenerRules(
     listListenerRulesRequest: requests.ListListenerRulesRequest
   ): Promise<responses.ListListenerRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listListenerRules.");
+    logger.debug("Calling operation LoadBalancerClient#listListenerRules.");
     const operationName = "listListenerRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/ListenerRuleSummary/ListListenerRules";
@@ -3219,7 +3173,6 @@ To delete a rule from a rule set, use the
       listListenerRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3274,8 +3227,7 @@ To delete a rule from a rule set, use the
   public async listLoadBalancerHealths(
     listLoadBalancerHealthsRequest: requests.ListLoadBalancerHealthsRequest
   ): Promise<responses.ListLoadBalancerHealthsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoadBalancerClient#listLoadBalancerHealths.");
+    logger.debug("Calling operation LoadBalancerClient#listLoadBalancerHealths.");
     const operationName = "listLoadBalancerHealths";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerHealthSummary/ListLoadBalancerHealths";
@@ -3298,7 +3250,6 @@ To delete a rule from a rule set, use the
       listLoadBalancerHealthsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3405,7 +3356,7 @@ To delete a rule from a rule set, use the
   public async listLoadBalancers(
     listLoadBalancersRequest: requests.ListLoadBalancersRequest
   ): Promise<responses.ListLoadBalancersResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listLoadBalancers.");
+    logger.debug("Calling operation LoadBalancerClient#listLoadBalancers.");
     const operationName = "listLoadBalancers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/ListLoadBalancers";
@@ -3433,7 +3384,6 @@ To delete a rule from a rule set, use the
       listLoadBalancersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3540,7 +3490,7 @@ To delete a rule from a rule set, use the
   public async listPathRouteSets(
     listPathRouteSetsRequest: requests.ListPathRouteSetsRequest
   ): Promise<responses.ListPathRouteSetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listPathRouteSets.");
+    logger.debug("Calling operation LoadBalancerClient#listPathRouteSets.");
     const operationName = "listPathRouteSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/PathRouteSet/ListPathRouteSets";
@@ -3562,7 +3512,6 @@ To delete a rule from a rule set, use the
       listPathRouteSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3617,7 +3566,7 @@ To delete a rule from a rule set, use the
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listPolicies.");
+    logger.debug("Calling operation LoadBalancerClient#listPolicies.");
     const operationName = "listPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerPolicy/ListPolicies";
@@ -3640,7 +3589,6 @@ To delete a rule from a rule set, use the
       listPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3747,7 +3695,7 @@ To delete a rule from a rule set, use the
   public async listProtocols(
     listProtocolsRequest: requests.ListProtocolsRequest
   ): Promise<responses.ListProtocolsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listProtocols.");
+    logger.debug("Calling operation LoadBalancerClient#listProtocols.");
     const operationName = "listProtocols";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerProtocol/ListProtocols";
@@ -3770,7 +3718,6 @@ To delete a rule from a rule set, use the
       listProtocolsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3877,7 +3824,7 @@ To delete a rule from a rule set, use the
   public async listRoutingPolicies(
     listRoutingPoliciesRequest: requests.ListRoutingPoliciesRequest
   ): Promise<responses.ListRoutingPoliciesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listRoutingPolicies.");
+    logger.debug("Calling operation LoadBalancerClient#listRoutingPolicies.");
     const operationName = "listRoutingPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/RoutingPolicy/ListRoutingPolicies";
@@ -3902,7 +3849,6 @@ To delete a rule from a rule set, use the
       listRoutingPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4014,7 +3960,7 @@ To delete a rule from a rule set, use the
   public async listRuleSets(
     listRuleSetsRequest: requests.ListRuleSetsRequest
   ): Promise<responses.ListRuleSetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listRuleSets.");
+    logger.debug("Calling operation LoadBalancerClient#listRuleSets.");
     const operationName = "listRuleSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/RuleSet/ListRuleSets";
@@ -4036,7 +3982,6 @@ To delete a rule from a rule set, use the
       listRuleSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4091,7 +4036,7 @@ To delete a rule from a rule set, use the
   public async listSSLCipherSuites(
     listSSLCipherSuitesRequest: requests.ListSSLCipherSuitesRequest
   ): Promise<responses.ListSSLCipherSuitesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listSSLCipherSuites.");
+    logger.debug("Calling operation LoadBalancerClient#listSSLCipherSuites.");
     const operationName = "listSSLCipherSuites";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/SSLCipherSuite/ListSSLCipherSuites";
@@ -4113,7 +4058,6 @@ To delete a rule from a rule set, use the
       listSSLCipherSuitesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4168,7 +4112,7 @@ To delete a rule from a rule set, use the
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listShapes.");
+    logger.debug("Calling operation LoadBalancerClient#listShapes.");
     const operationName = "listShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerShape/ListShapes";
@@ -4191,7 +4135,6 @@ To delete a rule from a rule set, use the
       listShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4298,7 +4241,7 @@ To delete a rule from a rule set, use the
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listWorkRequests.");
+    logger.debug("Calling operation LoadBalancerClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/WorkRequest/ListWorkRequests";
@@ -4322,7 +4265,6 @@ To delete a rule from a rule set, use the
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4429,7 +4371,7 @@ To delete a rule from a rule set, use the
   public async updateBackend(
     updateBackendRequest: requests.UpdateBackendRequest
   ): Promise<responses.UpdateBackendResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateBackend.");
+    logger.debug("Calling operation LoadBalancerClient#updateBackend.");
     const operationName = "updateBackend";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4453,7 +4395,6 @@ To delete a rule from a rule set, use the
       updateBackendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4509,7 +4450,7 @@ To delete a rule from a rule set, use the
   public async updateBackendSet(
     updateBackendSetRequest: requests.UpdateBackendSetRequest
   ): Promise<responses.UpdateBackendSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateBackendSet.");
+    logger.debug("Calling operation LoadBalancerClient#updateBackendSet.");
     const operationName = "updateBackendSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4532,7 +4473,6 @@ To delete a rule from a rule set, use the
       updateBackendSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4588,7 +4528,7 @@ To delete a rule from a rule set, use the
   public async updateHealthChecker(
     updateHealthCheckerRequest: requests.UpdateHealthCheckerRequest
   ): Promise<responses.UpdateHealthCheckerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateHealthChecker.");
+    logger.debug("Calling operation LoadBalancerClient#updateHealthChecker.");
     const operationName = "updateHealthChecker";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4611,7 +4551,6 @@ To delete a rule from a rule set, use the
       updateHealthCheckerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4669,7 +4608,7 @@ To delete a rule from a rule set, use the
   public async updateHostname(
     updateHostnameRequest: requests.UpdateHostnameRequest
   ): Promise<responses.UpdateHostnameResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateHostname.");
+    logger.debug("Calling operation LoadBalancerClient#updateHostname.");
     const operationName = "updateHostname";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4692,7 +4631,6 @@ To delete a rule from a rule set, use the
       updateHostnameRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4748,7 +4686,7 @@ To delete a rule from a rule set, use the
   public async updateListener(
     updateListenerRequest: requests.UpdateListenerRequest
   ): Promise<responses.UpdateListenerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateListener.");
+    logger.debug("Calling operation LoadBalancerClient#updateListener.");
     const operationName = "updateListener";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4771,7 +4709,6 @@ To delete a rule from a rule set, use the
       updateListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4827,7 +4764,7 @@ To delete a rule from a rule set, use the
   public async updateLoadBalancer(
     updateLoadBalancerRequest: requests.UpdateLoadBalancerRequest
   ): Promise<responses.UpdateLoadBalancerResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateLoadBalancer.");
+    logger.debug("Calling operation LoadBalancerClient#updateLoadBalancer.");
     const operationName = "updateLoadBalancer";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4849,7 +4786,6 @@ To delete a rule from a rule set, use the
       updateLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4911,8 +4847,7 @@ To delete a rule from a rule set, use the
   public async updateLoadBalancerShape(
     updateLoadBalancerShapeRequest: requests.UpdateLoadBalancerShapeRequest
   ): Promise<responses.UpdateLoadBalancerShapeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoadBalancerClient#updateLoadBalancerShape.");
+    logger.debug("Calling operation LoadBalancerClient#updateLoadBalancerShape.");
     const operationName = "updateLoadBalancerShape";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/UpdateLoadBalancerShape";
@@ -4935,7 +4870,6 @@ To delete a rule from a rule set, use the
       updateLoadBalancerShapeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4991,8 +4925,7 @@ To delete a rule from a rule set, use the
   public async updateNetworkSecurityGroups(
     updateNetworkSecurityGroupsRequest: requests.UpdateNetworkSecurityGroupsRequest
   ): Promise<responses.UpdateNetworkSecurityGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoadBalancerClient#updateNetworkSecurityGroups.");
+    logger.debug("Calling operation LoadBalancerClient#updateNetworkSecurityGroups.");
     const operationName = "updateNetworkSecurityGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/NetworkSecurityGroups/UpdateNetworkSecurityGroups";
@@ -5015,7 +4948,6 @@ To delete a rule from a rule set, use the
       updateNetworkSecurityGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5077,7 +5009,7 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
   public async updatePathRouteSet(
     updatePathRouteSetRequest: requests.UpdatePathRouteSetRequest
   ): Promise<responses.UpdatePathRouteSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updatePathRouteSet.");
+    logger.debug("Calling operation LoadBalancerClient#updatePathRouteSet.");
     const operationName = "updatePathRouteSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5100,7 +5032,6 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
       updatePathRouteSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5160,7 +5091,7 @@ To add a new routing rule to a routing policy, the body must include both the ne
   public async updateRoutingPolicy(
     updateRoutingPolicyRequest: requests.UpdateRoutingPolicyRequest
   ): Promise<responses.UpdateRoutingPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateRoutingPolicy.");
+    logger.debug("Calling operation LoadBalancerClient#updateRoutingPolicy.");
     const operationName = "updateRoutingPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5183,7 +5114,6 @@ To add a new routing rule to a routing policy, the body must include both the ne
       updateRoutingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5243,7 +5173,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
   public async updateRuleSet(
     updateRuleSetRequest: requests.UpdateRuleSetRequest
   ): Promise<responses.UpdateRuleSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateRuleSet.");
+    logger.debug("Calling operation LoadBalancerClient#updateRuleSet.");
     const operationName = "updateRuleSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5266,7 +5196,6 @@ To add a new rule to a set, the body must include both the new rule to add and t
       updateRuleSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5322,8 +5251,7 @@ To add a new rule to a set, the body must include both the new rule to add and t
   public async updateSSLCipherSuite(
     updateSSLCipherSuiteRequest: requests.UpdateSSLCipherSuiteRequest
   ): Promise<responses.UpdateSSLCipherSuiteResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LoadBalancerClient#updateSSLCipherSuite.");
+    logger.debug("Calling operation LoadBalancerClient#updateSSLCipherSuite.");
     const operationName = "updateSSLCipherSuite";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5346,7 +5274,6 @@ To add a new rule to a set, the body must include both the new rule to add and t
       updateSSLCipherSuiteRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

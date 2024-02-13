@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,11 +118,7 @@ export class AppmgmtControlClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210330";
-    if (this.logger) this.logger.info(`AppmgmtControlClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`AppmgmtControlClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -131,10 +128,9 @@ export class AppmgmtControlClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AppmgmtControlClient.serviceEndpointTemplate,
@@ -229,8 +225,7 @@ export class AppmgmtControlClient {
   public async activateMonitoringPlugin(
     activateMonitoringPluginRequest: requests.ActivateMonitoringPluginRequest
   ): Promise<responses.ActivateMonitoringPluginResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AppmgmtControlClient#activateMonitoringPlugin.");
+    logger.debug("Calling operation AppmgmtControlClient#activateMonitoringPlugin.");
     const operationName = "activateMonitoringPlugin";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/MonitoredInstance/ActivateMonitoringPlugin";
@@ -252,7 +247,6 @@ export class AppmgmtControlClient {
       activateMonitoringPluginRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -303,8 +297,7 @@ export class AppmgmtControlClient {
   public async getMonitoredInstance(
     getMonitoredInstanceRequest: requests.GetMonitoredInstanceRequest
   ): Promise<responses.GetMonitoredInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AppmgmtControlClient#getMonitoredInstance.");
+    logger.debug("Calling operation AppmgmtControlClient#getMonitoredInstance.");
     const operationName = "getMonitoredInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/MonitoredInstance/GetMonitoredInstance";
@@ -325,7 +318,6 @@ export class AppmgmtControlClient {
       getMonitoredInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -380,7 +372,7 @@ export class AppmgmtControlClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation AppmgmtControlClient#getWorkRequest.");
+    logger.debug("Calling operation AppmgmtControlClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/WorkRequest/GetWorkRequest";
@@ -401,7 +393,6 @@ export class AppmgmtControlClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -457,8 +448,7 @@ export class AppmgmtControlClient {
   public async listMonitoredInstances(
     listMonitoredInstancesRequest: requests.ListMonitoredInstancesRequest
   ): Promise<responses.ListMonitoredInstancesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AppmgmtControlClient#listMonitoredInstances.");
+    logger.debug("Calling operation AppmgmtControlClient#listMonitoredInstances.");
     const operationName = "listMonitoredInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/MonitoredInstanceCollection/ListMonitoredInstances";
@@ -484,7 +474,6 @@ export class AppmgmtControlClient {
       listMonitoredInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -540,8 +529,7 @@ export class AppmgmtControlClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AppmgmtControlClient#listWorkRequestErrors.");
+    logger.debug("Calling operation AppmgmtControlClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/WorkRequestError/ListWorkRequestErrors";
@@ -565,7 +553,6 @@ export class AppmgmtControlClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -621,8 +608,7 @@ export class AppmgmtControlClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AppmgmtControlClient#listWorkRequestLogs.");
+    logger.debug("Calling operation AppmgmtControlClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -646,7 +632,6 @@ export class AppmgmtControlClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -702,7 +687,7 @@ export class AppmgmtControlClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation AppmgmtControlClient#listWorkRequests.");
+    logger.debug("Calling operation AppmgmtControlClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/WorkRequest/ListWorkRequests";
@@ -726,7 +711,6 @@ export class AppmgmtControlClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -782,8 +766,7 @@ export class AppmgmtControlClient {
   public async publishTopProcessesMetrics(
     publishTopProcessesMetricsRequest: requests.PublishTopProcessesMetricsRequest
   ): Promise<responses.PublishTopProcessesMetricsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AppmgmtControlClient#publishTopProcessesMetrics.");
+    logger.debug("Calling operation AppmgmtControlClient#publishTopProcessesMetrics.");
     const operationName = "publishTopProcessesMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/MonitoredInstance/PublishTopProcessesMetrics";
@@ -805,7 +788,6 @@ export class AppmgmtControlClient {
       publishTopProcessesMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

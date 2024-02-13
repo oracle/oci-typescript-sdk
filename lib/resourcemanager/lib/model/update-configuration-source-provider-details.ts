@@ -88,8 +88,7 @@ export namespace UpdateConfigurationSourceProviderDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.configSourceProviderType}`);
+          common.logger.info(`Unknown value for: ${obj.configSourceProviderType}`);
       }
     }
     return jsonObj;
@@ -131,8 +130,7 @@ export namespace UpdateConfigurationSourceProviderDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.configSourceProviderType}`);
+          common.logger.info(`Unknown value for: ${obj.configSourceProviderType}`);
       }
     }
     return jsonObj;

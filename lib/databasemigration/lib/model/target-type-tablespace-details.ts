@@ -54,7 +54,7 @@ export namespace TargetTypeTablespaceDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.targetType}`);
+          common.logger.info(`Unknown value for: ${obj.targetType}`);
       }
     }
     return jsonObj;
@@ -90,7 +90,7 @@ export namespace TargetTypeTablespaceDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.targetType}`);
+          common.logger.info(`Unknown value for: ${obj.targetType}`);
       }
     }
     return jsonObj;

@@ -36,6 +36,12 @@ export interface ReleaseRecalledDataDetails {
    * This is the type of the recalled data to be released
    */
   "dataType"?: model.StorageDataType;
+  /**
+   * This is the id for the recalled data collection to be released.
+   * If specified, only this collection will be released
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "collectionId"?: number;
 }
 
 export namespace ReleaseRecalledDataDetails {

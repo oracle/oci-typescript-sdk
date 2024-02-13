@@ -24,6 +24,10 @@ export interface AbstractParserTestResultLogEntry {
    */
   "extraInfoAttributes"?: { [key: string]: string };
   /**
+   * The field map.
+   */
+  "fieldMap"?: { [key: string]: string };
+  /**
    * The field name value map.
    */
   "fieldNameValueMap"?: { [key: string]: string };

@@ -51,8 +51,7 @@ export namespace ExadataInsightResourceStatisticsAggregation {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.exadataResourceType}`);
+          common.logger.info(`Unknown value for: ${obj.exadataResourceType}`);
       }
     }
     return jsonObj;
@@ -83,8 +82,7 @@ export namespace ExadataInsightResourceStatisticsAggregation {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.exadataResourceType}`);
+          common.logger.info(`Unknown value for: ${obj.exadataResourceType}`);
       }
     }
     return jsonObj;

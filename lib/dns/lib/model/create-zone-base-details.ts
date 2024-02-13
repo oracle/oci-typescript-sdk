@@ -77,8 +77,7 @@ export namespace CreateZoneBaseDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.migrationSource}`);
+          common.logger.info(`Unknown value for: ${obj.migrationSource}`);
       }
     }
     return jsonObj;
@@ -99,8 +98,7 @@ export namespace CreateZoneBaseDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.migrationSource}`);
+          common.logger.info(`Unknown value for: ${obj.migrationSource}`);
       }
     }
     return jsonObj;

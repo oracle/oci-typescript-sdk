@@ -82,6 +82,12 @@ export interface LogAnalyticsEntitySummary {
    */
   "timeUpdated": Date;
   /**
+   * The date and time the resource was last discovered, in the format defined by RFC3339.
+   *
+   */
+  "timeLastDiscovered"?: Date;
+  "metadata"?: model.LogAnalyticsMetadataCollection;
+  /**
    * The Boolean flag to indicate if logs are collected for an entity for log analytics usage.
    *
    */
@@ -111,6 +117,10 @@ export namespace LogAnalyticsEntitySummary {
     const jsonObj = {
       ...obj,
       ...{
+        "metadata": obj.metadata
+          ? model.LogAnalyticsMetadataCollection.getJsonObj(obj.metadata)
+          : undefined,
+
         "creationSource": obj.creationSource
           ? model.CreationSource.getJsonObj(obj.creationSource)
           : undefined
@@ -123,6 +133,10 @@ export namespace LogAnalyticsEntitySummary {
     const jsonObj = {
       ...obj,
       ...{
+        "metadata": obj.metadata
+          ? model.LogAnalyticsMetadataCollection.getDeserializedJsonObj(obj.metadata)
+          : undefined,
+
         "creationSource": obj.creationSource
           ? model.CreationSource.getDeserializedJsonObj(obj.creationSource)
           : undefined

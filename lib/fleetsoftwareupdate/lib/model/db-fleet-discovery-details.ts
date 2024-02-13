@@ -52,7 +52,7 @@ export namespace DbFleetDiscoveryDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.strategy}`);
+          common.logger.info(`Unknown value for: ${obj.strategy}`);
       }
     }
     return jsonObj;
@@ -83,7 +83,7 @@ export namespace DbFleetDiscoveryDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.strategy}`);
+          common.logger.info(`Unknown value for: ${obj.strategy}`);
       }
     }
     return jsonObj;

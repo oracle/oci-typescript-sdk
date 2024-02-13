@@ -49,6 +49,11 @@ export interface UploadDiscoveryDataRequest extends common.BaseRequest {
    */
   "discoveryDataType"?: UploadDiscoveryDataRequest.DiscoveryDataType;
   /**
+   * The log group OCID that gets mapped to the logs in the discovery data.
+   *
+   */
+  "logGroupId"?: string;
+  /**
    * Identifies the type of request payload.
    *
    */

@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class UsageapiClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200107";
-    if (this.logger) this.logger.info(`UsageapiClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`UsageapiClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class UsageapiClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         UsageapiClient.serviceEndpointTemplate,
@@ -226,7 +222,7 @@ export class UsageapiClient {
   public async createCustomTable(
     createCustomTableRequest: requests.CreateCustomTableRequest
   ): Promise<responses.CreateCustomTableResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#createCustomTable.");
+    logger.debug("Calling operation UsageapiClient#createCustomTable.");
     const operationName = "createCustomTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/CreateCustomTable";
@@ -246,7 +242,6 @@ export class UsageapiClient {
       createCustomTableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -307,7 +302,7 @@ export class UsageapiClient {
   public async createQuery(
     createQueryRequest: requests.CreateQueryRequest
   ): Promise<responses.CreateQueryResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#createQuery.");
+    logger.debug("Calling operation UsageapiClient#createQuery.");
     const operationName = "createQuery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/CreateQuery";
@@ -327,7 +322,6 @@ export class UsageapiClient {
       createQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -388,7 +382,7 @@ export class UsageapiClient {
   public async createSchedule(
     createScheduleRequest: requests.CreateScheduleRequest
   ): Promise<responses.CreateScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#createSchedule.");
+    logger.debug("Calling operation UsageapiClient#createSchedule.");
     const operationName = "createSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/CreateSchedule";
@@ -408,7 +402,6 @@ export class UsageapiClient {
       createScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -469,8 +462,7 @@ export class UsageapiClient {
   public async createUsageCarbonEmissionsQuery(
     createUsageCarbonEmissionsQueryRequest: requests.CreateUsageCarbonEmissionsQueryRequest
   ): Promise<responses.CreateUsageCarbonEmissionsQueryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#createUsageCarbonEmissionsQuery.");
+    logger.debug("Calling operation UsageapiClient#createUsageCarbonEmissionsQuery.");
     const operationName = "createUsageCarbonEmissionsQuery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/UsageCarbonEmissionsQuery/CreateUsageCarbonEmissionsQuery";
@@ -490,7 +482,6 @@ export class UsageapiClient {
       createUsageCarbonEmissionsQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -551,7 +542,7 @@ export class UsageapiClient {
   public async deleteCustomTable(
     deleteCustomTableRequest: requests.DeleteCustomTableRequest
   ): Promise<responses.DeleteCustomTableResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#deleteCustomTable.");
+    logger.debug("Calling operation UsageapiClient#deleteCustomTable.");
     const operationName = "deleteCustomTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/DeleteCustomTable";
@@ -573,7 +564,6 @@ export class UsageapiClient {
       deleteCustomTableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -620,7 +610,7 @@ export class UsageapiClient {
   public async deleteQuery(
     deleteQueryRequest: requests.DeleteQueryRequest
   ): Promise<responses.DeleteQueryResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#deleteQuery.");
+    logger.debug("Calling operation UsageapiClient#deleteQuery.");
     const operationName = "deleteQuery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/DeleteQuery";
@@ -642,7 +632,6 @@ export class UsageapiClient {
       deleteQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -689,7 +678,7 @@ export class UsageapiClient {
   public async deleteSchedule(
     deleteScheduleRequest: requests.DeleteScheduleRequest
   ): Promise<responses.DeleteScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#deleteSchedule.");
+    logger.debug("Calling operation UsageapiClient#deleteSchedule.");
     const operationName = "deleteSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/DeleteSchedule";
@@ -711,7 +700,6 @@ export class UsageapiClient {
       deleteScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -758,8 +746,7 @@ export class UsageapiClient {
   public async deleteUsageCarbonEmissionsQuery(
     deleteUsageCarbonEmissionsQueryRequest: requests.DeleteUsageCarbonEmissionsQueryRequest
   ): Promise<responses.DeleteUsageCarbonEmissionsQueryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#deleteUsageCarbonEmissionsQuery.");
+    logger.debug("Calling operation UsageapiClient#deleteUsageCarbonEmissionsQuery.");
     const operationName = "deleteUsageCarbonEmissionsQuery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/UsageCarbonEmissionsQuery/DeleteUsageCarbonEmissionsQuery";
@@ -782,7 +769,6 @@ export class UsageapiClient {
       deleteUsageCarbonEmissionsQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -829,7 +815,7 @@ export class UsageapiClient {
   public async getCustomTable(
     getCustomTableRequest: requests.GetCustomTableRequest
   ): Promise<responses.GetCustomTableResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#getCustomTable.");
+    logger.debug("Calling operation UsageapiClient#getCustomTable.");
     const operationName = "getCustomTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/GetCustomTable";
@@ -850,7 +836,6 @@ export class UsageapiClient {
       getCustomTableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -906,7 +891,7 @@ export class UsageapiClient {
   public async getQuery(
     getQueryRequest: requests.GetQueryRequest
   ): Promise<responses.GetQueryResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#getQuery.");
+    logger.debug("Calling operation UsageapiClient#getQuery.");
     const operationName = "getQuery";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/GetQuery";
     const pathParams = {
@@ -926,7 +911,6 @@ export class UsageapiClient {
       getQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -982,7 +966,7 @@ export class UsageapiClient {
   public async getSchedule(
     getScheduleRequest: requests.GetScheduleRequest
   ): Promise<responses.GetScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#getSchedule.");
+    logger.debug("Calling operation UsageapiClient#getSchedule.");
     const operationName = "getSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/GetSchedule";
@@ -1003,7 +987,6 @@ export class UsageapiClient {
       getScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1059,7 +1042,7 @@ export class UsageapiClient {
   public async getScheduledRun(
     getScheduledRunRequest: requests.GetScheduledRunRequest
   ): Promise<responses.GetScheduledRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#getScheduledRun.");
+    logger.debug("Calling operation UsageapiClient#getScheduledRun.");
     const operationName = "getScheduledRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/ScheduledRun/GetScheduledRun";
@@ -1080,7 +1063,6 @@ export class UsageapiClient {
       getScheduledRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1136,8 +1118,7 @@ export class UsageapiClient {
   public async getUsageCarbonEmissionsQuery(
     getUsageCarbonEmissionsQueryRequest: requests.GetUsageCarbonEmissionsQueryRequest
   ): Promise<responses.GetUsageCarbonEmissionsQueryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#getUsageCarbonEmissionsQuery.");
+    logger.debug("Calling operation UsageapiClient#getUsageCarbonEmissionsQuery.");
     const operationName = "getUsageCarbonEmissionsQuery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/UsageCarbonEmissionsQuery/GetUsageCarbonEmissionsQuery";
@@ -1159,7 +1140,6 @@ export class UsageapiClient {
       getUsageCarbonEmissionsQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1215,7 +1195,7 @@ export class UsageapiClient {
   public async listCustomTables(
     listCustomTablesRequest: requests.ListCustomTablesRequest
   ): Promise<responses.ListCustomTablesResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#listCustomTables.");
+    logger.debug("Calling operation UsageapiClient#listCustomTables.");
     const operationName = "listCustomTables";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/ListCustomTables";
@@ -1241,7 +1221,6 @@ export class UsageapiClient {
       listCustomTablesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1297,7 +1276,7 @@ export class UsageapiClient {
   public async listQueries(
     listQueriesRequest: requests.ListQueriesRequest
   ): Promise<responses.ListQueriesResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#listQueries.");
+    logger.debug("Calling operation UsageapiClient#listQueries.");
     const operationName = "listQueries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/ListQueries";
@@ -1322,7 +1301,6 @@ export class UsageapiClient {
       listQueriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1378,7 +1356,7 @@ export class UsageapiClient {
   public async listScheduledRuns(
     listScheduledRunsRequest: requests.ListScheduledRunsRequest
   ): Promise<responses.ListScheduledRunsResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#listScheduledRuns.");
+    logger.debug("Calling operation UsageapiClient#listScheduledRuns.");
     const operationName = "listScheduledRuns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/ScheduledRun/ListScheduledRuns";
@@ -1403,7 +1381,6 @@ export class UsageapiClient {
       listScheduledRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1459,7 +1436,7 @@ export class UsageapiClient {
   public async listSchedules(
     listSchedulesRequest: requests.ListSchedulesRequest
   ): Promise<responses.ListSchedulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#listSchedules.");
+    logger.debug("Calling operation UsageapiClient#listSchedules.");
     const operationName = "listSchedules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/ListSchedules";
@@ -1485,7 +1462,6 @@ export class UsageapiClient {
       listSchedulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1541,8 +1517,7 @@ export class UsageapiClient {
   public async listUsageCarbonEmissionsQueries(
     listUsageCarbonEmissionsQueriesRequest: requests.ListUsageCarbonEmissionsQueriesRequest
   ): Promise<responses.ListUsageCarbonEmissionsQueriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#listUsageCarbonEmissionsQueries.");
+    logger.debug("Calling operation UsageapiClient#listUsageCarbonEmissionsQueries.");
     const operationName = "listUsageCarbonEmissionsQueries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/UsageCarbonEmissionsQuery/ListUsageCarbonEmissionsQueries";
@@ -1567,7 +1542,6 @@ export class UsageapiClient {
       listUsageCarbonEmissionsQueriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1623,8 +1597,7 @@ export class UsageapiClient {
   public async requestAverageCarbonEmission(
     requestAverageCarbonEmissionRequest: requests.RequestAverageCarbonEmissionRequest
   ): Promise<responses.RequestAverageCarbonEmissionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#requestAverageCarbonEmission.");
+    logger.debug("Calling operation UsageapiClient#requestAverageCarbonEmission.");
     const operationName = "requestAverageCarbonEmission";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/AverageCarbonEmission/RequestAverageCarbonEmission";
@@ -1645,7 +1618,6 @@ export class UsageapiClient {
       requestAverageCarbonEmissionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1701,7 +1673,7 @@ export class UsageapiClient {
   public async requestCleanEnergyUsage(
     requestCleanEnergyUsageRequest: requests.RequestCleanEnergyUsageRequest
   ): Promise<responses.RequestCleanEnergyUsageResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#requestCleanEnergyUsage.");
+    logger.debug("Calling operation UsageapiClient#requestCleanEnergyUsage.");
     const operationName = "requestCleanEnergyUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CleanEnergyUsage/RequestCleanEnergyUsage";
@@ -1724,7 +1696,6 @@ export class UsageapiClient {
       requestCleanEnergyUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1780,8 +1751,7 @@ export class UsageapiClient {
   public async requestSummarizedConfigurations(
     requestSummarizedConfigurationsRequest: requests.RequestSummarizedConfigurationsRequest
   ): Promise<responses.RequestSummarizedConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#requestSummarizedConfigurations.");
+    logger.debug("Calling operation UsageapiClient#requestSummarizedConfigurations.");
     const operationName = "requestSummarizedConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Configuration/RequestSummarizedConfigurations";
@@ -1802,7 +1772,6 @@ export class UsageapiClient {
       requestSummarizedConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1853,7 +1822,7 @@ export class UsageapiClient {
   public async requestSummarizedUsages(
     requestSummarizedUsagesRequest: requests.RequestSummarizedUsagesRequest
   ): Promise<responses.RequestSummarizedUsagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#requestSummarizedUsages.");
+    logger.debug("Calling operation UsageapiClient#requestSummarizedUsages.");
     const operationName = "requestSummarizedUsages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/UsageSummary/RequestSummarizedUsages";
@@ -1875,7 +1844,6 @@ export class UsageapiClient {
       requestSummarizedUsagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1936,8 +1904,7 @@ export class UsageapiClient {
   public async requestUsageCarbonEmissionConfig(
     requestUsageCarbonEmissionConfigRequest: requests.RequestUsageCarbonEmissionConfigRequest
   ): Promise<responses.RequestUsageCarbonEmissionConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#requestUsageCarbonEmissionConfig.");
+    logger.debug("Calling operation UsageapiClient#requestUsageCarbonEmissionConfig.");
     const operationName = "requestUsageCarbonEmissionConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Configuration/RequestUsageCarbonEmissionConfig";
@@ -1958,7 +1925,6 @@ export class UsageapiClient {
       requestUsageCarbonEmissionConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2009,8 +1975,7 @@ export class UsageapiClient {
   public async requestUsageCarbonEmissions(
     requestUsageCarbonEmissionsRequest: requests.RequestUsageCarbonEmissionsRequest
   ): Promise<responses.RequestUsageCarbonEmissionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#requestUsageCarbonEmissions.");
+    logger.debug("Calling operation UsageapiClient#requestUsageCarbonEmissions.");
     const operationName = "requestUsageCarbonEmissions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/UsageCarbonEmissionSummary/RequestUsageCarbonEmissions";
@@ -2032,7 +1997,6 @@ export class UsageapiClient {
       requestUsageCarbonEmissionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2093,7 +2057,7 @@ export class UsageapiClient {
   public async updateCustomTable(
     updateCustomTableRequest: requests.UpdateCustomTableRequest
   ): Promise<responses.UpdateCustomTableResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#updateCustomTable.");
+    logger.debug("Calling operation UsageapiClient#updateCustomTable.");
     const operationName = "updateCustomTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/UpdateCustomTable";
@@ -2115,7 +2079,6 @@ export class UsageapiClient {
       updateCustomTableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2176,7 +2139,7 @@ export class UsageapiClient {
   public async updateQuery(
     updateQueryRequest: requests.UpdateQueryRequest
   ): Promise<responses.UpdateQueryResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#updateQuery.");
+    logger.debug("Calling operation UsageapiClient#updateQuery.");
     const operationName = "updateQuery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/UpdateQuery";
@@ -2198,7 +2161,6 @@ export class UsageapiClient {
       updateQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2259,7 +2221,7 @@ export class UsageapiClient {
   public async updateSchedule(
     updateScheduleRequest: requests.UpdateScheduleRequest
   ): Promise<responses.UpdateScheduleResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsageapiClient#updateSchedule.");
+    logger.debug("Calling operation UsageapiClient#updateSchedule.");
     const operationName = "updateSchedule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/UpdateSchedule";
@@ -2281,7 +2243,6 @@ export class UsageapiClient {
       updateScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2342,8 +2303,7 @@ export class UsageapiClient {
   public async updateUsageCarbonEmissionsQuery(
     updateUsageCarbonEmissionsQueryRequest: requests.UpdateUsageCarbonEmissionsQueryRequest
   ): Promise<responses.UpdateUsageCarbonEmissionsQueryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation UsageapiClient#updateUsageCarbonEmissionsQuery.");
+    logger.debug("Calling operation UsageapiClient#updateUsageCarbonEmissionsQuery.");
     const operationName = "updateUsageCarbonEmissionsQuery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage/20200107/UsageCarbonEmissionsQuery/UpdateUsageCarbonEmissionsQuery";
@@ -2366,7 +2326,6 @@ export class UsageapiClient {
       updateUsageCarbonEmissionsQueryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -22,7 +22,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -120,11 +121,7 @@ export class RedirectClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181116";
-    if (this.logger) this.logger.info(`RedirectClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`RedirectClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -134,10 +131,9 @@ export class RedirectClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RedirectClient.serviceEndpointTemplate,
@@ -229,8 +225,7 @@ export class RedirectClient {
   public async changeHttpRedirectCompartment(
     changeHttpRedirectCompartmentRequest: requests.ChangeHttpRedirectCompartmentRequest
   ): Promise<responses.ChangeHttpRedirectCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RedirectClient#changeHttpRedirectCompartment.");
+    logger.debug("Calling operation RedirectClient#changeHttpRedirectCompartment.");
     const operationName = "changeHttpRedirectCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/ChangeHttpRedirectCompartment";
@@ -253,7 +248,6 @@ export class RedirectClient {
       changeHttpRedirectCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -304,7 +298,7 @@ export class RedirectClient {
   public async createHttpRedirect(
     createHttpRedirectRequest: requests.CreateHttpRedirectRequest
   ): Promise<responses.CreateHttpRedirectResponse> {
-    if (this.logger) this.logger.debug("Calling operation RedirectClient#createHttpRedirect.");
+    logger.debug("Calling operation RedirectClient#createHttpRedirect.");
     const operationName = "createHttpRedirect";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/CreateHttpRedirect";
@@ -324,7 +318,6 @@ export class RedirectClient {
       createHttpRedirectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -380,7 +373,7 @@ export class RedirectClient {
   public async deleteHttpRedirect(
     deleteHttpRedirectRequest: requests.DeleteHttpRedirectRequest
   ): Promise<responses.DeleteHttpRedirectResponse> {
-    if (this.logger) this.logger.debug("Calling operation RedirectClient#deleteHttpRedirect.");
+    logger.debug("Calling operation RedirectClient#deleteHttpRedirect.");
     const operationName = "deleteHttpRedirect";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/DeleteHttpRedirect";
@@ -403,7 +396,6 @@ export class RedirectClient {
       deleteHttpRedirectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -454,7 +446,7 @@ export class RedirectClient {
   public async getHttpRedirect(
     getHttpRedirectRequest: requests.GetHttpRedirectRequest
   ): Promise<responses.GetHttpRedirectResponse> {
-    if (this.logger) this.logger.debug("Calling operation RedirectClient#getHttpRedirect.");
+    logger.debug("Calling operation RedirectClient#getHttpRedirect.");
     const operationName = "getHttpRedirect";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/GetHttpRedirect";
@@ -475,7 +467,6 @@ export class RedirectClient {
       getHttpRedirectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -530,7 +521,7 @@ export class RedirectClient {
   public async listHttpRedirects(
     listHttpRedirectsRequest: requests.ListHttpRedirectsRequest
   ): Promise<responses.ListHttpRedirectsResponse> {
-    if (this.logger) this.logger.debug("Calling operation RedirectClient#listHttpRedirects.");
+    logger.debug("Calling operation RedirectClient#listHttpRedirects.");
     const operationName = "listHttpRedirects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/ListHttpRedirects";
@@ -560,7 +551,6 @@ export class RedirectClient {
       listHttpRedirectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -667,7 +657,7 @@ export class RedirectClient {
   public async updateHttpRedirect(
     updateHttpRedirectRequest: requests.UpdateHttpRedirectRequest
   ): Promise<responses.UpdateHttpRedirectResponse> {
-    if (this.logger) this.logger.debug("Calling operation RedirectClient#updateHttpRedirect.");
+    logger.debug("Calling operation RedirectClient#updateHttpRedirect.");
     const operationName = "updateHttpRedirect";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/UpdateHttpRedirect";
@@ -690,7 +680,6 @@ export class RedirectClient {
       updateHttpRedirectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -825,11 +814,7 @@ export class WaasClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181116";
-    if (this.logger) this.logger.info(`WaasClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`WaasClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -839,10 +824,9 @@ export class WaasClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WaasClient.serviceEndpointTemplate,
@@ -936,7 +920,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async acceptRecommendations(
     acceptRecommendationsRequest: requests.AcceptRecommendationsRequest
   ): Promise<responses.AcceptRecommendationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#acceptRecommendations.");
+    logger.debug("Calling operation WaasClient#acceptRecommendations.");
     const operationName = "acceptRecommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Recommendation/AcceptRecommendations";
@@ -958,7 +942,6 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       acceptRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1013,7 +996,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#cancelWorkRequest.");
+    logger.debug("Calling operation WaasClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WorkRequest/CancelWorkRequest";
@@ -1036,7 +1019,6 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1085,8 +1067,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async changeAddressListCompartment(
     changeAddressListCompartmentRequest: requests.ChangeAddressListCompartmentRequest
   ): Promise<responses.ChangeAddressListCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#changeAddressListCompartment.");
+    logger.debug("Calling operation WaasClient#changeAddressListCompartment.");
     const operationName = "changeAddressListCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/ChangeAddressListCompartment";
@@ -1109,7 +1090,6 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       changeAddressListCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1162,8 +1142,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async changeCertificateCompartment(
     changeCertificateCompartmentRequest: requests.ChangeCertificateCompartmentRequest
   ): Promise<responses.ChangeCertificateCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#changeCertificateCompartment.");
+    logger.debug("Calling operation WaasClient#changeCertificateCompartment.");
     const operationName = "changeCertificateCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/ChangeCertificateCompartment";
@@ -1186,7 +1165,6 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       changeCertificateCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1237,8 +1215,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async changeCustomProtectionRuleCompartment(
     changeCustomProtectionRuleCompartmentRequest: requests.ChangeCustomProtectionRuleCompartmentRequest
   ): Promise<responses.ChangeCustomProtectionRuleCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#changeCustomProtectionRuleCompartment.");
+    logger.debug("Calling operation WaasClient#changeCustomProtectionRuleCompartment.");
     const operationName = "changeCustomProtectionRuleCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/ChangeCustomProtectionRuleCompartment";
@@ -1262,7 +1239,6 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       changeCustomProtectionRuleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1315,7 +1291,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async changeWaasPolicyCompartment(
     changeWaasPolicyCompartmentRequest: requests.ChangeWaasPolicyCompartmentRequest
   ): Promise<responses.ChangeWaasPolicyCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#changeWaasPolicyCompartment.");
+    logger.debug("Calling operation WaasClient#changeWaasPolicyCompartment.");
     const operationName = "changeWaasPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/ChangeWaasPolicyCompartment";
@@ -1338,7 +1314,6 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       changeWaasPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1389,7 +1364,7 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   public async createAddressList(
     createAddressListRequest: requests.CreateAddressListRequest
   ): Promise<responses.CreateAddressListResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#createAddressList.");
+    logger.debug("Calling operation WaasClient#createAddressList.");
     const operationName = "createAddressList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/CreateAddressList";
@@ -1409,7 +1384,6 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       createAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1471,7 +1445,7 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#createCertificate.");
+    logger.debug("Calling operation WaasClient#createCertificate.");
     const operationName = "createCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/CreateCertificate";
@@ -1491,7 +1465,6 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
       createCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1553,7 +1526,7 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
   public async createCustomProtectionRule(
     createCustomProtectionRuleRequest: requests.CreateCustomProtectionRuleRequest
   ): Promise<responses.CreateCustomProtectionRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#createCustomProtectionRule.");
+    logger.debug("Calling operation WaasClient#createCustomProtectionRule.");
     const operationName = "createCustomProtectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/CreateCustomProtectionRule";
@@ -1573,7 +1546,6 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
       createCustomProtectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1645,7 +1617,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async createWaasPolicy(
     createWaasPolicyRequest: requests.CreateWaasPolicyRequest
   ): Promise<responses.CreateWaasPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#createWaasPolicy.");
+    logger.debug("Calling operation WaasClient#createWaasPolicy.");
     const operationName = "createWaasPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/CreateWaasPolicy";
@@ -1665,7 +1637,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       createWaasPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1726,7 +1697,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async deleteAddressList(
     deleteAddressListRequest: requests.DeleteAddressListRequest
   ): Promise<responses.DeleteAddressListResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#deleteAddressList.");
+    logger.debug("Calling operation WaasClient#deleteAddressList.");
     const operationName = "deleteAddressList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/DeleteAddressList";
@@ -1749,7 +1720,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       deleteAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1795,7 +1765,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
   ): Promise<responses.DeleteCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#deleteCertificate.");
+    logger.debug("Calling operation WaasClient#deleteCertificate.");
     const operationName = "deleteCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/DeleteCertificate";
@@ -1818,7 +1788,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       deleteCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1864,7 +1833,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async deleteCustomProtectionRule(
     deleteCustomProtectionRuleRequest: requests.DeleteCustomProtectionRuleRequest
   ): Promise<responses.DeleteCustomProtectionRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#deleteCustomProtectionRule.");
+    logger.debug("Calling operation WaasClient#deleteCustomProtectionRule.");
     const operationName = "deleteCustomProtectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/DeleteCustomProtectionRule";
@@ -1887,7 +1856,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       deleteCustomProtectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1933,7 +1901,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async deleteWaasPolicy(
     deleteWaasPolicyRequest: requests.DeleteWaasPolicyRequest
   ): Promise<responses.DeleteWaasPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#deleteWaasPolicy.");
+    logger.debug("Calling operation WaasClient#deleteWaasPolicy.");
     const operationName = "deleteWaasPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/DeleteWaasPolicy";
@@ -1956,7 +1924,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       deleteWaasPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2007,7 +1974,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getAddressList(
     getAddressListRequest: requests.GetAddressListRequest
   ): Promise<responses.GetAddressListResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getAddressList.");
+    logger.debug("Calling operation WaasClient#getAddressList.");
     const operationName = "getAddressList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/GetAddressList";
@@ -2028,7 +1995,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2083,7 +2049,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
   ): Promise<responses.GetCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getCertificate.");
+    logger.debug("Calling operation WaasClient#getCertificate.");
     const operationName = "getCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/GetCertificate";
@@ -2104,7 +2070,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2159,7 +2124,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getCustomProtectionRule(
     getCustomProtectionRuleRequest: requests.GetCustomProtectionRuleRequest
   ): Promise<responses.GetCustomProtectionRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getCustomProtectionRule.");
+    logger.debug("Calling operation WaasClient#getCustomProtectionRule.");
     const operationName = "getCustomProtectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/GetCustomProtectionRule";
@@ -2180,7 +2145,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getCustomProtectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2235,8 +2199,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getDeviceFingerprintChallenge(
     getDeviceFingerprintChallengeRequest: requests.GetDeviceFingerprintChallengeRequest
   ): Promise<responses.GetDeviceFingerprintChallengeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#getDeviceFingerprintChallenge.");
+    logger.debug("Calling operation WaasClient#getDeviceFingerprintChallenge.");
     const operationName = "getDeviceFingerprintChallenge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/DeviceFingerprintChallenge/GetDeviceFingerprintChallenge";
@@ -2257,7 +2220,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getDeviceFingerprintChallengeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2312,8 +2274,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getHumanInteractionChallenge(
     getHumanInteractionChallengeRequest: requests.GetHumanInteractionChallengeRequest
   ): Promise<responses.GetHumanInteractionChallengeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#getHumanInteractionChallenge.");
+    logger.debug("Calling operation WaasClient#getHumanInteractionChallenge.");
     const operationName = "getHumanInteractionChallenge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HumanInteractionChallenge/GetHumanInteractionChallenge";
@@ -2334,7 +2295,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getHumanInteractionChallengeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2389,7 +2349,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getJsChallenge(
     getJsChallengeRequest: requests.GetJsChallengeRequest
   ): Promise<responses.GetJsChallengeResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getJsChallenge.");
+    logger.debug("Calling operation WaasClient#getJsChallenge.");
     const operationName = "getJsChallenge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/JsChallenge/GetJsChallenge";
@@ -2410,7 +2370,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getJsChallengeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2465,7 +2424,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getPolicyConfig(
     getPolicyConfigRequest: requests.GetPolicyConfigRequest
   ): Promise<responses.GetPolicyConfigResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getPolicyConfig.");
+    logger.debug("Calling operation WaasClient#getPolicyConfig.");
     const operationName = "getPolicyConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/PolicyConfig/GetPolicyConfig";
@@ -2486,7 +2445,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getPolicyConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2541,7 +2499,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getProtectionRule(
     getProtectionRuleRequest: requests.GetProtectionRuleRequest
   ): Promise<responses.GetProtectionRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getProtectionRule.");
+    logger.debug("Calling operation WaasClient#getProtectionRule.");
     const operationName = "getProtectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionRule/GetProtectionRule";
@@ -2563,7 +2521,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getProtectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2618,7 +2575,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getProtectionSettings(
     getProtectionSettingsRequest: requests.GetProtectionSettingsRequest
   ): Promise<responses.GetProtectionSettingsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getProtectionSettings.");
+    logger.debug("Calling operation WaasClient#getProtectionSettings.");
     const operationName = "getProtectionSettings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionSettings/GetProtectionSettings";
@@ -2639,7 +2596,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getProtectionSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2694,7 +2650,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getWaasPolicy(
     getWaasPolicyRequest: requests.GetWaasPolicyRequest
   ): Promise<responses.GetWaasPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getWaasPolicy.");
+    logger.debug("Calling operation WaasClient#getWaasPolicy.");
     const operationName = "getWaasPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/GetWaasPolicy";
@@ -2715,7 +2671,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getWaasPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2770,7 +2725,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getWafAddressRateLimiting(
     getWafAddressRateLimitingRequest: requests.GetWafAddressRateLimitingRequest
   ): Promise<responses.GetWafAddressRateLimitingResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getWafAddressRateLimiting.");
+    logger.debug("Calling operation WaasClient#getWafAddressRateLimiting.");
     const operationName = "getWafAddressRateLimiting";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressRateLimiting/GetWafAddressRateLimiting";
@@ -2791,7 +2746,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getWafAddressRateLimitingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2846,7 +2800,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getWafConfig(
     getWafConfigRequest: requests.GetWafConfigRequest
   ): Promise<responses.GetWafConfigResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getWafConfig.");
+    logger.debug("Calling operation WaasClient#getWafConfig.");
     const operationName = "getWafConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafConfig/GetWafConfig";
@@ -2867,7 +2821,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getWafConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2922,7 +2875,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#getWorkRequest.");
+    logger.debug("Calling operation WaasClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WorkRequest/GetWorkRequest";
@@ -2943,7 +2896,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3004,7 +2956,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async listAccessRules(
     listAccessRulesRequest: requests.ListAccessRulesRequest
   ): Promise<responses.ListAccessRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listAccessRules.");
+    logger.debug("Calling operation WaasClient#listAccessRules.");
     const operationName = "listAccessRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AccessRule/ListAccessRules";
@@ -3028,7 +2980,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       listAccessRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3140,7 +3091,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async listAddressLists(
     listAddressListsRequest: requests.ListAddressListsRequest
   ): Promise<responses.ListAddressListsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listAddressLists.");
+    logger.debug("Calling operation WaasClient#listAddressLists.");
     const operationName = "listAddressLists";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/ListAddressLists";
@@ -3170,7 +3121,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       listAddressListsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3278,7 +3228,7 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   public async listCachingRules(
     listCachingRulesRequest: requests.ListCachingRulesRequest
   ): Promise<responses.ListCachingRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listCachingRules.");
+    logger.debug("Calling operation WaasClient#listCachingRules.");
     const operationName = "listCachingRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CachingRuleSummary/ListCachingRules";
@@ -3302,7 +3252,6 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       listCachingRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3419,7 +3368,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   public async listCaptchas(
     listCaptchasRequest: requests.ListCaptchasRequest
   ): Promise<responses.ListCaptchasResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listCaptchas.");
+    logger.debug("Calling operation WaasClient#listCaptchas.");
     const operationName = "listCaptchas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Captcha/ListCaptchas";
@@ -3443,7 +3392,6 @@ The order of the CAPTCHA challenges is important. The URL for each
       listCaptchasRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3555,7 +3503,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listCertificates.");
+    logger.debug("Calling operation WaasClient#listCertificates.");
     const operationName = "listCertificates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CertificateSummary/ListCertificates";
@@ -3585,7 +3533,6 @@ The order of the CAPTCHA challenges is important. The URL for each
       listCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3692,7 +3639,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   public async listCustomProtectionRules(
     listCustomProtectionRulesRequest: requests.ListCustomProtectionRulesRequest
   ): Promise<responses.ListCustomProtectionRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listCustomProtectionRules.");
+    logger.debug("Calling operation WaasClient#listCustomProtectionRules.");
     const operationName = "listCustomProtectionRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/ListCustomProtectionRules";
@@ -3723,7 +3670,6 @@ The order of the CAPTCHA challenges is important. The URL for each
       listCustomProtectionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3830,7 +3776,7 @@ The order of the CAPTCHA challenges is important. The URL for each
   public async listEdgeSubnets(
     listEdgeSubnetsRequest: requests.ListEdgeSubnetsRequest
   ): Promise<responses.ListEdgeSubnetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listEdgeSubnets.");
+    logger.debug("Calling operation WaasClient#listEdgeSubnets.");
     const operationName = "listEdgeSubnets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/EdgeSubnet/ListEdgeSubnets";
@@ -3854,7 +3800,6 @@ The order of the CAPTCHA challenges is important. The URL for each
       listEdgeSubnetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3964,7 +3909,7 @@ The list is sorted by `key`, in ascending order.
   public async listGoodBots(
     listGoodBotsRequest: requests.ListGoodBotsRequest
   ): Promise<responses.ListGoodBotsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listGoodBots.");
+    logger.debug("Calling operation WaasClient#listGoodBots.");
     const operationName = "listGoodBots";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/GoodBot/ListGoodBots";
@@ -3988,7 +3933,6 @@ The list is sorted by `key`, in ascending order.
       listGoodBotsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4101,7 +4045,7 @@ The list is sorted by `key`, in ascending order.
   public async listProtectionRules(
     listProtectionRulesRequest: requests.ListProtectionRulesRequest
   ): Promise<responses.ListProtectionRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listProtectionRules.");
+    logger.debug("Calling operation WaasClient#listProtectionRules.");
     const operationName = "listProtectionRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionRule/ListProtectionRules";
@@ -4127,7 +4071,6 @@ The list is sorted by `key`, in ascending order.
       listProtectionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4242,7 +4185,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listRecommendations(
     listRecommendationsRequest: requests.ListRecommendationsRequest
   ): Promise<responses.ListRecommendationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listRecommendations.");
+    logger.debug("Calling operation WaasClient#listRecommendations.");
     const operationName = "listRecommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Recommendation/ListRecommendations";
@@ -4267,7 +4210,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4382,7 +4324,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listThreatFeeds(
     listThreatFeedsRequest: requests.ListThreatFeedsRequest
   ): Promise<responses.ListThreatFeedsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listThreatFeeds.");
+    logger.debug("Calling operation WaasClient#listThreatFeeds.");
     const operationName = "listThreatFeeds";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ThreatFeed/ListThreatFeeds";
@@ -4406,7 +4348,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listThreatFeedsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4518,7 +4459,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWaasPolicies(
     listWaasPoliciesRequest: requests.ListWaasPoliciesRequest
   ): Promise<responses.ListWaasPoliciesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listWaasPolicies.");
+    logger.debug("Calling operation WaasClient#listWaasPolicies.");
     const operationName = "listWaasPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/ListWaasPolicies";
@@ -4548,7 +4489,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listWaasPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4655,8 +4595,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWaasPolicyCustomProtectionRules(
     listWaasPolicyCustomProtectionRulesRequest: requests.ListWaasPolicyCustomProtectionRulesRequest
   ): Promise<responses.ListWaasPolicyCustomProtectionRulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#listWaasPolicyCustomProtectionRules.");
+    logger.debug("Calling operation WaasClient#listWaasPolicyCustomProtectionRules.");
     const operationName = "listWaasPolicyCustomProtectionRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/ListWaasPolicyCustomProtectionRules";
@@ -4682,7 +4621,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listWaasPolicyCustomProtectionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4794,7 +4732,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWafBlockedRequests(
     listWafBlockedRequestsRequest: requests.ListWafBlockedRequestsRequest
   ): Promise<responses.ListWafBlockedRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listWafBlockedRequests.");
+    logger.debug("Calling operation WaasClient#listWafBlockedRequests.");
     const operationName = "listWafBlockedRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafBlockedRequest/ListWafBlockedRequests";
@@ -4822,7 +4760,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listWafBlockedRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4932,7 +4869,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWafLogs(
     listWafLogsRequest: requests.ListWafLogsRequest
   ): Promise<responses.ListWafLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listWafLogs.");
+    logger.debug("Calling operation WaasClient#listWafLogs.");
     const operationName = "listWafLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafLog/ListWafLogs";
@@ -4975,7 +4912,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listWafLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5083,7 +5019,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWafRequests(
     listWafRequestsRequest: requests.ListWafRequestsRequest
   ): Promise<responses.ListWafRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listWafRequests.");
+    logger.debug("Calling operation WaasClient#listWafRequests.");
     const operationName = "listWafRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafRequest/ListWafRequests";
@@ -5109,7 +5045,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listWafRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5218,7 +5153,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWafTraffic(
     listWafTrafficRequest: requests.ListWafTrafficRequest
   ): Promise<responses.ListWafTrafficResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listWafTraffic.");
+    logger.debug("Calling operation WaasClient#listWafTraffic.");
     const operationName = "listWafTraffic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafTrafficDatum/ListWafTraffic";
@@ -5244,7 +5179,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listWafTrafficRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5351,7 +5285,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWhitelists(
     listWhitelistsRequest: requests.ListWhitelistsRequest
   ): Promise<responses.ListWhitelistsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listWhitelists.");
+    logger.debug("Calling operation WaasClient#listWhitelists.");
     const operationName = "listWhitelists";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Whitelist/ListWhitelists";
@@ -5375,7 +5309,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listWhitelistsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5487,7 +5420,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#listWorkRequests.");
+    logger.debug("Calling operation WaasClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WorkRequestSummary/ListWorkRequests";
@@ -5513,7 +5446,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5621,7 +5553,7 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   public async purgeCache(
     purgeCacheRequest: requests.PurgeCacheRequest
   ): Promise<responses.PurgeCacheResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#purgeCache.");
+    logger.debug("Calling operation WaasClient#purgeCache.");
     const operationName = "purgeCache";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/PurgeCache/PurgeCache";
@@ -5643,7 +5575,6 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       purgeCacheRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5707,7 +5638,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
   public async updateAccessRules(
     updateAccessRulesRequest: requests.UpdateAccessRulesRequest
   ): Promise<responses.UpdateAccessRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateAccessRules.");
+    logger.debug("Calling operation WaasClient#updateAccessRules.");
     const operationName = "updateAccessRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AccessRule/UpdateAccessRules";
@@ -5730,7 +5661,6 @@ Any existing access rules that are not specified with a `key` in the list of acc
       updateAccessRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5786,7 +5716,7 @@ Any existing access rules that are not specified with a `key` in the list of acc
   public async updateAddressList(
     updateAddressListRequest: requests.UpdateAddressListRequest
   ): Promise<responses.UpdateAddressListResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateAddressList.");
+    logger.debug("Calling operation WaasClient#updateAddressList.");
     const operationName = "updateAddressList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/UpdateAddressList";
@@ -5808,7 +5738,6 @@ Any existing access rules that are not specified with a `key` in the list of acc
       updateAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5874,7 +5803,7 @@ The order the caching rules are specified in is important. The rules are process
   public async updateCachingRules(
     updateCachingRulesRequest: requests.UpdateCachingRulesRequest
   ): Promise<responses.UpdateCachingRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateCachingRules.");
+    logger.debug("Calling operation WaasClient#updateCachingRules.");
     const operationName = "updateCachingRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CachingRule/UpdateCachingRules";
@@ -5897,7 +5826,6 @@ The order the caching rules are specified in is important. The rules are process
       updateCachingRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5961,7 +5889,7 @@ Query parameters are allowed in CAPTCHA URL.
   public async updateCaptchas(
     updateCaptchasRequest: requests.UpdateCaptchasRequest
   ): Promise<responses.UpdateCaptchasResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateCaptchas.");
+    logger.debug("Calling operation WaasClient#updateCaptchas.");
     const operationName = "updateCaptchas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Captcha/UpdateCaptchas";
@@ -5984,7 +5912,6 @@ Query parameters are allowed in CAPTCHA URL.
       updateCaptchasRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6040,7 +5967,7 @@ Query parameters are allowed in CAPTCHA URL.
   public async updateCertificate(
     updateCertificateRequest: requests.UpdateCertificateRequest
   ): Promise<responses.UpdateCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateCertificate.");
+    logger.debug("Calling operation WaasClient#updateCertificate.");
     const operationName = "updateCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/UpdateCertificate";
@@ -6062,7 +5989,6 @@ Query parameters are allowed in CAPTCHA URL.
       updateCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6122,7 +6048,7 @@ Query parameters are allowed in CAPTCHA URL.
   public async updateCustomProtectionRule(
     updateCustomProtectionRuleRequest: requests.UpdateCustomProtectionRuleRequest
   ): Promise<responses.UpdateCustomProtectionRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateCustomProtectionRule.");
+    logger.debug("Calling operation WaasClient#updateCustomProtectionRule.");
     const operationName = "updateCustomProtectionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/UpdateCustomProtectionRule";
@@ -6145,7 +6071,6 @@ Query parameters are allowed in CAPTCHA URL.
       updateCustomProtectionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6209,8 +6134,7 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
   public async updateDeviceFingerprintChallenge(
     updateDeviceFingerprintChallengeRequest: requests.UpdateDeviceFingerprintChallengeRequest
   ): Promise<responses.UpdateDeviceFingerprintChallengeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#updateDeviceFingerprintChallenge.");
+    logger.debug("Calling operation WaasClient#updateDeviceFingerprintChallenge.");
     const operationName = "updateDeviceFingerprintChallenge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/DeviceFingerprintChallenge/UpdateDeviceFingerprintChallenge";
@@ -6233,7 +6157,6 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
       updateDeviceFingerprintChallengeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6291,7 +6214,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateGoodBots(
     updateGoodBotsRequest: requests.UpdateGoodBotsRequest
   ): Promise<responses.UpdateGoodBotsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateGoodBots.");
+    logger.debug("Calling operation WaasClient#updateGoodBots.");
     const operationName = "updateGoodBots";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/GoodBot/UpdateGoodBots";
@@ -6314,7 +6237,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateGoodBotsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6370,8 +6292,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateHumanInteractionChallenge(
     updateHumanInteractionChallengeRequest: requests.UpdateHumanInteractionChallengeRequest
   ): Promise<responses.UpdateHumanInteractionChallengeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#updateHumanInteractionChallenge.");
+    logger.debug("Calling operation WaasClient#updateHumanInteractionChallenge.");
     const operationName = "updateHumanInteractionChallenge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HumanInteractionChallenge/UpdateHumanInteractionChallenge";
@@ -6394,7 +6315,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateHumanInteractionChallengeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6450,7 +6370,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateJsChallenge(
     updateJsChallengeRequest: requests.UpdateJsChallengeRequest
   ): Promise<responses.UpdateJsChallengeResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateJsChallenge.");
+    logger.debug("Calling operation WaasClient#updateJsChallenge.");
     const operationName = "updateJsChallenge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/JsChallenge/UpdateJsChallenge";
@@ -6473,7 +6393,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateJsChallengeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6529,7 +6448,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updatePolicyConfig(
     updatePolicyConfigRequest: requests.UpdatePolicyConfigRequest
   ): Promise<responses.UpdatePolicyConfigResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updatePolicyConfig.");
+    logger.debug("Calling operation WaasClient#updatePolicyConfig.");
     const operationName = "updatePolicyConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/PolicyConfig/UpdatePolicyConfig";
@@ -6552,7 +6471,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updatePolicyConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6610,7 +6528,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateProtectionRules(
     updateProtectionRulesRequest: requests.UpdateProtectionRulesRequest
   ): Promise<responses.UpdateProtectionRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateProtectionRules.");
+    logger.debug("Calling operation WaasClient#updateProtectionRules.");
     const operationName = "updateProtectionRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionRule/UpdateProtectionRules";
@@ -6632,7 +6550,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateProtectionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6688,7 +6605,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateProtectionSettings(
     updateProtectionSettingsRequest: requests.UpdateProtectionSettingsRequest
   ): Promise<responses.UpdateProtectionSettingsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateProtectionSettings.");
+    logger.debug("Calling operation WaasClient#updateProtectionSettings.");
     const operationName = "updateProtectionSettings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionSettings/UpdateProtectionSettings";
@@ -6711,7 +6628,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateProtectionSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6767,7 +6683,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateThreatFeeds(
     updateThreatFeedsRequest: requests.UpdateThreatFeedsRequest
   ): Promise<responses.UpdateThreatFeedsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateThreatFeeds.");
+    logger.debug("Calling operation WaasClient#updateThreatFeeds.");
     const operationName = "updateThreatFeeds";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ThreatFeed/UpdateThreatFeeds";
@@ -6789,7 +6705,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateThreatFeedsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6847,7 +6762,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateWaasPolicy(
     updateWaasPolicyRequest: requests.UpdateWaasPolicyRequest
   ): Promise<responses.UpdateWaasPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateWaasPolicy.");
+    logger.debug("Calling operation WaasClient#updateWaasPolicy.");
     const operationName = "updateWaasPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/UpdateWaasPolicy";
@@ -6870,7 +6785,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateWaasPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6926,8 +6840,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateWaasPolicyCustomProtectionRules(
     updateWaasPolicyCustomProtectionRulesRequest: requests.UpdateWaasPolicyCustomProtectionRulesRequest
   ): Promise<responses.UpdateWaasPolicyCustomProtectionRulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#updateWaasPolicyCustomProtectionRules.");
+    logger.debug("Calling operation WaasClient#updateWaasPolicyCustomProtectionRules.");
     const operationName = "updateWaasPolicyCustomProtectionRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/UpdateWaasPolicyCustomProtectionRules";
@@ -6950,7 +6863,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateWaasPolicyCustomProtectionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7006,8 +6918,7 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   public async updateWafAddressRateLimiting(
     updateWafAddressRateLimitingRequest: requests.UpdateWafAddressRateLimitingRequest
   ): Promise<responses.UpdateWafAddressRateLimitingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WaasClient#updateWafAddressRateLimiting.");
+    logger.debug("Calling operation WaasClient#updateWafAddressRateLimiting.");
     const operationName = "updateWafAddressRateLimiting";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressRateLimiting/UpdateWafAddressRateLimiting";
@@ -7030,7 +6941,6 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       updateWafAddressRateLimitingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7094,7 +7004,7 @@ The returned list will contain objects with `key` properties that can be used to
   public async updateWafConfig(
     updateWafConfigRequest: requests.UpdateWafConfigRequest
   ): Promise<responses.UpdateWafConfigResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateWafConfig.");
+    logger.debug("Calling operation WaasClient#updateWafConfig.");
     const operationName = "updateWafConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafConfig/UpdateWafConfig";
@@ -7117,7 +7027,6 @@ The returned list will contain objects with `key` properties that can be used to
       updateWafConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7181,7 +7090,7 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
   public async updateWhitelists(
     updateWhitelistsRequest: requests.UpdateWhitelistsRequest
   ): Promise<responses.UpdateWhitelistsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WaasClient#updateWhitelists.");
+    logger.debug("Calling operation WaasClient#updateWhitelists.");
     const operationName = "updateWhitelists";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Whitelist/UpdateWhitelists";
@@ -7204,7 +7113,6 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
       updateWhitelistsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

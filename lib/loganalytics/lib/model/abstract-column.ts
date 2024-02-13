@@ -61,6 +61,11 @@ export interface AbstractColumn {
    */
   "isEvaluable"?: boolean;
   /**
+   * Identifies if this column should be hidden by default but can be displayed in the UI on demand.
+   *
+   */
+  "isHidden"?: boolean;
+  /**
    * Field denoting column data type.
    *
    */
@@ -126,7 +131,7 @@ export namespace AbstractColumn {
         case "CHART_DATA_COLUMN":
           return model.ChartDataColumn.getJsonObj(<model.ChartDataColumn>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -195,7 +200,7 @@ export namespace AbstractColumn {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

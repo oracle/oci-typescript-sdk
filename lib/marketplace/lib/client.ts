@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class AccountClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181001";
-    if (this.logger) this.logger.info(`AccountClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`AccountClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class AccountClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AccountClient.serviceEndpointTemplate,
@@ -202,7 +198,7 @@ export class AccountClient {
   public async getLaunchEligibility(
     getLaunchEligibilityRequest: requests.GetLaunchEligibilityRequest
   ): Promise<responses.GetLaunchEligibilityResponse> {
-    if (this.logger) this.logger.debug("Calling operation AccountClient#getLaunchEligibility.");
+    logger.debug("Calling operation AccountClient#getLaunchEligibility.");
     const operationName = "getLaunchEligibility";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/LaunchEligibility/GetLaunchEligibility";
@@ -224,7 +220,6 @@ export class AccountClient {
       getLaunchEligibilityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -274,8 +269,7 @@ export class AccountClient {
   public async getThirdPartyPaidListingEligibility(
     getThirdPartyPaidListingEligibilityRequest: requests.GetThirdPartyPaidListingEligibilityRequest
   ): Promise<responses.GetThirdPartyPaidListingEligibilityResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AccountClient#getThirdPartyPaidListingEligibility.");
+    logger.debug("Calling operation AccountClient#getThirdPartyPaidListingEligibility.");
     const operationName = "getThirdPartyPaidListingEligibility";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ThirdPartyPaidListingEligibility/GetThirdPartyPaidListingEligibility";
@@ -296,7 +290,6 @@ export class AccountClient {
       getThirdPartyPaidListingEligibilityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -423,11 +416,7 @@ export class MarketplaceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181001";
-    if (this.logger) this.logger.info(`MarketplaceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`MarketplaceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -437,10 +426,9 @@ export class MarketplaceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         MarketplaceClient.serviceEndpointTemplate,
@@ -532,8 +520,7 @@ export class MarketplaceClient {
   public async changePublicationCompartment(
     changePublicationCompartmentRequest: requests.ChangePublicationCompartmentRequest
   ): Promise<responses.ChangePublicationCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplaceClient#changePublicationCompartment.");
+    logger.debug("Calling operation MarketplaceClient#changePublicationCompartment.");
     const operationName = "changePublicationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/ChangePublicationCompartment";
@@ -556,7 +543,6 @@ export class MarketplaceClient {
       changePublicationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -609,8 +595,7 @@ export class MarketplaceClient {
   public async createAcceptedAgreement(
     createAcceptedAgreementRequest: requests.CreateAcceptedAgreementRequest
   ): Promise<responses.CreateAcceptedAgreementResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplaceClient#createAcceptedAgreement.");
+    logger.debug("Calling operation MarketplaceClient#createAcceptedAgreement.");
     const operationName = "createAcceptedAgreement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreement/CreateAcceptedAgreement";
@@ -630,7 +615,6 @@ export class MarketplaceClient {
       createAcceptedAgreementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -690,7 +674,7 @@ export class MarketplaceClient {
   public async createPublication(
     createPublicationRequest: requests.CreatePublicationRequest
   ): Promise<responses.CreatePublicationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#createPublication.");
+    logger.debug("Calling operation MarketplaceClient#createPublication.");
     const operationName = "createPublication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/CreatePublication";
@@ -710,7 +694,6 @@ export class MarketplaceClient {
       createPublicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -773,8 +756,7 @@ export class MarketplaceClient {
   public async deleteAcceptedAgreement(
     deleteAcceptedAgreementRequest: requests.DeleteAcceptedAgreementRequest
   ): Promise<responses.DeleteAcceptedAgreementResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplaceClient#deleteAcceptedAgreement.");
+    logger.debug("Calling operation MarketplaceClient#deleteAcceptedAgreement.");
     const operationName = "deleteAcceptedAgreement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreement/DeleteAcceptedAgreement";
@@ -798,7 +780,6 @@ export class MarketplaceClient {
       deleteAcceptedAgreementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -844,7 +825,7 @@ export class MarketplaceClient {
   public async deletePublication(
     deletePublicationRequest: requests.DeletePublicationRequest
   ): Promise<responses.DeletePublicationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#deletePublication.");
+    logger.debug("Calling operation MarketplaceClient#deletePublication.");
     const operationName = "deletePublication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/DeletePublication";
@@ -866,7 +847,6 @@ export class MarketplaceClient {
       deletePublicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -912,7 +892,7 @@ export class MarketplaceClient {
   public async exportListing(
     exportListingRequest: requests.ExportListingRequest
   ): Promise<responses.ExportListingResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#exportListing.");
+    logger.debug("Calling operation MarketplaceClient#exportListing.");
     const operationName = "exportListing";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Listing/ExportListing";
@@ -935,7 +915,6 @@ export class MarketplaceClient {
       exportListingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -996,7 +975,7 @@ export class MarketplaceClient {
   public async getAcceptedAgreement(
     getAcceptedAgreementRequest: requests.GetAcceptedAgreementRequest
   ): Promise<responses.GetAcceptedAgreementResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getAcceptedAgreement.");
+    logger.debug("Calling operation MarketplaceClient#getAcceptedAgreement.");
     const operationName = "getAcceptedAgreement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreement/GetAcceptedAgreement";
@@ -1017,7 +996,6 @@ export class MarketplaceClient {
       getAcceptedAgreementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1074,7 +1052,7 @@ export class MarketplaceClient {
   public async getAgreement(
     getAgreementRequest: requests.GetAgreementRequest
   ): Promise<responses.GetAgreementResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getAgreement.");
+    logger.debug("Calling operation MarketplaceClient#getAgreement.");
     const operationName = "getAgreement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Agreement/GetAgreement";
@@ -1099,7 +1077,6 @@ export class MarketplaceClient {
       getAgreementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1164,7 +1141,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async getListing(
     getListingRequest: requests.GetListingRequest
   ): Promise<responses.GetListingResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getListing.");
+    logger.debug("Calling operation MarketplaceClient#getListing.");
     const operationName = "getListing";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Listing/GetListing";
@@ -1187,7 +1164,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       getListingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1256,7 +1232,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async getPackage(
     getPackageRequest: requests.GetPackageRequest
   ): Promise<responses.GetPackageResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getPackage.");
+    logger.debug("Calling operation MarketplaceClient#getPackage.");
     const operationName = "getPackage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ListingPackage/GetPackage";
@@ -1280,7 +1256,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       getPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1335,7 +1310,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async getPublication(
     getPublicationRequest: requests.GetPublicationRequest
   ): Promise<responses.GetPublicationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getPublication.");
+    logger.debug("Calling operation MarketplaceClient#getPublication.");
     const operationName = "getPublication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/GetPublication";
@@ -1356,7 +1331,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       getPublicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1411,8 +1385,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async getPublicationPackage(
     getPublicationPackageRequest: requests.GetPublicationPackageRequest
   ): Promise<responses.GetPublicationPackageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplaceClient#getPublicationPackage.");
+    logger.debug("Calling operation MarketplaceClient#getPublicationPackage.");
     const operationName = "getPublicationPackage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/PublicationPackage/GetPublicationPackage";
@@ -1434,7 +1407,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       getPublicationPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1489,7 +1461,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getWorkRequest.");
+    logger.debug("Calling operation MarketplaceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/WorkRequest/GetWorkRequest";
@@ -1510,7 +1482,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1567,8 +1538,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listAcceptedAgreements(
     listAcceptedAgreementsRequest: requests.ListAcceptedAgreementsRequest
   ): Promise<responses.ListAcceptedAgreementsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplaceClient#listAcceptedAgreements.");
+    logger.debug("Calling operation MarketplaceClient#listAcceptedAgreements.");
     const operationName = "listAcceptedAgreements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreementSummary/ListAcceptedAgreements";
@@ -1597,7 +1567,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listAcceptedAgreementsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1705,7 +1674,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listAgreements(
     listAgreementsRequest: requests.ListAgreementsRequest
   ): Promise<responses.ListAgreementsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listAgreements.");
+    logger.debug("Calling operation MarketplaceClient#listAgreements.");
     const operationName = "listAgreements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AgreementSummary/ListAgreements";
@@ -1731,7 +1700,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listAgreementsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1840,7 +1808,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
   ): Promise<responses.ListCategoriesResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listCategories.");
+    logger.debug("Calling operation MarketplaceClient#listCategories.");
     const operationName = "listCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/CategorySummary/ListCategories";
@@ -1863,7 +1831,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1985,7 +1952,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listListings(
     listListingsRequest: requests.ListListingsRequest
   ): Promise<responses.ListListingsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listListings.");
+    logger.debug("Calling operation MarketplaceClient#listListings.");
     const operationName = "listListings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ListingSummary/ListListings";
@@ -2020,7 +1987,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listListingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2141,7 +2107,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listPackages(
     listPackagesRequest: requests.ListPackagesRequest
   ): Promise<responses.ListPackagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPackages.");
+    logger.debug("Calling operation MarketplaceClient#listPackages.");
     const operationName = "listPackages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ListingPackageSummary/ListPackages";
@@ -2170,7 +2136,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2277,8 +2242,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listPublicationPackages(
     listPublicationPackagesRequest: requests.ListPublicationPackagesRequest
   ): Promise<responses.ListPublicationPackagesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplaceClient#listPublicationPackages.");
+    logger.debug("Calling operation MarketplaceClient#listPublicationPackages.");
     const operationName = "listPublicationPackages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/PublicationPackageSummary/ListPublicationPackages";
@@ -2306,7 +2270,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listPublicationPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2413,7 +2376,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listPublications(
     listPublicationsRequest: requests.ListPublicationsRequest
   ): Promise<responses.ListPublicationsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPublications.");
+    logger.debug("Calling operation MarketplaceClient#listPublications.");
     const operationName = "listPublications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/PublicationSummary/ListPublications";
@@ -2442,7 +2405,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listPublicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2550,7 +2512,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listPublishers(
     listPublishersRequest: requests.ListPublishersRequest
   ): Promise<responses.ListPublishersResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPublishers.");
+    logger.debug("Calling operation MarketplaceClient#listPublishers.");
     const operationName = "listPublishers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/PublisherSummary/ListPublishers";
@@ -2574,7 +2536,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listPublishersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2681,7 +2642,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listReportTypes(
     listReportTypesRequest: requests.ListReportTypesRequest
   ): Promise<responses.ListReportTypesResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listReportTypes.");
+    logger.debug("Calling operation MarketplaceClient#listReportTypes.");
     const operationName = "listReportTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ReportTypeCollection/ListReportTypes";
@@ -2703,7 +2664,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listReportTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2758,7 +2718,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listReports(
     listReportsRequest: requests.ListReportsRequest
   ): Promise<responses.ListReportsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listReports.");
+    logger.debug("Calling operation MarketplaceClient#listReports.");
     const operationName = "listReports";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ReportCollection/ListReports";
@@ -2782,7 +2742,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listReportsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2837,7 +2796,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listTaxes(
     listTaxesRequest: requests.ListTaxesRequest
   ): Promise<responses.ListTaxesResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listTaxes.");
+    logger.debug("Calling operation MarketplaceClient#listTaxes.");
     const operationName = "listTaxes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/TaxSummary/ListTaxes";
@@ -2860,7 +2819,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listTaxesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2915,8 +2873,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplaceClient#listWorkRequestErrors.");
+    logger.debug("Calling operation MarketplaceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/WorkRequest/ListWorkRequestErrors";
@@ -2942,7 +2899,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2997,7 +2953,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listWorkRequestLogs.");
+    logger.debug("Calling operation MarketplaceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/WorkRequest/ListWorkRequestLogs";
@@ -3023,7 +2979,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3078,7 +3033,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listWorkRequests.");
+    logger.debug("Calling operation MarketplaceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/WorkRequest/ListWorkRequests";
@@ -3105,7 +3060,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3162,7 +3116,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async searchListings(
     searchListingsRequest: requests.SearchListingsRequest
   ): Promise<responses.SearchListingsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#searchListings.");
+    logger.debug("Calling operation MarketplaceClient#searchListings.");
     const operationName = "searchListings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ListingSummary/SearchListings";
@@ -3184,7 +3138,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       searchListingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3297,8 +3250,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async updateAcceptedAgreement(
     updateAcceptedAgreementRequest: requests.UpdateAcceptedAgreementRequest
   ): Promise<responses.UpdateAcceptedAgreementResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplaceClient#updateAcceptedAgreement.");
+    logger.debug("Calling operation MarketplaceClient#updateAcceptedAgreement.");
     const operationName = "updateAcceptedAgreement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreement/UpdateAcceptedAgreement";
@@ -3321,7 +3273,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       updateAcceptedAgreementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3381,7 +3332,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   public async updatePublication(
     updatePublicationRequest: requests.UpdatePublicationRequest
   ): Promise<responses.UpdatePublicationResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#updatePublication.");
+    logger.debug("Calling operation MarketplaceClient#updatePublication.");
     const operationName = "updatePublication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/UpdatePublication";
@@ -3404,7 +3355,6 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       updatePublicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

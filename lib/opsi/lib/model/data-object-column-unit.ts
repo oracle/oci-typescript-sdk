@@ -81,7 +81,7 @@ export namespace DataObjectColumnUnit {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.unitCategory}`);
+          common.logger.info(`Unknown value for: ${obj.unitCategory}`);
       }
     }
     return jsonObj;
@@ -137,7 +137,7 @@ export namespace DataObjectColumnUnit {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.unitCategory}`);
+          common.logger.info(`Unknown value for: ${obj.unitCategory}`);
       }
     }
     return jsonObj;
