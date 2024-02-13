@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,11 +118,7 @@ export class BudgetClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    if (this.logger) this.logger.info(`BudgetClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`BudgetClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -131,10 +128,9 @@ export class BudgetClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         BudgetClient.serviceEndpointTemplate,
@@ -227,7 +223,7 @@ export class BudgetClient {
   public async createAlertRule(
     createAlertRuleRequest: requests.CreateAlertRuleRequest
   ): Promise<responses.CreateAlertRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#createAlertRule.");
+    logger.debug("Calling operation BudgetClient#createAlertRule.");
     const operationName = "createAlertRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRule/CreateAlertRule";
@@ -249,7 +245,6 @@ export class BudgetClient {
       createAlertRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -310,7 +305,7 @@ export class BudgetClient {
   public async createBudget(
     createBudgetRequest: requests.CreateBudgetRequest
   ): Promise<responses.CreateBudgetResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#createBudget.");
+    logger.debug("Calling operation BudgetClient#createBudget.");
     const operationName = "createBudget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/Budget/CreateBudget";
@@ -330,7 +325,6 @@ export class BudgetClient {
       createBudgetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -390,7 +384,7 @@ export class BudgetClient {
   public async deleteAlertRule(
     deleteAlertRuleRequest: requests.DeleteAlertRuleRequest
   ): Promise<responses.DeleteAlertRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#deleteAlertRule.");
+    logger.debug("Calling operation BudgetClient#deleteAlertRule.");
     const operationName = "deleteAlertRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRule/DeleteAlertRule";
@@ -413,7 +407,6 @@ export class BudgetClient {
       deleteAlertRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -459,7 +452,7 @@ export class BudgetClient {
   public async deleteBudget(
     deleteBudgetRequest: requests.DeleteBudgetRequest
   ): Promise<responses.DeleteBudgetResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#deleteBudget.");
+    logger.debug("Calling operation BudgetClient#deleteBudget.");
     const operationName = "deleteBudget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/Budget/DeleteBudget";
@@ -481,7 +474,6 @@ export class BudgetClient {
       deleteBudgetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -527,7 +519,7 @@ export class BudgetClient {
   public async getAlertRule(
     getAlertRuleRequest: requests.GetAlertRuleRequest
   ): Promise<responses.GetAlertRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#getAlertRule.");
+    logger.debug("Calling operation BudgetClient#getAlertRule.");
     const operationName = "getAlertRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRule/GetAlertRule";
@@ -549,7 +541,6 @@ export class BudgetClient {
       getAlertRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -604,7 +595,7 @@ export class BudgetClient {
   public async getBudget(
     getBudgetRequest: requests.GetBudgetRequest
   ): Promise<responses.GetBudgetResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#getBudget.");
+    logger.debug("Calling operation BudgetClient#getBudget.");
     const operationName = "getBudget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/Budget/GetBudget";
@@ -625,7 +616,6 @@ export class BudgetClient {
       getBudgetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -681,7 +671,7 @@ export class BudgetClient {
   public async listAlertRules(
     listAlertRulesRequest: requests.ListAlertRulesRequest
   ): Promise<responses.ListAlertRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#listAlertRules.");
+    logger.debug("Calling operation BudgetClient#listAlertRules.");
     const operationName = "listAlertRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRuleSummary/ListAlertRules";
@@ -709,7 +699,6 @@ export class BudgetClient {
       listAlertRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -823,7 +812,7 @@ Clients should ignore new targetTypes, or upgrade to the latest version of the c
   public async listBudgets(
     listBudgetsRequest: requests.ListBudgetsRequest
   ): Promise<responses.ListBudgetsResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#listBudgets.");
+    logger.debug("Calling operation BudgetClient#listBudgets.");
     const operationName = "listBudgets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/BudgetSummary/ListBudgets";
@@ -851,7 +840,6 @@ Clients should ignore new targetTypes, or upgrade to the latest version of the c
       listBudgetsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -958,7 +946,7 @@ Clients should ignore new targetTypes, or upgrade to the latest version of the c
   public async updateAlertRule(
     updateAlertRuleRequest: requests.UpdateAlertRuleRequest
   ): Promise<responses.UpdateAlertRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#updateAlertRule.");
+    logger.debug("Calling operation BudgetClient#updateAlertRule.");
     const operationName = "updateAlertRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRule/UpdateAlertRule";
@@ -981,7 +969,6 @@ Clients should ignore new targetTypes, or upgrade to the latest version of the c
       updateAlertRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1041,7 +1028,7 @@ Clients should ignore new targetTypes, or upgrade to the latest version of the c
   public async updateBudget(
     updateBudgetRequest: requests.UpdateBudgetRequest
   ): Promise<responses.UpdateBudgetResponse> {
-    if (this.logger) this.logger.debug("Calling operation BudgetClient#updateBudget.");
+    logger.debug("Calling operation BudgetClient#updateBudget.");
     const operationName = "updateBudget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/Budget/UpdateBudget";
@@ -1063,7 +1050,6 @@ Clients should ignore new targetTypes, or upgrade to the latest version of the c
       updateBudgetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

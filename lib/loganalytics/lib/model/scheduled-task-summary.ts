@@ -29,6 +29,10 @@ export interface ScheduledTaskSummary {
    */
   "taskType": model.TaskType;
   /**
+   * Target Service
+   */
+  "targetService"?: string;
+  /**
    * Compartment Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;

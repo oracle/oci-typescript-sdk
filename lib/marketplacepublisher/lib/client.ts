@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,12 +118,7 @@ export class MarketplacePublisherClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger)
-      this.logger.info(`MarketplacePublisherClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`MarketplacePublisherClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +128,9 @@ export class MarketplacePublisherClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         MarketplacePublisherClient.serviceEndpointTemplate,
@@ -227,8 +222,7 @@ export class MarketplacePublisherClient {
   public async activateTermVersion(
     activateTermVersionRequest: requests.ActivateTermVersionRequest
   ): Promise<responses.ActivateTermVersionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#activateTermVersion.");
+    logger.debug("Calling operation MarketplacePublisherClient#activateTermVersion.");
     const operationName = "activateTermVersion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -249,7 +243,6 @@ export class MarketplacePublisherClient {
       activateTermVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -304,8 +297,7 @@ export class MarketplacePublisherClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#cancelWorkRequest.");
+    logger.debug("Calling operation MarketplacePublisherClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -326,7 +318,6 @@ export class MarketplacePublisherClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -372,8 +363,7 @@ export class MarketplacePublisherClient {
   public async cascadingDeleteListing(
     cascadingDeleteListingRequest: requests.CascadingDeleteListingRequest
   ): Promise<responses.CascadingDeleteListingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#cascadingDeleteListing.");
+    logger.debug("Calling operation MarketplacePublisherClient#cascadingDeleteListing.");
     const operationName = "cascadingDeleteListing";
     const apiReferenceLink = "";
     const pathParams = {
@@ -395,7 +385,6 @@ export class MarketplacePublisherClient {
       cascadingDeleteListingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -446,10 +435,7 @@ export class MarketplacePublisherClient {
   public async cascadingDeleteListingRevision(
     cascadingDeleteListingRevisionRequest: requests.CascadingDeleteListingRevisionRequest
   ): Promise<responses.CascadingDeleteListingRevisionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#cascadingDeleteListingRevision."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#cascadingDeleteListingRevision.");
     const operationName = "cascadingDeleteListingRevision";
     const apiReferenceLink = "";
     const pathParams = {
@@ -471,7 +457,6 @@ export class MarketplacePublisherClient {
       cascadingDeleteListingRevisionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -522,8 +507,7 @@ export class MarketplacePublisherClient {
   public async changeArtifactCompartment(
     changeArtifactCompartmentRequest: requests.ChangeArtifactCompartmentRequest
   ): Promise<responses.ChangeArtifactCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#changeArtifactCompartment.");
+    logger.debug("Calling operation MarketplacePublisherClient#changeArtifactCompartment.");
     const operationName = "changeArtifactCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -545,7 +529,6 @@ export class MarketplacePublisherClient {
       changeArtifactCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -596,8 +579,7 @@ export class MarketplacePublisherClient {
   public async changeListingCompartment(
     changeListingCompartmentRequest: requests.ChangeListingCompartmentRequest
   ): Promise<responses.ChangeListingCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#changeListingCompartment.");
+    logger.debug("Calling operation MarketplacePublisherClient#changeListingCompartment.");
     const operationName = "changeListingCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -619,7 +601,6 @@ export class MarketplacePublisherClient {
       changeListingCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -670,10 +651,7 @@ export class MarketplacePublisherClient {
   public async changeListingRevisionToNewStatus(
     changeListingRevisionToNewStatusRequest: requests.ChangeListingRevisionToNewStatusRequest
   ): Promise<responses.ChangeListingRevisionToNewStatusResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#changeListingRevisionToNewStatus."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#changeListingRevisionToNewStatus.");
     const operationName = "changeListingRevisionToNewStatus";
     const apiReferenceLink = "";
     const pathParams = {
@@ -694,7 +672,6 @@ export class MarketplacePublisherClient {
       changeListingRevisionToNewStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -749,8 +726,7 @@ export class MarketplacePublisherClient {
   public async changeTermCompartment(
     changeTermCompartmentRequest: requests.ChangeTermCompartmentRequest
   ): Promise<responses.ChangeTermCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#changeTermCompartment.");
+    logger.debug("Calling operation MarketplacePublisherClient#changeTermCompartment.");
     const operationName = "changeTermCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -772,7 +748,6 @@ export class MarketplacePublisherClient {
       changeTermCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -823,8 +798,7 @@ export class MarketplacePublisherClient {
   public async cloneListingRevision(
     cloneListingRevisionRequest: requests.CloneListingRevisionRequest
   ): Promise<responses.CloneListingRevisionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#cloneListingRevision.");
+    logger.debug("Calling operation MarketplacePublisherClient#cloneListingRevision.");
     const operationName = "cloneListingRevision";
     const apiReferenceLink = "";
     const pathParams = {
@@ -846,7 +820,6 @@ export class MarketplacePublisherClient {
       cloneListingRevisionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -910,8 +883,7 @@ After you send your request, the new object's `status` will temporarily be IN_PR
   public async createArtifact(
     createArtifactRequest: requests.CreateArtifactRequest
   ): Promise<responses.CreateArtifactResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#createArtifact.");
+    logger.debug("Calling operation MarketplacePublisherClient#createArtifact.");
     const operationName = "createArtifact";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -930,7 +902,6 @@ After you send your request, the new object's `status` will temporarily be IN_PR
       createArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -995,8 +966,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async createListing(
     createListingRequest: requests.CreateListingRequest
   ): Promise<responses.CreateListingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#createListing.");
+    logger.debug("Calling operation MarketplacePublisherClient#createListing.");
     const operationName = "createListing";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1015,7 +985,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       createListingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1076,8 +1045,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async createListingRevision(
     createListingRevisionRequest: requests.CreateListingRevisionRequest
   ): Promise<responses.CreateListingRevisionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#createListingRevision.");
+    logger.debug("Calling operation MarketplacePublisherClient#createListingRevision.");
     const operationName = "createListingRevision";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1096,7 +1064,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       createListingRevisionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1157,10 +1124,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async createListingRevisionAttachment(
     createListingRevisionAttachmentRequest: requests.CreateListingRevisionAttachmentRequest
   ): Promise<responses.CreateListingRevisionAttachmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#createListingRevisionAttachment."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#createListingRevisionAttachment.");
     const operationName = "createListingRevisionAttachment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1179,7 +1143,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       createListingRevisionAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1240,8 +1203,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async createListingRevisionNote(
     createListingRevisionNoteRequest: requests.CreateListingRevisionNoteRequest
   ): Promise<responses.CreateListingRevisionNoteResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#createListingRevisionNote.");
+    logger.debug("Calling operation MarketplacePublisherClient#createListingRevisionNote.");
     const operationName = "createListingRevisionNote";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1260,7 +1222,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       createListingRevisionNoteRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1321,10 +1282,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async createListingRevisionPackage(
     createListingRevisionPackageRequest: requests.CreateListingRevisionPackageRequest
   ): Promise<responses.CreateListingRevisionPackageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#createListingRevisionPackage."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#createListingRevisionPackage.");
     const operationName = "createListingRevisionPackage";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1343,7 +1301,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       createListingRevisionPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1404,7 +1361,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async createTerm(
     createTermRequest: requests.CreateTermRequest
   ): Promise<responses.CreateTermResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#createTerm.");
+    logger.debug("Calling operation MarketplacePublisherClient#createTerm.");
     const operationName = "createTerm";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1423,7 +1380,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       createTermRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1483,8 +1439,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async createTermVersion(
     createTermVersionRequest: requests.CreateTermVersionRequest
   ): Promise<responses.CreateTermVersionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#createTermVersion.");
+    logger.debug("Calling operation MarketplacePublisherClient#createTermVersion.");
     const operationName = "createTermVersion";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1504,7 +1459,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       createTermVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1561,8 +1515,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async deleteArtifact(
     deleteArtifactRequest: requests.DeleteArtifactRequest
   ): Promise<responses.DeleteArtifactResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#deleteArtifact.");
+    logger.debug("Calling operation MarketplacePublisherClient#deleteArtifact.");
     const operationName = "deleteArtifact";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1584,7 +1537,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       deleteArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1635,8 +1587,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async deleteListing(
     deleteListingRequest: requests.DeleteListingRequest
   ): Promise<responses.DeleteListingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#deleteListing.");
+    logger.debug("Calling operation MarketplacePublisherClient#deleteListing.");
     const operationName = "deleteListing";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1657,7 +1608,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       deleteListingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1703,8 +1653,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async deleteListingRevision(
     deleteListingRevisionRequest: requests.DeleteListingRevisionRequest
   ): Promise<responses.DeleteListingRevisionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#deleteListingRevision.");
+    logger.debug("Calling operation MarketplacePublisherClient#deleteListingRevision.");
     const operationName = "deleteListingRevision";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1725,7 +1674,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       deleteListingRevisionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1771,10 +1719,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async deleteListingRevisionAttachment(
     deleteListingRevisionAttachmentRequest: requests.DeleteListingRevisionAttachmentRequest
   ): Promise<responses.DeleteListingRevisionAttachmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#deleteListingRevisionAttachment."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#deleteListingRevisionAttachment.");
     const operationName = "deleteListingRevisionAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1796,7 +1741,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       deleteListingRevisionAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1842,8 +1786,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async deleteListingRevisionNote(
     deleteListingRevisionNoteRequest: requests.DeleteListingRevisionNoteRequest
   ): Promise<responses.DeleteListingRevisionNoteResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#deleteListingRevisionNote.");
+    logger.debug("Calling operation MarketplacePublisherClient#deleteListingRevisionNote.");
     const operationName = "deleteListingRevisionNote";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1864,7 +1807,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       deleteListingRevisionNoteRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1910,10 +1852,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async deleteListingRevisionPackage(
     deleteListingRevisionPackageRequest: requests.DeleteListingRevisionPackageRequest
   ): Promise<responses.DeleteListingRevisionPackageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#deleteListingRevisionPackage."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#deleteListingRevisionPackage.");
     const operationName = "deleteListingRevisionPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1934,7 +1873,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       deleteListingRevisionPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1980,7 +1918,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async deleteTerm(
     deleteTermRequest: requests.DeleteTermRequest
   ): Promise<responses.DeleteTermResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#deleteTerm.");
+    logger.debug("Calling operation MarketplacePublisherClient#deleteTerm.");
     const operationName = "deleteTerm";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2001,7 +1939,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       deleteTermRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2047,8 +1984,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async deleteTermVersion(
     deleteTermVersionRequest: requests.DeleteTermVersionRequest
   ): Promise<responses.DeleteTermVersionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#deleteTermVersion.");
+    logger.debug("Calling operation MarketplacePublisherClient#deleteTermVersion.");
     const operationName = "deleteTermVersion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2069,7 +2005,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       deleteTermVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2115,7 +2050,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getArtifact(
     getArtifactRequest: requests.GetArtifactRequest
   ): Promise<responses.GetArtifactResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#getArtifact.");
+    logger.debug("Calling operation MarketplacePublisherClient#getArtifact.");
     const operationName = "getArtifact";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2135,7 +2070,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2190,7 +2124,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getCategory(
     getCategoryRequest: requests.GetCategoryRequest
   ): Promise<responses.GetCategoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#getCategory.");
+    logger.debug("Calling operation MarketplacePublisherClient#getCategory.");
     const operationName = "getCategory";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2212,7 +2146,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getCategoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2268,7 +2201,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getListing(
     getListingRequest: requests.GetListingRequest
   ): Promise<responses.GetListingResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#getListing.");
+    logger.debug("Calling operation MarketplacePublisherClient#getListing.");
     const operationName = "getListing";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2288,7 +2221,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getListingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2344,8 +2276,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getListingRevision(
     getListingRevisionRequest: requests.GetListingRevisionRequest
   ): Promise<responses.GetListingRevisionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#getListingRevision.");
+    logger.debug("Calling operation MarketplacePublisherClient#getListingRevision.");
     const operationName = "getListingRevision";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2365,7 +2296,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getListingRevisionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2421,10 +2351,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getListingRevisionAttachment(
     getListingRevisionAttachmentRequest: requests.GetListingRevisionAttachmentRequest
   ): Promise<responses.GetListingRevisionAttachmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#getListingRevisionAttachment."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#getListingRevisionAttachment.");
     const operationName = "getListingRevisionAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2445,7 +2372,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getListingRevisionAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2500,8 +2426,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getListingRevisionNote(
     getListingRevisionNoteRequest: requests.GetListingRevisionNoteRequest
   ): Promise<responses.GetListingRevisionNoteResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#getListingRevisionNote.");
+    logger.debug("Calling operation MarketplacePublisherClient#getListingRevisionNote.");
     const operationName = "getListingRevisionNote";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2521,7 +2446,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getListingRevisionNoteRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2577,8 +2501,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getListingRevisionPackage(
     getListingRevisionPackageRequest: requests.GetListingRevisionPackageRequest
   ): Promise<responses.GetListingRevisionPackageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#getListingRevisionPackage.");
+    logger.debug("Calling operation MarketplacePublisherClient#getListingRevisionPackage.");
     const operationName = "getListingRevisionPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2598,7 +2521,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getListingRevisionPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2653,7 +2575,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getMarket(
     getMarketRequest: requests.GetMarketRequest
   ): Promise<responses.GetMarketResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#getMarket.");
+    logger.debug("Calling operation MarketplacePublisherClient#getMarket.");
     const operationName = "getMarket";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2673,7 +2595,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getMarketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2728,7 +2649,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getProduct(
     getProductRequest: requests.GetProductRequest
   ): Promise<responses.GetProductResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#getProduct.");
+    logger.debug("Calling operation MarketplacePublisherClient#getProduct.");
     const operationName = "getProduct";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2748,7 +2669,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getProductRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2803,8 +2723,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getPublisher(
     getPublisherRequest: requests.GetPublisherRequest
   ): Promise<responses.GetPublisherResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#getPublisher.");
+    logger.debug("Calling operation MarketplacePublisherClient#getPublisher.");
     const operationName = "getPublisher";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2824,7 +2743,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getPublisherRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2879,7 +2797,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getTerm(
     getTermRequest: requests.GetTermRequest
   ): Promise<responses.GetTermResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#getTerm.");
+    logger.debug("Calling operation MarketplacePublisherClient#getTerm.");
     const operationName = "getTerm";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2899,7 +2817,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getTermRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2954,8 +2871,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getTermVersion(
     getTermVersionRequest: requests.GetTermVersionRequest
   ): Promise<responses.GetTermVersionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#getTermVersion.");
+    logger.debug("Calling operation MarketplacePublisherClient#getTermVersion.");
     const operationName = "getTermVersion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2975,7 +2891,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getTermVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3030,8 +2945,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#getWorkRequest.");
+    logger.debug("Calling operation MarketplacePublisherClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3051,7 +2965,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3114,8 +3027,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async listArtifacts(
     listArtifactsRequest: requests.ListArtifactsRequest
   ): Promise<responses.ListArtifactsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listArtifacts.");
+    logger.debug("Calling operation MarketplacePublisherClient#listArtifacts.");
     const operationName = "listArtifacts";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3142,7 +3054,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       listArtifactsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3200,8 +3111,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
   ): Promise<responses.ListCategoriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listCategories.");
+    logger.debug("Calling operation MarketplacePublisherClient#listCategories.");
     const operationName = "listCategories";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3227,7 +3137,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       listCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3283,10 +3192,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async listListingRevisionAttachments(
     listListingRevisionAttachmentsRequest: requests.ListListingRevisionAttachmentsRequest
   ): Promise<responses.ListListingRevisionAttachmentsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#listListingRevisionAttachments."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#listListingRevisionAttachments.");
     const operationName = "listListingRevisionAttachments";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3313,7 +3219,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       listListingRevisionAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3369,8 +3274,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async listListingRevisionNotes(
     listListingRevisionNotesRequest: requests.ListListingRevisionNotesRequest
   ): Promise<responses.ListListingRevisionNotesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listListingRevisionNotes.");
+    logger.debug("Calling operation MarketplacePublisherClient#listListingRevisionNotes.");
     const operationName = "listListingRevisionNotes";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3395,7 +3299,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       listListingRevisionNotesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3451,10 +3354,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
   public async listListingRevisionPackages(
     listListingRevisionPackagesRequest: requests.ListListingRevisionPackagesRequest
   ): Promise<responses.ListListingRevisionPackagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#listListingRevisionPackages."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#listListingRevisionPackages.");
     const operationName = "listListingRevisionPackages";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3481,7 +3381,6 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
       listListingRevisionPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3540,8 +3439,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listListingRevisions(
     listListingRevisionsRequest: requests.ListListingRevisionsRequest
   ): Promise<responses.ListListingRevisionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listListingRevisions.");
+    logger.debug("Calling operation MarketplacePublisherClient#listListingRevisions.");
     const operationName = "listListingRevisions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3569,7 +3467,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listListingRevisionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3627,8 +3524,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listListings(
     listListingsRequest: requests.ListListingsRequest
   ): Promise<responses.ListListingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listListings.");
+    logger.debug("Calling operation MarketplacePublisherClient#listListings.");
     const operationName = "listListings";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3654,7 +3550,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listListingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3712,7 +3607,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listMarkets(
     listMarketsRequest: requests.ListMarketsRequest
   ): Promise<responses.ListMarketsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#listMarkets.");
+    logger.debug("Calling operation MarketplacePublisherClient#listMarkets.");
     const operationName = "listMarkets";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3737,7 +3632,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listMarketsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3795,8 +3689,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listProducts(
     listProductsRequest: requests.ListProductsRequest
   ): Promise<responses.ListProductsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listProducts.");
+    logger.debug("Calling operation MarketplacePublisherClient#listProducts.");
     const operationName = "listProducts";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3821,7 +3714,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listProductsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3876,8 +3768,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listPublishers(
     listPublishersRequest: requests.ListPublishersRequest
   ): Promise<responses.ListPublishersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listPublishers.");
+    logger.debug("Calling operation MarketplacePublisherClient#listPublishers.");
     const operationName = "listPublishers";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3902,7 +3793,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listPublishersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3957,8 +3847,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listTermVersions(
     listTermVersionsRequest: requests.ListTermVersionsRequest
   ): Promise<responses.ListTermVersionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listTermVersions.");
+    logger.debug("Calling operation MarketplacePublisherClient#listTermVersions.");
     const operationName = "listTermVersions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3984,7 +3873,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listTermVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4039,7 +3927,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listTerms(
     listTermsRequest: requests.ListTermsRequest
   ): Promise<responses.ListTermsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#listTerms.");
+    logger.debug("Calling operation MarketplacePublisherClient#listTerms.");
     const operationName = "listTerms";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4064,7 +3952,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listTermsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4120,8 +4007,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listWorkRequestErrors.");
+    logger.debug("Calling operation MarketplacePublisherClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4146,7 +4032,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4202,8 +4087,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listWorkRequestLogs.");
+    logger.debug("Calling operation MarketplacePublisherClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4228,7 +4112,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4284,8 +4167,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#listWorkRequests.");
+    logger.debug("Calling operation MarketplacePublisherClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4312,7 +4194,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4367,10 +4248,9 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async markListingRevisionPackageAsDefault(
     markListingRevisionPackageAsDefaultRequest: requests.MarkListingRevisionPackageAsDefaultRequest
   ): Promise<responses.MarkListingRevisionPackageAsDefaultResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#markListingRevisionPackageAsDefault."
-      );
+    logger.debug(
+      "Calling operation MarketplacePublisherClient#markListingRevisionPackageAsDefault."
+    );
     const operationName = "markListingRevisionPackageAsDefault";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4393,7 +4273,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       markListingRevisionPackageAsDefaultRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4444,8 +4323,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async publishListingRevision(
     publishListingRevisionRequest: requests.PublishListingRevisionRequest
   ): Promise<responses.PublishListingRevisionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#publishListingRevision.");
+    logger.debug("Calling operation MarketplacePublisherClient#publishListingRevision.");
     const operationName = "publishListingRevision";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4467,7 +4345,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       publishListingRevisionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4518,10 +4395,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async publishListingRevisionAsPrivate(
     publishListingRevisionAsPrivateRequest: requests.PublishListingRevisionAsPrivateRequest
   ): Promise<responses.PublishListingRevisionAsPrivateResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#publishListingRevisionAsPrivate."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#publishListingRevisionAsPrivate.");
     const operationName = "publishListingRevisionAsPrivate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4543,7 +4417,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       publishListingRevisionAsPrivateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4599,10 +4472,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async publishListingRevisionPackage(
     publishListingRevisionPackageRequest: requests.PublishListingRevisionPackageRequest
   ): Promise<responses.PublishListingRevisionPackageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#publishListingRevisionPackage."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#publishListingRevisionPackage.");
     const operationName = "publishListingRevisionPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4624,7 +4494,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       publishListingRevisionPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4675,10 +4544,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async submitListingRevisionForReview(
     submitListingRevisionForReviewRequest: requests.SubmitListingRevisionForReviewRequest
   ): Promise<responses.SubmitListingRevisionForReviewResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#submitListingRevisionForReview."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#submitListingRevisionForReview.");
     const operationName = "submitListingRevisionForReview";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4700,7 +4566,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       submitListingRevisionForReviewRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4760,10 +4625,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async unPublishListingRevisionPackage(
     unPublishListingRevisionPackageRequest: requests.UnPublishListingRevisionPackageRequest
   ): Promise<responses.UnPublishListingRevisionPackageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#unPublishListingRevisionPackage."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#unPublishListingRevisionPackage.");
     const operationName = "unPublishListingRevisionPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4785,7 +4647,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       unPublishListingRevisionPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4836,8 +4697,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateArtifact(
     updateArtifactRequest: requests.UpdateArtifactRequest
   ): Promise<responses.UpdateArtifactResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#updateArtifact.");
+    logger.debug("Calling operation MarketplacePublisherClient#updateArtifact.");
     const operationName = "updateArtifact";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4858,7 +4718,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4914,8 +4773,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateListing(
     updateListingRequest: requests.UpdateListingRequest
   ): Promise<responses.UpdateListingResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#updateListing.");
+    logger.debug("Calling operation MarketplacePublisherClient#updateListing.");
     const operationName = "updateListing";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4936,7 +4794,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateListingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4996,8 +4853,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateListingRevision(
     updateListingRevisionRequest: requests.UpdateListingRevisionRequest
   ): Promise<responses.UpdateListingRevisionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#updateListingRevision.");
+    logger.debug("Calling operation MarketplacePublisherClient#updateListingRevision.");
     const operationName = "updateListingRevision";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5018,7 +4874,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateListingRevisionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5078,10 +4933,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateListingRevisionAttachment(
     updateListingRevisionAttachmentRequest: requests.UpdateListingRevisionAttachmentRequest
   ): Promise<responses.UpdateListingRevisionAttachmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#updateListingRevisionAttachment."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#updateListingRevisionAttachment.");
     const operationName = "updateListingRevisionAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5103,7 +4955,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateListingRevisionAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5163,10 +5014,9 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateListingRevisionAttachmentContent(
     updateListingRevisionAttachmentContentRequest: requests.UpdateListingRevisionAttachmentContentRequest
   ): Promise<responses.UpdateListingRevisionAttachmentContentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#updateListingRevisionAttachmentContent."
-      );
+    logger.debug(
+      "Calling operation MarketplacePublisherClient#updateListingRevisionAttachmentContent."
+    );
     const operationName = "updateListingRevisionAttachmentContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5187,7 +5037,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateListingRevisionAttachmentContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5245,10 +5094,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateListingRevisionIconContent(
     updateListingRevisionIconContentRequest: requests.UpdateListingRevisionIconContentRequest
   ): Promise<responses.UpdateListingRevisionIconContentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#updateListingRevisionIconContent."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#updateListingRevisionIconContent.");
     const operationName = "updateListingRevisionIconContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5268,7 +5114,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateListingRevisionIconContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5325,10 +5170,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateListingRevisionPackage(
     updateListingRevisionPackageRequest: requests.UpdateListingRevisionPackageRequest
   ): Promise<responses.UpdateListingRevisionPackageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation MarketplacePublisherClient#updateListingRevisionPackage."
-      );
+    logger.debug("Calling operation MarketplacePublisherClient#updateListingRevisionPackage.");
     const operationName = "updateListingRevisionPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5349,7 +5191,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateListingRevisionPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5409,7 +5250,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateTerm(
     updateTermRequest: requests.UpdateTermRequest
   ): Promise<responses.UpdateTermResponse> {
-    if (this.logger) this.logger.debug("Calling operation MarketplacePublisherClient#updateTerm.");
+    logger.debug("Calling operation MarketplacePublisherClient#updateTerm.");
     const operationName = "updateTerm";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5430,7 +5271,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateTermRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5490,8 +5330,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateTermVersion(
     updateTermVersionRequest: requests.UpdateTermVersionRequest
   ): Promise<responses.UpdateTermVersionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#updateTermVersion.");
+    logger.debug("Calling operation MarketplacePublisherClient#updateTermVersion.");
     const operationName = "updateTermVersion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5512,7 +5351,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateTermVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5572,8 +5410,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async updateTermVersionContent(
     updateTermVersionContentRequest: requests.UpdateTermVersionContentRequest
   ): Promise<responses.UpdateTermVersionContentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#updateTermVersionContent.");
+    logger.debug("Calling operation MarketplacePublisherClient#updateTermVersionContent.");
     const operationName = "updateTermVersionContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5594,7 +5431,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       updateTermVersionContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5651,8 +5487,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async validateAndPublishArtifact(
     validateAndPublishArtifactRequest: requests.ValidateAndPublishArtifactRequest
   ): Promise<responses.ValidateAndPublishArtifactResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#validateAndPublishArtifact.");
+    logger.debug("Calling operation MarketplacePublisherClient#validateAndPublishArtifact.");
     const operationName = "validateAndPublishArtifact";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5674,7 +5509,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       validateAndPublishArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5725,8 +5559,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
   public async withdrawListingRevision(
     withdrawListingRevisionRequest: requests.WithdrawListingRevisionRequest
   ): Promise<responses.WithdrawListingRevisionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MarketplacePublisherClient#withdrawListingRevision.");
+    logger.debug("Calling operation MarketplacePublisherClient#withdrawListingRevision.");
     const operationName = "withdrawListingRevision";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5748,7 +5581,6 @@ You can specify your compartment's OCID as the value for the compartment ID.
       withdrawListingRevisionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

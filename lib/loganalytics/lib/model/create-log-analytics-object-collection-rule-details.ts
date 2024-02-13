@@ -126,6 +126,16 @@ export interface CreateLogAnalyticsObjectCollectionRuleDetails {
    */
   "objectNameFilters"?: Array<string>;
   /**
+   * Type of files/objects in this object collection rule.
+   *
+   */
+  "logType"?: model.LogTypes;
+  /**
+   * Flag to allow historic collection if poll period overlaps with existing ACTIVE collection rule
+   *
+   */
+  "isForceHistoricCollection"?: boolean;
+  /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *

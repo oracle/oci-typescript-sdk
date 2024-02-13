@@ -63,8 +63,7 @@ export namespace ConfigSourceRecord {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.configSourceRecordType}`);
+          common.logger.info(`Unknown value for: ${obj.configSourceRecordType}`);
       }
     }
     return jsonObj;
@@ -105,8 +104,7 @@ export namespace ConfigSourceRecord {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.configSourceRecordType}`);
+          common.logger.info(`Unknown value for: ${obj.configSourceRecordType}`);
       }
     }
     return jsonObj;

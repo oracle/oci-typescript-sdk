@@ -30,7 +30,7 @@ export namespace Eula {
         case "TEXT":
           return model.TextBasedEula.getJsonObj(<model.TextBasedEula>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.eulaType}`);
+          common.logger.info(`Unknown value for: ${obj.eulaType}`);
       }
     }
     return jsonObj;
@@ -46,7 +46,7 @@ export namespace Eula {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.eulaType}`);
+          common.logger.info(`Unknown value for: ${obj.eulaType}`);
       }
     }
     return jsonObj;

@@ -71,7 +71,7 @@ export namespace CreateJobOperationDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.operation}`);
+          common.logger.info(`Unknown value for: ${obj.operation}`);
       }
     }
     return jsonObj;
@@ -112,7 +112,7 @@ export namespace CreateJobOperationDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.operation}`);
+          common.logger.info(`Unknown value for: ${obj.operation}`);
       }
     }
     return jsonObj;

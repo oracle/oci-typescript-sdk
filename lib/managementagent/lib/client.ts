@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -120,11 +121,7 @@ export class ManagementAgentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200202";
-    if (this.logger) this.logger.info(`ManagementAgentClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ManagementAgentClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -134,10 +131,9 @@ export class ManagementAgentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ManagementAgentClient.serviceEndpointTemplate,
@@ -230,7 +226,7 @@ export class ManagementAgentClient {
   public async createDataSource(
     createDataSourceRequest: requests.CreateDataSourceRequest
   ): Promise<responses.CreateDataSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#createDataSource.");
+    logger.debug("Calling operation ManagementAgentClient#createDataSource.");
     const operationName = "createDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/CreateDataSource";
@@ -253,7 +249,6 @@ export class ManagementAgentClient {
       createDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -310,8 +305,7 @@ export class ManagementAgentClient {
   public async createManagementAgentInstallKey(
     createManagementAgentInstallKeyRequest: requests.CreateManagementAgentInstallKeyRequest
   ): Promise<responses.CreateManagementAgentInstallKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#createManagementAgentInstallKey.");
+    logger.debug("Calling operation ManagementAgentClient#createManagementAgentInstallKey.");
     const operationName = "createManagementAgentInstallKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/CreateManagementAgentInstallKey";
@@ -331,7 +325,6 @@ export class ManagementAgentClient {
       createManagementAgentInstallKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -392,7 +385,7 @@ export class ManagementAgentClient {
   public async deleteDataSource(
     deleteDataSourceRequest: requests.DeleteDataSourceRequest
   ): Promise<responses.DeleteDataSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#deleteDataSource.");
+    logger.debug("Calling operation ManagementAgentClient#deleteDataSource.");
     const operationName = "deleteDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/DeleteDataSource";
@@ -415,7 +408,6 @@ export class ManagementAgentClient {
       deleteDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -466,8 +458,7 @@ export class ManagementAgentClient {
   public async deleteManagementAgent(
     deleteManagementAgentRequest: requests.DeleteManagementAgentRequest
   ): Promise<responses.DeleteManagementAgentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#deleteManagementAgent.");
+    logger.debug("Calling operation ManagementAgentClient#deleteManagementAgent.");
     const operationName = "deleteManagementAgent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/DeleteManagementAgent";
@@ -489,7 +480,6 @@ export class ManagementAgentClient {
       deleteManagementAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -535,8 +525,7 @@ export class ManagementAgentClient {
   public async deleteManagementAgentInstallKey(
     deleteManagementAgentInstallKeyRequest: requests.DeleteManagementAgentInstallKeyRequest
   ): Promise<responses.DeleteManagementAgentInstallKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#deleteManagementAgentInstallKey.");
+    logger.debug("Calling operation ManagementAgentClient#deleteManagementAgentInstallKey.");
     const operationName = "deleteManagementAgentInstallKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/DeleteManagementAgentInstallKey";
@@ -559,7 +548,6 @@ export class ManagementAgentClient {
       deleteManagementAgentInstallKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -605,8 +593,7 @@ export class ManagementAgentClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#deleteWorkRequest.");
+    logger.debug("Calling operation ManagementAgentClient#deleteWorkRequest.");
     const operationName = "deleteWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequest/DeleteWorkRequest";
@@ -628,7 +615,6 @@ export class ManagementAgentClient {
       deleteWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -675,7 +661,7 @@ export class ManagementAgentClient {
   public async deployPlugins(
     deployPluginsRequest: requests.DeployPluginsRequest
   ): Promise<responses.DeployPluginsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#deployPlugins.");
+    logger.debug("Calling operation ManagementAgentClient#deployPlugins.");
     const operationName = "deployPlugins";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/DeployPlugins";
@@ -695,7 +681,6 @@ export class ManagementAgentClient {
       deployPluginsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -753,8 +738,7 @@ export class ManagementAgentClient {
   public async getAutoUpgradableConfig(
     getAutoUpgradableConfigRequest: requests.GetAutoUpgradableConfigRequest
   ): Promise<responses.GetAutoUpgradableConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#getAutoUpgradableConfig.");
+    logger.debug("Calling operation ManagementAgentClient#getAutoUpgradableConfig.");
     const operationName = "getAutoUpgradableConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/GetAutoUpgradableConfig";
@@ -775,7 +759,6 @@ export class ManagementAgentClient {
       getAutoUpgradableConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -826,7 +809,7 @@ export class ManagementAgentClient {
   public async getDataSource(
     getDataSourceRequest: requests.GetDataSourceRequest
   ): Promise<responses.GetDataSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#getDataSource.");
+    logger.debug("Calling operation ManagementAgentClient#getDataSource.");
     const operationName = "getDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/GetDataSource";
@@ -849,7 +832,6 @@ export class ManagementAgentClient {
       getDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -904,8 +886,7 @@ export class ManagementAgentClient {
   public async getManagementAgent(
     getManagementAgentRequest: requests.GetManagementAgentRequest
   ): Promise<responses.GetManagementAgentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#getManagementAgent.");
+    logger.debug("Calling operation ManagementAgentClient#getManagementAgent.");
     const operationName = "getManagementAgent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/GetManagementAgent";
@@ -926,7 +907,6 @@ export class ManagementAgentClient {
       getManagementAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -981,8 +961,7 @@ export class ManagementAgentClient {
   public async getManagementAgentInstallKey(
     getManagementAgentInstallKeyRequest: requests.GetManagementAgentInstallKeyRequest
   ): Promise<responses.GetManagementAgentInstallKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#getManagementAgentInstallKey.");
+    logger.debug("Calling operation ManagementAgentClient#getManagementAgentInstallKey.");
     const operationName = "getManagementAgentInstallKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/GetManagementAgentInstallKey";
@@ -1004,7 +983,6 @@ export class ManagementAgentClient {
       getManagementAgentInstallKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1060,10 +1038,7 @@ export class ManagementAgentClient {
   public async getManagementAgentInstallKeyContent(
     getManagementAgentInstallKeyContentRequest: requests.GetManagementAgentInstallKeyContentRequest
   ): Promise<responses.GetManagementAgentInstallKeyContentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagementAgentClient#getManagementAgentInstallKeyContent."
-      );
+    logger.debug("Calling operation ManagementAgentClient#getManagementAgentInstallKeyContent.");
     const operationName = "getManagementAgentInstallKeyContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/GetManagementAgentInstallKeyContent";
@@ -1087,7 +1062,6 @@ export class ManagementAgentClient {
       getManagementAgentInstallKeyContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1147,7 +1121,7 @@ export class ManagementAgentClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#getWorkRequest.");
+    logger.debug("Calling operation ManagementAgentClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequest/GetWorkRequest";
@@ -1168,7 +1142,6 @@ export class ManagementAgentClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1228,8 +1201,7 @@ export class ManagementAgentClient {
   public async listAvailabilityHistories(
     listAvailabilityHistoriesRequest: requests.ListAvailabilityHistoriesRequest
   ): Promise<responses.ListAvailabilityHistoriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#listAvailabilityHistories.");
+    logger.debug("Calling operation ManagementAgentClient#listAvailabilityHistories.");
     const operationName = "listAvailabilityHistories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/ListAvailabilityHistories";
@@ -1259,7 +1231,6 @@ export class ManagementAgentClient {
       listAvailabilityHistoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1367,7 +1338,7 @@ export class ManagementAgentClient {
   public async listDataSources(
     listDataSourcesRequest: requests.ListDataSourcesRequest
   ): Promise<responses.ListDataSourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#listDataSources.");
+    logger.debug("Calling operation ManagementAgentClient#listDataSources.");
     const operationName = "listDataSources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/ListDataSources";
@@ -1394,7 +1365,6 @@ export class ManagementAgentClient {
       listDataSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1502,8 +1472,7 @@ export class ManagementAgentClient {
   public async listManagementAgentImages(
     listManagementAgentImagesRequest: requests.ListManagementAgentImagesRequest
   ): Promise<responses.ListManagementAgentImagesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#listManagementAgentImages.");
+    logger.debug("Calling operation ManagementAgentClient#listManagementAgentImages.");
     const operationName = "listManagementAgentImages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentImage/ListManagementAgentImages";
@@ -1532,7 +1501,6 @@ export class ManagementAgentClient {
       listManagementAgentImagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1640,8 +1608,7 @@ export class ManagementAgentClient {
   public async listManagementAgentInstallKeys(
     listManagementAgentInstallKeysRequest: requests.ListManagementAgentInstallKeysRequest
   ): Promise<responses.ListManagementAgentInstallKeysResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#listManagementAgentInstallKeys.");
+    logger.debug("Calling operation ManagementAgentClient#listManagementAgentInstallKeys.");
     const operationName = "listManagementAgentInstallKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/ListManagementAgentInstallKeys";
@@ -1669,7 +1636,6 @@ export class ManagementAgentClient {
       listManagementAgentInstallKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1777,8 +1743,7 @@ export class ManagementAgentClient {
   public async listManagementAgentPlugins(
     listManagementAgentPluginsRequest: requests.ListManagementAgentPluginsRequest
   ): Promise<responses.ListManagementAgentPluginsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#listManagementAgentPlugins.");
+    logger.debug("Calling operation ManagementAgentClient#listManagementAgentPlugins.");
     const operationName = "listManagementAgentPlugins";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentPlugin/ListManagementAgentPlugins";
@@ -1807,7 +1772,6 @@ export class ManagementAgentClient {
       listManagementAgentPluginsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1917,8 +1881,7 @@ export class ManagementAgentClient {
   public async listManagementAgents(
     listManagementAgentsRequest: requests.ListManagementAgentsRequest
   ): Promise<responses.ListManagementAgentsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#listManagementAgents.");
+    logger.debug("Calling operation ManagementAgentClient#listManagementAgents.");
     const operationName = "listManagementAgents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/ListManagementAgents";
@@ -1957,7 +1920,6 @@ export class ManagementAgentClient {
       listManagementAgentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2065,8 +2027,7 @@ export class ManagementAgentClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#listWorkRequestErrors.");
+    logger.debug("Calling operation ManagementAgentClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequestError/ListWorkRequestErrors";
@@ -2092,7 +2053,6 @@ export class ManagementAgentClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2200,8 +2160,7 @@ export class ManagementAgentClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#listWorkRequestLogs.");
+    logger.debug("Calling operation ManagementAgentClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -2227,7 +2186,6 @@ export class ManagementAgentClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2335,7 +2293,7 @@ export class ManagementAgentClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#listWorkRequests.");
+    logger.debug("Calling operation ManagementAgentClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequest/ListWorkRequests";
@@ -2364,7 +2322,6 @@ export class ManagementAgentClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2473,8 +2430,7 @@ export class ManagementAgentClient {
   public async setAutoUpgradableConfig(
     setAutoUpgradableConfigRequest: requests.SetAutoUpgradableConfigRequest
   ): Promise<responses.SetAutoUpgradableConfigResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#setAutoUpgradableConfig.");
+    logger.debug("Calling operation ManagementAgentClient#setAutoUpgradableConfig.");
     const operationName = "setAutoUpgradableConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/SetAutoUpgradableConfig";
@@ -2494,7 +2450,6 @@ export class ManagementAgentClient {
       setAutoUpgradableConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2551,8 +2506,7 @@ export class ManagementAgentClient {
   public async summarizeManagementAgentCounts(
     summarizeManagementAgentCountsRequest: requests.SummarizeManagementAgentCountsRequest
   ): Promise<responses.SummarizeManagementAgentCountsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#summarizeManagementAgentCounts.");
+    logger.debug("Calling operation ManagementAgentClient#summarizeManagementAgentCounts.");
     const operationName = "summarizeManagementAgentCounts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/SummarizeManagementAgentCounts";
@@ -2578,7 +2532,6 @@ export class ManagementAgentClient {
       summarizeManagementAgentCountsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2635,10 +2588,7 @@ export class ManagementAgentClient {
   public async summarizeManagementAgentPluginCounts(
     summarizeManagementAgentPluginCountsRequest: requests.SummarizeManagementAgentPluginCountsRequest
   ): Promise<responses.SummarizeManagementAgentPluginCountsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagementAgentClient#summarizeManagementAgentPluginCounts."
-      );
+    logger.debug("Calling operation ManagementAgentClient#summarizeManagementAgentPluginCounts.");
     const operationName = "summarizeManagementAgentPluginCounts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/SummarizeManagementAgentPluginCounts";
@@ -2662,7 +2612,6 @@ export class ManagementAgentClient {
       summarizeManagementAgentPluginCountsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2718,7 +2667,7 @@ export class ManagementAgentClient {
   public async updateDataSource(
     updateDataSourceRequest: requests.UpdateDataSourceRequest
   ): Promise<responses.UpdateDataSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#updateDataSource.");
+    logger.debug("Calling operation ManagementAgentClient#updateDataSource.");
     const operationName = "updateDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/UpdateDataSource";
@@ -2742,7 +2691,6 @@ export class ManagementAgentClient {
       updateDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2799,8 +2747,7 @@ export class ManagementAgentClient {
   public async updateManagementAgent(
     updateManagementAgentRequest: requests.UpdateManagementAgentRequest
   ): Promise<responses.UpdateManagementAgentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#updateManagementAgent.");
+    logger.debug("Calling operation ManagementAgentClient#updateManagementAgent.");
     const operationName = "updateManagementAgent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/UpdateManagementAgent";
@@ -2823,7 +2770,6 @@ export class ManagementAgentClient {
       updateManagementAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2884,8 +2830,7 @@ export class ManagementAgentClient {
   public async updateManagementAgentInstallKey(
     updateManagementAgentInstallKeyRequest: requests.UpdateManagementAgentInstallKeyRequest
   ): Promise<responses.UpdateManagementAgentInstallKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementAgentClient#updateManagementAgentInstallKey.");
+    logger.debug("Calling operation ManagementAgentClient#updateManagementAgentInstallKey.");
     const operationName = "updateManagementAgentInstallKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/UpdateManagementAgentInstallKey";
@@ -2909,7 +2854,6 @@ export class ManagementAgentClient {
       updateManagementAgentInstallKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

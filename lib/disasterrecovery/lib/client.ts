@@ -24,7 +24,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -121,11 +122,7 @@ export class DisasterRecoveryClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220125";
-    if (this.logger) this.logger.info(`DisasterRecoveryClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DisasterRecoveryClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -135,10 +132,9 @@ export class DisasterRecoveryClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DisasterRecoveryClient.serviceEndpointTemplate,
@@ -232,8 +228,7 @@ export class DisasterRecoveryClient {
   public async associateDrProtectionGroup(
     associateDrProtectionGroupRequest: requests.AssociateDrProtectionGroupRequest
   ): Promise<responses.AssociateDrProtectionGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#associateDrProtectionGroup.");
+    logger.debug("Calling operation DisasterRecoveryClient#associateDrProtectionGroup.");
     const operationName = "associateDrProtectionGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -255,7 +250,6 @@ export class DisasterRecoveryClient {
       associateDrProtectionGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -311,8 +305,7 @@ export class DisasterRecoveryClient {
   public async cancelDrPlanExecution(
     cancelDrPlanExecutionRequest: requests.CancelDrPlanExecutionRequest
   ): Promise<responses.CancelDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#cancelDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#cancelDrPlanExecution.");
     const operationName = "cancelDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {
@@ -334,7 +327,6 @@ export class DisasterRecoveryClient {
       cancelDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -390,8 +382,7 @@ export class DisasterRecoveryClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#cancelWorkRequest.");
+    logger.debug("Calling operation DisasterRecoveryClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -412,7 +403,6 @@ export class DisasterRecoveryClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -458,10 +448,7 @@ export class DisasterRecoveryClient {
   public async changeDrProtectionGroupCompartment(
     changeDrProtectionGroupCompartmentRequest: requests.ChangeDrProtectionGroupCompartmentRequest
   ): Promise<responses.ChangeDrProtectionGroupCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DisasterRecoveryClient#changeDrProtectionGroupCompartment."
-      );
+    logger.debug("Calling operation DisasterRecoveryClient#changeDrProtectionGroupCompartment.");
     const operationName = "changeDrProtectionGroupCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -483,7 +470,6 @@ export class DisasterRecoveryClient {
       changeDrProtectionGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -539,7 +525,7 @@ export class DisasterRecoveryClient {
   public async createDrPlan(
     createDrPlanRequest: requests.CreateDrPlanRequest
   ): Promise<responses.CreateDrPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation DisasterRecoveryClient#createDrPlan.");
+    logger.debug("Calling operation DisasterRecoveryClient#createDrPlan.");
     const operationName = "createDrPlan";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -558,7 +544,6 @@ export class DisasterRecoveryClient {
       createDrPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -628,8 +613,7 @@ export class DisasterRecoveryClient {
   public async createDrPlanExecution(
     createDrPlanExecutionRequest: requests.CreateDrPlanExecutionRequest
   ): Promise<responses.CreateDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#createDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#createDrPlanExecution.");
     const operationName = "createDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -648,7 +632,6 @@ export class DisasterRecoveryClient {
       createDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -718,8 +701,7 @@ export class DisasterRecoveryClient {
   public async createDrProtectionGroup(
     createDrProtectionGroupRequest: requests.CreateDrProtectionGroupRequest
   ): Promise<responses.CreateDrProtectionGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#createDrProtectionGroup.");
+    logger.debug("Calling operation DisasterRecoveryClient#createDrProtectionGroup.");
     const operationName = "createDrProtectionGroup";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -738,7 +720,6 @@ export class DisasterRecoveryClient {
       createDrProtectionGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -808,7 +789,7 @@ export class DisasterRecoveryClient {
   public async deleteDrPlan(
     deleteDrPlanRequest: requests.DeleteDrPlanRequest
   ): Promise<responses.DeleteDrPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation DisasterRecoveryClient#deleteDrPlan.");
+    logger.debug("Calling operation DisasterRecoveryClient#deleteDrPlan.");
     const operationName = "deleteDrPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -829,7 +810,6 @@ export class DisasterRecoveryClient {
       deleteDrPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -875,8 +855,7 @@ export class DisasterRecoveryClient {
   public async deleteDrPlanExecution(
     deleteDrPlanExecutionRequest: requests.DeleteDrPlanExecutionRequest
   ): Promise<responses.DeleteDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#deleteDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#deleteDrPlanExecution.");
     const operationName = "deleteDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {
@@ -897,7 +876,6 @@ export class DisasterRecoveryClient {
       deleteDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -948,8 +926,7 @@ export class DisasterRecoveryClient {
   public async deleteDrProtectionGroup(
     deleteDrProtectionGroupRequest: requests.DeleteDrProtectionGroupRequest
   ): Promise<responses.DeleteDrProtectionGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#deleteDrProtectionGroup.");
+    logger.debug("Calling operation DisasterRecoveryClient#deleteDrProtectionGroup.");
     const operationName = "deleteDrProtectionGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -970,7 +947,6 @@ export class DisasterRecoveryClient {
       deleteDrProtectionGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1023,8 +999,7 @@ export class DisasterRecoveryClient {
   public async disassociateDrProtectionGroup(
     disassociateDrProtectionGroupRequest: requests.DisassociateDrProtectionGroupRequest
   ): Promise<responses.DisassociateDrProtectionGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#disassociateDrProtectionGroup.");
+    logger.debug("Calling operation DisasterRecoveryClient#disassociateDrProtectionGroup.");
     const operationName = "disassociateDrProtectionGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1046,7 +1021,6 @@ export class DisasterRecoveryClient {
       disassociateDrProtectionGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1102,7 +1076,7 @@ export class DisasterRecoveryClient {
   public async getDrPlan(
     getDrPlanRequest: requests.GetDrPlanRequest
   ): Promise<responses.GetDrPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation DisasterRecoveryClient#getDrPlan.");
+    logger.debug("Calling operation DisasterRecoveryClient#getDrPlan.");
     const operationName = "getDrPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1122,7 +1096,6 @@ export class DisasterRecoveryClient {
       getDrPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1177,8 +1150,7 @@ export class DisasterRecoveryClient {
   public async getDrPlanExecution(
     getDrPlanExecutionRequest: requests.GetDrPlanExecutionRequest
   ): Promise<responses.GetDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#getDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#getDrPlanExecution.");
     const operationName = "getDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1198,7 +1170,6 @@ export class DisasterRecoveryClient {
       getDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1253,8 +1224,7 @@ export class DisasterRecoveryClient {
   public async getDrProtectionGroup(
     getDrProtectionGroupRequest: requests.GetDrProtectionGroupRequest
   ): Promise<responses.GetDrProtectionGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#getDrProtectionGroup.");
+    logger.debug("Calling operation DisasterRecoveryClient#getDrProtectionGroup.");
     const operationName = "getDrProtectionGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1274,7 +1244,6 @@ export class DisasterRecoveryClient {
       getDrProtectionGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1329,7 +1298,7 @@ export class DisasterRecoveryClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation DisasterRecoveryClient#getWorkRequest.");
+    logger.debug("Calling operation DisasterRecoveryClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1349,7 +1318,6 @@ export class DisasterRecoveryClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1409,8 +1377,7 @@ export class DisasterRecoveryClient {
   public async ignoreDrPlanExecution(
     ignoreDrPlanExecutionRequest: requests.IgnoreDrPlanExecutionRequest
   ): Promise<responses.IgnoreDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#ignoreDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#ignoreDrPlanExecution.");
     const operationName = "ignoreDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1432,7 +1399,6 @@ export class DisasterRecoveryClient {
       ignoreDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1488,8 +1454,7 @@ export class DisasterRecoveryClient {
   public async listDrPlanExecutions(
     listDrPlanExecutionsRequest: requests.ListDrPlanExecutionsRequest
   ): Promise<responses.ListDrPlanExecutionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#listDrPlanExecutions.");
+    logger.debug("Calling operation DisasterRecoveryClient#listDrPlanExecutions.");
     const operationName = "listDrPlanExecutions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1517,7 +1482,6 @@ export class DisasterRecoveryClient {
       listDrPlanExecutionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1572,7 +1536,7 @@ export class DisasterRecoveryClient {
   public async listDrPlans(
     listDrPlansRequest: requests.ListDrPlansRequest
   ): Promise<responses.ListDrPlansResponse> {
-    if (this.logger) this.logger.debug("Calling operation DisasterRecoveryClient#listDrPlans.");
+    logger.debug("Calling operation DisasterRecoveryClient#listDrPlans.");
     const operationName = "listDrPlans";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1600,7 +1564,6 @@ export class DisasterRecoveryClient {
       listDrPlansRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1655,8 +1618,7 @@ export class DisasterRecoveryClient {
   public async listDrProtectionGroups(
     listDrProtectionGroupsRequest: requests.ListDrProtectionGroupsRequest
   ): Promise<responses.ListDrProtectionGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#listDrProtectionGroups.");
+    logger.debug("Calling operation DisasterRecoveryClient#listDrProtectionGroups.");
     const operationName = "listDrProtectionGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1685,7 +1647,6 @@ export class DisasterRecoveryClient {
       listDrProtectionGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1741,8 +1702,7 @@ export class DisasterRecoveryClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#listWorkRequestErrors.");
+    logger.debug("Calling operation DisasterRecoveryClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1767,7 +1727,6 @@ export class DisasterRecoveryClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1823,8 +1782,7 @@ export class DisasterRecoveryClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#listWorkRequestLogs.");
+    logger.debug("Calling operation DisasterRecoveryClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1849,7 +1807,6 @@ export class DisasterRecoveryClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1905,8 +1862,7 @@ export class DisasterRecoveryClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#listWorkRequests.");
+    logger.debug("Calling operation DisasterRecoveryClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1933,7 +1889,6 @@ export class DisasterRecoveryClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1988,8 +1943,7 @@ export class DisasterRecoveryClient {
   public async pauseDrPlanExecution(
     pauseDrPlanExecutionRequest: requests.PauseDrPlanExecutionRequest
   ): Promise<responses.PauseDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#pauseDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#pauseDrPlanExecution.");
     const operationName = "pauseDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2011,7 +1965,6 @@ export class DisasterRecoveryClient {
       pauseDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2067,8 +2020,7 @@ export class DisasterRecoveryClient {
   public async resumeDrPlanExecution(
     resumeDrPlanExecutionRequest: requests.ResumeDrPlanExecutionRequest
   ): Promise<responses.ResumeDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#resumeDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#resumeDrPlanExecution.");
     const operationName = "resumeDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2090,7 +2042,6 @@ export class DisasterRecoveryClient {
       resumeDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2146,8 +2097,7 @@ export class DisasterRecoveryClient {
   public async retryDrPlanExecution(
     retryDrPlanExecutionRequest: requests.RetryDrPlanExecutionRequest
   ): Promise<responses.RetryDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#retryDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#retryDrPlanExecution.");
     const operationName = "retryDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2169,7 +2119,6 @@ export class DisasterRecoveryClient {
       retryDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2225,7 +2174,7 @@ export class DisasterRecoveryClient {
   public async updateDrPlan(
     updateDrPlanRequest: requests.UpdateDrPlanRequest
   ): Promise<responses.UpdateDrPlanResponse> {
-    if (this.logger) this.logger.debug("Calling operation DisasterRecoveryClient#updateDrPlan.");
+    logger.debug("Calling operation DisasterRecoveryClient#updateDrPlan.");
     const operationName = "updateDrPlan";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2246,7 +2195,6 @@ export class DisasterRecoveryClient {
       updateDrPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2302,8 +2250,7 @@ export class DisasterRecoveryClient {
   public async updateDrPlanExecution(
     updateDrPlanExecutionRequest: requests.UpdateDrPlanExecutionRequest
   ): Promise<responses.UpdateDrPlanExecutionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#updateDrPlanExecution.");
+    logger.debug("Calling operation DisasterRecoveryClient#updateDrPlanExecution.");
     const operationName = "updateDrPlanExecution";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2324,7 +2271,6 @@ export class DisasterRecoveryClient {
       updateDrPlanExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2380,8 +2326,7 @@ export class DisasterRecoveryClient {
   public async updateDrProtectionGroup(
     updateDrProtectionGroupRequest: requests.UpdateDrProtectionGroupRequest
   ): Promise<responses.UpdateDrProtectionGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#updateDrProtectionGroup.");
+    logger.debug("Calling operation DisasterRecoveryClient#updateDrProtectionGroup.");
     const operationName = "updateDrProtectionGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2402,7 +2347,6 @@ export class DisasterRecoveryClient {
       updateDrProtectionGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2458,8 +2402,7 @@ export class DisasterRecoveryClient {
   public async updateDrProtectionGroupRole(
     updateDrProtectionGroupRoleRequest: requests.UpdateDrProtectionGroupRoleRequest
   ): Promise<responses.UpdateDrProtectionGroupRoleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DisasterRecoveryClient#updateDrProtectionGroupRole.");
+    logger.debug("Calling operation DisasterRecoveryClient#updateDrProtectionGroupRole.");
     const operationName = "updateDrProtectionGroupRole";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2481,7 +2424,6 @@ export class DisasterRecoveryClient {
       updateDrProtectionGroupRoleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

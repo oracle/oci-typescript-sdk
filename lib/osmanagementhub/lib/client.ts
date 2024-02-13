@@ -27,7 +27,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -123,12 +124,7 @@ export class LifecycleEnvironmentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger)
-      this.logger.info(`LifecycleEnvironmentClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LifecycleEnvironmentClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -138,10 +134,9 @@ export class LifecycleEnvironmentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LifecycleEnvironmentClient.serviceEndpointTemplate,
@@ -235,10 +230,9 @@ export class LifecycleEnvironmentClient {
   public async attachManagedInstancesToLifecycleStage(
     attachManagedInstancesToLifecycleStageRequest: requests.AttachManagedInstancesToLifecycleStageRequest
   ): Promise<responses.AttachManagedInstancesToLifecycleStageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LifecycleEnvironmentClient#attachManagedInstancesToLifecycleStage."
-      );
+    logger.debug(
+      "Calling operation LifecycleEnvironmentClient#attachManagedInstancesToLifecycleStage."
+    );
     const operationName = "attachManagedInstancesToLifecycleStage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -260,7 +254,6 @@ export class LifecycleEnvironmentClient {
       attachManagedInstancesToLifecycleStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -317,8 +310,7 @@ export class LifecycleEnvironmentClient {
   public async createLifecycleEnvironment(
     createLifecycleEnvironmentRequest: requests.CreateLifecycleEnvironmentRequest
   ): Promise<responses.CreateLifecycleEnvironmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LifecycleEnvironmentClient#createLifecycleEnvironment.");
+    logger.debug("Calling operation LifecycleEnvironmentClient#createLifecycleEnvironment.");
     const operationName = "createLifecycleEnvironment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -337,7 +329,6 @@ export class LifecycleEnvironmentClient {
       createLifecycleEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -397,8 +388,7 @@ export class LifecycleEnvironmentClient {
   public async deleteLifecycleEnvironment(
     deleteLifecycleEnvironmentRequest: requests.DeleteLifecycleEnvironmentRequest
   ): Promise<responses.DeleteLifecycleEnvironmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LifecycleEnvironmentClient#deleteLifecycleEnvironment.");
+    logger.debug("Calling operation LifecycleEnvironmentClient#deleteLifecycleEnvironment.");
     const operationName = "deleteLifecycleEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -419,7 +409,6 @@ export class LifecycleEnvironmentClient {
       deleteLifecycleEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -466,10 +455,9 @@ export class LifecycleEnvironmentClient {
   public async detachManagedInstancesFromLifecycleStage(
     detachManagedInstancesFromLifecycleStageRequest: requests.DetachManagedInstancesFromLifecycleStageRequest
   ): Promise<responses.DetachManagedInstancesFromLifecycleStageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LifecycleEnvironmentClient#detachManagedInstancesFromLifecycleStage."
-      );
+    logger.debug(
+      "Calling operation LifecycleEnvironmentClient#detachManagedInstancesFromLifecycleStage."
+    );
     const operationName = "detachManagedInstancesFromLifecycleStage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -491,7 +479,6 @@ export class LifecycleEnvironmentClient {
       detachManagedInstancesFromLifecycleStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -547,8 +534,7 @@ export class LifecycleEnvironmentClient {
   public async getLifecycleEnvironment(
     getLifecycleEnvironmentRequest: requests.GetLifecycleEnvironmentRequest
   ): Promise<responses.GetLifecycleEnvironmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LifecycleEnvironmentClient#getLifecycleEnvironment.");
+    logger.debug("Calling operation LifecycleEnvironmentClient#getLifecycleEnvironment.");
     const operationName = "getLifecycleEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -568,7 +554,6 @@ export class LifecycleEnvironmentClient {
       getLifecycleEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -623,8 +608,7 @@ export class LifecycleEnvironmentClient {
   public async getLifecycleStage(
     getLifecycleStageRequest: requests.GetLifecycleStageRequest
   ): Promise<responses.GetLifecycleStageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LifecycleEnvironmentClient#getLifecycleStage.");
+    logger.debug("Calling operation LifecycleEnvironmentClient#getLifecycleStage.");
     const operationName = "getLifecycleStage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -644,7 +628,6 @@ export class LifecycleEnvironmentClient {
       getLifecycleStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -701,8 +684,7 @@ export class LifecycleEnvironmentClient {
   public async listLifecycleEnvironments(
     listLifecycleEnvironmentsRequest: requests.ListLifecycleEnvironmentsRequest
   ): Promise<responses.ListLifecycleEnvironmentsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LifecycleEnvironmentClient#listLifecycleEnvironments.");
+    logger.debug("Calling operation LifecycleEnvironmentClient#listLifecycleEnvironments.");
     const operationName = "listLifecycleEnvironments";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -732,7 +714,6 @@ export class LifecycleEnvironmentClient {
       listLifecycleEnvironmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -789,10 +770,9 @@ export class LifecycleEnvironmentClient {
   public async listLifecycleStageInstalledPackages(
     listLifecycleStageInstalledPackagesRequest: requests.ListLifecycleStageInstalledPackagesRequest
   ): Promise<responses.ListLifecycleStageInstalledPackagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LifecycleEnvironmentClient#listLifecycleStageInstalledPackages."
-      );
+    logger.debug(
+      "Calling operation LifecycleEnvironmentClient#listLifecycleStageInstalledPackages."
+    );
     const operationName = "listLifecycleStageInstalledPackages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -821,7 +801,6 @@ export class LifecycleEnvironmentClient {
       listLifecycleStageInstalledPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -878,8 +857,7 @@ export class LifecycleEnvironmentClient {
   public async listLifecycleStages(
     listLifecycleStagesRequest: requests.ListLifecycleStagesRequest
   ): Promise<responses.ListLifecycleStagesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LifecycleEnvironmentClient#listLifecycleStages.");
+    logger.debug("Calling operation LifecycleEnvironmentClient#listLifecycleStages.");
     const operationName = "listLifecycleStages";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -910,7 +888,6 @@ export class LifecycleEnvironmentClient {
       listLifecycleStagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -967,10 +944,9 @@ export class LifecycleEnvironmentClient {
   public async promoteSoftwareSourceToLifecycleStage(
     promoteSoftwareSourceToLifecycleStageRequest: requests.PromoteSoftwareSourceToLifecycleStageRequest
   ): Promise<responses.PromoteSoftwareSourceToLifecycleStageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation LifecycleEnvironmentClient#promoteSoftwareSourceToLifecycleStage."
-      );
+    logger.debug(
+      "Calling operation LifecycleEnvironmentClient#promoteSoftwareSourceToLifecycleStage."
+    );
     const operationName = "promoteSoftwareSourceToLifecycleStage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -994,7 +970,6 @@ export class LifecycleEnvironmentClient {
       promoteSoftwareSourceToLifecycleStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1050,8 +1025,7 @@ export class LifecycleEnvironmentClient {
   public async updateLifecycleEnvironment(
     updateLifecycleEnvironmentRequest: requests.UpdateLifecycleEnvironmentRequest
   ): Promise<responses.UpdateLifecycleEnvironmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LifecycleEnvironmentClient#updateLifecycleEnvironment.");
+    logger.debug("Calling operation LifecycleEnvironmentClient#updateLifecycleEnvironment.");
     const operationName = "updateLifecycleEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1072,7 +1046,6 @@ export class LifecycleEnvironmentClient {
       updateLifecycleEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1208,11 +1181,7 @@ export class ManagedInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger) this.logger.info(`ManagedInstanceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ManagedInstanceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1222,10 +1191,9 @@ export class ManagedInstanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ManagedInstanceClient.serviceEndpointTemplate,
@@ -1296,10 +1264,7 @@ export class ManagedInstanceClient {
   public async attachSoftwareSourcesToManagedInstance(
     attachSoftwareSourcesToManagedInstanceRequest: requests.AttachSoftwareSourcesToManagedInstanceRequest
   ): Promise<responses.AttachSoftwareSourcesToManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#attachSoftwareSourcesToManagedInstance."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#attachSoftwareSourcesToManagedInstance.");
     const operationName = "attachSoftwareSourcesToManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1321,7 +1286,6 @@ export class ManagedInstanceClient {
       attachSoftwareSourcesToManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1379,10 +1343,9 @@ export class ManagedInstanceClient {
   public async detachSoftwareSourcesFromManagedInstance(
     detachSoftwareSourcesFromManagedInstanceRequest: requests.DetachSoftwareSourcesFromManagedInstanceRequest
   ): Promise<responses.DetachSoftwareSourcesFromManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#detachSoftwareSourcesFromManagedInstance."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceClient#detachSoftwareSourcesFromManagedInstance."
+    );
     const operationName = "detachSoftwareSourcesFromManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1404,7 +1367,6 @@ export class ManagedInstanceClient {
       detachSoftwareSourcesFromManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1464,10 +1426,7 @@ export class ManagedInstanceClient {
   public async disableModuleStreamOnManagedInstance(
     disableModuleStreamOnManagedInstanceRequest: requests.DisableModuleStreamOnManagedInstanceRequest
   ): Promise<responses.DisableModuleStreamOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#disableModuleStreamOnManagedInstance."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#disableModuleStreamOnManagedInstance.");
     const operationName = "disableModuleStreamOnManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1489,7 +1448,6 @@ export class ManagedInstanceClient {
       disableModuleStreamOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1550,10 +1508,7 @@ export class ManagedInstanceClient {
   public async enableModuleStreamOnManagedInstance(
     enableModuleStreamOnManagedInstanceRequest: requests.EnableModuleStreamOnManagedInstanceRequest
   ): Promise<responses.EnableModuleStreamOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#enableModuleStreamOnManagedInstance."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#enableModuleStreamOnManagedInstance.");
     const operationName = "enableModuleStreamOnManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1575,7 +1530,6 @@ export class ManagedInstanceClient {
       enableModuleStreamOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1631,8 +1585,7 @@ export class ManagedInstanceClient {
   public async getManagedInstance(
     getManagedInstanceRequest: requests.GetManagedInstanceRequest
   ): Promise<responses.GetManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceClient#getManagedInstance.");
+    logger.debug("Calling operation ManagedInstanceClient#getManagedInstance.");
     const operationName = "getManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1652,7 +1605,6 @@ export class ManagedInstanceClient {
       getManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1715,10 +1667,9 @@ export class ManagedInstanceClient {
   public async installModuleStreamProfileOnManagedInstance(
     installModuleStreamProfileOnManagedInstanceRequest: requests.InstallModuleStreamProfileOnManagedInstanceRequest
   ): Promise<responses.InstallModuleStreamProfileOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#installModuleStreamProfileOnManagedInstance."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceClient#installModuleStreamProfileOnManagedInstance."
+    );
     const operationName = "installModuleStreamProfileOnManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1740,7 +1691,6 @@ export class ManagedInstanceClient {
       installModuleStreamProfileOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1797,10 +1747,7 @@ export class ManagedInstanceClient {
   public async installPackagesOnManagedInstance(
     installPackagesOnManagedInstanceRequest: requests.InstallPackagesOnManagedInstanceRequest
   ): Promise<responses.InstallPackagesOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#installPackagesOnManagedInstance."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#installPackagesOnManagedInstance.");
     const operationName = "installPackagesOnManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1822,7 +1769,6 @@ export class ManagedInstanceClient {
       installPackagesOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1879,10 +1825,7 @@ export class ManagedInstanceClient {
   public async listManagedInstanceAvailablePackages(
     listManagedInstanceAvailablePackagesRequest: requests.ListManagedInstanceAvailablePackagesRequest
   ): Promise<responses.ListManagedInstanceAvailablePackagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#listManagedInstanceAvailablePackages."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#listManagedInstanceAvailablePackages.");
     const operationName = "listManagedInstanceAvailablePackages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1910,7 +1853,6 @@ export class ManagedInstanceClient {
       listManagedInstanceAvailablePackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1966,10 +1908,9 @@ export class ManagedInstanceClient {
   public async listManagedInstanceAvailableSoftwareSources(
     listManagedInstanceAvailableSoftwareSourcesRequest: requests.ListManagedInstanceAvailableSoftwareSourcesRequest
   ): Promise<responses.ListManagedInstanceAvailableSoftwareSourcesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#listManagedInstanceAvailableSoftwareSources."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceClient#listManagedInstanceAvailableSoftwareSources."
+    );
     const operationName = "listManagedInstanceAvailableSoftwareSources";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1997,7 +1938,6 @@ export class ManagedInstanceClient {
       listManagedInstanceAvailableSoftwareSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2053,8 +1993,7 @@ export class ManagedInstanceClient {
   public async listManagedInstanceErrata(
     listManagedInstanceErrataRequest: requests.ListManagedInstanceErrataRequest
   ): Promise<responses.ListManagedInstanceErrataResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceClient#listManagedInstanceErrata.");
+    logger.debug("Calling operation ManagedInstanceClient#listManagedInstanceErrata.");
     const operationName = "listManagedInstanceErrata";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2083,7 +2022,6 @@ export class ManagedInstanceClient {
       listManagedInstanceErrataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2139,10 +2077,7 @@ export class ManagedInstanceClient {
   public async listManagedInstanceInstalledPackages(
     listManagedInstanceInstalledPackagesRequest: requests.ListManagedInstanceInstalledPackagesRequest
   ): Promise<responses.ListManagedInstanceInstalledPackagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#listManagedInstanceInstalledPackages."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#listManagedInstanceInstalledPackages.");
     const operationName = "listManagedInstanceInstalledPackages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2172,7 +2107,6 @@ export class ManagedInstanceClient {
       listManagedInstanceInstalledPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2239,8 +2173,7 @@ The 'nameContains' attribute filters against the name of a module
   public async listManagedInstanceModules(
     listManagedInstanceModulesRequest: requests.ListManagedInstanceModulesRequest
   ): Promise<responses.ListManagedInstanceModulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceClient#listManagedInstanceModules.");
+    logger.debug("Calling operation ManagedInstanceClient#listManagedInstanceModules.");
     const operationName = "listManagedInstanceModules";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2268,7 +2201,6 @@ The 'nameContains' attribute filters against the name of a module
       listManagedInstanceModulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2329,10 +2261,7 @@ The 'nameContains' attribute filters against the name of a module
   public async listManagedInstanceUpdatablePackages(
     listManagedInstanceUpdatablePackagesRequest: requests.ListManagedInstanceUpdatablePackagesRequest
   ): Promise<responses.ListManagedInstanceUpdatablePackagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#listManagedInstanceUpdatablePackages."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#listManagedInstanceUpdatablePackages.");
     const operationName = "listManagedInstanceUpdatablePackages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2362,7 +2291,6 @@ The 'nameContains' attribute filters against the name of a module
       listManagedInstanceUpdatablePackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2417,8 +2345,7 @@ The 'nameContains' attribute filters against the name of a module
   public async listManagedInstances(
     listManagedInstancesRequest: requests.ListManagedInstancesRequest
   ): Promise<responses.ListManagedInstancesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceClient#listManagedInstances.");
+    logger.debug("Calling operation ManagedInstanceClient#listManagedInstances.");
     const operationName = "listManagedInstances";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2457,7 +2384,6 @@ The 'nameContains' attribute filters against the name of a module
       listManagedInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2572,10 +2498,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async manageModuleStreamsOnManagedInstance(
     manageModuleStreamsOnManagedInstanceRequest: requests.ManageModuleStreamsOnManagedInstanceRequest
   ): Promise<responses.ManageModuleStreamsOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#manageModuleStreamsOnManagedInstance."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#manageModuleStreamsOnManagedInstance.");
     const operationName = "manageModuleStreamsOnManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2597,7 +2520,6 @@ The WorkRequest resulting from a dry run behaves differently than
       manageModuleStreamsOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2654,10 +2576,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async refreshSoftwareOnManagedInstance(
     refreshSoftwareOnManagedInstanceRequest: requests.RefreshSoftwareOnManagedInstanceRequest
   ): Promise<responses.RefreshSoftwareOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#refreshSoftwareOnManagedInstance."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#refreshSoftwareOnManagedInstance.");
     const operationName = "refreshSoftwareOnManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2679,7 +2598,6 @@ The WorkRequest resulting from a dry run behaves differently than
       refreshSoftwareOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2733,10 +2651,9 @@ The WorkRequest resulting from a dry run behaves differently than
   public async removeModuleStreamProfileFromManagedInstance(
     removeModuleStreamProfileFromManagedInstanceRequest: requests.RemoveModuleStreamProfileFromManagedInstanceRequest
   ): Promise<responses.RemoveModuleStreamProfileFromManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#removeModuleStreamProfileFromManagedInstance."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceClient#removeModuleStreamProfileFromManagedInstance."
+    );
     const operationName = "removeModuleStreamProfileFromManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2758,7 +2675,6 @@ The WorkRequest resulting from a dry run behaves differently than
       removeModuleStreamProfileFromManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2815,10 +2731,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async removePackagesFromManagedInstance(
     removePackagesFromManagedInstanceRequest: requests.RemovePackagesFromManagedInstanceRequest
   ): Promise<responses.RemovePackagesFromManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#removePackagesFromManagedInstance."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#removePackagesFromManagedInstance.");
     const operationName = "removePackagesFromManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2840,7 +2753,6 @@ The WorkRequest resulting from a dry run behaves differently than
       removePackagesFromManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2900,10 +2812,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async switchModuleStreamOnManagedInstance(
     switchModuleStreamOnManagedInstanceRequest: requests.SwitchModuleStreamOnManagedInstanceRequest
   ): Promise<responses.SwitchModuleStreamOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#switchModuleStreamOnManagedInstance."
-      );
+    logger.debug("Calling operation ManagedInstanceClient#switchModuleStreamOnManagedInstance.");
     const operationName = "switchModuleStreamOnManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2925,7 +2834,6 @@ The WorkRequest resulting from a dry run behaves differently than
       switchModuleStreamOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2982,10 +2890,9 @@ The WorkRequest resulting from a dry run behaves differently than
   public async updateAllPackagesOnManagedInstancesInCompartment(
     updateAllPackagesOnManagedInstancesInCompartmentRequest: requests.UpdateAllPackagesOnManagedInstancesInCompartmentRequest
   ): Promise<responses.UpdateAllPackagesOnManagedInstancesInCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceClient#updateAllPackagesOnManagedInstancesInCompartment."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceClient#updateAllPackagesOnManagedInstancesInCompartment."
+    );
     const operationName = "updateAllPackagesOnManagedInstancesInCompartment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3005,7 +2912,6 @@ The WorkRequest resulting from a dry run behaves differently than
       updateAllPackagesOnManagedInstancesInCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3061,8 +2967,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async updateManagedInstance(
     updateManagedInstanceRequest: requests.UpdateManagedInstanceRequest
   ): Promise<responses.UpdateManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceClient#updateManagedInstance.");
+    logger.debug("Calling operation ManagedInstanceClient#updateManagedInstance.");
     const operationName = "updateManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3083,7 +2988,6 @@ The WorkRequest resulting from a dry run behaves differently than
       updateManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3144,8 +3048,7 @@ The WorkRequest resulting from a dry run behaves differently than
   public async updatePackagesOnManagedInstance(
     updatePackagesOnManagedInstanceRequest: requests.UpdatePackagesOnManagedInstanceRequest
   ): Promise<responses.UpdatePackagesOnManagedInstanceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceClient#updatePackagesOnManagedInstance.");
+    logger.debug("Calling operation ManagedInstanceClient#updatePackagesOnManagedInstance.");
     const operationName = "updatePackagesOnManagedInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3167,7 +3070,6 @@ The WorkRequest resulting from a dry run behaves differently than
       updatePackagesOnManagedInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3300,12 +3202,7 @@ export class ManagedInstanceGroupClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger)
-      this.logger.info(`ManagedInstanceGroupClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ManagedInstanceGroupClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -3315,10 +3212,9 @@ export class ManagedInstanceGroupClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ManagedInstanceGroupClient.serviceEndpointTemplate,
@@ -3414,10 +3310,9 @@ export class ManagedInstanceGroupClient {
   public async attachManagedInstancesToManagedInstanceGroup(
     attachManagedInstancesToManagedInstanceGroupRequest: requests.AttachManagedInstancesToManagedInstanceGroupRequest
   ): Promise<responses.AttachManagedInstancesToManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#attachManagedInstancesToManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#attachManagedInstancesToManagedInstanceGroup."
+    );
     const operationName = "attachManagedInstancesToManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3440,7 +3335,6 @@ export class ManagedInstanceGroupClient {
       attachManagedInstancesToManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3497,10 +3391,9 @@ export class ManagedInstanceGroupClient {
   public async attachSoftwareSourcesToManagedInstanceGroup(
     attachSoftwareSourcesToManagedInstanceGroupRequest: requests.AttachSoftwareSourcesToManagedInstanceGroupRequest
   ): Promise<responses.AttachSoftwareSourcesToManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#attachSoftwareSourcesToManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#attachSoftwareSourcesToManagedInstanceGroup."
+    );
     const operationName = "attachSoftwareSourcesToManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3523,7 +3416,6 @@ export class ManagedInstanceGroupClient {
       attachSoftwareSourcesToManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3575,8 +3467,7 @@ export class ManagedInstanceGroupClient {
   public async createManagedInstanceGroup(
     createManagedInstanceGroupRequest: requests.CreateManagedInstanceGroupRequest
   ): Promise<responses.CreateManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceGroupClient#createManagedInstanceGroup.");
+    logger.debug("Calling operation ManagedInstanceGroupClient#createManagedInstanceGroup.");
     const operationName = "createManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3595,7 +3486,6 @@ export class ManagedInstanceGroupClient {
       createManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3655,8 +3545,7 @@ export class ManagedInstanceGroupClient {
   public async deleteManagedInstanceGroup(
     deleteManagedInstanceGroupRequest: requests.DeleteManagedInstanceGroupRequest
   ): Promise<responses.DeleteManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceGroupClient#deleteManagedInstanceGroup.");
+    logger.debug("Calling operation ManagedInstanceGroupClient#deleteManagedInstanceGroup.");
     const operationName = "deleteManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3677,7 +3566,6 @@ export class ManagedInstanceGroupClient {
       deleteManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3724,10 +3612,9 @@ export class ManagedInstanceGroupClient {
   public async detachManagedInstancesFromManagedInstanceGroup(
     detachManagedInstancesFromManagedInstanceGroupRequest: requests.DetachManagedInstancesFromManagedInstanceGroupRequest
   ): Promise<responses.DetachManagedInstancesFromManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#detachManagedInstancesFromManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#detachManagedInstancesFromManagedInstanceGroup."
+    );
     const operationName = "detachManagedInstancesFromManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3750,7 +3637,6 @@ export class ManagedInstanceGroupClient {
       detachManagedInstancesFromManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3802,10 +3688,9 @@ export class ManagedInstanceGroupClient {
   public async detachSoftwareSourcesFromManagedInstanceGroup(
     detachSoftwareSourcesFromManagedInstanceGroupRequest: requests.DetachSoftwareSourcesFromManagedInstanceGroupRequest
   ): Promise<responses.DetachSoftwareSourcesFromManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#detachSoftwareSourcesFromManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#detachSoftwareSourcesFromManagedInstanceGroup."
+    );
     const operationName = "detachSoftwareSourcesFromManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3828,7 +3713,6 @@ export class ManagedInstanceGroupClient {
       detachSoftwareSourcesFromManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3883,10 +3767,9 @@ export class ManagedInstanceGroupClient {
   public async disableModuleStreamOnManagedInstanceGroup(
     disableModuleStreamOnManagedInstanceGroupRequest: requests.DisableModuleStreamOnManagedInstanceGroupRequest
   ): Promise<responses.DisableModuleStreamOnManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#disableModuleStreamOnManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#disableModuleStreamOnManagedInstanceGroup."
+    );
     const operationName = "disableModuleStreamOnManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3909,7 +3792,6 @@ export class ManagedInstanceGroupClient {
       disableModuleStreamOnManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3970,10 +3852,9 @@ export class ManagedInstanceGroupClient {
   public async enableModuleStreamOnManagedInstanceGroup(
     enableModuleStreamOnManagedInstanceGroupRequest: requests.EnableModuleStreamOnManagedInstanceGroupRequest
   ): Promise<responses.EnableModuleStreamOnManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#enableModuleStreamOnManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#enableModuleStreamOnManagedInstanceGroup."
+    );
     const operationName = "enableModuleStreamOnManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3996,7 +3877,6 @@ export class ManagedInstanceGroupClient {
       enableModuleStreamOnManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4052,8 +3932,7 @@ export class ManagedInstanceGroupClient {
   public async getManagedInstanceGroup(
     getManagedInstanceGroupRequest: requests.GetManagedInstanceGroupRequest
   ): Promise<responses.GetManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceGroupClient#getManagedInstanceGroup.");
+    logger.debug("Calling operation ManagedInstanceGroupClient#getManagedInstanceGroup.");
     const operationName = "getManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4073,7 +3952,6 @@ export class ManagedInstanceGroupClient {
       getManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4131,10 +4009,9 @@ export class ManagedInstanceGroupClient {
   public async installModuleStreamProfileOnManagedInstanceGroup(
     installModuleStreamProfileOnManagedInstanceGroupRequest: requests.InstallModuleStreamProfileOnManagedInstanceGroupRequest
   ): Promise<responses.InstallModuleStreamProfileOnManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#installModuleStreamProfileOnManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#installModuleStreamProfileOnManagedInstanceGroup."
+    );
     const operationName = "installModuleStreamProfileOnManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4157,7 +4034,6 @@ export class ManagedInstanceGroupClient {
       installModuleStreamProfileOnManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4215,10 +4091,9 @@ export class ManagedInstanceGroupClient {
   public async installPackagesOnManagedInstanceGroup(
     installPackagesOnManagedInstanceGroupRequest: requests.InstallPackagesOnManagedInstanceGroupRequest
   ): Promise<responses.InstallPackagesOnManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#installPackagesOnManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#installPackagesOnManagedInstanceGroup."
+    );
     const operationName = "installPackagesOnManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4241,7 +4116,6 @@ export class ManagedInstanceGroupClient {
       installPackagesOnManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4299,10 +4173,9 @@ export class ManagedInstanceGroupClient {
   public async listManagedInstanceGroupAvailableModules(
     listManagedInstanceGroupAvailableModulesRequest: requests.ListManagedInstanceGroupAvailableModulesRequest
   ): Promise<responses.ListManagedInstanceGroupAvailableModulesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupAvailableModules."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupAvailableModules."
+    );
     const operationName = "listManagedInstanceGroupAvailableModules";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4331,7 +4204,6 @@ export class ManagedInstanceGroupClient {
       listManagedInstanceGroupAvailableModulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4388,10 +4260,9 @@ export class ManagedInstanceGroupClient {
   public async listManagedInstanceGroupAvailablePackages(
     listManagedInstanceGroupAvailablePackagesRequest: requests.ListManagedInstanceGroupAvailablePackagesRequest
   ): Promise<responses.ListManagedInstanceGroupAvailablePackagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupAvailablePackages."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupAvailablePackages."
+    );
     const operationName = "listManagedInstanceGroupAvailablePackages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4421,7 +4292,6 @@ export class ManagedInstanceGroupClient {
       listManagedInstanceGroupAvailablePackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4478,10 +4348,9 @@ export class ManagedInstanceGroupClient {
   public async listManagedInstanceGroupAvailableSoftwareSources(
     listManagedInstanceGroupAvailableSoftwareSourcesRequest: requests.ListManagedInstanceGroupAvailableSoftwareSourcesRequest
   ): Promise<responses.ListManagedInstanceGroupAvailableSoftwareSourcesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupAvailableSoftwareSources."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupAvailableSoftwareSources."
+    );
     const operationName = "listManagedInstanceGroupAvailableSoftwareSources";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4511,7 +4380,6 @@ export class ManagedInstanceGroupClient {
       listManagedInstanceGroupAvailableSoftwareSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4568,10 +4436,9 @@ export class ManagedInstanceGroupClient {
   public async listManagedInstanceGroupInstalledPackages(
     listManagedInstanceGroupInstalledPackagesRequest: requests.ListManagedInstanceGroupInstalledPackagesRequest
   ): Promise<responses.ListManagedInstanceGroupInstalledPackagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupInstalledPackages."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupInstalledPackages."
+    );
     const operationName = "listManagedInstanceGroupInstalledPackages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4602,7 +4469,6 @@ export class ManagedInstanceGroupClient {
       listManagedInstanceGroupInstalledPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4678,10 +4544,7 @@ When sorting by the display name, the result set is sorted first
   public async listManagedInstanceGroupModules(
     listManagedInstanceGroupModulesRequest: requests.ListManagedInstanceGroupModulesRequest
   ): Promise<responses.ListManagedInstanceGroupModulesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupModules."
-      );
+    logger.debug("Calling operation ManagedInstanceGroupClient#listManagedInstanceGroupModules.");
     const operationName = "listManagedInstanceGroupModules";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4710,7 +4573,6 @@ When sorting by the display name, the result set is sorted first
       listManagedInstanceGroupModulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4772,8 +4634,7 @@ When sorting by the display name, the result set is sorted first
   public async listManagedInstanceGroups(
     listManagedInstanceGroupsRequest: requests.ListManagedInstanceGroupsRequest
   ): Promise<responses.ListManagedInstanceGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceGroupClient#listManagedInstanceGroups.");
+    logger.debug("Calling operation ManagedInstanceGroupClient#listManagedInstanceGroups.");
     const operationName = "listManagedInstanceGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4804,7 +4665,6 @@ When sorting by the display name, the result set is sorted first
       listManagedInstanceGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4919,10 +4779,9 @@ The work request resulting from a dry run behaves differently than
   public async manageModuleStreamsOnManagedInstanceGroup(
     manageModuleStreamsOnManagedInstanceGroupRequest: requests.ManageModuleStreamsOnManagedInstanceGroupRequest
   ): Promise<responses.ManageModuleStreamsOnManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#manageModuleStreamsOnManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#manageModuleStreamsOnManagedInstanceGroup."
+    );
     const operationName = "manageModuleStreamsOnManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4945,7 +4804,6 @@ The work request resulting from a dry run behaves differently than
       manageModuleStreamsOnManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5004,10 +4862,9 @@ The work request resulting from a dry run behaves differently than
   public async removeModuleStreamProfileFromManagedInstanceGroup(
     removeModuleStreamProfileFromManagedInstanceGroupRequest: requests.RemoveModuleStreamProfileFromManagedInstanceGroupRequest
   ): Promise<responses.RemoveModuleStreamProfileFromManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#removeModuleStreamProfileFromManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#removeModuleStreamProfileFromManagedInstanceGroup."
+    );
     const operationName = "removeModuleStreamProfileFromManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5030,7 +4887,6 @@ The work request resulting from a dry run behaves differently than
       removeModuleStreamProfileFromManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5087,10 +4943,9 @@ The work request resulting from a dry run behaves differently than
   public async removePackagesFromManagedInstanceGroup(
     removePackagesFromManagedInstanceGroupRequest: requests.RemovePackagesFromManagedInstanceGroupRequest
   ): Promise<responses.RemovePackagesFromManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#removePackagesFromManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#removePackagesFromManagedInstanceGroup."
+    );
     const operationName = "removePackagesFromManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5113,7 +4968,6 @@ The work request resulting from a dry run behaves differently than
       removePackagesFromManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5170,10 +5024,9 @@ The work request resulting from a dry run behaves differently than
   public async updateAllPackagesOnManagedInstanceGroup(
     updateAllPackagesOnManagedInstanceGroupRequest: requests.UpdateAllPackagesOnManagedInstanceGroupRequest
   ): Promise<responses.UpdateAllPackagesOnManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedInstanceGroupClient#updateAllPackagesOnManagedInstanceGroup."
-      );
+    logger.debug(
+      "Calling operation ManagedInstanceGroupClient#updateAllPackagesOnManagedInstanceGroup."
+    );
     const operationName = "updateAllPackagesOnManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5196,7 +5049,6 @@ The work request resulting from a dry run behaves differently than
       updateAllPackagesOnManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5252,8 +5104,7 @@ The work request resulting from a dry run behaves differently than
   public async updateManagedInstanceGroup(
     updateManagedInstanceGroupRequest: requests.UpdateManagedInstanceGroupRequest
   ): Promise<responses.UpdateManagedInstanceGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagedInstanceGroupClient#updateManagedInstanceGroup.");
+    logger.debug("Calling operation ManagedInstanceGroupClient#updateManagedInstanceGroup.");
     const operationName = "updateManagedInstanceGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5274,7 +5125,6 @@ The work request resulting from a dry run behaves differently than
       updateManagedInstanceGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5411,11 +5261,7 @@ export class ManagementStationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger) this.logger.info(`ManagementStationClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ManagementStationClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -5425,10 +5271,9 @@ export class ManagementStationClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ManagementStationClient.serviceEndpointTemplate,
@@ -5521,8 +5366,7 @@ export class ManagementStationClient {
   public async createManagementStation(
     createManagementStationRequest: requests.CreateManagementStationRequest
   ): Promise<responses.CreateManagementStationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementStationClient#createManagementStation.");
+    logger.debug("Calling operation ManagementStationClient#createManagementStation.");
     const operationName = "createManagementStation";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -5541,7 +5385,6 @@ export class ManagementStationClient {
       createManagementStationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5602,8 +5445,7 @@ export class ManagementStationClient {
   public async deleteManagementStation(
     deleteManagementStationRequest: requests.DeleteManagementStationRequest
   ): Promise<responses.DeleteManagementStationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementStationClient#deleteManagementStation.");
+    logger.debug("Calling operation ManagementStationClient#deleteManagementStation.");
     const operationName = "deleteManagementStation";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5624,7 +5466,6 @@ export class ManagementStationClient {
       deleteManagementStationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5671,8 +5512,7 @@ export class ManagementStationClient {
   public async getManagementStation(
     getManagementStationRequest: requests.GetManagementStationRequest
   ): Promise<responses.GetManagementStationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementStationClient#getManagementStation.");
+    logger.debug("Calling operation ManagementStationClient#getManagementStation.");
     const operationName = "getManagementStation";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5692,7 +5532,6 @@ export class ManagementStationClient {
       getManagementStationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5753,8 +5592,7 @@ export class ManagementStationClient {
   public async listManagementStations(
     listManagementStationsRequest: requests.ListManagementStationsRequest
   ): Promise<responses.ListManagementStationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementStationClient#listManagementStations.");
+    logger.debug("Calling operation ManagementStationClient#listManagementStations.");
     const operationName = "listManagementStations";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -5783,7 +5621,6 @@ export class ManagementStationClient {
       listManagementStationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5839,7 +5676,7 @@ export class ManagementStationClient {
   public async listMirrors(
     listMirrorsRequest: requests.ListMirrorsRequest
   ): Promise<responses.ListMirrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ManagementStationClient#listMirrors.");
+    logger.debug("Calling operation ManagementStationClient#listMirrors.");
     const operationName = "listMirrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5867,7 +5704,6 @@ export class ManagementStationClient {
       listMirrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5923,8 +5759,7 @@ export class ManagementStationClient {
   public async synchronizeMirrors(
     synchronizeMirrorsRequest: requests.SynchronizeMirrorsRequest
   ): Promise<responses.SynchronizeMirrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementStationClient#synchronizeMirrors.");
+    logger.debug("Calling operation ManagementStationClient#synchronizeMirrors.");
     const operationName = "synchronizeMirrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5946,7 +5781,6 @@ export class ManagementStationClient {
       synchronizeMirrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6003,8 +5837,7 @@ export class ManagementStationClient {
   public async synchronizeSingleMirrors(
     synchronizeSingleMirrorsRequest: requests.SynchronizeSingleMirrorsRequest
   ): Promise<responses.SynchronizeSingleMirrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementStationClient#synchronizeSingleMirrors.");
+    logger.debug("Calling operation ManagementStationClient#synchronizeSingleMirrors.");
     const operationName = "synchronizeSingleMirrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6027,7 +5860,6 @@ export class ManagementStationClient {
       synchronizeSingleMirrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6079,8 +5911,7 @@ export class ManagementStationClient {
   public async updateManagementStation(
     updateManagementStationRequest: requests.UpdateManagementStationRequest
   ): Promise<responses.UpdateManagementStationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ManagementStationClient#updateManagementStation.");
+    logger.debug("Calling operation ManagementStationClient#updateManagementStation.");
     const operationName = "updateManagementStation";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6101,7 +5932,6 @@ export class ManagementStationClient {
       updateManagementStationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6238,11 +6068,7 @@ export class OnboardingClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger) this.logger.info(`OnboardingClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OnboardingClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -6252,10 +6078,9 @@ export class OnboardingClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OnboardingClient.serviceEndpointTemplate,
@@ -6350,7 +6175,7 @@ export class OnboardingClient {
   public async createProfile(
     createProfileRequest: requests.CreateProfileRequest
   ): Promise<responses.CreateProfileResponse> {
-    if (this.logger) this.logger.debug("Calling operation OnboardingClient#createProfile.");
+    logger.debug("Calling operation OnboardingClient#createProfile.");
     const operationName = "createProfile";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -6369,7 +6194,6 @@ export class OnboardingClient {
       createProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6429,7 +6253,7 @@ export class OnboardingClient {
   public async deleteProfile(
     deleteProfileRequest: requests.DeleteProfileRequest
   ): Promise<responses.DeleteProfileResponse> {
-    if (this.logger) this.logger.debug("Calling operation OnboardingClient#deleteProfile.");
+    logger.debug("Calling operation OnboardingClient#deleteProfile.");
     const operationName = "deleteProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6450,7 +6274,6 @@ export class OnboardingClient {
       deleteProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6496,7 +6319,7 @@ export class OnboardingClient {
   public async getProfile(
     getProfileRequest: requests.GetProfileRequest
   ): Promise<responses.GetProfileResponse> {
-    if (this.logger) this.logger.debug("Calling operation OnboardingClient#getProfile.");
+    logger.debug("Calling operation OnboardingClient#getProfile.");
     const operationName = "getProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6516,7 +6339,6 @@ export class OnboardingClient {
       getProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6573,7 +6395,7 @@ export class OnboardingClient {
   public async listProfiles(
     listProfilesRequest: requests.ListProfilesRequest
   ): Promise<responses.ListProfilesResponse> {
-    if (this.logger) this.logger.debug("Calling operation OnboardingClient#listProfiles.");
+    logger.debug("Calling operation OnboardingClient#listProfiles.");
     const operationName = "listProfiles";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -6605,7 +6427,6 @@ export class OnboardingClient {
       listProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6660,7 +6481,7 @@ export class OnboardingClient {
   public async updateProfile(
     updateProfileRequest: requests.UpdateProfileRequest
   ): Promise<responses.UpdateProfileResponse> {
-    if (this.logger) this.logger.debug("Calling operation OnboardingClient#updateProfile.");
+    logger.debug("Calling operation OnboardingClient#updateProfile.");
     const operationName = "updateProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6681,7 +6502,6 @@ export class OnboardingClient {
       updateProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6817,12 +6637,7 @@ export class ReportingManagedInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger)
-      this.logger.info(`ReportingManagedInstanceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ReportingManagedInstanceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -6832,10 +6647,9 @@ export class ReportingManagedInstanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ReportingManagedInstanceClient.serviceEndpointTemplate,
@@ -6905,10 +6719,9 @@ export class ReportingManagedInstanceClient {
   public async getManagedInstanceAnalyticContent(
     getManagedInstanceAnalyticContentRequest: requests.GetManagedInstanceAnalyticContentRequest
   ): Promise<responses.GetManagedInstanceAnalyticContentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ReportingManagedInstanceClient#getManagedInstanceAnalyticContent."
-      );
+    logger.debug(
+      "Calling operation ReportingManagedInstanceClient#getManagedInstanceAnalyticContent."
+    );
     const operationName = "getManagedInstanceAnalyticContent";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -6943,7 +6756,6 @@ export class ReportingManagedInstanceClient {
       getManagedInstanceAnalyticContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6999,10 +6811,7 @@ export class ReportingManagedInstanceClient {
   public async getManagedInstanceContent(
     getManagedInstanceContentRequest: requests.GetManagedInstanceContentRequest
   ): Promise<responses.GetManagedInstanceContentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ReportingManagedInstanceClient#getManagedInstanceContent."
-      );
+    logger.debug("Calling operation ReportingManagedInstanceClient#getManagedInstanceContent.");
     const operationName = "getManagedInstanceContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7026,7 +6835,6 @@ export class ReportingManagedInstanceClient {
       getManagedInstanceContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7082,10 +6890,9 @@ export class ReportingManagedInstanceClient {
   public async summarizeManagedInstanceAnalytics(
     summarizeManagedInstanceAnalyticsRequest: requests.SummarizeManagedInstanceAnalyticsRequest
   ): Promise<responses.SummarizeManagedInstanceAnalyticsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ReportingManagedInstanceClient#summarizeManagedInstanceAnalytics."
-      );
+    logger.debug(
+      "Calling operation ReportingManagedInstanceClient#summarizeManagedInstanceAnalytics."
+    );
     const operationName = "summarizeManagedInstanceAnalytics";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -7117,7 +6924,6 @@ export class ReportingManagedInstanceClient {
       summarizeManagedInstanceAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7249,11 +7055,7 @@ export class ScheduledJobClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger) this.logger.info(`ScheduledJobClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ScheduledJobClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -7263,10 +7065,9 @@ export class ScheduledJobClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ScheduledJobClient.serviceEndpointTemplate,
@@ -7359,7 +7160,7 @@ export class ScheduledJobClient {
   public async createScheduledJob(
     createScheduledJobRequest: requests.CreateScheduledJobRequest
   ): Promise<responses.CreateScheduledJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation ScheduledJobClient#createScheduledJob.");
+    logger.debug("Calling operation ScheduledJobClient#createScheduledJob.");
     const operationName = "createScheduledJob";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -7378,7 +7179,6 @@ export class ScheduledJobClient {
       createScheduledJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7444,7 +7244,7 @@ export class ScheduledJobClient {
   public async deleteScheduledJob(
     deleteScheduledJobRequest: requests.DeleteScheduledJobRequest
   ): Promise<responses.DeleteScheduledJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation ScheduledJobClient#deleteScheduledJob.");
+    logger.debug("Calling operation ScheduledJobClient#deleteScheduledJob.");
     const operationName = "deleteScheduledJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7465,7 +7265,6 @@ export class ScheduledJobClient {
       deleteScheduledJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7512,7 +7311,7 @@ export class ScheduledJobClient {
   public async getScheduledJob(
     getScheduledJobRequest: requests.GetScheduledJobRequest
   ): Promise<responses.GetScheduledJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation ScheduledJobClient#getScheduledJob.");
+    logger.debug("Calling operation ScheduledJobClient#getScheduledJob.");
     const operationName = "getScheduledJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7532,7 +7331,6 @@ export class ScheduledJobClient {
       getScheduledJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7595,7 +7393,7 @@ export class ScheduledJobClient {
   public async listScheduledJobs(
     listScheduledJobsRequest: requests.ListScheduledJobsRequest
   ): Promise<responses.ListScheduledJobsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ScheduledJobClient#listScheduledJobs.");
+    logger.debug("Calling operation ScheduledJobClient#listScheduledJobs.");
     const operationName = "listScheduledJobs";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -7633,7 +7431,6 @@ export class ScheduledJobClient {
       listScheduledJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7690,7 +7487,7 @@ export class ScheduledJobClient {
   public async runScheduledJobNow(
     runScheduledJobNowRequest: requests.RunScheduledJobNowRequest
   ): Promise<responses.RunScheduledJobNowResponse> {
-    if (this.logger) this.logger.debug("Calling operation ScheduledJobClient#runScheduledJobNow.");
+    logger.debug("Calling operation ScheduledJobClient#runScheduledJobNow.");
     const operationName = "runScheduledJobNow";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7712,7 +7509,6 @@ export class ScheduledJobClient {
       runScheduledJobNowRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7759,7 +7555,7 @@ export class ScheduledJobClient {
   public async updateScheduledJob(
     updateScheduledJobRequest: requests.UpdateScheduledJobRequest
   ): Promise<responses.UpdateScheduledJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation ScheduledJobClient#updateScheduledJob.");
+    logger.debug("Calling operation ScheduledJobClient#updateScheduledJob.");
     const operationName = "updateScheduledJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7780,7 +7576,6 @@ export class ScheduledJobClient {
       updateScheduledJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7917,11 +7712,7 @@ export class SoftwareSourceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger) this.logger.info(`SoftwareSourceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`SoftwareSourceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -7931,10 +7722,9 @@ export class SoftwareSourceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SoftwareSourceClient.serviceEndpointTemplate,
@@ -8027,10 +7817,7 @@ export class SoftwareSourceClient {
   public async changeAvailabilityOfSoftwareSources(
     changeAvailabilityOfSoftwareSourcesRequest: requests.ChangeAvailabilityOfSoftwareSourcesRequest
   ): Promise<responses.ChangeAvailabilityOfSoftwareSourcesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation SoftwareSourceClient#changeAvailabilityOfSoftwareSources."
-      );
+    logger.debug("Calling operation SoftwareSourceClient#changeAvailabilityOfSoftwareSources.");
     const operationName = "changeAvailabilityOfSoftwareSources";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -8049,7 +7836,6 @@ export class SoftwareSourceClient {
       changeAvailabilityOfSoftwareSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8101,7 +7887,7 @@ export class SoftwareSourceClient {
   public async createEntitlement(
     createEntitlementRequest: requests.CreateEntitlementRequest
   ): Promise<responses.CreateEntitlementResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#createEntitlement.");
+    logger.debug("Calling operation SoftwareSourceClient#createEntitlement.");
     const operationName = "createEntitlement";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -8120,7 +7906,6 @@ export class SoftwareSourceClient {
       createEntitlementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8172,8 +7957,7 @@ export class SoftwareSourceClient {
   public async createSoftwareSource(
     createSoftwareSourceRequest: requests.CreateSoftwareSourceRequest
   ): Promise<responses.CreateSoftwareSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#createSoftwareSource.");
+    logger.debug("Calling operation SoftwareSourceClient#createSoftwareSource.");
     const operationName = "createSoftwareSource";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -8192,7 +7976,6 @@ export class SoftwareSourceClient {
       createSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8262,8 +8045,7 @@ export class SoftwareSourceClient {
   public async deleteSoftwareSource(
     deleteSoftwareSourceRequest: requests.DeleteSoftwareSourceRequest
   ): Promise<responses.DeleteSoftwareSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#deleteSoftwareSource.");
+    logger.debug("Calling operation SoftwareSourceClient#deleteSoftwareSource.");
     const operationName = "deleteSoftwareSource";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8284,7 +8066,6 @@ export class SoftwareSourceClient {
       deleteSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8331,7 +8112,7 @@ export class SoftwareSourceClient {
   public async getErratum(
     getErratumRequest: requests.GetErratumRequest
   ): Promise<responses.GetErratumResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#getErratum.");
+    logger.debug("Calling operation SoftwareSourceClient#getErratum.");
     const operationName = "getErratum";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8353,7 +8134,6 @@ export class SoftwareSourceClient {
       getErratumRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8404,7 +8184,7 @@ export class SoftwareSourceClient {
   public async getModuleStream(
     getModuleStreamRequest: requests.GetModuleStreamRequest
   ): Promise<responses.GetModuleStreamResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#getModuleStream.");
+    logger.debug("Calling operation SoftwareSourceClient#getModuleStream.");
     const operationName = "getModuleStream";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8427,7 +8207,6 @@ export class SoftwareSourceClient {
       getModuleStreamRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8478,8 +8257,7 @@ export class SoftwareSourceClient {
   public async getModuleStreamProfile(
     getModuleStreamProfileRequest: requests.GetModuleStreamProfileRequest
   ): Promise<responses.GetModuleStreamProfileResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#getModuleStreamProfile.");
+    logger.debug("Calling operation SoftwareSourceClient#getModuleStreamProfile.");
     const operationName = "getModuleStreamProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8503,7 +8281,6 @@ export class SoftwareSourceClient {
       getModuleStreamProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8554,7 +8331,7 @@ export class SoftwareSourceClient {
   public async getPackageGroup(
     getPackageGroupRequest: requests.GetPackageGroupRequest
   ): Promise<responses.GetPackageGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#getPackageGroup.");
+    logger.debug("Calling operation SoftwareSourceClient#getPackageGroup.");
     const operationName = "getPackageGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8575,7 +8352,6 @@ export class SoftwareSourceClient {
       getPackageGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8626,8 +8402,7 @@ export class SoftwareSourceClient {
   public async getSoftwarePackage(
     getSoftwarePackageRequest: requests.GetSoftwarePackageRequest
   ): Promise<responses.GetSoftwarePackageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#getSoftwarePackage.");
+    logger.debug("Calling operation SoftwareSourceClient#getSoftwarePackage.");
     const operationName = "getSoftwarePackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8648,7 +8423,6 @@ export class SoftwareSourceClient {
       getSoftwarePackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8698,7 +8472,7 @@ export class SoftwareSourceClient {
   public async getSoftwareSource(
     getSoftwareSourceRequest: requests.GetSoftwareSourceRequest
   ): Promise<responses.GetSoftwareSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#getSoftwareSource.");
+    logger.debug("Calling operation SoftwareSourceClient#getSoftwareSource.");
     const operationName = "getSoftwareSource";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8718,7 +8492,6 @@ export class SoftwareSourceClient {
       getSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8780,7 +8553,7 @@ export class SoftwareSourceClient {
   public async listEntitlements(
     listEntitlementsRequest: requests.ListEntitlementsRequest
   ): Promise<responses.ListEntitlementsResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#listEntitlements.");
+    logger.debug("Calling operation SoftwareSourceClient#listEntitlements.");
     const operationName = "listEntitlements";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -8806,7 +8579,6 @@ export class SoftwareSourceClient {
       listEntitlementsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8863,7 +8635,7 @@ export class SoftwareSourceClient {
   public async listErrata(
     listErrataRequest: requests.ListErrataRequest
   ): Promise<responses.ListErrataResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#listErrata.");
+    logger.debug("Calling operation SoftwareSourceClient#listErrata.");
     const operationName = "listErrata";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -8894,7 +8666,6 @@ export class SoftwareSourceClient {
       listErrataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8951,8 +8722,7 @@ export class SoftwareSourceClient {
   public async listModuleStreamProfiles(
     listModuleStreamProfilesRequest: requests.ListModuleStreamProfilesRequest
   ): Promise<responses.ListModuleStreamProfilesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#listModuleStreamProfiles.");
+    logger.debug("Calling operation SoftwareSourceClient#listModuleStreamProfiles.");
     const operationName = "listModuleStreamProfiles";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8980,7 +8750,6 @@ export class SoftwareSourceClient {
       listModuleStreamProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9037,7 +8806,7 @@ export class SoftwareSourceClient {
   public async listModuleStreams(
     listModuleStreamsRequest: requests.ListModuleStreamsRequest
   ): Promise<responses.ListModuleStreamsResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#listModuleStreams.");
+    logger.debug("Calling operation SoftwareSourceClient#listModuleStreams.");
     const operationName = "listModuleStreams";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9066,7 +8835,6 @@ export class SoftwareSourceClient {
       listModuleStreamsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9123,7 +8891,7 @@ export class SoftwareSourceClient {
   public async listPackageGroups(
     listPackageGroupsRequest: requests.ListPackageGroupsRequest
   ): Promise<responses.ListPackageGroupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation SoftwareSourceClient#listPackageGroups.");
+    logger.debug("Calling operation SoftwareSourceClient#listPackageGroups.");
     const operationName = "listPackageGroups";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9152,7 +8920,6 @@ export class SoftwareSourceClient {
       listPackageGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9209,8 +8976,7 @@ export class SoftwareSourceClient {
   public async listSoftwarePackages(
     listSoftwarePackagesRequest: requests.ListSoftwarePackagesRequest
   ): Promise<responses.ListSoftwarePackagesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#listSoftwarePackages.");
+    logger.debug("Calling operation SoftwareSourceClient#listSoftwarePackages.");
     const operationName = "listSoftwarePackages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9238,7 +9004,6 @@ export class SoftwareSourceClient {
       listSoftwarePackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9295,8 +9060,7 @@ export class SoftwareSourceClient {
   public async listSoftwareSourceVendors(
     listSoftwareSourceVendorsRequest: requests.ListSoftwareSourceVendorsRequest
   ): Promise<responses.ListSoftwareSourceVendorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#listSoftwareSourceVendors.");
+    logger.debug("Calling operation SoftwareSourceClient#listSoftwareSourceVendors.");
     const operationName = "listSoftwareSourceVendors";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -9319,7 +9083,6 @@ export class SoftwareSourceClient {
       listSoftwareSourceVendorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9371,8 +9134,7 @@ export class SoftwareSourceClient {
   public async listSoftwareSources(
     listSoftwareSourcesRequest: requests.ListSoftwareSourcesRequest
   ): Promise<responses.ListSoftwareSourcesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#listSoftwareSources.");
+    logger.debug("Calling operation SoftwareSourceClient#listSoftwareSources.");
     const operationName = "listSoftwareSources";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -9406,7 +9168,6 @@ export class SoftwareSourceClient {
       listSoftwareSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9463,10 +9224,7 @@ export class SoftwareSourceClient {
   public async searchSoftwareSourceModuleStreams(
     searchSoftwareSourceModuleStreamsRequest: requests.SearchSoftwareSourceModuleStreamsRequest
   ): Promise<responses.SearchSoftwareSourceModuleStreamsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation SoftwareSourceClient#searchSoftwareSourceModuleStreams."
-      );
+    logger.debug("Calling operation SoftwareSourceClient#searchSoftwareSourceModuleStreams.");
     const operationName = "searchSoftwareSourceModuleStreams";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -9487,7 +9245,6 @@ export class SoftwareSourceClient {
       searchSoftwareSourceModuleStreamsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9549,8 +9306,7 @@ export class SoftwareSourceClient {
   public async searchSoftwareSourceModules(
     searchSoftwareSourceModulesRequest: requests.SearchSoftwareSourceModulesRequest
   ): Promise<responses.SearchSoftwareSourceModulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#searchSoftwareSourceModules.");
+    logger.debug("Calling operation SoftwareSourceClient#searchSoftwareSourceModules.");
     const operationName = "searchSoftwareSourceModules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -9571,7 +9327,6 @@ export class SoftwareSourceClient {
       searchSoftwareSourceModulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9633,10 +9388,7 @@ export class SoftwareSourceClient {
   public async searchSoftwareSourcePackageGroups(
     searchSoftwareSourcePackageGroupsRequest: requests.SearchSoftwareSourcePackageGroupsRequest
   ): Promise<responses.SearchSoftwareSourcePackageGroupsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation SoftwareSourceClient#searchSoftwareSourcePackageGroups."
-      );
+    logger.debug("Calling operation SoftwareSourceClient#searchSoftwareSourcePackageGroups.");
     const operationName = "searchSoftwareSourcePackageGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -9657,7 +9409,6 @@ export class SoftwareSourceClient {
       searchSoftwareSourcePackageGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9718,8 +9469,7 @@ export class SoftwareSourceClient {
   public async updateSoftwareSource(
     updateSoftwareSourceRequest: requests.UpdateSoftwareSourceRequest
   ): Promise<responses.UpdateSoftwareSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SoftwareSourceClient#updateSoftwareSource.");
+    logger.debug("Calling operation SoftwareSourceClient#updateSoftwareSource.");
     const operationName = "updateSoftwareSource";
     const apiReferenceLink = "";
     const pathParams = {
@@ -9740,7 +9490,6 @@ export class SoftwareSourceClient {
       updateSoftwareSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9882,11 +9631,7 @@ export class WorkRequestClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220901";
-    if (this.logger) this.logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -9896,10 +9641,9 @@ export class WorkRequestClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WorkRequestClient.serviceEndpointTemplate,
@@ -9991,7 +9735,7 @@ export class WorkRequestClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
+    logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -10011,7 +9755,6 @@ export class WorkRequestClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10072,8 +9815,7 @@ export class WorkRequestClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -10098,7 +9840,6 @@ export class WorkRequestClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10154,7 +9895,7 @@ export class WorkRequestClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -10179,7 +9920,6 @@ export class WorkRequestClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10236,7 +9976,7 @@ export class WorkRequestClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -10268,7 +10008,6 @@ export class WorkRequestClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

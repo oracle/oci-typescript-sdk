@@ -46,7 +46,7 @@ export namespace InputDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.inputType}`);
+          common.logger.info(`Unknown value for: ${obj.inputType}`);
       }
     }
     return jsonObj;
@@ -72,7 +72,7 @@ export namespace InputDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.inputType}`);
+          common.logger.info(`Unknown value for: ${obj.inputType}`);
       }
     }
     return jsonObj;

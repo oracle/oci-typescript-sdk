@@ -22,7 +22,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -119,11 +120,7 @@ export class BdsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190531";
-    if (this.logger) this.logger.info(`BdsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`BdsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -133,10 +130,9 @@ export class BdsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         BdsClient.serviceEndpointTemplate,
@@ -229,8 +225,7 @@ export class BdsClient {
   public async activateBdsMetastoreConfiguration(
     activateBdsMetastoreConfigurationRequest: requests.ActivateBdsMetastoreConfigurationRequest
   ): Promise<responses.ActivateBdsMetastoreConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#activateBdsMetastoreConfiguration.");
+    logger.debug("Calling operation BdsClient#activateBdsMetastoreConfiguration.");
     const operationName = "activateBdsMetastoreConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/ActivateBdsMetastoreConfiguration";
@@ -254,7 +249,6 @@ export class BdsClient {
       activateBdsMetastoreConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -311,7 +305,7 @@ export class BdsClient {
   public async addAutoScalingConfiguration(
     addAutoScalingConfigurationRequest: requests.AddAutoScalingConfigurationRequest
   ): Promise<responses.AddAutoScalingConfigurationResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#addAutoScalingConfiguration.");
+    logger.debug("Calling operation BdsClient#addAutoScalingConfiguration.");
     const operationName = "addAutoScalingConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddAutoScalingConfiguration";
@@ -334,7 +328,6 @@ export class BdsClient {
       addAutoScalingConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -391,7 +384,7 @@ export class BdsClient {
   public async addBlockStorage(
     addBlockStorageRequest: requests.AddBlockStorageRequest
   ): Promise<responses.AddBlockStorageResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#addBlockStorage.");
+    logger.debug("Calling operation BdsClient#addBlockStorage.");
     const operationName = "addBlockStorage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddBlockStorage";
@@ -414,7 +407,6 @@ export class BdsClient {
       addBlockStorageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -471,7 +463,7 @@ export class BdsClient {
   public async addCloudSql(
     addCloudSqlRequest: requests.AddCloudSqlRequest
   ): Promise<responses.AddCloudSqlResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#addCloudSql.");
+    logger.debug("Calling operation BdsClient#addCloudSql.");
     const operationName = "addCloudSql";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddCloudSql";
@@ -494,7 +486,6 @@ export class BdsClient {
       addCloudSqlRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -551,7 +542,7 @@ export class BdsClient {
   public async addKafka(
     addKafkaRequest: requests.AddKafkaRequest
   ): Promise<responses.AddKafkaResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#addKafka.");
+    logger.debug("Calling operation BdsClient#addKafka.");
     const operationName = "addKafka";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddKafka";
@@ -574,7 +565,6 @@ export class BdsClient {
       addKafkaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -631,7 +621,7 @@ export class BdsClient {
   public async addMasterNodes(
     addMasterNodesRequest: requests.AddMasterNodesRequest
   ): Promise<responses.AddMasterNodesResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#addMasterNodes.");
+    logger.debug("Calling operation BdsClient#addMasterNodes.");
     const operationName = "addMasterNodes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddMasterNodes";
@@ -654,7 +644,6 @@ export class BdsClient {
       addMasterNodesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -711,7 +700,7 @@ export class BdsClient {
   public async addUtilityNodes(
     addUtilityNodesRequest: requests.AddUtilityNodesRequest
   ): Promise<responses.AddUtilityNodesResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#addUtilityNodes.");
+    logger.debug("Calling operation BdsClient#addUtilityNodes.");
     const operationName = "addUtilityNodes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddUtilityNodes";
@@ -734,7 +723,6 @@ export class BdsClient {
       addUtilityNodesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -791,7 +779,7 @@ export class BdsClient {
   public async addWorkerNodes(
     addWorkerNodesRequest: requests.AddWorkerNodesRequest
   ): Promise<responses.AddWorkerNodesResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#addWorkerNodes.");
+    logger.debug("Calling operation BdsClient#addWorkerNodes.");
     const operationName = "addWorkerNodes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddWorkerNodes";
@@ -814,7 +802,6 @@ export class BdsClient {
       addWorkerNodesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -871,7 +858,7 @@ export class BdsClient {
   public async certificateServiceInfo(
     certificateServiceInfoRequest: requests.CertificateServiceInfoRequest
   ): Promise<responses.CertificateServiceInfoResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#certificateServiceInfo.");
+    logger.debug("Calling operation BdsClient#certificateServiceInfo.");
     const operationName = "certificateServiceInfo";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/CertificateServiceInfo";
@@ -894,7 +881,6 @@ export class BdsClient {
       certificateServiceInfoRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -955,7 +941,7 @@ export class BdsClient {
   public async changeBdsInstanceCompartment(
     changeBdsInstanceCompartmentRequest: requests.ChangeBdsInstanceCompartmentRequest
   ): Promise<responses.ChangeBdsInstanceCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#changeBdsInstanceCompartment.");
+    logger.debug("Calling operation BdsClient#changeBdsInstanceCompartment.");
     const operationName = "changeBdsInstanceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ChangeBdsInstanceCompartment";
@@ -978,7 +964,6 @@ export class BdsClient {
       changeBdsInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1035,7 +1020,7 @@ export class BdsClient {
   public async changeShape(
     changeShapeRequest: requests.ChangeShapeRequest
   ): Promise<responses.ChangeShapeResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#changeShape.");
+    logger.debug("Calling operation BdsClient#changeShape.");
     const operationName = "changeShape";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ChangeShape";
@@ -1058,7 +1043,6 @@ export class BdsClient {
       changeShapeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1115,7 +1099,7 @@ export class BdsClient {
   public async createBdsApiKey(
     createBdsApiKeyRequest: requests.CreateBdsApiKeyRequest
   ): Promise<responses.CreateBdsApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#createBdsApiKey.");
+    logger.debug("Calling operation BdsClient#createBdsApiKey.");
     const operationName = "createBdsApiKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/CreateBdsApiKey";
@@ -1137,7 +1121,6 @@ export class BdsClient {
       createBdsApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1194,7 +1177,7 @@ export class BdsClient {
   public async createBdsInstance(
     createBdsInstanceRequest: requests.CreateBdsInstanceRequest
   ): Promise<responses.CreateBdsInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#createBdsInstance.");
+    logger.debug("Calling operation BdsClient#createBdsInstance.");
     const operationName = "createBdsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/CreateBdsInstance";
@@ -1214,7 +1197,6 @@ export class BdsClient {
       createBdsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1271,8 +1253,7 @@ export class BdsClient {
   public async createBdsMetastoreConfiguration(
     createBdsMetastoreConfigurationRequest: requests.CreateBdsMetastoreConfigurationRequest
   ): Promise<responses.CreateBdsMetastoreConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#createBdsMetastoreConfiguration.");
+    logger.debug("Calling operation BdsClient#createBdsMetastoreConfiguration.");
     const operationName = "createBdsMetastoreConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/CreateBdsMetastoreConfiguration";
@@ -1294,7 +1275,6 @@ export class BdsClient {
       createBdsMetastoreConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1350,7 +1330,7 @@ export class BdsClient {
   public async deleteBdsApiKey(
     deleteBdsApiKeyRequest: requests.DeleteBdsApiKeyRequest
   ): Promise<responses.DeleteBdsApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#deleteBdsApiKey.");
+    logger.debug("Calling operation BdsClient#deleteBdsApiKey.");
     const operationName = "deleteBdsApiKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/DeleteBdsApiKey";
@@ -1373,7 +1353,6 @@ export class BdsClient {
       deleteBdsApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1424,7 +1403,7 @@ export class BdsClient {
   public async deleteBdsInstance(
     deleteBdsInstanceRequest: requests.DeleteBdsInstanceRequest
   ): Promise<responses.DeleteBdsInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#deleteBdsInstance.");
+    logger.debug("Calling operation BdsClient#deleteBdsInstance.");
     const operationName = "deleteBdsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/DeleteBdsInstance";
@@ -1446,7 +1425,6 @@ export class BdsClient {
       deleteBdsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1497,8 +1475,7 @@ export class BdsClient {
   public async deleteBdsMetastoreConfiguration(
     deleteBdsMetastoreConfigurationRequest: requests.DeleteBdsMetastoreConfigurationRequest
   ): Promise<responses.DeleteBdsMetastoreConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#deleteBdsMetastoreConfiguration.");
+    logger.debug("Calling operation BdsClient#deleteBdsMetastoreConfiguration.");
     const operationName = "deleteBdsMetastoreConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/DeleteBdsMetastoreConfiguration";
@@ -1521,7 +1498,6 @@ export class BdsClient {
       deleteBdsMetastoreConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1573,7 +1549,7 @@ export class BdsClient {
   public async disableCertificate(
     disableCertificateRequest: requests.DisableCertificateRequest
   ): Promise<responses.DisableCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#disableCertificate.");
+    logger.debug("Calling operation BdsClient#disableCertificate.");
     const operationName = "disableCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/DisableCertificate";
@@ -1596,7 +1572,6 @@ export class BdsClient {
       disableCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1653,7 +1628,7 @@ export class BdsClient {
   public async enableCertificate(
     enableCertificateRequest: requests.EnableCertificateRequest
   ): Promise<responses.EnableCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#enableCertificate.");
+    logger.debug("Calling operation BdsClient#enableCertificate.");
     const operationName = "enableCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/EnableCertificate";
@@ -1676,7 +1651,6 @@ export class BdsClient {
       enableCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1733,7 +1707,7 @@ export class BdsClient {
   public async executeBootstrapScript(
     executeBootstrapScriptRequest: requests.ExecuteBootstrapScriptRequest
   ): Promise<responses.ExecuteBootstrapScriptResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#executeBootstrapScript.");
+    logger.debug("Calling operation BdsClient#executeBootstrapScript.");
     const operationName = "executeBootstrapScript";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ExecuteBootstrapScript";
@@ -1756,7 +1730,6 @@ export class BdsClient {
       executeBootstrapScriptRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1813,7 +1786,7 @@ export class BdsClient {
   public async getAutoScalingConfiguration(
     getAutoScalingConfigurationRequest: requests.GetAutoScalingConfigurationRequest
   ): Promise<responses.GetAutoScalingConfigurationResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#getAutoScalingConfiguration.");
+    logger.debug("Calling operation BdsClient#getAutoScalingConfiguration.");
     const operationName = "getAutoScalingConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetAutoScalingConfiguration";
@@ -1835,7 +1808,6 @@ export class BdsClient {
       getAutoScalingConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1890,7 +1862,7 @@ export class BdsClient {
   public async getBdsApiKey(
     getBdsApiKeyRequest: requests.GetBdsApiKeyRequest
   ): Promise<responses.GetBdsApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsApiKey.");
+    logger.debug("Calling operation BdsClient#getBdsApiKey.");
     const operationName = "getBdsApiKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/GetBdsApiKey";
@@ -1912,7 +1884,6 @@ export class BdsClient {
       getBdsApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1967,7 +1938,7 @@ export class BdsClient {
   public async getBdsInstance(
     getBdsInstanceRequest: requests.GetBdsInstanceRequest
   ): Promise<responses.GetBdsInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsInstance.");
+    logger.debug("Calling operation BdsClient#getBdsInstance.");
     const operationName = "getBdsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetBdsInstance";
@@ -1988,7 +1959,6 @@ export class BdsClient {
       getBdsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2043,7 +2013,7 @@ export class BdsClient {
   public async getBdsMetastoreConfiguration(
     getBdsMetastoreConfigurationRequest: requests.GetBdsMetastoreConfigurationRequest
   ): Promise<responses.GetBdsMetastoreConfigurationResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsMetastoreConfiguration.");
+    logger.debug("Calling operation BdsClient#getBdsMetastoreConfiguration.");
     const operationName = "getBdsMetastoreConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/GetBdsMetastoreConfiguration";
@@ -2065,7 +2035,6 @@ export class BdsClient {
       getBdsMetastoreConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2120,7 +2089,7 @@ export class BdsClient {
   public async getOsPatchDetails(
     getOsPatchDetailsRequest: requests.GetOsPatchDetailsRequest
   ): Promise<responses.GetOsPatchDetailsResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#getOsPatchDetails.");
+    logger.debug("Calling operation BdsClient#getOsPatchDetails.");
     const operationName = "getOsPatchDetails";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetOsPatchDetails";
@@ -2145,7 +2114,6 @@ export class BdsClient {
       getOsPatchDetailsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2200,7 +2168,7 @@ export class BdsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#getWorkRequest.");
+    logger.debug("Calling operation BdsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/WorkRequest/GetWorkRequest";
@@ -2221,7 +2189,6 @@ export class BdsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2277,7 +2244,7 @@ export class BdsClient {
   public async installOsPatch(
     installOsPatchRequest: requests.InstallOsPatchRequest
   ): Promise<responses.InstallOsPatchResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#installOsPatch.");
+    logger.debug("Calling operation BdsClient#installOsPatch.");
     const operationName = "installOsPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/InstallOsPatch";
@@ -2300,7 +2267,6 @@ export class BdsClient {
       installOsPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2357,7 +2323,7 @@ export class BdsClient {
   public async installPatch(
     installPatchRequest: requests.InstallPatchRequest
   ): Promise<responses.InstallPatchResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#installPatch.");
+    logger.debug("Calling operation BdsClient#installPatch.");
     const operationName = "installPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/InstallPatch";
@@ -2380,7 +2346,6 @@ export class BdsClient {
       installPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2437,8 +2402,7 @@ export class BdsClient {
   public async listAutoScalingConfigurations(
     listAutoScalingConfigurationsRequest: requests.ListAutoScalingConfigurationsRequest
   ): Promise<responses.ListAutoScalingConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#listAutoScalingConfigurations.");
+    logger.debug("Calling operation BdsClient#listAutoScalingConfigurations.");
     const operationName = "listAutoScalingConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListAutoScalingConfigurations";
@@ -2467,7 +2431,6 @@ export class BdsClient {
       listAutoScalingConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2575,7 +2538,7 @@ export class BdsClient {
   public async listBdsApiKeys(
     listBdsApiKeysRequest: requests.ListBdsApiKeysRequest
   ): Promise<responses.ListBdsApiKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#listBdsApiKeys.");
+    logger.debug("Calling operation BdsClient#listBdsApiKeys.");
     const operationName = "listBdsApiKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/ListBdsApiKeys";
@@ -2604,7 +2567,6 @@ export class BdsClient {
       listBdsApiKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2712,7 +2674,7 @@ export class BdsClient {
   public async listBdsInstances(
     listBdsInstancesRequest: requests.ListBdsInstancesRequest
   ): Promise<responses.ListBdsInstancesResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#listBdsInstances.");
+    logger.debug("Calling operation BdsClient#listBdsInstances.");
     const operationName = "listBdsInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstanceSummary/ListBdsInstances";
@@ -2739,7 +2701,6 @@ export class BdsClient {
       listBdsInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2847,8 +2808,7 @@ export class BdsClient {
   public async listBdsMetastoreConfigurations(
     listBdsMetastoreConfigurationsRequest: requests.ListBdsMetastoreConfigurationsRequest
   ): Promise<responses.ListBdsMetastoreConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#listBdsMetastoreConfigurations.");
+    logger.debug("Calling operation BdsClient#listBdsMetastoreConfigurations.");
     const operationName = "listBdsMetastoreConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/ListBdsMetastoreConfigurations";
@@ -2879,7 +2839,6 @@ export class BdsClient {
       listBdsMetastoreConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2986,7 +2945,7 @@ export class BdsClient {
   public async listOsPatches(
     listOsPatchesRequest: requests.ListOsPatchesRequest
   ): Promise<responses.ListOsPatchesResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#listOsPatches.");
+    logger.debug("Calling operation BdsClient#listOsPatches.");
     const operationName = "listOsPatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListOsPatches";
@@ -3014,7 +2973,6 @@ export class BdsClient {
       listOsPatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3127,7 +3085,7 @@ export class BdsClient {
   public async listPatchHistories(
     listPatchHistoriesRequest: requests.ListPatchHistoriesRequest
   ): Promise<responses.ListPatchHistoriesResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#listPatchHistories.");
+    logger.debug("Calling operation BdsClient#listPatchHistories.");
     const operationName = "listPatchHistories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListPatchHistories";
@@ -3156,7 +3114,6 @@ export class BdsClient {
       listPatchHistoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3264,7 +3221,7 @@ export class BdsClient {
   public async listPatches(
     listPatchesRequest: requests.ListPatchesRequest
   ): Promise<responses.ListPatchesResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#listPatches.");
+    logger.debug("Calling operation BdsClient#listPatches.");
     const operationName = "listPatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListPatches";
@@ -3288,7 +3245,6 @@ export class BdsClient {
       listPatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3396,7 +3352,7 @@ export class BdsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequestErrors.");
+    logger.debug("Calling operation BdsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/WorkRequestError/ListWorkRequestErrors";
@@ -3422,7 +3378,6 @@ export class BdsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3530,7 +3485,7 @@ export class BdsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequestLogs.");
+    logger.debug("Calling operation BdsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -3556,7 +3511,6 @@ export class BdsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3664,7 +3618,7 @@ export class BdsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequests.");
+    logger.debug("Calling operation BdsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/WorkRequest/ListWorkRequests";
@@ -3690,7 +3644,6 @@ export class BdsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3798,8 +3751,7 @@ export class BdsClient {
   public async removeAutoScalingConfiguration(
     removeAutoScalingConfigurationRequest: requests.RemoveAutoScalingConfigurationRequest
   ): Promise<responses.RemoveAutoScalingConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#removeAutoScalingConfiguration.");
+    logger.debug("Calling operation BdsClient#removeAutoScalingConfiguration.");
     const operationName = "removeAutoScalingConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveAutoScalingConfiguration";
@@ -3824,7 +3776,6 @@ export class BdsClient {
       removeAutoScalingConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3882,7 +3833,7 @@ export class BdsClient {
   public async removeCloudSql(
     removeCloudSqlRequest: requests.RemoveCloudSqlRequest
   ): Promise<responses.RemoveCloudSqlResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#removeCloudSql.");
+    logger.debug("Calling operation BdsClient#removeCloudSql.");
     const operationName = "removeCloudSql";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveCloudSql";
@@ -3905,7 +3856,6 @@ export class BdsClient {
       removeCloudSqlRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3962,7 +3912,7 @@ export class BdsClient {
   public async removeKafka(
     removeKafkaRequest: requests.RemoveKafkaRequest
   ): Promise<responses.RemoveKafkaResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#removeKafka.");
+    logger.debug("Calling operation BdsClient#removeKafka.");
     const operationName = "removeKafka";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveKafka";
@@ -3985,7 +3935,6 @@ export class BdsClient {
       removeKafkaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4042,7 +3991,7 @@ export class BdsClient {
   public async removeNode(
     removeNodeRequest: requests.RemoveNodeRequest
   ): Promise<responses.RemoveNodeResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#removeNode.");
+    logger.debug("Calling operation BdsClient#removeNode.");
     const operationName = "removeNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveNode";
@@ -4064,7 +4013,6 @@ export class BdsClient {
       removeNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4121,7 +4069,7 @@ export class BdsClient {
   public async renewCertificate(
     renewCertificateRequest: requests.RenewCertificateRequest
   ): Promise<responses.RenewCertificateResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#renewCertificate.");
+    logger.debug("Calling operation BdsClient#renewCertificate.");
     const operationName = "renewCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RenewCertificate";
@@ -4144,7 +4092,6 @@ export class BdsClient {
       renewCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4201,7 +4148,7 @@ export class BdsClient {
   public async restartNode(
     restartNodeRequest: requests.RestartNodeRequest
   ): Promise<responses.RestartNodeResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#restartNode.");
+    logger.debug("Calling operation BdsClient#restartNode.");
     const operationName = "restartNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RestartNode";
@@ -4224,7 +4171,6 @@ export class BdsClient {
       restartNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4281,7 +4227,7 @@ export class BdsClient {
   public async startBdsInstance(
     startBdsInstanceRequest: requests.StartBdsInstanceRequest
   ): Promise<responses.StartBdsInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#startBdsInstance.");
+    logger.debug("Calling operation BdsClient#startBdsInstance.");
     const operationName = "startBdsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/StartBdsInstance";
@@ -4303,7 +4249,6 @@ export class BdsClient {
       startBdsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4360,7 +4305,7 @@ export class BdsClient {
   public async stopBdsInstance(
     stopBdsInstanceRequest: requests.StopBdsInstanceRequest
   ): Promise<responses.StopBdsInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#stopBdsInstance.");
+    logger.debug("Calling operation BdsClient#stopBdsInstance.");
     const operationName = "stopBdsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/StopBdsInstance";
@@ -4382,7 +4327,6 @@ export class BdsClient {
       stopBdsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4439,8 +4383,7 @@ export class BdsClient {
   public async testBdsMetastoreConfiguration(
     testBdsMetastoreConfigurationRequest: requests.TestBdsMetastoreConfigurationRequest
   ): Promise<responses.TestBdsMetastoreConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#testBdsMetastoreConfiguration.");
+    logger.debug("Calling operation BdsClient#testBdsMetastoreConfiguration.");
     const operationName = "testBdsMetastoreConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/TestBdsMetastoreConfiguration";
@@ -4463,7 +4406,6 @@ export class BdsClient {
       testBdsMetastoreConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4519,8 +4461,7 @@ export class BdsClient {
   public async testBdsObjectStorageConnection(
     testBdsObjectStorageConnectionRequest: requests.TestBdsObjectStorageConnectionRequest
   ): Promise<responses.TestBdsObjectStorageConnectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#testBdsObjectStorageConnection.");
+    logger.debug("Calling operation BdsClient#testBdsObjectStorageConnection.");
     const operationName = "testBdsObjectStorageConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/TestBdsObjectStorageConnection";
@@ -4542,7 +4483,6 @@ export class BdsClient {
       testBdsObjectStorageConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4599,8 +4539,7 @@ export class BdsClient {
   public async updateAutoScalingConfiguration(
     updateAutoScalingConfigurationRequest: requests.UpdateAutoScalingConfigurationRequest
   ): Promise<responses.UpdateAutoScalingConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#updateAutoScalingConfiguration.");
+    logger.debug("Calling operation BdsClient#updateAutoScalingConfiguration.");
     const operationName = "updateAutoScalingConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/UpdateAutoScalingConfiguration";
@@ -4625,7 +4564,6 @@ export class BdsClient {
       updateAutoScalingConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4681,7 +4619,7 @@ export class BdsClient {
   public async updateBdsInstance(
     updateBdsInstanceRequest: requests.UpdateBdsInstanceRequest
   ): Promise<responses.UpdateBdsInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation BdsClient#updateBdsInstance.");
+    logger.debug("Calling operation BdsClient#updateBdsInstance.");
     const operationName = "updateBdsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/UpdateBdsInstance";
@@ -4703,7 +4641,6 @@ export class BdsClient {
       updateBdsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4759,8 +4696,7 @@ export class BdsClient {
   public async updateBdsMetastoreConfiguration(
     updateBdsMetastoreConfigurationRequest: requests.UpdateBdsMetastoreConfigurationRequest
   ): Promise<responses.UpdateBdsMetastoreConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation BdsClient#updateBdsMetastoreConfiguration.");
+    logger.debug("Calling operation BdsClient#updateBdsMetastoreConfiguration.");
     const operationName = "updateBdsMetastoreConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/UpdateBdsMetastoreConfiguration";
@@ -4783,7 +4719,6 @@ export class BdsClient {
       updateBdsMetastoreConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -33,8 +33,7 @@ export namespace ApprovalPolicy {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.approvalPolicyType}`);
+          common.logger.info(`Unknown value for: ${obj.approvalPolicyType}`);
       }
     }
     return jsonObj;
@@ -50,8 +49,7 @@ export namespace ApprovalPolicy {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.approvalPolicyType}`);
+          common.logger.info(`Unknown value for: ${obj.approvalPolicyType}`);
       }
     }
     return jsonObj;

@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -120,11 +121,7 @@ export class AIServiceLanguageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20221001";
-    if (this.logger) this.logger.info(`AIServiceLanguageClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`AIServiceLanguageClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -134,10 +131,9 @@ export class AIServiceLanguageClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AIServiceLanguageClient.serviceEndpointTemplate,
@@ -237,8 +233,7 @@ Limitations:
   public async batchDetectDominantLanguage(
     batchDetectDominantLanguageRequest: requests.BatchDetectDominantLanguageRequest
   ): Promise<responses.BatchDetectDominantLanguageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectDominantLanguage.");
+    logger.debug("Calling operation AIServiceLanguageClient#batchDetectDominantLanguage.");
     const operationName = "batchDetectDominantLanguage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectDominantLanguage/BatchDetectDominantLanguage";
@@ -257,7 +252,6 @@ Limitations:
       batchDetectDominantLanguageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -320,8 +314,7 @@ Limitations:
   public async batchDetectLanguageEntities(
     batchDetectLanguageEntitiesRequest: requests.BatchDetectLanguageEntitiesRequest
   ): Promise<responses.BatchDetectLanguageEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageEntities.");
+    logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageEntities.");
     const operationName = "batchDetectLanguageEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageEntities/BatchDetectLanguageEntities";
@@ -340,7 +333,6 @@ Limitations:
       batchDetectLanguageEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -401,8 +393,7 @@ Limitations:
   public async batchDetectLanguageKeyPhrases(
     batchDetectLanguageKeyPhrasesRequest: requests.BatchDetectLanguageKeyPhrasesRequest
   ): Promise<responses.BatchDetectLanguageKeyPhrasesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageKeyPhrases.");
+    logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageKeyPhrases.");
     const operationName = "batchDetectLanguageKeyPhrases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageKeyPhrases/BatchDetectLanguageKeyPhrases";
@@ -421,7 +412,6 @@ Limitations:
       batchDetectLanguageKeyPhrasesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -482,10 +472,7 @@ Limitations:
   public async batchDetectLanguagePiiEntities(
     batchDetectLanguagePiiEntitiesRequest: requests.BatchDetectLanguagePiiEntitiesRequest
   ): Promise<responses.BatchDetectLanguagePiiEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation AIServiceLanguageClient#batchDetectLanguagePiiEntities."
-      );
+    logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguagePiiEntities.");
     const operationName = "batchDetectLanguagePiiEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguagePiiEntities/BatchDetectLanguagePiiEntities";
@@ -504,7 +491,6 @@ Limitations:
       batchDetectLanguagePiiEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -571,8 +557,7 @@ Limitations:
   public async batchDetectLanguageSentiments(
     batchDetectLanguageSentimentsRequest: requests.BatchDetectLanguageSentimentsRequest
   ): Promise<responses.BatchDetectLanguageSentimentsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageSentiments.");
+    logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageSentiments.");
     const operationName = "batchDetectLanguageSentiments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageSentiments/BatchDetectLanguageSentiments";
@@ -593,7 +578,6 @@ Limitations:
       batchDetectLanguageSentimentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -658,10 +642,9 @@ Limitations:
   public async batchDetectLanguageTextClassification(
     batchDetectLanguageTextClassificationRequest: requests.BatchDetectLanguageTextClassificationRequest
   ): Promise<responses.BatchDetectLanguageTextClassificationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation AIServiceLanguageClient#batchDetectLanguageTextClassification."
-      );
+    logger.debug(
+      "Calling operation AIServiceLanguageClient#batchDetectLanguageTextClassification."
+    );
     const operationName = "batchDetectLanguageTextClassification";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageTextClassification/BatchDetectLanguageTextClassification";
@@ -680,7 +663,6 @@ Limitations:
       batchDetectLanguageTextClassificationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -741,8 +723,7 @@ Limitations:
   public async batchLanguageTranslation(
     batchLanguageTranslationRequest: requests.BatchLanguageTranslationRequest
   ): Promise<responses.BatchLanguageTranslationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#batchLanguageTranslation.");
+    logger.debug("Calling operation AIServiceLanguageClient#batchLanguageTranslation.");
     const operationName = "batchLanguageTranslation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchLanguageTranslation/BatchLanguageTranslation";
@@ -761,7 +742,6 @@ Limitations:
       batchLanguageTranslationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -816,8 +796,7 @@ Limitations:
   public async changeEndpointCompartment(
     changeEndpointCompartmentRequest: requests.ChangeEndpointCompartmentRequest
   ): Promise<responses.ChangeEndpointCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#changeEndpointCompartment.");
+    logger.debug("Calling operation AIServiceLanguageClient#changeEndpointCompartment.");
     const operationName = "changeEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Endpoint/ChangeEndpointCompartment";
@@ -840,7 +819,6 @@ Limitations:
       changeEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -891,8 +869,7 @@ Limitations:
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
   ): Promise<responses.ChangeModelCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#changeModelCompartment.");
+    logger.debug("Calling operation AIServiceLanguageClient#changeModelCompartment.");
     const operationName = "changeModelCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Model/ChangeModelCompartment";
@@ -915,7 +892,6 @@ Limitations:
       changeModelCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -966,8 +942,7 @@ Limitations:
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
   ): Promise<responses.ChangeProjectCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#changeProjectCompartment.");
+    logger.debug("Calling operation AIServiceLanguageClient#changeProjectCompartment.");
     const operationName = "changeProjectCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Project/ChangeProjectCompartment";
@@ -990,7 +965,6 @@ Limitations:
       changeProjectCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1042,7 +1016,7 @@ Limitations:
   public async createEndpoint(
     createEndpointRequest: requests.CreateEndpointRequest
   ): Promise<responses.CreateEndpointResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#createEndpoint.");
+    logger.debug("Calling operation AIServiceLanguageClient#createEndpoint.");
     const operationName = "createEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Endpoint/CreateEndpoint";
@@ -1062,7 +1036,6 @@ Limitations:
       createEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1133,7 +1106,7 @@ Limitations:
   public async createModel(
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#createModel.");
+    logger.debug("Calling operation AIServiceLanguageClient#createModel.");
     const operationName = "createModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Model/CreateModel";
@@ -1153,7 +1126,6 @@ Limitations:
       createModelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1224,7 +1196,7 @@ Limitations:
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#createProject.");
+    logger.debug("Calling operation AIServiceLanguageClient#createProject.");
     const operationName = "createProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Project/CreateProject";
@@ -1244,7 +1216,6 @@ Limitations:
       createProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1309,7 +1280,7 @@ Limitations:
   public async deleteEndpoint(
     deleteEndpointRequest: requests.DeleteEndpointRequest
   ): Promise<responses.DeleteEndpointResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#deleteEndpoint.");
+    logger.debug("Calling operation AIServiceLanguageClient#deleteEndpoint.");
     const operationName = "deleteEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Endpoint/DeleteEndpoint";
@@ -1331,7 +1302,6 @@ Limitations:
       deleteEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1382,7 +1352,7 @@ Limitations:
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#deleteModel.");
+    logger.debug("Calling operation AIServiceLanguageClient#deleteModel.");
     const operationName = "deleteModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Model/DeleteModel";
@@ -1404,7 +1374,6 @@ Limitations:
       deleteModelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1455,7 +1424,7 @@ Limitations:
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#deleteProject.");
+    logger.debug("Calling operation AIServiceLanguageClient#deleteProject.");
     const operationName = "deleteProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Project/DeleteProject";
@@ -1477,7 +1446,6 @@ Limitations:
       deleteProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1535,8 +1503,7 @@ Limitations:
   public async detectDominantLanguage(
     detectDominantLanguageRequest: requests.DetectDominantLanguageRequest
   ): Promise<responses.DetectDominantLanguageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#detectDominantLanguage.");
+    logger.debug("Calling operation AIServiceLanguageClient#detectDominantLanguage.");
     const operationName = "detectDominantLanguage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/DetectDominantLanguage/DetectDominantLanguage";
@@ -1555,7 +1522,6 @@ Limitations:
       detectDominantLanguageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1620,8 +1586,7 @@ Limitations:
   public async detectLanguageEntities(
     detectLanguageEntitiesRequest: requests.DetectLanguageEntitiesRequest
   ): Promise<responses.DetectLanguageEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#detectLanguageEntities.");
+    logger.debug("Calling operation AIServiceLanguageClient#detectLanguageEntities.");
     const operationName = "detectLanguageEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/DetectLanguageEntities/DetectLanguageEntities";
@@ -1643,7 +1608,6 @@ Limitations:
       detectLanguageEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1708,8 +1672,7 @@ Limitations:
   public async detectLanguageKeyPhrases(
     detectLanguageKeyPhrasesRequest: requests.DetectLanguageKeyPhrasesRequest
   ): Promise<responses.DetectLanguageKeyPhrasesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#detectLanguageKeyPhrases.");
+    logger.debug("Calling operation AIServiceLanguageClient#detectLanguageKeyPhrases.");
     const operationName = "detectLanguageKeyPhrases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/DetectLanguageKeyPhrases/DetectLanguageKeyPhrases";
@@ -1728,7 +1691,6 @@ Limitations:
       detectLanguageKeyPhrasesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1799,8 +1761,7 @@ Limitations:
   public async detectLanguageSentiments(
     detectLanguageSentimentsRequest: requests.DetectLanguageSentimentsRequest
   ): Promise<responses.DetectLanguageSentimentsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#detectLanguageSentiments.");
+    logger.debug("Calling operation AIServiceLanguageClient#detectLanguageSentiments.");
     const operationName = "detectLanguageSentiments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/DetectLanguageSentiments/DetectLanguageSentiments";
@@ -1819,7 +1780,6 @@ Limitations:
       detectLanguageSentimentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1886,10 +1846,7 @@ Limitations:
   public async detectLanguageTextClassification(
     detectLanguageTextClassificationRequest: requests.DetectLanguageTextClassificationRequest
   ): Promise<responses.DetectLanguageTextClassificationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation AIServiceLanguageClient#detectLanguageTextClassification."
-      );
+    logger.debug("Calling operation AIServiceLanguageClient#detectLanguageTextClassification.");
     const operationName = "detectLanguageTextClassification";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/DetectLanguageTextClassification/DetectLanguageTextClassification";
@@ -1908,7 +1865,6 @@ Limitations:
       detectLanguageTextClassificationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1968,7 +1924,7 @@ Limitations:
   public async getEndpoint(
     getEndpointRequest: requests.GetEndpointRequest
   ): Promise<responses.GetEndpointResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#getEndpoint.");
+    logger.debug("Calling operation AIServiceLanguageClient#getEndpoint.");
     const operationName = "getEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Endpoint/GetEndpoint";
@@ -1989,7 +1945,6 @@ Limitations:
       getEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2044,7 +1999,7 @@ Limitations:
   public async getModel(
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#getModel.");
+    logger.debug("Calling operation AIServiceLanguageClient#getModel.");
     const operationName = "getModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Model/GetModel";
@@ -2065,7 +2020,6 @@ Limitations:
       getModelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2120,7 +2074,7 @@ Limitations:
   public async getModelType(
     getModelTypeRequest: requests.GetModelTypeRequest
   ): Promise<responses.GetModelTypeResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#getModelType.");
+    logger.debug("Calling operation AIServiceLanguageClient#getModelType.");
     const operationName = "getModelType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/ModelTypeInfo/GetModelType";
@@ -2141,7 +2095,6 @@ Limitations:
       getModelTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2191,7 +2144,7 @@ Limitations:
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#getProject.");
+    logger.debug("Calling operation AIServiceLanguageClient#getProject.");
     const operationName = "getProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Project/GetProject";
@@ -2212,7 +2165,6 @@ Limitations:
       getProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2267,7 +2219,7 @@ Limitations:
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#getWorkRequest.");
+    logger.debug("Calling operation AIServiceLanguageClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/WorkRequest/GetWorkRequest";
@@ -2288,7 +2240,6 @@ Limitations:
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2344,7 +2295,7 @@ Limitations:
   public async listEndpoints(
     listEndpointsRequest: requests.ListEndpointsRequest
   ): Promise<responses.ListEndpointsResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#listEndpoints.");
+    logger.debug("Calling operation AIServiceLanguageClient#listEndpoints.");
     const operationName = "listEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Endpoint/ListEndpoints";
@@ -2374,7 +2325,6 @@ Limitations:
       listEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2429,8 +2379,7 @@ Limitations:
   public async listEvaluationResults(
     listEvaluationResultsRequest: requests.ListEvaluationResultsRequest
   ): Promise<responses.ListEvaluationResultsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#listEvaluationResults.");
+    logger.debug("Calling operation AIServiceLanguageClient#listEvaluationResults.");
     const operationName = "listEvaluationResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/EvaluationResultCollection/ListEvaluationResults";
@@ -2454,7 +2403,6 @@ Limitations:
       listEvaluationResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2510,7 +2458,7 @@ Limitations:
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#listModels.");
+    logger.debug("Calling operation AIServiceLanguageClient#listModels.");
     const operationName = "listModels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Model/ListModels";
@@ -2539,7 +2487,6 @@ Limitations:
       listModelsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2595,7 +2542,7 @@ Limitations:
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#listProjects.");
+    logger.debug("Calling operation AIServiceLanguageClient#listProjects.");
     const operationName = "listProjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Project/ListProjects";
@@ -2623,7 +2570,6 @@ Limitations:
       listProjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2679,8 +2625,7 @@ Limitations:
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#listWorkRequestErrors.");
+    logger.debug("Calling operation AIServiceLanguageClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/WorkRequestError/ListWorkRequestErrors";
@@ -2706,7 +2651,6 @@ Limitations:
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2762,8 +2706,7 @@ Limitations:
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#listWorkRequestLogs.");
+    logger.debug("Calling operation AIServiceLanguageClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/WorkRequestLog/ListWorkRequestLogs";
@@ -2789,7 +2732,6 @@ Limitations:
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2845,8 +2787,7 @@ Limitations:
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AIServiceLanguageClient#listWorkRequests.");
+    logger.debug("Calling operation AIServiceLanguageClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/WorkRequest/ListWorkRequests";
@@ -2873,7 +2814,6 @@ Limitations:
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2928,7 +2868,7 @@ Limitations:
   public async updateEndpoint(
     updateEndpointRequest: requests.UpdateEndpointRequest
   ): Promise<responses.UpdateEndpointResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#updateEndpoint.");
+    logger.debug("Calling operation AIServiceLanguageClient#updateEndpoint.");
     const operationName = "updateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Endpoint/UpdateEndpoint";
@@ -2950,7 +2890,6 @@ Limitations:
       updateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3006,7 +2945,7 @@ Limitations:
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#updateModel.");
+    logger.debug("Calling operation AIServiceLanguageClient#updateModel.");
     const operationName = "updateModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Model/UpdateModel";
@@ -3028,7 +2967,6 @@ Limitations:
       updateModelRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3084,7 +3022,7 @@ Limitations:
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#updateProject.");
+    logger.debug("Calling operation AIServiceLanguageClient#updateProject.");
     const operationName = "updateProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/language/20221001/Project/UpdateProject";
@@ -3106,7 +3044,6 @@ Limitations:
       updateProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

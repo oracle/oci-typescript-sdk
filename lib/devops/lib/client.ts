@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class DevopsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210630";
-    if (this.logger) this.logger.info(`DevopsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DevopsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class DevopsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DevopsClient.serviceEndpointTemplate,
@@ -225,7 +221,7 @@ export class DevopsClient {
   public async approveDeployment(
     approveDeploymentRequest: requests.ApproveDeploymentRequest
   ): Promise<responses.ApproveDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#approveDeployment.");
+    logger.debug("Calling operation DevopsClient#approveDeployment.");
     const operationName = "approveDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/ApproveDeployment";
@@ -248,7 +244,6 @@ export class DevopsClient {
       approveDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -308,7 +303,7 @@ export class DevopsClient {
   public async cancelBuildRun(
     cancelBuildRunRequest: requests.CancelBuildRunRequest
   ): Promise<responses.CancelBuildRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#cancelBuildRun.");
+    logger.debug("Calling operation DevopsClient#cancelBuildRun.");
     const operationName = "cancelBuildRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRun/CancelBuildRun";
@@ -331,7 +326,6 @@ export class DevopsClient {
       cancelBuildRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -391,7 +385,7 @@ export class DevopsClient {
   public async cancelDeployment(
     cancelDeploymentRequest: requests.CancelDeploymentRequest
   ): Promise<responses.CancelDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#cancelDeployment.");
+    logger.debug("Calling operation DevopsClient#cancelDeployment.");
     const operationName = "cancelDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/CancelDeployment";
@@ -414,7 +408,6 @@ export class DevopsClient {
       cancelDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -474,8 +467,7 @@ export class DevopsClient {
   public async cancelScheduledCascadingProjectDeletion(
     cancelScheduledCascadingProjectDeletionRequest: requests.CancelScheduledCascadingProjectDeletionRequest
   ): Promise<responses.CancelScheduledCascadingProjectDeletionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DevopsClient#cancelScheduledCascadingProjectDeletion.");
+    logger.debug("Calling operation DevopsClient#cancelScheduledCascadingProjectDeletion.");
     const operationName = "cancelScheduledCascadingProjectDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/CancelScheduledCascadingProjectDeletion";
@@ -498,7 +490,6 @@ export class DevopsClient {
       cancelScheduledCascadingProjectDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -549,7 +540,7 @@ export class DevopsClient {
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
   ): Promise<responses.ChangeProjectCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#changeProjectCompartment.");
+    logger.debug("Calling operation DevopsClient#changeProjectCompartment.");
     const operationName = "changeProjectCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/ChangeProjectCompartment";
@@ -572,7 +563,6 @@ export class DevopsClient {
       changeProjectCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -629,7 +619,7 @@ export class DevopsClient {
   public async createBuildPipeline(
     createBuildPipelineRequest: requests.CreateBuildPipelineRequest
   ): Promise<responses.CreateBuildPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildPipeline.");
+    logger.debug("Calling operation DevopsClient#createBuildPipeline.");
     const operationName = "createBuildPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipeline/CreateBuildPipeline";
@@ -649,7 +639,6 @@ export class DevopsClient {
       createBuildPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -720,7 +709,7 @@ export class DevopsClient {
   public async createBuildPipelineStage(
     createBuildPipelineStageRequest: requests.CreateBuildPipelineStageRequest
   ): Promise<responses.CreateBuildPipelineStageResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildPipelineStage.");
+    logger.debug("Calling operation DevopsClient#createBuildPipelineStage.");
     const operationName = "createBuildPipelineStage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStage/CreateBuildPipelineStage";
@@ -740,7 +729,6 @@ export class DevopsClient {
       createBuildPipelineStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -811,7 +799,7 @@ export class DevopsClient {
   public async createBuildRun(
     createBuildRunRequest: requests.CreateBuildRunRequest
   ): Promise<responses.CreateBuildRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildRun.");
+    logger.debug("Calling operation DevopsClient#createBuildRun.");
     const operationName = "createBuildRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRun/CreateBuildRun";
@@ -832,7 +820,6 @@ export class DevopsClient {
       createBuildRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -898,7 +885,7 @@ export class DevopsClient {
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createConnection.");
+    logger.debug("Calling operation DevopsClient#createConnection.");
     const operationName = "createConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/CreateConnection";
@@ -918,7 +905,6 @@ export class DevopsClient {
       createConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -988,7 +974,7 @@ export class DevopsClient {
   public async createDeployArtifact(
     createDeployArtifactRequest: requests.CreateDeployArtifactRequest
   ): Promise<responses.CreateDeployArtifactResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployArtifact.");
+    logger.debug("Calling operation DevopsClient#createDeployArtifact.");
     const operationName = "createDeployArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifact/CreateDeployArtifact";
@@ -1008,7 +994,6 @@ export class DevopsClient {
       createDeployArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1078,7 +1063,7 @@ export class DevopsClient {
   public async createDeployEnvironment(
     createDeployEnvironmentRequest: requests.CreateDeployEnvironmentRequest
   ): Promise<responses.CreateDeployEnvironmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployEnvironment.");
+    logger.debug("Calling operation DevopsClient#createDeployEnvironment.");
     const operationName = "createDeployEnvironment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironment/CreateDeployEnvironment";
@@ -1098,7 +1083,6 @@ export class DevopsClient {
       createDeployEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1168,7 +1152,7 @@ export class DevopsClient {
   public async createDeployPipeline(
     createDeployPipelineRequest: requests.CreateDeployPipelineRequest
   ): Promise<responses.CreateDeployPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployPipeline.");
+    logger.debug("Calling operation DevopsClient#createDeployPipeline.");
     const operationName = "createDeployPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipeline/CreateDeployPipeline";
@@ -1188,7 +1172,6 @@ export class DevopsClient {
       createDeployPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1258,7 +1241,7 @@ export class DevopsClient {
   public async createDeployStage(
     createDeployStageRequest: requests.CreateDeployStageRequest
   ): Promise<responses.CreateDeployStageResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployStage.");
+    logger.debug("Calling operation DevopsClient#createDeployStage.");
     const operationName = "createDeployStage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStage/CreateDeployStage";
@@ -1278,7 +1261,6 @@ export class DevopsClient {
       createDeployStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1348,7 +1330,7 @@ export class DevopsClient {
   public async createDeployment(
     createDeploymentRequest: requests.CreateDeploymentRequest
   ): Promise<responses.CreateDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployment.");
+    logger.debug("Calling operation DevopsClient#createDeployment.");
     const operationName = "createDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/CreateDeployment";
@@ -1368,7 +1350,6 @@ export class DevopsClient {
       createDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1428,7 +1409,7 @@ export class DevopsClient {
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createProject.");
+    logger.debug("Calling operation DevopsClient#createProject.");
     const operationName = "createProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/CreateProject";
@@ -1448,7 +1429,6 @@ export class DevopsClient {
       createProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1519,7 +1499,7 @@ export class DevopsClient {
   public async createRepository(
     createRepositoryRequest: requests.CreateRepositoryRequest
   ): Promise<responses.CreateRepositoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createRepository.");
+    logger.debug("Calling operation DevopsClient#createRepository.");
     const operationName = "createRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/CreateRepository";
@@ -1539,7 +1519,6 @@ export class DevopsClient {
       createRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1610,7 +1589,7 @@ export class DevopsClient {
   public async createTrigger(
     createTriggerRequest: requests.CreateTriggerRequest
   ): Promise<responses.CreateTriggerResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#createTrigger.");
+    logger.debug("Calling operation DevopsClient#createTrigger.");
     const operationName = "createTrigger";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Trigger/CreateTrigger";
@@ -1630,7 +1609,6 @@ export class DevopsClient {
       createTriggerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1700,7 +1678,7 @@ export class DevopsClient {
   public async deleteBuildPipeline(
     deleteBuildPipelineRequest: requests.DeleteBuildPipelineRequest
   ): Promise<responses.DeleteBuildPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteBuildPipeline.");
+    logger.debug("Calling operation DevopsClient#deleteBuildPipeline.");
     const operationName = "deleteBuildPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipeline/DeleteBuildPipeline";
@@ -1722,7 +1700,6 @@ export class DevopsClient {
       deleteBuildPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1773,7 +1750,7 @@ export class DevopsClient {
   public async deleteBuildPipelineStage(
     deleteBuildPipelineStageRequest: requests.DeleteBuildPipelineStageRequest
   ): Promise<responses.DeleteBuildPipelineStageResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteBuildPipelineStage.");
+    logger.debug("Calling operation DevopsClient#deleteBuildPipelineStage.");
     const operationName = "deleteBuildPipelineStage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStage/DeleteBuildPipelineStage";
@@ -1795,7 +1772,6 @@ export class DevopsClient {
       deleteBuildPipelineStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1846,7 +1822,7 @@ export class DevopsClient {
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteConnection.");
+    logger.debug("Calling operation DevopsClient#deleteConnection.");
     const operationName = "deleteConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/DeleteConnection";
@@ -1868,7 +1844,6 @@ export class DevopsClient {
       deleteConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1919,7 +1894,7 @@ export class DevopsClient {
   public async deleteDeployArtifact(
     deleteDeployArtifactRequest: requests.DeleteDeployArtifactRequest
   ): Promise<responses.DeleteDeployArtifactResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteDeployArtifact.");
+    logger.debug("Calling operation DevopsClient#deleteDeployArtifact.");
     const operationName = "deleteDeployArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifact/DeleteDeployArtifact";
@@ -1941,7 +1916,6 @@ export class DevopsClient {
       deleteDeployArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1992,7 +1966,7 @@ export class DevopsClient {
   public async deleteDeployEnvironment(
     deleteDeployEnvironmentRequest: requests.DeleteDeployEnvironmentRequest
   ): Promise<responses.DeleteDeployEnvironmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteDeployEnvironment.");
+    logger.debug("Calling operation DevopsClient#deleteDeployEnvironment.");
     const operationName = "deleteDeployEnvironment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironment/DeleteDeployEnvironment";
@@ -2014,7 +1988,6 @@ export class DevopsClient {
       deleteDeployEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2065,7 +2038,7 @@ export class DevopsClient {
   public async deleteDeployPipeline(
     deleteDeployPipelineRequest: requests.DeleteDeployPipelineRequest
   ): Promise<responses.DeleteDeployPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteDeployPipeline.");
+    logger.debug("Calling operation DevopsClient#deleteDeployPipeline.");
     const operationName = "deleteDeployPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipeline/DeleteDeployPipeline";
@@ -2087,7 +2060,6 @@ export class DevopsClient {
       deleteDeployPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2138,7 +2110,7 @@ export class DevopsClient {
   public async deleteDeployStage(
     deleteDeployStageRequest: requests.DeleteDeployStageRequest
   ): Promise<responses.DeleteDeployStageResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteDeployStage.");
+    logger.debug("Calling operation DevopsClient#deleteDeployStage.");
     const operationName = "deleteDeployStage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStage/DeleteDeployStage";
@@ -2160,7 +2132,6 @@ export class DevopsClient {
       deleteDeployStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2211,7 +2182,7 @@ export class DevopsClient {
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteProject.");
+    logger.debug("Calling operation DevopsClient#deleteProject.");
     const operationName = "deleteProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/DeleteProject";
@@ -2233,7 +2204,6 @@ export class DevopsClient {
       deleteProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2284,7 +2254,7 @@ export class DevopsClient {
   public async deleteRef(
     deleteRefRequest: requests.DeleteRefRequest
   ): Promise<responses.DeleteRefResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteRef.");
+    logger.debug("Calling operation DevopsClient#deleteRef.");
     const operationName = "deleteRef";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/DeleteRef";
@@ -2308,7 +2278,6 @@ export class DevopsClient {
       deleteRefRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2359,7 +2328,7 @@ export class DevopsClient {
   public async deleteRepository(
     deleteRepositoryRequest: requests.DeleteRepositoryRequest
   ): Promise<responses.DeleteRepositoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteRepository.");
+    logger.debug("Calling operation DevopsClient#deleteRepository.");
     const operationName = "deleteRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/DeleteRepository";
@@ -2381,7 +2350,6 @@ export class DevopsClient {
       deleteRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2432,7 +2400,7 @@ export class DevopsClient {
   public async deleteTrigger(
     deleteTriggerRequest: requests.DeleteTriggerRequest
   ): Promise<responses.DeleteTriggerResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteTrigger.");
+    logger.debug("Calling operation DevopsClient#deleteTrigger.");
     const operationName = "deleteTrigger";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Trigger/DeleteTrigger";
@@ -2454,7 +2422,6 @@ export class DevopsClient {
       deleteTriggerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2505,7 +2472,7 @@ export class DevopsClient {
   public async getBuildPipeline(
     getBuildPipelineRequest: requests.GetBuildPipelineRequest
   ): Promise<responses.GetBuildPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildPipeline.");
+    logger.debug("Calling operation DevopsClient#getBuildPipeline.");
     const operationName = "getBuildPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipeline/GetBuildPipeline";
@@ -2526,7 +2493,6 @@ export class DevopsClient {
       getBuildPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2581,7 +2547,7 @@ export class DevopsClient {
   public async getBuildPipelineStage(
     getBuildPipelineStageRequest: requests.GetBuildPipelineStageRequest
   ): Promise<responses.GetBuildPipelineStageResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildPipelineStage.");
+    logger.debug("Calling operation DevopsClient#getBuildPipelineStage.");
     const operationName = "getBuildPipelineStage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStage/GetBuildPipelineStage";
@@ -2602,7 +2568,6 @@ export class DevopsClient {
       getBuildPipelineStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2658,7 +2623,7 @@ export class DevopsClient {
   public async getBuildRun(
     getBuildRunRequest: requests.GetBuildRunRequest
   ): Promise<responses.GetBuildRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildRun.");
+    logger.debug("Calling operation DevopsClient#getBuildRun.");
     const operationName = "getBuildRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRun/GetBuildRun";
@@ -2679,7 +2644,6 @@ export class DevopsClient {
       getBuildRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2734,7 +2698,7 @@ export class DevopsClient {
   public async getCommit(
     getCommitRequest: requests.GetCommitRequest
   ): Promise<responses.GetCommitResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getCommit.");
+    logger.debug("Calling operation DevopsClient#getCommit.");
     const operationName = "getCommit";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetCommit";
@@ -2756,7 +2720,6 @@ export class DevopsClient {
       getCommitRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2812,7 +2775,7 @@ export class DevopsClient {
   public async getCommitDiff(
     getCommitDiffRequest: requests.GetCommitDiffRequest
   ): Promise<responses.GetCommitDiffResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getCommitDiff.");
+    logger.debug("Calling operation DevopsClient#getCommitDiff.");
     const operationName = "getCommitDiff";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetCommitDiff";
@@ -2837,7 +2800,6 @@ export class DevopsClient {
       getCommitDiffRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2892,7 +2854,7 @@ export class DevopsClient {
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getConnection.");
+    logger.debug("Calling operation DevopsClient#getConnection.");
     const operationName = "getConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/GetConnection";
@@ -2913,7 +2875,6 @@ export class DevopsClient {
       getConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2968,7 +2929,7 @@ export class DevopsClient {
   public async getDeployArtifact(
     getDeployArtifactRequest: requests.GetDeployArtifactRequest
   ): Promise<responses.GetDeployArtifactResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployArtifact.");
+    logger.debug("Calling operation DevopsClient#getDeployArtifact.");
     const operationName = "getDeployArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifact/GetDeployArtifact";
@@ -2989,7 +2950,6 @@ export class DevopsClient {
       getDeployArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3044,7 +3004,7 @@ export class DevopsClient {
   public async getDeployEnvironment(
     getDeployEnvironmentRequest: requests.GetDeployEnvironmentRequest
   ): Promise<responses.GetDeployEnvironmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployEnvironment.");
+    logger.debug("Calling operation DevopsClient#getDeployEnvironment.");
     const operationName = "getDeployEnvironment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironment/GetDeployEnvironment";
@@ -3065,7 +3025,6 @@ export class DevopsClient {
       getDeployEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3120,7 +3079,7 @@ export class DevopsClient {
   public async getDeployPipeline(
     getDeployPipelineRequest: requests.GetDeployPipelineRequest
   ): Promise<responses.GetDeployPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployPipeline.");
+    logger.debug("Calling operation DevopsClient#getDeployPipeline.");
     const operationName = "getDeployPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipeline/GetDeployPipeline";
@@ -3141,7 +3100,6 @@ export class DevopsClient {
       getDeployPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3196,7 +3154,7 @@ export class DevopsClient {
   public async getDeployStage(
     getDeployStageRequest: requests.GetDeployStageRequest
   ): Promise<responses.GetDeployStageResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployStage.");
+    logger.debug("Calling operation DevopsClient#getDeployStage.");
     const operationName = "getDeployStage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStage/GetDeployStage";
@@ -3217,7 +3175,6 @@ export class DevopsClient {
       getDeployStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3272,7 +3229,7 @@ export class DevopsClient {
   public async getDeployment(
     getDeploymentRequest: requests.GetDeploymentRequest
   ): Promise<responses.GetDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployment.");
+    logger.debug("Calling operation DevopsClient#getDeployment.");
     const operationName = "getDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/GetDeployment";
@@ -3293,7 +3250,6 @@ export class DevopsClient {
       getDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3349,7 +3305,7 @@ export class DevopsClient {
   public async getFileDiff(
     getFileDiffRequest: requests.GetFileDiffRequest
   ): Promise<responses.GetFileDiffResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getFileDiff.");
+    logger.debug("Calling operation DevopsClient#getFileDiff.");
     const operationName = "getFileDiff";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetFileDiff";
@@ -3375,7 +3331,6 @@ export class DevopsClient {
       getFileDiffRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3436,7 +3391,7 @@ export class DevopsClient {
   public async getMirrorRecord(
     getMirrorRecordRequest: requests.GetMirrorRecordRequest
   ): Promise<responses.GetMirrorRecordResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getMirrorRecord.");
+    logger.debug("Calling operation DevopsClient#getMirrorRecord.");
     const operationName = "getMirrorRecord";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetMirrorRecord";
@@ -3458,7 +3413,6 @@ export class DevopsClient {
       getMirrorRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3514,7 +3468,7 @@ export class DevopsClient {
   public async getObject(
     getObjectRequest: requests.GetObjectRequest
   ): Promise<responses.GetObjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getObject.");
+    logger.debug("Calling operation DevopsClient#getObject.");
     const operationName = "getObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryObject/GetObject";
@@ -3538,7 +3492,6 @@ export class DevopsClient {
       getObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3594,7 +3547,7 @@ export class DevopsClient {
   public async getObjectContent(
     getObjectContentRequest: requests.GetObjectContentRequest
   ): Promise<responses.GetObjectContentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getObjectContent.");
+    logger.debug("Calling operation DevopsClient#getObjectContent.");
     const operationName = "getObjectContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetObjectContent";
@@ -3618,7 +3571,6 @@ export class DevopsClient {
       getObjectContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3678,7 +3630,7 @@ export class DevopsClient {
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getProject.");
+    logger.debug("Calling operation DevopsClient#getProject.");
     const operationName = "getProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/GetProject";
@@ -3699,7 +3651,6 @@ export class DevopsClient {
       getProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3752,7 +3703,7 @@ export class DevopsClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRef.ts.html |here} to see how to use GetRef API.
    */
   public async getRef(getRefRequest: requests.GetRefRequest): Promise<responses.GetRefResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRef.");
+    logger.debug("Calling operation DevopsClient#getRef.");
     const operationName = "getRef";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRef";
@@ -3774,7 +3725,6 @@ export class DevopsClient {
       getRefRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3830,7 +3780,7 @@ export class DevopsClient {
   public async getRepoFileDiff(
     getRepoFileDiffRequest: requests.GetRepoFileDiffRequest
   ): Promise<responses.GetRepoFileDiffResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepoFileDiff.");
+    logger.debug("Calling operation DevopsClient#getRepoFileDiff.");
     const operationName = "getRepoFileDiff";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepoFileDiff";
@@ -3856,7 +3806,6 @@ export class DevopsClient {
       getRepoFileDiffRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3912,7 +3861,7 @@ export class DevopsClient {
   public async getRepoFileLines(
     getRepoFileLinesRequest: requests.GetRepoFileLinesRequest
   ): Promise<responses.GetRepoFileLinesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepoFileLines.");
+    logger.debug("Calling operation DevopsClient#getRepoFileLines.");
     const operationName = "getRepoFileLines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepoFileLines";
@@ -3938,7 +3887,6 @@ export class DevopsClient {
       getRepoFileLinesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3993,7 +3941,7 @@ export class DevopsClient {
   public async getRepository(
     getRepositoryRequest: requests.GetRepositoryRequest
   ): Promise<responses.GetRepositoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepository.");
+    logger.debug("Calling operation DevopsClient#getRepository.");
     const operationName = "getRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepository";
@@ -4016,7 +3964,6 @@ export class DevopsClient {
       getRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4072,8 +4019,7 @@ export class DevopsClient {
   public async getRepositoryArchiveContent(
     getRepositoryArchiveContentRequest: requests.GetRepositoryArchiveContentRequest
   ): Promise<responses.GetRepositoryArchiveContentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DevopsClient#getRepositoryArchiveContent.");
+    logger.debug("Calling operation DevopsClient#getRepositoryArchiveContent.");
     const operationName = "getRepositoryArchiveContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepositoryArchiveContent";
@@ -4097,7 +4043,6 @@ export class DevopsClient {
       getRepositoryArchiveContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4158,7 +4103,7 @@ export class DevopsClient {
   public async getRepositoryFileLines(
     getRepositoryFileLinesRequest: requests.GetRepositoryFileLinesRequest
   ): Promise<responses.GetRepositoryFileLinesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepositoryFileLines.");
+    logger.debug("Calling operation DevopsClient#getRepositoryFileLines.");
     const operationName = "getRepositoryFileLines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepositoryFileLines";
@@ -4184,7 +4129,6 @@ export class DevopsClient {
       getRepositoryFileLinesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4244,7 +4188,7 @@ export class DevopsClient {
   public async getTrigger(
     getTriggerRequest: requests.GetTriggerRequest
   ): Promise<responses.GetTriggerResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getTrigger.");
+    logger.debug("Calling operation DevopsClient#getTrigger.");
     const operationName = "getTrigger";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Trigger/GetTrigger";
@@ -4265,7 +4209,6 @@ export class DevopsClient {
       getTriggerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4320,7 +4263,7 @@ export class DevopsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#getWorkRequest.");
+    logger.debug("Calling operation DevopsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/WorkRequest/GetWorkRequest";
@@ -4341,7 +4284,6 @@ export class DevopsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4397,7 +4339,7 @@ export class DevopsClient {
   public async listAuthors(
     listAuthorsRequest: requests.ListAuthorsRequest
   ): Promise<responses.ListAuthorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listAuthors.");
+    logger.debug("Calling operation DevopsClient#listAuthors.");
     const operationName = "listAuthors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListAuthors";
@@ -4423,7 +4365,6 @@ export class DevopsClient {
       listAuthorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4479,7 +4420,7 @@ export class DevopsClient {
   public async listBuildPipelineStages(
     listBuildPipelineStagesRequest: requests.ListBuildPipelineStagesRequest
   ): Promise<responses.ListBuildPipelineStagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildPipelineStages.");
+    logger.debug("Calling operation DevopsClient#listBuildPipelineStages.");
     const operationName = "listBuildPipelineStages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStageSummary/ListBuildPipelineStages";
@@ -4508,7 +4449,6 @@ export class DevopsClient {
       listBuildPipelineStagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4564,7 +4504,7 @@ export class DevopsClient {
   public async listBuildPipelines(
     listBuildPipelinesRequest: requests.ListBuildPipelinesRequest
   ): Promise<responses.ListBuildPipelinesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildPipelines.");
+    logger.debug("Calling operation DevopsClient#listBuildPipelines.");
     const operationName = "listBuildPipelines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineCollection/ListBuildPipelines";
@@ -4593,7 +4533,6 @@ export class DevopsClient {
       listBuildPipelinesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4649,7 +4588,7 @@ export class DevopsClient {
   public async listBuildRuns(
     listBuildRunsRequest: requests.ListBuildRunsRequest
   ): Promise<responses.ListBuildRunsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildRuns.");
+    logger.debug("Calling operation DevopsClient#listBuildRuns.");
     const operationName = "listBuildRuns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRunSummary/ListBuildRuns";
@@ -4679,7 +4618,6 @@ export class DevopsClient {
       listBuildRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4735,7 +4673,7 @@ export class DevopsClient {
   public async listCommitDiffs(
     listCommitDiffsRequest: requests.ListCommitDiffsRequest
   ): Promise<responses.ListCommitDiffsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listCommitDiffs.");
+    logger.debug("Calling operation DevopsClient#listCommitDiffs.");
     const operationName = "listCommitDiffs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListCommitDiffs";
@@ -4762,7 +4700,6 @@ export class DevopsClient {
       listCommitDiffsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4818,7 +4755,7 @@ export class DevopsClient {
   public async listCommits(
     listCommitsRequest: requests.ListCommitsRequest
   ): Promise<responses.ListCommitsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listCommits.");
+    logger.debug("Calling operation DevopsClient#listCommits.");
     const operationName = "listCommits";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryCommit/ListCommits";
@@ -4849,7 +4786,6 @@ export class DevopsClient {
       listCommitsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4905,7 +4841,7 @@ export class DevopsClient {
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listConnections.");
+    logger.debug("Calling operation DevopsClient#listConnections.");
     const operationName = "listConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ConnectionCollection/ListConnections";
@@ -4935,7 +4871,6 @@ export class DevopsClient {
       listConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4990,7 +4925,7 @@ export class DevopsClient {
   public async listDeployArtifacts(
     listDeployArtifactsRequest: requests.ListDeployArtifactsRequest
   ): Promise<responses.ListDeployArtifactsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployArtifacts.");
+    logger.debug("Calling operation DevopsClient#listDeployArtifacts.");
     const operationName = "listDeployArtifacts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifactSummary/ListDeployArtifacts";
@@ -5019,7 +4954,6 @@ export class DevopsClient {
       listDeployArtifactsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5074,7 +5008,7 @@ export class DevopsClient {
   public async listDeployEnvironments(
     listDeployEnvironmentsRequest: requests.ListDeployEnvironmentsRequest
   ): Promise<responses.ListDeployEnvironmentsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployEnvironments.");
+    logger.debug("Calling operation DevopsClient#listDeployEnvironments.");
     const operationName = "listDeployEnvironments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironmentSummary/ListDeployEnvironments";
@@ -5103,7 +5037,6 @@ export class DevopsClient {
       listDeployEnvironmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5158,7 +5091,7 @@ export class DevopsClient {
   public async listDeployPipelines(
     listDeployPipelinesRequest: requests.ListDeployPipelinesRequest
   ): Promise<responses.ListDeployPipelinesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployPipelines.");
+    logger.debug("Calling operation DevopsClient#listDeployPipelines.");
     const operationName = "listDeployPipelines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipelineSummary/ListDeployPipelines";
@@ -5187,7 +5120,6 @@ export class DevopsClient {
       listDeployPipelinesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5242,7 +5174,7 @@ export class DevopsClient {
   public async listDeployStages(
     listDeployStagesRequest: requests.ListDeployStagesRequest
   ): Promise<responses.ListDeployStagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployStages.");
+    logger.debug("Calling operation DevopsClient#listDeployStages.");
     const operationName = "listDeployStages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStageSummary/ListDeployStages";
@@ -5271,7 +5203,6 @@ export class DevopsClient {
       listDeployStagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5326,7 +5257,7 @@ export class DevopsClient {
   public async listDeployments(
     listDeploymentsRequest: requests.ListDeploymentsRequest
   ): Promise<responses.ListDeploymentsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployments.");
+    logger.debug("Calling operation DevopsClient#listDeployments.");
     const operationName = "listDeployments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeploymentSummary/ListDeployments";
@@ -5358,7 +5289,6 @@ export class DevopsClient {
       listDeploymentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5414,7 +5344,7 @@ export class DevopsClient {
   public async listMirrorRecords(
     listMirrorRecordsRequest: requests.ListMirrorRecordsRequest
   ): Promise<responses.ListMirrorRecordsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listMirrorRecords.");
+    logger.debug("Calling operation DevopsClient#listMirrorRecords.");
     const operationName = "listMirrorRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListMirrorRecords";
@@ -5439,7 +5369,6 @@ export class DevopsClient {
       listMirrorRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5495,7 +5424,7 @@ export class DevopsClient {
   public async listPaths(
     listPathsRequest: requests.ListPathsRequest
   ): Promise<responses.ListPathsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listPaths.");
+    logger.debug("Calling operation DevopsClient#listPaths.");
     const operationName = "listPaths";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryPathSummary/ListPaths";
@@ -5525,7 +5454,6 @@ export class DevopsClient {
       listPathsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5580,7 +5508,7 @@ export class DevopsClient {
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listProjects.");
+    logger.debug("Calling operation DevopsClient#listProjects.");
     const operationName = "listProjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProjectSummary/ListProjects";
@@ -5608,7 +5536,6 @@ export class DevopsClient {
       listProjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5664,7 +5591,7 @@ export class DevopsClient {
   public async listRefs(
     listRefsRequest: requests.ListRefsRequest
   ): Promise<responses.ListRefsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listRefs.");
+    logger.debug("Calling operation DevopsClient#listRefs.");
     const operationName = "listRefs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryRef/ListRefs";
@@ -5693,7 +5620,6 @@ export class DevopsClient {
       listRefsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5749,7 +5675,7 @@ export class DevopsClient {
   public async listRepositories(
     listRepositoriesRequest: requests.ListRepositoriesRequest
   ): Promise<responses.ListRepositoriesResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listRepositories.");
+    logger.debug("Calling operation DevopsClient#listRepositories.");
     const operationName = "listRepositories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListRepositories";
@@ -5778,7 +5704,6 @@ export class DevopsClient {
       listRepositoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5834,7 +5759,7 @@ export class DevopsClient {
   public async listTriggers(
     listTriggersRequest: requests.ListTriggersRequest
   ): Promise<responses.ListTriggersResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listTriggers.");
+    logger.debug("Calling operation DevopsClient#listTriggers.");
     const operationName = "listTriggers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/TriggerCollection/ListTriggers";
@@ -5863,7 +5788,6 @@ export class DevopsClient {
       listTriggersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5918,7 +5842,7 @@ export class DevopsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listWorkRequestErrors.");
+    logger.debug("Calling operation DevopsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/WorkRequestError/ListWorkRequestErrors";
@@ -5944,7 +5868,6 @@ export class DevopsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5999,7 +5922,7 @@ export class DevopsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listWorkRequestLogs.");
+    logger.debug("Calling operation DevopsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -6025,7 +5948,6 @@ export class DevopsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6080,7 +6002,7 @@ export class DevopsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#listWorkRequests.");
+    logger.debug("Calling operation DevopsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/WorkRequest/ListWorkRequests";
@@ -6109,7 +6031,6 @@ export class DevopsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6165,7 +6086,7 @@ export class DevopsClient {
   public async mirrorRepository(
     mirrorRepositoryRequest: requests.MirrorRepositoryRequest
   ): Promise<responses.MirrorRepositoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#mirrorRepository.");
+    logger.debug("Calling operation DevopsClient#mirrorRepository.");
     const operationName = "mirrorRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/MirrorRepository";
@@ -6187,7 +6108,6 @@ export class DevopsClient {
       mirrorRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6239,7 +6159,7 @@ export class DevopsClient {
   public async putRepositoryRef(
     putRepositoryRefRequest: requests.PutRepositoryRefRequest
   ): Promise<responses.PutRepositoryRefResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#putRepositoryRef.");
+    logger.debug("Calling operation DevopsClient#putRepositoryRef.");
     const operationName = "putRepositoryRef";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/PutRepositoryRef";
@@ -6263,7 +6183,6 @@ export class DevopsClient {
       putRepositoryRefRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6333,8 +6252,7 @@ export class DevopsClient {
   public async scheduleCascadingProjectDeletion(
     scheduleCascadingProjectDeletionRequest: requests.ScheduleCascadingProjectDeletionRequest
   ): Promise<responses.ScheduleCascadingProjectDeletionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DevopsClient#scheduleCascadingProjectDeletion.");
+    logger.debug("Calling operation DevopsClient#scheduleCascadingProjectDeletion.");
     const operationName = "scheduleCascadingProjectDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/ScheduleCascadingProjectDeletion";
@@ -6357,7 +6275,6 @@ export class DevopsClient {
       scheduleCascadingProjectDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6408,7 +6325,7 @@ export class DevopsClient {
   public async updateBuildPipeline(
     updateBuildPipelineRequest: requests.UpdateBuildPipelineRequest
   ): Promise<responses.UpdateBuildPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildPipeline.");
+    logger.debug("Calling operation DevopsClient#updateBuildPipeline.");
     const operationName = "updateBuildPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipeline/UpdateBuildPipeline";
@@ -6430,7 +6347,6 @@ export class DevopsClient {
       updateBuildPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6500,7 +6416,7 @@ export class DevopsClient {
   public async updateBuildPipelineStage(
     updateBuildPipelineStageRequest: requests.UpdateBuildPipelineStageRequest
   ): Promise<responses.UpdateBuildPipelineStageResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildPipelineStage.");
+    logger.debug("Calling operation DevopsClient#updateBuildPipelineStage.");
     const operationName = "updateBuildPipelineStage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStage/UpdateBuildPipelineStage";
@@ -6522,7 +6438,6 @@ export class DevopsClient {
       updateBuildPipelineStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6592,7 +6507,7 @@ export class DevopsClient {
   public async updateBuildRun(
     updateBuildRunRequest: requests.UpdateBuildRunRequest
   ): Promise<responses.UpdateBuildRunResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildRun.");
+    logger.debug("Calling operation DevopsClient#updateBuildRun.");
     const operationName = "updateBuildRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRun/UpdateBuildRun";
@@ -6614,7 +6529,6 @@ export class DevopsClient {
       updateBuildRunRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6679,7 +6593,7 @@ export class DevopsClient {
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateConnection.");
+    logger.debug("Calling operation DevopsClient#updateConnection.");
     const operationName = "updateConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/UpdateConnection";
@@ -6701,7 +6615,6 @@ export class DevopsClient {
       updateConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6771,7 +6684,7 @@ export class DevopsClient {
   public async updateDeployArtifact(
     updateDeployArtifactRequest: requests.UpdateDeployArtifactRequest
   ): Promise<responses.UpdateDeployArtifactResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployArtifact.");
+    logger.debug("Calling operation DevopsClient#updateDeployArtifact.");
     const operationName = "updateDeployArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifact/UpdateDeployArtifact";
@@ -6793,7 +6706,6 @@ export class DevopsClient {
       updateDeployArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6863,7 +6775,7 @@ export class DevopsClient {
   public async updateDeployEnvironment(
     updateDeployEnvironmentRequest: requests.UpdateDeployEnvironmentRequest
   ): Promise<responses.UpdateDeployEnvironmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployEnvironment.");
+    logger.debug("Calling operation DevopsClient#updateDeployEnvironment.");
     const operationName = "updateDeployEnvironment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironment/UpdateDeployEnvironment";
@@ -6885,7 +6797,6 @@ export class DevopsClient {
       updateDeployEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6955,7 +6866,7 @@ export class DevopsClient {
   public async updateDeployPipeline(
     updateDeployPipelineRequest: requests.UpdateDeployPipelineRequest
   ): Promise<responses.UpdateDeployPipelineResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployPipeline.");
+    logger.debug("Calling operation DevopsClient#updateDeployPipeline.");
     const operationName = "updateDeployPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipeline/UpdateDeployPipeline";
@@ -6977,7 +6888,6 @@ export class DevopsClient {
       updateDeployPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7047,7 +6957,7 @@ export class DevopsClient {
   public async updateDeployStage(
     updateDeployStageRequest: requests.UpdateDeployStageRequest
   ): Promise<responses.UpdateDeployStageResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployStage.");
+    logger.debug("Calling operation DevopsClient#updateDeployStage.");
     const operationName = "updateDeployStage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStage/UpdateDeployStage";
@@ -7069,7 +6979,6 @@ export class DevopsClient {
       updateDeployStageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7139,7 +7048,7 @@ export class DevopsClient {
   public async updateDeployment(
     updateDeploymentRequest: requests.UpdateDeploymentRequest
   ): Promise<responses.UpdateDeploymentResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployment.");
+    logger.debug("Calling operation DevopsClient#updateDeployment.");
     const operationName = "updateDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/UpdateDeployment";
@@ -7161,7 +7070,6 @@ export class DevopsClient {
       updateDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7221,7 +7129,7 @@ export class DevopsClient {
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateProject.");
+    logger.debug("Calling operation DevopsClient#updateProject.");
     const operationName = "updateProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/UpdateProject";
@@ -7243,7 +7151,6 @@ export class DevopsClient {
       updateProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7313,7 +7220,7 @@ export class DevopsClient {
   public async updateRepository(
     updateRepositoryRequest: requests.UpdateRepositoryRequest
   ): Promise<responses.UpdateRepositoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateRepository.");
+    logger.debug("Calling operation DevopsClient#updateRepository.");
     const operationName = "updateRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/UpdateRepository";
@@ -7335,7 +7242,6 @@ export class DevopsClient {
       updateRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7400,7 +7306,7 @@ export class DevopsClient {
   public async updateTrigger(
     updateTriggerRequest: requests.UpdateTriggerRequest
   ): Promise<responses.UpdateTriggerResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateTrigger.");
+    logger.debug("Calling operation DevopsClient#updateTrigger.");
     const operationName = "updateTrigger";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Trigger/UpdateTrigger";
@@ -7422,7 +7328,6 @@ export class DevopsClient {
       updateTriggerRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7493,7 +7398,7 @@ export class DevopsClient {
   public async validateConnection(
     validateConnectionRequest: requests.ValidateConnectionRequest
   ): Promise<responses.ValidateConnectionResponse> {
-    if (this.logger) this.logger.debug("Calling operation DevopsClient#validateConnection.");
+    logger.debug("Calling operation DevopsClient#validateConnection.");
     const operationName = "validateConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/ValidateConnection";
@@ -7516,7 +7421,6 @@ export class DevopsClient {
       validateConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

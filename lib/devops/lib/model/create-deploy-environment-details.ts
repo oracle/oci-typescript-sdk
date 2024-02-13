@@ -64,8 +64,7 @@ export namespace CreateDeployEnvironmentDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.deployEnvironmentType}`);
+          common.logger.info(`Unknown value for: ${obj.deployEnvironmentType}`);
       }
     }
     return jsonObj;
@@ -91,8 +90,7 @@ export namespace CreateDeployEnvironmentDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.deployEnvironmentType}`);
+          common.logger.info(`Unknown value for: ${obj.deployEnvironmentType}`);
       }
     }
     return jsonObj;

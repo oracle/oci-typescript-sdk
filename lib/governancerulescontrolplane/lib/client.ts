@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -118,11 +119,7 @@ export class GovernanceRuleClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220504";
-    if (this.logger) this.logger.info(`GovernanceRuleClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`GovernanceRuleClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +129,9 @@ export class GovernanceRuleClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         GovernanceRuleClient.serviceEndpointTemplate,
@@ -228,8 +224,7 @@ export class GovernanceRuleClient {
   public async createGovernanceRule(
     createGovernanceRuleRequest: requests.CreateGovernanceRuleRequest
   ): Promise<responses.CreateGovernanceRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#createGovernanceRule.");
+    logger.debug("Calling operation GovernanceRuleClient#createGovernanceRule.");
     const operationName = "createGovernanceRule";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -248,7 +243,6 @@ export class GovernanceRuleClient {
       createGovernanceRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -319,8 +313,7 @@ export class GovernanceRuleClient {
   public async createInclusionCriterion(
     createInclusionCriterionRequest: requests.CreateInclusionCriterionRequest
   ): Promise<responses.CreateInclusionCriterionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#createInclusionCriterion.");
+    logger.debug("Calling operation GovernanceRuleClient#createInclusionCriterion.");
     const operationName = "createInclusionCriterion";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -339,7 +332,6 @@ export class GovernanceRuleClient {
       createInclusionCriterionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -409,8 +401,7 @@ export class GovernanceRuleClient {
   public async deleteGovernanceRule(
     deleteGovernanceRuleRequest: requests.DeleteGovernanceRuleRequest
   ): Promise<responses.DeleteGovernanceRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#deleteGovernanceRule.");
+    logger.debug("Calling operation GovernanceRuleClient#deleteGovernanceRule.");
     const operationName = "deleteGovernanceRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -431,7 +422,6 @@ export class GovernanceRuleClient {
       deleteGovernanceRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -482,8 +472,7 @@ export class GovernanceRuleClient {
   public async deleteInclusionCriterion(
     deleteInclusionCriterionRequest: requests.DeleteInclusionCriterionRequest
   ): Promise<responses.DeleteInclusionCriterionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#deleteInclusionCriterion.");
+    logger.debug("Calling operation GovernanceRuleClient#deleteInclusionCriterion.");
     const operationName = "deleteInclusionCriterion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -504,7 +493,6 @@ export class GovernanceRuleClient {
       deleteInclusionCriterionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -555,8 +543,7 @@ export class GovernanceRuleClient {
   public async getEnforcedGovernanceRule(
     getEnforcedGovernanceRuleRequest: requests.GetEnforcedGovernanceRuleRequest
   ): Promise<responses.GetEnforcedGovernanceRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#getEnforcedGovernanceRule.");
+    logger.debug("Calling operation GovernanceRuleClient#getEnforcedGovernanceRule.");
     const operationName = "getEnforcedGovernanceRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -576,7 +563,6 @@ export class GovernanceRuleClient {
       getEnforcedGovernanceRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -631,7 +617,7 @@ export class GovernanceRuleClient {
   public async getGovernanceRule(
     getGovernanceRuleRequest: requests.GetGovernanceRuleRequest
   ): Promise<responses.GetGovernanceRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation GovernanceRuleClient#getGovernanceRule.");
+    logger.debug("Calling operation GovernanceRuleClient#getGovernanceRule.");
     const operationName = "getGovernanceRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -651,7 +637,6 @@ export class GovernanceRuleClient {
       getGovernanceRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -706,8 +691,7 @@ export class GovernanceRuleClient {
   public async getInclusionCriterion(
     getInclusionCriterionRequest: requests.GetInclusionCriterionRequest
   ): Promise<responses.GetInclusionCriterionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#getInclusionCriterion.");
+    logger.debug("Calling operation GovernanceRuleClient#getInclusionCriterion.");
     const operationName = "getInclusionCriterion";
     const apiReferenceLink = "";
     const pathParams = {
@@ -727,7 +711,6 @@ export class GovernanceRuleClient {
       getInclusionCriterionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -782,8 +765,7 @@ export class GovernanceRuleClient {
   public async getTenancyAttachment(
     getTenancyAttachmentRequest: requests.GetTenancyAttachmentRequest
   ): Promise<responses.GetTenancyAttachmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#getTenancyAttachment.");
+    logger.debug("Calling operation GovernanceRuleClient#getTenancyAttachment.");
     const operationName = "getTenancyAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -803,7 +785,6 @@ export class GovernanceRuleClient {
       getTenancyAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -860,8 +841,7 @@ export class GovernanceRuleClient {
   public async listEnforcedGovernanceRules(
     listEnforcedGovernanceRulesRequest: requests.ListEnforcedGovernanceRulesRequest
   ): Promise<responses.ListEnforcedGovernanceRulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#listEnforcedGovernanceRules.");
+    logger.debug("Calling operation GovernanceRuleClient#listEnforcedGovernanceRules.");
     const operationName = "listEnforcedGovernanceRules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -888,7 +868,6 @@ export class GovernanceRuleClient {
       listEnforcedGovernanceRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -945,8 +924,7 @@ export class GovernanceRuleClient {
   public async listGovernanceRules(
     listGovernanceRulesRequest: requests.ListGovernanceRulesRequest
   ): Promise<responses.ListGovernanceRulesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#listGovernanceRules.");
+    logger.debug("Calling operation GovernanceRuleClient#listGovernanceRules.");
     const operationName = "listGovernanceRules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -974,7 +952,6 @@ export class GovernanceRuleClient {
       listGovernanceRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1031,8 +1008,7 @@ export class GovernanceRuleClient {
   public async listInclusionCriteria(
     listInclusionCriteriaRequest: requests.ListInclusionCriteriaRequest
   ): Promise<responses.ListInclusionCriteriaResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#listInclusionCriteria.");
+    logger.debug("Calling operation GovernanceRuleClient#listInclusionCriteria.");
     const operationName = "listInclusionCriteria";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1058,7 +1034,6 @@ export class GovernanceRuleClient {
       listInclusionCriteriaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1115,8 +1090,7 @@ export class GovernanceRuleClient {
   public async listTenancyAttachments(
     listTenancyAttachmentsRequest: requests.ListTenancyAttachmentsRequest
   ): Promise<responses.ListTenancyAttachmentsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#listTenancyAttachments.");
+    logger.debug("Calling operation GovernanceRuleClient#listTenancyAttachments.");
     const operationName = "listTenancyAttachments";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1144,7 +1118,6 @@ export class GovernanceRuleClient {
       listTenancyAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1202,8 +1175,7 @@ export class GovernanceRuleClient {
   public async retryGovernanceRule(
     retryGovernanceRuleRequest: requests.RetryGovernanceRuleRequest
   ): Promise<responses.RetryGovernanceRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#retryGovernanceRule.");
+    logger.debug("Calling operation GovernanceRuleClient#retryGovernanceRule.");
     const operationName = "retryGovernanceRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1225,7 +1197,6 @@ export class GovernanceRuleClient {
       retryGovernanceRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1278,8 +1249,7 @@ export class GovernanceRuleClient {
   public async retryTenancyAttachment(
     retryTenancyAttachmentRequest: requests.RetryTenancyAttachmentRequest
   ): Promise<responses.RetryTenancyAttachmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#retryTenancyAttachment.");
+    logger.debug("Calling operation GovernanceRuleClient#retryTenancyAttachment.");
     const operationName = "retryTenancyAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1301,7 +1271,6 @@ export class GovernanceRuleClient {
       retryTenancyAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1352,8 +1321,7 @@ export class GovernanceRuleClient {
   public async updateGovernanceRule(
     updateGovernanceRuleRequest: requests.UpdateGovernanceRuleRequest
   ): Promise<responses.UpdateGovernanceRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation GovernanceRuleClient#updateGovernanceRule.");
+    logger.debug("Calling operation GovernanceRuleClient#updateGovernanceRule.");
     const operationName = "updateGovernanceRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1374,7 +1342,6 @@ export class GovernanceRuleClient {
       updateGovernanceRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1508,11 +1475,7 @@ export class WorkRequestClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220504";
-    if (this.logger) this.logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1522,10 +1485,9 @@ export class WorkRequestClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WorkRequestClient.serviceEndpointTemplate,
@@ -1617,7 +1579,7 @@ export class WorkRequestClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#cancelWorkRequest.");
+    logger.debug("Calling operation WorkRequestClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1638,7 +1600,6 @@ export class WorkRequestClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1684,7 +1645,7 @@ export class WorkRequestClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
+    logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1704,7 +1665,6 @@ export class WorkRequestClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1765,8 +1725,7 @@ export class WorkRequestClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1791,7 +1750,6 @@ export class WorkRequestClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1847,7 +1805,7 @@ export class WorkRequestClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1872,7 +1830,6 @@ export class WorkRequestClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1928,7 +1885,7 @@ export class WorkRequestClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
+    logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1955,7 +1912,6 @@ export class WorkRequestClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

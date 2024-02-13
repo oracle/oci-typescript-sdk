@@ -25,7 +25,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -122,12 +123,7 @@ export class ApplicationMigrationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20191031";
-    if (this.logger)
-      this.logger.info(`ApplicationMigrationClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ApplicationMigrationClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -137,10 +133,9 @@ export class ApplicationMigrationClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ApplicationMigrationClient.serviceEndpointTemplate,
@@ -236,8 +231,7 @@ When you cancel a work request, the state of the work request changes to cancell
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#cancelWorkRequest.");
+    logger.debug("Calling operation ApplicationMigrationClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequest/CancelWorkRequest";
@@ -259,7 +253,6 @@ When you cancel a work request, the state of the work request changes to cancell
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -307,8 +300,7 @@ When you cancel a work request, the state of the work request changes to cancell
   public async changeMigrationCompartment(
     changeMigrationCompartmentRequest: requests.ChangeMigrationCompartmentRequest
   ): Promise<responses.ChangeMigrationCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#changeMigrationCompartment.");
+    logger.debug("Calling operation ApplicationMigrationClient#changeMigrationCompartment.");
     const operationName = "changeMigrationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/ChangeMigrationCompartment";
@@ -331,7 +323,6 @@ When you cancel a work request, the state of the work request changes to cancell
       changeMigrationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -389,8 +380,7 @@ When you cancel a work request, the state of the work request changes to cancell
   public async changeSourceCompartment(
     changeSourceCompartmentRequest: requests.ChangeSourceCompartmentRequest
   ): Promise<responses.ChangeSourceCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#changeSourceCompartment.");
+    logger.debug("Calling operation ApplicationMigrationClient#changeSourceCompartment.");
     const operationName = "changeSourceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Source/ChangeSourceCompartment";
@@ -413,7 +403,6 @@ When you cancel a work request, the state of the work request changes to cancell
       changeSourceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -490,8 +479,7 @@ To track the progress of this operation, you can monitor the status of the Creat
   public async createMigration(
     createMigrationRequest: requests.CreateMigrationRequest
   ): Promise<responses.CreateMigrationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#createMigration.");
+    logger.debug("Calling operation ApplicationMigrationClient#createMigration.");
     const operationName = "createMigration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -510,7 +498,6 @@ To track the progress of this operation, you can monitor the status of the Creat
       createMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -592,8 +579,7 @@ Ensure that the state of the source has changed to <code>ACTIVE</code>, before y
   public async createSource(
     createSourceRequest: requests.CreateSourceRequest
   ): Promise<responses.CreateSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#createSource.");
+    logger.debug("Calling operation ApplicationMigrationClient#createSource.");
     const operationName = "createSource";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -612,7 +598,6 @@ Ensure that the state of the source has changed to <code>ACTIVE</code>, before y
       createSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -682,8 +667,7 @@ If you have migrated the application or for any other reason if you no longer re
   public async deleteMigration(
     deleteMigrationRequest: requests.DeleteMigrationRequest
   ): Promise<responses.DeleteMigrationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#deleteMigration.");
+    logger.debug("Calling operation ApplicationMigrationClient#deleteMigration.");
     const operationName = "deleteMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/DeleteMigration";
@@ -705,7 +689,6 @@ If you have migrated the application or for any other reason if you no longer re
       deleteMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -761,8 +744,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async deleteSource(
     deleteSourceRequest: requests.DeleteSourceRequest
   ): Promise<responses.DeleteSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#deleteSource.");
+    logger.debug("Calling operation ApplicationMigrationClient#deleteSource.");
     const operationName = "deleteSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Source/DeleteSource";
@@ -784,7 +766,6 @@ Before deleting a source, you must delete all the migrations associated with the
       deleteSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -835,8 +816,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async getMigration(
     getMigrationRequest: requests.GetMigrationRequest
   ): Promise<responses.GetMigrationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#getMigration.");
+    logger.debug("Calling operation ApplicationMigrationClient#getMigration.");
     const operationName = "getMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/GetMigration";
@@ -857,7 +837,6 @@ Before deleting a source, you must delete all the migrations associated with the
       getMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -913,7 +892,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async getSource(
     getSourceRequest: requests.GetSourceRequest
   ): Promise<responses.GetSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApplicationMigrationClient#getSource.");
+    logger.debug("Calling operation ApplicationMigrationClient#getSource.");
     const operationName = "getSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Source/GetSource";
@@ -934,7 +913,6 @@ Before deleting a source, you must delete all the migrations associated with the
       getSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -989,8 +967,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#getWorkRequest.");
+    logger.debug("Calling operation ApplicationMigrationClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequest/GetWorkRequest";
@@ -1011,7 +988,6 @@ Before deleting a source, you must delete all the migrations associated with the
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1067,8 +1043,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async listMigrations(
     listMigrationsRequest: requests.ListMigrationsRequest
   ): Promise<responses.ListMigrationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#listMigrations.");
+    logger.debug("Calling operation ApplicationMigrationClient#listMigrations.");
     const operationName = "listMigrations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/MigrationSummary/ListMigrations";
@@ -1096,7 +1071,6 @@ Before deleting a source, you must delete all the migrations associated with the
       listMigrationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1206,8 +1180,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async listSourceApplications(
     listSourceApplicationsRequest: requests.ListSourceApplicationsRequest
   ): Promise<responses.ListSourceApplicationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#listSourceApplications.");
+    logger.debug("Calling operation ApplicationMigrationClient#listSourceApplications.");
     const operationName = "listSourceApplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/SourceApplicationSummary/ListSourceApplications";
@@ -1235,7 +1208,6 @@ Before deleting a source, you must delete all the migrations associated with the
       listSourceApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1346,7 +1318,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async listSources(
     listSourcesRequest: requests.ListSourcesRequest
   ): Promise<responses.ListSourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ApplicationMigrationClient#listSources.");
+    logger.debug("Calling operation ApplicationMigrationClient#listSources.");
     const operationName = "listSources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/SourceSummary/ListSources";
@@ -1374,7 +1346,6 @@ Before deleting a source, you must delete all the migrations associated with the
       listSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1482,8 +1453,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequestErrors.");
+    logger.debug("Calling operation ApplicationMigrationClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequestError/ListWorkRequestErrors";
@@ -1508,7 +1478,6 @@ Before deleting a source, you must delete all the migrations associated with the
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1616,8 +1585,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequestLogs.");
+    logger.debug("Calling operation ApplicationMigrationClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1642,7 +1610,6 @@ Before deleting a source, you must delete all the migrations associated with the
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1750,8 +1717,7 @@ Before deleting a source, you must delete all the migrations associated with the
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequests.");
+    logger.debug("Calling operation ApplicationMigrationClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequestSummary/ListWorkRequests";
@@ -1775,7 +1741,6 @@ Before deleting a source, you must delete all the migrations associated with the
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1893,8 +1858,7 @@ To track the progress of the operation, you can monitor the status of the Migrat
   public async migrateApplication(
     migrateApplicationRequest: requests.MigrateApplicationRequest
   ): Promise<responses.MigrateApplicationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#migrateApplication.");
+    logger.debug("Calling operation ApplicationMigrationClient#migrateApplication.");
     const operationName = "migrateApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/MigrateApplication";
@@ -1917,7 +1881,6 @@ To track the progress of the operation, you can monitor the status of the Migrat
       migrateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1997,8 +1960,7 @@ When the migration has been updated, the state of the migration changes to <code
   public async updateMigration(
     updateMigrationRequest: requests.UpdateMigrationRequest
   ): Promise<responses.UpdateMigrationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#updateMigration.");
+    logger.debug("Calling operation ApplicationMigrationClient#updateMigration.");
     const operationName = "updateMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/UpdateMigration";
@@ -2021,7 +1983,6 @@ When the migration has been updated, the state of the migration changes to <code
       updateMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2081,8 +2042,7 @@ When the migration has been updated, the state of the migration changes to <code
   public async updateSource(
     updateSourceRequest: requests.UpdateSourceRequest
   ): Promise<responses.UpdateSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplicationMigrationClient#updateSource.");
+    logger.debug("Calling operation ApplicationMigrationClient#updateSource.");
     const operationName = "updateSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Source/UpdateSource";
@@ -2104,7 +2064,6 @@ When the migration has been updated, the state of the migration changes to <code
       updateSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

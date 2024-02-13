@@ -66,7 +66,7 @@ export namespace DataSource {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -87,7 +87,7 @@ export namespace DataSource {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

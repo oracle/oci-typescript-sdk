@@ -48,7 +48,7 @@ export interface LogAnalyticsLookup {
    */
   "lookupReferenceString"?: string;
   /**
-   * The lookup type.  Valid values are LOOKUP or DICTIONARY.
+   * The lookup type. Valid values are Lookup, Dictionary or Module.
    */
   "type"?: LogAnalyticsLookup.Type;
   /**
@@ -89,6 +89,7 @@ export namespace LogAnalyticsLookup {
   export enum Type {
     Lookup = "Lookup",
     Dictionary = "Dictionary",
+    Module = "Module",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

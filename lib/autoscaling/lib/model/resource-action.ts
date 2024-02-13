@@ -39,7 +39,7 @@ export namespace ResourceAction {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.actionType}`);
+          common.logger.info(`Unknown value for: ${obj.actionType}`);
       }
     }
     return jsonObj;
@@ -55,7 +55,7 @@ export namespace ResourceAction {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.actionType}`);
+          common.logger.info(`Unknown value for: ${obj.actionType}`);
       }
     }
     return jsonObj;

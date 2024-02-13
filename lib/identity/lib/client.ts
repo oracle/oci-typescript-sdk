@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,11 +118,7 @@ export class IdentityClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    if (this.logger) this.logger.info(`IdentityClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`IdentityClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -131,10 +128,9 @@ export class IdentityClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         IdentityClient.serviceEndpointTemplate,
@@ -233,7 +229,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async activateDomain(
     activateDomainRequest: requests.ActivateDomainRequest
   ): Promise<responses.ActivateDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#activateDomain.");
+    logger.debug("Calling operation IdentityClient#activateDomain.");
     const operationName = "activateDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/ActivateDomain";
@@ -256,7 +252,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       activateDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -308,7 +303,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async activateMfaTotpDevice(
     activateMfaTotpDeviceRequest: requests.ActivateMfaTotpDeviceRequest
   ): Promise<responses.ActivateMfaTotpDeviceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#activateMfaTotpDevice.");
+    logger.debug("Calling operation IdentityClient#activateMfaTotpDevice.");
     const operationName = "activateMfaTotpDevice";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDeviceSummary/ActivateMfaTotpDevice";
@@ -331,7 +326,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       activateMfaTotpDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -392,7 +386,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async addTagDefaultLock(
     addTagDefaultLockRequest: requests.AddTagDefaultLockRequest
   ): Promise<responses.AddTagDefaultLockResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#addTagDefaultLock.");
+    logger.debug("Calling operation IdentityClient#addTagDefaultLock.");
     const operationName = "addTagDefaultLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/AddTagDefaultLock";
@@ -415,7 +409,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       addTagDefaultLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -476,7 +469,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async addTagNamespaceLock(
     addTagNamespaceLockRequest: requests.AddTagNamespaceLockRequest
   ): Promise<responses.AddTagNamespaceLockResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#addTagNamespaceLock.");
+    logger.debug("Calling operation IdentityClient#addTagNamespaceLock.");
     const operationName = "addTagNamespaceLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/AddTagNamespaceLock";
@@ -499,7 +492,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       addTagNamespaceLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -563,7 +555,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async addUserToGroup(
     addUserToGroupRequest: requests.AddUserToGroupRequest
   ): Promise<responses.AddUserToGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#addUserToGroup.");
+    logger.debug("Calling operation IdentityClient#addUserToGroup.");
     const operationName = "addUserToGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UserGroupMembership/AddUserToGroup";
@@ -582,7 +574,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       addUserToGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -646,7 +637,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async assembleEffectiveTagSet(
     assembleEffectiveTagSetRequest: requests.AssembleEffectiveTagSetRequest
   ): Promise<responses.AssembleEffectiveTagSetResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#assembleEffectiveTagSet.");
+    logger.debug("Calling operation IdentityClient#assembleEffectiveTagSet.");
     const operationName = "assembleEffectiveTagSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/AssembleEffectiveTagSet";
@@ -667,7 +658,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       assembleEffectiveTagSetRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -727,7 +717,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async bulkDeleteResources(
     bulkDeleteResourcesRequest: requests.BulkDeleteResourcesRequest
   ): Promise<responses.BulkDeleteResourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkDeleteResources.");
+    logger.debug("Calling operation IdentityClient#bulkDeleteResources.");
     const operationName = "bulkDeleteResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/BulkDeleteResources";
@@ -749,7 +739,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       bulkDeleteResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -826,7 +815,7 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
   public async bulkDeleteTags(
     bulkDeleteTagsRequest: requests.BulkDeleteTagsRequest
   ): Promise<responses.BulkDeleteTagsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkDeleteTags.");
+    logger.debug("Calling operation IdentityClient#bulkDeleteTags.");
     const operationName = "bulkDeleteTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/BulkDeleteTags";
@@ -848,7 +837,6 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
       bulkDeleteTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -918,7 +906,7 @@ The edits can include a combination of operations and tag sets.
   public async bulkEditTags(
     bulkEditTagsRequest: requests.BulkEditTagsRequest
   ): Promise<responses.BulkEditTagsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkEditTags.");
+    logger.debug("Calling operation IdentityClient#bulkEditTags.");
     const operationName = "bulkEditTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/BulkEditTags";
@@ -938,7 +926,6 @@ The edits can include a combination of operations and tag sets.
       bulkEditTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -999,7 +986,7 @@ The edits can include a combination of operations and tag sets.
   public async bulkMoveResources(
     bulkMoveResourcesRequest: requests.BulkMoveResourcesRequest
   ): Promise<responses.BulkMoveResourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkMoveResources.");
+    logger.debug("Calling operation IdentityClient#bulkMoveResources.");
     const operationName = "bulkMoveResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/BulkMoveResources";
@@ -1021,7 +1008,6 @@ The edits can include a combination of operations and tag sets.
       bulkMoveResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1096,8 +1082,7 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
   public async cascadeDeleteTagNamespace(
     cascadeDeleteTagNamespaceRequest: requests.CascadeDeleteTagNamespaceRequest
   ): Promise<responses.CascadeDeleteTagNamespaceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#cascadeDeleteTagNamespace.");
+    logger.debug("Calling operation IdentityClient#cascadeDeleteTagNamespace.");
     const operationName = "cascadeDeleteTagNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/CascadeDeleteTagNamespace";
@@ -1122,7 +1107,6 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
       cascadeDeleteTagNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1177,7 +1161,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async changeDomainCompartment(
     changeDomainCompartmentRequest: requests.ChangeDomainCompartmentRequest
   ): Promise<responses.ChangeDomainCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#changeDomainCompartment.");
+    logger.debug("Calling operation IdentityClient#changeDomainCompartment.");
     const operationName = "changeDomainCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/ChangeDomainCompartment";
@@ -1200,7 +1184,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       changeDomainCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1265,7 +1248,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async changeDomainLicenseType(
     changeDomainLicenseTypeRequest: requests.ChangeDomainLicenseTypeRequest
   ): Promise<responses.ChangeDomainLicenseTypeResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#changeDomainLicenseType.");
+    logger.debug("Calling operation IdentityClient#changeDomainLicenseType.");
     const operationName = "changeDomainLicenseType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/ChangeDomainLicenseType";
@@ -1288,7 +1271,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       changeDomainLicenseTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1350,8 +1332,7 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
   public async changeTagNamespaceCompartment(
     changeTagNamespaceCompartmentRequest: requests.ChangeTagNamespaceCompartmentRequest
   ): Promise<responses.ChangeTagNamespaceCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#changeTagNamespaceCompartment.");
+    logger.debug("Calling operation IdentityClient#changeTagNamespaceCompartment.");
     const operationName = "changeTagNamespaceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/ChangeTagNamespaceCompartment";
@@ -1374,7 +1355,6 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
       changeTagNamespaceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1435,7 +1415,7 @@ Every user has permission to create an auth token for *their own user ID*. An ad
   public async createAuthToken(
     createAuthTokenRequest: requests.CreateAuthTokenRequest
   ): Promise<responses.CreateAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createAuthToken.");
+    logger.debug("Calling operation IdentityClient#createAuthToken.");
     const operationName = "createAuthToken";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthToken/CreateAuthToken";
@@ -1456,7 +1436,6 @@ Every user has permission to create an auth token for *their own user ID*. An ad
       createAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1533,7 +1512,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async createCompartment(
     createCompartmentRequest: requests.CreateCompartmentRequest
   ): Promise<responses.CreateCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createCompartment.");
+    logger.debug("Calling operation IdentityClient#createCompartment.");
     const operationName = "createCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/CreateCompartment";
@@ -1552,7 +1531,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       createCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1623,7 +1601,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
   public async createCustomerSecretKey(
     createCustomerSecretKeyRequest: requests.CreateCustomerSecretKeyRequest
   ): Promise<responses.CreateCustomerSecretKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createCustomerSecretKey.");
+    logger.debug("Calling operation IdentityClient#createCustomerSecretKey.");
     const operationName = "createCustomerSecretKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/CustomerSecretKey/CreateCustomerSecretKey";
@@ -1644,7 +1622,6 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       createCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1705,7 +1682,7 @@ Every user has permission to create a secret key for *their own user ID*. An adm
   public async createDbCredential(
     createDbCredentialRequest: requests.CreateDbCredentialRequest
   ): Promise<responses.CreateDbCredentialResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createDbCredential.");
+    logger.debug("Calling operation IdentityClient#createDbCredential.");
     const operationName = "createDbCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/CreateDbCredential";
@@ -1727,7 +1704,6 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       createDbCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1795,7 +1771,7 @@ After creating an `identity domain`, first make sure its `lifecycleState` change
   public async createDomain(
     createDomainRequest: requests.CreateDomainRequest
   ): Promise<responses.CreateDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createDomain.");
+    logger.debug("Calling operation IdentityClient#createDomain.");
     const operationName = "createDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/CreateDomain";
@@ -1815,7 +1791,6 @@ After creating an `identity domain`, first make sure its `lifecycleState` change
       createDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1889,7 +1864,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async createDynamicGroup(
     createDynamicGroupRequest: requests.CreateDynamicGroupRequest
   ): Promise<responses.CreateDynamicGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createDynamicGroup.");
+    logger.debug("Calling operation IdentityClient#createDynamicGroup.");
     const operationName = "createDynamicGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DynamicGroup/CreateDynamicGroup";
@@ -1908,7 +1883,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       createDynamicGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1989,7 +1963,7 @@ After creating the group, you need to put users in it and write policies for it.
   public async createGroup(
     createGroupRequest: requests.CreateGroupRequest
   ): Promise<responses.CreateGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createGroup.");
+    logger.debug("Calling operation IdentityClient#createGroup.");
     const operationName = "createGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Group/CreateGroup";
@@ -2008,7 +1982,6 @@ After creating the group, you need to put users in it and write policies for it.
       createGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2088,7 +2061,7 @@ After you send your request, the new object's `lifecycleState` will temporarily
   public async createIdentityProvider(
     createIdentityProviderRequest: requests.CreateIdentityProviderRequest
   ): Promise<responses.CreateIdentityProviderResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createIdentityProvider.");
+    logger.debug("Calling operation IdentityClient#createIdentityProvider.");
     const operationName = "createIdentityProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProvider/CreateIdentityProvider";
@@ -2107,7 +2080,6 @@ After you send your request, the new object's `lifecycleState` will temporarily
       createIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2171,7 +2143,7 @@ Creates a single mapping between an IdP group and an IAM Service
   public async createIdpGroupMapping(
     createIdpGroupMappingRequest: requests.CreateIdpGroupMappingRequest
   ): Promise<responses.CreateIdpGroupMappingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createIdpGroupMapping.");
+    logger.debug("Calling operation IdentityClient#createIdpGroupMapping.");
     const operationName = "createIdpGroupMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdpGroupMapping/CreateIdpGroupMapping";
@@ -2192,7 +2164,6 @@ Creates a single mapping between an IdP group and an IAM Service
       createIdpGroupMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2253,7 +2224,7 @@ Creates a single mapping between an IdP group and an IAM Service
   public async createMfaTotpDevice(
     createMfaTotpDeviceRequest: requests.CreateMfaTotpDeviceRequest
   ): Promise<responses.CreateMfaTotpDeviceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createMfaTotpDevice.");
+    logger.debug("Calling operation IdentityClient#createMfaTotpDevice.");
     const operationName = "createMfaTotpDevice";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDevice/CreateMfaTotpDevice";
@@ -2274,7 +2245,6 @@ Creates a single mapping between an IdP group and an IAM Service
       createMfaTotpDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2350,7 +2320,7 @@ After your network resource is created, you can use it in policy to restrict acc
   public async createNetworkSource(
     createNetworkSourceRequest: requests.CreateNetworkSourceRequest
   ): Promise<responses.CreateNetworkSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createNetworkSource.");
+    logger.debug("Calling operation IdentityClient#createNetworkSource.");
     const operationName = "createNetworkSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSources/CreateNetworkSource";
@@ -2369,7 +2339,6 @@ After your network resource is created, you can use it in policy to restrict acc
       createNetworkSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2430,8 +2399,7 @@ After your network resource is created, you can use it in policy to restrict acc
   public async createOAuthClientCredential(
     createOAuthClientCredentialRequest: requests.CreateOAuthClientCredentialRequest
   ): Promise<responses.CreateOAuthClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#createOAuthClientCredential.");
+    logger.debug("Calling operation IdentityClient#createOAuthClientCredential.");
     const operationName = "createOAuthClientCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/CreateOAuthClientCredential";
@@ -2452,7 +2420,6 @@ After your network resource is created, you can use it in policy to restrict acc
       createOAuthClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2527,7 +2494,7 @@ Use this operation after creating a new user, or if a user forgets their passwor
   public async createOrResetUIPassword(
     createOrResetUIPasswordRequest: requests.CreateOrResetUIPasswordRequest
   ): Promise<responses.CreateOrResetUIPasswordResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createOrResetUIPassword.");
+    logger.debug("Calling operation IdentityClient#createOrResetUIPassword.");
     const operationName = "createOrResetUIPassword";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UIPassword/CreateOrResetUIPassword";
@@ -2548,7 +2515,6 @@ Use this operation after creating a new user, or if a user forgets their passwor
       createOrResetUIPasswordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2620,7 +2586,7 @@ New policies take effect typically within 10 seconds.
   public async createPolicy(
     createPolicyRequest: requests.CreatePolicyRequest
   ): Promise<responses.CreatePolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createPolicy.");
+    logger.debug("Calling operation IdentityClient#createPolicy.");
     const operationName = "createPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Policy/CreatePolicy";
@@ -2639,7 +2605,6 @@ New policies take effect typically within 10 seconds.
       createPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2700,8 +2665,7 @@ New policies take effect typically within 10 seconds.
   public async createRegionSubscription(
     createRegionSubscriptionRequest: requests.CreateRegionSubscriptionRequest
   ): Promise<responses.CreateRegionSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#createRegionSubscription.");
+    logger.debug("Calling operation IdentityClient#createRegionSubscription.");
     const operationName = "createRegionSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/RegionSubscription/CreateRegionSubscription";
@@ -2722,7 +2686,6 @@ New policies take effect typically within 10 seconds.
       createRegionSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2781,7 +2744,7 @@ New policies take effect typically within 10 seconds.
   public async createSmtpCredential(
     createSmtpCredentialRequest: requests.CreateSmtpCredentialRequest
   ): Promise<responses.CreateSmtpCredentialResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createSmtpCredential.");
+    logger.debug("Calling operation IdentityClient#createSmtpCredential.");
     const operationName = "createSmtpCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SmtpCredential/CreateSmtpCredential";
@@ -2802,7 +2765,6 @@ New policies take effect typically within 10 seconds.
       createSmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2874,7 +2836,7 @@ Every user has permission to create a Swift password for *their own user ID*. An
   public async createSwiftPassword(
     createSwiftPasswordRequest: requests.CreateSwiftPasswordRequest
   ): Promise<responses.CreateSwiftPasswordResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createSwiftPassword.");
+    logger.debug("Calling operation IdentityClient#createSwiftPassword.");
     const operationName = "createSwiftPassword";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SwiftPassword/CreateSwiftPassword";
@@ -2895,7 +2857,6 @@ Every user has permission to create a Swift password for *their own user ID*. An
       createSwiftPasswordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2977,7 +2938,7 @@ The tag must have a value type, which is specified with a validator. Tags can us
   public async createTag(
     createTagRequest: requests.CreateTagRequest
   ): Promise<responses.CreateTagResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createTag.");
+    logger.debug("Calling operation IdentityClient#createTag.");
     const operationName = "createTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/CreateTag";
@@ -3000,7 +2961,6 @@ The tag must have a value type, which is specified with a validator. Tags can us
       createTagRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3068,7 +3028,7 @@ If you specify that a value is required, a value is set during resource creation
   public async createTagDefault(
     createTagDefaultRequest: requests.CreateTagDefaultRequest
   ): Promise<responses.CreateTagDefaultResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createTagDefault.");
+    logger.debug("Calling operation IdentityClient#createTagDefault.");
     const operationName = "createTagDefault";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/CreateTagDefault";
@@ -3088,7 +3048,6 @@ If you specify that a value is required, a value is set during resource creation
       createTagDefaultRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3162,7 +3121,7 @@ You must also specify a *description* for the namespace.
   public async createTagNamespace(
     createTagNamespaceRequest: requests.CreateTagNamespaceRequest
   ): Promise<responses.CreateTagNamespaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createTagNamespace.");
+    logger.debug("Calling operation IdentityClient#createTagNamespace.");
     const operationName = "createTagNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/CreateTagNamespace";
@@ -3181,7 +3140,6 @@ You must also specify a *description* for the namespace.
       createTagNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3271,7 +3229,7 @@ A new user has no permissions until you place the user in one or more groups (se
   public async createUser(
     createUserRequest: requests.CreateUserRequest
   ): Promise<responses.CreateUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#createUser.");
+    logger.debug("Calling operation IdentityClient#createUser.");
     const operationName = "createUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/CreateUser";
@@ -3290,7 +3248,6 @@ A new user has no permissions until you place the user in one or more groups (se
       createUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3359,7 +3316,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async deactivateDomain(
     deactivateDomainRequest: requests.DeactivateDomainRequest
   ): Promise<responses.DeactivateDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deactivateDomain.");
+    logger.debug("Calling operation IdentityClient#deactivateDomain.");
     const operationName = "deactivateDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/DeactivateDomain";
@@ -3382,7 +3339,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       deactivateDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3439,7 +3395,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteApiKey(
     deleteApiKeyRequest: requests.DeleteApiKeyRequest
   ): Promise<responses.DeleteApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteApiKey.");
+    logger.debug("Calling operation IdentityClient#deleteApiKey.");
     const operationName = "deleteApiKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3460,7 +3416,6 @@ Every user has permission to use this operation to delete a key for *their own u
       deleteApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3507,7 +3462,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteAuthToken(
     deleteAuthTokenRequest: requests.DeleteAuthTokenRequest
   ): Promise<responses.DeleteAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteAuthToken.");
+    logger.debug("Calling operation IdentityClient#deleteAuthToken.");
     const operationName = "deleteAuthToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3528,7 +3483,6 @@ Every user has permission to use this operation to delete a key for *their own u
       deleteAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3575,7 +3529,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteCompartment(
     deleteCompartmentRequest: requests.DeleteCompartmentRequest
   ): Promise<responses.DeleteCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteCompartment.");
+    logger.debug("Calling operation IdentityClient#deleteCompartment.");
     const operationName = "deleteCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/DeleteCompartment";
@@ -3596,7 +3550,6 @@ Every user has permission to use this operation to delete a key for *their own u
       deleteCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3648,7 +3601,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteCustomerSecretKey(
     deleteCustomerSecretKeyRequest: requests.DeleteCustomerSecretKeyRequest
   ): Promise<responses.DeleteCustomerSecretKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteCustomerSecretKey.");
+    logger.debug("Calling operation IdentityClient#deleteCustomerSecretKey.");
     const operationName = "deleteCustomerSecretKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3669,7 +3622,6 @@ Every user has permission to use this operation to delete a key for *their own u
       deleteCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3716,7 +3668,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteDbCredential(
     deleteDbCredentialRequest: requests.DeleteDbCredentialRequest
   ): Promise<responses.DeleteDbCredentialResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDbCredential.");
+    logger.debug("Calling operation IdentityClient#deleteDbCredential.");
     const operationName = "deleteDbCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/DeleteDbCredential";
@@ -3739,7 +3691,6 @@ Every user has permission to use this operation to delete a key for *their own u
       deleteDbCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3792,7 +3743,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteDomain(
     deleteDomainRequest: requests.DeleteDomainRequest
   ): Promise<responses.DeleteDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDomain.");
+    logger.debug("Calling operation IdentityClient#deleteDomain.");
     const operationName = "deleteDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/DeleteDomain";
@@ -3814,7 +3765,6 @@ Every user has permission to use this operation to delete a key for *their own u
       deleteDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3866,7 +3816,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteDynamicGroup(
     deleteDynamicGroupRequest: requests.DeleteDynamicGroupRequest
   ): Promise<responses.DeleteDynamicGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDynamicGroup.");
+    logger.debug("Calling operation IdentityClient#deleteDynamicGroup.");
     const operationName = "deleteDynamicGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3886,7 +3836,6 @@ Every user has permission to use this operation to delete a key for *their own u
       deleteDynamicGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3933,7 +3882,7 @@ Every user has permission to use this operation to delete a key for *their own u
   public async deleteGroup(
     deleteGroupRequest: requests.DeleteGroupRequest
   ): Promise<responses.DeleteGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteGroup.");
+    logger.debug("Calling operation IdentityClient#deleteGroup.");
     const operationName = "deleteGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3953,7 +3902,6 @@ Every user has permission to use this operation to delete a key for *their own u
       deleteGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4003,7 +3951,7 @@ Deletes the specified identity provider. The identity provider must not have
   public async deleteIdentityProvider(
     deleteIdentityProviderRequest: requests.DeleteIdentityProviderRequest
   ): Promise<responses.DeleteIdentityProviderResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteIdentityProvider.");
+    logger.debug("Calling operation IdentityClient#deleteIdentityProvider.");
     const operationName = "deleteIdentityProvider";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4023,7 +3971,6 @@ Deletes the specified identity provider. The identity provider must not have
       deleteIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4072,7 +4019,7 @@ Deletes the specified group mapping.
   public async deleteIdpGroupMapping(
     deleteIdpGroupMappingRequest: requests.DeleteIdpGroupMappingRequest
   ): Promise<responses.DeleteIdpGroupMappingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteIdpGroupMapping.");
+    logger.debug("Calling operation IdentityClient#deleteIdpGroupMapping.");
     const operationName = "deleteIdpGroupMapping";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4093,7 +4040,6 @@ Deletes the specified group mapping.
       deleteIdpGroupMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4140,7 +4086,7 @@ Deletes the specified group mapping.
   public async deleteMfaTotpDevice(
     deleteMfaTotpDeviceRequest: requests.DeleteMfaTotpDeviceRequest
   ): Promise<responses.DeleteMfaTotpDeviceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteMfaTotpDevice.");
+    logger.debug("Calling operation IdentityClient#deleteMfaTotpDevice.");
     const operationName = "deleteMfaTotpDevice";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDevice/DeleteMfaTotpDevice";
@@ -4162,7 +4108,6 @@ Deletes the specified group mapping.
       deleteMfaTotpDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4209,7 +4154,7 @@ Deletes the specified group mapping.
   public async deleteNetworkSource(
     deleteNetworkSourceRequest: requests.DeleteNetworkSourceRequest
   ): Promise<responses.DeleteNetworkSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteNetworkSource.");
+    logger.debug("Calling operation IdentityClient#deleteNetworkSource.");
     const operationName = "deleteNetworkSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSources/DeleteNetworkSource";
@@ -4230,7 +4175,6 @@ Deletes the specified group mapping.
       deleteNetworkSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4277,8 +4221,7 @@ Deletes the specified group mapping.
   public async deleteOAuthClientCredential(
     deleteOAuthClientCredentialRequest: requests.DeleteOAuthClientCredentialRequest
   ): Promise<responses.DeleteOAuthClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#deleteOAuthClientCredential.");
+    logger.debug("Calling operation IdentityClient#deleteOAuthClientCredential.");
     const operationName = "deleteOAuthClientCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/DeleteOAuthClientCredential";
@@ -4300,7 +4243,6 @@ Deletes the specified group mapping.
       deleteOAuthClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4346,7 +4288,7 @@ Deletes the specified group mapping.
   public async deletePolicy(
     deletePolicyRequest: requests.DeletePolicyRequest
   ): Promise<responses.DeletePolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deletePolicy.");
+    logger.debug("Calling operation IdentityClient#deletePolicy.");
     const operationName = "deletePolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4366,7 +4308,6 @@ Deletes the specified group mapping.
       deletePolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4413,7 +4354,7 @@ Deletes the specified group mapping.
   public async deleteSmtpCredential(
     deleteSmtpCredentialRequest: requests.DeleteSmtpCredentialRequest
   ): Promise<responses.DeleteSmtpCredentialResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteSmtpCredential.");
+    logger.debug("Calling operation IdentityClient#deleteSmtpCredential.");
     const operationName = "deleteSmtpCredential";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4434,7 +4375,6 @@ Deletes the specified group mapping.
       deleteSmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4483,7 +4423,7 @@ Deletes the specified Swift password for the specified user.
   public async deleteSwiftPassword(
     deleteSwiftPasswordRequest: requests.DeleteSwiftPasswordRequest
   ): Promise<responses.DeleteSwiftPasswordResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteSwiftPassword.");
+    logger.debug("Calling operation IdentityClient#deleteSwiftPassword.");
     const operationName = "deleteSwiftPassword";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4504,7 +4444,6 @@ Deletes the specified Swift password for the specified user.
       deleteSwiftPasswordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4570,7 +4509,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
   public async deleteTag(
     deleteTagRequest: requests.DeleteTagRequest
   ): Promise<responses.DeleteTagResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTag.");
+    logger.debug("Calling operation IdentityClient#deleteTag.");
     const operationName = "deleteTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/DeleteTag";
@@ -4594,7 +4533,6 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       deleteTagRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4646,7 +4584,7 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
   public async deleteTagDefault(
     deleteTagDefaultRequest: requests.DeleteTagDefaultRequest
   ): Promise<responses.DeleteTagDefaultResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTagDefault.");
+    logger.debug("Calling operation IdentityClient#deleteTagDefault.");
     const operationName = "deleteTagDefault";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/DeleteTagDefault";
@@ -4670,7 +4608,6 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       deleteTagDefaultRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4723,7 +4660,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
   public async deleteTagNamespace(
     deleteTagNamespaceRequest: requests.DeleteTagNamespaceRequest
   ): Promise<responses.DeleteTagNamespaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTagNamespace.");
+    logger.debug("Calling operation IdentityClient#deleteTagNamespace.");
     const operationName = "deleteTagNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/DeleteTagNamespace";
@@ -4747,7 +4684,6 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       deleteTagNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4793,7 +4729,7 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
   public async deleteUser(
     deleteUserRequest: requests.DeleteUserRequest
   ): Promise<responses.DeleteUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteUser.");
+    logger.debug("Calling operation IdentityClient#deleteUser.");
     const operationName = "deleteUser";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4813,7 +4749,6 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       deleteUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4869,8 +4804,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async enableReplicationToRegion(
     enableReplicationToRegionRequest: requests.EnableReplicationToRegionRequest
   ): Promise<responses.EnableReplicationToRegionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#enableReplicationToRegion.");
+    logger.debug("Calling operation IdentityClient#enableReplicationToRegion.");
     const operationName = "enableReplicationToRegion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/EnableReplicationToRegion";
@@ -4893,7 +4827,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       enableReplicationToRegionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4950,7 +4883,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async generateTotpSeed(
     generateTotpSeedRequest: requests.GenerateTotpSeedRequest
   ): Promise<responses.GenerateTotpSeedResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#generateTotpSeed.");
+    logger.debug("Calling operation IdentityClient#generateTotpSeed.");
     const operationName = "generateTotpSeed";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDevice/GenerateTotpSeed";
@@ -4972,7 +4905,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       generateTotpSeedRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5029,7 +4961,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async getAuthenticationPolicy(
     getAuthenticationPolicyRequest: requests.GetAuthenticationPolicyRequest
   ): Promise<responses.GetAuthenticationPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getAuthenticationPolicy.");
+    logger.debug("Calling operation IdentityClient#getAuthenticationPolicy.");
     const operationName = "getAuthenticationPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthenticationPolicy/GetAuthenticationPolicy";
@@ -5049,7 +4981,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       getAuthenticationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5112,7 +5043,7 @@ This operation does not return a list of all the resources inside the compartmen
   public async getCompartment(
     getCompartmentRequest: requests.GetCompartmentRequest
   ): Promise<responses.GetCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getCompartment.");
+    logger.debug("Calling operation IdentityClient#getCompartment.");
     const operationName = "getCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/GetCompartment";
@@ -5132,7 +5063,6 @@ This operation does not return a list of all the resources inside the compartmen
       getCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5188,7 +5118,7 @@ This operation does not return a list of all the resources inside the compartmen
   public async getDomain(
     getDomainRequest: requests.GetDomainRequest
   ): Promise<responses.GetDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getDomain.");
+    logger.debug("Calling operation IdentityClient#getDomain.");
     const operationName = "getDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/GetDomain";
@@ -5209,7 +5139,6 @@ This operation does not return a list of all the resources inside the compartmen
       getDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5265,7 +5194,7 @@ This operation does not return a list of all the resources inside the compartmen
   public async getDynamicGroup(
     getDynamicGroupRequest: requests.GetDynamicGroupRequest
   ): Promise<responses.GetDynamicGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getDynamicGroup.");
+    logger.debug("Calling operation IdentityClient#getDynamicGroup.");
     const operationName = "getDynamicGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DynamicGroup/GetDynamicGroup";
@@ -5285,7 +5214,6 @@ This operation does not return a list of all the resources inside the compartmen
       getDynamicGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5345,7 +5273,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getGroup(
     getGroupRequest: requests.GetGroupRequest
   ): Promise<responses.GetGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getGroup.");
+    logger.debug("Calling operation IdentityClient#getGroup.");
     const operationName = "getGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Group/GetGroup";
@@ -5365,7 +5293,6 @@ This operation does not return a list of all the users in the group. To do that,
       getGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5421,7 +5348,7 @@ This operation does not return a list of all the users in the group. To do that,
   public async getIamWorkRequest(
     getIamWorkRequestRequest: requests.GetIamWorkRequestRequest
   ): Promise<responses.GetIamWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getIamWorkRequest.");
+    logger.debug("Calling operation IdentityClient#getIamWorkRequest.");
     const operationName = "getIamWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IamWorkRequest/GetIamWorkRequest";
@@ -5442,7 +5369,6 @@ This operation does not return a list of all the users in the group. To do that,
       getIamWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5495,7 +5421,7 @@ Gets the specified identity provider's information.
   public async getIdentityProvider(
     getIdentityProviderRequest: requests.GetIdentityProviderRequest
   ): Promise<responses.GetIdentityProviderResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getIdentityProvider.");
+    logger.debug("Calling operation IdentityClient#getIdentityProvider.");
     const operationName = "getIdentityProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProvider/GetIdentityProvider";
@@ -5515,7 +5441,6 @@ Gets the specified identity provider's information.
       getIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5573,7 +5498,7 @@ Gets the specified group mapping.
   public async getIdpGroupMapping(
     getIdpGroupMappingRequest: requests.GetIdpGroupMappingRequest
   ): Promise<responses.GetIdpGroupMappingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getIdpGroupMapping.");
+    logger.debug("Calling operation IdentityClient#getIdpGroupMapping.");
     const operationName = "getIdpGroupMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdpGroupMapping/GetIdpGroupMapping";
@@ -5594,7 +5519,6 @@ Gets the specified group mapping.
       getIdpGroupMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5650,7 +5574,7 @@ Gets the specified group mapping.
   public async getMfaTotpDevice(
     getMfaTotpDeviceRequest: requests.GetMfaTotpDeviceRequest
   ): Promise<responses.GetMfaTotpDeviceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getMfaTotpDevice.");
+    logger.debug("Calling operation IdentityClient#getMfaTotpDevice.");
     const operationName = "getMfaTotpDevice";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDeviceSummary/GetMfaTotpDevice";
@@ -5671,7 +5595,6 @@ Gets the specified group mapping.
       getMfaTotpDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5727,7 +5650,7 @@ Gets the specified group mapping.
   public async getNetworkSource(
     getNetworkSourceRequest: requests.GetNetworkSourceRequest
   ): Promise<responses.GetNetworkSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getNetworkSource.");
+    logger.debug("Calling operation IdentityClient#getNetworkSource.");
     const operationName = "getNetworkSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSources/GetNetworkSource";
@@ -5747,7 +5670,6 @@ Gets the specified group mapping.
       getNetworkSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5802,7 +5724,7 @@ Gets the specified group mapping.
   public async getPolicy(
     getPolicyRequest: requests.GetPolicyRequest
   ): Promise<responses.GetPolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getPolicy.");
+    logger.debug("Calling operation IdentityClient#getPolicy.");
     const operationName = "getPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Policy/GetPolicy";
@@ -5822,7 +5744,6 @@ Gets the specified group mapping.
       getPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5878,7 +5799,7 @@ Gets the specified group mapping.
   public async getStandardTagTemplate(
     getStandardTagTemplateRequest: requests.GetStandardTagTemplateRequest
   ): Promise<responses.GetStandardTagTemplateResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getStandardTagTemplate.");
+    logger.debug("Calling operation IdentityClient#getStandardTagTemplate.");
     const operationName = "getStandardTagTemplate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/StandardTagNamespaceTemplate/GetStandardTagTemplate";
@@ -5900,7 +5821,6 @@ Gets the specified group mapping.
       getStandardTagTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5948,7 +5868,7 @@ Gets the specified group mapping.
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetTag.ts.html |here} to see how to use GetTag API.
    */
   public async getTag(getTagRequest: requests.GetTagRequest): Promise<responses.GetTagResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTag.");
+    logger.debug("Calling operation IdentityClient#getTag.");
     const operationName = "getTag";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/GetTag";
     const pathParams = {
@@ -5968,7 +5888,6 @@ Gets the specified group mapping.
       getTagRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6024,7 +5943,7 @@ Gets the specified group mapping.
   public async getTagDefault(
     getTagDefaultRequest: requests.GetTagDefaultRequest
   ): Promise<responses.GetTagDefaultResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTagDefault.");
+    logger.debug("Calling operation IdentityClient#getTagDefault.");
     const operationName = "getTagDefault";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/GetTagDefault";
@@ -6044,7 +5963,6 @@ Gets the specified group mapping.
       getTagDefaultRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6100,7 +6018,7 @@ Gets the specified group mapping.
   public async getTagNamespace(
     getTagNamespaceRequest: requests.GetTagNamespaceRequest
   ): Promise<responses.GetTagNamespaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTagNamespace.");
+    logger.debug("Calling operation IdentityClient#getTagNamespace.");
     const operationName = "getTagNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/GetTagNamespace";
@@ -6120,7 +6038,6 @@ Gets the specified group mapping.
       getTagNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6172,7 +6089,7 @@ Gets the specified group mapping.
   public async getTaggingWorkRequest(
     getTaggingWorkRequestRequest: requests.GetTaggingWorkRequestRequest
   ): Promise<responses.GetTaggingWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTaggingWorkRequest.");
+    logger.debug("Calling operation IdentityClient#getTaggingWorkRequest.");
     const operationName = "getTaggingWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TaggingWorkRequest/GetTaggingWorkRequest";
@@ -6192,7 +6109,6 @@ Gets the specified group mapping.
       getTaggingWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6247,7 +6163,7 @@ Gets the specified group mapping.
   public async getTenancy(
     getTenancyRequest: requests.GetTenancyRequest
   ): Promise<responses.GetTenancyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getTenancy.");
+    logger.debug("Calling operation IdentityClient#getTenancy.");
     const operationName = "getTenancy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tenancy/GetTenancy";
@@ -6267,7 +6183,6 @@ Gets the specified group mapping.
       getTenancyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6317,7 +6232,7 @@ Gets the specified group mapping.
   public async getUser(
     getUserRequest: requests.GetUserRequest
   ): Promise<responses.GetUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getUser.");
+    logger.debug("Calling operation IdentityClient#getUser.");
     const operationName = "getUser";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/GetUser";
     const pathParams = {
@@ -6336,7 +6251,6 @@ Gets the specified group mapping.
       getUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6391,7 +6305,7 @@ Gets the specified group mapping.
   public async getUserGroupMembership(
     getUserGroupMembershipRequest: requests.GetUserGroupMembershipRequest
   ): Promise<responses.GetUserGroupMembershipResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getUserGroupMembership.");
+    logger.debug("Calling operation IdentityClient#getUserGroupMembership.");
     const operationName = "getUserGroupMembership";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UserGroupMembership/GetUserGroupMembership";
@@ -6411,7 +6325,6 @@ Gets the specified group mapping.
       getUserGroupMembershipRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6468,8 +6381,7 @@ Gets the specified group mapping.
   public async getUserUIPasswordInformation(
     getUserUIPasswordInformationRequest: requests.GetUserUIPasswordInformationRequest
   ): Promise<responses.GetUserUIPasswordInformationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#getUserUIPasswordInformation.");
+    logger.debug("Calling operation IdentityClient#getUserUIPasswordInformation.");
     const operationName = "getUserUIPasswordInformation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UIPasswordInformation/GetUserUIPasswordInformation";
@@ -6489,7 +6401,6 @@ Gets the specified group mapping.
       getUserUIPasswordInformationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6546,7 +6457,7 @@ Gets the specified group mapping.
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#getWorkRequest.");
+    logger.debug("Calling operation IdentityClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/WorkRequest/GetWorkRequest";
@@ -6566,7 +6477,6 @@ Gets the specified group mapping.
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6623,7 +6533,7 @@ Gets the specified group mapping.
   public async importStandardTags(
     importStandardTagsRequest: requests.ImportStandardTagsRequest
   ): Promise<responses.ImportStandardTagsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#importStandardTags.");
+    logger.debug("Calling operation IdentityClient#importStandardTags.");
     const operationName = "importStandardTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/ImportStandardTags";
@@ -6643,7 +6553,6 @@ Gets the specified group mapping.
       importStandardTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6704,8 +6613,7 @@ If `currentLicenseTypeName` is provided, then the request returns license types 
   public async listAllowedDomainLicenseTypes(
     listAllowedDomainLicenseTypesRequest: requests.ListAllowedDomainLicenseTypesRequest
   ): Promise<responses.ListAllowedDomainLicenseTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listAllowedDomainLicenseTypes.");
+    logger.debug("Calling operation IdentityClient#listAllowedDomainLicenseTypes.");
     const operationName = "listAllowedDomainLicenseTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/ListAllowedDomainLicenseTypes";
@@ -6726,7 +6634,6 @@ If `currentLicenseTypeName` is provided, then the request returns license types 
       listAllowedDomainLicenseTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6785,7 +6692,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listApiKeys(
     listApiKeysRequest: requests.ListApiKeysRequest
   ): Promise<responses.ListApiKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listApiKeys.");
+    logger.debug("Calling operation IdentityClient#listApiKeys.");
     const operationName = "listApiKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/ApiKey/ListApiKeys";
@@ -6805,7 +6712,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       listApiKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6862,7 +6768,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listAuthTokens(
     listAuthTokensRequest: requests.ListAuthTokensRequest
   ): Promise<responses.ListAuthTokensResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listAuthTokens.");
+    logger.debug("Calling operation IdentityClient#listAuthTokens.");
     const operationName = "listAuthTokens";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthToken/ListAuthTokens";
@@ -6882,7 +6788,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       listAuthTokensRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6942,7 +6847,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listAvailabilityDomains(
     listAvailabilityDomainsRequest: requests.ListAvailabilityDomainsRequest
   ): Promise<responses.ListAvailabilityDomainsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listAvailabilityDomains.");
+    logger.debug("Calling operation IdentityClient#listAvailabilityDomains.");
     const operationName = "listAvailabilityDomains";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AvailabilityDomain/ListAvailabilityDomains";
@@ -6962,7 +6867,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       listAvailabilityDomainsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7024,8 +6928,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listBulkActionResourceTypes(
     listBulkActionResourceTypesRequest: requests.ListBulkActionResourceTypesRequest
   ): Promise<responses.ListBulkActionResourceTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listBulkActionResourceTypes.");
+    logger.debug("Calling operation IdentityClient#listBulkActionResourceTypes.");
     const operationName = "listBulkActionResourceTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/BulkActionResourceTypeCollection/ListBulkActionResourceTypes";
@@ -7047,7 +6950,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       listBulkActionResourceTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7103,8 +7005,7 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   public async listBulkEditTagsResourceTypes(
     listBulkEditTagsResourceTypesRequest: requests.ListBulkEditTagsResourceTypesRequest
   ): Promise<responses.ListBulkEditTagsResourceTypesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listBulkEditTagsResourceTypes.");
+    logger.debug("Calling operation IdentityClient#listBulkEditTagsResourceTypes.");
     const operationName = "listBulkEditTagsResourceTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/BulkEditTagsResourceTypeCollection/ListBulkEditTagsResourceTypes";
@@ -7125,7 +7026,6 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       listBulkEditTagsResourceTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7198,7 +7098,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listCompartments(
     listCompartmentsRequest: requests.ListCompartmentsRequest
   ): Promise<responses.ListCompartmentsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listCompartments.");
+    logger.debug("Calling operation IdentityClient#listCompartments.");
     const operationName = "listCompartments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/ListCompartments";
@@ -7226,7 +7126,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listCompartmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7335,7 +7234,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listCostTrackingTags(
     listCostTrackingTagsRequest: requests.ListCostTrackingTagsRequest
   ): Promise<responses.ListCostTrackingTagsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listCostTrackingTags.");
+    logger.debug("Calling operation IdentityClient#listCostTrackingTags.");
     const operationName = "listCostTrackingTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/ListCostTrackingTags";
@@ -7357,7 +7256,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listCostTrackingTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7466,7 +7364,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listCustomerSecretKeys(
     listCustomerSecretKeysRequest: requests.ListCustomerSecretKeysRequest
   ): Promise<responses.ListCustomerSecretKeysResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listCustomerSecretKeys.");
+    logger.debug("Calling operation IdentityClient#listCustomerSecretKeys.");
     const operationName = "listCustomerSecretKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/CustomerSecretKeySummary/ListCustomerSecretKeys";
@@ -7486,7 +7384,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listCustomerSecretKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7542,7 +7439,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listDbCredentials(
     listDbCredentialsRequest: requests.ListDbCredentialsRequest
   ): Promise<responses.ListDbCredentialsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listDbCredentials.");
+    logger.debug("Calling operation IdentityClient#listDbCredentials.");
     const operationName = "listDbCredentials";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/ListDbCredentials";
@@ -7570,7 +7467,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listDbCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7678,7 +7574,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listDomains(
     listDomainsRequest: requests.ListDomainsRequest
   ): Promise<responses.ListDomainsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listDomains.");
+    logger.debug("Calling operation IdentityClient#listDomains.");
     const operationName = "listDomains";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DomainSummary/ListDomains";
@@ -7711,7 +7607,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listDomainsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7821,7 +7716,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listDynamicGroups(
     listDynamicGroupsRequest: requests.ListDynamicGroupsRequest
   ): Promise<responses.ListDynamicGroupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listDynamicGroups.");
+    logger.debug("Calling operation IdentityClient#listDynamicGroups.");
     const operationName = "listDynamicGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DynamicGroup/ListDynamicGroups";
@@ -7847,7 +7742,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listDynamicGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7957,7 +7851,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listFaultDomains(
     listFaultDomainsRequest: requests.ListFaultDomainsRequest
   ): Promise<responses.ListFaultDomainsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listFaultDomains.");
+    logger.debug("Calling operation IdentityClient#listFaultDomains.");
     const operationName = "listFaultDomains";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/FaultDomain/ListFaultDomains";
@@ -7978,7 +7872,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listFaultDomainsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8031,7 +7924,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listGroups(
     listGroupsRequest: requests.ListGroupsRequest
   ): Promise<responses.ListGroupsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listGroups.");
+    logger.debug("Calling operation IdentityClient#listGroups.");
     const operationName = "listGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Group/ListGroups";
@@ -8057,7 +7950,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8163,8 +8055,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listIamWorkRequestErrors(
     listIamWorkRequestErrorsRequest: requests.ListIamWorkRequestErrorsRequest
   ): Promise<responses.ListIamWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listIamWorkRequestErrors.");
+    logger.debug("Calling operation IdentityClient#listIamWorkRequestErrors.");
     const operationName = "listIamWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IamWorkRequest/ListIamWorkRequestErrors";
@@ -8189,7 +8080,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listIamWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8297,7 +8187,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listIamWorkRequestLogs(
     listIamWorkRequestLogsRequest: requests.ListIamWorkRequestLogsRequest
   ): Promise<responses.ListIamWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listIamWorkRequestLogs.");
+    logger.debug("Calling operation IdentityClient#listIamWorkRequestLogs.");
     const operationName = "listIamWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IamWorkRequestLogSummary/ListIamWorkRequestLogs";
@@ -8322,7 +8212,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listIamWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8435,7 +8324,7 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   public async listIamWorkRequests(
     listIamWorkRequestsRequest: requests.ListIamWorkRequestsRequest
   ): Promise<responses.ListIamWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listIamWorkRequests.");
+    logger.debug("Calling operation IdentityClient#listIamWorkRequests.");
     const operationName = "listIamWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IamWorkRequestSummary/ListIamWorkRequests";
@@ -8459,7 +8348,6 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       listIamWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8569,8 +8457,7 @@ Lists the identity provider groups.
   public async listIdentityProviderGroups(
     listIdentityProviderGroupsRequest: requests.ListIdentityProviderGroupsRequest
   ): Promise<responses.ListIdentityProviderGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listIdentityProviderGroups.");
+    logger.debug("Calling operation IdentityClient#listIdentityProviderGroups.");
     const operationName = "listIdentityProviderGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProviderGroupSummary/ListIdentityProviderGroups";
@@ -8595,7 +8482,6 @@ Lists the identity provider groups.
       listIdentityProviderGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8708,7 +8594,7 @@ Lists all the identity providers in your tenancy. You must specify the identity 
   public async listIdentityProviders(
     listIdentityProvidersRequest: requests.ListIdentityProvidersRequest
   ): Promise<responses.ListIdentityProvidersResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listIdentityProviders.");
+    logger.debug("Calling operation IdentityClient#listIdentityProviders.");
     const operationName = "listIdentityProviders";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProvider/ListIdentityProviders";
@@ -8735,7 +8621,6 @@ Lists all the identity providers in your tenancy. You must specify the identity 
       listIdentityProvidersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8845,7 +8730,7 @@ Lists the group mappings for the specified identity provider.
   public async listIdpGroupMappings(
     listIdpGroupMappingsRequest: requests.ListIdpGroupMappingsRequest
   ): Promise<responses.ListIdpGroupMappingsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listIdpGroupMappings.");
+    logger.debug("Calling operation IdentityClient#listIdpGroupMappings.");
     const operationName = "listIdpGroupMappings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdpGroupMapping/ListIdpGroupMappings";
@@ -8868,7 +8753,6 @@ Lists the group mappings for the specified identity provider.
       listIdpGroupMappingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8977,7 +8861,7 @@ Lists the group mappings for the specified identity provider.
   public async listMfaTotpDevices(
     listMfaTotpDevicesRequest: requests.ListMfaTotpDevicesRequest
   ): Promise<responses.ListMfaTotpDevicesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listMfaTotpDevices.");
+    logger.debug("Calling operation IdentityClient#listMfaTotpDevices.");
     const operationName = "listMfaTotpDevices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDeviceSummary/ListMfaTotpDevices";
@@ -9002,7 +8886,6 @@ Lists the group mappings for the specified identity provider.
       listMfaTotpDevicesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9112,7 +8995,7 @@ Lists the group mappings for the specified identity provider.
   public async listNetworkSources(
     listNetworkSourcesRequest: requests.ListNetworkSourcesRequest
   ): Promise<responses.ListNetworkSourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listNetworkSources.");
+    logger.debug("Calling operation IdentityClient#listNetworkSources.");
     const operationName = "listNetworkSources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSourcesSummary/ListNetworkSources";
@@ -9138,7 +9021,6 @@ Lists the group mappings for the specified identity provider.
       listNetworkSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9246,8 +9128,7 @@ Lists the group mappings for the specified identity provider.
   public async listOAuthClientCredentials(
     listOAuthClientCredentialsRequest: requests.ListOAuthClientCredentialsRequest
   ): Promise<responses.ListOAuthClientCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listOAuthClientCredentials.");
+    logger.debug("Calling operation IdentityClient#listOAuthClientCredentials.");
     const operationName = "listOAuthClientCredentials";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/ListOAuthClientCredentials";
@@ -9271,7 +9152,6 @@ Lists the group mappings for the specified identity provider.
       listOAuthClientCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9383,7 +9263,7 @@ To determine which policies apply to a particular group or compartment, you must
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listPolicies.");
+    logger.debug("Calling operation IdentityClient#listPolicies.");
     const operationName = "listPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Policy/ListPolicies";
@@ -9409,7 +9289,6 @@ To determine which policies apply to a particular group or compartment, you must
       listPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9516,7 +9395,7 @@ To determine which policies apply to a particular group or compartment, you must
   public async listRegionSubscriptions(
     listRegionSubscriptionsRequest: requests.ListRegionSubscriptionsRequest
   ): Promise<responses.ListRegionSubscriptionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listRegionSubscriptions.");
+    logger.debug("Calling operation IdentityClient#listRegionSubscriptions.");
     const operationName = "listRegionSubscriptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/RegionSubscription/ListRegionSubscriptions";
@@ -9536,7 +9415,6 @@ To determine which policies apply to a particular group or compartment, you must
       listRegionSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9586,7 +9464,7 @@ To determine which policies apply to a particular group or compartment, you must
   public async listRegions(
     listRegionsRequest: requests.ListRegionsRequest
   ): Promise<responses.ListRegionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listRegions.");
+    logger.debug("Calling operation IdentityClient#listRegions.");
     const operationName = "listRegions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Region/ListRegions";
@@ -9604,7 +9482,6 @@ To determine which policies apply to a particular group or compartment, you must
       listRegionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9656,7 +9533,7 @@ To determine which policies apply to a particular group or compartment, you must
   public async listSmtpCredentials(
     listSmtpCredentialsRequest: requests.ListSmtpCredentialsRequest
   ): Promise<responses.ListSmtpCredentialsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listSmtpCredentials.");
+    logger.debug("Calling operation IdentityClient#listSmtpCredentials.");
     const operationName = "listSmtpCredentials";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SmtpCredentialSummary/ListSmtpCredentials";
@@ -9676,7 +9553,6 @@ To determine which policies apply to a particular group or compartment, you must
       listSmtpCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9732,8 +9608,7 @@ To determine which policies apply to a particular group or compartment, you must
   public async listStandardTagNamespaces(
     listStandardTagNamespacesRequest: requests.ListStandardTagNamespacesRequest
   ): Promise<responses.ListStandardTagNamespacesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listStandardTagNamespaces.");
+    logger.debug("Calling operation IdentityClient#listStandardTagNamespaces.");
     const operationName = "listStandardTagNamespaces";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/StandardTagNamespaceTemplateSummary/ListStandardTagNamespaces";
@@ -9755,7 +9630,6 @@ To determine which policies apply to a particular group or compartment, you must
       listStandardTagNamespacesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9866,7 +9740,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listSwiftPasswords(
     listSwiftPasswordsRequest: requests.ListSwiftPasswordsRequest
   ): Promise<responses.ListSwiftPasswordsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listSwiftPasswords.");
+    logger.debug("Calling operation IdentityClient#listSwiftPasswords.");
     const operationName = "listSwiftPasswords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SwiftPassword/ListSwiftPasswords";
@@ -9886,7 +9760,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listSwiftPasswordsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9942,7 +9815,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTagDefaults(
     listTagDefaultsRequest: requests.ListTagDefaultsRequest
   ): Promise<responses.ListTagDefaultsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listTagDefaults.");
+    logger.debug("Calling operation IdentityClient#listTagDefaults.");
     const operationName = "listTagDefaults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefaultSummary/ListTagDefaults";
@@ -9967,7 +9840,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listTagDefaultsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10075,7 +9947,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTagNamespaces(
     listTagNamespacesRequest: requests.ListTagNamespacesRequest
   ): Promise<responses.ListTagNamespacesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listTagNamespaces.");
+    logger.debug("Calling operation IdentityClient#listTagNamespaces.");
     const operationName = "listTagNamespaces";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespaceSummary/ListTagNamespaces";
@@ -10099,7 +9971,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listTagNamespacesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10207,8 +10078,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTaggingWorkRequestErrors(
     listTaggingWorkRequestErrorsRequest: requests.ListTaggingWorkRequestErrorsRequest
   ): Promise<responses.ListTaggingWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequestErrors.");
+    logger.debug("Calling operation IdentityClient#listTaggingWorkRequestErrors.");
     const operationName = "listTaggingWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TaggingWorkRequestErrorSummary/ListTaggingWorkRequestErrors";
@@ -10231,7 +10101,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listTaggingWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10344,8 +10213,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTaggingWorkRequestLogs(
     listTaggingWorkRequestLogsRequest: requests.ListTaggingWorkRequestLogsRequest
   ): Promise<responses.ListTaggingWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequestLogs.");
+    logger.debug("Calling operation IdentityClient#listTaggingWorkRequestLogs.");
     const operationName = "listTaggingWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TaggingWorkRequestLogSummary/ListTaggingWorkRequestLogs";
@@ -10368,7 +10236,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listTaggingWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10481,7 +10348,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTaggingWorkRequests(
     listTaggingWorkRequestsRequest: requests.ListTaggingWorkRequestsRequest
   ): Promise<responses.ListTaggingWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequests.");
+    logger.debug("Calling operation IdentityClient#listTaggingWorkRequests.");
     const operationName = "listTaggingWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TaggingWorkRequestSummary/ListTaggingWorkRequests";
@@ -10504,7 +10371,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listTaggingWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10612,7 +10478,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listTags(
     listTagsRequest: requests.ListTagsRequest
   ): Promise<responses.ListTagsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listTags.");
+    logger.debug("Calling operation IdentityClient#listTags.");
     const operationName = "listTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagSummary/ListTags";
@@ -10636,7 +10502,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10751,8 +10616,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listUserGroupMemberships(
     listUserGroupMembershipsRequest: requests.ListUserGroupMembershipsRequest
   ): Promise<responses.ListUserGroupMembershipsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#listUserGroupMemberships.");
+    logger.debug("Calling operation IdentityClient#listUserGroupMemberships.");
     const operationName = "listUserGroupMemberships";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UserGroupMembership/ListUserGroupMemberships";
@@ -10776,7 +10640,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listUserGroupMembershipsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10886,7 +10749,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
   ): Promise<responses.ListUsersResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listUsers.");
+    logger.debug("Calling operation IdentityClient#listUsers.");
     const operationName = "listUsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/ListUsers";
@@ -10914,7 +10777,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11020,7 +10882,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#listWorkRequests.");
+    logger.debug("Calling operation IdentityClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/WorkRequestSummary/ListWorkRequests";
@@ -11043,7 +10905,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11158,7 +11019,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async moveCompartment(
     moveCompartmentRequest: requests.MoveCompartmentRequest
   ): Promise<responses.MoveCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#moveCompartment.");
+    logger.debug("Calling operation IdentityClient#moveCompartment.");
     const operationName = "moveCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/MoveCompartment";
@@ -11181,7 +11042,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       moveCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11238,7 +11098,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async recoverCompartment(
     recoverCompartmentRequest: requests.RecoverCompartmentRequest
   ): Promise<responses.RecoverCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#recoverCompartment.");
+    logger.debug("Calling operation IdentityClient#recoverCompartment.");
     const operationName = "recoverCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/RecoverCompartment";
@@ -11260,7 +11120,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       recoverCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11316,7 +11175,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async removeTagDefaultLock(
     removeTagDefaultLockRequest: requests.RemoveTagDefaultLockRequest
   ): Promise<responses.RemoveTagDefaultLockResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#removeTagDefaultLock.");
+    logger.debug("Calling operation IdentityClient#removeTagDefaultLock.");
     const operationName = "removeTagDefaultLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/RemoveTagDefaultLock";
@@ -11339,7 +11198,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       removeTagDefaultLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11400,7 +11258,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async removeTagNamespaceLock(
     removeTagNamespaceLockRequest: requests.RemoveTagNamespaceLockRequest
   ): Promise<responses.RemoveTagNamespaceLockResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#removeTagNamespaceLock.");
+    logger.debug("Calling operation IdentityClient#removeTagNamespaceLock.");
     const operationName = "removeTagNamespaceLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/RemoveTagNamespaceLock";
@@ -11423,7 +11281,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       removeTagNamespaceLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11483,7 +11340,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async removeUserFromGroup(
     removeUserFromGroupRequest: requests.RemoveUserFromGroupRequest
   ): Promise<responses.RemoveUserFromGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#removeUserFromGroup.");
+    logger.debug("Calling operation IdentityClient#removeUserFromGroup.");
     const operationName = "removeUserFromGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UserGroupMembership/RemoveUserFromGroup";
@@ -11504,7 +11361,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       removeUserFromGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11551,7 +11407,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async resetIdpScimClient(
     resetIdpScimClientRequest: requests.ResetIdpScimClientRequest
   ): Promise<responses.ResetIdpScimClientResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#resetIdpScimClient.");
+    logger.debug("Calling operation IdentityClient#resetIdpScimClient.");
     const operationName = "resetIdpScimClient";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/ScimClientCredentials/ResetIdpScimClient";
@@ -11571,7 +11427,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       resetIdpScimClientRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11622,7 +11477,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateAuthToken(
     updateAuthTokenRequest: requests.UpdateAuthTokenRequest
   ): Promise<responses.UpdateAuthTokenResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateAuthToken.");
+    logger.debug("Calling operation IdentityClient#updateAuthToken.");
     const operationName = "updateAuthToken";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthToken/UpdateAuthToken";
@@ -11644,7 +11499,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       updateAuthTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11705,8 +11559,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateAuthenticationPolicy(
     updateAuthenticationPolicyRequest: requests.UpdateAuthenticationPolicyRequest
   ): Promise<responses.UpdateAuthenticationPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#updateAuthenticationPolicy.");
+    logger.debug("Calling operation IdentityClient#updateAuthenticationPolicy.");
     const operationName = "updateAuthenticationPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthenticationPolicy/UpdateAuthenticationPolicy";
@@ -11727,7 +11580,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       updateAuthenticationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11787,7 +11639,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateCompartment(
     updateCompartmentRequest: requests.UpdateCompartmentRequest
   ): Promise<responses.UpdateCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateCompartment.");
+    logger.debug("Calling operation IdentityClient#updateCompartment.");
     const operationName = "updateCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/UpdateCompartment";
@@ -11808,7 +11660,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       updateCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11869,7 +11720,7 @@ Lists the Swift passwords for the specified user. The returned object contains t
   public async updateCustomerSecretKey(
     updateCustomerSecretKeyRequest: requests.UpdateCustomerSecretKeyRequest
   ): Promise<responses.UpdateCustomerSecretKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateCustomerSecretKey.");
+    logger.debug("Calling operation IdentityClient#updateCustomerSecretKey.");
     const operationName = "updateCustomerSecretKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/CustomerSecretKeySummary/UpdateCustomerSecretKey";
@@ -11891,7 +11742,6 @@ Lists the Swift passwords for the specified user. The returned object contains t
       updateCustomerSecretKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11955,7 +11805,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async updateDomain(
     updateDomainRequest: requests.UpdateDomainRequest
   ): Promise<responses.UpdateDomainResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateDomain.");
+    logger.debug("Calling operation IdentityClient#updateDomain.");
     const operationName = "updateDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/UpdateDomain";
@@ -11977,7 +11827,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       updateDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12033,7 +11882,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async updateDynamicGroup(
     updateDynamicGroupRequest: requests.UpdateDynamicGroupRequest
   ): Promise<responses.UpdateDynamicGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateDynamicGroup.");
+    logger.debug("Calling operation IdentityClient#updateDynamicGroup.");
     const operationName = "updateDynamicGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DynamicGroup/UpdateDynamicGroup";
@@ -12054,7 +11903,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       updateDynamicGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12114,7 +11962,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   public async updateGroup(
     updateGroupRequest: requests.UpdateGroupRequest
   ): Promise<responses.UpdateGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateGroup.");
+    logger.debug("Calling operation IdentityClient#updateGroup.");
     const operationName = "updateGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Group/UpdateGroup";
@@ -12135,7 +11983,6 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       updateGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12198,7 +12045,7 @@ Updates the specified identity provider.
   public async updateIdentityProvider(
     updateIdentityProviderRequest: requests.UpdateIdentityProviderRequest
   ): Promise<responses.UpdateIdentityProviderResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateIdentityProvider.");
+    logger.debug("Calling operation IdentityClient#updateIdentityProvider.");
     const operationName = "updateIdentityProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProvider/UpdateIdentityProvider";
@@ -12219,7 +12066,6 @@ Updates the specified identity provider.
       updateIdentityProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12282,7 +12128,7 @@ Updates the specified group mapping.
   public async updateIdpGroupMapping(
     updateIdpGroupMappingRequest: requests.UpdateIdpGroupMappingRequest
   ): Promise<responses.UpdateIdpGroupMappingResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateIdpGroupMapping.");
+    logger.debug("Calling operation IdentityClient#updateIdpGroupMapping.");
     const operationName = "updateIdpGroupMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdpGroupMapping/UpdateIdpGroupMapping";
@@ -12304,7 +12150,6 @@ Updates the specified group mapping.
       updateIdpGroupMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12365,7 +12210,7 @@ Updates the specified group mapping.
   public async updateNetworkSource(
     updateNetworkSourceRequest: requests.UpdateNetworkSourceRequest
   ): Promise<responses.UpdateNetworkSourceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateNetworkSource.");
+    logger.debug("Calling operation IdentityClient#updateNetworkSource.");
     const operationName = "updateNetworkSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSources/UpdateNetworkSource";
@@ -12386,7 +12231,6 @@ Updates the specified group mapping.
       updateNetworkSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12447,8 +12291,7 @@ Updates the specified group mapping.
   public async updateOAuthClientCredential(
     updateOAuthClientCredentialRequest: requests.UpdateOAuthClientCredentialRequest
   ): Promise<responses.UpdateOAuthClientCredentialResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation IdentityClient#updateOAuthClientCredential.");
+    logger.debug("Calling operation IdentityClient#updateOAuthClientCredential.");
     const operationName = "updateOAuthClientCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/UpdateOAuthClientCredential";
@@ -12470,7 +12313,6 @@ Updates the specified group mapping.
       updateOAuthClientCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12533,7 +12375,7 @@ Policy changes take effect typically within 10 seconds.
   public async updatePolicy(
     updatePolicyRequest: requests.UpdatePolicyRequest
   ): Promise<responses.UpdatePolicyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updatePolicy.");
+    logger.debug("Calling operation IdentityClient#updatePolicy.");
     const operationName = "updatePolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Policy/UpdatePolicy";
@@ -12554,7 +12396,6 @@ Policy changes take effect typically within 10 seconds.
       updatePolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12615,7 +12456,7 @@ Policy changes take effect typically within 10 seconds.
   public async updateSmtpCredential(
     updateSmtpCredentialRequest: requests.UpdateSmtpCredentialRequest
   ): Promise<responses.UpdateSmtpCredentialResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateSmtpCredential.");
+    logger.debug("Calling operation IdentityClient#updateSmtpCredential.");
     const operationName = "updateSmtpCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SmtpCredentialSummary/UpdateSmtpCredential";
@@ -12637,7 +12478,6 @@ Policy changes take effect typically within 10 seconds.
       updateSmtpCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12700,7 +12540,7 @@ Updates the specified Swift password's description.
   public async updateSwiftPassword(
     updateSwiftPasswordRequest: requests.UpdateSwiftPasswordRequest
   ): Promise<responses.UpdateSwiftPasswordResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateSwiftPassword.");
+    logger.debug("Calling operation IdentityClient#updateSwiftPassword.");
     const operationName = "updateSwiftPassword";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SwiftPassword/UpdateSwiftPassword";
@@ -12722,7 +12562,6 @@ Updates the specified Swift password's description.
       updateSwiftPasswordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12792,7 +12631,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
   public async updateTag(
     updateTagRequest: requests.UpdateTagRequest
   ): Promise<responses.UpdateTagResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTag.");
+    logger.debug("Calling operation IdentityClient#updateTag.");
     const operationName = "updateTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/UpdateTag";
@@ -12816,7 +12655,6 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       updateTagRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12882,7 +12720,7 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
   public async updateTagDefault(
     updateTagDefaultRequest: requests.UpdateTagDefaultRequest
   ): Promise<responses.UpdateTagDefaultResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTagDefault.");
+    logger.debug("Calling operation IdentityClient#updateTagDefault.");
     const operationName = "updateTagDefault";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/UpdateTagDefault";
@@ -12906,7 +12744,6 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       updateTagDefaultRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12975,7 +12812,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   public async updateTagNamespace(
     updateTagNamespaceRequest: requests.UpdateTagNamespaceRequest
   ): Promise<responses.UpdateTagNamespaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTagNamespace.");
+    logger.debug("Calling operation IdentityClient#updateTagNamespace.");
     const operationName = "updateTagNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/UpdateTagNamespace";
@@ -12997,7 +12834,6 @@ You can't add a namespace with the same name as a retired namespace in the same 
       updateTagNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13052,7 +12888,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   public async updateUser(
     updateUserRequest: requests.UpdateUserRequest
   ): Promise<responses.UpdateUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUser.");
+    logger.debug("Calling operation IdentityClient#updateUser.");
     const operationName = "updateUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/UpdateUser";
@@ -13073,7 +12909,6 @@ You can't add a namespace with the same name as a retired namespace in the same 
       updateUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13134,7 +12969,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   public async updateUserCapabilities(
     updateUserCapabilitiesRequest: requests.UpdateUserCapabilitiesRequest
   ): Promise<responses.UpdateUserCapabilitiesResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUserCapabilities.");
+    logger.debug("Calling operation IdentityClient#updateUserCapabilities.");
     const operationName = "updateUserCapabilities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/UpdateUserCapabilities";
@@ -13155,7 +12990,6 @@ You can't add a namespace with the same name as a retired namespace in the same 
       updateUserCapabilitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13216,7 +13050,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
   public async updateUserState(
     updateUserStateRequest: requests.UpdateUserStateRequest
   ): Promise<responses.UpdateUserStateResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUserState.");
+    logger.debug("Calling operation IdentityClient#updateUserState.");
     const operationName = "updateUserState";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/UpdateUserState";
@@ -13237,7 +13071,6 @@ You can't add a namespace with the same name as a retired namespace in the same 
       updateUserStateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13312,7 +13145,7 @@ After you send your request, the new object's `lifecycleState` will temporarily 
   public async uploadApiKey(
     uploadApiKeyRequest: requests.UploadApiKeyRequest
   ): Promise<responses.UploadApiKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation IdentityClient#uploadApiKey.");
+    logger.debug("Calling operation IdentityClient#uploadApiKey.");
     const operationName = "uploadApiKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/ApiKey/UploadApiKey";
@@ -13333,7 +13166,6 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       uploadApiKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

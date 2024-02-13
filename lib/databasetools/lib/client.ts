@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class DatabaseToolsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201005";
-    if (this.logger) this.logger.info(`DatabaseToolsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DatabaseToolsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class DatabaseToolsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DatabaseToolsClient.serviceEndpointTemplate,
@@ -225,8 +221,7 @@ export class DatabaseToolsClient {
   public async addDatabaseToolsConnectionLock(
     addDatabaseToolsConnectionLockRequest: requests.AddDatabaseToolsConnectionLockRequest
   ): Promise<responses.AddDatabaseToolsConnectionLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsConnectionLock.");
+    logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsConnectionLock.");
     const operationName = "addDatabaseToolsConnectionLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/AddDatabaseToolsConnectionLock";
@@ -248,7 +243,6 @@ export class DatabaseToolsClient {
       addDatabaseToolsConnectionLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -308,10 +302,7 @@ export class DatabaseToolsClient {
   public async addDatabaseToolsPrivateEndpointLock(
     addDatabaseToolsPrivateEndpointLockRequest: requests.AddDatabaseToolsPrivateEndpointLockRequest
   ): Promise<responses.AddDatabaseToolsPrivateEndpointLockResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseToolsClient#addDatabaseToolsPrivateEndpointLock."
-      );
+    logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsPrivateEndpointLock.");
     const operationName = "addDatabaseToolsPrivateEndpointLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/AddDatabaseToolsPrivateEndpointLock";
@@ -334,7 +325,6 @@ export class DatabaseToolsClient {
       addDatabaseToolsPrivateEndpointLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -397,10 +387,7 @@ export class DatabaseToolsClient {
   public async changeDatabaseToolsConnectionCompartment(
     changeDatabaseToolsConnectionCompartmentRequest: requests.ChangeDatabaseToolsConnectionCompartmentRequest
   ): Promise<responses.ChangeDatabaseToolsConnectionCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseToolsClient#changeDatabaseToolsConnectionCompartment."
-      );
+    logger.debug("Calling operation DatabaseToolsClient#changeDatabaseToolsConnectionCompartment.");
     const operationName = "changeDatabaseToolsConnectionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ChangeDatabaseToolsConnectionCompartment";
@@ -425,7 +412,6 @@ export class DatabaseToolsClient {
       changeDatabaseToolsConnectionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -484,10 +470,9 @@ export class DatabaseToolsClient {
   public async changeDatabaseToolsPrivateEndpointCompartment(
     changeDatabaseToolsPrivateEndpointCompartmentRequest: requests.ChangeDatabaseToolsPrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeDatabaseToolsPrivateEndpointCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseToolsClient#changeDatabaseToolsPrivateEndpointCompartment."
-      );
+    logger.debug(
+      "Calling operation DatabaseToolsClient#changeDatabaseToolsPrivateEndpointCompartment."
+    );
     const operationName = "changeDatabaseToolsPrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/ChangeDatabaseToolsPrivateEndpointCompartment";
@@ -512,7 +497,6 @@ export class DatabaseToolsClient {
       changeDatabaseToolsPrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -570,8 +554,7 @@ export class DatabaseToolsClient {
   public async createDatabaseToolsConnection(
     createDatabaseToolsConnectionRequest: requests.CreateDatabaseToolsConnectionRequest
   ): Promise<responses.CreateDatabaseToolsConnectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#createDatabaseToolsConnection.");
+    logger.debug("Calling operation DatabaseToolsClient#createDatabaseToolsConnection.");
     const operationName = "createDatabaseToolsConnection";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -590,7 +573,6 @@ export class DatabaseToolsClient {
       createDatabaseToolsConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -661,10 +643,7 @@ export class DatabaseToolsClient {
   public async createDatabaseToolsPrivateEndpoint(
     createDatabaseToolsPrivateEndpointRequest: requests.CreateDatabaseToolsPrivateEndpointRequest
   ): Promise<responses.CreateDatabaseToolsPrivateEndpointResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseToolsClient#createDatabaseToolsPrivateEndpoint."
-      );
+    logger.debug("Calling operation DatabaseToolsClient#createDatabaseToolsPrivateEndpoint.");
     const operationName = "createDatabaseToolsPrivateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -683,7 +662,6 @@ export class DatabaseToolsClient {
       createDatabaseToolsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -753,8 +731,7 @@ export class DatabaseToolsClient {
   public async deleteDatabaseToolsConnection(
     deleteDatabaseToolsConnectionRequest: requests.DeleteDatabaseToolsConnectionRequest
   ): Promise<responses.DeleteDatabaseToolsConnectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsConnection.");
+    logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsConnection.");
     const operationName = "deleteDatabaseToolsConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/DeleteDatabaseToolsConnection";
@@ -778,7 +755,6 @@ export class DatabaseToolsClient {
       deleteDatabaseToolsConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -829,10 +805,7 @@ export class DatabaseToolsClient {
   public async deleteDatabaseToolsPrivateEndpoint(
     deleteDatabaseToolsPrivateEndpointRequest: requests.DeleteDatabaseToolsPrivateEndpointRequest
   ): Promise<responses.DeleteDatabaseToolsPrivateEndpointResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseToolsClient#deleteDatabaseToolsPrivateEndpoint."
-      );
+    logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsPrivateEndpoint.");
     const operationName = "deleteDatabaseToolsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/DeleteDatabaseToolsPrivateEndpoint";
@@ -857,7 +830,6 @@ export class DatabaseToolsClient {
       deleteDatabaseToolsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -908,8 +880,7 @@ export class DatabaseToolsClient {
   public async getDatabaseToolsConnection(
     getDatabaseToolsConnectionRequest: requests.GetDatabaseToolsConnectionRequest
   ): Promise<responses.GetDatabaseToolsConnectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsConnection.");
+    logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsConnection.");
     const operationName = "getDatabaseToolsConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/GetDatabaseToolsConnection";
@@ -930,7 +901,6 @@ export class DatabaseToolsClient {
       getDatabaseToolsConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -985,8 +955,7 @@ export class DatabaseToolsClient {
   public async getDatabaseToolsEndpointService(
     getDatabaseToolsEndpointServiceRequest: requests.GetDatabaseToolsEndpointServiceRequest
   ): Promise<responses.GetDatabaseToolsEndpointServiceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsEndpointService.");
+    logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsEndpointService.");
     const operationName = "getDatabaseToolsEndpointService";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsEndpointService/GetDatabaseToolsEndpointService";
@@ -1008,7 +977,6 @@ export class DatabaseToolsClient {
       getDatabaseToolsEndpointServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1063,8 +1031,7 @@ export class DatabaseToolsClient {
   public async getDatabaseToolsPrivateEndpoint(
     getDatabaseToolsPrivateEndpointRequest: requests.GetDatabaseToolsPrivateEndpointRequest
   ): Promise<responses.GetDatabaseToolsPrivateEndpointResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsPrivateEndpoint.");
+    logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsPrivateEndpoint.");
     const operationName = "getDatabaseToolsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/GetDatabaseToolsPrivateEndpoint";
@@ -1086,7 +1053,6 @@ export class DatabaseToolsClient {
       getDatabaseToolsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1141,7 +1107,7 @@ export class DatabaseToolsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation DatabaseToolsClient#getWorkRequest.");
+    logger.debug("Calling operation DatabaseToolsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequest/GetWorkRequest";
@@ -1162,7 +1128,6 @@ export class DatabaseToolsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1218,8 +1183,7 @@ export class DatabaseToolsClient {
   public async listDatabaseToolsConnections(
     listDatabaseToolsConnectionsRequest: requests.ListDatabaseToolsConnectionsRequest
   ): Promise<responses.ListDatabaseToolsConnectionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsConnections.");
+    logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsConnections.");
     const operationName = "listDatabaseToolsConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ListDatabaseToolsConnections";
@@ -1249,7 +1213,6 @@ export class DatabaseToolsClient {
       listDatabaseToolsConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1305,8 +1268,7 @@ export class DatabaseToolsClient {
   public async listDatabaseToolsEndpointServices(
     listDatabaseToolsEndpointServicesRequest: requests.ListDatabaseToolsEndpointServicesRequest
   ): Promise<responses.ListDatabaseToolsEndpointServicesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsEndpointServices.");
+    logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsEndpointServices.");
     const operationName = "listDatabaseToolsEndpointServices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsEndpointService/ListDatabaseToolsEndpointServices";
@@ -1334,7 +1296,6 @@ export class DatabaseToolsClient {
       listDatabaseToolsEndpointServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1390,8 +1351,7 @@ export class DatabaseToolsClient {
   public async listDatabaseToolsPrivateEndpoints(
     listDatabaseToolsPrivateEndpointsRequest: requests.ListDatabaseToolsPrivateEndpointsRequest
   ): Promise<responses.ListDatabaseToolsPrivateEndpointsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsPrivateEndpoints.");
+    logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsPrivateEndpoints.");
     const operationName = "listDatabaseToolsPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/ListDatabaseToolsPrivateEndpoints";
@@ -1420,7 +1380,6 @@ export class DatabaseToolsClient {
       listDatabaseToolsPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1476,8 +1435,7 @@ export class DatabaseToolsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequestErrors.");
+    logger.debug("Calling operation DatabaseToolsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequestError/ListWorkRequestErrors";
@@ -1503,7 +1461,6 @@ export class DatabaseToolsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1559,8 +1516,7 @@ export class DatabaseToolsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequestLogs.");
+    logger.debug("Calling operation DatabaseToolsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1586,7 +1542,6 @@ export class DatabaseToolsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1642,7 +1597,7 @@ export class DatabaseToolsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequests.");
+    logger.debug("Calling operation DatabaseToolsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequest/ListWorkRequests";
@@ -1668,7 +1623,6 @@ export class DatabaseToolsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1723,8 +1677,7 @@ export class DatabaseToolsClient {
   public async removeDatabaseToolsConnectionLock(
     removeDatabaseToolsConnectionLockRequest: requests.RemoveDatabaseToolsConnectionLockRequest
   ): Promise<responses.RemoveDatabaseToolsConnectionLockResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsConnectionLock.");
+    logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsConnectionLock.");
     const operationName = "removeDatabaseToolsConnectionLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/RemoveDatabaseToolsConnectionLock";
@@ -1747,7 +1700,6 @@ export class DatabaseToolsClient {
       removeDatabaseToolsConnectionLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1807,10 +1759,7 @@ export class DatabaseToolsClient {
   public async removeDatabaseToolsPrivateEndpointLock(
     removeDatabaseToolsPrivateEndpointLockRequest: requests.RemoveDatabaseToolsPrivateEndpointLockRequest
   ): Promise<responses.RemoveDatabaseToolsPrivateEndpointLockResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseToolsClient#removeDatabaseToolsPrivateEndpointLock."
-      );
+    logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsPrivateEndpointLock.");
     const operationName = "removeDatabaseToolsPrivateEndpointLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/RemoveDatabaseToolsPrivateEndpointLock";
@@ -1833,7 +1782,6 @@ export class DatabaseToolsClient {
       removeDatabaseToolsPrivateEndpointLockRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1893,8 +1841,7 @@ export class DatabaseToolsClient {
   public async updateDatabaseToolsConnection(
     updateDatabaseToolsConnectionRequest: requests.UpdateDatabaseToolsConnectionRequest
   ): Promise<responses.UpdateDatabaseToolsConnectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsConnection.");
+    logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsConnection.");
     const operationName = "updateDatabaseToolsConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/UpdateDatabaseToolsConnection";
@@ -1918,7 +1865,6 @@ export class DatabaseToolsClient {
       updateDatabaseToolsConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1974,10 +1920,7 @@ export class DatabaseToolsClient {
   public async updateDatabaseToolsPrivateEndpoint(
     updateDatabaseToolsPrivateEndpointRequest: requests.UpdateDatabaseToolsPrivateEndpointRequest
   ): Promise<responses.UpdateDatabaseToolsPrivateEndpointResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DatabaseToolsClient#updateDatabaseToolsPrivateEndpoint."
-      );
+    logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsPrivateEndpoint.");
     const operationName = "updateDatabaseToolsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/UpdateDatabaseToolsPrivateEndpoint";
@@ -2002,7 +1945,6 @@ export class DatabaseToolsClient {
       updateDatabaseToolsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2059,8 +2001,7 @@ export class DatabaseToolsClient {
   public async validateDatabaseToolsConnection(
     validateDatabaseToolsConnectionRequest: requests.ValidateDatabaseToolsConnectionRequest
   ): Promise<responses.ValidateDatabaseToolsConnectionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DatabaseToolsClient#validateDatabaseToolsConnection.");
+    logger.debug("Calling operation DatabaseToolsClient#validateDatabaseToolsConnection.");
     const operationName = "validateDatabaseToolsConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ValidateDatabaseToolsConnection";
@@ -2083,7 +2024,6 @@ export class DatabaseToolsClient {
       validateDatabaseToolsConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

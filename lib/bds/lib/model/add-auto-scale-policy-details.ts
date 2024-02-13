@@ -62,7 +62,7 @@ export namespace AddAutoScalePolicyDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.policyType}`);
+          common.logger.info(`Unknown value for: ${obj.policyType}`);
       }
     }
     return jsonObj;
@@ -93,7 +93,7 @@ export namespace AddAutoScalePolicyDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.policyType}`);
+          common.logger.info(`Unknown value for: ${obj.policyType}`);
       }
     }
     return jsonObj;

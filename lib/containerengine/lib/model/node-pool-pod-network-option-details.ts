@@ -41,7 +41,7 @@ export namespace NodePoolPodNetworkOptionDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.cniType}`);
+          common.logger.info(`Unknown value for: ${obj.cniType}`);
       }
     }
     return jsonObj;
@@ -62,7 +62,7 @@ export namespace NodePoolPodNetworkOptionDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.cniType}`);
+          common.logger.info(`Unknown value for: ${obj.cniType}`);
       }
     }
     return jsonObj;

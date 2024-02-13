@@ -46,7 +46,7 @@ export namespace EnableHostInsightDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
+          common.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
     }
     return jsonObj;
@@ -72,7 +72,7 @@ export namespace EnableHostInsightDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
+          common.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
     }
     return jsonObj;

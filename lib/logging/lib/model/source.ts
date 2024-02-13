@@ -34,7 +34,7 @@ export namespace Source {
         case "OCISERVICE":
           return model.OciService.getJsonObj(<model.OciService>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
+          common.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
     }
     return jsonObj;
@@ -47,7 +47,7 @@ export namespace Source {
         case "OCISERVICE":
           return model.OciService.getDeserializedJsonObj(<model.OciService>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
+          common.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
     }
     return jsonObj;

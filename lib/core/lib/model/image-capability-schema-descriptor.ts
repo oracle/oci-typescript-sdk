@@ -63,7 +63,7 @@ export namespace ImageCapabilitySchemaDescriptor {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.descriptorType}`);
+          common.logger.info(`Unknown value for: ${obj.descriptorType}`);
       }
     }
     return jsonObj;
@@ -89,7 +89,7 @@ export namespace ImageCapabilitySchemaDescriptor {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.descriptorType}`);
+          common.logger.info(`Unknown value for: ${obj.descriptorType}`);
       }
     }
     return jsonObj;

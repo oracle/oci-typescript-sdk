@@ -41,7 +41,7 @@ export namespace InputJobDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.inputType}`);
+          common.logger.info(`Unknown value for: ${obj.inputType}`);
       }
     }
     return jsonObj;
@@ -62,7 +62,7 @@ export namespace InputJobDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.inputType}`);
+          common.logger.info(`Unknown value for: ${obj.inputType}`);
       }
     }
     return jsonObj;

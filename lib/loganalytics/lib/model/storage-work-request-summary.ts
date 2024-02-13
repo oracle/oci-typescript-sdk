@@ -126,6 +126,10 @@ export interface StorageWorkRequestSummary {
    * This is the flag to indicate if only new data has to be recalled in this work request
    */
   "isRecallNewDataOnly"?: boolean;
+  /**
+   * This indicates if user checked system recommended time range
+   */
+  "isUseRecommendedDataSet"?: boolean;
 }
 
 export namespace StorageWorkRequestSummary {

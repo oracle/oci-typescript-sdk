@@ -59,16 +59,36 @@ export interface UpdateLogAnalyticsEntityDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The date and time the resource was last discovered, in the format defined by RFC3339.
+   *
+   */
+  "timeLastDiscovered"?: Date;
+  "metadata"?: model.LogAnalyticsMetadataDetails;
 }
 
 export namespace UpdateLogAnalyticsEntityDetails {
   export function getJsonObj(obj: UpdateLogAnalyticsEntityDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata
+          ? model.LogAnalyticsMetadataDetails.getJsonObj(obj.metadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateLogAnalyticsEntityDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata
+          ? model.LogAnalyticsMetadataDetails.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

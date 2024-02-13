@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -119,11 +120,7 @@ export class EventsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
-    if (this.logger) this.logger.info(`EventsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`EventsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -133,10 +130,9 @@ export class EventsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         EventsClient.serviceEndpointTemplate,
@@ -230,7 +226,7 @@ export class EventsClient {
   public async changeRuleCompartment(
     changeRuleCompartmentRequest: requests.ChangeRuleCompartmentRequest
   ): Promise<responses.ChangeRuleCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventsClient#changeRuleCompartment.");
+    logger.debug("Calling operation EventsClient#changeRuleCompartment.");
     const operationName = "changeRuleCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/ChangeRuleCompartment";
@@ -253,7 +249,6 @@ export class EventsClient {
       changeRuleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,7 +300,7 @@ export class EventsClient {
   public async createRule(
     createRuleRequest: requests.CreateRuleRequest
   ): Promise<responses.CreateRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventsClient#createRule.");
+    logger.debug("Calling operation EventsClient#createRule.");
     const operationName = "createRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/CreateRule";
@@ -325,7 +320,6 @@ export class EventsClient {
       createRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,7 +379,7 @@ export class EventsClient {
   public async deleteRule(
     deleteRuleRequest: requests.DeleteRuleRequest
   ): Promise<responses.DeleteRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventsClient#deleteRule.");
+    logger.debug("Calling operation EventsClient#deleteRule.");
     const operationName = "deleteRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/DeleteRule";
@@ -407,7 +401,6 @@ export class EventsClient {
       deleteRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -453,7 +446,7 @@ export class EventsClient {
   public async getRule(
     getRuleRequest: requests.GetRuleRequest
   ): Promise<responses.GetRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventsClient#getRule.");
+    logger.debug("Calling operation EventsClient#getRule.");
     const operationName = "getRule";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/GetRule";
     const pathParams = {
@@ -473,7 +466,6 @@ export class EventsClient {
       getRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -529,7 +521,7 @@ export class EventsClient {
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
   ): Promise<responses.ListRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventsClient#listRules.");
+    logger.debug("Calling operation EventsClient#listRules.");
     const operationName = "listRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/events/20181201/RuleSummary/ListRules";
@@ -556,7 +548,6 @@ export class EventsClient {
       listRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -664,7 +655,7 @@ export class EventsClient {
   public async updateRule(
     updateRuleRequest: requests.UpdateRuleRequest
   ): Promise<responses.UpdateRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation EventsClient#updateRule.");
+    logger.debug("Calling operation EventsClient#updateRule.");
     const operationName = "updateRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/UpdateRule";
@@ -686,7 +677,6 @@ export class EventsClient {
       updateRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

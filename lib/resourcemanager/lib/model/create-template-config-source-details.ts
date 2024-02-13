@@ -38,8 +38,7 @@ export namespace CreateTemplateConfigSourceDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.templateConfigSourceType}`);
+          common.logger.info(`Unknown value for: ${obj.templateConfigSourceType}`);
       }
     }
     return jsonObj;
@@ -55,8 +54,7 @@ export namespace CreateTemplateConfigSourceDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.templateConfigSourceType}`);
+          common.logger.info(`Unknown value for: ${obj.templateConfigSourceType}`);
       }
     }
     return jsonObj;

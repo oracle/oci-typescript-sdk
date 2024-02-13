@@ -129,7 +129,7 @@ export namespace DbmResource {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.resourceType}`);
+          common.logger.info(`Unknown value for: ${obj.resourceType}`);
       }
     }
     return jsonObj;
@@ -185,7 +185,7 @@ export namespace DbmResource {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.resourceType}`);
+          common.logger.info(`Unknown value for: ${obj.resourceType}`);
       }
     }
     return jsonObj;

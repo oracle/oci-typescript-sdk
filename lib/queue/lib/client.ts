@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -115,11 +116,7 @@ export class QueueClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210201";
-    if (this.logger) this.logger.info(`QueueClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`QueueClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -129,10 +126,9 @@ export class QueueClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         QueueClient.serviceEndpointTemplate,
@@ -204,7 +200,7 @@ export class QueueClient {
   public async deleteMessage(
     deleteMessageRequest: requests.DeleteMessageRequest
   ): Promise<responses.DeleteMessageResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueClient#deleteMessage.");
+    logger.debug("Calling operation QueueClient#deleteMessage.");
     const operationName = "deleteMessage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -225,7 +221,6 @@ export class QueueClient {
       deleteMessageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -274,7 +269,7 @@ export class QueueClient {
   public async deleteMessages(
     deleteMessagesRequest: requests.DeleteMessagesRequest
   ): Promise<responses.DeleteMessagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueClient#deleteMessages.");
+    logger.debug("Calling operation QueueClient#deleteMessages.");
     const operationName = "deleteMessages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -294,7 +289,6 @@ export class QueueClient {
       deleteMessagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -355,7 +349,7 @@ export class QueueClient {
   public async getMessages(
     getMessagesRequest: requests.GetMessagesRequest
   ): Promise<responses.GetMessagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueClient#getMessages.");
+    logger.debug("Calling operation QueueClient#getMessages.");
     const operationName = "getMessages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -380,7 +374,6 @@ export class QueueClient {
       getMessagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -433,7 +426,7 @@ export class QueueClient {
   public async getStats(
     getStatsRequest: requests.GetStatsRequest
   ): Promise<responses.GetStatsResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueClient#getStats.");
+    logger.debug("Calling operation QueueClient#getStats.");
     const operationName = "getStats";
     const apiReferenceLink = "";
     const pathParams = {
@@ -455,7 +448,6 @@ export class QueueClient {
       getStatsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -509,7 +501,7 @@ export class QueueClient {
   public async listChannels(
     listChannelsRequest: requests.ListChannelsRequest
   ): Promise<responses.ListChannelsResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueClient#listChannels.");
+    logger.debug("Calling operation QueueClient#listChannels.");
     const operationName = "listChannels";
     const apiReferenceLink = "";
     const pathParams = {
@@ -533,7 +525,6 @@ export class QueueClient {
       listChannelsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -591,7 +582,7 @@ export class QueueClient {
   public async putMessages(
     putMessagesRequest: requests.PutMessagesRequest
   ): Promise<responses.PutMessagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueClient#putMessages.");
+    logger.debug("Calling operation QueueClient#putMessages.");
     const operationName = "putMessages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -611,7 +602,6 @@ export class QueueClient {
       putMessagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -669,7 +659,7 @@ export class QueueClient {
   public async updateMessage(
     updateMessageRequest: requests.UpdateMessageRequest
   ): Promise<responses.UpdateMessageResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueClient#updateMessage.");
+    logger.debug("Calling operation QueueClient#updateMessage.");
     const operationName = "updateMessage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -690,7 +680,6 @@ export class QueueClient {
       updateMessageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -748,7 +737,7 @@ export class QueueClient {
   public async updateMessages(
     updateMessagesRequest: requests.UpdateMessagesRequest
   ): Promise<responses.UpdateMessagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueClient#updateMessages.");
+    logger.debug("Calling operation QueueClient#updateMessages.");
     const operationName = "updateMessages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -768,7 +757,6 @@ export class QueueClient {
       updateMessagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -900,11 +888,7 @@ export class QueueAdminClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210201";
-    if (this.logger) this.logger.info(`QueueAdminClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`QueueAdminClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -914,10 +898,9 @@ export class QueueAdminClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         QueueAdminClient.serviceEndpointTemplate,
@@ -1009,8 +992,7 @@ export class QueueAdminClient {
   public async changeQueueCompartment(
     changeQueueCompartmentRequest: requests.ChangeQueueCompartmentRequest
   ): Promise<responses.ChangeQueueCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation QueueAdminClient#changeQueueCompartment.");
+    logger.debug("Calling operation QueueAdminClient#changeQueueCompartment.");
     const operationName = "changeQueueCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1031,7 +1013,6 @@ export class QueueAdminClient {
       changeQueueCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1088,7 +1069,7 @@ export class QueueAdminClient {
   public async createQueue(
     createQueueRequest: requests.CreateQueueRequest
   ): Promise<responses.CreateQueueResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#createQueue.");
+    logger.debug("Calling operation QueueAdminClient#createQueue.");
     const operationName = "createQueue";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1107,7 +1088,6 @@ export class QueueAdminClient {
       createQueueRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1163,7 +1143,7 @@ export class QueueAdminClient {
   public async deleteQueue(
     deleteQueueRequest: requests.DeleteQueueRequest
   ): Promise<responses.DeleteQueueResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#deleteQueue.");
+    logger.debug("Calling operation QueueAdminClient#deleteQueue.");
     const operationName = "deleteQueue";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1184,7 +1164,6 @@ export class QueueAdminClient {
       deleteQueueRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1235,7 +1214,7 @@ export class QueueAdminClient {
   public async getQueue(
     getQueueRequest: requests.GetQueueRequest
   ): Promise<responses.GetQueueResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#getQueue.");
+    logger.debug("Calling operation QueueAdminClient#getQueue.");
     const operationName = "getQueue";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1255,7 +1234,6 @@ export class QueueAdminClient {
       getQueueRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1310,7 +1288,7 @@ export class QueueAdminClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#getWorkRequest.");
+    logger.debug("Calling operation QueueAdminClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1330,7 +1308,6 @@ export class QueueAdminClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1386,7 +1363,7 @@ export class QueueAdminClient {
   public async listQueues(
     listQueuesRequest: requests.ListQueuesRequest
   ): Promise<responses.ListQueuesResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#listQueues.");
+    logger.debug("Calling operation QueueAdminClient#listQueues.");
     const operationName = "listQueues";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1413,7 +1390,6 @@ export class QueueAdminClient {
       listQueuesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1469,7 +1445,7 @@ export class QueueAdminClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#listWorkRequestErrors.");
+    logger.debug("Calling operation QueueAdminClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1492,7 +1468,6 @@ export class QueueAdminClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1548,7 +1523,7 @@ export class QueueAdminClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#listWorkRequestLogs.");
+    logger.debug("Calling operation QueueAdminClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1571,7 +1546,6 @@ export class QueueAdminClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1627,7 +1601,7 @@ export class QueueAdminClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#listWorkRequests.");
+    logger.debug("Calling operation QueueAdminClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1650,7 +1624,6 @@ export class QueueAdminClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1708,7 +1681,7 @@ export class QueueAdminClient {
   public async purgeQueue(
     purgeQueueRequest: requests.PurgeQueueRequest
   ): Promise<responses.PurgeQueueResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#purgeQueue.");
+    logger.debug("Calling operation QueueAdminClient#purgeQueue.");
     const operationName = "purgeQueue";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1729,7 +1702,6 @@ export class QueueAdminClient {
       purgeQueueRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1785,7 +1757,7 @@ export class QueueAdminClient {
   public async updateQueue(
     updateQueueRequest: requests.UpdateQueueRequest
   ): Promise<responses.UpdateQueueResponse> {
-    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#updateQueue.");
+    logger.debug("Calling operation QueueAdminClient#updateQueue.");
     const operationName = "updateQueue";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1806,7 +1778,6 @@ export class QueueAdminClient {
       updateQueueRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -65,6 +65,18 @@ export interface RecalledData {
    * This is the user who initiated the recall request
    */
   "createdBy": string;
+  /**
+   * This is the id for the recalled data collection Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "collectionId": number;
+  /**
+   * This is the recalled date start time
+   */
+  "timeRecalledDataStarted": Date;
+  /**
+   * This is the recalled data end time
+   */
+  "timeRecalledDataEnded": Date;
 }
 
 export namespace RecalledData {

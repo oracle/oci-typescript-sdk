@@ -38,6 +38,7 @@ export interface CreatePathAnalyzerTestDetails {
     | model.NetworkLoadBalancerListenerEndpoint
     | model.ComputeInstanceEndpoint
     | model.NetworkLoadBalancerEndpoint
+    | model.OnPremEndpoint
     | model.LoadBalancerEndpoint
     | model.VnicEndpoint
     | model.IpAddressEndpoint
@@ -48,6 +49,7 @@ export interface CreatePathAnalyzerTestDetails {
     | model.NetworkLoadBalancerListenerEndpoint
     | model.ComputeInstanceEndpoint
     | model.NetworkLoadBalancerEndpoint
+    | model.OnPremEndpoint
     | model.LoadBalancerEndpoint
     | model.VnicEndpoint
     | model.IpAddressEndpoint

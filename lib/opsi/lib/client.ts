@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -120,11 +121,7 @@ export class OperationsInsightsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    if (this.logger) this.logger.info(`OperationsInsightsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OperationsInsightsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -134,10 +131,9 @@ export class OperationsInsightsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OperationsInsightsClient.serviceEndpointTemplate,
@@ -229,8 +225,7 @@ export class OperationsInsightsClient {
   public async addExadataInsightMembers(
     addExadataInsightMembersRequest: requests.AddExadataInsightMembersRequest
   ): Promise<responses.AddExadataInsightMembersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#addExadataInsightMembers.");
+    logger.debug("Calling operation OperationsInsightsClient#addExadataInsightMembers.");
     const operationName = "addExadataInsightMembers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/AddExadataInsightMembers";
@@ -253,7 +248,6 @@ export class OperationsInsightsClient {
       addExadataInsightMembersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -309,10 +303,9 @@ export class OperationsInsightsClient {
   public async changeAutonomousDatabaseInsightAdvancedFeatures(
     changeAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest
   ): Promise<responses.ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changeAutonomousDatabaseInsightAdvancedFeatures."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#changeAutonomousDatabaseInsightAdvancedFeatures."
+    );
     const operationName = "changeAutonomousDatabaseInsightAdvancedFeatures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ChangeAutonomousDatabaseInsightAdvancedFeatures";
@@ -336,7 +329,6 @@ export class OperationsInsightsClient {
       changeAutonomousDatabaseInsightAdvancedFeaturesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -393,10 +385,7 @@ export class OperationsInsightsClient {
   public async changeAwrHubSourceCompartment(
     changeAwrHubSourceCompartmentRequest: requests.ChangeAwrHubSourceCompartmentRequest
   ): Promise<responses.ChangeAwrHubSourceCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changeAwrHubSourceCompartment."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#changeAwrHubSourceCompartment.");
     const operationName = "changeAwrHubSourceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/ChangeAwrHubSourceCompartment";
@@ -419,7 +408,6 @@ export class OperationsInsightsClient {
       changeAwrHubSourceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -475,10 +463,7 @@ export class OperationsInsightsClient {
   public async changeDatabaseInsightCompartment(
     changeDatabaseInsightCompartmentRequest: requests.ChangeDatabaseInsightCompartmentRequest
   ): Promise<responses.ChangeDatabaseInsightCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changeDatabaseInsightCompartment."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#changeDatabaseInsightCompartment.");
     const operationName = "changeDatabaseInsightCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ChangeDatabaseInsightCompartment";
@@ -501,7 +486,6 @@ export class OperationsInsightsClient {
       changeDatabaseInsightCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -557,10 +541,9 @@ export class OperationsInsightsClient {
   public async changeEnterpriseManagerBridgeCompartment(
     changeEnterpriseManagerBridgeCompartmentRequest: requests.ChangeEnterpriseManagerBridgeCompartmentRequest
   ): Promise<responses.ChangeEnterpriseManagerBridgeCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changeEnterpriseManagerBridgeCompartment."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#changeEnterpriseManagerBridgeCompartment."
+    );
     const operationName = "changeEnterpriseManagerBridgeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/ChangeEnterpriseManagerBridgeCompartment";
@@ -583,7 +566,6 @@ export class OperationsInsightsClient {
       changeEnterpriseManagerBridgeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -639,10 +621,7 @@ export class OperationsInsightsClient {
   public async changeExadataInsightCompartment(
     changeExadataInsightCompartmentRequest: requests.ChangeExadataInsightCompartmentRequest
   ): Promise<responses.ChangeExadataInsightCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changeExadataInsightCompartment."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#changeExadataInsightCompartment.");
     const operationName = "changeExadataInsightCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/ChangeExadataInsightCompartment";
@@ -665,7 +644,6 @@ export class OperationsInsightsClient {
       changeExadataInsightCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -721,8 +699,7 @@ export class OperationsInsightsClient {
   public async changeHostInsightCompartment(
     changeHostInsightCompartmentRequest: requests.ChangeHostInsightCompartmentRequest
   ): Promise<responses.ChangeHostInsightCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#changeHostInsightCompartment.");
+    logger.debug("Calling operation OperationsInsightsClient#changeHostInsightCompartment.");
     const operationName = "changeHostInsightCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ChangeHostInsightCompartment";
@@ -745,7 +722,6 @@ export class OperationsInsightsClient {
       changeHostInsightCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -801,8 +777,7 @@ export class OperationsInsightsClient {
   public async changeNewsReportCompartment(
     changeNewsReportCompartmentRequest: requests.ChangeNewsReportCompartmentRequest
   ): Promise<responses.ChangeNewsReportCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#changeNewsReportCompartment.");
+    logger.debug("Calling operation OperationsInsightsClient#changeNewsReportCompartment.");
     const operationName = "changeNewsReportCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/ChangeNewsReportCompartment";
@@ -825,7 +800,6 @@ export class OperationsInsightsClient {
       changeNewsReportCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -881,10 +855,9 @@ export class OperationsInsightsClient {
   public async changeOperationsInsightsPrivateEndpointCompartment(
     changeOperationsInsightsPrivateEndpointCompartmentRequest: requests.ChangeOperationsInsightsPrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeOperationsInsightsPrivateEndpointCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changeOperationsInsightsPrivateEndpointCompartment."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#changeOperationsInsightsPrivateEndpointCompartment."
+    );
     const operationName = "changeOperationsInsightsPrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/ChangeOperationsInsightsPrivateEndpointCompartment";
@@ -908,7 +881,6 @@ export class OperationsInsightsClient {
       changeOperationsInsightsPrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -965,10 +937,9 @@ export class OperationsInsightsClient {
   public async changeOperationsInsightsWarehouseCompartment(
     changeOperationsInsightsWarehouseCompartmentRequest: requests.ChangeOperationsInsightsWarehouseCompartmentRequest
   ): Promise<responses.ChangeOperationsInsightsWarehouseCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changeOperationsInsightsWarehouseCompartment."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#changeOperationsInsightsWarehouseCompartment."
+    );
     const operationName = "changeOperationsInsightsWarehouseCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/ChangeOperationsInsightsWarehouseCompartment";
@@ -992,7 +963,6 @@ export class OperationsInsightsClient {
       changeOperationsInsightsWarehouseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1049,10 +1019,7 @@ export class OperationsInsightsClient {
   public async changeOpsiConfigurationCompartment(
     changeOpsiConfigurationCompartmentRequest: requests.ChangeOpsiConfigurationCompartmentRequest
   ): Promise<responses.ChangeOpsiConfigurationCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changeOpsiConfigurationCompartment."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#changeOpsiConfigurationCompartment.");
     const operationName = "changeOpsiConfigurationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/ChangeOpsiConfigurationCompartment";
@@ -1075,7 +1042,6 @@ export class OperationsInsightsClient {
       changeOpsiConfigurationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1131,10 +1097,7 @@ export class OperationsInsightsClient {
   public async changePeComanagedDatabaseInsight(
     changePeComanagedDatabaseInsightRequest: requests.ChangePeComanagedDatabaseInsightRequest
   ): Promise<responses.ChangePeComanagedDatabaseInsightResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#changePeComanagedDatabaseInsight."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#changePeComanagedDatabaseInsight.");
     const operationName = "changePeComanagedDatabaseInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ChangePeComanagedDatabaseInsight";
@@ -1157,7 +1120,6 @@ export class OperationsInsightsClient {
       changePeComanagedDatabaseInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1215,7 +1177,7 @@ export class OperationsInsightsClient {
   public async createAwrHub(
     createAwrHubRequest: requests.CreateAwrHubRequest
   ): Promise<responses.CreateAwrHubResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#createAwrHub.");
+    logger.debug("Calling operation OperationsInsightsClient#createAwrHub.");
     const operationName = "createAwrHub";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/CreateAwrHub";
@@ -1235,7 +1197,6 @@ export class OperationsInsightsClient {
       createAwrHubRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1311,8 +1272,7 @@ export class OperationsInsightsClient {
   public async createAwrHubSource(
     createAwrHubSourceRequest: requests.CreateAwrHubSourceRequest
   ): Promise<responses.CreateAwrHubSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#createAwrHubSource.");
+    logger.debug("Calling operation OperationsInsightsClient#createAwrHubSource.");
     const operationName = "createAwrHubSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/CreateAwrHubSource";
@@ -1332,7 +1292,6 @@ export class OperationsInsightsClient {
       createAwrHubSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1398,8 +1357,7 @@ export class OperationsInsightsClient {
   public async createDatabaseInsight(
     createDatabaseInsightRequest: requests.CreateDatabaseInsightRequest
   ): Promise<responses.CreateDatabaseInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#createDatabaseInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#createDatabaseInsight.");
     const operationName = "createDatabaseInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/CreateDatabaseInsight";
@@ -1419,7 +1377,6 @@ export class OperationsInsightsClient {
       createDatabaseInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1495,10 +1452,7 @@ export class OperationsInsightsClient {
   public async createEnterpriseManagerBridge(
     createEnterpriseManagerBridgeRequest: requests.CreateEnterpriseManagerBridgeRequest
   ): Promise<responses.CreateEnterpriseManagerBridgeResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#createEnterpriseManagerBridge."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#createEnterpriseManagerBridge.");
     const operationName = "createEnterpriseManagerBridge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/CreateEnterpriseManagerBridge";
@@ -1518,7 +1472,6 @@ export class OperationsInsightsClient {
       createEnterpriseManagerBridgeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1594,8 +1547,7 @@ export class OperationsInsightsClient {
   public async createExadataInsight(
     createExadataInsightRequest: requests.CreateExadataInsightRequest
   ): Promise<responses.CreateExadataInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#createExadataInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#createExadataInsight.");
     const operationName = "createExadataInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/CreateExadataInsight";
@@ -1615,7 +1567,6 @@ export class OperationsInsightsClient {
       createExadataInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1691,8 +1642,7 @@ export class OperationsInsightsClient {
   public async createHostInsight(
     createHostInsightRequest: requests.CreateHostInsightRequest
   ): Promise<responses.CreateHostInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#createHostInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#createHostInsight.");
     const operationName = "createHostInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/CreateHostInsight";
@@ -1712,7 +1662,6 @@ export class OperationsInsightsClient {
       createHostInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1788,8 +1737,7 @@ export class OperationsInsightsClient {
   public async createNewsReport(
     createNewsReportRequest: requests.CreateNewsReportRequest
   ): Promise<responses.CreateNewsReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#createNewsReport.");
+    logger.debug("Calling operation OperationsInsightsClient#createNewsReport.");
     const operationName = "createNewsReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/CreateNewsReport";
@@ -1809,7 +1757,6 @@ export class OperationsInsightsClient {
       createNewsReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1886,10 +1833,9 @@ export class OperationsInsightsClient {
   public async createOperationsInsightsPrivateEndpoint(
     createOperationsInsightsPrivateEndpointRequest: requests.CreateOperationsInsightsPrivateEndpointRequest
   ): Promise<responses.CreateOperationsInsightsPrivateEndpointResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#createOperationsInsightsPrivateEndpoint."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#createOperationsInsightsPrivateEndpoint."
+    );
     const operationName = "createOperationsInsightsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/CreateOperationsInsightsPrivateEndpoint";
@@ -1909,7 +1855,6 @@ export class OperationsInsightsClient {
       createOperationsInsightsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1987,10 +1932,7 @@ export class OperationsInsightsClient {
   public async createOperationsInsightsWarehouse(
     createOperationsInsightsWarehouseRequest: requests.CreateOperationsInsightsWarehouseRequest
   ): Promise<responses.CreateOperationsInsightsWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#createOperationsInsightsWarehouse."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#createOperationsInsightsWarehouse.");
     const operationName = "createOperationsInsightsWarehouse";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/CreateOperationsInsightsWarehouse";
@@ -2010,7 +1952,6 @@ export class OperationsInsightsClient {
       createOperationsInsightsWarehouseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2087,10 +2028,9 @@ export class OperationsInsightsClient {
   public async createOperationsInsightsWarehouseUser(
     createOperationsInsightsWarehouseUserRequest: requests.CreateOperationsInsightsWarehouseUserRequest
   ): Promise<responses.CreateOperationsInsightsWarehouseUserResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#createOperationsInsightsWarehouseUser."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#createOperationsInsightsWarehouseUser."
+    );
     const operationName = "createOperationsInsightsWarehouseUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/CreateOperationsInsightsWarehouseUser";
@@ -2110,7 +2050,6 @@ export class OperationsInsightsClient {
       createOperationsInsightsWarehouseUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2186,8 +2125,7 @@ export class OperationsInsightsClient {
   public async createOpsiConfiguration(
     createOpsiConfigurationRequest: requests.CreateOpsiConfigurationRequest
   ): Promise<responses.CreateOpsiConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#createOpsiConfiguration.");
+    logger.debug("Calling operation OperationsInsightsClient#createOpsiConfiguration.");
     const operationName = "createOpsiConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/CreateOpsiConfiguration";
@@ -2212,7 +2150,6 @@ export class OperationsInsightsClient {
       createOpsiConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2277,7 +2214,7 @@ export class OperationsInsightsClient {
   public async deleteAwrHub(
     deleteAwrHubRequest: requests.DeleteAwrHubRequest
   ): Promise<responses.DeleteAwrHubResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHub.");
+    logger.debug("Calling operation OperationsInsightsClient#deleteAwrHub.");
     const operationName = "deleteAwrHub";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/DeleteAwrHub";
@@ -2299,7 +2236,6 @@ export class OperationsInsightsClient {
       deleteAwrHubRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2350,8 +2286,7 @@ export class OperationsInsightsClient {
   public async deleteAwrHubObject(
     deleteAwrHubObjectRequest: requests.DeleteAwrHubObjectRequest
   ): Promise<responses.DeleteAwrHubObjectResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHubObject.");
+    logger.debug("Calling operation OperationsInsightsClient#deleteAwrHubObject.");
     const operationName = "deleteAwrHubObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/DeleteAwrHubObject";
@@ -2374,7 +2309,6 @@ export class OperationsInsightsClient {
       deleteAwrHubObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2440,8 +2374,7 @@ export class OperationsInsightsClient {
   public async deleteAwrHubSource(
     deleteAwrHubSourceRequest: requests.DeleteAwrHubSourceRequest
   ): Promise<responses.DeleteAwrHubSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHubSource.");
+    logger.debug("Calling operation OperationsInsightsClient#deleteAwrHubSource.");
     const operationName = "deleteAwrHubSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/DeleteAwrHubSource";
@@ -2463,7 +2396,6 @@ export class OperationsInsightsClient {
       deleteAwrHubSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2514,8 +2446,7 @@ export class OperationsInsightsClient {
   public async deleteDatabaseInsight(
     deleteDatabaseInsightRequest: requests.DeleteDatabaseInsightRequest
   ): Promise<responses.DeleteDatabaseInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#deleteDatabaseInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#deleteDatabaseInsight.");
     const operationName = "deleteDatabaseInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/DeleteDatabaseInsight";
@@ -2537,7 +2468,6 @@ export class OperationsInsightsClient {
       deleteDatabaseInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2588,10 +2518,7 @@ export class OperationsInsightsClient {
   public async deleteEnterpriseManagerBridge(
     deleteEnterpriseManagerBridgeRequest: requests.DeleteEnterpriseManagerBridgeRequest
   ): Promise<responses.DeleteEnterpriseManagerBridgeResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#deleteEnterpriseManagerBridge."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#deleteEnterpriseManagerBridge.");
     const operationName = "deleteEnterpriseManagerBridge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/DeleteEnterpriseManagerBridge";
@@ -2613,7 +2540,6 @@ export class OperationsInsightsClient {
       deleteEnterpriseManagerBridgeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2664,8 +2590,7 @@ export class OperationsInsightsClient {
   public async deleteExadataInsight(
     deleteExadataInsightRequest: requests.DeleteExadataInsightRequest
   ): Promise<responses.DeleteExadataInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#deleteExadataInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#deleteExadataInsight.");
     const operationName = "deleteExadataInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/DeleteExadataInsight";
@@ -2687,7 +2612,6 @@ export class OperationsInsightsClient {
       deleteExadataInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2738,8 +2662,7 @@ export class OperationsInsightsClient {
   public async deleteHostInsight(
     deleteHostInsightRequest: requests.DeleteHostInsightRequest
   ): Promise<responses.DeleteHostInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#deleteHostInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#deleteHostInsight.");
     const operationName = "deleteHostInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/DeleteHostInsight";
@@ -2761,7 +2684,6 @@ export class OperationsInsightsClient {
       deleteHostInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2812,8 +2734,7 @@ export class OperationsInsightsClient {
   public async deleteNewsReport(
     deleteNewsReportRequest: requests.DeleteNewsReportRequest
   ): Promise<responses.DeleteNewsReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#deleteNewsReport.");
+    logger.debug("Calling operation OperationsInsightsClient#deleteNewsReport.");
     const operationName = "deleteNewsReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/DeleteNewsReport";
@@ -2835,7 +2756,6 @@ export class OperationsInsightsClient {
       deleteNewsReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2886,10 +2806,9 @@ export class OperationsInsightsClient {
   public async deleteOperationsInsightsPrivateEndpoint(
     deleteOperationsInsightsPrivateEndpointRequest: requests.DeleteOperationsInsightsPrivateEndpointRequest
   ): Promise<responses.DeleteOperationsInsightsPrivateEndpointResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#deleteOperationsInsightsPrivateEndpoint."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#deleteOperationsInsightsPrivateEndpoint."
+    );
     const operationName = "deleteOperationsInsightsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/DeleteOperationsInsightsPrivateEndpoint";
@@ -2912,7 +2831,6 @@ export class OperationsInsightsClient {
       deleteOperationsInsightsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2967,10 +2885,7 @@ export class OperationsInsightsClient {
   public async deleteOperationsInsightsWarehouse(
     deleteOperationsInsightsWarehouseRequest: requests.DeleteOperationsInsightsWarehouseRequest
   ): Promise<responses.DeleteOperationsInsightsWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#deleteOperationsInsightsWarehouse."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#deleteOperationsInsightsWarehouse.");
     const operationName = "deleteOperationsInsightsWarehouse";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/DeleteOperationsInsightsWarehouse";
@@ -2993,7 +2908,6 @@ export class OperationsInsightsClient {
       deleteOperationsInsightsWarehouseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3044,10 +2958,9 @@ export class OperationsInsightsClient {
   public async deleteOperationsInsightsWarehouseUser(
     deleteOperationsInsightsWarehouseUserRequest: requests.DeleteOperationsInsightsWarehouseUserRequest
   ): Promise<responses.DeleteOperationsInsightsWarehouseUserResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#deleteOperationsInsightsWarehouseUser."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#deleteOperationsInsightsWarehouseUser."
+    );
     const operationName = "deleteOperationsInsightsWarehouseUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/DeleteOperationsInsightsWarehouseUser";
@@ -3070,7 +2983,6 @@ export class OperationsInsightsClient {
       deleteOperationsInsightsWarehouseUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3121,8 +3033,7 @@ export class OperationsInsightsClient {
   public async deleteOpsiConfiguration(
     deleteOpsiConfigurationRequest: requests.DeleteOpsiConfigurationRequest
   ): Promise<responses.DeleteOpsiConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#deleteOpsiConfiguration.");
+    logger.debug("Calling operation OperationsInsightsClient#deleteOpsiConfiguration.");
     const operationName = "deleteOpsiConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/DeleteOpsiConfiguration";
@@ -3144,7 +3055,6 @@ export class OperationsInsightsClient {
       deleteOpsiConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3195,10 +3105,9 @@ export class OperationsInsightsClient {
   public async disableAutonomousDatabaseInsightAdvancedFeatures(
     disableAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.DisableAutonomousDatabaseInsightAdvancedFeaturesRequest
   ): Promise<responses.DisableAutonomousDatabaseInsightAdvancedFeaturesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#disableAutonomousDatabaseInsightAdvancedFeatures."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#disableAutonomousDatabaseInsightAdvancedFeatures."
+    );
     const operationName = "disableAutonomousDatabaseInsightAdvancedFeatures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/DisableAutonomousDatabaseInsightAdvancedFeatures";
@@ -3222,7 +3131,6 @@ export class OperationsInsightsClient {
       disableAutonomousDatabaseInsightAdvancedFeaturesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3274,8 +3182,7 @@ export class OperationsInsightsClient {
   public async disableAwrHubSource(
     disableAwrHubSourceRequest: requests.DisableAwrHubSourceRequest
   ): Promise<responses.DisableAwrHubSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#disableAwrHubSource.");
+    logger.debug("Calling operation OperationsInsightsClient#disableAwrHubSource.");
     const operationName = "disableAwrHubSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/DisableAwrHubSource";
@@ -3298,7 +3205,6 @@ export class OperationsInsightsClient {
       disableAwrHubSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3349,8 +3255,7 @@ export class OperationsInsightsClient {
   public async disableDatabaseInsight(
     disableDatabaseInsightRequest: requests.DisableDatabaseInsightRequest
   ): Promise<responses.DisableDatabaseInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#disableDatabaseInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#disableDatabaseInsight.");
     const operationName = "disableDatabaseInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/DisableDatabaseInsight";
@@ -3373,7 +3278,6 @@ export class OperationsInsightsClient {
       disableDatabaseInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3424,8 +3328,7 @@ export class OperationsInsightsClient {
   public async disableExadataInsight(
     disableExadataInsightRequest: requests.DisableExadataInsightRequest
   ): Promise<responses.DisableExadataInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#disableExadataInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#disableExadataInsight.");
     const operationName = "disableExadataInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/DisableExadataInsight";
@@ -3448,7 +3351,6 @@ export class OperationsInsightsClient {
       disableExadataInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3499,8 +3401,7 @@ export class OperationsInsightsClient {
   public async disableHostInsight(
     disableHostInsightRequest: requests.DisableHostInsightRequest
   ): Promise<responses.DisableHostInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#disableHostInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#disableHostInsight.");
     const operationName = "disableHostInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/DisableHostInsight";
@@ -3523,7 +3424,6 @@ export class OperationsInsightsClient {
       disableHostInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3574,10 +3474,9 @@ export class OperationsInsightsClient {
   public async downloadOperationsInsightsWarehouseWallet(
     downloadOperationsInsightsWarehouseWalletRequest: requests.DownloadOperationsInsightsWarehouseWalletRequest
   ): Promise<responses.DownloadOperationsInsightsWarehouseWalletResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#downloadOperationsInsightsWarehouseWallet."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#downloadOperationsInsightsWarehouseWallet."
+    );
     const operationName = "downloadOperationsInsightsWarehouseWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/DownloadOperationsInsightsWarehouseWallet";
@@ -3600,7 +3499,6 @@ export class OperationsInsightsClient {
       downloadOperationsInsightsWarehouseWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3671,10 +3569,9 @@ export class OperationsInsightsClient {
   public async enableAutonomousDatabaseInsightAdvancedFeatures(
     enableAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.EnableAutonomousDatabaseInsightAdvancedFeaturesRequest
   ): Promise<responses.EnableAutonomousDatabaseInsightAdvancedFeaturesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#enableAutonomousDatabaseInsightAdvancedFeatures."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#enableAutonomousDatabaseInsightAdvancedFeatures."
+    );
     const operationName = "enableAutonomousDatabaseInsightAdvancedFeatures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/EnableAutonomousDatabaseInsightAdvancedFeatures";
@@ -3698,7 +3595,6 @@ export class OperationsInsightsClient {
       enableAutonomousDatabaseInsightAdvancedFeaturesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3755,8 +3651,7 @@ export class OperationsInsightsClient {
   public async enableAwrHubSource(
     enableAwrHubSourceRequest: requests.EnableAwrHubSourceRequest
   ): Promise<responses.EnableAwrHubSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#enableAwrHubSource.");
+    logger.debug("Calling operation OperationsInsightsClient#enableAwrHubSource.");
     const operationName = "enableAwrHubSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/EnableAwrHubSource";
@@ -3779,7 +3674,6 @@ export class OperationsInsightsClient {
       enableAwrHubSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3830,8 +3724,7 @@ export class OperationsInsightsClient {
   public async enableDatabaseInsight(
     enableDatabaseInsightRequest: requests.EnableDatabaseInsightRequest
   ): Promise<responses.EnableDatabaseInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#enableDatabaseInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#enableDatabaseInsight.");
     const operationName = "enableDatabaseInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/EnableDatabaseInsight";
@@ -3854,7 +3747,6 @@ export class OperationsInsightsClient {
       enableDatabaseInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3910,8 +3802,7 @@ export class OperationsInsightsClient {
   public async enableExadataInsight(
     enableExadataInsightRequest: requests.EnableExadataInsightRequest
   ): Promise<responses.EnableExadataInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#enableExadataInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#enableExadataInsight.");
     const operationName = "enableExadataInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/EnableExadataInsight";
@@ -3934,7 +3825,6 @@ export class OperationsInsightsClient {
       enableExadataInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3990,8 +3880,7 @@ export class OperationsInsightsClient {
   public async enableHostInsight(
     enableHostInsightRequest: requests.EnableHostInsightRequest
   ): Promise<responses.EnableHostInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#enableHostInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#enableHostInsight.");
     const operationName = "enableHostInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/EnableHostInsight";
@@ -4014,7 +3903,6 @@ export class OperationsInsightsClient {
       enableHostInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4071,8 +3959,7 @@ export class OperationsInsightsClient {
   public async getAwrDatabaseReport(
     getAwrDatabaseReportRequest: requests.GetAwrDatabaseReportRequest
   ): Promise<responses.GetAwrDatabaseReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getAwrDatabaseReport.");
+    logger.debug("Calling operation OperationsInsightsClient#getAwrDatabaseReport.");
     const operationName = "getAwrDatabaseReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrDatabaseReport";
@@ -4104,7 +3991,6 @@ export class OperationsInsightsClient {
       getAwrDatabaseReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4155,8 +4041,7 @@ export class OperationsInsightsClient {
   public async getAwrDatabaseSqlReport(
     getAwrDatabaseSqlReportRequest: requests.GetAwrDatabaseSqlReportRequest
   ): Promise<responses.GetAwrDatabaseSqlReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getAwrDatabaseSqlReport.");
+    logger.debug("Calling operation OperationsInsightsClient#getAwrDatabaseSqlReport.");
     const operationName = "getAwrDatabaseSqlReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrDatabaseSqlReport";
@@ -4188,7 +4073,6 @@ export class OperationsInsightsClient {
       getAwrDatabaseSqlReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4238,7 +4122,7 @@ export class OperationsInsightsClient {
   public async getAwrHub(
     getAwrHubRequest: requests.GetAwrHubRequest
   ): Promise<responses.GetAwrHubResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getAwrHub.");
+    logger.debug("Calling operation OperationsInsightsClient#getAwrHub.");
     const operationName = "getAwrHub";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrHub";
@@ -4259,7 +4143,6 @@ export class OperationsInsightsClient {
       getAwrHubRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4314,8 +4197,7 @@ export class OperationsInsightsClient {
   public async getAwrHubObject(
     getAwrHubObjectRequest: requests.GetAwrHubObjectRequest
   ): Promise<responses.GetAwrHubObjectResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getAwrHubObject.");
+    logger.debug("Calling operation OperationsInsightsClient#getAwrHubObject.");
     const operationName = "getAwrHubObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/GetAwrHubObject";
@@ -4337,7 +4219,6 @@ export class OperationsInsightsClient {
       getAwrHubObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4480,8 +4361,7 @@ export class OperationsInsightsClient {
   public async getAwrHubSource(
     getAwrHubSourceRequest: requests.GetAwrHubSourceRequest
   ): Promise<responses.GetAwrHubSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getAwrHubSource.");
+    logger.debug("Calling operation OperationsInsightsClient#getAwrHubSource.");
     const operationName = "getAwrHubSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/GetAwrHubSource";
@@ -4502,7 +4382,6 @@ export class OperationsInsightsClient {
       getAwrHubSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4559,7 +4438,7 @@ export class OperationsInsightsClient {
   public async getAwrReport(
     getAwrReportRequest: requests.GetAwrReportRequest
   ): Promise<responses.GetAwrReportResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getAwrReport.");
+    logger.debug("Calling operation OperationsInsightsClient#getAwrReport.");
     const operationName = "getAwrReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrReport";
@@ -4590,7 +4469,6 @@ export class OperationsInsightsClient {
       getAwrReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4640,8 +4518,7 @@ export class OperationsInsightsClient {
   public async getDatabaseInsight(
     getDatabaseInsightRequest: requests.GetDatabaseInsightRequest
   ): Promise<responses.GetDatabaseInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getDatabaseInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#getDatabaseInsight.");
     const operationName = "getDatabaseInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/GetDatabaseInsight";
@@ -4662,7 +4539,6 @@ export class OperationsInsightsClient {
       getDatabaseInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4717,8 +4593,7 @@ export class OperationsInsightsClient {
   public async getEnterpriseManagerBridge(
     getEnterpriseManagerBridgeRequest: requests.GetEnterpriseManagerBridgeRequest
   ): Promise<responses.GetEnterpriseManagerBridgeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getEnterpriseManagerBridge.");
+    logger.debug("Calling operation OperationsInsightsClient#getEnterpriseManagerBridge.");
     const operationName = "getEnterpriseManagerBridge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/GetEnterpriseManagerBridge";
@@ -4739,7 +4614,6 @@ export class OperationsInsightsClient {
       getEnterpriseManagerBridgeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4794,8 +4668,7 @@ export class OperationsInsightsClient {
   public async getExadataInsight(
     getExadataInsightRequest: requests.GetExadataInsightRequest
   ): Promise<responses.GetExadataInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getExadataInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#getExadataInsight.");
     const operationName = "getExadataInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/GetExadataInsight";
@@ -4816,7 +4689,6 @@ export class OperationsInsightsClient {
       getExadataInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4871,8 +4743,7 @@ export class OperationsInsightsClient {
   public async getHostInsight(
     getHostInsightRequest: requests.GetHostInsightRequest
   ): Promise<responses.GetHostInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getHostInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#getHostInsight.");
     const operationName = "getHostInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/GetHostInsight";
@@ -4893,7 +4764,6 @@ export class OperationsInsightsClient {
       getHostInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4948,7 +4818,7 @@ export class OperationsInsightsClient {
   public async getNewsReport(
     getNewsReportRequest: requests.GetNewsReportRequest
   ): Promise<responses.GetNewsReportResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getNewsReport.");
+    logger.debug("Calling operation OperationsInsightsClient#getNewsReport.");
     const operationName = "getNewsReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/GetNewsReport";
@@ -4969,7 +4839,6 @@ export class OperationsInsightsClient {
       getNewsReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5024,10 +4893,9 @@ export class OperationsInsightsClient {
   public async getOperationsInsightsPrivateEndpoint(
     getOperationsInsightsPrivateEndpointRequest: requests.GetOperationsInsightsPrivateEndpointRequest
   ): Promise<responses.GetOperationsInsightsPrivateEndpointResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#getOperationsInsightsPrivateEndpoint."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#getOperationsInsightsPrivateEndpoint."
+    );
     const operationName = "getOperationsInsightsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/GetOperationsInsightsPrivateEndpoint";
@@ -5049,7 +4917,6 @@ export class OperationsInsightsClient {
       getOperationsInsightsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5106,10 +4973,7 @@ export class OperationsInsightsClient {
   public async getOperationsInsightsWarehouse(
     getOperationsInsightsWarehouseRequest: requests.GetOperationsInsightsWarehouseRequest
   ): Promise<responses.GetOperationsInsightsWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#getOperationsInsightsWarehouse."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#getOperationsInsightsWarehouse.");
     const operationName = "getOperationsInsightsWarehouse";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/GetOperationsInsightsWarehouse";
@@ -5131,7 +4995,6 @@ export class OperationsInsightsClient {
       getOperationsInsightsWarehouseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5186,10 +5049,7 @@ export class OperationsInsightsClient {
   public async getOperationsInsightsWarehouseUser(
     getOperationsInsightsWarehouseUserRequest: requests.GetOperationsInsightsWarehouseUserRequest
   ): Promise<responses.GetOperationsInsightsWarehouseUserResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#getOperationsInsightsWarehouseUser."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#getOperationsInsightsWarehouseUser.");
     const operationName = "getOperationsInsightsWarehouseUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/GetOperationsInsightsWarehouseUser";
@@ -5211,7 +5071,6 @@ export class OperationsInsightsClient {
       getOperationsInsightsWarehouseUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5269,8 +5128,7 @@ export class OperationsInsightsClient {
   public async getOpsiConfiguration(
     getOpsiConfigurationRequest: requests.GetOpsiConfigurationRequest
   ): Promise<responses.GetOpsiConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getOpsiConfiguration.");
+    logger.debug("Calling operation OperationsInsightsClient#getOpsiConfiguration.");
     const operationName = "getOpsiConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/GetOpsiConfiguration";
@@ -5296,7 +5154,6 @@ export class OperationsInsightsClient {
       getOpsiConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5351,8 +5208,7 @@ export class OperationsInsightsClient {
   public async getOpsiDataObject(
     getOpsiDataObjectRequest: requests.GetOpsiDataObjectRequest
   ): Promise<responses.GetOpsiDataObjectResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getOpsiDataObject.");
+    logger.debug("Calling operation OperationsInsightsClient#getOpsiDataObject.");
     const operationName = "getOpsiDataObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/GetOpsiDataObject";
@@ -5375,7 +5231,6 @@ export class OperationsInsightsClient {
       getOpsiDataObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5425,8 +5280,7 @@ export class OperationsInsightsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#getWorkRequest.");
+    logger.debug("Calling operation OperationsInsightsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/WorkRequests/GetWorkRequest";
@@ -5447,7 +5301,6 @@ export class OperationsInsightsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5508,8 +5361,7 @@ export class OperationsInsightsClient {
   public async headAwrHubObject(
     headAwrHubObjectRequest: requests.HeadAwrHubObjectRequest
   ): Promise<responses.HeadAwrHubObjectResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#headAwrHubObject.");
+    logger.debug("Calling operation OperationsInsightsClient#headAwrHubObject.");
     const operationName = "headAwrHubObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/HeadAwrHubObject";
@@ -5531,7 +5383,6 @@ export class OperationsInsightsClient {
       headAwrHubObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5662,8 +5513,7 @@ export class OperationsInsightsClient {
   public async ingestAddmReports(
     ingestAddmReportsRequest: requests.IngestAddmReportsRequest
   ): Promise<responses.IngestAddmReportsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#ingestAddmReports.");
+    logger.debug("Calling operation OperationsInsightsClient#ingestAddmReports.");
     const operationName = "ingestAddmReports";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestAddmReports";
@@ -5687,7 +5537,6 @@ export class OperationsInsightsClient {
       ingestAddmReportsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5747,8 +5596,7 @@ export class OperationsInsightsClient {
   public async ingestDatabaseConfiguration(
     ingestDatabaseConfigurationRequest: requests.IngestDatabaseConfigurationRequest
   ): Promise<responses.IngestDatabaseConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#ingestDatabaseConfiguration.");
+    logger.debug("Calling operation OperationsInsightsClient#ingestDatabaseConfiguration.");
     const operationName = "ingestDatabaseConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestDatabaseConfiguration";
@@ -5772,7 +5620,6 @@ export class OperationsInsightsClient {
       ingestDatabaseConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5832,8 +5679,7 @@ export class OperationsInsightsClient {
   public async ingestHostConfiguration(
     ingestHostConfigurationRequest: requests.IngestHostConfigurationRequest
   ): Promise<responses.IngestHostConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#ingestHostConfiguration.");
+    logger.debug("Calling operation OperationsInsightsClient#ingestHostConfiguration.");
     const operationName = "ingestHostConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/IngestHostConfiguration";
@@ -5856,7 +5702,6 @@ export class OperationsInsightsClient {
       ingestHostConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5916,8 +5761,7 @@ export class OperationsInsightsClient {
   public async ingestHostMetrics(
     ingestHostMetricsRequest: requests.IngestHostMetricsRequest
   ): Promise<responses.IngestHostMetricsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#ingestHostMetrics.");
+    logger.debug("Calling operation OperationsInsightsClient#ingestHostMetrics.");
     const operationName = "ingestHostMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/IngestHostMetrics";
@@ -5940,7 +5784,6 @@ export class OperationsInsightsClient {
       ingestHostMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6002,8 +5845,7 @@ export class OperationsInsightsClient {
   public async ingestSqlBucket(
     ingestSqlBucketRequest: requests.IngestSqlBucketRequest
   ): Promise<responses.IngestSqlBucketResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlBucket.");
+    logger.debug("Calling operation OperationsInsightsClient#ingestSqlBucket.");
     const operationName = "ingestSqlBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestSqlBucket";
@@ -6028,7 +5870,6 @@ export class OperationsInsightsClient {
       ingestSqlBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6090,8 +5931,7 @@ export class OperationsInsightsClient {
   public async ingestSqlPlanLines(
     ingestSqlPlanLinesRequest: requests.IngestSqlPlanLinesRequest
   ): Promise<responses.IngestSqlPlanLinesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlPlanLines.");
+    logger.debug("Calling operation OperationsInsightsClient#ingestSqlPlanLines.");
     const operationName = "ingestSqlPlanLines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestSqlPlanLines";
@@ -6116,7 +5956,6 @@ export class OperationsInsightsClient {
       ingestSqlPlanLinesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6178,8 +6017,7 @@ export class OperationsInsightsClient {
   public async ingestSqlStats(
     ingestSqlStatsRequest: requests.IngestSqlStatsRequest
   ): Promise<responses.IngestSqlStatsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlStats.");
+    logger.debug("Calling operation OperationsInsightsClient#ingestSqlStats.");
     const operationName = "ingestSqlStats";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestSqlStats";
@@ -6203,7 +6041,6 @@ export class OperationsInsightsClient {
       ingestSqlStatsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6266,7 +6103,7 @@ export class OperationsInsightsClient {
   public async ingestSqlText(
     ingestSqlTextRequest: requests.IngestSqlTextRequest
   ): Promise<responses.IngestSqlTextResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlText.");
+    logger.debug("Calling operation OperationsInsightsClient#ingestSqlText.");
     const operationName = "ingestSqlText";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestSqlText";
@@ -6291,7 +6128,6 @@ export class OperationsInsightsClient {
       ingestSqlTextRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6352,8 +6188,7 @@ export class OperationsInsightsClient {
   public async listAddmDbFindingCategories(
     listAddmDbFindingCategoriesRequest: requests.ListAddmDbFindingCategoriesRequest
   ): Promise<responses.ListAddmDbFindingCategoriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbFindingCategories.");
+    logger.debug("Calling operation OperationsInsightsClient#listAddmDbFindingCategories.");
     const operationName = "listAddmDbFindingCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbFindingCategories";
@@ -6385,7 +6220,6 @@ export class OperationsInsightsClient {
       listAddmDbFindingCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6441,8 +6275,7 @@ export class OperationsInsightsClient {
   public async listAddmDbFindingsTimeSeries(
     listAddmDbFindingsTimeSeriesRequest: requests.ListAddmDbFindingsTimeSeriesRequest
   ): Promise<responses.ListAddmDbFindingsTimeSeriesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbFindingsTimeSeries.");
+    logger.debug("Calling operation OperationsInsightsClient#listAddmDbFindingsTimeSeries.");
     const operationName = "listAddmDbFindingsTimeSeries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbFindingsTimeSeries";
@@ -6478,7 +6311,6 @@ export class OperationsInsightsClient {
       listAddmDbFindingsTimeSeriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6534,10 +6366,7 @@ export class OperationsInsightsClient {
   public async listAddmDbParameterCategories(
     listAddmDbParameterCategoriesRequest: requests.ListAddmDbParameterCategoriesRequest
   ): Promise<responses.ListAddmDbParameterCategoriesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#listAddmDbParameterCategories."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#listAddmDbParameterCategories.");
     const operationName = "listAddmDbParameterCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbParameterCategories";
@@ -6569,7 +6398,6 @@ export class OperationsInsightsClient {
       listAddmDbParameterCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6625,10 +6453,7 @@ export class OperationsInsightsClient {
   public async listAddmDbRecommendationCategories(
     listAddmDbRecommendationCategoriesRequest: requests.ListAddmDbRecommendationCategoriesRequest
   ): Promise<responses.ListAddmDbRecommendationCategoriesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#listAddmDbRecommendationCategories."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#listAddmDbRecommendationCategories.");
     const operationName = "listAddmDbRecommendationCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbRecommendationCategories";
@@ -6660,7 +6485,6 @@ export class OperationsInsightsClient {
       listAddmDbRecommendationCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6716,10 +6540,7 @@ export class OperationsInsightsClient {
   public async listAddmDbRecommendationsTimeSeries(
     listAddmDbRecommendationsTimeSeriesRequest: requests.ListAddmDbRecommendationsTimeSeriesRequest
   ): Promise<responses.ListAddmDbRecommendationsTimeSeriesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#listAddmDbRecommendationsTimeSeries."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#listAddmDbRecommendationsTimeSeries.");
     const operationName = "listAddmDbRecommendationsTimeSeries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbRecommendationsTimeSeries";
@@ -6759,7 +6580,6 @@ export class OperationsInsightsClient {
       listAddmDbRecommendationsTimeSeriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6815,7 +6635,7 @@ export class OperationsInsightsClient {
   public async listAddmDbs(
     listAddmDbsRequest: requests.ListAddmDbsRequest
   ): Promise<responses.ListAddmDbsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbs.");
+    logger.debug("Calling operation OperationsInsightsClient#listAddmDbs.");
     const operationName = "listAddmDbs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbs";
@@ -6849,7 +6669,6 @@ export class OperationsInsightsClient {
       listAddmDbsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6905,8 +6724,7 @@ export class OperationsInsightsClient {
   public async listAwrDatabaseSnapshots(
     listAwrDatabaseSnapshotsRequest: requests.ListAwrDatabaseSnapshotsRequest
   ): Promise<responses.ListAwrDatabaseSnapshotsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listAwrDatabaseSnapshots.");
+    logger.debug("Calling operation OperationsInsightsClient#listAwrDatabaseSnapshots.");
     const operationName = "listAwrDatabaseSnapshots";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrDatabaseSnapshots";
@@ -6940,7 +6758,6 @@ export class OperationsInsightsClient {
       listAwrDatabaseSnapshotsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6996,8 +6813,7 @@ export class OperationsInsightsClient {
   public async listAwrDatabases(
     listAwrDatabasesRequest: requests.ListAwrDatabasesRequest
   ): Promise<responses.ListAwrDatabasesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listAwrDatabases.");
+    logger.debug("Calling operation OperationsInsightsClient#listAwrDatabases.");
     const operationName = "listAwrDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrDatabases";
@@ -7026,7 +6842,6 @@ export class OperationsInsightsClient {
       listAwrDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7082,8 +6897,7 @@ export class OperationsInsightsClient {
   public async listAwrHubObjects(
     listAwrHubObjectsRequest: requests.ListAwrHubObjectsRequest
   ): Promise<responses.ListAwrHubObjectsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubObjects.");
+    logger.debug("Calling operation OperationsInsightsClient#listAwrHubObjects.");
     const operationName = "listAwrHubObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/ListAwrHubObjects";
@@ -7113,7 +6927,6 @@ export class OperationsInsightsClient {
       listAwrHubObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7173,8 +6986,7 @@ export class OperationsInsightsClient {
   public async listAwrHubSources(
     listAwrHubSourcesRequest: requests.ListAwrHubSourcesRequest
   ): Promise<responses.ListAwrHubSourcesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubSources.");
+    logger.debug("Calling operation OperationsInsightsClient#listAwrHubSources.");
     const operationName = "listAwrHubSources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/ListAwrHubSources";
@@ -7205,7 +7017,6 @@ export class OperationsInsightsClient {
       listAwrHubSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7261,7 +7072,7 @@ export class OperationsInsightsClient {
   public async listAwrHubs(
     listAwrHubsRequest: requests.ListAwrHubsRequest
   ): Promise<responses.ListAwrHubsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubs.");
+    logger.debug("Calling operation OperationsInsightsClient#listAwrHubs.");
     const operationName = "listAwrHubs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrHubs";
@@ -7290,7 +7101,6 @@ export class OperationsInsightsClient {
       listAwrHubsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7347,8 +7157,7 @@ export class OperationsInsightsClient {
   public async listAwrSnapshots(
     listAwrSnapshotsRequest: requests.ListAwrSnapshotsRequest
   ): Promise<responses.ListAwrSnapshotsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listAwrSnapshots.");
+    logger.debug("Calling operation OperationsInsightsClient#listAwrSnapshots.");
     const operationName = "listAwrSnapshots";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrSnapshots";
@@ -7377,7 +7186,6 @@ export class OperationsInsightsClient {
       listAwrSnapshotsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7434,8 +7242,7 @@ export class OperationsInsightsClient {
   public async listDatabaseConfigurations(
     listDatabaseConfigurationsRequest: requests.ListDatabaseConfigurationsRequest
   ): Promise<responses.ListDatabaseConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listDatabaseConfigurations.");
+    logger.debug("Calling operation OperationsInsightsClient#listDatabaseConfigurations.");
     const operationName = "listDatabaseConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListDatabaseConfigurations";
@@ -7473,7 +7280,6 @@ export class OperationsInsightsClient {
       listDatabaseConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7535,8 +7341,7 @@ export class OperationsInsightsClient {
   public async listDatabaseInsights(
     listDatabaseInsightsRequest: requests.ListDatabaseInsightsRequest
   ): Promise<responses.ListDatabaseInsightsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listDatabaseInsights.");
+    logger.debug("Calling operation OperationsInsightsClient#listDatabaseInsights.");
     const operationName = "listDatabaseInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListDatabaseInsights";
@@ -7571,7 +7376,6 @@ export class OperationsInsightsClient {
       listDatabaseInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7633,8 +7437,7 @@ export class OperationsInsightsClient {
   public async listEnterpriseManagerBridges(
     listEnterpriseManagerBridgesRequest: requests.ListEnterpriseManagerBridgesRequest
   ): Promise<responses.ListEnterpriseManagerBridgesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listEnterpriseManagerBridges.");
+    logger.debug("Calling operation OperationsInsightsClient#listEnterpriseManagerBridges.");
     const operationName = "listEnterpriseManagerBridges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/ListEnterpriseManagerBridges";
@@ -7663,7 +7466,6 @@ export class OperationsInsightsClient {
       listEnterpriseManagerBridgesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7718,8 +7520,7 @@ export class OperationsInsightsClient {
   public async listExadataConfigurations(
     listExadataConfigurationsRequest: requests.ListExadataConfigurationsRequest
   ): Promise<responses.ListExadataConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listExadataConfigurations.");
+    logger.debug("Calling operation OperationsInsightsClient#listExadataConfigurations.");
     const operationName = "listExadataConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/ListExadataConfigurations";
@@ -7750,7 +7551,6 @@ export class OperationsInsightsClient {
       listExadataConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7812,8 +7612,7 @@ export class OperationsInsightsClient {
   public async listExadataInsights(
     listExadataInsightsRequest: requests.ListExadataInsightsRequest
   ): Promise<responses.ListExadataInsightsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listExadataInsights.");
+    logger.debug("Calling operation OperationsInsightsClient#listExadataInsights.");
     const operationName = "listExadataInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/ListExadataInsights";
@@ -7844,7 +7643,6 @@ export class OperationsInsightsClient {
       listExadataInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7906,8 +7704,7 @@ export class OperationsInsightsClient {
   public async listHostConfigurations(
     listHostConfigurationsRequest: requests.ListHostConfigurationsRequest
   ): Promise<responses.ListHostConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listHostConfigurations.");
+    logger.debug("Calling operation OperationsInsightsClient#listHostConfigurations.");
     const operationName = "listHostConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListHostConfigurations";
@@ -7944,7 +7741,6 @@ export class OperationsInsightsClient {
       listHostConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8006,8 +7802,7 @@ export class OperationsInsightsClient {
   public async listHostInsights(
     listHostInsightsRequest: requests.ListHostInsightsRequest
   ): Promise<responses.ListHostInsightsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listHostInsights.");
+    logger.debug("Calling operation OperationsInsightsClient#listHostInsights.");
     const operationName = "listHostInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListHostInsights";
@@ -8040,7 +7835,6 @@ export class OperationsInsightsClient {
       listHostInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8101,8 +7895,7 @@ export class OperationsInsightsClient {
   public async listHostedEntities(
     listHostedEntitiesRequest: requests.ListHostedEntitiesRequest
   ): Promise<responses.ListHostedEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listHostedEntities.");
+    logger.debug("Calling operation OperationsInsightsClient#listHostedEntities.");
     const operationName = "listHostedEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListHostedEntities";
@@ -8135,7 +7928,6 @@ export class OperationsInsightsClient {
       listHostedEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8195,8 +7987,7 @@ export class OperationsInsightsClient {
   public async listImportableAgentEntities(
     listImportableAgentEntitiesRequest: requests.ListImportableAgentEntitiesRequest
   ): Promise<responses.ListImportableAgentEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listImportableAgentEntities.");
+    logger.debug("Calling operation OperationsInsightsClient#listImportableAgentEntities.");
     const operationName = "listImportableAgentEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListImportableAgentEntities";
@@ -8221,7 +8012,6 @@ export class OperationsInsightsClient {
       listImportableAgentEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8283,10 +8073,7 @@ export class OperationsInsightsClient {
   public async listImportableComputeEntities(
     listImportableComputeEntitiesRequest: requests.ListImportableComputeEntitiesRequest
   ): Promise<responses.ListImportableComputeEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#listImportableComputeEntities."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#listImportableComputeEntities.");
     const operationName = "listImportableComputeEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListImportableComputeEntities";
@@ -8311,7 +8098,6 @@ export class OperationsInsightsClient {
       listImportableComputeEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8367,10 +8153,9 @@ export class OperationsInsightsClient {
   public async listImportableEnterpriseManagerEntities(
     listImportableEnterpriseManagerEntitiesRequest: requests.ListImportableEnterpriseManagerEntitiesRequest
   ): Promise<responses.ListImportableEnterpriseManagerEntitiesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#listImportableEnterpriseManagerEntities."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#listImportableEnterpriseManagerEntities."
+    );
     const operationName = "listImportableEnterpriseManagerEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/ListImportableEnterpriseManagerEntities";
@@ -8401,7 +8186,6 @@ export class OperationsInsightsClient {
       listImportableEnterpriseManagerEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8458,8 +8242,7 @@ export class OperationsInsightsClient {
   public async listNewsReports(
     listNewsReportsRequest: requests.ListNewsReportsRequest
   ): Promise<responses.ListNewsReportsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listNewsReports.");
+    logger.debug("Calling operation OperationsInsightsClient#listNewsReports.");
     const operationName = "listNewsReports";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReport/ListNewsReports";
@@ -8488,7 +8271,6 @@ export class OperationsInsightsClient {
       listNewsReportsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8548,10 +8330,9 @@ export class OperationsInsightsClient {
   public async listOperationsInsightsPrivateEndpoints(
     listOperationsInsightsPrivateEndpointsRequest: requests.ListOperationsInsightsPrivateEndpointsRequest
   ): Promise<responses.ListOperationsInsightsPrivateEndpointsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#listOperationsInsightsPrivateEndpoints."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#listOperationsInsightsPrivateEndpoints."
+    );
     const operationName = "listOperationsInsightsPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/ListOperationsInsightsPrivateEndpoints";
@@ -8582,7 +8363,6 @@ export class OperationsInsightsClient {
       listOperationsInsightsPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8638,10 +8418,9 @@ export class OperationsInsightsClient {
   public async listOperationsInsightsWarehouseUsers(
     listOperationsInsightsWarehouseUsersRequest: requests.ListOperationsInsightsWarehouseUsersRequest
   ): Promise<responses.ListOperationsInsightsWarehouseUsersResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#listOperationsInsightsWarehouseUsers."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#listOperationsInsightsWarehouseUsers."
+    );
     const operationName = "listOperationsInsightsWarehouseUsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/ListOperationsInsightsWarehouseUsers";
@@ -8671,7 +8450,6 @@ export class OperationsInsightsClient {
       listOperationsInsightsWarehouseUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8728,10 +8506,7 @@ export class OperationsInsightsClient {
   public async listOperationsInsightsWarehouses(
     listOperationsInsightsWarehousesRequest: requests.ListOperationsInsightsWarehousesRequest
   ): Promise<responses.ListOperationsInsightsWarehousesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#listOperationsInsightsWarehouses."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#listOperationsInsightsWarehouses.");
     const operationName = "listOperationsInsightsWarehouses";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/ListOperationsInsightsWarehouses";
@@ -8759,7 +8534,6 @@ export class OperationsInsightsClient {
       listOperationsInsightsWarehousesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8815,8 +8589,7 @@ export class OperationsInsightsClient {
   public async listOpsiConfigurations(
     listOpsiConfigurationsRequest: requests.ListOpsiConfigurationsRequest
   ): Promise<responses.ListOpsiConfigurationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listOpsiConfigurations.");
+    logger.debug("Calling operation OperationsInsightsClient#listOpsiConfigurations.");
     const operationName = "listOpsiConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/ListOpsiConfigurations";
@@ -8844,7 +8617,6 @@ export class OperationsInsightsClient {
       listOpsiConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8900,8 +8672,7 @@ export class OperationsInsightsClient {
   public async listOpsiDataObjects(
     listOpsiDataObjectsRequest: requests.ListOpsiDataObjectsRequest
   ): Promise<responses.ListOpsiDataObjectsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listOpsiDataObjects.");
+    logger.debug("Calling operation OperationsInsightsClient#listOpsiDataObjects.");
     const operationName = "listOpsiDataObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/ListOpsiDataObjects";
@@ -8930,7 +8701,6 @@ export class OperationsInsightsClient {
       listOpsiDataObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8987,7 +8757,7 @@ export class OperationsInsightsClient {
   public async listSqlPlans(
     listSqlPlansRequest: requests.ListSqlPlansRequest
   ): Promise<responses.ListSqlPlansResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listSqlPlans.");
+    logger.debug("Calling operation OperationsInsightsClient#listSqlPlans.");
     const operationName = "listSqlPlans";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListSqlPlans";
@@ -9013,7 +8783,6 @@ export class OperationsInsightsClient {
       listSqlPlansRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9070,8 +8839,7 @@ export class OperationsInsightsClient {
   public async listSqlSearches(
     listSqlSearchesRequest: requests.ListSqlSearchesRequest
   ): Promise<responses.ListSqlSearchesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listSqlSearches.");
+    logger.debug("Calling operation OperationsInsightsClient#listSqlSearches.");
     const operationName = "listSqlSearches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListSqlSearches";
@@ -9102,7 +8870,6 @@ export class OperationsInsightsClient {
       listSqlSearchesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9158,7 +8925,7 @@ export class OperationsInsightsClient {
   public async listSqlTexts(
     listSqlTextsRequest: requests.ListSqlTextsRequest
   ): Promise<responses.ListSqlTextsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listSqlTexts.");
+    logger.debug("Calling operation OperationsInsightsClient#listSqlTexts.");
     const operationName = "listSqlTexts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListSqlTexts";
@@ -9188,7 +8955,6 @@ export class OperationsInsightsClient {
       listSqlTextsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9244,8 +9010,7 @@ export class OperationsInsightsClient {
   public async listWarehouseDataObjects(
     listWarehouseDataObjectsRequest: requests.ListWarehouseDataObjectsRequest
   ): Promise<responses.ListWarehouseDataObjectsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listWarehouseDataObjects.");
+    logger.debug("Calling operation OperationsInsightsClient#listWarehouseDataObjects.");
     const operationName = "listWarehouseDataObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiWarehouseDataObjects/ListWarehouseDataObjects";
@@ -9276,7 +9041,6 @@ export class OperationsInsightsClient {
       listWarehouseDataObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9332,8 +9096,7 @@ export class OperationsInsightsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequestErrors.");
+    logger.debug("Calling operation OperationsInsightsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/WorkRequests/ListWorkRequestErrors";
@@ -9359,7 +9122,6 @@ export class OperationsInsightsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9415,8 +9177,7 @@ export class OperationsInsightsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequestLogs.");
+    logger.debug("Calling operation OperationsInsightsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/WorkRequests/ListWorkRequestLogs";
@@ -9442,7 +9203,6 @@ export class OperationsInsightsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9498,8 +9258,7 @@ export class OperationsInsightsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequests.");
+    logger.debug("Calling operation OperationsInsightsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/WorkRequests/ListWorkRequests";
@@ -9528,7 +9287,6 @@ export class OperationsInsightsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9584,8 +9342,7 @@ export class OperationsInsightsClient {
   public async putAwrHubObject(
     putAwrHubObjectRequest: requests.PutAwrHubObjectRequest
   ): Promise<responses.PutAwrHubObjectResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#putAwrHubObject.");
+    logger.debug("Calling operation OperationsInsightsClient#putAwrHubObject.");
     const operationName = "putAwrHubObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/PutAwrHubObject";
@@ -9607,7 +9364,6 @@ export class OperationsInsightsClient {
       putAwrHubObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9678,8 +9434,7 @@ export class OperationsInsightsClient {
   public async queryOpsiDataObjectData(
     queryOpsiDataObjectDataRequest: requests.QueryOpsiDataObjectDataRequest
   ): Promise<responses.QueryOpsiDataObjectDataResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#queryOpsiDataObjectData.");
+    logger.debug("Calling operation OperationsInsightsClient#queryOpsiDataObjectData.");
     const operationName = "queryOpsiDataObjectData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/QueryOpsiDataObjectData";
@@ -9702,7 +9457,6 @@ export class OperationsInsightsClient {
       queryOpsiDataObjectDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9764,8 +9518,7 @@ export class OperationsInsightsClient {
   public async queryWarehouseDataObjectData(
     queryWarehouseDataObjectDataRequest: requests.QueryWarehouseDataObjectDataRequest
   ): Promise<responses.QueryWarehouseDataObjectDataResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#queryWarehouseDataObjectData.");
+    logger.debug("Calling operation OperationsInsightsClient#queryWarehouseDataObjectData.");
     const operationName = "queryWarehouseDataObjectData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiWarehouseDataObjects/QueryWarehouseDataObjectData";
@@ -9790,7 +9543,6 @@ export class OperationsInsightsClient {
       queryWarehouseDataObjectDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9850,10 +9602,9 @@ export class OperationsInsightsClient {
   public async rotateOperationsInsightsWarehouseWallet(
     rotateOperationsInsightsWarehouseWalletRequest: requests.RotateOperationsInsightsWarehouseWalletRequest
   ): Promise<responses.RotateOperationsInsightsWarehouseWalletResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#rotateOperationsInsightsWarehouseWallet."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#rotateOperationsInsightsWarehouseWallet."
+    );
     const operationName = "rotateOperationsInsightsWarehouseWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/RotateOperationsInsightsWarehouseWallet";
@@ -9876,7 +9627,6 @@ export class OperationsInsightsClient {
       rotateOperationsInsightsWarehouseWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9929,8 +9679,7 @@ export class OperationsInsightsClient {
   public async summarizeAddmDbFindings(
     summarizeAddmDbFindingsRequest: requests.SummarizeAddmDbFindingsRequest
   ): Promise<responses.SummarizeAddmDbFindingsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbFindings.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbFindings.");
     const operationName = "summarizeAddmDbFindings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbFindings";
@@ -9966,7 +9715,6 @@ export class OperationsInsightsClient {
       summarizeAddmDbFindingsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10024,10 +9772,7 @@ export class OperationsInsightsClient {
   public async summarizeAddmDbParameterChanges(
     summarizeAddmDbParameterChangesRequest: requests.SummarizeAddmDbParameterChangesRequest
   ): Promise<responses.SummarizeAddmDbParameterChangesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAddmDbParameterChanges."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbParameterChanges.");
     const operationName = "summarizeAddmDbParameterChanges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbParameterChanges";
@@ -10064,7 +9809,6 @@ export class OperationsInsightsClient {
       summarizeAddmDbParameterChangesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10123,8 +9867,7 @@ export class OperationsInsightsClient {
   public async summarizeAddmDbParameters(
     summarizeAddmDbParametersRequest: requests.SummarizeAddmDbParametersRequest
   ): Promise<responses.SummarizeAddmDbParametersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbParameters.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbParameters.");
     const operationName = "summarizeAddmDbParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbParameters";
@@ -10164,7 +9907,6 @@ export class OperationsInsightsClient {
       summarizeAddmDbParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10220,10 +9962,7 @@ export class OperationsInsightsClient {
   public async summarizeAddmDbRecommendations(
     summarizeAddmDbRecommendationsRequest: requests.SummarizeAddmDbRecommendationsRequest
   ): Promise<responses.SummarizeAddmDbRecommendationsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAddmDbRecommendations."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbRecommendations.");
     const operationName = "summarizeAddmDbRecommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbRecommendations";
@@ -10264,7 +10003,6 @@ export class OperationsInsightsClient {
       summarizeAddmDbRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10320,8 +10058,7 @@ export class OperationsInsightsClient {
   public async summarizeAddmDbSchemaObjects(
     summarizeAddmDbSchemaObjectsRequest: requests.SummarizeAddmDbSchemaObjectsRequest
   ): Promise<responses.SummarizeAddmDbSchemaObjectsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbSchemaObjects.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbSchemaObjects.");
     const operationName = "summarizeAddmDbSchemaObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbSchemaObjects";
@@ -10354,7 +10091,6 @@ export class OperationsInsightsClient {
       summarizeAddmDbSchemaObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10410,8 +10146,7 @@ export class OperationsInsightsClient {
   public async summarizeAddmDbSqlStatements(
     summarizeAddmDbSqlStatementsRequest: requests.SummarizeAddmDbSqlStatementsRequest
   ): Promise<responses.SummarizeAddmDbSqlStatementsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbSqlStatements.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbSqlStatements.");
     const operationName = "summarizeAddmDbSqlStatements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbSqlStatements";
@@ -10444,7 +10179,6 @@ export class OperationsInsightsClient {
       summarizeAddmDbSqlStatementsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10504,10 +10238,7 @@ export class OperationsInsightsClient {
   public async summarizeAwrDatabaseCpuUsages(
     summarizeAwrDatabaseCpuUsagesRequest: requests.SummarizeAwrDatabaseCpuUsagesRequest
   ): Promise<responses.SummarizeAwrDatabaseCpuUsagesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseCpuUsages."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseCpuUsages.");
     const operationName = "summarizeAwrDatabaseCpuUsages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseCpuUsages";
@@ -10543,7 +10274,6 @@ export class OperationsInsightsClient {
       summarizeAwrDatabaseCpuUsagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10599,8 +10329,7 @@ export class OperationsInsightsClient {
   public async summarizeAwrDatabaseMetrics(
     summarizeAwrDatabaseMetricsRequest: requests.SummarizeAwrDatabaseMetricsRequest
   ): Promise<responses.SummarizeAwrDatabaseMetricsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseMetrics.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseMetrics.");
     const operationName = "summarizeAwrDatabaseMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseMetrics";
@@ -10635,7 +10364,6 @@ export class OperationsInsightsClient {
       summarizeAwrDatabaseMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10695,10 +10423,9 @@ export class OperationsInsightsClient {
   public async summarizeAwrDatabaseParameterChanges(
     summarizeAwrDatabaseParameterChangesRequest: requests.SummarizeAwrDatabaseParameterChangesRequest
   ): Promise<responses.SummarizeAwrDatabaseParameterChangesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseParameterChanges."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeAwrDatabaseParameterChanges."
+    );
     const operationName = "summarizeAwrDatabaseParameterChanges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseParameterChanges";
@@ -10735,7 +10462,6 @@ export class OperationsInsightsClient {
       summarizeAwrDatabaseParameterChangesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10801,10 +10527,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDatabaseParameters(
     summarizeAwrDatabaseParametersRequest: requests.SummarizeAwrDatabaseParametersRequest
   ): Promise<responses.SummarizeAwrDatabaseParametersResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseParameters."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseParameters.");
     const operationName = "summarizeAwrDatabaseParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseParameters";
@@ -10844,7 +10567,6 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDatabaseParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10900,10 +10622,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDatabaseSnapshotRanges(
     summarizeAwrDatabaseSnapshotRangesRequest: requests.SummarizeAwrDatabaseSnapshotRangesRequest
   ): Promise<responses.SummarizeAwrDatabaseSnapshotRangesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseSnapshotRanges."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseSnapshotRanges.");
     const operationName = "summarizeAwrDatabaseSnapshotRanges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseSnapshotRanges";
@@ -10933,7 +10652,6 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDatabaseSnapshotRangesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10989,8 +10707,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDatabaseSysstats(
     summarizeAwrDatabaseSysstatsRequest: requests.SummarizeAwrDatabaseSysstatsRequest
   ): Promise<responses.SummarizeAwrDatabaseSysstatsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseSysstats.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseSysstats.");
     const operationName = "summarizeAwrDatabaseSysstats";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseSysstats";
@@ -11026,7 +10743,6 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDatabaseSysstatsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11082,10 +10798,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDatabaseTopWaitEvents(
     summarizeAwrDatabaseTopWaitEventsRequest: requests.SummarizeAwrDatabaseTopWaitEventsRequest
   ): Promise<responses.SummarizeAwrDatabaseTopWaitEventsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseTopWaitEvents."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseTopWaitEvents.");
     const operationName = "summarizeAwrDatabaseTopWaitEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseTopWaitEvents";
@@ -11120,7 +10833,6 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDatabaseTopWaitEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11176,10 +10888,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDatabaseWaitEventBuckets(
     summarizeAwrDatabaseWaitEventBucketsRequest: requests.SummarizeAwrDatabaseWaitEventBucketsRequest
   ): Promise<responses.SummarizeAwrDatabaseWaitEventBucketsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseWaitEventBuckets."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeAwrDatabaseWaitEventBuckets."
+    );
     const operationName = "summarizeAwrDatabaseWaitEventBuckets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseWaitEventBuckets";
@@ -11219,7 +10930,6 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDatabaseWaitEventBucketsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11275,10 +10985,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDatabaseWaitEvents(
     summarizeAwrDatabaseWaitEventsRequest: requests.SummarizeAwrDatabaseWaitEventsRequest
   ): Promise<responses.SummarizeAwrDatabaseWaitEventsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseWaitEvents."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseWaitEvents.");
     const operationName = "summarizeAwrDatabaseWaitEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseWaitEvents";
@@ -11315,7 +11022,6 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDatabaseWaitEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11371,8 +11077,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrSourcesSummaries(
     summarizeAwrSourcesSummariesRequest: requests.SummarizeAwrSourcesSummariesRequest
   ): Promise<responses.SummarizeAwrSourcesSummariesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrSourcesSummaries.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeAwrSourcesSummaries.");
     const operationName = "summarizeAwrSourcesSummaries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrSourcesSummaries";
@@ -11400,7 +11105,6 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrSourcesSummariesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11457,8 +11161,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeConfigurationItems(
     summarizeConfigurationItemsRequest: requests.SummarizeConfigurationItemsRequest
   ): Promise<responses.SummarizeConfigurationItemsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeConfigurationItems.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeConfigurationItems.");
     const operationName = "summarizeConfigurationItems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/SummarizeConfigurationItems";
@@ -11486,7 +11189,6 @@ Note that this API does not return information on the number of times each datab
       summarizeConfigurationItemsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11544,10 +11246,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeDatabaseInsightResourceCapacityTrend(
     summarizeDatabaseInsightResourceCapacityTrendRequest: requests.SummarizeDatabaseInsightResourceCapacityTrendRequest
   ): Promise<responses.SummarizeDatabaseInsightResourceCapacityTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceCapacityTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceCapacityTrend."
+    );
     const operationName = "summarizeDatabaseInsightResourceCapacityTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceCapacityTrend";
@@ -11597,7 +11298,6 @@ Note that this API does not return information on the number of times each datab
       summarizeDatabaseInsightResourceCapacityTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11654,10 +11354,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeDatabaseInsightResourceForecastTrend(
     summarizeDatabaseInsightResourceForecastTrendRequest: requests.SummarizeDatabaseInsightResourceForecastTrendRequest
   ): Promise<responses.SummarizeDatabaseInsightResourceForecastTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceForecastTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceForecastTrend."
+    );
     const operationName = "summarizeDatabaseInsightResourceForecastTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceForecastTrend";
@@ -11709,7 +11408,6 @@ Note that this API does not return information on the number of times each datab
       summarizeDatabaseInsightResourceForecastTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11766,10 +11464,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeDatabaseInsightResourceStatistics(
     summarizeDatabaseInsightResourceStatisticsRequest: requests.SummarizeDatabaseInsightResourceStatisticsRequest
   ): Promise<responses.SummarizeDatabaseInsightResourceStatisticsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceStatistics."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceStatistics."
+    );
     const operationName = "summarizeDatabaseInsightResourceStatistics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceStatistics";
@@ -11821,7 +11518,6 @@ Note that this API does not return information on the number of times each datab
       summarizeDatabaseInsightResourceStatisticsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11880,10 +11576,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeDatabaseInsightResourceUsage(
     summarizeDatabaseInsightResourceUsageRequest: requests.SummarizeDatabaseInsightResourceUsageRequest
   ): Promise<responses.SummarizeDatabaseInsightResourceUsageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUsage."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUsage."
+    );
     const operationName = "summarizeDatabaseInsightResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceUsage";
@@ -11924,7 +11619,6 @@ Note that this API does not return information on the number of times each datab
       summarizeDatabaseInsightResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11982,10 +11676,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeDatabaseInsightResourceUsageTrend(
     summarizeDatabaseInsightResourceUsageTrendRequest: requests.SummarizeDatabaseInsightResourceUsageTrendRequest
   ): Promise<responses.SummarizeDatabaseInsightResourceUsageTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUsageTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUsageTrend."
+    );
     const operationName = "summarizeDatabaseInsightResourceUsageTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceUsageTrend";
@@ -12029,7 +11722,6 @@ Note that this API does not return information on the number of times each datab
       summarizeDatabaseInsightResourceUsageTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12086,10 +11778,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeDatabaseInsightResourceUtilizationInsight(
     summarizeDatabaseInsightResourceUtilizationInsightRequest: requests.SummarizeDatabaseInsightResourceUtilizationInsightRequest
   ): Promise<responses.SummarizeDatabaseInsightResourceUtilizationInsightResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUtilizationInsight."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUtilizationInsight."
+    );
     const operationName = "summarizeDatabaseInsightResourceUtilizationInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceUtilizationInsight";
@@ -12142,7 +11833,6 @@ Note that this API does not return information on the number of times each datab
       summarizeDatabaseInsightResourceUtilizationInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12200,10 +11890,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeDatabaseInsightTablespaceUsageTrend(
     summarizeDatabaseInsightTablespaceUsageTrendRequest: requests.SummarizeDatabaseInsightTablespaceUsageTrendRequest
   ): Promise<responses.SummarizeDatabaseInsightTablespaceUsageTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeDatabaseInsightTablespaceUsageTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeDatabaseInsightTablespaceUsageTrend."
+    );
     const operationName = "summarizeDatabaseInsightTablespaceUsageTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightTablespaceUsageTrend";
@@ -12232,7 +11921,6 @@ Note that this API does not return information on the number of times each datab
       summarizeDatabaseInsightTablespaceUsageTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12295,10 +11983,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataInsightResourceCapacityTrend(
     summarizeExadataInsightResourceCapacityTrendRequest: requests.SummarizeExadataInsightResourceCapacityTrendRequest
   ): Promise<responses.SummarizeExadataInsightResourceCapacityTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceCapacityTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceCapacityTrend."
+    );
     const operationName = "summarizeExadataInsightResourceCapacityTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceCapacityTrend";
@@ -12336,7 +12023,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataInsightResourceCapacityTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12396,10 +12082,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataInsightResourceCapacityTrendAggregated(
     summarizeExadataInsightResourceCapacityTrendAggregatedRequest: requests.SummarizeExadataInsightResourceCapacityTrendAggregatedRequest
   ): Promise<responses.SummarizeExadataInsightResourceCapacityTrendAggregatedResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceCapacityTrendAggregated."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceCapacityTrendAggregated."
+    );
     const operationName = "summarizeExadataInsightResourceCapacityTrendAggregated";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceCapacityTrendAggregated";
@@ -12445,7 +12130,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataInsightResourceCapacityTrendAggregatedRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12510,10 +12194,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataInsightResourceForecastTrend(
     summarizeExadataInsightResourceForecastTrendRequest: requests.SummarizeExadataInsightResourceForecastTrendRequest
   ): Promise<responses.SummarizeExadataInsightResourceForecastTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceForecastTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceForecastTrend."
+    );
     const operationName = "summarizeExadataInsightResourceForecastTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceForecastTrend";
@@ -12555,7 +12238,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataInsightResourceForecastTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12614,10 +12296,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataInsightResourceForecastTrendAggregated(
     summarizeExadataInsightResourceForecastTrendAggregatedRequest: requests.SummarizeExadataInsightResourceForecastTrendAggregatedRequest
   ): Promise<responses.SummarizeExadataInsightResourceForecastTrendAggregatedResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceForecastTrendAggregated."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceForecastTrendAggregated."
+    );
     const operationName = "summarizeExadataInsightResourceForecastTrendAggregated";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceForecastTrendAggregated";
@@ -12667,7 +12348,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataInsightResourceForecastTrendAggregatedRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12729,10 +12409,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataInsightResourceStatistics(
     summarizeExadataInsightResourceStatisticsRequest: requests.SummarizeExadataInsightResourceStatisticsRequest
   ): Promise<responses.SummarizeExadataInsightResourceStatisticsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceStatistics."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceStatistics."
+    );
     const operationName = "summarizeExadataInsightResourceStatistics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceStatistics";
@@ -12766,7 +12445,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataInsightResourceStatisticsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12832,10 +12510,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataInsightResourceUsage(
     summarizeExadataInsightResourceUsageRequest: requests.SummarizeExadataInsightResourceUsageRequest
   ): Promise<responses.SummarizeExadataInsightResourceUsageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUsage."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUsage."
+    );
     const operationName = "summarizeExadataInsightResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceUsage";
@@ -12874,7 +12551,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataInsightResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12935,10 +12611,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataInsightResourceUsageAggregated(
     summarizeExadataInsightResourceUsageAggregatedRequest: requests.SummarizeExadataInsightResourceUsageAggregatedRequest
   ): Promise<responses.SummarizeExadataInsightResourceUsageAggregatedResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUsageAggregated."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUsageAggregated."
+    );
     const operationName = "summarizeExadataInsightResourceUsageAggregated";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceUsageAggregated";
@@ -12975,7 +12650,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataInsightResourceUsageAggregatedRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13030,10 +12704,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataInsightResourceUtilizationInsight(
     summarizeExadataInsightResourceUtilizationInsightRequest: requests.SummarizeExadataInsightResourceUtilizationInsightRequest
   ): Promise<responses.SummarizeExadataInsightResourceUtilizationInsightResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUtilizationInsight."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUtilizationInsight."
+    );
     const operationName = "summarizeExadataInsightResourceUtilizationInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceUtilizationInsight";
@@ -13075,7 +12748,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataInsightResourceUtilizationInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13135,8 +12807,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExadataMembers(
     summarizeExadataMembersRequest: requests.SummarizeExadataMembersRequest
   ): Promise<responses.SummarizeExadataMembersResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeExadataMembers.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeExadataMembers.");
     const operationName = "summarizeExadataMembers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataMembers";
@@ -13162,7 +12833,6 @@ Note that this API does not return information on the number of times each datab
       summarizeExadataMembersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13223,10 +12893,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightDiskStatistics(
     summarizeHostInsightDiskStatisticsRequest: requests.SummarizeHostInsightDiskStatisticsRequest
   ): Promise<responses.SummarizeHostInsightDiskStatisticsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightDiskStatistics."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeHostInsightDiskStatistics.");
     const operationName = "summarizeHostInsightDiskStatistics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightDiskStatistics";
@@ -13253,7 +12920,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightDiskStatisticsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13309,10 +12975,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightHostRecommendation(
     summarizeHostInsightHostRecommendationRequest: requests.SummarizeHostInsightHostRecommendationRequest
   ): Promise<responses.SummarizeHostInsightHostRecommendationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightHostRecommendation."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightHostRecommendation."
+    );
     const operationName = "summarizeHostInsightHostRecommendation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightHostRecommendation";
@@ -13341,7 +13006,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightHostRecommendationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13397,10 +13061,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightNetworkUsageTrend(
     summarizeHostInsightNetworkUsageTrendRequest: requests.SummarizeHostInsightNetworkUsageTrendRequest
   ): Promise<responses.SummarizeHostInsightNetworkUsageTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightNetworkUsageTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightNetworkUsageTrend."
+    );
     const operationName = "summarizeHostInsightNetworkUsageTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightNetworkUsageTrend";
@@ -13429,7 +13092,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightNetworkUsageTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13487,10 +13149,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightResourceCapacityTrend(
     summarizeHostInsightResourceCapacityTrendRequest: requests.SummarizeHostInsightResourceCapacityTrendRequest
   ): Promise<responses.SummarizeHostInsightResourceCapacityTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceCapacityTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightResourceCapacityTrend."
+    );
     const operationName = "summarizeHostInsightResourceCapacityTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceCapacityTrend";
@@ -13535,7 +13196,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightResourceCapacityTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13592,10 +13252,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightResourceForecastTrend(
     summarizeHostInsightResourceForecastTrendRequest: requests.SummarizeHostInsightResourceForecastTrendRequest
   ): Promise<responses.SummarizeHostInsightResourceForecastTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceForecastTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightResourceForecastTrend."
+    );
     const operationName = "summarizeHostInsightResourceForecastTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceForecastTrend";
@@ -13644,7 +13303,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightResourceForecastTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13696,10 +13354,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightResourceStatistics(
     summarizeHostInsightResourceStatisticsRequest: requests.SummarizeHostInsightResourceStatisticsRequest
   ): Promise<responses.SummarizeHostInsightResourceStatisticsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceStatistics."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightResourceStatistics."
+    );
     const operationName = "summarizeHostInsightResourceStatistics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceStatistics";
@@ -13747,7 +13404,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightResourceStatisticsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13806,10 +13462,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightResourceUsage(
     summarizeHostInsightResourceUsageRequest: requests.SummarizeHostInsightResourceUsageRequest
   ): Promise<responses.SummarizeHostInsightResourceUsageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUsage."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeHostInsightResourceUsage.");
     const operationName = "summarizeHostInsightResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceUsage";
@@ -13847,7 +13500,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13900,10 +13552,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightResourceUsageTrend(
     summarizeHostInsightResourceUsageTrendRequest: requests.SummarizeHostInsightResourceUsageTrendRequest
   ): Promise<responses.SummarizeHostInsightResourceUsageTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUsageTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUsageTrend."
+    );
     const operationName = "summarizeHostInsightResourceUsageTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceUsageTrend";
@@ -13943,7 +13594,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightResourceUsageTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14000,10 +13650,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightResourceUtilizationInsight(
     summarizeHostInsightResourceUtilizationInsightRequest: requests.SummarizeHostInsightResourceUtilizationInsightRequest
   ): Promise<responses.SummarizeHostInsightResourceUtilizationInsightResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUtilizationInsight."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUtilizationInsight."
+    );
     const operationName = "summarizeHostInsightResourceUtilizationInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceUtilizationInsight";
@@ -14047,7 +13696,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightResourceUtilizationInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14098,10 +13746,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightStorageUsageTrend(
     summarizeHostInsightStorageUsageTrendRequest: requests.SummarizeHostInsightStorageUsageTrendRequest
   ): Promise<responses.SummarizeHostInsightStorageUsageTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightStorageUsageTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightStorageUsageTrend."
+    );
     const operationName = "summarizeHostInsightStorageUsageTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightStorageUsageTrend";
@@ -14130,7 +13777,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightStorageUsageTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14188,10 +13834,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightTopProcessesUsage(
     summarizeHostInsightTopProcessesUsageRequest: requests.SummarizeHostInsightTopProcessesUsageRequest
   ): Promise<responses.SummarizeHostInsightTopProcessesUsageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightTopProcessesUsage."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightTopProcessesUsage."
+    );
     const operationName = "summarizeHostInsightTopProcessesUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightTopProcessesUsage";
@@ -14223,7 +13868,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightTopProcessesUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14281,10 +13925,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeHostInsightTopProcessesUsageTrend(
     summarizeHostInsightTopProcessesUsageTrendRequest: requests.SummarizeHostInsightTopProcessesUsageTrendRequest
   ): Promise<responses.SummarizeHostInsightTopProcessesUsageTrendResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeHostInsightTopProcessesUsageTrend."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeHostInsightTopProcessesUsageTrend."
+    );
     const operationName = "summarizeHostInsightTopProcessesUsageTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightTopProcessesUsageTrend";
@@ -14317,7 +13960,6 @@ Note that this API does not return information on the number of times each datab
       summarizeHostInsightTopProcessesUsageTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14374,10 +14016,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeOperationsInsightsWarehouseResourceUsage(
     summarizeOperationsInsightsWarehouseResourceUsageRequest: requests.SummarizeOperationsInsightsWarehouseResourceUsageRequest
   ): Promise<responses.SummarizeOperationsInsightsWarehouseResourceUsageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeOperationsInsightsWarehouseResourceUsage."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeOperationsInsightsWarehouseResourceUsage."
+    );
     const operationName = "summarizeOperationsInsightsWarehouseResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/SummarizeOperationsInsightsWarehouseResourceUsage";
@@ -14399,7 +14040,6 @@ Note that this API does not return information on the number of times each datab
       summarizeOperationsInsightsWarehouseResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14456,8 +14096,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeSqlInsights(
     summarizeSqlInsightsRequest: requests.SummarizeSqlInsightsRequest
   ): Promise<responses.SummarizeSqlInsightsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeSqlInsights.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeSqlInsights.");
     const operationName = "summarizeSqlInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlInsights";
@@ -14495,7 +14134,6 @@ Note that this API does not return information on the number of times each datab
       summarizeSqlInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14552,8 +14190,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeSqlPlanInsights(
     summarizeSqlPlanInsightsRequest: requests.SummarizeSqlPlanInsightsRequest
   ): Promise<responses.SummarizeSqlPlanInsightsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeSqlPlanInsights.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeSqlPlanInsights.");
     const operationName = "summarizeSqlPlanInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlPlanInsights";
@@ -14581,7 +14218,6 @@ Note that this API does not return information on the number of times each datab
       summarizeSqlPlanInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14638,10 +14274,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeSqlResponseTimeDistributions(
     summarizeSqlResponseTimeDistributionsRequest: requests.SummarizeSqlResponseTimeDistributionsRequest
   ): Promise<responses.SummarizeSqlResponseTimeDistributionsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeSqlResponseTimeDistributions."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeSqlResponseTimeDistributions."
+    );
     const operationName = "summarizeSqlResponseTimeDistributions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlResponseTimeDistributions";
@@ -14669,7 +14304,6 @@ Note that this API does not return information on the number of times each datab
       summarizeSqlResponseTimeDistributionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14726,8 +14360,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeSqlStatistics(
     summarizeSqlStatisticsRequest: requests.SummarizeSqlStatisticsRequest
   ): Promise<responses.SummarizeSqlStatisticsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#summarizeSqlStatistics.");
+    logger.debug("Calling operation OperationsInsightsClient#summarizeSqlStatistics.");
     const operationName = "summarizeSqlStatistics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlStatistics";
@@ -14770,7 +14403,6 @@ Note that this API does not return information on the number of times each datab
       summarizeSqlStatisticsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14827,10 +14459,7 @@ Note that this API does not return information on the number of times each datab
   public async summarizeSqlStatisticsTimeSeries(
     summarizeSqlStatisticsTimeSeriesRequest: requests.SummarizeSqlStatisticsTimeSeriesRequest
   ): Promise<responses.SummarizeSqlStatisticsTimeSeriesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeSqlStatisticsTimeSeries."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#summarizeSqlStatisticsTimeSeries.");
     const operationName = "summarizeSqlStatisticsTimeSeries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlStatisticsTimeSeries";
@@ -14867,7 +14496,6 @@ Note that this API does not return information on the number of times each datab
       summarizeSqlStatisticsTimeSeriesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14924,10 +14552,9 @@ Note that this API does not return information on the number of times each datab
   public async summarizeSqlStatisticsTimeSeriesByPlan(
     summarizeSqlStatisticsTimeSeriesByPlanRequest: requests.SummarizeSqlStatisticsTimeSeriesByPlanRequest
   ): Promise<responses.SummarizeSqlStatisticsTimeSeriesByPlanResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#summarizeSqlStatisticsTimeSeriesByPlan."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#summarizeSqlStatisticsTimeSeriesByPlan."
+    );
     const operationName = "summarizeSqlStatisticsTimeSeriesByPlan";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlStatisticsTimeSeriesByPlan";
@@ -14955,7 +14582,6 @@ Note that this API does not return information on the number of times each datab
       summarizeSqlStatisticsTimeSeriesByPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15010,7 +14636,7 @@ Note that this API does not return information on the number of times each datab
   public async updateAwrHub(
     updateAwrHubRequest: requests.UpdateAwrHubRequest
   ): Promise<responses.UpdateAwrHubResponse> {
-    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#updateAwrHub.");
+    logger.debug("Calling operation OperationsInsightsClient#updateAwrHub.");
     const operationName = "updateAwrHub";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/UpdateAwrHub";
@@ -15032,7 +14658,6 @@ Note that this API does not return information on the number of times each datab
       updateAwrHubRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15088,8 +14713,7 @@ Note that this API does not return information on the number of times each datab
   public async updateAwrHubSource(
     updateAwrHubSourceRequest: requests.UpdateAwrHubSourceRequest
   ): Promise<responses.UpdateAwrHubSourceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#updateAwrHubSource.");
+    logger.debug("Calling operation OperationsInsightsClient#updateAwrHubSource.");
     const operationName = "updateAwrHubSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/UpdateAwrHubSource";
@@ -15111,7 +14735,6 @@ Note that this API does not return information on the number of times each datab
       updateAwrHubSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15167,8 +14790,7 @@ Note that this API does not return information on the number of times each datab
   public async updateDatabaseInsight(
     updateDatabaseInsightRequest: requests.UpdateDatabaseInsightRequest
   ): Promise<responses.UpdateDatabaseInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#updateDatabaseInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#updateDatabaseInsight.");
     const operationName = "updateDatabaseInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/UpdateDatabaseInsight";
@@ -15190,7 +14812,6 @@ Note that this API does not return information on the number of times each datab
       updateDatabaseInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15246,10 +14867,7 @@ Note that this API does not return information on the number of times each datab
   public async updateEnterpriseManagerBridge(
     updateEnterpriseManagerBridgeRequest: requests.UpdateEnterpriseManagerBridgeRequest
   ): Promise<responses.UpdateEnterpriseManagerBridgeResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#updateEnterpriseManagerBridge."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#updateEnterpriseManagerBridge.");
     const operationName = "updateEnterpriseManagerBridge";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/UpdateEnterpriseManagerBridge";
@@ -15271,7 +14889,6 @@ Note that this API does not return information on the number of times each datab
       updateEnterpriseManagerBridgeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15327,8 +14944,7 @@ Note that this API does not return information on the number of times each datab
   public async updateExadataInsight(
     updateExadataInsightRequest: requests.UpdateExadataInsightRequest
   ): Promise<responses.UpdateExadataInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#updateExadataInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#updateExadataInsight.");
     const operationName = "updateExadataInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/UpdateExadataInsight";
@@ -15350,7 +14966,6 @@ Note that this API does not return information on the number of times each datab
       updateExadataInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15406,8 +15021,7 @@ Note that this API does not return information on the number of times each datab
   public async updateHostInsight(
     updateHostInsightRequest: requests.UpdateHostInsightRequest
   ): Promise<responses.UpdateHostInsightResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#updateHostInsight.");
+    logger.debug("Calling operation OperationsInsightsClient#updateHostInsight.");
     const operationName = "updateHostInsight";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/UpdateHostInsight";
@@ -15429,7 +15043,6 @@ Note that this API does not return information on the number of times each datab
       updateHostInsightRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15485,8 +15098,7 @@ Note that this API does not return information on the number of times each datab
   public async updateNewsReport(
     updateNewsReportRequest: requests.UpdateNewsReportRequest
   ): Promise<responses.UpdateNewsReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#updateNewsReport.");
+    logger.debug("Calling operation OperationsInsightsClient#updateNewsReport.");
     const operationName = "updateNewsReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/UpdateNewsReport";
@@ -15508,7 +15120,6 @@ Note that this API does not return information on the number of times each datab
       updateNewsReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15564,10 +15175,9 @@ Note that this API does not return information on the number of times each datab
   public async updateOperationsInsightsPrivateEndpoint(
     updateOperationsInsightsPrivateEndpointRequest: requests.UpdateOperationsInsightsPrivateEndpointRequest
   ): Promise<responses.UpdateOperationsInsightsPrivateEndpointResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#updateOperationsInsightsPrivateEndpoint."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#updateOperationsInsightsPrivateEndpoint."
+    );
     const operationName = "updateOperationsInsightsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/UpdateOperationsInsightsPrivateEndpoint";
@@ -15590,7 +15200,6 @@ Note that this API does not return information on the number of times each datab
       updateOperationsInsightsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15648,10 +15257,7 @@ Note that this API does not return information on the number of times each datab
   public async updateOperationsInsightsWarehouse(
     updateOperationsInsightsWarehouseRequest: requests.UpdateOperationsInsightsWarehouseRequest
   ): Promise<responses.UpdateOperationsInsightsWarehouseResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#updateOperationsInsightsWarehouse."
-      );
+    logger.debug("Calling operation OperationsInsightsClient#updateOperationsInsightsWarehouse.");
     const operationName = "updateOperationsInsightsWarehouse";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/UpdateOperationsInsightsWarehouse";
@@ -15674,7 +15280,6 @@ Note that this API does not return information on the number of times each datab
       updateOperationsInsightsWarehouseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15730,10 +15335,9 @@ Note that this API does not return information on the number of times each datab
   public async updateOperationsInsightsWarehouseUser(
     updateOperationsInsightsWarehouseUserRequest: requests.UpdateOperationsInsightsWarehouseUserRequest
   ): Promise<responses.UpdateOperationsInsightsWarehouseUserResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OperationsInsightsClient#updateOperationsInsightsWarehouseUser."
-      );
+    logger.debug(
+      "Calling operation OperationsInsightsClient#updateOperationsInsightsWarehouseUser."
+    );
     const operationName = "updateOperationsInsightsWarehouseUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/UpdateOperationsInsightsWarehouseUser";
@@ -15756,7 +15360,6 @@ Note that this API does not return information on the number of times each datab
       updateOperationsInsightsWarehouseUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15812,8 +15415,7 @@ Note that this API does not return information on the number of times each datab
   public async updateOpsiConfiguration(
     updateOpsiConfigurationRequest: requests.UpdateOpsiConfigurationRequest
   ): Promise<responses.UpdateOpsiConfigurationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OperationsInsightsClient#updateOpsiConfiguration.");
+    logger.debug("Calling operation OperationsInsightsClient#updateOpsiConfiguration.");
     const operationName = "updateOpsiConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/UpdateOpsiConfiguration";
@@ -15835,7 +15437,6 @@ Note that this API does not return information on the number of times each datab
       updateOpsiConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

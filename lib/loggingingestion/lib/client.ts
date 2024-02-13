@@ -19,7 +19,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -115,11 +116,7 @@ export class LoggingClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200831";
-    if (this.logger) this.logger.info(`LoggingClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LoggingClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -129,10 +126,9 @@ export class LoggingClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LoggingClient.serviceEndpointTemplate,
@@ -203,7 +199,7 @@ export class LoggingClient {
   public async putLogs(
     putLogsRequest: requests.PutLogsRequest
   ): Promise<responses.PutLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LoggingClient#putLogs.");
+    logger.debug("Calling operation LoggingClient#putLogs.");
     const operationName = "putLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-dataplane/20200831/LogEntry/PutLogs";
@@ -226,7 +222,6 @@ export class LoggingClient {
       putLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

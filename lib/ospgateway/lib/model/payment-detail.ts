@@ -61,7 +61,7 @@ export namespace PaymentDetail {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.paymentMethod}`);
+          common.logger.info(`Unknown value for: ${obj.paymentMethod}`);
       }
     }
     return jsonObj;
@@ -92,7 +92,7 @@ export namespace PaymentDetail {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.paymentMethod}`);
+          common.logger.info(`Unknown value for: ${obj.paymentMethod}`);
       }
     }
     return jsonObj;

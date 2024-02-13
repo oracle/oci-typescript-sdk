@@ -36,8 +36,7 @@ export namespace IngestStreamDistributionChannelDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.ingestPayloadType}`);
+          common.logger.info(`Unknown value for: ${obj.ingestPayloadType}`);
       }
     }
     return jsonObj;
@@ -53,8 +52,7 @@ export namespace IngestStreamDistributionChannelDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.ingestPayloadType}`);
+          common.logger.info(`Unknown value for: ${obj.ingestPayloadType}`);
       }
     }
     return jsonObj;

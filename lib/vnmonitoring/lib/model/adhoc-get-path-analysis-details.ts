@@ -32,6 +32,7 @@ export interface AdhocGetPathAnalysisDetails extends model.GetPathAnalysisDetail
     | model.NetworkLoadBalancerListenerEndpoint
     | model.ComputeInstanceEndpoint
     | model.NetworkLoadBalancerEndpoint
+    | model.OnPremEndpoint
     | model.LoadBalancerEndpoint
     | model.VnicEndpoint
     | model.IpAddressEndpoint
@@ -42,6 +43,7 @@ export interface AdhocGetPathAnalysisDetails extends model.GetPathAnalysisDetail
     | model.NetworkLoadBalancerListenerEndpoint
     | model.ComputeInstanceEndpoint
     | model.NetworkLoadBalancerEndpoint
+    | model.OnPremEndpoint
     | model.LoadBalancerEndpoint
     | model.VnicEndpoint
     | model.IpAddressEndpoint

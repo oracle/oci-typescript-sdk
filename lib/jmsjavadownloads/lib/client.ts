@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class JavaDownloadClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    if (this.logger) this.logger.info(`JavaDownloadClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`JavaDownloadClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class JavaDownloadClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         JavaDownloadClient.serviceEndpointTemplate,
@@ -225,7 +221,7 @@ export class JavaDownloadClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation JavaDownloadClient#cancelWorkRequest.");
+    logger.debug("Calling operation JavaDownloadClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -246,7 +242,6 @@ export class JavaDownloadClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -294,8 +289,7 @@ export class JavaDownloadClient {
   public async createJavaDownloadReport(
     createJavaDownloadReportRequest: requests.CreateJavaDownloadReportRequest
   ): Promise<responses.CreateJavaDownloadReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#createJavaDownloadReport.");
+    logger.debug("Calling operation JavaDownloadClient#createJavaDownloadReport.");
     const operationName = "createJavaDownloadReport";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -314,7 +308,6 @@ export class JavaDownloadClient {
       createJavaDownloadReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -371,8 +364,7 @@ export class JavaDownloadClient {
   public async createJavaDownloadToken(
     createJavaDownloadTokenRequest: requests.CreateJavaDownloadTokenRequest
   ): Promise<responses.CreateJavaDownloadTokenResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#createJavaDownloadToken.");
+    logger.debug("Calling operation JavaDownloadClient#createJavaDownloadToken.");
     const operationName = "createJavaDownloadToken";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -391,7 +383,6 @@ export class JavaDownloadClient {
       createJavaDownloadTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -457,8 +448,7 @@ export class JavaDownloadClient {
   public async createJavaLicenseAcceptanceRecord(
     createJavaLicenseAcceptanceRecordRequest: requests.CreateJavaLicenseAcceptanceRecordRequest
   ): Promise<responses.CreateJavaLicenseAcceptanceRecordResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#createJavaLicenseAcceptanceRecord.");
+    logger.debug("Calling operation JavaDownloadClient#createJavaLicenseAcceptanceRecord.");
     const operationName = "createJavaLicenseAcceptanceRecord";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -477,7 +467,6 @@ export class JavaDownloadClient {
       createJavaLicenseAcceptanceRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -537,8 +526,7 @@ export class JavaDownloadClient {
   public async deleteJavaDownloadReport(
     deleteJavaDownloadReportRequest: requests.DeleteJavaDownloadReportRequest
   ): Promise<responses.DeleteJavaDownloadReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#deleteJavaDownloadReport.");
+    logger.debug("Calling operation JavaDownloadClient#deleteJavaDownloadReport.");
     const operationName = "deleteJavaDownloadReport";
     const apiReferenceLink = "";
     const pathParams = {
@@ -559,7 +547,6 @@ export class JavaDownloadClient {
       deleteJavaDownloadReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -610,8 +597,7 @@ export class JavaDownloadClient {
   public async deleteJavaDownloadToken(
     deleteJavaDownloadTokenRequest: requests.DeleteJavaDownloadTokenRequest
   ): Promise<responses.DeleteJavaDownloadTokenResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#deleteJavaDownloadToken.");
+    logger.debug("Calling operation JavaDownloadClient#deleteJavaDownloadToken.");
     const operationName = "deleteJavaDownloadToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -632,7 +618,6 @@ export class JavaDownloadClient {
       deleteJavaDownloadTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -684,8 +669,7 @@ export class JavaDownloadClient {
   public async deleteJavaLicenseAcceptanceRecord(
     deleteJavaLicenseAcceptanceRecordRequest: requests.DeleteJavaLicenseAcceptanceRecordRequest
   ): Promise<responses.DeleteJavaLicenseAcceptanceRecordResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#deleteJavaLicenseAcceptanceRecord.");
+    logger.debug("Calling operation JavaDownloadClient#deleteJavaLicenseAcceptanceRecord.");
     const operationName = "deleteJavaLicenseAcceptanceRecord";
     const apiReferenceLink = "";
     const pathParams = {
@@ -707,7 +691,6 @@ export class JavaDownloadClient {
       deleteJavaLicenseAcceptanceRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -759,8 +742,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async generateArtifactDownloadUrl(
     generateArtifactDownloadUrlRequest: requests.GenerateArtifactDownloadUrlRequest
   ): Promise<responses.GenerateArtifactDownloadUrlResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#generateArtifactDownloadUrl.");
+    logger.debug("Calling operation JavaDownloadClient#generateArtifactDownloadUrl.");
     const operationName = "generateArtifactDownloadUrl";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -778,7 +760,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       generateArtifactDownloadUrlRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -833,8 +814,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async getJavaDownloadReport(
     getJavaDownloadReportRequest: requests.GetJavaDownloadReportRequest
   ): Promise<responses.GetJavaDownloadReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#getJavaDownloadReport.");
+    logger.debug("Calling operation JavaDownloadClient#getJavaDownloadReport.");
     const operationName = "getJavaDownloadReport";
     const apiReferenceLink = "";
     const pathParams = {
@@ -854,7 +834,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       getJavaDownloadReportRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -909,8 +888,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async getJavaDownloadReportContent(
     getJavaDownloadReportContentRequest: requests.GetJavaDownloadReportContentRequest
   ): Promise<responses.GetJavaDownloadReportContentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#getJavaDownloadReportContent.");
+    logger.debug("Calling operation JavaDownloadClient#getJavaDownloadReportContent.");
     const operationName = "getJavaDownloadReportContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -930,7 +908,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       getJavaDownloadReportContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -985,8 +962,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async getJavaDownloadToken(
     getJavaDownloadTokenRequest: requests.GetJavaDownloadTokenRequest
   ): Promise<responses.GetJavaDownloadTokenResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#getJavaDownloadToken.");
+    logger.debug("Calling operation JavaDownloadClient#getJavaDownloadToken.");
     const operationName = "getJavaDownloadToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1006,7 +982,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       getJavaDownloadTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1062,7 +1037,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async getJavaLicense(
     getJavaLicenseRequest: requests.GetJavaLicenseRequest
   ): Promise<responses.GetJavaLicenseResponse> {
-    if (this.logger) this.logger.debug("Calling operation JavaDownloadClient#getJavaLicense.");
+    logger.debug("Calling operation JavaDownloadClient#getJavaLicense.");
     const operationName = "getJavaLicense";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1082,7 +1057,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       getJavaLicenseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1133,8 +1107,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async getJavaLicenseAcceptanceRecord(
     getJavaLicenseAcceptanceRecordRequest: requests.GetJavaLicenseAcceptanceRecordRequest
   ): Promise<responses.GetJavaLicenseAcceptanceRecordResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#getJavaLicenseAcceptanceRecord.");
+    logger.debug("Calling operation JavaDownloadClient#getJavaLicenseAcceptanceRecord.");
     const operationName = "getJavaLicenseAcceptanceRecord";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1155,7 +1128,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       getJavaLicenseAcceptanceRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1210,7 +1182,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation JavaDownloadClient#getWorkRequest.");
+    logger.debug("Calling operation JavaDownloadClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1230,7 +1202,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1293,8 +1264,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async listJavaDownloadRecords(
     listJavaDownloadRecordsRequest: requests.ListJavaDownloadRecordsRequest
   ): Promise<responses.ListJavaDownloadRecordsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#listJavaDownloadRecords.");
+    logger.debug("Calling operation JavaDownloadClient#listJavaDownloadRecords.");
     const operationName = "listJavaDownloadRecords";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1325,7 +1295,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       listJavaDownloadRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1381,8 +1350,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async listJavaDownloadReports(
     listJavaDownloadReportsRequest: requests.ListJavaDownloadReportsRequest
   ): Promise<responses.ListJavaDownloadReportsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#listJavaDownloadReports.");
+    logger.debug("Calling operation JavaDownloadClient#listJavaDownloadReports.");
     const operationName = "listJavaDownloadReports";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1409,7 +1377,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       listJavaDownloadReportsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1465,8 +1432,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async listJavaDownloadTokens(
     listJavaDownloadTokensRequest: requests.ListJavaDownloadTokensRequest
   ): Promise<responses.ListJavaDownloadTokensResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#listJavaDownloadTokens.");
+    logger.debug("Calling operation JavaDownloadClient#listJavaDownloadTokens.");
     const operationName = "listJavaDownloadTokens";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1496,7 +1462,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       listJavaDownloadTokensRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1552,8 +1517,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async listJavaLicenseAcceptanceRecords(
     listJavaLicenseAcceptanceRecordsRequest: requests.ListJavaLicenseAcceptanceRecordsRequest
   ): Promise<responses.ListJavaLicenseAcceptanceRecordsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#listJavaLicenseAcceptanceRecords.");
+    logger.debug("Calling operation JavaDownloadClient#listJavaLicenseAcceptanceRecords.");
     const operationName = "listJavaLicenseAcceptanceRecords";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1581,7 +1545,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       listJavaLicenseAcceptanceRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1637,7 +1600,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async listJavaLicenses(
     listJavaLicensesRequest: requests.ListJavaLicensesRequest
   ): Promise<responses.ListJavaLicensesResponse> {
-    if (this.logger) this.logger.debug("Calling operation JavaDownloadClient#listJavaLicenses.");
+    logger.debug("Calling operation JavaDownloadClient#listJavaLicenses.");
     const operationName = "listJavaLicenses";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1662,7 +1625,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       listJavaLicensesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1718,8 +1680,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#listWorkRequestErrors.");
+    logger.debug("Calling operation JavaDownloadClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1744,7 +1705,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1800,7 +1760,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation JavaDownloadClient#listWorkRequestLogs.");
+    logger.debug("Calling operation JavaDownloadClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1825,7 +1785,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1881,7 +1840,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation JavaDownloadClient#listWorkRequests.");
+    logger.debug("Calling operation JavaDownloadClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1908,7 +1867,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1964,10 +1922,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async requestSummarizedJavaDownloadCounts(
     requestSummarizedJavaDownloadCountsRequest: requests.RequestSummarizedJavaDownloadCountsRequest
   ): Promise<responses.RequestSummarizedJavaDownloadCountsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation JavaDownloadClient#requestSummarizedJavaDownloadCounts."
-      );
+    logger.debug("Calling operation JavaDownloadClient#requestSummarizedJavaDownloadCounts.");
     const operationName = "requestSummarizedJavaDownloadCounts";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1985,7 +1940,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       requestSummarizedJavaDownloadCountsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2045,8 +1999,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async updateJavaDownloadToken(
     updateJavaDownloadTokenRequest: requests.UpdateJavaDownloadTokenRequest
   ): Promise<responses.UpdateJavaDownloadTokenResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#updateJavaDownloadToken.");
+    logger.debug("Calling operation JavaDownloadClient#updateJavaDownloadToken.");
     const operationName = "updateJavaDownloadToken";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2067,7 +2020,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       updateJavaDownloadTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2124,8 +2076,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
   public async updateJavaLicenseAcceptanceRecord(
     updateJavaLicenseAcceptanceRecordRequest: requests.UpdateJavaLicenseAcceptanceRecordRequest
   ): Promise<responses.UpdateJavaLicenseAcceptanceRecordResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation JavaDownloadClient#updateJavaLicenseAcceptanceRecord.");
+    logger.debug("Calling operation JavaDownloadClient#updateJavaLicenseAcceptanceRecord.");
     const operationName = "updateJavaLicenseAcceptanceRecord";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2147,7 +2098,6 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       updateJavaLicenseAcceptanceRecordRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

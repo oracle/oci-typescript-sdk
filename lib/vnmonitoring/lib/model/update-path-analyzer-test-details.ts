@@ -34,6 +34,7 @@ export interface UpdatePathAnalyzerTestDetails {
     | model.NetworkLoadBalancerListenerEndpoint
     | model.ComputeInstanceEndpoint
     | model.NetworkLoadBalancerEndpoint
+    | model.OnPremEndpoint
     | model.LoadBalancerEndpoint
     | model.VnicEndpoint
     | model.IpAddressEndpoint
@@ -44,6 +45,7 @@ export interface UpdatePathAnalyzerTestDetails {
     | model.NetworkLoadBalancerListenerEndpoint
     | model.ComputeInstanceEndpoint
     | model.NetworkLoadBalancerEndpoint
+    | model.OnPremEndpoint
     | model.LoadBalancerEndpoint
     | model.VnicEndpoint
     | model.IpAddressEndpoint

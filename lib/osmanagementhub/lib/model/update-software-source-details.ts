@@ -66,8 +66,7 @@ export namespace UpdateSoftwareSourceDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.softwareSourceType}`);
+          common.logger.info(`Unknown value for: ${obj.softwareSourceType}`);
       }
     }
     return jsonObj;
@@ -88,8 +87,7 @@ export namespace UpdateSoftwareSourceDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.softwareSourceType}`);
+          common.logger.info(`Unknown value for: ${obj.softwareSourceType}`);
       }
     }
     return jsonObj;

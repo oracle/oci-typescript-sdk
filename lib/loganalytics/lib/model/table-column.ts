@@ -30,6 +30,11 @@ export interface TableColumn extends model.AbstractColumn {
    *
    */
   "result"?: Array<{ [key: string]: any }>;
+  /**
+   * True if query did not complete processing all data.
+   *
+   */
+  "arePartialResults"?: boolean;
 
   "type": string;
 }

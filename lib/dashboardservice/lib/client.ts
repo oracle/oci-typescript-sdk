@@ -29,7 +29,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -125,11 +126,7 @@ export class DashboardClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210731";
-    if (this.logger) this.logger.info(`DashboardClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DashboardClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -139,10 +136,9 @@ export class DashboardClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DashboardClient.serviceEndpointTemplate,
@@ -234,7 +230,7 @@ export class DashboardClient {
   public async changeDashboardGroup(
     changeDashboardGroupRequest: requests.ChangeDashboardGroupRequest
   ): Promise<responses.ChangeDashboardGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation DashboardClient#changeDashboardGroup.");
+    logger.debug("Calling operation DashboardClient#changeDashboardGroup.");
     const operationName = "changeDashboardGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/ChangeDashboardGroup";
@@ -256,7 +252,6 @@ export class DashboardClient {
       changeDashboardGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -313,7 +308,7 @@ export class DashboardClient {
   public async createDashboard(
     createDashboardRequest: requests.CreateDashboardRequest
   ): Promise<responses.CreateDashboardResponse> {
-    if (this.logger) this.logger.debug("Calling operation DashboardClient#createDashboard.");
+    logger.debug("Calling operation DashboardClient#createDashboard.");
     const operationName = "createDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/CreateDashboard";
@@ -334,7 +329,6 @@ export class DashboardClient {
       createDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -394,7 +388,7 @@ export class DashboardClient {
   public async deleteDashboard(
     deleteDashboardRequest: requests.DeleteDashboardRequest
   ): Promise<responses.DeleteDashboardResponse> {
-    if (this.logger) this.logger.debug("Calling operation DashboardClient#deleteDashboard.");
+    logger.debug("Calling operation DashboardClient#deleteDashboard.");
     const operationName = "deleteDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/DeleteDashboard";
@@ -417,7 +411,6 @@ export class DashboardClient {
       deleteDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -463,7 +456,7 @@ export class DashboardClient {
   public async getDashboard(
     getDashboardRequest: requests.GetDashboardRequest
   ): Promise<responses.GetDashboardResponse> {
-    if (this.logger) this.logger.debug("Calling operation DashboardClient#getDashboard.");
+    logger.debug("Calling operation DashboardClient#getDashboard.");
     const operationName = "getDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/GetDashboard";
@@ -485,7 +478,6 @@ export class DashboardClient {
       getDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -541,7 +533,7 @@ export class DashboardClient {
   public async listDashboards(
     listDashboardsRequest: requests.ListDashboardsRequest
   ): Promise<responses.ListDashboardsResponse> {
-    if (this.logger) this.logger.debug("Calling operation DashboardClient#listDashboards.");
+    logger.debug("Calling operation DashboardClient#listDashboards.");
     const operationName = "listDashboards";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardCollection/ListDashboards";
@@ -570,7 +562,6 @@ export class DashboardClient {
       listDashboardsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -625,7 +616,7 @@ export class DashboardClient {
   public async updateDashboard(
     updateDashboardRequest: requests.UpdateDashboardRequest
   ): Promise<responses.UpdateDashboardResponse> {
-    if (this.logger) this.logger.debug("Calling operation DashboardClient#updateDashboard.");
+    logger.debug("Calling operation DashboardClient#updateDashboard.");
     const operationName = "updateDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/UpdateDashboard";
@@ -648,7 +639,6 @@ export class DashboardClient {
       updateDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -785,11 +775,7 @@ export class DashboardGroupClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210731";
-    if (this.logger) this.logger.info(`DashboardGroupClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`DashboardGroupClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -799,10 +785,9 @@ export class DashboardGroupClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DashboardGroupClient.serviceEndpointTemplate,
@@ -894,8 +879,7 @@ export class DashboardGroupClient {
   public async changeDashboardGroupCompartment(
     changeDashboardGroupCompartmentRequest: requests.ChangeDashboardGroupCompartmentRequest
   ): Promise<responses.ChangeDashboardGroupCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DashboardGroupClient#changeDashboardGroupCompartment.");
+    logger.debug("Calling operation DashboardGroupClient#changeDashboardGroupCompartment.");
     const operationName = "changeDashboardGroupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/ChangeDashboardGroupCompartment";
@@ -917,7 +901,6 @@ export class DashboardGroupClient {
       changeDashboardGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -974,8 +957,7 @@ export class DashboardGroupClient {
   public async createDashboardGroup(
     createDashboardGroupRequest: requests.CreateDashboardGroupRequest
   ): Promise<responses.CreateDashboardGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DashboardGroupClient#createDashboardGroup.");
+    logger.debug("Calling operation DashboardGroupClient#createDashboardGroup.");
     const operationName = "createDashboardGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/CreateDashboardGroup";
@@ -996,7 +978,6 @@ export class DashboardGroupClient {
       createDashboardGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1056,8 +1037,7 @@ export class DashboardGroupClient {
   public async deleteDashboardGroup(
     deleteDashboardGroupRequest: requests.DeleteDashboardGroupRequest
   ): Promise<responses.DeleteDashboardGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DashboardGroupClient#deleteDashboardGroup.");
+    logger.debug("Calling operation DashboardGroupClient#deleteDashboardGroup.");
     const operationName = "deleteDashboardGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/DeleteDashboardGroup";
@@ -1080,7 +1060,6 @@ export class DashboardGroupClient {
       deleteDashboardGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1126,7 +1105,7 @@ export class DashboardGroupClient {
   public async getDashboardGroup(
     getDashboardGroupRequest: requests.GetDashboardGroupRequest
   ): Promise<responses.GetDashboardGroupResponse> {
-    if (this.logger) this.logger.debug("Calling operation DashboardGroupClient#getDashboardGroup.");
+    logger.debug("Calling operation DashboardGroupClient#getDashboardGroup.");
     const operationName = "getDashboardGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/GetDashboardGroup";
@@ -1148,7 +1127,6 @@ export class DashboardGroupClient {
       getDashboardGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1204,8 +1182,7 @@ export class DashboardGroupClient {
   public async listDashboardGroups(
     listDashboardGroupsRequest: requests.ListDashboardGroupsRequest
   ): Promise<responses.ListDashboardGroupsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DashboardGroupClient#listDashboardGroups.");
+    logger.debug("Calling operation DashboardGroupClient#listDashboardGroups.");
     const operationName = "listDashboardGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroupCollection/ListDashboardGroups";
@@ -1234,7 +1211,6 @@ export class DashboardGroupClient {
       listDashboardGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1289,8 +1265,7 @@ export class DashboardGroupClient {
   public async updateDashboardGroup(
     updateDashboardGroupRequest: requests.UpdateDashboardGroupRequest
   ): Promise<responses.UpdateDashboardGroupResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DashboardGroupClient#updateDashboardGroup.");
+    logger.debug("Calling operation DashboardGroupClient#updateDashboardGroup.");
     const operationName = "updateDashboardGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/UpdateDashboardGroup";
@@ -1313,7 +1288,6 @@ export class DashboardGroupClient {
       updateDashboardGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

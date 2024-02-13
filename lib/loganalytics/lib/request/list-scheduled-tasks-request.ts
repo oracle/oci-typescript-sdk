@@ -69,6 +69,11 @@ export interface ListScheduledTasksRequest extends common.BaseRequest {
    *
    */
   "displayNameContains"?: string;
+  /**
+   * The target service to use for filtering.
+   *
+   */
+  "targetService"?: string;
 }
 
 export namespace ListScheduledTasksRequest {

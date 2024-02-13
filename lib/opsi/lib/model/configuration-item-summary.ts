@@ -37,7 +37,7 @@ export namespace ConfigurationItemSummary {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configItemType}`);
+          common.logger.info(`Unknown value for: ${obj.configItemType}`);
       }
     }
     return jsonObj;
@@ -53,7 +53,7 @@ export namespace ConfigurationItemSummary {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configItemType}`);
+          common.logger.info(`Unknown value for: ${obj.configItemType}`);
       }
     }
     return jsonObj;

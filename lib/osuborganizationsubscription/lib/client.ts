@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,12 +117,7 @@ export class OrganizationSubscriptionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/oalapp/service/onesubs/proxy/20210501";
-    if (this.logger)
-      this.logger.info(`OrganizationSubscriptionClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OrganizationSubscriptionClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -131,10 +127,9 @@ export class OrganizationSubscriptionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OrganizationSubscriptionClient.serviceEndpointTemplate,
@@ -204,10 +199,7 @@ export class OrganizationSubscriptionClient {
   public async listOrganizationSubscriptions(
     listOrganizationSubscriptionsRequest: requests.ListOrganizationSubscriptionsRequest
   ): Promise<responses.ListOrganizationSubscriptionsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation OrganizationSubscriptionClient#listOrganizationSubscriptions."
-      );
+    logger.debug("Calling operation OrganizationSubscriptionClient#listOrganizationSubscriptions.");
     const operationName = "listOrganizationSubscriptions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -233,7 +225,6 @@ export class OrganizationSubscriptionClient {
       listOrganizationSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

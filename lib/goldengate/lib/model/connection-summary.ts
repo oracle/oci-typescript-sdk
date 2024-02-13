@@ -260,7 +260,7 @@ export namespace ConnectionSummary {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectionType}`);
+          common.logger.info(`Unknown value for: ${obj.connectionType}`);
       }
     }
     return jsonObj;
@@ -395,7 +395,7 @@ export namespace ConnectionSummary {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectionType}`);
+          common.logger.info(`Unknown value for: ${obj.connectionType}`);
       }
     }
     return jsonObj;

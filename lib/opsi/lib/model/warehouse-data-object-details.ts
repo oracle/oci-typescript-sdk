@@ -41,7 +41,7 @@ export namespace WarehouseDataObjectDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dataObjectType}`);
+          common.logger.info(`Unknown value for: ${obj.dataObjectType}`);
       }
     }
     return jsonObj;
@@ -62,7 +62,7 @@ export namespace WarehouseDataObjectDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dataObjectType}`);
+          common.logger.info(`Unknown value for: ${obj.dataObjectType}`);
       }
     }
     return jsonObj;

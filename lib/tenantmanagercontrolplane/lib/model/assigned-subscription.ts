@@ -73,7 +73,7 @@ export namespace AssignedSubscription {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityVersion}`);
+          common.logger.info(`Unknown value for: ${obj.entityVersion}`);
       }
     }
     return jsonObj;
@@ -94,7 +94,7 @@ export namespace AssignedSubscription {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityVersion}`);
+          common.logger.info(`Unknown value for: ${obj.entityVersion}`);
       }
     }
     return jsonObj;

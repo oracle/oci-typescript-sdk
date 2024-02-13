@@ -117,7 +117,7 @@ export namespace FsuJob {
         case "CLEANUP":
           return model.CleanupFsuJob.getJsonObj(<model.CleanupFsuJob>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -160,7 +160,7 @@ export namespace FsuJob {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

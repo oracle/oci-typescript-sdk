@@ -128,7 +128,7 @@ export namespace Job {
         case "SQL":
           return model.SqlJob.getJsonObj(<model.SqlJob>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.jobType}`);
+          common.logger.info(`Unknown value for: ${obj.jobType}`);
       }
     }
     return jsonObj;
@@ -157,7 +157,7 @@ export namespace Job {
         case "SQL":
           return model.SqlJob.getDeserializedJsonObj(<model.SqlJob>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.jobType}`);
+          common.logger.info(`Unknown value for: ${obj.jobType}`);
       }
     }
     return jsonObj;

@@ -55,8 +55,7 @@ export namespace TablespaceAdminCredentialDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.tablespaceAdminCredentialType}`);
+          common.logger.info(`Unknown value for: ${obj.tablespaceAdminCredentialType}`);
       }
     }
     return jsonObj;
@@ -77,8 +76,7 @@ export namespace TablespaceAdminCredentialDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.tablespaceAdminCredentialType}`);
+          common.logger.info(`Unknown value for: ${obj.tablespaceAdminCredentialType}`);
       }
     }
     return jsonObj;

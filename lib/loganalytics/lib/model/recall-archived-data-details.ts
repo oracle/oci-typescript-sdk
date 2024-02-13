@@ -52,6 +52,10 @@ export interface RecallArchivedDataDetails {
    * This indicates if only new data has to be recalled in this recall request
    */
   "isRecallNewDataOnly"?: boolean;
+  /**
+   * This indicates if user checked system recommended time range
+   */
+  "isUseRecommendedDataSet"?: boolean;
 }
 
 export namespace RecallArchivedDataDetails {

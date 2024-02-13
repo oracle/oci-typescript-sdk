@@ -40,7 +40,7 @@ export namespace DedicatedAiClusterCapacity {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.capacityType}`);
+          common.logger.info(`Unknown value for: ${obj.capacityType}`);
       }
     }
     return jsonObj;
@@ -56,7 +56,7 @@ export namespace DedicatedAiClusterCapacity {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.capacityType}`);
+          common.logger.info(`Unknown value for: ${obj.capacityType}`);
       }
     }
     return jsonObj;

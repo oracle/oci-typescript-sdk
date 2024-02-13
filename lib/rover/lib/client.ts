@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -118,11 +119,7 @@ export class RoverBundleClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201210";
-    if (this.logger) this.logger.info(`RoverBundleClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`RoverBundleClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +129,9 @@ export class RoverBundleClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RoverBundleClient.serviceEndpointTemplate,
@@ -204,8 +200,7 @@ export class RoverBundleClient {
   public async listRoverClusterRoverBundleRequests(
     listRoverClusterRoverBundleRequestsRequest: requests.ListRoverClusterRoverBundleRequestsRequest
   ): Promise<responses.ListRoverClusterRoverBundleRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverBundleClient#listRoverClusterRoverBundleRequests.");
+    logger.debug("Calling operation RoverBundleClient#listRoverClusterRoverBundleRequests.");
     const operationName = "listRoverClusterRoverBundleRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/ListRoverClusterRoverBundleRequests";
@@ -231,7 +226,6 @@ export class RoverBundleClient {
       listRoverClusterRoverBundleRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -286,8 +280,7 @@ export class RoverBundleClient {
   public async listRoverNodeRoverBundleRequests(
     listRoverNodeRoverBundleRequestsRequest: requests.ListRoverNodeRoverBundleRequestsRequest
   ): Promise<responses.ListRoverNodeRoverBundleRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverBundleClient#listRoverNodeRoverBundleRequests.");
+    logger.debug("Calling operation RoverBundleClient#listRoverNodeRoverBundleRequests.");
     const operationName = "listRoverNodeRoverBundleRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/ListRoverNodeRoverBundleRequests";
@@ -313,7 +306,6 @@ export class RoverBundleClient {
       listRoverNodeRoverBundleRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -369,8 +361,7 @@ export class RoverBundleClient {
   public async requestBundleRoverCluster(
     requestBundleRoverClusterRequest: requests.RequestBundleRoverClusterRequest
   ): Promise<responses.RequestBundleRoverClusterResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverBundleClient#requestBundleRoverCluster.");
+    logger.debug("Calling operation RoverBundleClient#requestBundleRoverCluster.");
     const operationName = "requestBundleRoverCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/RequestBundleRoverCluster";
@@ -391,7 +382,6 @@ export class RoverBundleClient {
       requestBundleRoverClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -448,8 +438,7 @@ export class RoverBundleClient {
   public async requestBundleRoverNode(
     requestBundleRoverNodeRequest: requests.RequestBundleRoverNodeRequest
   ): Promise<responses.RequestBundleRoverNodeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverBundleClient#requestBundleRoverNode.");
+    logger.debug("Calling operation RoverBundleClient#requestBundleRoverNode.");
     const operationName = "requestBundleRoverNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/RequestBundleRoverNode";
@@ -470,7 +459,6 @@ export class RoverBundleClient {
       requestBundleRoverNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -526,10 +514,9 @@ export class RoverBundleClient {
   public async retrieveAvailableBundleVersionsRoverCluster(
     retrieveAvailableBundleVersionsRoverClusterRequest: requests.RetrieveAvailableBundleVersionsRoverClusterRequest
   ): Promise<responses.RetrieveAvailableBundleVersionsRoverClusterResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation RoverBundleClient#retrieveAvailableBundleVersionsRoverCluster."
-      );
+    logger.debug(
+      "Calling operation RoverBundleClient#retrieveAvailableBundleVersionsRoverCluster."
+    );
     const operationName = "retrieveAvailableBundleVersionsRoverCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/RetrieveAvailableBundleVersionsRoverCluster";
@@ -550,7 +537,6 @@ export class RoverBundleClient {
       retrieveAvailableBundleVersionsRoverClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -610,10 +596,7 @@ export class RoverBundleClient {
   public async retrieveAvailableBundleVersionsRoverNode(
     retrieveAvailableBundleVersionsRoverNodeRequest: requests.RetrieveAvailableBundleVersionsRoverNodeRequest
   ): Promise<responses.RetrieveAvailableBundleVersionsRoverNodeResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation RoverBundleClient#retrieveAvailableBundleVersionsRoverNode."
-      );
+    logger.debug("Calling operation RoverBundleClient#retrieveAvailableBundleVersionsRoverNode.");
     const operationName = "retrieveAvailableBundleVersionsRoverNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/RetrieveAvailableBundleVersionsRoverNode";
@@ -634,7 +617,6 @@ export class RoverBundleClient {
       retrieveAvailableBundleVersionsRoverNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -694,8 +676,7 @@ export class RoverBundleClient {
   public async retrieveBundleStatusRoverCluster(
     retrieveBundleStatusRoverClusterRequest: requests.RetrieveBundleStatusRoverClusterRequest
   ): Promise<responses.RetrieveBundleStatusRoverClusterResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverBundleClient#retrieveBundleStatusRoverCluster.");
+    logger.debug("Calling operation RoverBundleClient#retrieveBundleStatusRoverCluster.");
     const operationName = "retrieveBundleStatusRoverCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/RetrieveBundleStatusRoverCluster";
@@ -716,7 +697,6 @@ export class RoverBundleClient {
       retrieveBundleStatusRoverClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -776,8 +756,7 @@ export class RoverBundleClient {
   public async retrieveBundleStatusRoverNode(
     retrieveBundleStatusRoverNodeRequest: requests.RetrieveBundleStatusRoverNodeRequest
   ): Promise<responses.RetrieveBundleStatusRoverNodeResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverBundleClient#retrieveBundleStatusRoverNode.");
+    logger.debug("Calling operation RoverBundleClient#retrieveBundleStatusRoverNode.");
     const operationName = "retrieveBundleStatusRoverNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/RetrieveBundleStatusRoverNode";
@@ -798,7 +777,6 @@ export class RoverBundleClient {
       retrieveBundleStatusRoverNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -935,11 +913,7 @@ export class RoverClusterClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201210";
-    if (this.logger) this.logger.info(`RoverClusterClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`RoverClusterClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -949,10 +923,9 @@ export class RoverClusterClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RoverClusterClient.serviceEndpointTemplate,
@@ -1044,8 +1017,7 @@ export class RoverClusterClient {
   public async changeRoverClusterCompartment(
     changeRoverClusterCompartmentRequest: requests.ChangeRoverClusterCompartmentRequest
   ): Promise<responses.ChangeRoverClusterCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverClusterClient#changeRoverClusterCompartment.");
+    logger.debug("Calling operation RoverClusterClient#changeRoverClusterCompartment.");
     const operationName = "changeRoverClusterCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/ChangeRoverClusterCompartment";
@@ -1068,7 +1040,6 @@ export class RoverClusterClient {
       changeRoverClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1120,7 +1091,7 @@ export class RoverClusterClient {
   public async createRoverCluster(
     createRoverClusterRequest: requests.CreateRoverClusterRequest
   ): Promise<responses.CreateRoverClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverClusterClient#createRoverCluster.");
+    logger.debug("Calling operation RoverClusterClient#createRoverCluster.");
     const operationName = "createRoverCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/CreateRoverCluster";
@@ -1140,7 +1111,6 @@ export class RoverClusterClient {
       createRoverClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1200,7 +1170,7 @@ export class RoverClusterClient {
   public async deleteRoverCluster(
     deleteRoverClusterRequest: requests.DeleteRoverClusterRequest
   ): Promise<responses.DeleteRoverClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverClusterClient#deleteRoverCluster.");
+    logger.debug("Calling operation RoverClusterClient#deleteRoverCluster.");
     const operationName = "deleteRoverCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/DeleteRoverCluster";
@@ -1223,7 +1193,6 @@ export class RoverClusterClient {
       deleteRoverClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1269,7 +1238,7 @@ export class RoverClusterClient {
   public async getRoverCluster(
     getRoverClusterRequest: requests.GetRoverClusterRequest
   ): Promise<responses.GetRoverClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverClusterClient#getRoverCluster.");
+    logger.debug("Calling operation RoverClusterClient#getRoverCluster.");
     const operationName = "getRoverCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/GetRoverCluster";
@@ -1290,7 +1259,6 @@ export class RoverClusterClient {
       getRoverClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1345,8 +1313,7 @@ export class RoverClusterClient {
   public async getRoverClusterCertificate(
     getRoverClusterCertificateRequest: requests.GetRoverClusterCertificateRequest
   ): Promise<responses.GetRoverClusterCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverClusterClient#getRoverClusterCertificate.");
+    logger.debug("Calling operation RoverClusterClient#getRoverClusterCertificate.");
     const operationName = "getRoverClusterCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverClusterCertificate/GetRoverClusterCertificate";
@@ -1367,7 +1334,6 @@ export class RoverClusterClient {
       getRoverClusterCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1423,7 +1389,7 @@ export class RoverClusterClient {
   public async listRoverClusters(
     listRoverClustersRequest: requests.ListRoverClustersRequest
   ): Promise<responses.ListRoverClustersResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverClusterClient#listRoverClusters.");
+    logger.debug("Calling operation RoverClusterClient#listRoverClusters.");
     const operationName = "listRoverClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/ListRoverClusters";
@@ -1451,7 +1417,6 @@ export class RoverClusterClient {
       listRoverClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1511,8 +1476,7 @@ export class RoverClusterClient {
   public async requestAdditionalNodes(
     requestAdditionalNodesRequest: requests.RequestAdditionalNodesRequest
   ): Promise<responses.RequestAdditionalNodesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverClusterClient#requestAdditionalNodes.");
+    logger.debug("Calling operation RoverClusterClient#requestAdditionalNodes.");
     const operationName = "requestAdditionalNodes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/RequestAdditionalNodes";
@@ -1535,7 +1499,6 @@ export class RoverClusterClient {
       requestAdditionalNodesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1591,7 +1554,7 @@ export class RoverClusterClient {
   public async updateRoverCluster(
     updateRoverClusterRequest: requests.UpdateRoverClusterRequest
   ): Promise<responses.UpdateRoverClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverClusterClient#updateRoverCluster.");
+    logger.debug("Calling operation RoverClusterClient#updateRoverCluster.");
     const operationName = "updateRoverCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/UpdateRoverCluster";
@@ -1613,7 +1576,6 @@ export class RoverClusterClient {
       updateRoverClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1750,11 +1712,7 @@ export class RoverEntitlementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201210";
-    if (this.logger) this.logger.info(`RoverEntitlementClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`RoverEntitlementClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1764,10 +1722,9 @@ export class RoverEntitlementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RoverEntitlementClient.serviceEndpointTemplate,
@@ -1859,10 +1816,7 @@ export class RoverEntitlementClient {
   public async changeRoverEntitlementCompartment(
     changeRoverEntitlementCompartmentRequest: requests.ChangeRoverEntitlementCompartmentRequest
   ): Promise<responses.ChangeRoverEntitlementCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation RoverEntitlementClient#changeRoverEntitlementCompartment."
-      );
+    logger.debug("Calling operation RoverEntitlementClient#changeRoverEntitlementCompartment.");
     const operationName = "changeRoverEntitlementCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/ChangeRoverEntitlementCompartment";
@@ -1885,7 +1839,6 @@ export class RoverEntitlementClient {
       changeRoverEntitlementCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1936,8 +1889,7 @@ export class RoverEntitlementClient {
   public async createRoverEntitlement(
     createRoverEntitlementRequest: requests.CreateRoverEntitlementRequest
   ): Promise<responses.CreateRoverEntitlementResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverEntitlementClient#createRoverEntitlement.");
+    logger.debug("Calling operation RoverEntitlementClient#createRoverEntitlement.");
     const operationName = "createRoverEntitlement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/CreateRoverEntitlement";
@@ -1957,7 +1909,6 @@ export class RoverEntitlementClient {
       createRoverEntitlementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2017,8 +1968,7 @@ export class RoverEntitlementClient {
   public async deleteRoverEntitlement(
     deleteRoverEntitlementRequest: requests.DeleteRoverEntitlementRequest
   ): Promise<responses.DeleteRoverEntitlementResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverEntitlementClient#deleteRoverEntitlement.");
+    logger.debug("Calling operation RoverEntitlementClient#deleteRoverEntitlement.");
     const operationName = "deleteRoverEntitlement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/DeleteRoverEntitlement";
@@ -2041,7 +1991,6 @@ export class RoverEntitlementClient {
       deleteRoverEntitlementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2087,8 +2036,7 @@ export class RoverEntitlementClient {
   public async getRoverEntitlement(
     getRoverEntitlementRequest: requests.GetRoverEntitlementRequest
   ): Promise<responses.GetRoverEntitlementResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverEntitlementClient#getRoverEntitlement.");
+    logger.debug("Calling operation RoverEntitlementClient#getRoverEntitlement.");
     const operationName = "getRoverEntitlement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/GetRoverEntitlement";
@@ -2112,7 +2060,6 @@ export class RoverEntitlementClient {
       getRoverEntitlementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2167,8 +2114,7 @@ export class RoverEntitlementClient {
   public async listRoverEntitlements(
     listRoverEntitlementsRequest: requests.ListRoverEntitlementsRequest
   ): Promise<responses.ListRoverEntitlementsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverEntitlementClient#listRoverEntitlements.");
+    logger.debug("Calling operation RoverEntitlementClient#listRoverEntitlements.");
     const operationName = "listRoverEntitlements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/ListRoverEntitlements";
@@ -2196,7 +2142,6 @@ export class RoverEntitlementClient {
       listRoverEntitlementsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2256,8 +2201,7 @@ export class RoverEntitlementClient {
   public async updateRoverEntitlement(
     updateRoverEntitlementRequest: requests.UpdateRoverEntitlementRequest
   ): Promise<responses.UpdateRoverEntitlementResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverEntitlementClient#updateRoverEntitlement.");
+    logger.debug("Calling operation RoverEntitlementClient#updateRoverEntitlement.");
     const operationName = "updateRoverEntitlement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/UpdateRoverEntitlement";
@@ -2279,7 +2223,6 @@ export class RoverEntitlementClient {
       updateRoverEntitlementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2416,11 +2359,7 @@ export class RoverNodeClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201210";
-    if (this.logger) this.logger.info(`RoverNodeClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`RoverNodeClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -2430,10 +2369,9 @@ export class RoverNodeClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RoverNodeClient.serviceEndpointTemplate,
@@ -2525,8 +2463,7 @@ export class RoverNodeClient {
   public async changeRoverNodeCompartment(
     changeRoverNodeCompartmentRequest: requests.ChangeRoverNodeCompartmentRequest
   ): Promise<responses.ChangeRoverNodeCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverNodeClient#changeRoverNodeCompartment.");
+    logger.debug("Calling operation RoverNodeClient#changeRoverNodeCompartment.");
     const operationName = "changeRoverNodeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/ChangeRoverNodeCompartment";
@@ -2549,7 +2486,6 @@ export class RoverNodeClient {
       changeRoverNodeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2601,7 +2537,7 @@ export class RoverNodeClient {
   public async createRoverNode(
     createRoverNodeRequest: requests.CreateRoverNodeRequest
   ): Promise<responses.CreateRoverNodeResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverNodeClient#createRoverNode.");
+    logger.debug("Calling operation RoverNodeClient#createRoverNode.");
     const operationName = "createRoverNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/CreateRoverNode";
@@ -2621,7 +2557,6 @@ export class RoverNodeClient {
       createRoverNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2681,7 +2616,7 @@ export class RoverNodeClient {
   public async deleteRoverNode(
     deleteRoverNodeRequest: requests.DeleteRoverNodeRequest
   ): Promise<responses.DeleteRoverNodeResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverNodeClient#deleteRoverNode.");
+    logger.debug("Calling operation RoverNodeClient#deleteRoverNode.");
     const operationName = "deleteRoverNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/DeleteRoverNode";
@@ -2704,7 +2639,6 @@ export class RoverNodeClient {
       deleteRoverNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2750,7 +2684,7 @@ export class RoverNodeClient {
   public async getRoverNode(
     getRoverNodeRequest: requests.GetRoverNodeRequest
   ): Promise<responses.GetRoverNodeResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverNodeClient#getRoverNode.");
+    logger.debug("Calling operation RoverNodeClient#getRoverNode.");
     const operationName = "getRoverNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/GetRoverNode";
@@ -2771,7 +2705,6 @@ export class RoverNodeClient {
       getRoverNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2826,8 +2759,7 @@ export class RoverNodeClient {
   public async getRoverNodeCertificate(
     getRoverNodeCertificateRequest: requests.GetRoverNodeCertificateRequest
   ): Promise<responses.GetRoverNodeCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverNodeClient#getRoverNodeCertificate.");
+    logger.debug("Calling operation RoverNodeClient#getRoverNodeCertificate.");
     const operationName = "getRoverNodeCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNodeCertificate/GetRoverNodeCertificate";
@@ -2848,7 +2780,6 @@ export class RoverNodeClient {
       getRoverNodeCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2903,8 +2834,7 @@ export class RoverNodeClient {
   public async getRoverNodeEncryptionKey(
     getRoverNodeEncryptionKeyRequest: requests.GetRoverNodeEncryptionKeyRequest
   ): Promise<responses.GetRoverNodeEncryptionKeyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverNodeClient#getRoverNodeEncryptionKey.");
+    logger.debug("Calling operation RoverNodeClient#getRoverNodeEncryptionKey.");
     const operationName = "getRoverNodeEncryptionKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNodeEncryptionKey/GetRoverNodeEncryptionKey";
@@ -2925,7 +2855,6 @@ export class RoverNodeClient {
       getRoverNodeEncryptionKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2980,7 +2909,7 @@ export class RoverNodeClient {
   public async getRoverNodeGetRpt(
     getRoverNodeGetRptRequest: requests.GetRoverNodeGetRptRequest
   ): Promise<responses.GetRoverNodeGetRptResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverNodeClient#getRoverNodeGetRpt.");
+    logger.debug("Calling operation RoverNodeClient#getRoverNodeGetRpt.");
     const operationName = "getRoverNodeGetRpt";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNodeGetRpt/GetRoverNodeGetRpt";
@@ -3002,7 +2931,6 @@ export class RoverNodeClient {
       getRoverNodeGetRptRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3058,7 +2986,7 @@ export class RoverNodeClient {
   public async listRoverNodes(
     listRoverNodesRequest: requests.ListRoverNodesRequest
   ): Promise<responses.ListRoverNodesResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverNodeClient#listRoverNodes.");
+    logger.debug("Calling operation RoverNodeClient#listRoverNodes.");
     const operationName = "listRoverNodes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/ListRoverNodes";
@@ -3087,7 +3015,6 @@ export class RoverNodeClient {
       listRoverNodesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3147,8 +3074,7 @@ export class RoverNodeClient {
   public async roverNodeActionRetrieveCaBundle(
     roverNodeActionRetrieveCaBundleRequest: requests.RoverNodeActionRetrieveCaBundleRequest
   ): Promise<responses.RoverNodeActionRetrieveCaBundleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverNodeClient#roverNodeActionRetrieveCaBundle.");
+    logger.debug("Calling operation RoverNodeClient#roverNodeActionRetrieveCaBundle.");
     const operationName = "roverNodeActionRetrieveCaBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/RoverNodeActionRetrieveCaBundle";
@@ -3171,7 +3097,6 @@ export class RoverNodeClient {
       roverNodeActionRetrieveCaBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3226,7 +3151,7 @@ export class RoverNodeClient {
   public async roverNodeActionSetKey(
     roverNodeActionSetKeyRequest: requests.RoverNodeActionSetKeyRequest
   ): Promise<responses.RoverNodeActionSetKeyResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverNodeClient#roverNodeActionSetKey.");
+    logger.debug("Calling operation RoverNodeClient#roverNodeActionSetKey.");
     const operationName = "roverNodeActionSetKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNodeSetKey/RoverNodeActionSetKey";
@@ -3250,7 +3175,6 @@ export class RoverNodeClient {
       roverNodeActionSetKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3311,8 +3235,7 @@ export class RoverNodeClient {
   public async roverNodeGenerateCertificate(
     roverNodeGenerateCertificateRequest: requests.RoverNodeGenerateCertificateRequest
   ): Promise<responses.RoverNodeGenerateCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverNodeClient#roverNodeGenerateCertificate.");
+    logger.debug("Calling operation RoverNodeClient#roverNodeGenerateCertificate.");
     const operationName = "roverNodeGenerateCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/RoverNodeGenerateCertificate";
@@ -3335,7 +3258,6 @@ export class RoverNodeClient {
       roverNodeGenerateCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3396,8 +3318,7 @@ export class RoverNodeClient {
   public async roverNodeRenewCertificate(
     roverNodeRenewCertificateRequest: requests.RoverNodeRenewCertificateRequest
   ): Promise<responses.RoverNodeRenewCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverNodeClient#roverNodeRenewCertificate.");
+    logger.debug("Calling operation RoverNodeClient#roverNodeRenewCertificate.");
     const operationName = "roverNodeRenewCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/RoverNodeRenewCertificate";
@@ -3420,7 +3341,6 @@ export class RoverNodeClient {
       roverNodeRenewCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3481,8 +3401,7 @@ export class RoverNodeClient {
   public async roverNodeReplaceCertificateAuthority(
     roverNodeReplaceCertificateAuthorityRequest: requests.RoverNodeReplaceCertificateAuthorityRequest
   ): Promise<responses.RoverNodeReplaceCertificateAuthorityResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverNodeClient#roverNodeReplaceCertificateAuthority.");
+    logger.debug("Calling operation RoverNodeClient#roverNodeReplaceCertificateAuthority.");
     const operationName = "roverNodeReplaceCertificateAuthority";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/RoverNodeReplaceCertificateAuthority";
@@ -3505,7 +3424,6 @@ export class RoverNodeClient {
       roverNodeReplaceCertificateAuthorityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3565,8 +3483,7 @@ export class RoverNodeClient {
   public async roverNodeRetrieveLeafCertificate(
     roverNodeRetrieveLeafCertificateRequest: requests.RoverNodeRetrieveLeafCertificateRequest
   ): Promise<responses.RoverNodeRetrieveLeafCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation RoverNodeClient#roverNodeRetrieveLeafCertificate.");
+    logger.debug("Calling operation RoverNodeClient#roverNodeRetrieveLeafCertificate.");
     const operationName = "roverNodeRetrieveLeafCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/RoverNodeRetrieveLeafCertificate";
@@ -3589,7 +3506,6 @@ export class RoverNodeClient {
       roverNodeRetrieveLeafCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3644,7 +3560,7 @@ export class RoverNodeClient {
   public async updateRoverNode(
     updateRoverNodeRequest: requests.UpdateRoverNodeRequest
   ): Promise<responses.UpdateRoverNodeResponse> {
-    if (this.logger) this.logger.debug("Calling operation RoverNodeClient#updateRoverNode.");
+    logger.debug("Calling operation RoverNodeClient#updateRoverNode.");
     const operationName = "updateRoverNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/UpdateRoverNode";
@@ -3666,7 +3582,6 @@ export class RoverNodeClient {
       updateRoverNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3802,11 +3717,7 @@ export class ShapeClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201210";
-    if (this.logger) this.logger.info(`ShapeClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ShapeClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -3816,10 +3727,9 @@ export class ShapeClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ShapeClient.serviceEndpointTemplate,
@@ -3889,7 +3799,7 @@ export class ShapeClient {
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ShapeClient#listShapes.");
+    logger.debug("Calling operation ShapeClient#listShapes.");
     const operationName = "listShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/ShapeSummary/ListShapes";
@@ -3914,7 +3824,6 @@ export class ShapeClient {
       listShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4051,11 +3960,7 @@ export class WorkRequestsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201210";
-    if (this.logger) this.logger.info(`WorkRequestsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`WorkRequestsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -4065,10 +3970,9 @@ export class WorkRequestsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WorkRequestsClient.serviceEndpointTemplate,
@@ -4160,7 +4064,7 @@ export class WorkRequestsClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#cancelWorkRequest.");
+    logger.debug("Calling operation WorkRequestsClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/WorkRequest/CancelWorkRequest";
@@ -4183,7 +4087,6 @@ export class WorkRequestsClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4229,7 +4132,7 @@ export class WorkRequestsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
+    logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/WorkRequest/GetWorkRequest";
@@ -4250,7 +4153,6 @@ export class WorkRequestsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4311,8 +4213,7 @@ export class WorkRequestsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
+    logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/WorkRequest/ListWorkRequestErrors";
@@ -4338,7 +4239,6 @@ export class WorkRequestsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4399,7 +4299,7 @@ export class WorkRequestsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
+    logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/WorkRequest/ListWorkRequestLogs";
@@ -4425,7 +4325,6 @@ export class WorkRequestsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4486,7 +4385,7 @@ export class WorkRequestsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
+    logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/rover/20201210/WorkRequest/ListWorkRequests";
@@ -4514,7 +4413,6 @@ export class WorkRequestsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

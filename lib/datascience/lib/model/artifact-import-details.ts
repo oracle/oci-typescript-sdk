@@ -34,8 +34,7 @@ export namespace ArtifactImportDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.artifactSourceType}`);
+          common.logger.info(`Unknown value for: ${obj.artifactSourceType}`);
       }
     }
     return jsonObj;
@@ -51,8 +50,7 @@ export namespace ArtifactImportDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.artifactSourceType}`);
+          common.logger.info(`Unknown value for: ${obj.artifactSourceType}`);
       }
     }
     return jsonObj;

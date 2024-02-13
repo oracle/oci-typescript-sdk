@@ -39,8 +39,7 @@ export namespace OutboundConnection {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.outboundConnectionType}`);
+          common.logger.info(`Unknown value for: ${obj.outboundConnectionType}`);
       }
     }
     return jsonObj;
@@ -61,8 +60,7 @@ export namespace OutboundConnection {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.outboundConnectionType}`);
+          common.logger.info(`Unknown value for: ${obj.outboundConnectionType}`);
       }
     }
     return jsonObj;

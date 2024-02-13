@@ -259,7 +259,7 @@ export namespace Connection {
         case "REDIS":
           return model.RedisConnection.getJsonObj(<model.RedisConnection>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectionType}`);
+          common.logger.info(`Unknown value for: ${obj.connectionType}`);
       }
     }
     return jsonObj;
@@ -394,7 +394,7 @@ export namespace Connection {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectionType}`);
+          common.logger.info(`Unknown value for: ${obj.connectionType}`);
       }
     }
     return jsonObj;

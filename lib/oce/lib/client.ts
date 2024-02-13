@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,11 +118,7 @@ export class OceInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190912";
-    if (this.logger) this.logger.info(`OceInstanceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`OceInstanceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -131,10 +128,9 @@ export class OceInstanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OceInstanceClient.serviceEndpointTemplate,
@@ -226,8 +222,7 @@ export class OceInstanceClient {
   public async changeOceInstanceCompartment(
     changeOceInstanceCompartmentRequest: requests.ChangeOceInstanceCompartmentRequest
   ): Promise<responses.ChangeOceInstanceCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OceInstanceClient#changeOceInstanceCompartment.");
+    logger.debug("Calling operation OceInstanceClient#changeOceInstanceCompartment.");
     const operationName = "changeOceInstanceCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -249,7 +244,6 @@ export class OceInstanceClient {
       changeOceInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -306,7 +300,7 @@ export class OceInstanceClient {
   public async createOceInstance(
     createOceInstanceRequest: requests.CreateOceInstanceRequest
   ): Promise<responses.CreateOceInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#createOceInstance.");
+    logger.debug("Calling operation OceInstanceClient#createOceInstance.");
     const operationName = "createOceInstance";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -325,7 +319,6 @@ export class OceInstanceClient {
       createOceInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -381,7 +374,7 @@ export class OceInstanceClient {
   public async deleteOceInstance(
     deleteOceInstanceRequest: requests.DeleteOceInstanceRequest
   ): Promise<responses.DeleteOceInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#deleteOceInstance.");
+    logger.debug("Calling operation OceInstanceClient#deleteOceInstance.");
     const operationName = "deleteOceInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -402,7 +395,6 @@ export class OceInstanceClient {
       deleteOceInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -453,7 +445,7 @@ export class OceInstanceClient {
   public async getOceInstance(
     getOceInstanceRequest: requests.GetOceInstanceRequest
   ): Promise<responses.GetOceInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#getOceInstance.");
+    logger.debug("Calling operation OceInstanceClient#getOceInstance.");
     const operationName = "getOceInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -473,7 +465,6 @@ export class OceInstanceClient {
       getOceInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -528,7 +519,7 @@ export class OceInstanceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#getWorkRequest.");
+    logger.debug("Calling operation OceInstanceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -548,7 +539,6 @@ export class OceInstanceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -609,7 +599,7 @@ export class OceInstanceClient {
   public async listOceInstances(
     listOceInstancesRequest: requests.ListOceInstancesRequest
   ): Promise<responses.ListOceInstancesResponse> {
-    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listOceInstances.");
+    logger.debug("Calling operation OceInstanceClient#listOceInstances.");
     const operationName = "listOceInstances";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -636,7 +626,6 @@ export class OceInstanceClient {
       listOceInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -744,8 +733,7 @@ export class OceInstanceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation OceInstanceClient#listWorkRequestErrors.");
+    logger.debug("Calling operation OceInstanceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -768,7 +756,6 @@ export class OceInstanceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -876,7 +863,7 @@ export class OceInstanceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listWorkRequestLogs.");
+    logger.debug("Calling operation OceInstanceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -899,7 +886,6 @@ export class OceInstanceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1007,7 +993,7 @@ export class OceInstanceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listWorkRequests.");
+    logger.debug("Calling operation OceInstanceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1030,7 +1016,6 @@ export class OceInstanceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1137,7 +1122,7 @@ export class OceInstanceClient {
   public async updateOceInstance(
     updateOceInstanceRequest: requests.UpdateOceInstanceRequest
   ): Promise<responses.UpdateOceInstanceResponse> {
-    if (this.logger) this.logger.debug("Calling operation OceInstanceClient#updateOceInstance.");
+    logger.debug("Calling operation OceInstanceClient#updateOceInstance.");
     const operationName = "updateOceInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1158,7 +1143,6 @@ export class OceInstanceClient {
       updateOceInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -38,8 +38,7 @@ export namespace DatabaseToolsConnectionOracleDatabaseProxyClient {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.proxyAuthenticationType}`);
+          common.logger.info(`Unknown value for: ${obj.proxyAuthenticationType}`);
       }
     }
     return jsonObj;
@@ -62,8 +61,7 @@ export namespace DatabaseToolsConnectionOracleDatabaseProxyClient {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.proxyAuthenticationType}`);
+          common.logger.info(`Unknown value for: ${obj.proxyAuthenticationType}`);
       }
     }
     return jsonObj;

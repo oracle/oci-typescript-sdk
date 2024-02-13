@@ -19,7 +19,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -114,11 +115,7 @@ export class ResourcesClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    if (this.logger) this.logger.info(`ResourcesClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ResourcesClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -128,10 +125,9 @@ export class ResourcesClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ResourcesClient.serviceEndpointTemplate,
@@ -202,7 +198,7 @@ export class ResourcesClient {
   public async listResourceQuota(
     listResourceQuotaRequest: requests.ListResourceQuotaRequest
   ): Promise<responses.ListResourceQuotaResponse> {
-    if (this.logger) this.logger.debug("Calling operation ResourcesClient#listResourceQuota.");
+    logger.debug("Calling operation ResourcesClient#listResourceQuota.");
     const operationName = "listResourceQuota";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/ResourceQuotumSummary/ListResourceQuota";
@@ -229,7 +225,6 @@ export class ResourcesClient {
       listResourceQuotaRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -286,7 +281,7 @@ export class ResourcesClient {
   public async listResources(
     listResourcesRequest: requests.ListResourcesRequest
   ): Promise<responses.ListResourcesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ResourcesClient#listResources.");
+    logger.debug("Calling operation ResourcesClient#listResources.");
     const operationName = "listResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/ResourceSummary/ListResources";
@@ -313,7 +308,6 @@ export class ResourcesClient {
       listResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -444,11 +438,7 @@ export class RewardsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    if (this.logger) this.logger.info(`RewardsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`RewardsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -458,10 +448,9 @@ export class RewardsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RewardsClient.serviceEndpointTemplate,
@@ -531,7 +520,7 @@ export class RewardsClient {
   public async createRedeemableUser(
     createRedeemableUserRequest: requests.CreateRedeemableUserRequest
   ): Promise<responses.CreateRedeemableUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation RewardsClient#createRedeemableUser.");
+    logger.debug("Calling operation RewardsClient#createRedeemableUser.");
     const operationName = "createRedeemableUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/RedeemableUser/CreateRedeemableUser";
@@ -557,7 +546,6 @@ export class RewardsClient {
       createRedeemableUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -618,7 +606,7 @@ export class RewardsClient {
   public async deleteRedeemableUser(
     deleteRedeemableUserRequest: requests.DeleteRedeemableUserRequest
   ): Promise<responses.DeleteRedeemableUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation RewardsClient#deleteRedeemableUser.");
+    logger.debug("Calling operation RewardsClient#deleteRedeemableUser.");
     const operationName = "deleteRedeemableUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/RedeemableUser/DeleteRedeemableUser";
@@ -643,7 +631,6 @@ export class RewardsClient {
       deleteRedeemableUserRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -690,7 +677,7 @@ export class RewardsClient {
   public async listProducts(
     listProductsRequest: requests.ListProductsRequest
   ): Promise<responses.ListProductsResponse> {
-    if (this.logger) this.logger.debug("Calling operation RewardsClient#listProducts.");
+    logger.debug("Calling operation RewardsClient#listProducts.");
     const operationName = "listProducts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/ProductSummary/ListProducts";
@@ -719,7 +706,6 @@ export class RewardsClient {
       listProductsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -775,7 +761,7 @@ export class RewardsClient {
   public async listRedeemableUsers(
     listRedeemableUsersRequest: requests.ListRedeemableUsersRequest
   ): Promise<responses.ListRedeemableUsersResponse> {
-    if (this.logger) this.logger.debug("Calling operation RewardsClient#listRedeemableUsers.");
+    logger.debug("Calling operation RewardsClient#listRedeemableUsers.");
     const operationName = "listRedeemableUsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/RedeemableUserSummary/ListRedeemableUsers";
@@ -802,7 +788,6 @@ export class RewardsClient {
       listRedeemableUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -858,7 +843,7 @@ export class RewardsClient {
   public async listRedemptions(
     listRedemptionsRequest: requests.ListRedemptionsRequest
   ): Promise<responses.ListRedemptionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation RewardsClient#listRedemptions.");
+    logger.debug("Calling operation RewardsClient#listRedemptions.");
     const operationName = "listRedemptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/RedemptionSummary/ListRedemptions";
@@ -887,7 +872,6 @@ export class RewardsClient {
       listRedemptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -943,7 +927,7 @@ export class RewardsClient {
   public async listRewards(
     listRewardsRequest: requests.ListRewardsRequest
   ): Promise<responses.ListRewardsResponse> {
-    if (this.logger) this.logger.debug("Calling operation RewardsClient#listRewards.");
+    logger.debug("Calling operation RewardsClient#listRewards.");
     const operationName = "listRewards";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/MonthlyRewardSummary/ListRewards";
@@ -966,7 +950,6 @@ export class RewardsClient {
       listRewardsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1092,11 +1075,7 @@ export class UsagelimitsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    if (this.logger) this.logger.info(`UsagelimitsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`UsagelimitsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1106,10 +1085,9 @@ export class UsagelimitsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         UsagelimitsClient.serviceEndpointTemplate,
@@ -1179,7 +1157,7 @@ export class UsagelimitsClient {
   public async listUsageLimits(
     listUsageLimitsRequest: requests.ListUsageLimitsRequest
   ): Promise<responses.ListUsageLimitsResponse> {
-    if (this.logger) this.logger.debug("Calling operation UsagelimitsClient#listUsageLimits.");
+    logger.debug("Calling operation UsagelimitsClient#listUsageLimits.");
     const operationName = "listUsageLimits";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/UsageLimitSummary/ListUsageLimits";
@@ -1208,7 +1186,6 @@ export class UsagelimitsClient {
       listUsageLimitsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

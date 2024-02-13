@@ -25,7 +25,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -121,11 +122,7 @@ export class MonitoringClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180401";
-    if (this.logger) this.logger.info(`MonitoringClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`MonitoringClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -135,10 +132,9 @@ export class MonitoringClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         MonitoringClient.serviceEndpointTemplate,
@@ -233,8 +229,7 @@ export class MonitoringClient {
   public async changeAlarmCompartment(
     changeAlarmCompartmentRequest: requests.ChangeAlarmCompartmentRequest
   ): Promise<responses.ChangeAlarmCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MonitoringClient#changeAlarmCompartment.");
+    logger.debug("Calling operation MonitoringClient#changeAlarmCompartment.");
     const operationName = "changeAlarmCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/ChangeAlarmCompartment";
@@ -257,7 +252,6 @@ export class MonitoringClient {
       changeAlarmCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -317,7 +311,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async createAlarm(
     createAlarmRequest: requests.CreateAlarmRequest
   ): Promise<responses.CreateAlarmResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#createAlarm.");
+    logger.debug("Calling operation MonitoringClient#createAlarm.");
     const operationName = "createAlarm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/CreateAlarm";
@@ -337,7 +331,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       createAlarmRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -405,8 +398,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async createAlarmSuppression(
     createAlarmSuppressionRequest: requests.CreateAlarmSuppressionRequest
   ): Promise<responses.CreateAlarmSuppressionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MonitoringClient#createAlarmSuppression.");
+    logger.debug("Calling operation MonitoringClient#createAlarmSuppression.");
     const operationName = "createAlarmSuppression";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppression/CreateAlarmSuppression";
@@ -426,7 +418,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       createAlarmSuppressionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -495,7 +486,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async deleteAlarm(
     deleteAlarmRequest: requests.DeleteAlarmRequest
   ): Promise<responses.DeleteAlarmResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#deleteAlarm.");
+    logger.debug("Calling operation MonitoringClient#deleteAlarm.");
     const operationName = "deleteAlarm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/DeleteAlarm";
@@ -517,7 +508,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       deleteAlarmRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -571,8 +561,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async deleteAlarmSuppression(
     deleteAlarmSuppressionRequest: requests.DeleteAlarmSuppressionRequest
   ): Promise<responses.DeleteAlarmSuppressionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MonitoringClient#deleteAlarmSuppression.");
+    logger.debug("Calling operation MonitoringClient#deleteAlarmSuppression.");
     const operationName = "deleteAlarmSuppression";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppression/DeleteAlarmSuppression";
@@ -594,7 +583,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       deleteAlarmSuppressionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -649,7 +637,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async getAlarm(
     getAlarmRequest: requests.GetAlarmRequest
   ): Promise<responses.GetAlarmResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#getAlarm.");
+    logger.debug("Calling operation MonitoringClient#getAlarm.");
     const operationName = "getAlarm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/GetAlarm";
@@ -670,7 +658,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       getAlarmRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -734,7 +721,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async getAlarmHistory(
     getAlarmHistoryRequest: requests.GetAlarmHistoryRequest
   ): Promise<responses.GetAlarmHistoryResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#getAlarmHistory.");
+    logger.debug("Calling operation MonitoringClient#getAlarmHistory.");
     const operationName = "getAlarmHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmHistoryCollection/GetAlarmHistory";
@@ -761,7 +748,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       getAlarmHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -824,7 +810,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async getAlarmSuppression(
     getAlarmSuppressionRequest: requests.GetAlarmSuppressionRequest
   ): Promise<responses.GetAlarmSuppressionResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#getAlarmSuppression.");
+    logger.debug("Calling operation MonitoringClient#getAlarmSuppression.");
     const operationName = "getAlarmSuppression";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppression/GetAlarmSuppression";
@@ -845,7 +831,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       getAlarmSuppressionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -909,7 +894,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async listAlarmSuppressions(
     listAlarmSuppressionsRequest: requests.ListAlarmSuppressionsRequest
   ): Promise<responses.ListAlarmSuppressionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#listAlarmSuppressions.");
+    logger.debug("Calling operation MonitoringClient#listAlarmSuppressions.");
     const operationName = "listAlarmSuppressions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppressionCollection/ListAlarmSuppressions";
@@ -936,7 +921,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       listAlarmSuppressionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1005,7 +989,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async listAlarms(
     listAlarmsRequest: requests.ListAlarmsRequest
   ): Promise<responses.ListAlarmsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#listAlarms.");
+    logger.debug("Calling operation MonitoringClient#listAlarms.");
     const operationName = "listAlarms";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSummary/ListAlarms";
@@ -1033,7 +1017,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       listAlarmsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1152,7 +1135,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async listAlarmsStatus(
     listAlarmsStatusRequest: requests.ListAlarmsStatusRequest
   ): Promise<responses.ListAlarmsStatusResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#listAlarmsStatus.");
+    logger.debug("Calling operation MonitoringClient#listAlarmsStatus.");
     const operationName = "listAlarmsStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmStatusSummary/ListAlarmsStatus";
@@ -1183,7 +1166,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       listAlarmsStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1299,7 +1281,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
   public async listMetrics(
     listMetricsRequest: requests.ListMetricsRequest
   ): Promise<responses.ListMetricsResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#listMetrics.");
+    logger.debug("Calling operation MonitoringClient#listMetrics.");
     const operationName = "listMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Metric/ListMetrics";
@@ -1323,7 +1305,6 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
       listMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1462,7 +1443,7 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
   public async postMetricData(
     postMetricDataRequest: requests.PostMetricDataRequest
   ): Promise<responses.PostMetricDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#postMetricData.");
+    logger.debug("Calling operation MonitoringClient#postMetricData.");
     const operationName = "postMetricData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/MetricData/PostMetricData";
@@ -1482,7 +1463,6 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
       postMetricDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1546,8 +1526,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async removeAlarmSuppression(
     removeAlarmSuppressionRequest: requests.RemoveAlarmSuppressionRequest
   ): Promise<responses.RemoveAlarmSuppressionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MonitoringClient#removeAlarmSuppression.");
+    logger.debug("Calling operation MonitoringClient#removeAlarmSuppression.");
     const operationName = "removeAlarmSuppression";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Suppression/RemoveAlarmSuppression";
@@ -1569,7 +1548,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       removeAlarmSuppressionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1626,8 +1604,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async retrieveDimensionStates(
     retrieveDimensionStatesRequest: requests.RetrieveDimensionStatesRequest
   ): Promise<responses.RetrieveDimensionStatesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MonitoringClient#retrieveDimensionStates.");
+    logger.debug("Calling operation MonitoringClient#retrieveDimensionStates.");
     const operationName = "retrieveDimensionStates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmDimensionStatesCollection/RetrieveDimensionStates";
@@ -1651,7 +1628,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       retrieveDimensionStatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1719,8 +1695,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async summarizeAlarmSuppressionHistory(
     summarizeAlarmSuppressionHistoryRequest: requests.SummarizeAlarmSuppressionHistoryRequest
   ): Promise<responses.SummarizeAlarmSuppressionHistoryResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation MonitoringClient#summarizeAlarmSuppressionHistory.");
+    logger.debug("Calling operation MonitoringClient#summarizeAlarmSuppressionHistory.");
     const operationName = "summarizeAlarmSuppressionHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSuppression/SummarizeAlarmSuppressionHistory";
@@ -1744,7 +1719,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       summarizeAlarmSuppressionHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1818,7 +1792,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
   public async summarizeMetricsData(
     summarizeMetricsDataRequest: requests.SummarizeMetricsDataRequest
   ): Promise<responses.SummarizeMetricsDataResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#summarizeMetricsData.");
+    logger.debug("Calling operation MonitoringClient#summarizeMetricsData.");
     const operationName = "summarizeMetricsData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/MetricData/SummarizeMetricsData";
@@ -1840,7 +1814,6 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
       summarizeMetricsDataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1904,7 +1877,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
   public async updateAlarm(
     updateAlarmRequest: requests.UpdateAlarmRequest
   ): Promise<responses.UpdateAlarmResponse> {
-    if (this.logger) this.logger.debug("Calling operation MonitoringClient#updateAlarm.");
+    logger.debug("Calling operation MonitoringClient#updateAlarm.");
     const operationName = "updateAlarm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/UpdateAlarm";
@@ -1926,7 +1899,6 @@ This call is subject to a Monitoring limit that applies to the total number of r
       updateAlarmRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

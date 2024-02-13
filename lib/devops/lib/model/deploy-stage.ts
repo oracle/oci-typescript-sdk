@@ -189,8 +189,7 @@ export namespace DeployStage {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.deployStageType}`);
+          common.logger.info(`Unknown value for: ${obj.deployStageType}`);
       }
     }
     return jsonObj;
@@ -305,8 +304,7 @@ export namespace DeployStage {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.deployStageType}`);
+          common.logger.info(`Unknown value for: ${obj.deployStageType}`);
       }
     }
     return jsonObj;

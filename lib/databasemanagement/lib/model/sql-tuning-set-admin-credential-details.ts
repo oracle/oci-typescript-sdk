@@ -55,8 +55,7 @@ export namespace SqlTuningSetAdminCredentialDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.sqlTuningSetAdminCredentialType}`);
+          common.logger.info(`Unknown value for: ${obj.sqlTuningSetAdminCredentialType}`);
       }
     }
     return jsonObj;
@@ -77,8 +76,7 @@ export namespace SqlTuningSetAdminCredentialDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.sqlTuningSetAdminCredentialType}`);
+          common.logger.info(`Unknown value for: ${obj.sqlTuningSetAdminCredentialType}`);
       }
     }
     return jsonObj;

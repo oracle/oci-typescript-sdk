@@ -29,7 +29,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -127,11 +128,7 @@ export class ObjectStorageClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    if (this.logger) this.logger.info(`ObjectStorageClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ObjectStorageClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -141,10 +138,9 @@ export class ObjectStorageClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ObjectStorageClient.serviceEndpointTemplate,
@@ -245,8 +241,7 @@ export class ObjectStorageClient {
   public async abortMultipartUpload(
     abortMultipartUploadRequest: requests.AbortMultipartUploadRequest
   ): Promise<responses.AbortMultipartUploadResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#abortMultipartUpload.");
+    logger.debug("Calling operation ObjectStorageClient#abortMultipartUpload.");
     const operationName = "abortMultipartUpload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/AbortMultipartUpload";
@@ -283,7 +278,6 @@ export class ObjectStorageClient {
       abortMultipartUploadRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -335,7 +329,7 @@ export class ObjectStorageClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#cancelWorkRequest.");
+    logger.debug("Calling operation ObjectStorageClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequest/CancelWorkRequest";
@@ -363,7 +357,6 @@ export class ObjectStorageClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -415,8 +408,7 @@ export class ObjectStorageClient {
   public async commitMultipartUpload(
     commitMultipartUploadRequest: requests.CommitMultipartUploadRequest
   ): Promise<responses.CommitMultipartUploadResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#commitMultipartUpload.");
+    logger.debug("Calling operation ObjectStorageClient#commitMultipartUpload.");
     const operationName = "commitMultipartUpload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/CommitMultipartUpload";
@@ -455,7 +447,6 @@ export class ObjectStorageClient {
       commitMultipartUploadRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -535,7 +526,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async copyObject(
     copyObjectRequest: requests.CopyObjectRequest
   ): Promise<responses.CopyObjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#copyObject.");
+    logger.debug("Calling operation ObjectStorageClient#copyObject.");
     const operationName = "copyObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/CopyObject";
@@ -571,7 +562,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       copyObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -634,7 +624,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async createBucket(
     createBucketRequest: requests.CreateBucketRequest
   ): Promise<responses.CreateBucketResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#createBucket.");
+    logger.debug("Calling operation ObjectStorageClient#createBucket.");
     const operationName = "createBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/CreateBucket";
@@ -662,7 +652,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       createBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -736,8 +725,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async createMultipartUpload(
     createMultipartUploadRequest: requests.CreateMultipartUploadRequest
   ): Promise<responses.CreateMultipartUploadResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#createMultipartUpload.");
+    logger.debug("Calling operation ObjectStorageClient#createMultipartUpload.");
     const operationName = "createMultipartUpload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/CreateMultipartUpload";
@@ -772,7 +760,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       createMultipartUploadRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -838,8 +825,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async createPreauthenticatedRequest(
     createPreauthenticatedRequestRequest: requests.CreatePreauthenticatedRequestRequest
   ): Promise<responses.CreatePreauthenticatedRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#createPreauthenticatedRequest.");
+    logger.debug("Calling operation ObjectStorageClient#createPreauthenticatedRequest.");
     const operationName = "createPreauthenticatedRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PreauthenticatedRequest/CreatePreauthenticatedRequest";
@@ -868,7 +854,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       createPreauthenticatedRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -929,8 +914,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async createReplicationPolicy(
     createReplicationPolicyRequest: requests.CreateReplicationPolicyRequest
   ): Promise<responses.CreateReplicationPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#createReplicationPolicy.");
+    logger.debug("Calling operation ObjectStorageClient#createReplicationPolicy.");
     const operationName = "createReplicationPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/CreateReplicationPolicy";
@@ -959,7 +943,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       createReplicationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1021,8 +1004,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async createRetentionRule(
     createRetentionRuleRequest: requests.CreateRetentionRuleRequest
   ): Promise<responses.CreateRetentionRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#createRetentionRule.");
+    logger.debug("Calling operation ObjectStorageClient#createRetentionRule.");
     const operationName = "createRetentionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/CreateRetentionRule";
@@ -1051,7 +1033,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       createRetentionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1120,7 +1101,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async deleteBucket(
     deleteBucketRequest: requests.DeleteBucketRequest
   ): Promise<responses.DeleteBucketResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#deleteBucket.");
+    logger.debug("Calling operation ObjectStorageClient#deleteBucket.");
     const operationName = "deleteBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/DeleteBucket";
@@ -1150,7 +1131,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       deleteBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1202,7 +1182,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async deleteObject(
     deleteObjectRequest: requests.DeleteObjectRequest
   ): Promise<responses.DeleteObjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#deleteObject.");
+    logger.debug("Calling operation ObjectStorageClient#deleteObject.");
     const operationName = "deleteObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/DeleteObject";
@@ -1235,7 +1215,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       deleteObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1302,8 +1281,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async deleteObjectLifecyclePolicy(
     deleteObjectLifecyclePolicyRequest: requests.DeleteObjectLifecyclePolicyRequest
   ): Promise<responses.DeleteObjectLifecyclePolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#deleteObjectLifecyclePolicy.");
+    logger.debug("Calling operation ObjectStorageClient#deleteObjectLifecyclePolicy.");
     const operationName = "deleteObjectLifecyclePolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/ObjectLifecyclePolicy/DeleteObjectLifecyclePolicy";
@@ -1333,7 +1311,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       deleteObjectLifecyclePolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1384,8 +1361,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async deletePreauthenticatedRequest(
     deletePreauthenticatedRequestRequest: requests.DeletePreauthenticatedRequestRequest
   ): Promise<responses.DeletePreauthenticatedRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#deletePreauthenticatedRequest.");
+    logger.debug("Calling operation ObjectStorageClient#deletePreauthenticatedRequest.");
     const operationName = "deletePreauthenticatedRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PreauthenticatedRequest/DeletePreauthenticatedRequest";
@@ -1415,7 +1391,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       deletePreauthenticatedRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1467,8 +1442,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async deleteReplicationPolicy(
     deleteReplicationPolicyRequest: requests.DeleteReplicationPolicyRequest
   ): Promise<responses.DeleteReplicationPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#deleteReplicationPolicy.");
+    logger.debug("Calling operation ObjectStorageClient#deleteReplicationPolicy.");
     const operationName = "deleteReplicationPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/DeleteReplicationPolicy";
@@ -1498,7 +1472,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       deleteReplicationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1549,8 +1522,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async deleteRetentionRule(
     deleteRetentionRuleRequest: requests.DeleteRetentionRuleRequest
   ): Promise<responses.DeleteRetentionRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#deleteRetentionRule.");
+    logger.debug("Calling operation ObjectStorageClient#deleteRetentionRule.");
     const operationName = "deleteRetentionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/DeleteRetentionRule";
@@ -1581,7 +1553,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       deleteRetentionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1633,7 +1604,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async getBucket(
     getBucketRequest: requests.GetBucketRequest
   ): Promise<responses.GetBucketResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getBucket.");
+    logger.debug("Calling operation ObjectStorageClient#getBucket.");
     const operationName = "getBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/GetBucket";
@@ -1666,7 +1637,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       getBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1733,7 +1703,7 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
   public async getNamespace(
     getNamespaceRequest: requests.GetNamespaceRequest
   ): Promise<responses.GetNamespaceResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getNamespace.");
+    logger.debug("Calling operation ObjectStorageClient#getNamespace.");
     const operationName = "getNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Namespace/GetNamespace";
@@ -1761,7 +1731,6 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
       getNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1812,8 +1781,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getNamespaceMetadata(
     getNamespaceMetadataRequest: requests.GetNamespaceMetadataRequest
   ): Promise<responses.GetNamespaceMetadataResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#getNamespaceMetadata.");
+    logger.debug("Calling operation ObjectStorageClient#getNamespaceMetadata.");
     const operationName = "getNamespaceMetadata";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Namespace/GetNamespaceMetadata";
@@ -1841,7 +1809,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       getNamespaceMetadataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1897,7 +1864,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getObject(
     getObjectRequest: requests.GetObjectRequest
   ): Promise<responses.GetObjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getObject.");
+    logger.debug("Calling operation ObjectStorageClient#getObject.");
     const operationName = "getObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/GetObject";
@@ -1941,7 +1908,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       getObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2085,8 +2051,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getObjectLifecyclePolicy(
     getObjectLifecyclePolicyRequest: requests.GetObjectLifecyclePolicyRequest
   ): Promise<responses.GetObjectLifecyclePolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#getObjectLifecyclePolicy.");
+    logger.debug("Calling operation ObjectStorageClient#getObjectLifecyclePolicy.");
     const operationName = "getObjectLifecyclePolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/ObjectLifecyclePolicy/GetObjectLifecyclePolicy";
@@ -2115,7 +2080,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       getObjectLifecyclePolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2175,8 +2139,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getPreauthenticatedRequest(
     getPreauthenticatedRequestRequest: requests.GetPreauthenticatedRequestRequest
   ): Promise<responses.GetPreauthenticatedRequestResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#getPreauthenticatedRequest.");
+    logger.debug("Calling operation ObjectStorageClient#getPreauthenticatedRequest.");
     const operationName = "getPreauthenticatedRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PreauthenticatedRequest/GetPreauthenticatedRequest";
@@ -2206,7 +2169,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       getPreauthenticatedRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2262,8 +2224,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getReplicationPolicy(
     getReplicationPolicyRequest: requests.GetReplicationPolicyRequest
   ): Promise<responses.GetReplicationPolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#getReplicationPolicy.");
+    logger.debug("Calling operation ObjectStorageClient#getReplicationPolicy.");
     const operationName = "getReplicationPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/GetReplicationPolicy";
@@ -2293,7 +2254,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       getReplicationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2348,7 +2308,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getRetentionRule(
     getRetentionRuleRequest: requests.GetRetentionRuleRequest
   ): Promise<responses.GetRetentionRuleResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getRetentionRule.");
+    logger.debug("Calling operation ObjectStorageClient#getRetentionRule.");
     const operationName = "getRetentionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/GetRetentionRule";
@@ -2378,7 +2338,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       getRetentionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2443,7 +2402,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getWorkRequest.");
+    logger.debug("Calling operation ObjectStorageClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequest/GetWorkRequest";
@@ -2471,7 +2430,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2532,7 +2490,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async headBucket(
     headBucketRequest: requests.HeadBucketRequest
   ): Promise<responses.HeadBucketResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#headBucket.");
+    logger.debug("Calling operation ObjectStorageClient#headBucket.");
     const operationName = "headBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/HeadBucket";
@@ -2563,7 +2521,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       headBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2620,7 +2577,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   public async headObject(
     headObjectRequest: requests.HeadObjectRequest
   ): Promise<responses.HeadObjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#headObject.");
+    logger.debug("Calling operation ObjectStorageClient#headObject.");
     const operationName = "headObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/HeadObject";
@@ -2657,7 +2614,6 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       headObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2795,7 +2751,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listBuckets(
     listBucketsRequest: requests.ListBucketsRequest
   ): Promise<responses.ListBucketsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listBuckets.");
+    logger.debug("Calling operation ObjectStorageClient#listBuckets.");
     const operationName = "listBuckets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/ListBuckets";
@@ -2828,7 +2784,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listBucketsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2941,8 +2896,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listMultipartUploadParts(
     listMultipartUploadPartsRequest: requests.ListMultipartUploadPartsRequest
   ): Promise<responses.ListMultipartUploadPartsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#listMultipartUploadParts.");
+    logger.debug("Calling operation ObjectStorageClient#listMultipartUploadParts.");
     const operationName = "listMultipartUploadParts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/ListMultipartUploadParts";
@@ -2981,7 +2935,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listMultipartUploadPartsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3094,8 +3047,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listMultipartUploads(
     listMultipartUploadsRequest: requests.ListMultipartUploadsRequest
   ): Promise<responses.ListMultipartUploadsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#listMultipartUploads.");
+    logger.debug("Calling operation ObjectStorageClient#listMultipartUploads.");
     const operationName = "listMultipartUploads";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/ListMultipartUploads";
@@ -3127,7 +3079,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listMultipartUploadsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3247,7 +3198,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listObjectVersions(
     listObjectVersionsRequest: requests.ListObjectVersionsRequest
   ): Promise<responses.ListObjectVersionsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listObjectVersions.");
+    logger.debug("Calling operation ObjectStorageClient#listObjectVersions.");
     const operationName = "listObjectVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/ListObjectVersions";
@@ -3285,7 +3236,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listObjectVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3355,7 +3305,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listObjects(
     listObjectsRequest: requests.ListObjectsRequest
   ): Promise<responses.ListObjectsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listObjects.");
+    logger.debug("Calling operation ObjectStorageClient#listObjects.");
     const operationName = "listObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/ListObjects";
@@ -3392,7 +3342,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3522,8 +3471,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listPreauthenticatedRequests(
     listPreauthenticatedRequestsRequest: requests.ListPreauthenticatedRequestsRequest
   ): Promise<responses.ListPreauthenticatedRequestsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#listPreauthenticatedRequests.");
+    logger.debug("Calling operation ObjectStorageClient#listPreauthenticatedRequests.");
     const operationName = "listPreauthenticatedRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PreauthenticatedRequest/ListPreauthenticatedRequests";
@@ -3556,7 +3504,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listPreauthenticatedRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3669,8 +3616,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listReplicationPolicies(
     listReplicationPoliciesRequest: requests.ListReplicationPoliciesRequest
   ): Promise<responses.ListReplicationPoliciesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#listReplicationPolicies.");
+    logger.debug("Calling operation ObjectStorageClient#listReplicationPolicies.");
     const operationName = "listReplicationPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/ListReplicationPolicies";
@@ -3702,7 +3648,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listReplicationPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3815,8 +3760,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listReplicationSources(
     listReplicationSourcesRequest: requests.ListReplicationSourcesRequest
   ): Promise<responses.ListReplicationSourcesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#listReplicationSources.");
+    logger.debug("Calling operation ObjectStorageClient#listReplicationSources.");
     const operationName = "listReplicationSources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/ListReplicationSources";
@@ -3848,7 +3792,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listReplicationSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3962,7 +3905,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listRetentionRules(
     listRetentionRulesRequest: requests.ListRetentionRulesRequest
   ): Promise<responses.ListRetentionRulesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listRetentionRules.");
+    logger.debug("Calling operation ObjectStorageClient#listRetentionRules.");
     const operationName = "listRetentionRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/ListRetentionRules";
@@ -3992,7 +3935,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listRetentionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4052,8 +3994,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#listWorkRequestErrors.");
+    logger.debug("Calling operation ObjectStorageClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequestError/ListWorkRequestErrors";
@@ -4084,7 +4025,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4196,8 +4136,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#listWorkRequestLogs.");
+    logger.debug("Calling operation ObjectStorageClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -4228,7 +4167,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4341,7 +4279,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listWorkRequests.");
+    logger.debug("Calling operation ObjectStorageClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequest/ListWorkRequests";
@@ -4371,7 +4309,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4487,7 +4424,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   public async makeBucketWritable(
     makeBucketWritableRequest: requests.MakeBucketWritableRequest
   ): Promise<responses.MakeBucketWritableResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#makeBucketWritable.");
+    logger.debug("Calling operation ObjectStorageClient#makeBucketWritable.");
     const operationName = "makeBucketWritable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/MakeBucketWritable";
@@ -4516,7 +4453,6 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       makeBucketWritableRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4575,7 +4511,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
   public async putObject(
     putObjectRequest: requests.PutObjectRequest
   ): Promise<responses.PutObjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#putObject.");
+    logger.debug("Calling operation ObjectStorageClient#putObject.");
     const operationName = "putObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/PutObject";
@@ -4624,7 +4560,6 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       putObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4699,8 +4634,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
   public async putObjectLifecyclePolicy(
     putObjectLifecyclePolicyRequest: requests.PutObjectLifecyclePolicyRequest
   ): Promise<responses.PutObjectLifecyclePolicyResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#putObjectLifecyclePolicy.");
+    logger.debug("Calling operation ObjectStorageClient#putObjectLifecyclePolicy.");
     const operationName = "putObjectLifecyclePolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/ObjectLifecyclePolicy/PutObjectLifecyclePolicy";
@@ -4731,7 +4665,6 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       putObjectLifecyclePolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4811,7 +4744,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
   public async reencryptBucket(
     reencryptBucketRequest: requests.ReencryptBucketRequest
   ): Promise<responses.ReencryptBucketResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#reencryptBucket.");
+    logger.debug("Calling operation ObjectStorageClient#reencryptBucket.");
     const operationName = "reencryptBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/ReencryptBucket";
@@ -4840,7 +4773,6 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
       reencryptBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4905,7 +4837,7 @@ You can alternatively employ one of these encryption strategies for an object:
   public async reencryptObject(
     reencryptObjectRequest: requests.ReencryptObjectRequest
   ): Promise<responses.ReencryptObjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#reencryptObject.");
+    logger.debug("Calling operation ObjectStorageClient#reencryptObject.");
     const operationName = "reencryptObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/ReencryptObject";
@@ -4937,7 +4869,6 @@ You can alternatively employ one of these encryption strategies for an object:
       reencryptObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4997,7 +4928,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async renameObject(
     renameObjectRequest: requests.RenameObjectRequest
   ): Promise<responses.RenameObjectResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#renameObject.");
+    logger.debug("Calling operation ObjectStorageClient#renameObject.");
     const operationName = "renameObject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/RenameObject";
@@ -5026,7 +4957,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       renameObjectRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5099,7 +5029,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   public async restoreObjects(
     restoreObjectsRequest: requests.RestoreObjectsRequest
   ): Promise<responses.RestoreObjectsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#restoreObjects.");
+    logger.debug("Calling operation ObjectStorageClient#restoreObjects.");
     const operationName = "restoreObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/RestoreObjects";
@@ -5128,7 +5058,6 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       restoreObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5189,7 +5118,7 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
   public async updateBucket(
     updateBucketRequest: requests.UpdateBucketRequest
   ): Promise<responses.UpdateBucketResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#updateBucket.");
+    logger.debug("Calling operation ObjectStorageClient#updateBucket.");
     const operationName = "updateBucket";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/UpdateBucket";
@@ -5219,7 +5148,6 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
       updateBucketRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5291,8 +5219,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   public async updateNamespaceMetadata(
     updateNamespaceMetadataRequest: requests.UpdateNamespaceMetadataRequest
   ): Promise<responses.UpdateNamespaceMetadataResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#updateNamespaceMetadata.");
+    logger.debug("Calling operation ObjectStorageClient#updateNamespaceMetadata.");
     const operationName = "updateNamespaceMetadata";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Namespace/UpdateNamespaceMetadata";
@@ -5320,7 +5247,6 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       updateNamespaceMetadataRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5381,8 +5307,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   public async updateObjectStorageTier(
     updateObjectStorageTierRequest: requests.UpdateObjectStorageTierRequest
   ): Promise<responses.UpdateObjectStorageTierResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#updateObjectStorageTier.");
+    logger.debug("Calling operation ObjectStorageClient#updateObjectStorageTier.");
     const operationName = "updateObjectStorageTier";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/UpdateObjectStorageTier";
@@ -5411,7 +5336,6 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       updateObjectStorageTierRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5468,8 +5392,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   public async updateRetentionRule(
     updateRetentionRuleRequest: requests.UpdateRetentionRuleRequest
   ): Promise<responses.UpdateRetentionRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ObjectStorageClient#updateRetentionRule.");
+    logger.debug("Calling operation ObjectStorageClient#updateRetentionRule.");
     const operationName = "updateRetentionRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/UpdateRetentionRule";
@@ -5500,7 +5423,6 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       updateRetentionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5566,7 +5488,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   public async uploadPart(
     uploadPartRequest: requests.UploadPartRequest
   ): Promise<responses.UploadPartResponse> {
-    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#uploadPart.");
+    logger.debug("Calling operation ObjectStorageClient#uploadPart.");
     const operationName = "uploadPart";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/UploadPart";
@@ -5613,7 +5535,6 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       uploadPartRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -37,8 +37,7 @@ export namespace UnifiedAgentServiceConfigurationDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.configurationType}`);
+          common.logger.info(`Unknown value for: ${obj.configurationType}`);
       }
     }
     return jsonObj;
@@ -54,8 +53,7 @@ export namespace UnifiedAgentServiceConfigurationDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.configurationType}`);
+          common.logger.info(`Unknown value for: ${obj.configurationType}`);
       }
     }
     return jsonObj;

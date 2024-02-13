@@ -154,7 +154,7 @@ export namespace ScheduledTask {
         case "STANDARD":
           return model.StandardTask.getJsonObj(<model.StandardTask>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.kind}`);
+          common.logger.info(`Unknown value for: ${obj.kind}`);
       }
     }
     return jsonObj;
@@ -180,7 +180,7 @@ export namespace ScheduledTask {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.kind}`);
+          common.logger.info(`Unknown value for: ${obj.kind}`);
       }
     }
     return jsonObj;

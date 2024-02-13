@@ -42,7 +42,7 @@ export namespace Service {
         case "UDP_SERVICE":
           return model.UdpService.getJsonObj(<model.UdpService>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -57,7 +57,7 @@ export namespace Service {
         case "UDP_SERVICE":
           return model.UdpService.getDeserializedJsonObj(<model.UdpService>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

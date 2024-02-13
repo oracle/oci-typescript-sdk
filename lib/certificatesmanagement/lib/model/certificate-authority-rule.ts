@@ -33,7 +33,7 @@ export namespace CertificateAuthorityRule {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.ruleType}`);
+          common.logger.info(`Unknown value for: ${obj.ruleType}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace CertificateAuthorityRule {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.ruleType}`);
+          common.logger.info(`Unknown value for: ${obj.ruleType}`);
       }
     }
     return jsonObj;

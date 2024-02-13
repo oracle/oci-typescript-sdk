@@ -40,6 +40,12 @@ export interface LabelSourceSummary {
    */
   "labelCondition"?: string;
   /**
+   * String representation of the label condition.
+   *
+   */
+  "conditionString"?: string;
+  "conditionBlock"?: model.ConditionBlock;
+  /**
    * The label field display name.
    */
   "labelFieldDisplayname"?: string;
@@ -51,12 +57,26 @@ export interface LabelSourceSummary {
 
 export namespace LabelSourceSummary {
   export function getJsonObj(obj: LabelSourceSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "conditionBlock": obj.conditionBlock
+          ? model.ConditionBlock.getJsonObj(obj.conditionBlock)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: LabelSourceSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "conditionBlock": obj.conditionBlock
+          ? model.ConditionBlock.getDeserializedJsonObj(obj.conditionBlock)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

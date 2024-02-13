@@ -19,7 +19,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -114,11 +115,7 @@ export class AddressRuleServiceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20191001";
-    if (this.logger) this.logger.info(`AddressRuleServiceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`AddressRuleServiceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -128,10 +125,9 @@ export class AddressRuleServiceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AddressRuleServiceClient.serviceEndpointTemplate,
@@ -200,8 +196,7 @@ export class AddressRuleServiceClient {
   public async getAddressRule(
     getAddressRuleRequest: requests.GetAddressRuleRequest
   ): Promise<responses.GetAddressRuleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation AddressRuleServiceClient#getAddressRule.");
+    logger.debug("Calling operation AddressRuleServiceClient#getAddressRule.");
     const operationName = "getAddressRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -224,7 +219,6 @@ export class AddressRuleServiceClient {
       getAddressRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -350,11 +344,7 @@ export class AddressServiceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20191001";
-    if (this.logger) this.logger.info(`AddressServiceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`AddressServiceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -364,10 +354,9 @@ export class AddressServiceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AddressServiceClient.serviceEndpointTemplate,
@@ -436,7 +425,7 @@ export class AddressServiceClient {
   public async getAddress(
     getAddressRequest: requests.GetAddressRequest
   ): Promise<responses.GetAddressResponse> {
-    if (this.logger) this.logger.debug("Calling operation AddressServiceClient#getAddress.");
+    logger.debug("Calling operation AddressServiceClient#getAddress.");
     const operationName = "getAddress";
     const apiReferenceLink = "";
     const pathParams = {
@@ -459,7 +448,6 @@ export class AddressServiceClient {
       getAddressRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -509,7 +497,7 @@ export class AddressServiceClient {
   public async verifyAddress(
     verifyAddressRequest: requests.VerifyAddressRequest
   ): Promise<responses.VerifyAddressResponse> {
-    if (this.logger) this.logger.debug("Calling operation AddressServiceClient#verifyAddress.");
+    logger.debug("Calling operation AddressServiceClient#verifyAddress.");
     const operationName = "verifyAddress";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -532,7 +520,6 @@ export class AddressServiceClient {
       verifyAddressRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -668,11 +655,7 @@ export class InvoiceServiceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20191001";
-    if (this.logger) this.logger.info(`InvoiceServiceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`InvoiceServiceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -682,10 +665,9 @@ export class InvoiceServiceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         InvoiceServiceClient.serviceEndpointTemplate,
@@ -754,8 +736,7 @@ export class InvoiceServiceClient {
   public async downloadPdfContent(
     downloadPdfContentRequest: requests.DownloadPdfContentRequest
   ): Promise<responses.DownloadPdfContentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation InvoiceServiceClient#downloadPdfContent.");
+    logger.debug("Calling operation InvoiceServiceClient#downloadPdfContent.");
     const operationName = "downloadPdfContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -778,7 +759,6 @@ export class InvoiceServiceClient {
       downloadPdfContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -843,7 +823,7 @@ export class InvoiceServiceClient {
   public async getInvoice(
     getInvoiceRequest: requests.GetInvoiceRequest
   ): Promise<responses.GetInvoiceResponse> {
-    if (this.logger) this.logger.debug("Calling operation InvoiceServiceClient#getInvoice.");
+    logger.debug("Calling operation InvoiceServiceClient#getInvoice.");
     const operationName = "getInvoice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -866,7 +846,6 @@ export class InvoiceServiceClient {
       getInvoiceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -921,7 +900,7 @@ export class InvoiceServiceClient {
   public async listInvoiceLines(
     listInvoiceLinesRequest: requests.ListInvoiceLinesRequest
   ): Promise<responses.ListInvoiceLinesResponse> {
-    if (this.logger) this.logger.debug("Calling operation InvoiceServiceClient#listInvoiceLines.");
+    logger.debug("Calling operation InvoiceServiceClient#listInvoiceLines.");
     const operationName = "listInvoiceLines";
     const apiReferenceLink = "";
     const pathParams = {
@@ -946,7 +925,6 @@ export class InvoiceServiceClient {
       listInvoiceLinesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1011,7 +989,7 @@ export class InvoiceServiceClient {
   public async listInvoices(
     listInvoicesRequest: requests.ListInvoicesRequest
   ): Promise<responses.ListInvoicesResponse> {
-    if (this.logger) this.logger.debug("Calling operation InvoiceServiceClient#listInvoices.");
+    logger.debug("Calling operation InvoiceServiceClient#listInvoices.");
     const operationName = "listInvoices";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1044,7 +1022,6 @@ export class InvoiceServiceClient {
       listInvoicesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1104,7 +1081,7 @@ export class InvoiceServiceClient {
   public async payInvoice(
     payInvoiceRequest: requests.PayInvoiceRequest
   ): Promise<responses.PayInvoiceResponse> {
-    if (this.logger) this.logger.debug("Calling operation InvoiceServiceClient#payInvoice.");
+    logger.debug("Calling operation InvoiceServiceClient#payInvoice.");
     const operationName = "payInvoice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1129,7 +1106,6 @@ export class InvoiceServiceClient {
       payInvoiceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1265,12 +1241,7 @@ export class SubscriptionServiceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20191001";
-    if (this.logger)
-      this.logger.info(`SubscriptionServiceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`SubscriptionServiceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1280,10 +1251,9 @@ export class SubscriptionServiceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SubscriptionServiceClient.serviceEndpointTemplate,
@@ -1352,10 +1322,7 @@ export class SubscriptionServiceClient {
   public async authorizeSubscriptionPayment(
     authorizeSubscriptionPaymentRequest: requests.AuthorizeSubscriptionPaymentRequest
   ): Promise<responses.AuthorizeSubscriptionPaymentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation SubscriptionServiceClient#authorizeSubscriptionPayment."
-      );
+    logger.debug("Calling operation SubscriptionServiceClient#authorizeSubscriptionPayment.");
     const operationName = "authorizeSubscriptionPayment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1380,7 +1347,6 @@ export class SubscriptionServiceClient {
       authorizeSubscriptionPaymentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1440,8 +1406,7 @@ export class SubscriptionServiceClient {
   public async getSubscription(
     getSubscriptionRequest: requests.GetSubscriptionRequest
   ): Promise<responses.GetSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionServiceClient#getSubscription.");
+    logger.debug("Calling operation SubscriptionServiceClient#getSubscription.");
     const operationName = "getSubscription";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1464,7 +1429,6 @@ export class SubscriptionServiceClient {
       getSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1519,8 +1483,7 @@ export class SubscriptionServiceClient {
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
   ): Promise<responses.ListSubscriptionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionServiceClient#listSubscriptions.");
+    logger.debug("Calling operation SubscriptionServiceClient#listSubscriptions.");
     const operationName = "listSubscriptions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1545,7 +1508,6 @@ export class SubscriptionServiceClient {
       listSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1605,8 +1567,7 @@ export class SubscriptionServiceClient {
   public async paySubscription(
     paySubscriptionRequest: requests.PaySubscriptionRequest
   ): Promise<responses.PaySubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionServiceClient#paySubscription.");
+    logger.debug("Calling operation SubscriptionServiceClient#paySubscription.");
     const operationName = "paySubscription";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1631,7 +1592,6 @@ export class SubscriptionServiceClient {
       paySubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1691,8 +1651,7 @@ export class SubscriptionServiceClient {
   public async updateSubscription(
     updateSubscriptionRequest: requests.UpdateSubscriptionRequest
   ): Promise<responses.UpdateSubscriptionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation SubscriptionServiceClient#updateSubscription.");
+    logger.debug("Calling operation SubscriptionServiceClient#updateSubscription.");
     const operationName = "updateSubscription";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1716,7 +1675,6 @@ export class SubscriptionServiceClient {
       updateSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

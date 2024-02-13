@@ -19,7 +19,13 @@ import common = require("oci-common");
  **/
 export enum AssetSourceConnectionType {
   Discovery = "DISCOVERY",
-  Replication = "REPLICATION"
+  Replication = "REPLICATION",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace AssetSourceConnectionType {

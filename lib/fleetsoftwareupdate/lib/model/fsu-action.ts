@@ -110,7 +110,7 @@ export namespace FsuAction {
         case "ROLLBACK_AND_REMOVE_TARGET":
           return model.RollbackAction.getJsonObj(<model.RollbackAction>(<object>jsonObj), true);
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -146,7 +146,7 @@ export namespace FsuAction {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

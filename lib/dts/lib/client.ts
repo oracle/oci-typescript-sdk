@@ -26,7 +26,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -123,11 +124,7 @@ export class ApplianceExportJobClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
-    if (this.logger) this.logger.info(`ApplianceExportJobClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ApplianceExportJobClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -137,10 +134,9 @@ export class ApplianceExportJobClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ApplianceExportJobClient.serviceEndpointTemplate,
@@ -232,10 +228,7 @@ export class ApplianceExportJobClient {
   public async changeApplianceExportJobCompartment(
     changeApplianceExportJobCompartmentRequest: requests.ChangeApplianceExportJobCompartmentRequest
   ): Promise<responses.ChangeApplianceExportJobCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ApplianceExportJobClient#changeApplianceExportJobCompartment."
-      );
+    logger.debug("Calling operation ApplianceExportJobClient#changeApplianceExportJobCompartment.");
     const operationName = "changeApplianceExportJobCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -257,7 +250,6 @@ export class ApplianceExportJobClient {
       changeApplianceExportJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -308,8 +300,7 @@ export class ApplianceExportJobClient {
   public async createApplianceExportJob(
     createApplianceExportJobRequest: requests.CreateApplianceExportJobRequest
   ): Promise<responses.CreateApplianceExportJobResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplianceExportJobClient#createApplianceExportJob.");
+    logger.debug("Calling operation ApplianceExportJobClient#createApplianceExportJob.");
     const operationName = "createApplianceExportJob";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -328,7 +319,6 @@ export class ApplianceExportJobClient {
       createApplianceExportJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -388,8 +378,7 @@ export class ApplianceExportJobClient {
   public async deleteApplianceExportJob(
     deleteApplianceExportJobRequest: requests.DeleteApplianceExportJobRequest
   ): Promise<responses.DeleteApplianceExportJobResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplianceExportJobClient#deleteApplianceExportJob.");
+    logger.debug("Calling operation ApplianceExportJobClient#deleteApplianceExportJob.");
     const operationName = "deleteApplianceExportJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -411,7 +400,6 @@ export class ApplianceExportJobClient {
       deleteApplianceExportJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -457,8 +445,7 @@ export class ApplianceExportJobClient {
   public async getApplianceExportJob(
     getApplianceExportJobRequest: requests.GetApplianceExportJobRequest
   ): Promise<responses.GetApplianceExportJobResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplianceExportJobClient#getApplianceExportJob.");
+    logger.debug("Calling operation ApplianceExportJobClient#getApplianceExportJob.");
     const operationName = "getApplianceExportJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -478,7 +465,6 @@ export class ApplianceExportJobClient {
       getApplianceExportJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -533,8 +519,7 @@ export class ApplianceExportJobClient {
   public async listApplianceExportJobs(
     listApplianceExportJobsRequest: requests.ListApplianceExportJobsRequest
   ): Promise<responses.ListApplianceExportJobsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplianceExportJobClient#listApplianceExportJobs.");
+    logger.debug("Calling operation ApplianceExportJobClient#listApplianceExportJobs.");
     const operationName = "listApplianceExportJobs";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -558,7 +543,6 @@ export class ApplianceExportJobClient {
       listApplianceExportJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -665,8 +649,7 @@ export class ApplianceExportJobClient {
   public async updateApplianceExportJob(
     updateApplianceExportJobRequest: requests.UpdateApplianceExportJobRequest
   ): Promise<responses.UpdateApplianceExportJobResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ApplianceExportJobClient#updateApplianceExportJob.");
+    logger.debug("Calling operation ApplianceExportJobClient#updateApplianceExportJob.");
     const operationName = "updateApplianceExportJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -687,7 +670,6 @@ export class ApplianceExportJobClient {
       updateApplianceExportJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -824,11 +806,7 @@ export class ShippingVendorsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
-    if (this.logger) this.logger.info(`ShippingVendorsClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ShippingVendorsClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -838,10 +816,9 @@ export class ShippingVendorsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ShippingVendorsClient.serviceEndpointTemplate,
@@ -910,8 +887,7 @@ export class ShippingVendorsClient {
   public async listShippingVendors(
     listShippingVendorsRequest: requests.ListShippingVendorsRequest
   ): Promise<responses.ListShippingVendorsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ShippingVendorsClient#listShippingVendors.");
+    logger.debug("Calling operation ShippingVendorsClient#listShippingVendors.");
     const operationName = "listShippingVendors";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -928,7 +904,6 @@ export class ShippingVendorsClient {
       listShippingVendorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1056,11 +1031,7 @@ export class TransferApplianceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
-    if (this.logger) this.logger.info(`TransferApplianceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`TransferApplianceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1070,10 +1041,9 @@ export class TransferApplianceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         TransferApplianceClient.serviceEndpointTemplate,
@@ -1165,8 +1135,7 @@ export class TransferApplianceClient {
   public async createTransferAppliance(
     createTransferApplianceRequest: requests.CreateTransferApplianceRequest
   ): Promise<responses.CreateTransferApplianceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferApplianceClient#createTransferAppliance.");
+    logger.debug("Calling operation TransferApplianceClient#createTransferAppliance.");
     const operationName = "createTransferAppliance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1186,7 +1155,6 @@ export class TransferApplianceClient {
       createTransferApplianceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1246,10 +1214,9 @@ export class TransferApplianceClient {
   public async createTransferApplianceAdminCredentials(
     createTransferApplianceAdminCredentialsRequest: requests.CreateTransferApplianceAdminCredentialsRequest
   ): Promise<responses.CreateTransferApplianceAdminCredentialsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation TransferApplianceClient#createTransferApplianceAdminCredentials."
-      );
+    logger.debug(
+      "Calling operation TransferApplianceClient#createTransferApplianceAdminCredentials."
+    );
     const operationName = "createTransferApplianceAdminCredentials";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1271,7 +1238,6 @@ export class TransferApplianceClient {
       createTransferApplianceAdminCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1331,8 +1297,7 @@ export class TransferApplianceClient {
   public async deleteTransferAppliance(
     deleteTransferApplianceRequest: requests.DeleteTransferApplianceRequest
   ): Promise<responses.DeleteTransferApplianceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferApplianceClient#deleteTransferAppliance.");
+    logger.debug("Calling operation TransferApplianceClient#deleteTransferAppliance.");
     const operationName = "deleteTransferAppliance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1353,7 +1318,6 @@ export class TransferApplianceClient {
       deleteTransferApplianceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1399,8 +1363,7 @@ export class TransferApplianceClient {
   public async getTransferAppliance(
     getTransferApplianceRequest: requests.GetTransferApplianceRequest
   ): Promise<responses.GetTransferApplianceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferApplianceClient#getTransferAppliance.");
+    logger.debug("Calling operation TransferApplianceClient#getTransferAppliance.");
     const operationName = "getTransferAppliance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1420,7 +1383,6 @@ export class TransferApplianceClient {
       getTransferApplianceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1475,10 +1437,9 @@ export class TransferApplianceClient {
   public async getTransferApplianceCertificateAuthorityCertificate(
     getTransferApplianceCertificateAuthorityCertificateRequest: requests.GetTransferApplianceCertificateAuthorityCertificateRequest
   ): Promise<responses.GetTransferApplianceCertificateAuthorityCertificateResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation TransferApplianceClient#getTransferApplianceCertificateAuthorityCertificate."
-      );
+    logger.debug(
+      "Calling operation TransferApplianceClient#getTransferApplianceCertificateAuthorityCertificate."
+    );
     const operationName = "getTransferApplianceCertificateAuthorityCertificate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1499,7 +1460,6 @@ export class TransferApplianceClient {
       getTransferApplianceCertificateAuthorityCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1555,10 +1515,9 @@ export class TransferApplianceClient {
   public async getTransferApplianceEncryptionPassphrase(
     getTransferApplianceEncryptionPassphraseRequest: requests.GetTransferApplianceEncryptionPassphraseRequest
   ): Promise<responses.GetTransferApplianceEncryptionPassphraseResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation TransferApplianceClient#getTransferApplianceEncryptionPassphrase."
-      );
+    logger.debug(
+      "Calling operation TransferApplianceClient#getTransferApplianceEncryptionPassphrase."
+    );
     const operationName = "getTransferApplianceEncryptionPassphrase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1579,7 +1538,6 @@ export class TransferApplianceClient {
       getTransferApplianceEncryptionPassphraseRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1634,8 +1592,7 @@ export class TransferApplianceClient {
   public async listTransferAppliances(
     listTransferAppliancesRequest: requests.ListTransferAppliancesRequest
   ): Promise<responses.ListTransferAppliancesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferApplianceClient#listTransferAppliances.");
+    logger.debug("Calling operation TransferApplianceClient#listTransferAppliances.");
     const operationName = "listTransferAppliances";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1656,7 +1613,6 @@ export class TransferApplianceClient {
       listTransferAppliancesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1706,8 +1662,7 @@ export class TransferApplianceClient {
   public async updateTransferAppliance(
     updateTransferApplianceRequest: requests.UpdateTransferApplianceRequest
   ): Promise<responses.UpdateTransferApplianceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferApplianceClient#updateTransferAppliance.");
+    logger.debug("Calling operation TransferApplianceClient#updateTransferAppliance.");
     const operationName = "updateTransferAppliance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1728,7 +1683,6 @@ export class TransferApplianceClient {
       updateTransferApplianceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1866,12 +1820,7 @@ export class TransferApplianceEntitlementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
-    if (this.logger)
-      this.logger.info(`TransferApplianceEntitlementClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`TransferApplianceEntitlementClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -1881,10 +1830,9 @@ export class TransferApplianceEntitlementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         TransferApplianceEntitlementClient.serviceEndpointTemplate,
@@ -1976,10 +1924,9 @@ export class TransferApplianceEntitlementClient {
   public async createTransferApplianceEntitlement(
     createTransferApplianceEntitlementRequest: requests.CreateTransferApplianceEntitlementRequest
   ): Promise<responses.CreateTransferApplianceEntitlementResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation TransferApplianceEntitlementClient#createTransferApplianceEntitlement."
-      );
+    logger.debug(
+      "Calling operation TransferApplianceEntitlementClient#createTransferApplianceEntitlement."
+    );
     const operationName = "createTransferApplianceEntitlement";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1998,7 +1945,6 @@ export class TransferApplianceEntitlementClient {
       createTransferApplianceEntitlementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2058,10 +2004,9 @@ export class TransferApplianceEntitlementClient {
   public async getTransferApplianceEntitlement(
     getTransferApplianceEntitlementRequest: requests.GetTransferApplianceEntitlementRequest
   ): Promise<responses.GetTransferApplianceEntitlementResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation TransferApplianceEntitlementClient#getTransferApplianceEntitlement."
-      );
+    logger.debug(
+      "Calling operation TransferApplianceEntitlementClient#getTransferApplianceEntitlement."
+    );
     const operationName = "getTransferApplianceEntitlement";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2082,7 +2027,6 @@ export class TransferApplianceEntitlementClient {
       getTransferApplianceEntitlementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2132,10 +2076,9 @@ export class TransferApplianceEntitlementClient {
   public async listTransferApplianceEntitlement(
     listTransferApplianceEntitlementRequest: requests.ListTransferApplianceEntitlementRequest
   ): Promise<responses.ListTransferApplianceEntitlementResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation TransferApplianceEntitlementClient#listTransferApplianceEntitlement."
-      );
+    logger.debug(
+      "Calling operation TransferApplianceEntitlementClient#listTransferApplianceEntitlement."
+    );
     const operationName = "listTransferApplianceEntitlement";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2157,7 +2100,6 @@ export class TransferApplianceEntitlementClient {
       listTransferApplianceEntitlementRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2285,11 +2227,7 @@ export class TransferDeviceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
-    if (this.logger) this.logger.info(`TransferDeviceClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`TransferDeviceClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -2299,10 +2237,9 @@ export class TransferDeviceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         TransferDeviceClient.serviceEndpointTemplate,
@@ -2394,8 +2331,7 @@ export class TransferDeviceClient {
   public async createTransferDevice(
     createTransferDeviceRequest: requests.CreateTransferDeviceRequest
   ): Promise<responses.CreateTransferDeviceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferDeviceClient#createTransferDevice.");
+    logger.debug("Calling operation TransferDeviceClient#createTransferDevice.");
     const operationName = "createTransferDevice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2415,7 +2351,6 @@ export class TransferDeviceClient {
       createTransferDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2475,8 +2410,7 @@ export class TransferDeviceClient {
   public async deleteTransferDevice(
     deleteTransferDeviceRequest: requests.DeleteTransferDeviceRequest
   ): Promise<responses.DeleteTransferDeviceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferDeviceClient#deleteTransferDevice.");
+    logger.debug("Calling operation TransferDeviceClient#deleteTransferDevice.");
     const operationName = "deleteTransferDevice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2497,7 +2431,6 @@ export class TransferDeviceClient {
       deleteTransferDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2543,7 +2476,7 @@ export class TransferDeviceClient {
   public async getTransferDevice(
     getTransferDeviceRequest: requests.GetTransferDeviceRequest
   ): Promise<responses.GetTransferDeviceResponse> {
-    if (this.logger) this.logger.debug("Calling operation TransferDeviceClient#getTransferDevice.");
+    logger.debug("Calling operation TransferDeviceClient#getTransferDevice.");
     const operationName = "getTransferDevice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2563,7 +2496,6 @@ export class TransferDeviceClient {
       getTransferDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2618,8 +2550,7 @@ export class TransferDeviceClient {
   public async listTransferDevices(
     listTransferDevicesRequest: requests.ListTransferDevicesRequest
   ): Promise<responses.ListTransferDevicesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferDeviceClient#listTransferDevices.");
+    logger.debug("Calling operation TransferDeviceClient#listTransferDevices.");
     const operationName = "listTransferDevices";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2641,7 +2572,6 @@ export class TransferDeviceClient {
       listTransferDevicesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2691,8 +2621,7 @@ export class TransferDeviceClient {
   public async updateTransferDevice(
     updateTransferDeviceRequest: requests.UpdateTransferDeviceRequest
   ): Promise<responses.UpdateTransferDeviceResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferDeviceClient#updateTransferDevice.");
+    logger.debug("Calling operation TransferDeviceClient#updateTransferDevice.");
     const operationName = "updateTransferDevice";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2713,7 +2642,6 @@ export class TransferDeviceClient {
       updateTransferDeviceRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2851,11 +2779,7 @@ export class TransferJobClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
-    if (this.logger) this.logger.info(`TransferJobClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`TransferJobClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -2865,10 +2789,9 @@ export class TransferJobClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         TransferJobClient.serviceEndpointTemplate,
@@ -2960,8 +2883,7 @@ export class TransferJobClient {
   public async changeTransferJobCompartment(
     changeTransferJobCompartmentRequest: requests.ChangeTransferJobCompartmentRequest
   ): Promise<responses.ChangeTransferJobCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferJobClient#changeTransferJobCompartment.");
+    logger.debug("Calling operation TransferJobClient#changeTransferJobCompartment.");
     const operationName = "changeTransferJobCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2983,7 +2905,6 @@ export class TransferJobClient {
       changeTransferJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3039,7 +2960,7 @@ export class TransferJobClient {
   public async createTransferJob(
     createTransferJobRequest: requests.CreateTransferJobRequest
   ): Promise<responses.CreateTransferJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation TransferJobClient#createTransferJob.");
+    logger.debug("Calling operation TransferJobClient#createTransferJob.");
     const operationName = "createTransferJob";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3058,7 +2979,6 @@ export class TransferJobClient {
       createTransferJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3118,7 +3038,7 @@ export class TransferJobClient {
   public async deleteTransferJob(
     deleteTransferJobRequest: requests.DeleteTransferJobRequest
   ): Promise<responses.DeleteTransferJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation TransferJobClient#deleteTransferJob.");
+    logger.debug("Calling operation TransferJobClient#deleteTransferJob.");
     const operationName = "deleteTransferJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3139,7 +3059,6 @@ export class TransferJobClient {
       deleteTransferJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3185,7 +3104,7 @@ export class TransferJobClient {
   public async getTransferJob(
     getTransferJobRequest: requests.GetTransferJobRequest
   ): Promise<responses.GetTransferJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation TransferJobClient#getTransferJob.");
+    logger.debug("Calling operation TransferJobClient#getTransferJob.");
     const operationName = "getTransferJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3205,7 +3124,6 @@ export class TransferJobClient {
       getTransferJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3260,7 +3178,7 @@ export class TransferJobClient {
   public async listTransferJobs(
     listTransferJobsRequest: requests.ListTransferJobsRequest
   ): Promise<responses.ListTransferJobsResponse> {
-    if (this.logger) this.logger.debug("Calling operation TransferJobClient#listTransferJobs.");
+    logger.debug("Calling operation TransferJobClient#listTransferJobs.");
     const operationName = "listTransferJobs";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3284,7 +3202,6 @@ export class TransferJobClient {
       listTransferJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3391,7 +3308,7 @@ export class TransferJobClient {
   public async updateTransferJob(
     updateTransferJobRequest: requests.UpdateTransferJobRequest
   ): Promise<responses.UpdateTransferJobResponse> {
-    if (this.logger) this.logger.debug("Calling operation TransferJobClient#updateTransferJob.");
+    logger.debug("Calling operation TransferJobClient#updateTransferJob.");
     const operationName = "updateTransferJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3412,7 +3329,6 @@ export class TransferJobClient {
       updateTransferJobRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3550,11 +3466,7 @@ export class TransferPackageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171001";
-    if (this.logger) this.logger.info(`TransferPackageClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`TransferPackageClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -3564,10 +3476,9 @@ export class TransferPackageClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         TransferPackageClient.serviceEndpointTemplate,
@@ -3659,8 +3570,7 @@ export class TransferPackageClient {
   public async attachDevicesToTransferPackage(
     attachDevicesToTransferPackageRequest: requests.AttachDevicesToTransferPackageRequest
   ): Promise<responses.AttachDevicesToTransferPackageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferPackageClient#attachDevicesToTransferPackage.");
+    logger.debug("Calling operation TransferPackageClient#attachDevicesToTransferPackage.");
     const operationName = "attachDevicesToTransferPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3681,7 +3591,6 @@ export class TransferPackageClient {
       attachDevicesToTransferPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3737,8 +3646,7 @@ export class TransferPackageClient {
   public async createTransferPackage(
     createTransferPackageRequest: requests.CreateTransferPackageRequest
   ): Promise<responses.CreateTransferPackageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferPackageClient#createTransferPackage.");
+    logger.debug("Calling operation TransferPackageClient#createTransferPackage.");
     const operationName = "createTransferPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3758,7 +3666,6 @@ export class TransferPackageClient {
       createTransferPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3818,8 +3725,7 @@ export class TransferPackageClient {
   public async deleteTransferPackage(
     deleteTransferPackageRequest: requests.DeleteTransferPackageRequest
   ): Promise<responses.DeleteTransferPackageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferPackageClient#deleteTransferPackage.");
+    logger.debug("Calling operation TransferPackageClient#deleteTransferPackage.");
     const operationName = "deleteTransferPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3840,7 +3746,6 @@ export class TransferPackageClient {
       deleteTransferPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3886,10 +3791,7 @@ export class TransferPackageClient {
   public async detachDevicesFromTransferPackage(
     detachDevicesFromTransferPackageRequest: requests.DetachDevicesFromTransferPackageRequest
   ): Promise<responses.DetachDevicesFromTransferPackageResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation TransferPackageClient#detachDevicesFromTransferPackage."
-      );
+    logger.debug("Calling operation TransferPackageClient#detachDevicesFromTransferPackage.");
     const operationName = "detachDevicesFromTransferPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3910,7 +3812,6 @@ export class TransferPackageClient {
       detachDevicesFromTransferPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3966,8 +3867,7 @@ export class TransferPackageClient {
   public async getTransferPackage(
     getTransferPackageRequest: requests.GetTransferPackageRequest
   ): Promise<responses.GetTransferPackageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferPackageClient#getTransferPackage.");
+    logger.debug("Calling operation TransferPackageClient#getTransferPackage.");
     const operationName = "getTransferPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3987,7 +3887,6 @@ export class TransferPackageClient {
       getTransferPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4042,8 +3941,7 @@ export class TransferPackageClient {
   public async listTransferPackages(
     listTransferPackagesRequest: requests.ListTransferPackagesRequest
   ): Promise<responses.ListTransferPackagesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferPackageClient#listTransferPackages.");
+    logger.debug("Calling operation TransferPackageClient#listTransferPackages.");
     const operationName = "listTransferPackages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4065,7 +3963,6 @@ export class TransferPackageClient {
       listTransferPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4115,8 +4012,7 @@ export class TransferPackageClient {
   public async updateTransferPackage(
     updateTransferPackageRequest: requests.UpdateTransferPackageRequest
   ): Promise<responses.UpdateTransferPackageResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation TransferPackageClient#updateTransferPackage.");
+    logger.debug("Calling operation TransferPackageClient#updateTransferPackage.");
     const operationName = "updateTransferPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4137,7 +4033,6 @@ export class TransferPackageClient {
       updateTransferPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,12 +118,7 @@ export class GenericArtifactsContentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    if (this.logger)
-      this.logger.info(`GenericArtifactsContentClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`GenericArtifactsContentClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +128,9 @@ export class GenericArtifactsContentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         GenericArtifactsContentClient.serviceEndpointTemplate,
@@ -204,10 +199,7 @@ export class GenericArtifactsContentClient {
   public async getGenericArtifactContent(
     getGenericArtifactContentRequest: requests.GetGenericArtifactContentRequest
   ): Promise<responses.GetGenericArtifactContentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation GenericArtifactsContentClient#getGenericArtifactContent."
-      );
+    logger.debug("Calling operation GenericArtifactsContentClient#getGenericArtifactContent.");
     const operationName = "getGenericArtifactContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/generic/20160918/GenericArtifact/GetGenericArtifactContent";
@@ -228,7 +220,6 @@ export class GenericArtifactsContentClient {
       getGenericArtifactContentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -283,10 +274,9 @@ export class GenericArtifactsContentClient {
   public async getGenericArtifactContentByPath(
     getGenericArtifactContentByPathRequest: requests.GetGenericArtifactContentByPathRequest
   ): Promise<responses.GetGenericArtifactContentByPathResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation GenericArtifactsContentClient#getGenericArtifactContentByPath."
-      );
+    logger.debug(
+      "Calling operation GenericArtifactsContentClient#getGenericArtifactContentByPath."
+    );
     const operationName = "getGenericArtifactContentByPath";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/generic/20160918/GenericArtifact/GetGenericArtifactContentByPath";
@@ -309,7 +299,6 @@ export class GenericArtifactsContentClient {
       getGenericArtifactContentByPathRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -365,10 +354,9 @@ export class GenericArtifactsContentClient {
   public async putGenericArtifactContentByPath(
     putGenericArtifactContentByPathRequest: requests.PutGenericArtifactContentByPathRequest
   ): Promise<responses.PutGenericArtifactContentByPathResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation GenericArtifactsContentClient#putGenericArtifactContentByPath."
-      );
+    logger.debug(
+      "Calling operation GenericArtifactsContentClient#putGenericArtifactContentByPath."
+    );
     const operationName = "putGenericArtifactContentByPath";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/generic/20160918/GenericArtifact/PutGenericArtifactContentByPath";
@@ -391,7 +379,6 @@ export class GenericArtifactsContentClient {
       putGenericArtifactContentByPathRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -35,7 +35,7 @@ export namespace ConvertToPdbTargetBase {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.target}`);
+          common.logger.info(`Unknown value for: ${obj.target}`);
       }
     }
     return jsonObj;
@@ -51,7 +51,7 @@ export namespace ConvertToPdbTargetBase {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.target}`);
+          common.logger.info(`Unknown value for: ${obj.target}`);
       }
     }
     return jsonObj;

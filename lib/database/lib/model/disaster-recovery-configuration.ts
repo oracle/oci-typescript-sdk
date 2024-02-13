@@ -35,6 +35,10 @@ export interface DisasterRecoveryConfiguration {
    *
    */
   "isSnapshotStandby"?: boolean;
+  /**
+   * If true, 7 days worth of backups are replicated across regions for Cross-Region ADB or Backup-Based DR between Primary and Standby. If false, the backups taken on the Primary are not replicated to the Standby database.
+   */
+  "isReplicateAutomaticBackups"?: boolean;
 }
 
 export namespace DisasterRecoveryConfiguration {

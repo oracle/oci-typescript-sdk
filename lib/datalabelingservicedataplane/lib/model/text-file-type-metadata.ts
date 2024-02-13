@@ -33,7 +33,7 @@ export namespace TextFileTypeMetadata {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.formatType}`);
+          common.logger.info(`Unknown value for: ${obj.formatType}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace TextFileTypeMetadata {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.formatType}`);
+          common.logger.info(`Unknown value for: ${obj.formatType}`);
       }
     }
     return jsonObj;

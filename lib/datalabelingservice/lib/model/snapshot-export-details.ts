@@ -33,7 +33,7 @@ export namespace SnapshotExportDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.exportType}`);
+          common.logger.info(`Unknown value for: ${obj.exportType}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace SnapshotExportDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.exportType}`);
+          common.logger.info(`Unknown value for: ${obj.exportType}`);
       }
     }
     return jsonObj;

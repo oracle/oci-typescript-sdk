@@ -45,6 +45,8 @@ export namespace Endpoint {
             <model.NetworkLoadBalancerEndpoint>(<object>jsonObj),
             true
           );
+        case "ON_PREM":
+          return model.OnPremEndpoint.getJsonObj(<model.OnPremEndpoint>(<object>jsonObj), true);
         case "LOAD_BALANCER":
           return model.LoadBalancerEndpoint.getJsonObj(
             <model.LoadBalancerEndpoint>(<object>jsonObj),
@@ -67,7 +69,7 @@ export namespace Endpoint {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -90,6 +92,11 @@ export namespace Endpoint {
         case "NETWORK_LOAD_BALANCER":
           return model.NetworkLoadBalancerEndpoint.getDeserializedJsonObj(
             <model.NetworkLoadBalancerEndpoint>(<object>jsonObj),
+            true
+          );
+        case "ON_PREM":
+          return model.OnPremEndpoint.getDeserializedJsonObj(
+            <model.OnPremEndpoint>(<object>jsonObj),
             true
           );
         case "LOAD_BALANCER":
@@ -123,7 +130,7 @@ export namespace Endpoint {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
+          common.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

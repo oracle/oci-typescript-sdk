@@ -158,6 +158,19 @@ export interface LogAnalyticsParser {
    *
    */
   "categories"?: Array<model.LogAnalyticsCategory>;
+  /**
+   * A flag indicating whether the parser is positionally aware.
+   *
+   */
+  "isPositionAware"?: boolean;
+  /**
+   * A list of sources that depend on the parser, either directly or indirectly.
+   */
+  "dependentSources"?: Array<model.DependentSource>;
+  /**
+   * A list of sub parsers used by this parser.
+   */
+  "dependentParsers"?: Array<model.DependentParser>;
 }
 
 export namespace LogAnalyticsParser {
@@ -210,6 +223,17 @@ export namespace LogAnalyticsParser {
           ? obj.categories.map(item => {
               return model.LogAnalyticsCategory.getJsonObj(item);
             })
+          : undefined,
+
+        "dependentSources": obj.dependentSources
+          ? obj.dependentSources.map(item => {
+              return model.DependentSource.getJsonObj(item);
+            })
+          : undefined,
+        "dependentParsers": obj.dependentParsers
+          ? obj.dependentParsers.map(item => {
+              return model.DependentParser.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -251,6 +275,17 @@ export namespace LogAnalyticsParser {
         "categories": obj.categories
           ? obj.categories.map(item => {
               return model.LogAnalyticsCategory.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "dependentSources": obj.dependentSources
+          ? obj.dependentSources.map(item => {
+              return model.DependentSource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dependentParsers": obj.dependentParsers
+          ? obj.dependentParsers.map(item => {
+              return model.DependentParser.getDeserializedJsonObj(item);
             })
           : undefined
       }

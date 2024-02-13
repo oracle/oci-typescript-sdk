@@ -75,8 +75,7 @@ export namespace UpdateBuildPipelineStageDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
+          common.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
       }
     }
     return jsonObj;
@@ -116,8 +115,7 @@ export namespace UpdateBuildPipelineStageDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
+          common.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
       }
     }
     return jsonObj;

@@ -68,6 +68,10 @@ export interface RuleSummary {
    */
   "kind": model.RuleKind;
   /**
+   * The target service.
+   */
+  "targetService"?: string;
+  /**
    * The ingest time rule or scheduled task display name.
    */
   "displayName": string;

@@ -25,6 +25,7 @@ export enum CreationSourceType {
   BulkDiscovery = "BULK_DISCOVERY",
   ServiceConnectorHub = "SERVICE_CONNECTOR_HUB",
   Discovery = "DISCOVERY",
+  LoggingAnalytics = "LOGGING_ANALYTICS",
   None = "NONE",
 
   /**

@@ -20,7 +20,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -117,12 +118,7 @@ export class CertificatesManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210224";
-    if (this.logger)
-      this.logger.info(`CertificatesManagementClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`CertificatesManagementClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -132,10 +128,9 @@ export class CertificatesManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         CertificatesManagementClient.serviceEndpointTemplate,
@@ -227,10 +222,9 @@ export class CertificatesManagementClient {
   public async cancelCertificateAuthorityDeletion(
     cancelCertificateAuthorityDeletionRequest: requests.CancelCertificateAuthorityDeletionRequest
   ): Promise<responses.CancelCertificateAuthorityDeletionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#cancelCertificateAuthorityDeletion."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#cancelCertificateAuthorityDeletion."
+    );
     const operationName = "cancelCertificateAuthorityDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/CancelCertificateAuthorityDeletion";
@@ -252,7 +246,6 @@ export class CertificatesManagementClient {
       cancelCertificateAuthorityDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -306,10 +299,9 @@ export class CertificatesManagementClient {
   public async cancelCertificateAuthorityVersionDeletion(
     cancelCertificateAuthorityVersionDeletionRequest: requests.CancelCertificateAuthorityVersionDeletionRequest
   ): Promise<responses.CancelCertificateAuthorityVersionDeletionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#cancelCertificateAuthorityVersionDeletion."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#cancelCertificateAuthorityVersionDeletion."
+    );
     const operationName = "cancelCertificateAuthorityVersionDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersion/CancelCertificateAuthorityVersionDeletion";
@@ -334,7 +326,6 @@ export class CertificatesManagementClient {
       cancelCertificateAuthorityVersionDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -389,10 +380,7 @@ export class CertificatesManagementClient {
   public async cancelCertificateDeletion(
     cancelCertificateDeletionRequest: requests.CancelCertificateDeletionRequest
   ): Promise<responses.CancelCertificateDeletionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#cancelCertificateDeletion."
-      );
+    logger.debug("Calling operation CertificatesManagementClient#cancelCertificateDeletion.");
     const operationName = "cancelCertificateDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/CancelCertificateDeletion";
@@ -414,7 +402,6 @@ export class CertificatesManagementClient {
       cancelCertificateDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -465,10 +452,9 @@ export class CertificatesManagementClient {
   public async cancelCertificateVersionDeletion(
     cancelCertificateVersionDeletionRequest: requests.CancelCertificateVersionDeletionRequest
   ): Promise<responses.CancelCertificateVersionDeletionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#cancelCertificateVersionDeletion."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#cancelCertificateVersionDeletion."
+    );
     const operationName = "cancelCertificateVersionDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersion/CancelCertificateVersionDeletion";
@@ -491,7 +477,6 @@ export class CertificatesManagementClient {
       cancelCertificateVersionDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -547,10 +532,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async changeCaBundleCompartment(
     changeCaBundleCompartmentRequest: requests.ChangeCaBundleCompartmentRequest
   ): Promise<responses.ChangeCaBundleCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#changeCaBundleCompartment."
-      );
+    logger.debug("Calling operation CertificatesManagementClient#changeCaBundleCompartment.");
     const operationName = "changeCaBundleCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/ChangeCaBundleCompartment";
@@ -573,7 +555,6 @@ When provided, if-match is checked against the ETag values of the secret.
       changeCaBundleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -628,10 +609,9 @@ When provided, If-Match is checked against the ETag values of the source.
   public async changeCertificateAuthorityCompartment(
     changeCertificateAuthorityCompartmentRequest: requests.ChangeCertificateAuthorityCompartmentRequest
   ): Promise<responses.ChangeCertificateAuthorityCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#changeCertificateAuthorityCompartment."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#changeCertificateAuthorityCompartment."
+    );
     const operationName = "changeCertificateAuthorityCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/ChangeCertificateAuthorityCompartment";
@@ -655,7 +635,6 @@ When provided, If-Match is checked against the ETag values of the source.
       changeCertificateAuthorityCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -710,10 +689,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async changeCertificateCompartment(
     changeCertificateCompartmentRequest: requests.ChangeCertificateCompartmentRequest
   ): Promise<responses.ChangeCertificateCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#changeCertificateCompartment."
-      );
+    logger.debug("Calling operation CertificatesManagementClient#changeCertificateCompartment.");
     const operationName = "changeCertificateCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/ChangeCertificateCompartment";
@@ -736,7 +712,6 @@ When provided, if-match is checked against the ETag values of the secret.
       changeCertificateCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -787,8 +762,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async createCaBundle(
     createCaBundleRequest: requests.CreateCaBundleRequest
   ): Promise<responses.CreateCaBundleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#createCaBundle.");
+    logger.debug("Calling operation CertificatesManagementClient#createCaBundle.");
     const operationName = "createCaBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/CreateCaBundle";
@@ -808,7 +782,6 @@ When provided, if-match is checked against the ETag values of the secret.
       createCaBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -868,8 +841,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#createCertificate.");
+    logger.debug("Calling operation CertificatesManagementClient#createCertificate.");
     const operationName = "createCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/CreateCertificate";
@@ -889,7 +861,6 @@ When provided, if-match is checked against the ETag values of the secret.
       createCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -949,10 +920,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async createCertificateAuthority(
     createCertificateAuthorityRequest: requests.CreateCertificateAuthorityRequest
   ): Promise<responses.CreateCertificateAuthorityResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#createCertificateAuthority."
-      );
+    logger.debug("Calling operation CertificatesManagementClient#createCertificateAuthority.");
     const operationName = "createCertificateAuthority";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/CreateCertificateAuthority";
@@ -972,7 +940,6 @@ When provided, if-match is checked against the ETag values of the secret.
       createCertificateAuthorityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1032,8 +999,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async deleteCaBundle(
     deleteCaBundleRequest: requests.DeleteCaBundleRequest
   ): Promise<responses.DeleteCaBundleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#deleteCaBundle.");
+    logger.debug("Calling operation CertificatesManagementClient#deleteCaBundle.");
     const operationName = "deleteCaBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/DeleteCaBundle";
@@ -1055,7 +1021,6 @@ When provided, if-match is checked against the ETag values of the secret.
       deleteCaBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1101,8 +1066,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async getAssociation(
     getAssociationRequest: requests.GetAssociationRequest
   ): Promise<responses.GetAssociationResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#getAssociation.");
+    logger.debug("Calling operation CertificatesManagementClient#getAssociation.");
     const operationName = "getAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Association/GetAssociation";
@@ -1123,7 +1087,6 @@ When provided, if-match is checked against the ETag values of the secret.
       getAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1178,8 +1141,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async getCaBundle(
     getCaBundleRequest: requests.GetCaBundleRequest
   ): Promise<responses.GetCaBundleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#getCaBundle.");
+    logger.debug("Calling operation CertificatesManagementClient#getCaBundle.");
     const operationName = "getCaBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/GetCaBundle";
@@ -1200,7 +1162,6 @@ When provided, if-match is checked against the ETag values of the secret.
       getCaBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1255,8 +1216,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
   ): Promise<responses.GetCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#getCertificate.");
+    logger.debug("Calling operation CertificatesManagementClient#getCertificate.");
     const operationName = "getCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/GetCertificate";
@@ -1277,7 +1237,6 @@ When provided, if-match is checked against the ETag values of the secret.
       getCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1332,8 +1291,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async getCertificateAuthority(
     getCertificateAuthorityRequest: requests.GetCertificateAuthorityRequest
   ): Promise<responses.GetCertificateAuthorityResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#getCertificateAuthority.");
+    logger.debug("Calling operation CertificatesManagementClient#getCertificateAuthority.");
     const operationName = "getCertificateAuthority";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/GetCertificateAuthority";
@@ -1354,7 +1312,6 @@ When provided, if-match is checked against the ETag values of the secret.
       getCertificateAuthorityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1409,10 +1366,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async getCertificateAuthorityVersion(
     getCertificateAuthorityVersionRequest: requests.GetCertificateAuthorityVersionRequest
   ): Promise<responses.GetCertificateAuthorityVersionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#getCertificateAuthorityVersion."
-      );
+    logger.debug("Calling operation CertificatesManagementClient#getCertificateAuthorityVersion.");
     const operationName = "getCertificateAuthorityVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersion/GetCertificateAuthorityVersion";
@@ -1435,7 +1389,6 @@ When provided, if-match is checked against the ETag values of the secret.
       getCertificateAuthorityVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1491,8 +1444,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async getCertificateVersion(
     getCertificateVersionRequest: requests.GetCertificateVersionRequest
   ): Promise<responses.GetCertificateVersionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#getCertificateVersion.");
+    logger.debug("Calling operation CertificatesManagementClient#getCertificateVersion.");
     const operationName = "getCertificateVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersion/GetCertificateVersion";
@@ -1514,7 +1466,6 @@ When provided, if-match is checked against the ETag values of the secret.
       getCertificateVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1571,8 +1522,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async listAssociations(
     listAssociationsRequest: requests.ListAssociationsRequest
   ): Promise<responses.ListAssociationsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#listAssociations.");
+    logger.debug("Calling operation CertificatesManagementClient#listAssociations.");
     const operationName = "listAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/AssociationSummary/ListAssociations";
@@ -1602,7 +1552,6 @@ When provided, if-match is checked against the ETag values of the secret.
       listAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1659,8 +1608,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async listCaBundles(
     listCaBundlesRequest: requests.ListCaBundlesRequest
   ): Promise<responses.ListCaBundlesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#listCaBundles.");
+    logger.debug("Calling operation CertificatesManagementClient#listCaBundles.");
     const operationName = "listCaBundles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundleSummary/ListCaBundles";
@@ -1688,7 +1636,6 @@ When provided, if-match is checked against the ETag values of the secret.
       listCaBundlesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1745,10 +1692,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async listCertificateAuthorities(
     listCertificateAuthoritiesRequest: requests.ListCertificateAuthoritiesRequest
   ): Promise<responses.ListCertificateAuthoritiesResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#listCertificateAuthorities."
-      );
+    logger.debug("Calling operation CertificatesManagementClient#listCertificateAuthorities.");
     const operationName = "listCertificateAuthorities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthoritySummary/ListCertificateAuthorities";
@@ -1778,7 +1722,6 @@ When provided, if-match is checked against the ETag values of the secret.
       listCertificateAuthoritiesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1835,10 +1778,9 @@ When provided, if-match is checked against the ETag values of the secret.
   public async listCertificateAuthorityVersions(
     listCertificateAuthorityVersionsRequest: requests.ListCertificateAuthorityVersionsRequest
   ): Promise<responses.ListCertificateAuthorityVersionsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#listCertificateAuthorityVersions."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#listCertificateAuthorityVersions."
+    );
     const operationName = "listCertificateAuthorityVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersionSummary/ListCertificateAuthorityVersions";
@@ -1865,7 +1807,6 @@ When provided, if-match is checked against the ETag values of the secret.
       listCertificateAuthorityVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1922,8 +1863,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async listCertificateVersions(
     listCertificateVersionsRequest: requests.ListCertificateVersionsRequest
   ): Promise<responses.ListCertificateVersionsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#listCertificateVersions.");
+    logger.debug("Calling operation CertificatesManagementClient#listCertificateVersions.");
     const operationName = "listCertificateVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersionSummary/ListCertificateVersions";
@@ -1950,7 +1890,6 @@ When provided, if-match is checked against the ETag values of the secret.
       listCertificateVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2007,8 +1946,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#listCertificates.");
+    logger.debug("Calling operation CertificatesManagementClient#listCertificates.");
     const operationName = "listCertificates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateSummary/ListCertificates";
@@ -2037,7 +1975,6 @@ When provided, if-match is checked against the ETag values of the secret.
       listCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2092,10 +2029,9 @@ When provided, if-match is checked against the ETag values of the secret.
   public async revokeCertificateAuthorityVersion(
     revokeCertificateAuthorityVersionRequest: requests.RevokeCertificateAuthorityVersionRequest
   ): Promise<responses.RevokeCertificateAuthorityVersionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#revokeCertificateAuthorityVersion."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#revokeCertificateAuthorityVersion."
+    );
     const operationName = "revokeCertificateAuthorityVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersion/RevokeCertificateAuthorityVersion";
@@ -2120,7 +2056,6 @@ When provided, if-match is checked against the ETag values of the secret.
       revokeCertificateAuthorityVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2177,8 +2112,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async revokeCertificateVersion(
     revokeCertificateVersionRequest: requests.RevokeCertificateVersionRequest
   ): Promise<responses.RevokeCertificateVersionResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#revokeCertificateVersion.");
+    logger.debug("Calling operation CertificatesManagementClient#revokeCertificateVersion.");
     const operationName = "revokeCertificateVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersion/RevokeCertificateVersion";
@@ -2202,7 +2136,6 @@ When provided, if-match is checked against the ETag values of the secret.
       revokeCertificateVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2259,10 +2192,9 @@ When provided, if-match is checked against the ETag values of the secret.
   public async scheduleCertificateAuthorityDeletion(
     scheduleCertificateAuthorityDeletionRequest: requests.ScheduleCertificateAuthorityDeletionRequest
   ): Promise<responses.ScheduleCertificateAuthorityDeletionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#scheduleCertificateAuthorityDeletion."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#scheduleCertificateAuthorityDeletion."
+    );
     const operationName = "scheduleCertificateAuthorityDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/ScheduleCertificateAuthorityDeletion";
@@ -2284,7 +2216,6 @@ When provided, if-match is checked against the ETag values of the secret.
       scheduleCertificateAuthorityDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2343,10 +2274,9 @@ When provided, if-match is checked against the ETag values of the secret.
   public async scheduleCertificateAuthorityVersionDeletion(
     scheduleCertificateAuthorityVersionDeletionRequest: requests.ScheduleCertificateAuthorityVersionDeletionRequest
   ): Promise<responses.ScheduleCertificateAuthorityVersionDeletionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#scheduleCertificateAuthorityVersionDeletion."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#scheduleCertificateAuthorityVersionDeletion."
+    );
     const operationName = "scheduleCertificateAuthorityVersionDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersion/ScheduleCertificateAuthorityVersionDeletion";
@@ -2371,7 +2301,6 @@ When provided, if-match is checked against the ETag values of the secret.
       scheduleCertificateAuthorityVersionDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2431,10 +2360,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async scheduleCertificateDeletion(
     scheduleCertificateDeletionRequest: requests.ScheduleCertificateDeletionRequest
   ): Promise<responses.ScheduleCertificateDeletionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#scheduleCertificateDeletion."
-      );
+    logger.debug("Calling operation CertificatesManagementClient#scheduleCertificateDeletion.");
     const operationName = "scheduleCertificateDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/ScheduleCertificateDeletion";
@@ -2456,7 +2382,6 @@ When provided, if-match is checked against the ETag values of the secret.
       scheduleCertificateDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2516,10 +2441,9 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
   public async scheduleCertificateVersionDeletion(
     scheduleCertificateVersionDeletionRequest: requests.ScheduleCertificateVersionDeletionRequest
   ): Promise<responses.ScheduleCertificateVersionDeletionResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#scheduleCertificateVersionDeletion."
-      );
+    logger.debug(
+      "Calling operation CertificatesManagementClient#scheduleCertificateVersionDeletion."
+    );
     const operationName = "scheduleCertificateVersionDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersion/ScheduleCertificateVersionDeletion";
@@ -2543,7 +2467,6 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       scheduleCertificateVersionDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2600,8 +2523,7 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
   public async updateCaBundle(
     updateCaBundleRequest: requests.UpdateCaBundleRequest
   ): Promise<responses.UpdateCaBundleResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#updateCaBundle.");
+    logger.debug("Calling operation CertificatesManagementClient#updateCaBundle.");
     const operationName = "updateCaBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/UpdateCaBundle";
@@ -2623,7 +2545,6 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       updateCaBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2683,8 +2604,7 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
   public async updateCertificate(
     updateCertificateRequest: requests.UpdateCertificateRequest
   ): Promise<responses.UpdateCertificateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation CertificatesManagementClient#updateCertificate.");
+    logger.debug("Calling operation CertificatesManagementClient#updateCertificate.");
     const operationName = "updateCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/UpdateCertificate";
@@ -2706,7 +2626,6 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       updateCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2766,10 +2685,7 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
   public async updateCertificateAuthority(
     updateCertificateAuthorityRequest: requests.UpdateCertificateAuthorityRequest
   ): Promise<responses.UpdateCertificateAuthorityResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation CertificatesManagementClient#updateCertificateAuthority."
-      );
+    logger.debug("Calling operation CertificatesManagementClient#updateCertificateAuthority.");
     const operationName = "updateCertificateAuthority";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/UpdateCertificateAuthority";
@@ -2791,7 +2707,6 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       updateCertificateAuthorityRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

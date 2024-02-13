@@ -72,7 +72,7 @@ export namespace CreateAssetDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.assetType}`);
+          common.logger.info(`Unknown value for: ${obj.assetType}`);
       }
     }
     return jsonObj;
@@ -88,7 +88,7 @@ export namespace CreateAssetDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.assetType}`);
+          common.logger.info(`Unknown value for: ${obj.assetType}`);
       }
     }
     return jsonObj;

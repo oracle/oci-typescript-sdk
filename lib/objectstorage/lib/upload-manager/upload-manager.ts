@@ -9,10 +9,10 @@ import { version } from "../../package.json";
 import os from "os";
 import {
   OciError,
-  LOG,
   getChunk,
   RetryConfiguration,
-  NoRetryConfigurationDetails
+  NoRetryConfigurationDetails,
+  logger
 } from "oci-common";
 import { UploadResponse } from "./upload-response";
 import { Semaphore } from "await-semaphore";
@@ -73,10 +73,6 @@ export class UploadManager {
     options?: Partial<UploadOptions>
   ) {
     this.options = { ...UploadManager.defaultUploadOptions, ...options };
-  }
-
-  public get logger() {
-    return LOG.logger;
   }
 
   private static defaultUploadOptions: UploadOptions = {
@@ -141,7 +137,7 @@ export class UploadManager {
     const contentMD5Hash: PutObjectContentMD5HashDetails = this.options.enforceMD5
       ? { contentMD5: content.md5Hash }
       : {};
-    if (this.logger) this.logger.debug("uploading using single upload");
+    logger.debug("uploading using single upload");
     try {
       const response = await this.client.putObject({
         ...requestDetails,
@@ -340,17 +336,16 @@ export class UploadManager {
       };
     } catch (ex) {
       if (this.options.isDisableAutoAbort) {
-        if (this.logger)
-          this.logger.info(
-            `Not aborting failed multipart upload as per configuration, client must manually abort it`
-          );
+        logger.info(
+          `Not aborting failed multipart upload as per configuration, client must manually abort it`
+        );
       } else {
-        if (this.logger) this.logger.error(`Aborting multi-part upload ${uploadId}`);
+        logger.error(`Aborting multi-part upload ${uploadId}`);
         await this.client.abortMultipartUpload({
           ...UploadManager.composeRequestDetails(requestDetails),
           uploadId: uploadId
         });
-        if (this.logger) this.logger.error(`Abort complete`);
+        logger.error(`Abort complete`);
       }
       if (ex instanceof OciError) throw ex;
       const error = {

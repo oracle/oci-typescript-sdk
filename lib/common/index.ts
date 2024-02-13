@@ -14,7 +14,7 @@ import * as utils from "./lib/utils";
 import { Region } from "./lib/region";
 import { Realm } from "./lib/realm";
 import { EndpointBuilder } from "./lib/endpoint-builder";
-import { LOG } from "./lib/log";
+import { logger } from "./lib/log";
 import Constants from "./lib/constants";
 import CircuitBreaker from "./lib/circuit-breaker";
 
@@ -110,7 +110,6 @@ export {
   ConfigFileReader,
   InstancePrincipalsAuthenticationDetailsProviderBuilder,
   ResourcePrincipalAuthenticationDetailsProvider,
-  LOG,
   GenericRetrier,
   FixedTimeDelayStrategy,
   MaxAttemptsTerminationStrategy,
@@ -124,5 +123,6 @@ export {
   getChunk,
   utils,
   OkeWorkloadIdentityAuthenticationDetailsProvider,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 };

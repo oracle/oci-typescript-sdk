@@ -109,7 +109,7 @@ export namespace AwrQueryResult {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.awrResultType}`);
+          common.logger.info(`Unknown value for: ${obj.awrResultType}`);
       }
     }
     return jsonObj;
@@ -185,7 +185,7 @@ export namespace AwrQueryResult {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.awrResultType}`);
+          common.logger.info(`Unknown value for: ${obj.awrResultType}`);
       }
     }
     return jsonObj;

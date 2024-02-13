@@ -33,7 +33,7 @@ export namespace CreateWaitCriteriaDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.waitType}`);
+          common.logger.info(`Unknown value for: ${obj.waitType}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace CreateWaitCriteriaDetails {
             true
           );
         default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.waitType}`);
+          common.logger.info(`Unknown value for: ${obj.waitType}`);
       }
     }
     return jsonObj;

@@ -40,8 +40,7 @@ export namespace NetworkEndpointDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.networkEndpointType}`);
+          common.logger.info(`Unknown value for: ${obj.networkEndpointType}`);
       }
     }
     return jsonObj;
@@ -62,8 +61,7 @@ export namespace NetworkEndpointDetails {
             true
           );
         default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.networkEndpointType}`);
+          common.logger.info(`Unknown value for: ${obj.networkEndpointType}`);
       }
     }
     return jsonObj;

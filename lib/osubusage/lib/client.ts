@@ -21,7 +21,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -116,11 +117,7 @@ export class ComputedUsageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/oalapp/service/onesubs/proxy/20210501";
-    if (this.logger) this.logger.info(`ComputedUsageClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`ComputedUsageClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -130,10 +127,9 @@ export class ComputedUsageClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ComputedUsageClient.serviceEndpointTemplate,
@@ -203,7 +199,7 @@ export class ComputedUsageClient {
   public async getComputedUsage(
     getComputedUsageRequest: requests.GetComputedUsageRequest
   ): Promise<responses.GetComputedUsageResponse> {
-    if (this.logger) this.logger.debug("Calling operation ComputedUsageClient#getComputedUsage.");
+    logger.debug("Calling operation ComputedUsageClient#getComputedUsage.");
     const operationName = "getComputedUsage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -227,7 +223,6 @@ export class ComputedUsageClient {
       getComputedUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -278,8 +273,7 @@ export class ComputedUsageClient {
   public async listComputedUsageAggregateds(
     listComputedUsageAggregatedsRequest: requests.ListComputedUsageAggregatedsRequest
   ): Promise<responses.ListComputedUsageAggregatedsResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ComputedUsageClient#listComputedUsageAggregateds.");
+    logger.debug("Calling operation ComputedUsageClient#listComputedUsageAggregateds.");
     const operationName = "listComputedUsageAggregateds";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -307,7 +301,6 @@ export class ComputedUsageClient {
       listComputedUsageAggregatedsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -415,7 +408,7 @@ export class ComputedUsageClient {
   public async listComputedUsages(
     listComputedUsagesRequest: requests.ListComputedUsagesRequest
   ): Promise<responses.ListComputedUsagesResponse> {
-    if (this.logger) this.logger.debug("Calling operation ComputedUsageClient#listComputedUsages.");
+    logger.debug("Calling operation ComputedUsageClient#listComputedUsages.");
     const operationName = "listComputedUsages";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -445,7 +438,6 @@ export class ComputedUsageClient {
       listComputedUsagesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

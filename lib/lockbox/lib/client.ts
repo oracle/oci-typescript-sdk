@@ -23,7 +23,8 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration
+  developerToolConfiguration,
+  logger
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -120,11 +121,7 @@ export class LockboxClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220126";
-    if (this.logger) this.logger.info(`LockboxClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
+    logger.info(`LockboxClient endpoint set to ${this._endpoint}`);
   }
 
   /**
@@ -134,10 +131,9 @@ export class LockboxClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
+    logger.info(
+      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+    );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LockboxClient.serviceEndpointTemplate,
@@ -229,7 +225,7 @@ export class LockboxClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#cancelWorkRequest.");
+    logger.debug("Calling operation LockboxClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -250,7 +246,6 @@ export class LockboxClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -296,8 +291,7 @@ export class LockboxClient {
   public async changeApprovalTemplateCompartment(
     changeApprovalTemplateCompartmentRequest: requests.ChangeApprovalTemplateCompartmentRequest
   ): Promise<responses.ChangeApprovalTemplateCompartmentResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation LockboxClient#changeApprovalTemplateCompartment.");
+    logger.debug("Calling operation LockboxClient#changeApprovalTemplateCompartment.");
     const operationName = "changeApprovalTemplateCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -319,7 +313,6 @@ export class LockboxClient {
       changeApprovalTemplateCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -370,7 +363,7 @@ export class LockboxClient {
   public async changeLockboxCompartment(
     changeLockboxCompartmentRequest: requests.ChangeLockboxCompartmentRequest
   ): Promise<responses.ChangeLockboxCompartmentResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#changeLockboxCompartment.");
+    logger.debug("Calling operation LockboxClient#changeLockboxCompartment.");
     const operationName = "changeLockboxCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -392,7 +385,6 @@ export class LockboxClient {
       changeLockboxCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -444,7 +436,7 @@ export class LockboxClient {
   public async createAccessRequest(
     createAccessRequestRequest: requests.CreateAccessRequestRequest
   ): Promise<responses.CreateAccessRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#createAccessRequest.");
+    logger.debug("Calling operation LockboxClient#createAccessRequest.");
     const operationName = "createAccessRequest";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -463,7 +455,6 @@ export class LockboxClient {
       createAccessRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -534,7 +525,7 @@ export class LockboxClient {
   public async createApprovalTemplate(
     createApprovalTemplateRequest: requests.CreateApprovalTemplateRequest
   ): Promise<responses.CreateApprovalTemplateResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#createApprovalTemplate.");
+    logger.debug("Calling operation LockboxClient#createApprovalTemplate.");
     const operationName = "createApprovalTemplate";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -553,7 +544,6 @@ export class LockboxClient {
       createApprovalTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -619,7 +609,7 @@ export class LockboxClient {
   public async createLockbox(
     createLockboxRequest: requests.CreateLockboxRequest
   ): Promise<responses.CreateLockboxResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#createLockbox.");
+    logger.debug("Calling operation LockboxClient#createLockbox.");
     const operationName = "createLockbox";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -638,7 +628,6 @@ export class LockboxClient {
       createLockboxRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -703,7 +692,7 @@ export class LockboxClient {
   public async deleteApprovalTemplate(
     deleteApprovalTemplateRequest: requests.DeleteApprovalTemplateRequest
   ): Promise<responses.DeleteApprovalTemplateResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#deleteApprovalTemplate.");
+    logger.debug("Calling operation LockboxClient#deleteApprovalTemplate.");
     const operationName = "deleteApprovalTemplate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -724,7 +713,6 @@ export class LockboxClient {
       deleteApprovalTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -770,7 +758,7 @@ export class LockboxClient {
   public async deleteLockbox(
     deleteLockboxRequest: requests.DeleteLockboxRequest
   ): Promise<responses.DeleteLockboxResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#deleteLockbox.");
+    logger.debug("Calling operation LockboxClient#deleteLockbox.");
     const operationName = "deleteLockbox";
     const apiReferenceLink = "";
     const pathParams = {
@@ -792,7 +780,6 @@ export class LockboxClient {
       deleteLockboxRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -839,7 +826,7 @@ export class LockboxClient {
   public async exportAccessRequests(
     exportAccessRequestsRequest: requests.ExportAccessRequestsRequest
   ): Promise<responses.ExportAccessRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#exportAccessRequests.");
+    logger.debug("Calling operation LockboxClient#exportAccessRequests.");
     const operationName = "exportAccessRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -868,7 +855,6 @@ export class LockboxClient {
       exportAccessRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -924,7 +910,7 @@ export class LockboxClient {
   public async getAccessMaterials(
     getAccessMaterialsRequest: requests.GetAccessMaterialsRequest
   ): Promise<responses.GetAccessMaterialsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#getAccessMaterials.");
+    logger.debug("Calling operation LockboxClient#getAccessMaterials.");
     const operationName = "getAccessMaterials";
     const apiReferenceLink = "";
     const pathParams = {
@@ -944,7 +930,6 @@ export class LockboxClient {
       getAccessMaterialsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -994,7 +979,7 @@ export class LockboxClient {
   public async getAccessRequest(
     getAccessRequestRequest: requests.GetAccessRequestRequest
   ): Promise<responses.GetAccessRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#getAccessRequest.");
+    logger.debug("Calling operation LockboxClient#getAccessRequest.");
     const operationName = "getAccessRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1014,7 +999,6 @@ export class LockboxClient {
       getAccessRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1069,7 +1053,7 @@ export class LockboxClient {
   public async getApprovalTemplate(
     getApprovalTemplateRequest: requests.GetApprovalTemplateRequest
   ): Promise<responses.GetApprovalTemplateResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#getApprovalTemplate.");
+    logger.debug("Calling operation LockboxClient#getApprovalTemplate.");
     const operationName = "getApprovalTemplate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1089,7 +1073,6 @@ export class LockboxClient {
       getApprovalTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1144,7 +1127,7 @@ export class LockboxClient {
   public async getLockbox(
     getLockboxRequest: requests.GetLockboxRequest
   ): Promise<responses.GetLockboxResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#getLockbox.");
+    logger.debug("Calling operation LockboxClient#getLockbox.");
     const operationName = "getLockbox";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1164,7 +1147,6 @@ export class LockboxClient {
       getLockboxRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1219,7 +1201,7 @@ export class LockboxClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#getWorkRequest.");
+    logger.debug("Calling operation LockboxClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1239,7 +1221,6 @@ export class LockboxClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1299,7 +1280,7 @@ export class LockboxClient {
   public async handleAccessRequest(
     handleAccessRequestRequest: requests.HandleAccessRequestRequest
   ): Promise<responses.HandleAccessRequestResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#handleAccessRequest.");
+    logger.debug("Calling operation LockboxClient#handleAccessRequest.");
     const operationName = "handleAccessRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1321,7 +1302,6 @@ export class LockboxClient {
       handleAccessRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1378,7 +1358,7 @@ export class LockboxClient {
   public async listAccessRequests(
     listAccessRequestsRequest: requests.ListAccessRequestsRequest
   ): Promise<responses.ListAccessRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#listAccessRequests.");
+    logger.debug("Calling operation LockboxClient#listAccessRequests.");
     const operationName = "listAccessRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1410,7 +1390,6 @@ export class LockboxClient {
       listAccessRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1466,7 +1445,7 @@ export class LockboxClient {
   public async listApprovalTemplates(
     listApprovalTemplatesRequest: requests.ListApprovalTemplatesRequest
   ): Promise<responses.ListApprovalTemplatesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#listApprovalTemplates.");
+    logger.debug("Calling operation LockboxClient#listApprovalTemplates.");
     const operationName = "listApprovalTemplates";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1493,7 +1472,6 @@ export class LockboxClient {
       listApprovalTemplatesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1549,7 +1527,7 @@ export class LockboxClient {
   public async listLockboxes(
     listLockboxesRequest: requests.ListLockboxesRequest
   ): Promise<responses.ListLockboxesResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#listLockboxes.");
+    logger.debug("Calling operation LockboxClient#listLockboxes.");
     const operationName = "listLockboxes";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1579,7 +1557,6 @@ export class LockboxClient {
       listLockboxesRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1635,7 +1612,7 @@ export class LockboxClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#listWorkRequestErrors.");
+    logger.debug("Calling operation LockboxClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1660,7 +1637,6 @@ export class LockboxClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1716,7 +1692,7 @@ export class LockboxClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#listWorkRequestLogs.");
+    logger.debug("Calling operation LockboxClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1741,7 +1717,6 @@ export class LockboxClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1797,7 +1772,7 @@ export class LockboxClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#listWorkRequests.");
+    logger.debug("Calling operation LockboxClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1824,7 +1799,6 @@ export class LockboxClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1879,7 +1853,7 @@ export class LockboxClient {
   public async updateApprovalTemplate(
     updateApprovalTemplateRequest: requests.UpdateApprovalTemplateRequest
   ): Promise<responses.UpdateApprovalTemplateResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#updateApprovalTemplate.");
+    logger.debug("Calling operation LockboxClient#updateApprovalTemplate.");
     const operationName = "updateApprovalTemplate";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1900,7 +1874,6 @@ export class LockboxClient {
       updateApprovalTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1960,7 +1933,7 @@ export class LockboxClient {
   public async updateLockbox(
     updateLockboxRequest: requests.UpdateLockboxRequest
   ): Promise<responses.UpdateLockboxResponse> {
-    if (this.logger) this.logger.debug("Calling operation LockboxClient#updateLockbox.");
+    logger.debug("Calling operation LockboxClient#updateLockbox.");
     const operationName = "updateLockbox";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1981,7 +1954,6 @@ export class LockboxClient {
       updateLockboxRequest.retryConfiguration,
       specRetryConfiguration
     );
-    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
