@@ -52,7 +52,7 @@ export namespace DatabaseUpgradeSourceBase {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.source}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.source}`);
       }
     }
     return jsonObj;
@@ -78,7 +78,7 @@ export namespace DatabaseUpgradeSourceBase {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.source}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.source}`);
       }
     }
     return jsonObj;

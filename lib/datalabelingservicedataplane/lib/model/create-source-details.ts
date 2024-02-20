@@ -34,7 +34,7 @@ export namespace CreateSourceDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.sourceType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
     }
     return jsonObj;
@@ -50,7 +50,7 @@ export namespace CreateSourceDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.sourceType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
     }
     return jsonObj;

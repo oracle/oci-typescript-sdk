@@ -70,7 +70,7 @@ export interface Project {
    * Example: {@code { \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }}
    *
    */
-  "systemTags"?: { [key: string]: any };
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace Project {

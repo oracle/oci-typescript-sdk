@@ -19,13 +19,7 @@ import common = require("oci-common");
  **/
 export enum DiscoveryScheduleLifecycleState {
   Active = "ACTIVE",
-  Deleted = "DELETED",
-
-  /**
-   * This value is used if a service returns a value for this enum that is not recognized by this
-   * version of the SDK.
-   */
-  UnknownValue = "UNKNOWN_VALUE"
+  Deleted = "DELETED"
 }
 
 export namespace DiscoveryScheduleLifecycleState {

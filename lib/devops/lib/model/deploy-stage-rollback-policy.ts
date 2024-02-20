@@ -38,7 +38,7 @@ export namespace DeployStageRollbackPolicy {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.policyType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.policyType}`);
       }
     }
     return jsonObj;
@@ -59,7 +59,7 @@ export namespace DeployStageRollbackPolicy {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.policyType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.policyType}`);
       }
     }
     return jsonObj;

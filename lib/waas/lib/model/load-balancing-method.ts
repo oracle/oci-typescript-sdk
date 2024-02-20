@@ -40,7 +40,7 @@ export namespace LoadBalancingMethod {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.method}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.method}`);
       }
     }
     return jsonObj;
@@ -66,7 +66,7 @@ export namespace LoadBalancingMethod {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.method}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.method}`);
       }
     }
     return jsonObj;

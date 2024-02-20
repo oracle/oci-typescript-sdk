@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export enum FileStorageApiKeys {}
 export class FileStorageClient {
   protected static serviceEndpointTemplate = "https://filestorage.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": FileStorageWaiter;
@@ -120,7 +119,11 @@ export class FileStorageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20171215";
-    logger.info(`FileStorageClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`FileStorageClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class FileStorageClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         FileStorageClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class FileStorageClient {
   public async changeFileSystemCompartment(
     changeFileSystemCompartmentRequest: requests.ChangeFileSystemCompartmentRequest
   ): Promise<responses.ChangeFileSystemCompartmentResponse> {
-    logger.debug("Calling operation FileStorageClient#changeFileSystemCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#changeFileSystemCompartment.");
     const operationName = "changeFileSystemCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/ChangeFileSystemCompartment";
@@ -247,6 +252,7 @@ export class FileStorageClient {
       changeFileSystemCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -298,7 +304,10 @@ export class FileStorageClient {
   public async changeFilesystemSnapshotPolicyCompartment(
     changeFilesystemSnapshotPolicyCompartmentRequest: requests.ChangeFilesystemSnapshotPolicyCompartmentRequest
   ): Promise<responses.ChangeFilesystemSnapshotPolicyCompartmentResponse> {
-    logger.debug("Calling operation FileStorageClient#changeFilesystemSnapshotPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FileStorageClient#changeFilesystemSnapshotPolicyCompartment."
+      );
     const operationName = "changeFilesystemSnapshotPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/ChangeFilesystemSnapshotPolicyCompartment";
@@ -321,6 +330,7 @@ export class FileStorageClient {
       changeFilesystemSnapshotPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -372,7 +382,8 @@ export class FileStorageClient {
   public async changeMountTargetCompartment(
     changeMountTargetCompartmentRequest: requests.ChangeMountTargetCompartmentRequest
   ): Promise<responses.ChangeMountTargetCompartmentResponse> {
-    logger.debug("Calling operation FileStorageClient#changeMountTargetCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#changeMountTargetCompartment.");
     const operationName = "changeMountTargetCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/ChangeMountTargetCompartment";
@@ -394,6 +405,7 @@ export class FileStorageClient {
       changeMountTargetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -447,7 +459,8 @@ export class FileStorageClient {
   public async changeOutboundConnectorCompartment(
     changeOutboundConnectorCompartmentRequest: requests.ChangeOutboundConnectorCompartmentRequest
   ): Promise<responses.ChangeOutboundConnectorCompartmentResponse> {
-    logger.debug("Calling operation FileStorageClient#changeOutboundConnectorCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#changeOutboundConnectorCompartment.");
     const operationName = "changeOutboundConnectorCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/ChangeOutboundConnectorCompartment";
@@ -469,6 +482,7 @@ export class FileStorageClient {
       changeOutboundConnectorCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -521,7 +535,8 @@ export class FileStorageClient {
   public async changeReplicationCompartment(
     changeReplicationCompartmentRequest: requests.ChangeReplicationCompartmentRequest
   ): Promise<responses.ChangeReplicationCompartmentResponse> {
-    logger.debug("Calling operation FileStorageClient#changeReplicationCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#changeReplicationCompartment.");
     const operationName = "changeReplicationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/ChangeReplicationCompartment";
@@ -543,6 +558,7 @@ export class FileStorageClient {
       changeReplicationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -595,7 +611,7 @@ export class FileStorageClient {
   public async createExport(
     createExportRequest: requests.CreateExportRequest
   ): Promise<responses.CreateExportResponse> {
-    logger.debug("Calling operation FileStorageClient#createExport.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createExport.");
     const operationName = "createExport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/CreateExport";
@@ -615,6 +631,7 @@ export class FileStorageClient {
       createExportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -703,7 +720,7 @@ All Oracle Cloud Infrastructure resources, including
   public async createFileSystem(
     createFileSystemRequest: requests.CreateFileSystemRequest
   ): Promise<responses.CreateFileSystemResponse> {
-    logger.debug("Calling operation FileStorageClient#createFileSystem.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createFileSystem.");
     const operationName = "createFileSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/CreateFileSystem";
@@ -723,6 +740,7 @@ All Oracle Cloud Infrastructure resources, including
       createFileSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -787,7 +805,8 @@ After you create a file system snapshot policy, you can associate it with
   public async createFilesystemSnapshotPolicy(
     createFilesystemSnapshotPolicyRequest: requests.CreateFilesystemSnapshotPolicyRequest
   ): Promise<responses.CreateFilesystemSnapshotPolicyResponse> {
-    logger.debug("Calling operation FileStorageClient#createFilesystemSnapshotPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#createFilesystemSnapshotPolicy.");
     const operationName = "createFilesystemSnapshotPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/CreateFilesystemSnapshotPolicy";
@@ -807,6 +826,7 @@ After you create a file system snapshot policy, you can associate it with
       createFilesystemSnapshotPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -898,7 +918,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async createMountTarget(
     createMountTargetRequest: requests.CreateMountTargetRequest
   ): Promise<responses.CreateMountTargetResponse> {
-    logger.debug("Calling operation FileStorageClient#createMountTarget.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createMountTarget.");
     const operationName = "createMountTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/CreateMountTarget";
@@ -918,6 +938,7 @@ All Oracle Cloud Infrastructure Services resources, including
       createMountTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -997,7 +1018,8 @@ All Oracle Cloud Infrastructure Services resources, including
   public async createOutboundConnector(
     createOutboundConnectorRequest: requests.CreateOutboundConnectorRequest
   ): Promise<responses.CreateOutboundConnectorResponse> {
-    logger.debug("Calling operation FileStorageClient#createOutboundConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#createOutboundConnector.");
     const operationName = "createOutboundConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/CreateOutboundConnector";
@@ -1017,6 +1039,7 @@ All Oracle Cloud Infrastructure Services resources, including
       createOutboundConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1103,7 +1126,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async createReplication(
     createReplicationRequest: requests.CreateReplicationRequest
   ): Promise<responses.CreateReplicationResponse> {
-    logger.debug("Calling operation FileStorageClient#createReplication.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createReplication.");
     const operationName = "createReplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/CreateReplication";
@@ -1123,6 +1146,7 @@ All Oracle Cloud Infrastructure Services resources, including
       createReplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1184,7 +1208,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async createSnapshot(
     createSnapshotRequest: requests.CreateSnapshotRequest
   ): Promise<responses.CreateSnapshotResponse> {
-    logger.debug("Calling operation FileStorageClient#createSnapshot.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createSnapshot.");
     const operationName = "createSnapshot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/CreateSnapshot";
@@ -1204,6 +1228,7 @@ All Oracle Cloud Infrastructure Services resources, including
       createSnapshotRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1264,7 +1289,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteExport(
     deleteExportRequest: requests.DeleteExportRequest
   ): Promise<responses.DeleteExportResponse> {
-    logger.debug("Calling operation FileStorageClient#deleteExport.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteExport.");
     const operationName = "deleteExport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/DeleteExport";
@@ -1286,6 +1311,7 @@ All Oracle Cloud Infrastructure Services resources, including
       deleteExportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1334,7 +1360,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteFileSystem(
     deleteFileSystemRequest: requests.DeleteFileSystemRequest
   ): Promise<responses.DeleteFileSystemResponse> {
-    logger.debug("Calling operation FileStorageClient#deleteFileSystem.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteFileSystem.");
     const operationName = "deleteFileSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/DeleteFileSystem";
@@ -1356,6 +1382,7 @@ All Oracle Cloud Infrastructure Services resources, including
       deleteFileSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1402,7 +1429,8 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteFilesystemSnapshotPolicy(
     deleteFilesystemSnapshotPolicyRequest: requests.DeleteFilesystemSnapshotPolicyRequest
   ): Promise<responses.DeleteFilesystemSnapshotPolicyResponse> {
-    logger.debug("Calling operation FileStorageClient#deleteFilesystemSnapshotPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#deleteFilesystemSnapshotPolicy.");
     const operationName = "deleteFilesystemSnapshotPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/DeleteFilesystemSnapshotPolicy";
@@ -1425,6 +1453,7 @@ All Oracle Cloud Infrastructure Services resources, including
       deleteFilesystemSnapshotPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1472,7 +1501,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteMountTarget(
     deleteMountTargetRequest: requests.DeleteMountTargetRequest
   ): Promise<responses.DeleteMountTargetResponse> {
-    logger.debug("Calling operation FileStorageClient#deleteMountTarget.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteMountTarget.");
     const operationName = "deleteMountTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/DeleteMountTarget";
@@ -1494,6 +1523,7 @@ All Oracle Cloud Infrastructure Services resources, including
       deleteMountTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1540,7 +1570,8 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteOutboundConnector(
     deleteOutboundConnectorRequest: requests.DeleteOutboundConnectorRequest
   ): Promise<responses.DeleteOutboundConnectorResponse> {
-    logger.debug("Calling operation FileStorageClient#deleteOutboundConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#deleteOutboundConnector.");
     const operationName = "deleteOutboundConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/DeleteOutboundConnector";
@@ -1562,6 +1593,7 @@ All Oracle Cloud Infrastructure Services resources, including
       deleteOutboundConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1608,7 +1640,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteReplication(
     deleteReplicationRequest: requests.DeleteReplicationRequest
   ): Promise<responses.DeleteReplicationResponse> {
-    logger.debug("Calling operation FileStorageClient#deleteReplication.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteReplication.");
     const operationName = "deleteReplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/DeleteReplication";
@@ -1632,6 +1664,7 @@ All Oracle Cloud Infrastructure Services resources, including
       deleteReplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1681,7 +1714,8 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteReplicationTarget(
     deleteReplicationTargetRequest: requests.DeleteReplicationTargetRequest
   ): Promise<responses.DeleteReplicationTargetResponse> {
-    logger.debug("Calling operation FileStorageClient#deleteReplicationTarget.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#deleteReplicationTarget.");
     const operationName = "deleteReplicationTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ReplicationTarget/DeleteReplicationTarget";
@@ -1703,6 +1737,7 @@ All Oracle Cloud Infrastructure Services resources, including
       deleteReplicationTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1749,7 +1784,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async deleteSnapshot(
     deleteSnapshotRequest: requests.DeleteSnapshotRequest
   ): Promise<responses.DeleteSnapshotResponse> {
-    logger.debug("Calling operation FileStorageClient#deleteSnapshot.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteSnapshot.");
     const operationName = "deleteSnapshot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/DeleteSnapshot";
@@ -1771,6 +1806,7 @@ All Oracle Cloud Infrastructure Services resources, including
       deleteSnapshotRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1817,7 +1853,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async estimateReplication(
     estimateReplicationRequest: requests.EstimateReplicationRequest
   ): Promise<responses.EstimateReplicationResponse> {
-    logger.debug("Calling operation FileStorageClient#estimateReplication.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#estimateReplication.");
     const operationName = "estimateReplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/EstimateReplication";
@@ -1841,6 +1877,7 @@ All Oracle Cloud Infrastructure Services resources, including
       estimateReplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1895,7 +1932,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getExport(
     getExportRequest: requests.GetExportRequest
   ): Promise<responses.GetExportResponse> {
-    logger.debug("Calling operation FileStorageClient#getExport.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getExport.");
     const operationName = "getExport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/GetExport";
@@ -1916,6 +1953,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getExportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1970,7 +2008,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getExportSet(
     getExportSetRequest: requests.GetExportSetRequest
   ): Promise<responses.GetExportSetResponse> {
-    logger.debug("Calling operation FileStorageClient#getExportSet.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getExportSet.");
     const operationName = "getExportSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ExportSet/GetExportSet";
@@ -1991,6 +2029,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getExportSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2045,7 +2084,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getFileSystem(
     getFileSystemRequest: requests.GetFileSystemRequest
   ): Promise<responses.GetFileSystemResponse> {
-    logger.debug("Calling operation FileStorageClient#getFileSystem.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getFileSystem.");
     const operationName = "getFileSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/GetFileSystem";
@@ -2066,6 +2105,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getFileSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2120,7 +2160,8 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getFilesystemSnapshotPolicy(
     getFilesystemSnapshotPolicyRequest: requests.GetFilesystemSnapshotPolicyRequest
   ): Promise<responses.GetFilesystemSnapshotPolicyResponse> {
-    logger.debug("Calling operation FileStorageClient#getFilesystemSnapshotPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#getFilesystemSnapshotPolicy.");
     const operationName = "getFilesystemSnapshotPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/GetFilesystemSnapshotPolicy";
@@ -2141,6 +2182,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getFilesystemSnapshotPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2195,7 +2237,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getMountTarget(
     getMountTargetRequest: requests.GetMountTargetRequest
   ): Promise<responses.GetMountTargetResponse> {
-    logger.debug("Calling operation FileStorageClient#getMountTarget.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getMountTarget.");
     const operationName = "getMountTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/GetMountTarget";
@@ -2216,6 +2258,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getMountTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2270,7 +2313,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getOutboundConnector(
     getOutboundConnectorRequest: requests.GetOutboundConnectorRequest
   ): Promise<responses.GetOutboundConnectorResponse> {
-    logger.debug("Calling operation FileStorageClient#getOutboundConnector.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getOutboundConnector.");
     const operationName = "getOutboundConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/GetOutboundConnector";
@@ -2291,6 +2334,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getOutboundConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2345,7 +2389,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getReplication(
     getReplicationRequest: requests.GetReplicationRequest
   ): Promise<responses.GetReplicationResponse> {
-    logger.debug("Calling operation FileStorageClient#getReplication.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getReplication.");
     const operationName = "getReplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/GetReplication";
@@ -2366,6 +2410,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getReplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2420,7 +2465,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getReplicationTarget(
     getReplicationTargetRequest: requests.GetReplicationTargetRequest
   ): Promise<responses.GetReplicationTargetResponse> {
-    logger.debug("Calling operation FileStorageClient#getReplicationTarget.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getReplicationTarget.");
     const operationName = "getReplicationTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ReplicationTarget/GetReplicationTarget";
@@ -2441,6 +2486,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getReplicationTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2495,7 +2541,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async getSnapshot(
     getSnapshotRequest: requests.GetSnapshotRequest
   ): Promise<responses.GetSnapshotResponse> {
-    logger.debug("Calling operation FileStorageClient#getSnapshot.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getSnapshot.");
     const operationName = "getSnapshot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/GetSnapshot";
@@ -2516,6 +2562,7 @@ All Oracle Cloud Infrastructure Services resources, including
       getSnapshotRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2571,7 +2618,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listExportSets(
     listExportSetsRequest: requests.ListExportSetsRequest
   ): Promise<responses.ListExportSetsResponse> {
-    logger.debug("Calling operation FileStorageClient#listExportSets.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listExportSets.");
     const operationName = "listExportSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ExportSetSummary/ListExportSets";
@@ -2600,6 +2647,7 @@ All Oracle Cloud Infrastructure Services resources, including
       listExportSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2709,7 +2757,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listExports(
     listExportsRequest: requests.ListExportsRequest
   ): Promise<responses.ListExportsResponse> {
-    logger.debug("Calling operation FileStorageClient#listExports.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listExports.");
     const operationName = "listExports";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ExportSummary/ListExports";
@@ -2738,6 +2786,7 @@ All Oracle Cloud Infrastructure Services resources, including
       listExportsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2846,7 +2895,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listFileSystems(
     listFileSystemsRequest: requests.ListFileSystemsRequest
   ): Promise<responses.ListFileSystemsResponse> {
-    logger.debug("Calling operation FileStorageClient#listFileSystems.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listFileSystems.");
     const operationName = "listFileSystems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystemSummary/ListFileSystems";
@@ -2878,6 +2927,7 @@ All Oracle Cloud Infrastructure Services resources, including
       listFileSystemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2985,7 +3035,8 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listFilesystemSnapshotPolicies(
     listFilesystemSnapshotPoliciesRequest: requests.ListFilesystemSnapshotPoliciesRequest
   ): Promise<responses.ListFilesystemSnapshotPoliciesResponse> {
-    logger.debug("Calling operation FileStorageClient#listFilesystemSnapshotPolicies.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#listFilesystemSnapshotPolicies.");
     const operationName = "listFilesystemSnapshotPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicySummary/ListFilesystemSnapshotPolicies";
@@ -3014,6 +3065,7 @@ All Oracle Cloud Infrastructure Services resources, including
       listFilesystemSnapshotPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3121,7 +3173,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listMountTargets(
     listMountTargetsRequest: requests.ListMountTargetsRequest
   ): Promise<responses.ListMountTargetsResponse> {
-    logger.debug("Calling operation FileStorageClient#listMountTargets.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listMountTargets.");
     const operationName = "listMountTargets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTargetSummary/ListMountTargets";
@@ -3151,6 +3203,7 @@ All Oracle Cloud Infrastructure Services resources, including
       listMountTargetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3258,7 +3311,8 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listOutboundConnectors(
     listOutboundConnectorsRequest: requests.ListOutboundConnectorsRequest
   ): Promise<responses.ListOutboundConnectorsResponse> {
-    logger.debug("Calling operation FileStorageClient#listOutboundConnectors.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#listOutboundConnectors.");
     const operationName = "listOutboundConnectors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnectorSummary/ListOutboundConnectors";
@@ -3287,6 +3341,7 @@ All Oracle Cloud Infrastructure Services resources, including
       listOutboundConnectorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3394,7 +3449,8 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listReplicationTargets(
     listReplicationTargetsRequest: requests.ListReplicationTargetsRequest
   ): Promise<responses.ListReplicationTargetsResponse> {
-    logger.debug("Calling operation FileStorageClient#listReplicationTargets.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#listReplicationTargets.");
     const operationName = "listReplicationTargets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ReplicationTargetSummary/ListReplicationTargets";
@@ -3423,6 +3479,7 @@ All Oracle Cloud Infrastructure Services resources, including
       listReplicationTargetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3530,7 +3587,7 @@ All Oracle Cloud Infrastructure Services resources, including
   public async listReplications(
     listReplicationsRequest: requests.ListReplicationsRequest
   ): Promise<responses.ListReplicationsResponse> {
-    logger.debug("Calling operation FileStorageClient#listReplications.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listReplications.");
     const operationName = "listReplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ReplicationSummary/ListReplications";
@@ -3560,6 +3617,7 @@ All Oracle Cloud Infrastructure Services resources, including
       listReplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3673,7 +3731,7 @@ Users can only sort by time created when listing snapshots by file system snapsh
   public async listSnapshots(
     listSnapshotsRequest: requests.ListSnapshotsRequest
   ): Promise<responses.ListSnapshotsResponse> {
-    logger.debug("Calling operation FileStorageClient#listSnapshots.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listSnapshots.");
     const operationName = "listSnapshots";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/SnapshotSummary/ListSnapshots";
@@ -3701,6 +3759,7 @@ Users can only sort by time created when listing snapshots by file system snapsh
       listSnapshotsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3813,7 +3872,8 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
   public async pauseFilesystemSnapshotPolicy(
     pauseFilesystemSnapshotPolicyRequest: requests.PauseFilesystemSnapshotPolicyRequest
   ): Promise<responses.PauseFilesystemSnapshotPolicyResponse> {
-    logger.debug("Calling operation FileStorageClient#pauseFilesystemSnapshotPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#pauseFilesystemSnapshotPolicy.");
     const operationName = "pauseFilesystemSnapshotPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/PauseFilesystemSnapshotPolicy";
@@ -3836,6 +3896,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       pauseFilesystemSnapshotPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3895,7 +3956,8 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async unpauseFilesystemSnapshotPolicy(
     unpauseFilesystemSnapshotPolicyRequest: requests.UnpauseFilesystemSnapshotPolicyRequest
   ): Promise<responses.UnpauseFilesystemSnapshotPolicyResponse> {
-    logger.debug("Calling operation FileStorageClient#unpauseFilesystemSnapshotPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#unpauseFilesystemSnapshotPolicy.");
     const operationName = "unpauseFilesystemSnapshotPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/UnpauseFilesystemSnapshotPolicy";
@@ -3918,6 +3980,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       unpauseFilesystemSnapshotPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3972,7 +4035,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async updateExport(
     updateExportRequest: requests.UpdateExportRequest
   ): Promise<responses.UpdateExportResponse> {
-    logger.debug("Calling operation FileStorageClient#updateExport.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateExport.");
     const operationName = "updateExport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/UpdateExport";
@@ -3994,6 +4057,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       updateExportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4053,7 +4117,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async updateExportSet(
     updateExportSetRequest: requests.UpdateExportSetRequest
   ): Promise<responses.UpdateExportSetResponse> {
-    logger.debug("Calling operation FileStorageClient#updateExportSet.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateExportSet.");
     const operationName = "updateExportSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ExportSet/UpdateExportSet";
@@ -4075,6 +4139,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       updateExportSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4136,7 +4201,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async updateFileSystem(
     updateFileSystemRequest: requests.UpdateFileSystemRequest
   ): Promise<responses.UpdateFileSystemResponse> {
-    logger.debug("Calling operation FileStorageClient#updateFileSystem.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateFileSystem.");
     const operationName = "updateFileSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/UpdateFileSystem";
@@ -4158,6 +4223,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       updateFileSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4217,7 +4283,8 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async updateFilesystemSnapshotPolicy(
     updateFilesystemSnapshotPolicyRequest: requests.UpdateFilesystemSnapshotPolicyRequest
   ): Promise<responses.UpdateFilesystemSnapshotPolicyResponse> {
-    logger.debug("Calling operation FileStorageClient#updateFilesystemSnapshotPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#updateFilesystemSnapshotPolicy.");
     const operationName = "updateFilesystemSnapshotPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/UpdateFilesystemSnapshotPolicy";
@@ -4240,6 +4307,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       updateFilesystemSnapshotPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4299,7 +4367,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async updateMountTarget(
     updateMountTargetRequest: requests.UpdateMountTargetRequest
   ): Promise<responses.UpdateMountTargetResponse> {
-    logger.debug("Calling operation FileStorageClient#updateMountTarget.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateMountTarget.");
     const operationName = "updateMountTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/UpdateMountTarget";
@@ -4321,6 +4389,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       updateMountTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4380,7 +4449,8 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async updateOutboundConnector(
     updateOutboundConnectorRequest: requests.UpdateOutboundConnectorRequest
   ): Promise<responses.UpdateOutboundConnectorResponse> {
-    logger.debug("Calling operation FileStorageClient#updateOutboundConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#updateOutboundConnector.");
     const operationName = "updateOutboundConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/UpdateOutboundConnector";
@@ -4402,6 +4472,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       updateOutboundConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4462,7 +4533,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async updateReplication(
     updateReplicationRequest: requests.UpdateReplicationRequest
   ): Promise<responses.UpdateReplicationResponse> {
-    logger.debug("Calling operation FileStorageClient#updateReplication.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateReplication.");
     const operationName = "updateReplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/UpdateReplication";
@@ -4484,6 +4555,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       updateReplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4543,7 +4615,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async updateSnapshot(
     updateSnapshotRequest: requests.UpdateSnapshotRequest
   ): Promise<responses.UpdateSnapshotResponse> {
-    logger.debug("Calling operation FileStorageClient#updateSnapshot.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateSnapshot.");
     const operationName = "updateSnapshot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/UpdateSnapshot";
@@ -4565,6 +4637,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       updateSnapshotRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4627,7 +4700,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   public async validateKeyTabs(
     validateKeyTabsRequest: requests.ValidateKeyTabsRequest
   ): Promise<responses.ValidateKeyTabsResponse> {
-    logger.debug("Calling operation FileStorageClient#validateKeyTabs.");
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#validateKeyTabs.");
     const operationName = "validateKeyTabs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/ValidateKeyTabs";
@@ -4646,6 +4719,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       validateKeyTabsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

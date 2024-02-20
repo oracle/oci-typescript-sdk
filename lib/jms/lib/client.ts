@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class JavaManagementServiceClient {
   protected static serviceEndpointTemplate =
     "https://javamanagement.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": JavaManagementServiceWaiter;
@@ -118,7 +117,12 @@ export class JavaManagementServiceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210610";
-    logger.info(`JavaManagementServiceClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`JavaManagementServiceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +132,10 @@ export class JavaManagementServiceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         JavaManagementServiceClient.serviceEndpointTemplate,
@@ -222,7 +227,8 @@ export class JavaManagementServiceClient {
   public async addFleetInstallationSites(
     addFleetInstallationSitesRequest: requests.AddFleetInstallationSitesRequest
   ): Promise<responses.AddFleetInstallationSitesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#addFleetInstallationSites.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#addFleetInstallationSites.");
     const operationName = "addFleetInstallationSites";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/AddFleetInstallationSites";
@@ -245,6 +251,7 @@ export class JavaManagementServiceClient {
       addFleetInstallationSitesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -300,7 +307,8 @@ export class JavaManagementServiceClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#cancelWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/CancelWorkRequest";
@@ -322,6 +330,7 @@ export class JavaManagementServiceClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -368,7 +377,8 @@ export class JavaManagementServiceClient {
   public async changeFleetCompartment(
     changeFleetCompartmentRequest: requests.ChangeFleetCompartmentRequest
   ): Promise<responses.ChangeFleetCompartmentResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#changeFleetCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#changeFleetCompartment.");
     const operationName = "changeFleetCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/ChangeFleetCompartment";
@@ -391,6 +401,7 @@ export class JavaManagementServiceClient {
       changeFleetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -447,7 +458,8 @@ export class JavaManagementServiceClient {
   public async createBlocklist(
     createBlocklistRequest: requests.CreateBlocklistRequest
   ): Promise<responses.CreateBlocklistResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#createBlocklist.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#createBlocklist.");
     const operationName = "createBlocklist";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/CreateBlocklist";
@@ -469,6 +481,7 @@ export class JavaManagementServiceClient {
       createBlocklistRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -529,7 +542,8 @@ export class JavaManagementServiceClient {
   public async createDrsFile(
     createDrsFileRequest: requests.CreateDrsFileRequest
   ): Promise<responses.CreateDrsFileResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#createDrsFile.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#createDrsFile.");
     const operationName = "createDrsFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/CreateDrsFile";
@@ -552,6 +566,7 @@ export class JavaManagementServiceClient {
       createDrsFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -614,7 +629,8 @@ export class JavaManagementServiceClient {
   public async createFleet(
     createFleetRequest: requests.CreateFleetRequest
   ): Promise<responses.CreateFleetResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#createFleet.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#createFleet.");
     const operationName = "createFleet";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/CreateFleet";
     const pathParams = {};
@@ -633,6 +649,7 @@ export class JavaManagementServiceClient {
       createFleetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -688,7 +705,8 @@ export class JavaManagementServiceClient {
   public async deleteBlocklist(
     deleteBlocklistRequest: requests.DeleteBlocklistRequest
   ): Promise<responses.DeleteBlocklistResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#deleteBlocklist.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#deleteBlocklist.");
     const operationName = "deleteBlocklist";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/DeleteBlocklist";
@@ -711,6 +729,7 @@ export class JavaManagementServiceClient {
       deleteBlocklistRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -756,7 +775,10 @@ export class JavaManagementServiceClient {
   public async deleteCryptoAnalysisResult(
     deleteCryptoAnalysisResultRequest: requests.DeleteCryptoAnalysisResultRequest
   ): Promise<responses.DeleteCryptoAnalysisResultResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#deleteCryptoAnalysisResult.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#deleteCryptoAnalysisResult."
+      );
     const operationName = "deleteCryptoAnalysisResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/DeleteCryptoAnalysisResult";
@@ -779,6 +801,7 @@ export class JavaManagementServiceClient {
       deleteCryptoAnalysisResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -830,7 +853,8 @@ export class JavaManagementServiceClient {
   public async deleteDrsFile(
     deleteDrsFileRequest: requests.DeleteDrsFileRequest
   ): Promise<responses.DeleteDrsFileResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#deleteDrsFile.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#deleteDrsFile.");
     const operationName = "deleteDrsFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFile/DeleteDrsFile";
@@ -853,6 +877,7 @@ export class JavaManagementServiceClient {
       deleteDrsFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -903,7 +928,8 @@ export class JavaManagementServiceClient {
   public async deleteFleet(
     deleteFleetRequest: requests.DeleteFleetRequest
   ): Promise<responses.DeleteFleetResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#deleteFleet.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#deleteFleet.");
     const operationName = "deleteFleet";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/DeleteFleet";
     const pathParams = {
@@ -924,6 +950,7 @@ export class JavaManagementServiceClient {
       deleteFleetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -974,9 +1001,10 @@ export class JavaManagementServiceClient {
   public async deleteJavaMigrationAnalysisResult(
     deleteJavaMigrationAnalysisResultRequest: requests.DeleteJavaMigrationAnalysisResultRequest
   ): Promise<responses.DeleteJavaMigrationAnalysisResultResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#deleteJavaMigrationAnalysisResult."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#deleteJavaMigrationAnalysisResult."
+      );
     const operationName = "deleteJavaMigrationAnalysisResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/DeleteJavaMigrationAnalysisResult";
@@ -1000,6 +1028,7 @@ export class JavaManagementServiceClient {
       deleteJavaMigrationAnalysisResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1050,9 +1079,10 @@ export class JavaManagementServiceClient {
   public async deletePerformanceTuningAnalysisResult(
     deletePerformanceTuningAnalysisResultRequest: requests.DeletePerformanceTuningAnalysisResultRequest
   ): Promise<responses.DeletePerformanceTuningAnalysisResultResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#deletePerformanceTuningAnalysisResult."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#deletePerformanceTuningAnalysisResult."
+      );
     const operationName = "deletePerformanceTuningAnalysisResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/DeletePerformanceTuningAnalysisResult";
@@ -1076,6 +1106,7 @@ export class JavaManagementServiceClient {
       deletePerformanceTuningAnalysisResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1128,7 +1159,7 @@ export class JavaManagementServiceClient {
   public async disableDrs(
     disableDrsRequest: requests.DisableDrsRequest
   ): Promise<responses.DisableDrsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#disableDrs.");
+    if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#disableDrs.");
     const operationName = "disableDrs";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/DisableDrs";
     const pathParams = {
@@ -1150,6 +1181,7 @@ export class JavaManagementServiceClient {
       disableDrsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1206,7 +1238,7 @@ export class JavaManagementServiceClient {
   public async enableDrs(
     enableDrsRequest: requests.EnableDrsRequest
   ): Promise<responses.EnableDrsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#enableDrs.");
+    if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#enableDrs.");
     const operationName = "enableDrs";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/EnableDrs";
     const pathParams = {
@@ -1228,6 +1260,7 @@ export class JavaManagementServiceClient {
       enableDrsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1284,7 +1317,8 @@ export class JavaManagementServiceClient {
   public async generateAgentDeployScript(
     generateAgentDeployScriptRequest: requests.GenerateAgentDeployScriptRequest
   ): Promise<responses.GenerateAgentDeployScriptResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#generateAgentDeployScript.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#generateAgentDeployScript.");
     const operationName = "generateAgentDeployScript";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/GenerateAgentDeployScript";
@@ -1305,6 +1339,7 @@ export class JavaManagementServiceClient {
       generateAgentDeployScriptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1369,7 +1404,8 @@ export class JavaManagementServiceClient {
   public async getCryptoAnalysisResult(
     getCryptoAnalysisResultRequest: requests.GetCryptoAnalysisResultRequest
   ): Promise<responses.GetCryptoAnalysisResultResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getCryptoAnalysisResult.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getCryptoAnalysisResult.");
     const operationName = "getCryptoAnalysisResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/GetCryptoAnalysisResult";
@@ -1391,6 +1427,7 @@ export class JavaManagementServiceClient {
       getCryptoAnalysisResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1445,7 +1482,7 @@ export class JavaManagementServiceClient {
   public async getDrsFile(
     getDrsFileRequest: requests.GetDrsFileRequest
   ): Promise<responses.GetDrsFileResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getDrsFile.");
+    if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#getDrsFile.");
     const operationName = "getDrsFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFile/GetDrsFile";
@@ -1469,6 +1506,7 @@ export class JavaManagementServiceClient {
       getDrsFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1523,7 +1561,8 @@ export class JavaManagementServiceClient {
   public async getExportSetting(
     getExportSettingRequest: requests.GetExportSettingRequest
   ): Promise<responses.GetExportSettingResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getExportSetting.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getExportSetting.");
     const operationName = "getExportSetting";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportSetting/GetExportSetting";
@@ -1544,6 +1583,7 @@ export class JavaManagementServiceClient {
       getExportSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1598,7 +1638,8 @@ export class JavaManagementServiceClient {
   public async getExportStatus(
     getExportStatusRequest: requests.GetExportStatusRequest
   ): Promise<responses.GetExportStatusResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getExportStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getExportStatus.");
     const operationName = "getExportStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportStatus/GetExportStatus";
@@ -1619,6 +1660,7 @@ export class JavaManagementServiceClient {
       getExportStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1673,7 +1715,7 @@ export class JavaManagementServiceClient {
   public async getFleet(
     getFleetRequest: requests.GetFleetRequest
   ): Promise<responses.GetFleetResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getFleet.");
+    if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#getFleet.");
     const operationName = "getFleet";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/GetFleet";
     const pathParams = {
@@ -1693,6 +1735,7 @@ export class JavaManagementServiceClient {
       getFleetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1748,9 +1791,10 @@ export class JavaManagementServiceClient {
   public async getFleetAdvancedFeatureConfiguration(
     getFleetAdvancedFeatureConfigurationRequest: requests.GetFleetAdvancedFeatureConfigurationRequest
   ): Promise<responses.GetFleetAdvancedFeatureConfigurationResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#getFleetAdvancedFeatureConfiguration."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#getFleetAdvancedFeatureConfiguration."
+      );
     const operationName = "getFleetAdvancedFeatureConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAdvancedFeatureConfiguration/GetFleetAdvancedFeatureConfiguration";
@@ -1772,6 +1816,7 @@ export class JavaManagementServiceClient {
       getFleetAdvancedFeatureConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1826,7 +1871,10 @@ export class JavaManagementServiceClient {
   public async getFleetAgentConfiguration(
     getFleetAgentConfigurationRequest: requests.GetFleetAgentConfigurationRequest
   ): Promise<responses.GetFleetAgentConfigurationResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getFleetAgentConfiguration.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#getFleetAgentConfiguration."
+      );
     const operationName = "getFleetAgentConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAgentConfiguration/GetFleetAgentConfiguration";
@@ -1847,6 +1895,7 @@ export class JavaManagementServiceClient {
       getFleetAgentConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1902,7 +1951,8 @@ export class JavaManagementServiceClient {
   public async getJavaFamily(
     getJavaFamilyRequest: requests.GetJavaFamilyRequest
   ): Promise<responses.GetJavaFamilyResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getJavaFamily.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getJavaFamily.");
     const operationName = "getJavaFamily";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaFamily/GetJavaFamily";
@@ -1923,6 +1973,7 @@ export class JavaManagementServiceClient {
       getJavaFamilyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1972,7 +2023,10 @@ export class JavaManagementServiceClient {
   public async getJavaMigrationAnalysisResult(
     getJavaMigrationAnalysisResultRequest: requests.GetJavaMigrationAnalysisResultRequest
   ): Promise<responses.GetJavaMigrationAnalysisResultResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getJavaMigrationAnalysisResult.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#getJavaMigrationAnalysisResult."
+      );
     const operationName = "getJavaMigrationAnalysisResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/GetJavaMigrationAnalysisResult";
@@ -1995,6 +2049,7 @@ export class JavaManagementServiceClient {
       getJavaMigrationAnalysisResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2049,7 +2104,8 @@ export class JavaManagementServiceClient {
   public async getJavaRelease(
     getJavaReleaseRequest: requests.GetJavaReleaseRequest
   ): Promise<responses.GetJavaReleaseResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getJavaRelease.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getJavaRelease.");
     const operationName = "getJavaRelease";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaRelease/GetJavaRelease";
@@ -2070,6 +2126,7 @@ export class JavaManagementServiceClient {
       getJavaReleaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2119,9 +2176,10 @@ export class JavaManagementServiceClient {
   public async getPerformanceTuningAnalysisResult(
     getPerformanceTuningAnalysisResultRequest: requests.GetPerformanceTuningAnalysisResultRequest
   ): Promise<responses.GetPerformanceTuningAnalysisResultResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#getPerformanceTuningAnalysisResult."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#getPerformanceTuningAnalysisResult."
+      );
     const operationName = "getPerformanceTuningAnalysisResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/GetPerformanceTuningAnalysisResult";
@@ -2144,6 +2202,7 @@ export class JavaManagementServiceClient {
       getPerformanceTuningAnalysisResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2199,7 +2258,8 @@ export class JavaManagementServiceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#getWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/GetWorkRequest";
@@ -2220,6 +2280,7 @@ export class JavaManagementServiceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2279,7 +2340,8 @@ export class JavaManagementServiceClient {
   public async listAnnouncements(
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
   ): Promise<responses.ListAnnouncementsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listAnnouncements.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listAnnouncements.");
     const operationName = "listAnnouncements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/AnnouncementCollection/ListAnnouncements";
@@ -2306,6 +2368,7 @@ export class JavaManagementServiceClient {
       listAnnouncementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2361,7 +2424,8 @@ export class JavaManagementServiceClient {
   public async listBlocklists(
     listBlocklistsRequest: requests.ListBlocklistsRequest
   ): Promise<responses.ListBlocklistsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listBlocklists.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listBlocklists.");
     const operationName = "listBlocklists";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/ListBlocklists";
@@ -2389,6 +2453,7 @@ export class JavaManagementServiceClient {
       listBlocklistsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2443,7 +2508,8 @@ export class JavaManagementServiceClient {
   public async listCryptoAnalysisResults(
     listCryptoAnalysisResultsRequest: requests.ListCryptoAnalysisResultsRequest
   ): Promise<responses.ListCryptoAnalysisResultsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listCryptoAnalysisResults.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listCryptoAnalysisResults.");
     const operationName = "listCryptoAnalysisResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/ListCryptoAnalysisResults";
@@ -2473,6 +2539,7 @@ export class JavaManagementServiceClient {
       listCryptoAnalysisResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2527,7 +2594,8 @@ export class JavaManagementServiceClient {
   public async listDrsFiles(
     listDrsFilesRequest: requests.ListDrsFilesRequest
   ): Promise<responses.ListDrsFilesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listDrsFiles.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listDrsFiles.");
     const operationName = "listDrsFiles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFileCollection/ListDrsFiles";
@@ -2553,6 +2621,7 @@ export class JavaManagementServiceClient {
       listDrsFilesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2608,7 +2677,8 @@ export class JavaManagementServiceClient {
   public async listFleetDiagnoses(
     listFleetDiagnosesRequest: requests.ListFleetDiagnosesRequest
   ): Promise<responses.ListFleetDiagnosesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listFleetDiagnoses.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listFleetDiagnoses.");
     const operationName = "listFleetDiagnoses";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetDiagnosisSummary/ListFleetDiagnoses";
@@ -2632,6 +2702,7 @@ export class JavaManagementServiceClient {
       listFleetDiagnosesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2688,7 +2759,7 @@ export class JavaManagementServiceClient {
   public async listFleets(
     listFleetsRequest: requests.ListFleetsRequest
   ): Promise<responses.ListFleetsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listFleets.");
+    if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#listFleets.");
     const operationName = "listFleets";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/ListFleets";
     const pathParams = {};
@@ -2716,6 +2787,7 @@ export class JavaManagementServiceClient {
       listFleetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2770,7 +2842,8 @@ export class JavaManagementServiceClient {
   public async listInstallationSites(
     listInstallationSitesRequest: requests.ListInstallationSitesRequest
   ): Promise<responses.ListInstallationSitesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listInstallationSites.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listInstallationSites.");
     const operationName = "listInstallationSites";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/ListInstallationSites";
@@ -2807,6 +2880,7 @@ export class JavaManagementServiceClient {
       listInstallationSitesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2863,7 +2937,8 @@ export class JavaManagementServiceClient {
   public async listJavaFamilies(
     listJavaFamiliesRequest: requests.ListJavaFamiliesRequest
   ): Promise<responses.ListJavaFamiliesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listJavaFamilies.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listJavaFamilies.");
     const operationName = "listJavaFamilies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaFamily/ListJavaFamilies";
@@ -2890,6 +2965,7 @@ export class JavaManagementServiceClient {
       listJavaFamiliesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2944,7 +3020,10 @@ export class JavaManagementServiceClient {
   public async listJavaMigrationAnalysisResults(
     listJavaMigrationAnalysisResultsRequest: requests.ListJavaMigrationAnalysisResultsRequest
   ): Promise<responses.ListJavaMigrationAnalysisResultsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listJavaMigrationAnalysisResults.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listJavaMigrationAnalysisResults."
+      );
     const operationName = "listJavaMigrationAnalysisResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/ListJavaMigrationAnalysisResults";
@@ -2973,6 +3052,7 @@ export class JavaManagementServiceClient {
       listJavaMigrationAnalysisResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3028,7 +3108,8 @@ export class JavaManagementServiceClient {
   public async listJavaReleases(
     listJavaReleasesRequest: requests.ListJavaReleasesRequest
   ): Promise<responses.ListJavaReleasesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listJavaReleases.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listJavaReleases.");
     const operationName = "listJavaReleases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaRelease/ListJavaReleases";
@@ -3057,6 +3138,7 @@ export class JavaManagementServiceClient {
       listJavaReleasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3111,7 +3193,8 @@ export class JavaManagementServiceClient {
   public async listJreUsage(
     listJreUsageRequest: requests.ListJreUsageRequest
   ): Promise<responses.ListJreUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listJreUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listJreUsage.");
     const operationName = "listJreUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JreUsage/ListJreUsage";
@@ -3141,6 +3224,7 @@ export class JavaManagementServiceClient {
       listJreUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3195,9 +3279,10 @@ export class JavaManagementServiceClient {
   public async listPerformanceTuningAnalysisResults(
     listPerformanceTuningAnalysisResultsRequest: requests.ListPerformanceTuningAnalysisResultsRequest
   ): Promise<responses.ListPerformanceTuningAnalysisResultsResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#listPerformanceTuningAnalysisResults."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listPerformanceTuningAnalysisResults."
+      );
     const operationName = "listPerformanceTuningAnalysisResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/ListPerformanceTuningAnalysisResults";
@@ -3227,6 +3312,7 @@ export class JavaManagementServiceClient {
       listPerformanceTuningAnalysisResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3282,7 +3368,8 @@ export class JavaManagementServiceClient {
   public async listWorkItems(
     listWorkItemsRequest: requests.ListWorkItemsRequest
   ): Promise<responses.ListWorkItemsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listWorkItems.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listWorkItems.");
     const operationName = "listWorkItems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkItemSummary/ListWorkItems";
@@ -3306,6 +3393,7 @@ export class JavaManagementServiceClient {
       listWorkItemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3361,7 +3449,8 @@ export class JavaManagementServiceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequestError/ListWorkRequestErrors";
@@ -3385,6 +3474,7 @@ export class JavaManagementServiceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3440,7 +3530,8 @@ export class JavaManagementServiceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -3464,6 +3555,7 @@ export class JavaManagementServiceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3519,7 +3611,8 @@ export class JavaManagementServiceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/ListWorkRequests";
@@ -3545,6 +3638,7 @@ export class JavaManagementServiceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3599,7 +3693,10 @@ export class JavaManagementServiceClient {
   public async removeFleetInstallationSites(
     removeFleetInstallationSitesRequest: requests.RemoveFleetInstallationSitesRequest
   ): Promise<responses.RemoveFleetInstallationSitesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#removeFleetInstallationSites.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#removeFleetInstallationSites."
+      );
     const operationName = "removeFleetInstallationSites";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/RemoveFleetInstallationSites";
@@ -3622,6 +3719,7 @@ export class JavaManagementServiceClient {
       removeFleetInstallationSitesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3678,7 +3776,8 @@ export class JavaManagementServiceClient {
   public async requestCryptoAnalyses(
     requestCryptoAnalysesRequest: requests.RequestCryptoAnalysesRequest
   ): Promise<responses.RequestCryptoAnalysesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#requestCryptoAnalyses.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#requestCryptoAnalyses.");
     const operationName = "requestCryptoAnalyses";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestCryptoAnalyses";
@@ -3699,6 +3798,7 @@ export class JavaManagementServiceClient {
       requestCryptoAnalysesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3756,7 +3856,10 @@ export class JavaManagementServiceClient {
   public async requestJavaMigrationAnalyses(
     requestJavaMigrationAnalysesRequest: requests.RequestJavaMigrationAnalysesRequest
   ): Promise<responses.RequestJavaMigrationAnalysesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#requestJavaMigrationAnalyses.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#requestJavaMigrationAnalyses."
+      );
     const operationName = "requestJavaMigrationAnalyses";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestJavaMigrationAnalyses";
@@ -3777,6 +3880,7 @@ export class JavaManagementServiceClient {
       requestJavaMigrationAnalysesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3833,7 +3937,8 @@ export class JavaManagementServiceClient {
   public async requestJfrRecordings(
     requestJfrRecordingsRequest: requests.RequestJfrRecordingsRequest
   ): Promise<responses.RequestJfrRecordingsResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#requestJfrRecordings.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#requestJfrRecordings.");
     const operationName = "requestJfrRecordings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestJfrRecordings";
@@ -3854,6 +3959,7 @@ export class JavaManagementServiceClient {
       requestJfrRecordingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3911,7 +4017,10 @@ export class JavaManagementServiceClient {
   public async requestPerformanceTuningAnalyses(
     requestPerformanceTuningAnalysesRequest: requests.RequestPerformanceTuningAnalysesRequest
   ): Promise<responses.RequestPerformanceTuningAnalysesResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#requestPerformanceTuningAnalyses.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#requestPerformanceTuningAnalyses."
+      );
     const operationName = "requestPerformanceTuningAnalyses";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestPerformanceTuningAnalyses";
@@ -3932,6 +4041,7 @@ export class JavaManagementServiceClient {
       requestPerformanceTuningAnalysesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3987,7 +4097,8 @@ export class JavaManagementServiceClient {
   public async scanJavaServerUsage(
     scanJavaServerUsageRequest: requests.ScanJavaServerUsageRequest
   ): Promise<responses.ScanJavaServerUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#scanJavaServerUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#scanJavaServerUsage.");
     const operationName = "scanJavaServerUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerUsage/ScanJavaServerUsage";
@@ -4010,6 +4121,7 @@ export class JavaManagementServiceClient {
       scanJavaServerUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4065,7 +4177,8 @@ export class JavaManagementServiceClient {
   public async scanLibraryUsage(
     scanLibraryUsageRequest: requests.ScanLibraryUsageRequest
   ): Promise<responses.ScanLibraryUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#scanLibraryUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#scanLibraryUsage.");
     const operationName = "scanLibraryUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/LibraryUsage/ScanLibraryUsage";
@@ -4088,6 +4201,7 @@ export class JavaManagementServiceClient {
       scanLibraryUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4144,9 +4258,10 @@ export class JavaManagementServiceClient {
   public async summarizeApplicationInstallationUsage(
     summarizeApplicationInstallationUsageRequest: requests.SummarizeApplicationInstallationUsageRequest
   ): Promise<responses.SummarizeApplicationInstallationUsageResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#summarizeApplicationInstallationUsage."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeApplicationInstallationUsage."
+      );
     const operationName = "summarizeApplicationInstallationUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ApplicationInstallationUsageSummary/SummarizeApplicationInstallationUsage";
@@ -4189,6 +4304,7 @@ export class JavaManagementServiceClient {
       summarizeApplicationInstallationUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4243,7 +4359,8 @@ export class JavaManagementServiceClient {
   public async summarizeApplicationUsage(
     summarizeApplicationUsageRequest: requests.SummarizeApplicationUsageRequest
   ): Promise<responses.SummarizeApplicationUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#summarizeApplicationUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizeApplicationUsage.");
     const operationName = "summarizeApplicationUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ApplicationUsage/SummarizeApplicationUsage";
@@ -4283,6 +4400,7 @@ export class JavaManagementServiceClient {
       summarizeApplicationUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4338,9 +4456,10 @@ export class JavaManagementServiceClient {
   public async summarizeDeployedApplicationInstallationUsage(
     summarizeDeployedApplicationInstallationUsageRequest: requests.SummarizeDeployedApplicationInstallationUsageRequest
   ): Promise<responses.SummarizeDeployedApplicationInstallationUsageResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#summarizeDeployedApplicationInstallationUsage."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeDeployedApplicationInstallationUsage."
+      );
     const operationName = "summarizeDeployedApplicationInstallationUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DeployedApplicationInstallationUsageSummary/SummarizeDeployedApplicationInstallationUsage";
@@ -4380,6 +4499,7 @@ export class JavaManagementServiceClient {
       summarizeDeployedApplicationInstallationUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4435,9 +4555,10 @@ export class JavaManagementServiceClient {
   public async summarizeDeployedApplicationUsage(
     summarizeDeployedApplicationUsageRequest: requests.SummarizeDeployedApplicationUsageRequest
   ): Promise<responses.SummarizeDeployedApplicationUsageResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#summarizeDeployedApplicationUsage."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeDeployedApplicationUsage."
+      );
     const operationName = "summarizeDeployedApplicationUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DeployedApplicationUsage/SummarizeDeployedApplicationUsage";
@@ -4472,6 +4593,7 @@ export class JavaManagementServiceClient {
       summarizeDeployedApplicationUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4526,7 +4648,10 @@ export class JavaManagementServiceClient {
   public async summarizeInstallationUsage(
     summarizeInstallationUsageRequest: requests.SummarizeInstallationUsageRequest
   ): Promise<responses.SummarizeInstallationUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#summarizeInstallationUsage.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeInstallationUsage."
+      );
     const operationName = "summarizeInstallationUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationUsage/SummarizeInstallationUsage";
@@ -4563,6 +4688,7 @@ export class JavaManagementServiceClient {
       summarizeInstallationUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4618,7 +4744,10 @@ export class JavaManagementServiceClient {
   public async summarizeJavaServerInstanceUsage(
     summarizeJavaServerInstanceUsageRequest: requests.SummarizeJavaServerInstanceUsageRequest
   ): Promise<responses.SummarizeJavaServerInstanceUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#summarizeJavaServerInstanceUsage.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeJavaServerInstanceUsage."
+      );
     const operationName = "summarizeJavaServerInstanceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerInstanceUsage/SummarizeJavaServerInstanceUsage";
@@ -4654,6 +4783,7 @@ export class JavaManagementServiceClient {
       summarizeJavaServerInstanceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4709,7 +4839,8 @@ export class JavaManagementServiceClient {
   public async summarizeJavaServerUsage(
     summarizeJavaServerUsageRequest: requests.SummarizeJavaServerUsageRequest
   ): Promise<responses.SummarizeJavaServerUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#summarizeJavaServerUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizeJavaServerUsage.");
     const operationName = "summarizeJavaServerUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerUsage/SummarizeJavaServerUsage";
@@ -4741,6 +4872,7 @@ export class JavaManagementServiceClient {
       summarizeJavaServerUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4795,7 +4927,8 @@ export class JavaManagementServiceClient {
   public async summarizeJreUsage(
     summarizeJreUsageRequest: requests.SummarizeJreUsageRequest
   ): Promise<responses.SummarizeJreUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#summarizeJreUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizeJreUsage.");
     const operationName = "summarizeJreUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JreUsage/SummarizeJreUsage";
@@ -4832,6 +4965,7 @@ export class JavaManagementServiceClient {
       summarizeJreUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4887,7 +5021,8 @@ export class JavaManagementServiceClient {
   public async summarizeLibraryUsage(
     summarizeLibraryUsageRequest: requests.SummarizeLibraryUsageRequest
   ): Promise<responses.SummarizeLibraryUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#summarizeLibraryUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizeLibraryUsage.");
     const operationName = "summarizeLibraryUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/LibraryUsage/SummarizeLibraryUsage";
@@ -4921,6 +5056,7 @@ export class JavaManagementServiceClient {
       summarizeLibraryUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4975,7 +5111,10 @@ export class JavaManagementServiceClient {
   public async summarizeManagedInstanceUsage(
     summarizeManagedInstanceUsageRequest: requests.SummarizeManagedInstanceUsageRequest
   ): Promise<responses.SummarizeManagedInstanceUsageResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#summarizeManagedInstanceUsage.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeManagedInstanceUsage."
+      );
     const operationName = "summarizeManagedInstanceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ManagedInstanceUsage/SummarizeManagedInstanceUsage";
@@ -5014,6 +5153,7 @@ export class JavaManagementServiceClient {
       summarizeManagedInstanceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5069,7 +5209,10 @@ export class JavaManagementServiceClient {
   public async summarizeResourceInventory(
     summarizeResourceInventoryRequest: requests.SummarizeResourceInventoryRequest
   ): Promise<responses.SummarizeResourceInventoryResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#summarizeResourceInventory.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeResourceInventory."
+      );
     const operationName = "summarizeResourceInventory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/SummarizeResourceInventory";
@@ -5092,6 +5235,7 @@ export class JavaManagementServiceClient {
       summarizeResourceInventoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5142,7 +5286,8 @@ export class JavaManagementServiceClient {
   public async updateDrsFile(
     updateDrsFileRequest: requests.UpdateDrsFileRequest
   ): Promise<responses.UpdateDrsFileResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#updateDrsFile.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#updateDrsFile.");
     const operationName = "updateDrsFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/UpdateDrsFile";
@@ -5166,6 +5311,7 @@ export class JavaManagementServiceClient {
       updateDrsFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5221,7 +5367,8 @@ export class JavaManagementServiceClient {
   public async updateExportSetting(
     updateExportSettingRequest: requests.UpdateExportSettingRequest
   ): Promise<responses.UpdateExportSettingResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#updateExportSetting.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#updateExportSetting.");
     const operationName = "updateExportSetting";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportSetting/UpdateExportSetting";
@@ -5243,6 +5390,7 @@ export class JavaManagementServiceClient {
       updateExportSettingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5302,7 +5450,8 @@ export class JavaManagementServiceClient {
   public async updateFleet(
     updateFleetRequest: requests.UpdateFleetRequest
   ): Promise<responses.UpdateFleetResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#updateFleet.");
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#updateFleet.");
     const operationName = "updateFleet";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/UpdateFleet";
     const pathParams = {
@@ -5323,6 +5472,7 @@ export class JavaManagementServiceClient {
       updateFleetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5380,9 +5530,10 @@ export class JavaManagementServiceClient {
   public async updateFleetAdvancedFeatureConfiguration(
     updateFleetAdvancedFeatureConfigurationRequest: requests.UpdateFleetAdvancedFeatureConfigurationRequest
   ): Promise<responses.UpdateFleetAdvancedFeatureConfigurationResponse> {
-    logger.debug(
-      "Calling operation JavaManagementServiceClient#updateFleetAdvancedFeatureConfiguration."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#updateFleetAdvancedFeatureConfiguration."
+      );
     const operationName = "updateFleetAdvancedFeatureConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAdvancedFeatureConfiguration/UpdateFleetAdvancedFeatureConfiguration";
@@ -5405,6 +5556,7 @@ export class JavaManagementServiceClient {
       updateFleetAdvancedFeatureConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5464,7 +5616,10 @@ export class JavaManagementServiceClient {
   public async updateFleetAgentConfiguration(
     updateFleetAgentConfigurationRequest: requests.UpdateFleetAgentConfigurationRequest
   ): Promise<responses.UpdateFleetAgentConfigurationResponse> {
-    logger.debug("Calling operation JavaManagementServiceClient#updateFleetAgentConfiguration.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#updateFleetAgentConfiguration."
+      );
     const operationName = "updateFleetAgentConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAgentConfiguration/UpdateFleetAgentConfiguration";
@@ -5486,6 +5641,7 @@ export class JavaManagementServiceClient {
       updateFleetAgentConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

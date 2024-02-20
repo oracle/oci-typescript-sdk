@@ -69,7 +69,7 @@ export namespace CreateRepositoryDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.repositoryType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.repositoryType}`);
       }
     }
     return jsonObj;
@@ -85,7 +85,7 @@ export namespace CreateRepositoryDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.repositoryType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.repositoryType}`);
       }
     }
     return jsonObj;

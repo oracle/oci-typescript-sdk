@@ -38,7 +38,7 @@ export namespace PushDownOperation {
         case "FILTER":
           return model.FilterPush.getJsonObj(<model.FilterPush>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -59,7 +59,7 @@ export namespace PushDownOperation {
         case "FILTER":
           return model.FilterPush.getDeserializedJsonObj(<model.FilterPush>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

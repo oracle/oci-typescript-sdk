@@ -7,22 +7,24 @@
  * This is an example shows how to integrate a logger with the SDK
  */
 
-var identity = require("oci-identity");
-var common = require("oci-common");
+var oci = require("oci-sdk");
+var bunyan = require("bunyan");
 
 // Integrate bunyan logger with the SDK. Make sure bunyan logger in installed.
 // You can integrate with log4js, winston or any other logger as well.
-process.env.USE_BUNYAN = "true";
-const provider = new common.ConfigFileAuthenticationDetailsProvider();
+var bunLog = bunyan.createLogger({ name: "LoggingExample", level: "debug" });
+oci.LOG.logger = bunLog;
+
+const provider = new oci.common.ConfigFileAuthenticationDetailsProvider();
 
 (async () => {
-  const identityClient = new identity.IdentityClient({
+  const identityClient = new oci.identity.IdentityClient({
     authenticationDetailsProvider: provider
   });
   const regions = await identityClient.listRegionSubscriptions({
     tenancyId: provider.getTenantId() || ""
   });
   for (let i = 0; i < regions.items.length; i++) {
-    common.logger.info(`Region fetched ${regions.items[i].regionName}`);
+    console.log(`Region fetched ${regions.items[i].regionName}`);
   }
 })();

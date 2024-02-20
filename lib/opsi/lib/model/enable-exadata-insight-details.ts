@@ -41,7 +41,7 @@ export namespace EnableExadataInsightDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.entitySource}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
     }
     return jsonObj;
@@ -62,7 +62,7 @@ export namespace EnableExadataInsightDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.entitySource}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
     }
     return jsonObj;

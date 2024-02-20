@@ -32,8 +32,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -48,7 +47,7 @@ export enum BlockstorageApiKeys {}
 export class BlockstorageClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": BlockstorageWaiter;
@@ -129,7 +128,11 @@ export class BlockstorageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    logger.info(`BlockstorageClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`BlockstorageClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -139,9 +142,10 @@ export class BlockstorageClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         BlockstorageClient.serviceEndpointTemplate,
@@ -240,7 +244,8 @@ export class BlockstorageClient {
   public async changeBootVolumeBackupCompartment(
     changeBootVolumeBackupCompartmentRequest: requests.ChangeBootVolumeBackupCompartmentRequest
   ): Promise<responses.ChangeBootVolumeBackupCompartmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#changeBootVolumeBackupCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeBootVolumeBackupCompartment.");
     const operationName = "changeBootVolumeBackupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/ChangeBootVolumeBackupCompartment";
@@ -261,6 +266,7 @@ export class BlockstorageClient {
       changeBootVolumeBackupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -319,7 +325,8 @@ export class BlockstorageClient {
   public async changeBootVolumeCompartment(
     changeBootVolumeCompartmentRequest: requests.ChangeBootVolumeCompartmentRequest
   ): Promise<responses.ChangeBootVolumeCompartmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#changeBootVolumeCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeBootVolumeCompartment.");
     const operationName = "changeBootVolumeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/ChangeBootVolumeCompartment";
@@ -340,6 +347,7 @@ export class BlockstorageClient {
       changeBootVolumeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -398,7 +406,8 @@ export class BlockstorageClient {
   public async changeVolumeBackupCompartment(
     changeVolumeBackupCompartmentRequest: requests.ChangeVolumeBackupCompartmentRequest
   ): Promise<responses.ChangeVolumeBackupCompartmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#changeVolumeBackupCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeVolumeBackupCompartment.");
     const operationName = "changeVolumeBackupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/ChangeVolumeBackupCompartment";
@@ -419,6 +428,7 @@ export class BlockstorageClient {
       changeVolumeBackupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -477,7 +487,8 @@ export class BlockstorageClient {
   public async changeVolumeCompartment(
     changeVolumeCompartmentRequest: requests.ChangeVolumeCompartmentRequest
   ): Promise<responses.ChangeVolumeCompartmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#changeVolumeCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeVolumeCompartment.");
     const operationName = "changeVolumeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/ChangeVolumeCompartment";
@@ -498,6 +509,7 @@ export class BlockstorageClient {
       changeVolumeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -556,7 +568,8 @@ export class BlockstorageClient {
   public async changeVolumeGroupBackupCompartment(
     changeVolumeGroupBackupCompartmentRequest: requests.ChangeVolumeGroupBackupCompartmentRequest
   ): Promise<responses.ChangeVolumeGroupBackupCompartmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#changeVolumeGroupBackupCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeVolumeGroupBackupCompartment.");
     const operationName = "changeVolumeGroupBackupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/ChangeVolumeGroupBackupCompartment";
@@ -577,6 +590,7 @@ export class BlockstorageClient {
       changeVolumeGroupBackupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -635,7 +649,8 @@ export class BlockstorageClient {
   public async changeVolumeGroupCompartment(
     changeVolumeGroupCompartmentRequest: requests.ChangeVolumeGroupCompartmentRequest
   ): Promise<responses.ChangeVolumeGroupCompartmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#changeVolumeGroupCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#changeVolumeGroupCompartment.");
     const operationName = "changeVolumeGroupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/ChangeVolumeGroupCompartment";
@@ -656,6 +671,7 @@ export class BlockstorageClient {
       changeVolumeGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -713,7 +729,8 @@ export class BlockstorageClient {
   public async copyBootVolumeBackup(
     copyBootVolumeBackupRequest: requests.CopyBootVolumeBackupRequest
   ): Promise<responses.CopyBootVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#copyBootVolumeBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#copyBootVolumeBackup.");
     const operationName = "copyBootVolumeBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/CopyBootVolumeBackup";
@@ -735,6 +752,7 @@ export class BlockstorageClient {
       copyBootVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -811,7 +829,7 @@ export class BlockstorageClient {
   public async copyVolumeBackup(
     copyVolumeBackupRequest: requests.CopyVolumeBackupRequest
   ): Promise<responses.CopyVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#copyVolumeBackup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#copyVolumeBackup.");
     const operationName = "copyVolumeBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/CopyVolumeBackup";
@@ -833,6 +851,7 @@ export class BlockstorageClient {
       copyVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -909,7 +928,8 @@ export class BlockstorageClient {
   public async copyVolumeGroupBackup(
     copyVolumeGroupBackupRequest: requests.CopyVolumeGroupBackupRequest
   ): Promise<responses.CopyVolumeGroupBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#copyVolumeGroupBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#copyVolumeGroupBackup.");
     const operationName = "copyVolumeGroupBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/CopyVolumeGroupBackup";
@@ -931,6 +951,7 @@ export class BlockstorageClient {
       copyVolumeGroupBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -994,7 +1015,7 @@ export class BlockstorageClient {
   public async createBootVolume(
     createBootVolumeRequest: requests.CreateBootVolumeRequest
   ): Promise<responses.CreateBootVolumeResponse> {
-    logger.debug("Calling operation BlockstorageClient#createBootVolume.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createBootVolume.");
     const operationName = "createBootVolume";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/CreateBootVolume";
@@ -1013,6 +1034,7 @@ export class BlockstorageClient {
       createBootVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1078,7 +1100,8 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
   public async createBootVolumeBackup(
     createBootVolumeBackupRequest: requests.CreateBootVolumeBackupRequest
   ): Promise<responses.CreateBootVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#createBootVolumeBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#createBootVolumeBackup.");
     const operationName = "createBootVolumeBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/CreateBootVolumeBackup";
@@ -1097,6 +1120,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
       createBootVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1170,7 +1194,7 @@ You may optionally specify a *display name* for the volume, which is simply a fr
   public async createVolume(
     createVolumeRequest: requests.CreateVolumeRequest
   ): Promise<responses.CreateVolumeResponse> {
-    logger.debug("Calling operation BlockstorageClient#createVolume.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolume.");
     const operationName = "createVolume";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/CreateVolume";
@@ -1189,6 +1213,7 @@ You may optionally specify a *display name* for the volume, which is simply a fr
       createVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1254,7 +1279,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
   public async createVolumeBackup(
     createVolumeBackupRequest: requests.CreateVolumeBackupRequest
   ): Promise<responses.CreateVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#createVolumeBackup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolumeBackup.");
     const operationName = "createVolumeBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/CreateVolumeBackup";
@@ -1273,6 +1298,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
       createVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1336,7 +1362,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async createVolumeBackupPolicy(
     createVolumeBackupPolicyRequest: requests.CreateVolumeBackupPolicyRequest
   ): Promise<responses.CreateVolumeBackupPolicyResponse> {
-    logger.debug("Calling operation BlockstorageClient#createVolumeBackupPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#createVolumeBackupPolicy.");
     const operationName = "createVolumeBackupPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicy/CreateVolumeBackupPolicy";
@@ -1356,6 +1383,7 @@ For more information about Oracle defined backup policies and user defined backu
       createVolumeBackupPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1418,7 +1446,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async createVolumeBackupPolicyAssignment(
     createVolumeBackupPolicyAssignmentRequest: requests.CreateVolumeBackupPolicyAssignmentRequest
   ): Promise<responses.CreateVolumeBackupPolicyAssignmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#createVolumeBackupPolicyAssignment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#createVolumeBackupPolicyAssignment.");
     const operationName = "createVolumeBackupPolicyAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicyAssignment/CreateVolumeBackupPolicyAssignment";
@@ -1436,6 +1465,7 @@ For more information about Oracle defined backup policies and user defined backu
       createVolumeBackupPolicyAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1502,7 +1532,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async createVolumeGroup(
     createVolumeGroupRequest: requests.CreateVolumeGroupRequest
   ): Promise<responses.CreateVolumeGroupResponse> {
-    logger.debug("Calling operation BlockstorageClient#createVolumeGroup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolumeGroup.");
     const operationName = "createVolumeGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/CreateVolumeGroup";
@@ -1521,6 +1551,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       createVolumeGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1582,7 +1613,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async createVolumeGroupBackup(
     createVolumeGroupBackupRequest: requests.CreateVolumeGroupBackupRequest
   ): Promise<responses.CreateVolumeGroupBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#createVolumeGroupBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#createVolumeGroupBackup.");
     const operationName = "createVolumeGroupBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/CreateVolumeGroupBackup";
@@ -1601,6 +1633,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       createVolumeGroupBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1664,7 +1697,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteBootVolume(
     deleteBootVolumeRequest: requests.DeleteBootVolumeRequest
   ): Promise<responses.DeleteBootVolumeResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteBootVolume.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteBootVolume.");
     const operationName = "deleteBootVolume";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1684,6 +1717,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteBootVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1729,7 +1763,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteBootVolumeBackup(
     deleteBootVolumeBackupRequest: requests.DeleteBootVolumeBackupRequest
   ): Promise<responses.DeleteBootVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteBootVolumeBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteBootVolumeBackup.");
     const operationName = "deleteBootVolumeBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1749,6 +1784,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteBootVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1795,7 +1831,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteBootVolumeKmsKey(
     deleteBootVolumeKmsKeyRequest: requests.DeleteBootVolumeKmsKeyRequest
   ): Promise<responses.DeleteBootVolumeKmsKeyResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteBootVolumeKmsKey.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteBootVolumeKmsKey.");
     const operationName = "deleteBootVolumeKmsKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1815,6 +1852,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteBootVolumeKmsKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1864,7 +1902,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteVolume(
     deleteVolumeRequest: requests.DeleteVolumeRequest
   ): Promise<responses.DeleteVolumeResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteVolume.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolume.");
     const operationName = "deleteVolume";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1884,6 +1922,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1929,7 +1968,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteVolumeBackup(
     deleteVolumeBackupRequest: requests.DeleteVolumeBackupRequest
   ): Promise<responses.DeleteVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteVolumeBackup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackup.");
     const operationName = "deleteVolumeBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1949,6 +1988,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1999,7 +2039,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteVolumeBackupPolicy(
     deleteVolumeBackupPolicyRequest: requests.DeleteVolumeBackupPolicyRequest
   ): Promise<responses.DeleteVolumeBackupPolicyResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteVolumeBackupPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackupPolicy.");
     const operationName = "deleteVolumeBackupPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2020,6 +2061,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteVolumeBackupPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2065,7 +2107,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteVolumeBackupPolicyAssignment(
     deleteVolumeBackupPolicyAssignmentRequest: requests.DeleteVolumeBackupPolicyAssignmentRequest
   ): Promise<responses.DeleteVolumeBackupPolicyAssignmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteVolumeBackupPolicyAssignment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackupPolicyAssignment.");
     const operationName = "deleteVolumeBackupPolicyAssignment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2085,6 +2128,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteVolumeBackupPolicyAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2132,7 +2176,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteVolumeGroup(
     deleteVolumeGroupRequest: requests.DeleteVolumeGroupRequest
   ): Promise<responses.DeleteVolumeGroupResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteVolumeGroup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeGroup.");
     const operationName = "deleteVolumeGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2152,6 +2196,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteVolumeGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2199,7 +2244,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteVolumeGroupBackup(
     deleteVolumeGroupBackupRequest: requests.DeleteVolumeGroupBackupRequest
   ): Promise<responses.DeleteVolumeGroupBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteVolumeGroupBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#deleteVolumeGroupBackup.");
     const operationName = "deleteVolumeGroupBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2219,6 +2265,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteVolumeGroupBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2265,7 +2312,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async deleteVolumeKmsKey(
     deleteVolumeKmsKeyRequest: requests.DeleteVolumeKmsKeyRequest
   ): Promise<responses.DeleteVolumeKmsKeyResponse> {
-    logger.debug("Calling operation BlockstorageClient#deleteVolumeKmsKey.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeKmsKey.");
     const operationName = "deleteVolumeKmsKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2285,6 +2332,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       deleteVolumeKmsKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2330,7 +2378,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getBlockVolumeReplica(
     getBlockVolumeReplicaRequest: requests.GetBlockVolumeReplicaRequest
   ): Promise<responses.GetBlockVolumeReplicaResponse> {
-    logger.debug("Calling operation BlockstorageClient#getBlockVolumeReplica.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getBlockVolumeReplica.");
     const operationName = "getBlockVolumeReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BlockVolumeReplica/GetBlockVolumeReplica";
@@ -2350,6 +2399,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getBlockVolumeReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2404,7 +2454,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getBootVolume(
     getBootVolumeRequest: requests.GetBootVolumeRequest
   ): Promise<responses.GetBootVolumeResponse> {
-    logger.debug("Calling operation BlockstorageClient#getBootVolume.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolume.");
     const operationName = "getBootVolume";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/GetBootVolume";
@@ -2424,6 +2474,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getBootVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2478,7 +2529,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getBootVolumeBackup(
     getBootVolumeBackupRequest: requests.GetBootVolumeBackupRequest
   ): Promise<responses.GetBootVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#getBootVolumeBackup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolumeBackup.");
     const operationName = "getBootVolumeBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/GetBootVolumeBackup";
@@ -2498,6 +2549,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getBootVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2553,7 +2605,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getBootVolumeKmsKey(
     getBootVolumeKmsKeyRequest: requests.GetBootVolumeKmsKeyRequest
   ): Promise<responses.GetBootVolumeKmsKeyResponse> {
-    logger.debug("Calling operation BlockstorageClient#getBootVolumeKmsKey.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolumeKmsKey.");
     const operationName = "getBootVolumeKmsKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeKmsKey/GetBootVolumeKmsKey";
@@ -2574,6 +2626,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getBootVolumeKmsKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2628,7 +2681,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getBootVolumeReplica(
     getBootVolumeReplicaRequest: requests.GetBootVolumeReplicaRequest
   ): Promise<responses.GetBootVolumeReplicaResponse> {
-    logger.debug("Calling operation BlockstorageClient#getBootVolumeReplica.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getBootVolumeReplica.");
     const operationName = "getBootVolumeReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeReplica/GetBootVolumeReplica";
@@ -2648,6 +2702,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getBootVolumeReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2702,7 +2757,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolume(
     getVolumeRequest: requests.GetVolumeRequest
   ): Promise<responses.GetVolumeResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolume.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolume.");
     const operationName = "getVolume";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/GetVolume";
     const pathParams = {
@@ -2721,6 +2776,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2775,7 +2831,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolumeBackup(
     getVolumeBackupRequest: requests.GetVolumeBackupRequest
   ): Promise<responses.GetVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolumeBackup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeBackup.");
     const operationName = "getVolumeBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/GetVolumeBackup";
@@ -2795,6 +2851,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2849,7 +2906,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolumeBackupPolicy(
     getVolumeBackupPolicyRequest: requests.GetVolumeBackupPolicyRequest
   ): Promise<responses.GetVolumeBackupPolicyResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicy.");
     const operationName = "getVolumeBackupPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicy/GetVolumeBackupPolicy";
@@ -2869,6 +2927,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeBackupPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2926,7 +2985,10 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolumeBackupPolicyAssetAssignment(
     getVolumeBackupPolicyAssetAssignmentRequest: requests.GetVolumeBackupPolicyAssetAssignmentRequest
   ): Promise<responses.GetVolumeBackupPolicyAssetAssignmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicyAssetAssignment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation BlockstorageClient#getVolumeBackupPolicyAssetAssignment."
+      );
     const operationName = "getVolumeBackupPolicyAssetAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicyAssignment/GetVolumeBackupPolicyAssetAssignment";
@@ -2948,6 +3010,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeBackupPolicyAssetAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3054,7 +3117,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolumeBackupPolicyAssignment(
     getVolumeBackupPolicyAssignmentRequest: requests.GetVolumeBackupPolicyAssignmentRequest
   ): Promise<responses.GetVolumeBackupPolicyAssignmentResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicyAssignment.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicyAssignment.");
     const operationName = "getVolumeBackupPolicyAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicyAssignment/GetVolumeBackupPolicyAssignment";
@@ -3074,6 +3138,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeBackupPolicyAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3128,7 +3193,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolumeGroup(
     getVolumeGroupRequest: requests.GetVolumeGroupRequest
   ): Promise<responses.GetVolumeGroupResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolumeGroup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeGroup.");
     const operationName = "getVolumeGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/GetVolumeGroup";
@@ -3148,6 +3213,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3202,7 +3268,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolumeGroupBackup(
     getVolumeGroupBackupRequest: requests.GetVolumeGroupBackupRequest
   ): Promise<responses.GetVolumeGroupBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolumeGroupBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getVolumeGroupBackup.");
     const operationName = "getVolumeGroupBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/GetVolumeGroupBackup";
@@ -3222,6 +3289,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeGroupBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3276,7 +3344,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolumeGroupReplica(
     getVolumeGroupReplicaRequest: requests.GetVolumeGroupReplicaRequest
   ): Promise<responses.GetVolumeGroupReplicaResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolumeGroupReplica.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#getVolumeGroupReplica.");
     const operationName = "getVolumeGroupReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupReplica/GetVolumeGroupReplica";
@@ -3296,6 +3365,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeGroupReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3351,7 +3421,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async getVolumeKmsKey(
     getVolumeKmsKeyRequest: requests.GetVolumeKmsKeyRequest
   ): Promise<responses.GetVolumeKmsKeyResponse> {
-    logger.debug("Calling operation BlockstorageClient#getVolumeKmsKey.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeKmsKey.");
     const operationName = "getVolumeKmsKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeKmsKey/GetVolumeKmsKey";
@@ -3372,6 +3442,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       getVolumeKmsKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3427,7 +3498,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async listBlockVolumeReplicas(
     listBlockVolumeReplicasRequest: requests.ListBlockVolumeReplicasRequest
   ): Promise<responses.ListBlockVolumeReplicasResponse> {
-    logger.debug("Calling operation BlockstorageClient#listBlockVolumeReplicas.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listBlockVolumeReplicas.");
     const operationName = "listBlockVolumeReplicas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BlockVolumeReplica/ListBlockVolumeReplicas";
@@ -3455,6 +3527,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       listBlockVolumeReplicasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3562,7 +3635,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async listBootVolumeBackups(
     listBootVolumeBackupsRequest: requests.ListBootVolumeBackupsRequest
   ): Promise<responses.ListBootVolumeBackupsResponse> {
-    logger.debug("Calling operation BlockstorageClient#listBootVolumeBackups.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listBootVolumeBackups.");
     const operationName = "listBootVolumeBackups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/ListBootVolumeBackups";
@@ -3590,6 +3664,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       listBootVolumeBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3697,7 +3772,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async listBootVolumeReplicas(
     listBootVolumeReplicasRequest: requests.ListBootVolumeReplicasRequest
   ): Promise<responses.ListBootVolumeReplicasResponse> {
-    logger.debug("Calling operation BlockstorageClient#listBootVolumeReplicas.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listBootVolumeReplicas.");
     const operationName = "listBootVolumeReplicas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeReplica/ListBootVolumeReplicas";
@@ -3725,6 +3801,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       listBootVolumeReplicasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3832,7 +3909,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async listBootVolumes(
     listBootVolumesRequest: requests.ListBootVolumesRequest
   ): Promise<responses.ListBootVolumesResponse> {
-    logger.debug("Calling operation BlockstorageClient#listBootVolumes.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listBootVolumes.");
     const operationName = "listBootVolumes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/ListBootVolumes";
@@ -3856,6 +3933,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       listBootVolumesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3966,7 +4044,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeBackupPolicies(
     listVolumeBackupPoliciesRequest: requests.ListVolumeBackupPoliciesRequest
   ): Promise<responses.ListVolumeBackupPoliciesResponse> {
-    logger.debug("Calling operation BlockstorageClient#listVolumeBackupPolicies.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listVolumeBackupPolicies.");
     const operationName = "listVolumeBackupPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicy/ListVolumeBackupPolicies";
@@ -3988,6 +4067,7 @@ For more information about Oracle defined backup policies and user defined backu
       listVolumeBackupPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4095,7 +4175,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeBackups(
     listVolumeBackupsRequest: requests.ListVolumeBackupsRequest
   ): Promise<responses.ListVolumeBackupsResponse> {
-    logger.debug("Calling operation BlockstorageClient#listVolumeBackups.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumeBackups.");
     const operationName = "listVolumeBackups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/ListVolumeBackups";
@@ -4123,6 +4203,7 @@ For more information about Oracle defined backup policies and user defined backu
       listVolumeBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4231,7 +4312,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeGroupBackups(
     listVolumeGroupBackupsRequest: requests.ListVolumeGroupBackupsRequest
   ): Promise<responses.ListVolumeGroupBackupsResponse> {
-    logger.debug("Calling operation BlockstorageClient#listVolumeGroupBackups.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listVolumeGroupBackups.");
     const operationName = "listVolumeGroupBackups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/ListVolumeGroupBackups";
@@ -4257,6 +4339,7 @@ For more information about Oracle defined backup policies and user defined backu
       listVolumeGroupBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4365,7 +4448,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeGroupReplicas(
     listVolumeGroupReplicasRequest: requests.ListVolumeGroupReplicasRequest
   ): Promise<responses.ListVolumeGroupReplicasResponse> {
-    logger.debug("Calling operation BlockstorageClient#listVolumeGroupReplicas.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#listVolumeGroupReplicas.");
     const operationName = "listVolumeGroupReplicas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupReplica/ListVolumeGroupReplicas";
@@ -4392,6 +4476,7 @@ For more information about Oracle defined backup policies and user defined backu
       listVolumeGroupReplicasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4500,7 +4585,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumeGroups(
     listVolumeGroupsRequest: requests.ListVolumeGroupsRequest
   ): Promise<responses.ListVolumeGroupsResponse> {
-    logger.debug("Calling operation BlockstorageClient#listVolumeGroups.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumeGroups.");
     const operationName = "listVolumeGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/ListVolumeGroups";
@@ -4527,6 +4612,7 @@ For more information about Oracle defined backup policies and user defined backu
       listVolumeGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4634,7 +4720,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async listVolumes(
     listVolumesRequest: requests.ListVolumesRequest
   ): Promise<responses.ListVolumesResponse> {
-    logger.debug("Calling operation BlockstorageClient#listVolumes.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumes.");
     const operationName = "listVolumes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/ListVolumes";
@@ -4662,6 +4748,7 @@ For more information about Oracle defined backup policies and user defined backu
       listVolumesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4766,7 +4853,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateBootVolume(
     updateBootVolumeRequest: requests.UpdateBootVolumeRequest
   ): Promise<responses.UpdateBootVolumeResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateBootVolume.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateBootVolume.");
     const operationName = "updateBootVolume";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/UpdateBootVolume";
@@ -4787,6 +4874,7 @@ For more information about Oracle defined backup policies and user defined backu
       updateBootVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4848,7 +4936,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateBootVolumeBackup(
     updateBootVolumeBackupRequest: requests.UpdateBootVolumeBackupRequest
   ): Promise<responses.UpdateBootVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateBootVolumeBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#updateBootVolumeBackup.");
     const operationName = "updateBootVolumeBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/UpdateBootVolumeBackup";
@@ -4869,6 +4958,7 @@ For more information about Oracle defined backup policies and user defined backu
       updateBootVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4924,7 +5014,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateBootVolumeKmsKey(
     updateBootVolumeKmsKeyRequest: requests.UpdateBootVolumeKmsKeyRequest
   ): Promise<responses.UpdateBootVolumeKmsKeyResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateBootVolumeKmsKey.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#updateBootVolumeKmsKey.");
     const operationName = "updateBootVolumeKmsKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeKmsKey/UpdateBootVolumeKmsKey";
@@ -4945,6 +5036,7 @@ For more information about Oracle defined backup policies and user defined backu
       updateBootVolumeKmsKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5006,7 +5098,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateVolume(
     updateVolumeRequest: requests.UpdateVolumeRequest
   ): Promise<responses.UpdateVolumeResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateVolume.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolume.");
     const operationName = "updateVolume";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/UpdateVolume";
@@ -5027,6 +5119,7 @@ For more information about Oracle defined backup policies and user defined backu
       updateVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5088,7 +5181,7 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateVolumeBackup(
     updateVolumeBackupRequest: requests.UpdateVolumeBackupRequest
   ): Promise<responses.UpdateVolumeBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateVolumeBackup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeBackup.");
     const operationName = "updateVolumeBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/UpdateVolumeBackup";
@@ -5109,6 +5202,7 @@ For more information about Oracle defined backup policies and user defined backu
       updateVolumeBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5168,7 +5262,8 @@ For more information about Oracle defined backup policies and user defined backu
   public async updateVolumeBackupPolicy(
     updateVolumeBackupPolicyRequest: requests.UpdateVolumeBackupPolicyRequest
   ): Promise<responses.UpdateVolumeBackupPolicyResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateVolumeBackupPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#updateVolumeBackupPolicy.");
     const operationName = "updateVolumeBackupPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicy/UpdateVolumeBackupPolicy";
@@ -5191,6 +5286,7 @@ For more information about Oracle defined backup policies and user defined backu
       updateVolumeBackupPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5256,7 +5352,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async updateVolumeGroup(
     updateVolumeGroupRequest: requests.UpdateVolumeGroupRequest
   ): Promise<responses.UpdateVolumeGroupResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateVolumeGroup.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeGroup.");
     const operationName = "updateVolumeGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/UpdateVolumeGroup";
@@ -5279,6 +5375,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       updateVolumeGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5338,7 +5435,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async updateVolumeGroupBackup(
     updateVolumeGroupBackupRequest: requests.UpdateVolumeGroupBackupRequest
   ): Promise<responses.UpdateVolumeGroupBackupResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateVolumeGroupBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockstorageClient#updateVolumeGroupBackup.");
     const operationName = "updateVolumeGroupBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/UpdateVolumeGroupBackup";
@@ -5359,6 +5457,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       updateVolumeGroupBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5414,7 +5513,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   public async updateVolumeKmsKey(
     updateVolumeKmsKeyRequest: requests.UpdateVolumeKmsKeyRequest
   ): Promise<responses.UpdateVolumeKmsKeyResponse> {
-    logger.debug("Calling operation BlockstorageClient#updateVolumeKmsKey.");
+    if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeKmsKey.");
     const operationName = "updateVolumeKmsKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeKmsKey/UpdateVolumeKmsKey";
@@ -5435,6 +5534,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       updateVolumeKmsKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5490,7 +5590,7 @@ export enum ComputeApiKeys {}
 export class ComputeClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeWaiter;
@@ -5571,7 +5671,11 @@ export class ComputeClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    logger.info(`ComputeClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ComputeClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -5581,9 +5685,10 @@ export class ComputeClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ComputeClient.serviceEndpointTemplate,
@@ -5679,7 +5784,8 @@ export class ComputeClient {
   public async acceptShieldedIntegrityPolicy(
     acceptShieldedIntegrityPolicyRequest: requests.AcceptShieldedIntegrityPolicyRequest
   ): Promise<responses.AcceptShieldedIntegrityPolicyResponse> {
-    logger.debug("Calling operation ComputeClient#acceptShieldedIntegrityPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#acceptShieldedIntegrityPolicy.");
     const operationName = "acceptShieldedIntegrityPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/MeasuredBootReport/AcceptShieldedIntegrityPolicy";
@@ -5702,6 +5808,7 @@ export class ComputeClient {
       acceptShieldedIntegrityPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5747,7 +5854,8 @@ export class ComputeClient {
   public async addImageShapeCompatibilityEntry(
     addImageShapeCompatibilityEntryRequest: requests.AddImageShapeCompatibilityEntryRequest
   ): Promise<responses.AddImageShapeCompatibilityEntryResponse> {
-    logger.debug("Calling operation ComputeClient#addImageShapeCompatibilityEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#addImageShapeCompatibilityEntry.");
     const operationName = "addImageShapeCompatibilityEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ImageShapeCompatibilityEntry/AddImageShapeCompatibilityEntry";
@@ -5768,6 +5876,7 @@ export class ComputeClient {
       addImageShapeCompatibilityEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5823,7 +5932,7 @@ export class ComputeClient {
   public async attachBootVolume(
     attachBootVolumeRequest: requests.AttachBootVolumeRequest
   ): Promise<responses.AttachBootVolumeResponse> {
-    logger.debug("Calling operation ComputeClient#attachBootVolume.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#attachBootVolume.");
     const operationName = "attachBootVolume";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeAttachment/AttachBootVolume";
@@ -5842,6 +5951,7 @@ export class ComputeClient {
       attachBootVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5904,7 +6014,7 @@ export class ComputeClient {
   public async attachVnic(
     attachVnicRequest: requests.AttachVnicRequest
   ): Promise<responses.AttachVnicResponse> {
-    logger.debug("Calling operation ComputeClient#attachVnic.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#attachVnic.");
     const operationName = "attachVnic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VnicAttachment/AttachVnic";
@@ -5923,6 +6033,7 @@ export class ComputeClient {
       attachVnicRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5983,7 +6094,7 @@ export class ComputeClient {
   public async attachVolume(
     attachVolumeRequest: requests.AttachVolumeRequest
   ): Promise<responses.AttachVolumeResponse> {
-    logger.debug("Calling operation ComputeClient#attachVolume.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#attachVolume.");
     const operationName = "attachVolume";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/AttachVolume";
@@ -6002,6 +6113,7 @@ export class ComputeClient {
       attachVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6078,7 +6190,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   public async captureConsoleHistory(
     captureConsoleHistoryRequest: requests.CaptureConsoleHistoryRequest
   ): Promise<responses.CaptureConsoleHistoryResponse> {
-    logger.debug("Calling operation ComputeClient#captureConsoleHistory.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#captureConsoleHistory.");
     const operationName = "captureConsoleHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/CaptureConsoleHistory";
@@ -6097,6 +6209,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       captureConsoleHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6159,7 +6272,10 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   public async changeComputeCapacityReservationCompartment(
     changeComputeCapacityReservationCompartmentRequest: requests.ChangeComputeCapacityReservationCompartmentRequest
   ): Promise<responses.ChangeComputeCapacityReservationCompartmentResponse> {
-    logger.debug("Calling operation ComputeClient#changeComputeCapacityReservationCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#changeComputeCapacityReservationCompartment."
+      );
     const operationName = "changeComputeCapacityReservationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/ChangeComputeCapacityReservationCompartment";
@@ -6183,6 +6299,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       changeComputeCapacityReservationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6240,7 +6357,10 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   public async changeComputeCapacityTopologyCompartment(
     changeComputeCapacityTopologyCompartmentRequest: requests.ChangeComputeCapacityTopologyCompartmentRequest
   ): Promise<responses.ChangeComputeCapacityTopologyCompartmentResponse> {
-    logger.debug("Calling operation ComputeClient#changeComputeCapacityTopologyCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#changeComputeCapacityTopologyCompartment."
+      );
     const operationName = "changeComputeCapacityTopologyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/ChangeComputeCapacityTopologyCompartment";
@@ -6264,6 +6384,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       changeComputeCapacityTopologyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6324,7 +6445,8 @@ For information about moving resources between compartments, see
   public async changeComputeClusterCompartment(
     changeComputeClusterCompartmentRequest: requests.ChangeComputeClusterCompartmentRequest
   ): Promise<responses.ChangeComputeClusterCompartmentResponse> {
-    logger.debug("Calling operation ComputeClient#changeComputeClusterCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeComputeClusterCompartment.");
     const operationName = "changeComputeClusterCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/ChangeComputeClusterCompartment";
@@ -6347,6 +6469,7 @@ For information about moving resources between compartments, see
       changeComputeClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6400,7 +6523,10 @@ For information about moving resources between compartments, see
   public async changeComputeImageCapabilitySchemaCompartment(
     changeComputeImageCapabilitySchemaCompartmentRequest: requests.ChangeComputeImageCapabilitySchemaCompartmentRequest
   ): Promise<responses.ChangeComputeImageCapabilitySchemaCompartmentResponse> {
-    logger.debug("Calling operation ComputeClient#changeComputeImageCapabilitySchemaCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#changeComputeImageCapabilitySchemaCompartment."
+      );
     const operationName = "changeComputeImageCapabilitySchemaCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/ChangeComputeImageCapabilitySchemaCompartment";
@@ -6424,6 +6550,7 @@ For information about moving resources between compartments, see
       changeComputeImageCapabilitySchemaCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6475,7 +6602,8 @@ For information about moving resources between compartments, see
   public async changeDedicatedVmHostCompartment(
     changeDedicatedVmHostCompartmentRequest: requests.ChangeDedicatedVmHostCompartmentRequest
   ): Promise<responses.ChangeDedicatedVmHostCompartmentResponse> {
-    logger.debug("Calling operation ComputeClient#changeDedicatedVmHostCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeDedicatedVmHostCompartment.");
     const operationName = "changeDedicatedVmHostCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/ChangeDedicatedVmHostCompartment";
@@ -6498,6 +6626,7 @@ For information about moving resources between compartments, see
       changeDedicatedVmHostCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6561,7 +6690,7 @@ For information about moving resources between compartments, see
   public async changeImageCompartment(
     changeImageCompartmentRequest: requests.ChangeImageCompartmentRequest
   ): Promise<responses.ChangeImageCompartmentResponse> {
-    logger.debug("Calling operation ComputeClient#changeImageCompartment.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#changeImageCompartment.");
     const operationName = "changeImageCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/ChangeImageCompartment";
@@ -6584,6 +6713,7 @@ For information about moving resources between compartments, see
       changeImageCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6645,7 +6775,8 @@ When you move an instance to a different compartment, associated resources such 
   public async changeInstanceCompartment(
     changeInstanceCompartmentRequest: requests.ChangeInstanceCompartmentRequest
   ): Promise<responses.ChangeInstanceCompartmentResponse> {
-    logger.debug("Calling operation ComputeClient#changeInstanceCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeInstanceCompartment.");
     const operationName = "changeInstanceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/ChangeInstanceCompartment";
@@ -6668,6 +6799,7 @@ When you move an instance to a different compartment, associated resources such 
       changeInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6729,7 +6861,8 @@ When you move an instance to a different compartment, associated resources such 
   public async createAppCatalogSubscription(
     createAppCatalogSubscriptionRequest: requests.CreateAppCatalogSubscriptionRequest
   ): Promise<responses.CreateAppCatalogSubscriptionResponse> {
-    logger.debug("Calling operation ComputeClient#createAppCatalogSubscription.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createAppCatalogSubscription.");
     const operationName = "createAppCatalogSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogSubscription/CreateAppCatalogSubscription";
@@ -6748,6 +6881,7 @@ When you move an instance to a different compartment, associated resources such 
       createAppCatalogSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6813,7 +6947,8 @@ Use the capacity report to determine whether sufficient capacity is available fo
   public async createComputeCapacityReport(
     createComputeCapacityReportRequest: requests.CreateComputeCapacityReportRequest
   ): Promise<responses.CreateComputeCapacityReportResponse> {
-    logger.debug("Calling operation ComputeClient#createComputeCapacityReport.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeCapacityReport.");
     const operationName = "createComputeCapacityReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReport/CreateComputeCapacityReport";
@@ -6833,6 +6968,7 @@ Use the capacity report to determine whether sufficient capacity is available fo
       createComputeCapacityReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6892,7 +7028,8 @@ Use the capacity report to determine whether sufficient capacity is available fo
   public async createComputeCapacityReservation(
     createComputeCapacityReservationRequest: requests.CreateComputeCapacityReservationRequest
   ): Promise<responses.CreateComputeCapacityReservationResponse> {
-    logger.debug("Calling operation ComputeClient#createComputeCapacityReservation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeCapacityReservation.");
     const operationName = "createComputeCapacityReservation";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -6911,6 +7048,7 @@ Use the capacity report to determine whether sufficient capacity is available fo
       createComputeCapacityReservationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6986,7 +7124,8 @@ Compute capacity topologies report the health status of your bare metal hosts.
   public async createComputeCapacityTopology(
     createComputeCapacityTopologyRequest: requests.CreateComputeCapacityTopologyRequest
   ): Promise<responses.CreateComputeCapacityTopologyResponse> {
-    logger.debug("Calling operation ComputeClient#createComputeCapacityTopology.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeCapacityTopology.");
     const operationName = "createComputeCapacityTopology";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -7005,6 +7144,7 @@ Compute capacity topologies report the health status of your bare metal hosts.
       createComputeCapacityTopologyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7087,7 +7227,7 @@ If you want predictable capacity for a specific number of identical instances th
   public async createComputeCluster(
     createComputeClusterRequest: requests.CreateComputeClusterRequest
   ): Promise<responses.CreateComputeClusterResponse> {
-    logger.debug("Calling operation ComputeClient#createComputeCluster.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#createComputeCluster.");
     const operationName = "createComputeCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/CreateComputeCluster";
@@ -7107,6 +7247,7 @@ If you want predictable capacity for a specific number of identical instances th
       createComputeClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7167,7 +7308,8 @@ If you want predictable capacity for a specific number of identical instances th
   public async createComputeImageCapabilitySchema(
     createComputeImageCapabilitySchemaRequest: requests.CreateComputeImageCapabilitySchemaRequest
   ): Promise<responses.CreateComputeImageCapabilitySchemaResponse> {
-    logger.debug("Calling operation ComputeClient#createComputeImageCapabilitySchema.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeImageCapabilitySchema.");
     const operationName = "createComputeImageCapabilitySchema";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/CreateComputeImageCapabilitySchema";
@@ -7186,6 +7328,7 @@ If you want predictable capacity for a specific number of identical instances th
       createComputeImageCapabilitySchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7249,7 +7392,7 @@ If you want predictable capacity for a specific number of identical instances th
   public async createDedicatedVmHost(
     createDedicatedVmHostRequest: requests.CreateDedicatedVmHostRequest
   ): Promise<responses.CreateDedicatedVmHostResponse> {
-    logger.debug("Calling operation ComputeClient#createDedicatedVmHost.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#createDedicatedVmHost.");
     const operationName = "createDedicatedVmHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/CreateDedicatedVmHost";
@@ -7269,6 +7412,7 @@ If you want predictable capacity for a specific number of identical instances th
       createDedicatedVmHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7356,7 +7500,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
   public async createImage(
     createImageRequest: requests.CreateImageRequest
   ): Promise<responses.CreateImageResponse> {
-    logger.debug("Calling operation ComputeClient#createImage.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#createImage.");
     const operationName = "createImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/CreateImage";
@@ -7375,6 +7519,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
       createImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7444,7 +7589,8 @@ For more information about instance console connections, see [Troubleshooting In
   public async createInstanceConsoleConnection(
     createInstanceConsoleConnectionRequest: requests.CreateInstanceConsoleConnectionRequest
   ): Promise<responses.CreateInstanceConsoleConnectionResponse> {
-    logger.debug("Calling operation ComputeClient#createInstanceConsoleConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createInstanceConsoleConnection.");
     const operationName = "createInstanceConsoleConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/CreateInstanceConsoleConnection";
@@ -7463,6 +7609,7 @@ For more information about instance console connections, see [Troubleshooting In
       createInstanceConsoleConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7522,7 +7669,8 @@ For more information about instance console connections, see [Troubleshooting In
   public async deleteAppCatalogSubscription(
     deleteAppCatalogSubscriptionRequest: requests.DeleteAppCatalogSubscriptionRequest
   ): Promise<responses.DeleteAppCatalogSubscriptionResponse> {
-    logger.debug("Calling operation ComputeClient#deleteAppCatalogSubscription.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteAppCatalogSubscription.");
     const operationName = "deleteAppCatalogSubscription";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -7543,6 +7691,7 @@ For more information about instance console connections, see [Troubleshooting In
       deleteAppCatalogSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7588,7 +7737,8 @@ For more information about instance console connections, see [Troubleshooting In
   public async deleteComputeCapacityReservation(
     deleteComputeCapacityReservationRequest: requests.DeleteComputeCapacityReservationRequest
   ): Promise<responses.DeleteComputeCapacityReservationResponse> {
-    logger.debug("Calling operation ComputeClient#deleteComputeCapacityReservation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteComputeCapacityReservation.");
     const operationName = "deleteComputeCapacityReservation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/DeleteComputeCapacityReservation";
@@ -7610,6 +7760,7 @@ For more information about instance console connections, see [Troubleshooting In
       deleteComputeCapacityReservationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7660,7 +7811,8 @@ For more information about instance console connections, see [Troubleshooting In
   public async deleteComputeCapacityTopology(
     deleteComputeCapacityTopologyRequest: requests.DeleteComputeCapacityTopologyRequest
   ): Promise<responses.DeleteComputeCapacityTopologyResponse> {
-    logger.debug("Calling operation ComputeClient#deleteComputeCapacityTopology.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteComputeCapacityTopology.");
     const operationName = "deleteComputeCapacityTopology";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/DeleteComputeCapacityTopology";
@@ -7682,6 +7834,7 @@ For more information about instance console connections, see [Troubleshooting In
       deleteComputeCapacityTopologyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7737,7 +7890,7 @@ Before you delete a compute cluster, first delete all instances in the cluster b
   public async deleteComputeCluster(
     deleteComputeClusterRequest: requests.DeleteComputeClusterRequest
   ): Promise<responses.DeleteComputeClusterResponse> {
-    logger.debug("Calling operation ComputeClient#deleteComputeCluster.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteComputeCluster.");
     const operationName = "deleteComputeCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/DeleteComputeCluster";
@@ -7759,6 +7912,7 @@ Before you delete a compute cluster, first delete all instances in the cluster b
       deleteComputeClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7805,7 +7959,8 @@ Before you delete a compute cluster, first delete all instances in the cluster b
   public async deleteComputeImageCapabilitySchema(
     deleteComputeImageCapabilitySchemaRequest: requests.DeleteComputeImageCapabilitySchemaRequest
   ): Promise<responses.DeleteComputeImageCapabilitySchemaResponse> {
-    logger.debug("Calling operation ComputeClient#deleteComputeImageCapabilitySchema.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteComputeImageCapabilitySchema.");
     const operationName = "deleteComputeImageCapabilitySchema";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/DeleteComputeImageCapabilitySchema";
@@ -7827,6 +7982,7 @@ Before you delete a compute cluster, first delete all instances in the cluster b
       deleteComputeImageCapabilitySchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7873,7 +8029,7 @@ Before you delete a compute cluster, first delete all instances in the cluster b
   public async deleteConsoleHistory(
     deleteConsoleHistoryRequest: requests.DeleteConsoleHistoryRequest
   ): Promise<responses.DeleteConsoleHistoryResponse> {
-    logger.debug("Calling operation ComputeClient#deleteConsoleHistory.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteConsoleHistory.");
     const operationName = "deleteConsoleHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/DeleteConsoleHistory";
@@ -7894,6 +8050,7 @@ Before you delete a compute cluster, first delete all instances in the cluster b
       deleteConsoleHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7943,7 +8100,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
   public async deleteDedicatedVmHost(
     deleteDedicatedVmHostRequest: requests.DeleteDedicatedVmHostRequest
   ): Promise<responses.DeleteDedicatedVmHostResponse> {
-    logger.debug("Calling operation ComputeClient#deleteDedicatedVmHost.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteDedicatedVmHost.");
     const operationName = "deleteDedicatedVmHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/DeleteDedicatedVmHost";
@@ -7964,6 +8121,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
       deleteDedicatedVmHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8014,7 +8172,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
   public async deleteImage(
     deleteImageRequest: requests.DeleteImageRequest
   ): Promise<responses.DeleteImageResponse> {
-    logger.debug("Calling operation ComputeClient#deleteImage.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteImage.");
     const operationName = "deleteImage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8034,6 +8192,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
       deleteImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8079,7 +8238,8 @@ If any VM instances are assigned to the dedicated virtual machine host,
   public async deleteInstanceConsoleConnection(
     deleteInstanceConsoleConnectionRequest: requests.DeleteInstanceConsoleConnectionRequest
   ): Promise<responses.DeleteInstanceConsoleConnectionResponse> {
-    logger.debug("Calling operation ComputeClient#deleteInstanceConsoleConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteInstanceConsoleConnection.");
     const operationName = "deleteInstanceConsoleConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/DeleteInstanceConsoleConnection";
@@ -8101,6 +8261,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
       deleteInstanceConsoleConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8150,7 +8311,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
   public async detachBootVolume(
     detachBootVolumeRequest: requests.DetachBootVolumeRequest
   ): Promise<responses.DetachBootVolumeResponse> {
-    logger.debug("Calling operation ComputeClient#detachBootVolume.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#detachBootVolume.");
     const operationName = "detachBootVolume";
     const apiReferenceLink = "";
     const pathParams = {
@@ -8170,6 +8331,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       detachBootVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8225,7 +8387,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
   public async detachVnic(
     detachVnicRequest: requests.DetachVnicRequest
   ): Promise<responses.DetachVnicResponse> {
-    logger.debug("Calling operation ComputeClient#detachVnic.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#detachVnic.");
     const operationName = "detachVnic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VnicAttachment/DetachVnic";
@@ -8246,6 +8408,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       detachVnicRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8295,7 +8458,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
   public async detachVolume(
     detachVolumeRequest: requests.DetachVolumeRequest
   ): Promise<responses.DetachVolumeResponse> {
-    logger.debug("Calling operation ComputeClient#detachVolume.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#detachVolume.");
     const operationName = "detachVolume";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/DetachVolume";
@@ -8316,6 +8479,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       detachVolumeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8371,7 +8535,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async exportImage(
     exportImageRequest: requests.ExportImageRequest
   ): Promise<responses.ExportImageResponse> {
-    logger.debug("Calling operation ComputeClient#exportImage.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#exportImage.");
     const operationName = "exportImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/ExportImage";
@@ -8393,6 +8557,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       exportImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8457,7 +8622,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getAppCatalogListing(
     getAppCatalogListingRequest: requests.GetAppCatalogListingRequest
   ): Promise<responses.GetAppCatalogListingResponse> {
-    logger.debug("Calling operation ComputeClient#getAppCatalogListing.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getAppCatalogListing.");
     const operationName = "getAppCatalogListing";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListing/GetAppCatalogListing";
@@ -8477,6 +8642,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getAppCatalogListingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8531,7 +8697,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getAppCatalogListingAgreements(
     getAppCatalogListingAgreementsRequest: requests.GetAppCatalogListingAgreementsRequest
   ): Promise<responses.GetAppCatalogListingAgreementsResponse> {
-    logger.debug("Calling operation ComputeClient#getAppCatalogListingAgreements.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getAppCatalogListingAgreements.");
     const operationName = "getAppCatalogListingAgreements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements";
@@ -8552,6 +8719,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getAppCatalogListingAgreementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8606,7 +8774,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getAppCatalogListingResourceVersion(
     getAppCatalogListingResourceVersionRequest: requests.GetAppCatalogListingResourceVersionRequest
   ): Promise<responses.GetAppCatalogListingResourceVersionResponse> {
-    logger.debug("Calling operation ComputeClient#getAppCatalogListingResourceVersion.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getAppCatalogListingResourceVersion.");
     const operationName = "getAppCatalogListingResourceVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion";
@@ -8627,6 +8796,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getAppCatalogListingResourceVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8681,7 +8851,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getBootVolumeAttachment(
     getBootVolumeAttachmentRequest: requests.GetBootVolumeAttachmentRequest
   ): Promise<responses.GetBootVolumeAttachmentResponse> {
-    logger.debug("Calling operation ComputeClient#getBootVolumeAttachment.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getBootVolumeAttachment.");
     const operationName = "getBootVolumeAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeAttachment/GetBootVolumeAttachment";
@@ -8701,6 +8871,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getBootVolumeAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8755,7 +8926,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getComputeCapacityReservation(
     getComputeCapacityReservationRequest: requests.GetComputeCapacityReservationRequest
   ): Promise<responses.GetComputeCapacityReservationResponse> {
-    logger.debug("Calling operation ComputeClient#getComputeCapacityReservation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeCapacityReservation.");
     const operationName = "getComputeCapacityReservation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/GetComputeCapacityReservation";
@@ -8776,6 +8948,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getComputeCapacityReservationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8830,7 +9003,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getComputeCapacityTopology(
     getComputeCapacityTopologyRequest: requests.GetComputeCapacityTopologyRequest
   ): Promise<responses.GetComputeCapacityTopologyResponse> {
-    logger.debug("Calling operation ComputeClient#getComputeCapacityTopology.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeCapacityTopology.");
     const operationName = "getComputeCapacityTopology";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/GetComputeCapacityTopology";
@@ -8851,6 +9025,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getComputeCapacityTopologyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8907,7 +9082,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getComputeCluster(
     getComputeClusterRequest: requests.GetComputeClusterRequest
   ): Promise<responses.GetComputeClusterResponse> {
-    logger.debug("Calling operation ComputeClient#getComputeCluster.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getComputeCluster.");
     const operationName = "getComputeCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/GetComputeCluster";
@@ -8928,6 +9103,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getComputeClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8982,7 +9158,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getComputeGlobalImageCapabilitySchema(
     getComputeGlobalImageCapabilitySchemaRequest: requests.GetComputeGlobalImageCapabilitySchemaRequest
   ): Promise<responses.GetComputeGlobalImageCapabilitySchemaResponse> {
-    logger.debug("Calling operation ComputeClient#getComputeGlobalImageCapabilitySchema.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeGlobalImageCapabilitySchema.");
     const operationName = "getComputeGlobalImageCapabilitySchema";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGlobalImageCapabilitySchema/GetComputeGlobalImageCapabilitySchema";
@@ -9003,6 +9180,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getComputeGlobalImageCapabilitySchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9057,7 +9235,10 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getComputeGlobalImageCapabilitySchemaVersion(
     getComputeGlobalImageCapabilitySchemaVersionRequest: requests.GetComputeGlobalImageCapabilitySchemaVersionRequest
   ): Promise<responses.GetComputeGlobalImageCapabilitySchemaVersionResponse> {
-    logger.debug("Calling operation ComputeClient#getComputeGlobalImageCapabilitySchemaVersion.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#getComputeGlobalImageCapabilitySchemaVersion."
+      );
     const operationName = "getComputeGlobalImageCapabilitySchemaVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGlobalImageCapabilitySchemaVersion/GetComputeGlobalImageCapabilitySchemaVersion";
@@ -9080,6 +9261,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getComputeGlobalImageCapabilitySchemaVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9136,7 +9318,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getComputeImageCapabilitySchema(
     getComputeImageCapabilitySchemaRequest: requests.GetComputeImageCapabilitySchemaRequest
   ): Promise<responses.GetComputeImageCapabilitySchemaResponse> {
-    logger.debug("Calling operation ComputeClient#getComputeImageCapabilitySchema.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeImageCapabilitySchema.");
     const operationName = "getComputeImageCapabilitySchema";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/GetComputeImageCapabilitySchema";
@@ -9159,6 +9342,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getComputeImageCapabilitySchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9216,7 +9400,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getConsoleHistory(
     getConsoleHistoryRequest: requests.GetConsoleHistoryRequest
   ): Promise<responses.GetConsoleHistoryResponse> {
-    logger.debug("Calling operation ComputeClient#getConsoleHistory.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getConsoleHistory.");
     const operationName = "getConsoleHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/GetConsoleHistory";
@@ -9236,6 +9420,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getConsoleHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9293,7 +9478,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getConsoleHistoryContent(
     getConsoleHistoryContentRequest: requests.GetConsoleHistoryContentRequest
   ): Promise<responses.GetConsoleHistoryContentResponse> {
-    logger.debug("Calling operation ComputeClient#getConsoleHistoryContent.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getConsoleHistoryContent.");
     const operationName = "getConsoleHistoryContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/GetConsoleHistoryContent";
@@ -9316,6 +9501,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getConsoleHistoryContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9370,7 +9556,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getDedicatedVmHost(
     getDedicatedVmHostRequest: requests.GetDedicatedVmHostRequest
   ): Promise<responses.GetDedicatedVmHostResponse> {
-    logger.debug("Calling operation ComputeClient#getDedicatedVmHost.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getDedicatedVmHost.");
     const operationName = "getDedicatedVmHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/GetDedicatedVmHost";
@@ -9391,6 +9577,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getDedicatedVmHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9445,7 +9632,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getImage(
     getImageRequest: requests.GetImageRequest
   ): Promise<responses.GetImageResponse> {
-    logger.debug("Calling operation ComputeClient#getImage.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getImage.");
     const operationName = "getImage";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/GetImage";
     const pathParams = {
@@ -9464,6 +9651,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9518,7 +9706,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getImageShapeCompatibilityEntry(
     getImageShapeCompatibilityEntryRequest: requests.GetImageShapeCompatibilityEntryRequest
   ): Promise<responses.GetImageShapeCompatibilityEntryResponse> {
-    logger.debug("Calling operation ComputeClient#getImageShapeCompatibilityEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getImageShapeCompatibilityEntry.");
     const operationName = "getImageShapeCompatibilityEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ImageShapeCompatibilityEntry/GetImageShapeCompatibilityEntry";
@@ -9540,6 +9729,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getImageShapeCompatibilityEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9593,7 +9783,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getInstance(
     getInstanceRequest: requests.GetInstanceRequest
   ): Promise<responses.GetInstanceResponse> {
-    logger.debug("Calling operation ComputeClient#getInstance.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getInstance.");
     const operationName = "getInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/GetInstance";
@@ -9613,6 +9803,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9667,7 +9858,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getInstanceConsoleConnection(
     getInstanceConsoleConnectionRequest: requests.GetInstanceConsoleConnectionRequest
   ): Promise<responses.GetInstanceConsoleConnectionResponse> {
-    logger.debug("Calling operation ComputeClient#getInstanceConsoleConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getInstanceConsoleConnection.");
     const operationName = "getInstanceConsoleConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/GetInstanceConsoleConnection";
@@ -9688,6 +9880,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getInstanceConsoleConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9739,7 +9932,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getInstanceMaintenanceReboot(
     getInstanceMaintenanceRebootRequest: requests.GetInstanceMaintenanceRebootRequest
   ): Promise<responses.GetInstanceMaintenanceRebootResponse> {
-    logger.debug("Calling operation ComputeClient#getInstanceMaintenanceReboot.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getInstanceMaintenanceReboot.");
     const operationName = "getInstanceMaintenanceReboot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceMaintenanceReboot/GetInstanceMaintenanceReboot";
@@ -9760,6 +9954,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getInstanceMaintenanceRebootRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9809,7 +10004,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getMeasuredBootReport(
     getMeasuredBootReportRequest: requests.GetMeasuredBootReportRequest
   ): Promise<responses.GetMeasuredBootReportResponse> {
-    logger.debug("Calling operation ComputeClient#getMeasuredBootReport.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getMeasuredBootReport.");
     const operationName = "getMeasuredBootReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/MeasuredBootReport/GetMeasuredBootReport";
@@ -9830,6 +10025,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getMeasuredBootReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9885,7 +10081,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getVnicAttachment(
     getVnicAttachmentRequest: requests.GetVnicAttachmentRequest
   ): Promise<responses.GetVnicAttachmentResponse> {
-    logger.debug("Calling operation ComputeClient#getVnicAttachment.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getVnicAttachment.");
     const operationName = "getVnicAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VnicAttachment/GetVnicAttachment";
@@ -9905,6 +10101,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getVnicAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9959,7 +10156,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getVolumeAttachment(
     getVolumeAttachmentRequest: requests.GetVolumeAttachmentRequest
   ): Promise<responses.GetVolumeAttachmentResponse> {
-    logger.debug("Calling operation ComputeClient#getVolumeAttachment.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getVolumeAttachment.");
     const operationName = "getVolumeAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/GetVolumeAttachment";
@@ -9979,6 +10176,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getVolumeAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10035,7 +10233,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async getWindowsInstanceInitialCredentials(
     getWindowsInstanceInitialCredentialsRequest: requests.GetWindowsInstanceInitialCredentialsRequest
   ): Promise<responses.GetWindowsInstanceInitialCredentialsResponse> {
-    logger.debug("Calling operation ComputeClient#getWindowsInstanceInitialCredentials.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getWindowsInstanceInitialCredentials.");
     const operationName = "getWindowsInstanceInitialCredentials";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceCredentials/GetWindowsInstanceInitialCredentials";
@@ -10055,6 +10254,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       getWindowsInstanceInitialCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10145,7 +10345,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   public async instanceAction(
     instanceActionRequest: requests.InstanceActionRequest
   ): Promise<responses.InstanceActionResponse> {
-    logger.debug("Calling operation ComputeClient#instanceAction.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#instanceAction.");
     const operationName = "instanceAction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/InstanceAction";
@@ -10169,6 +10369,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       instanceActionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10271,7 +10472,7 @@ To determine whether capacity is available for a specific shape before you creat
   public async launchInstance(
     launchInstanceRequest: requests.LaunchInstanceRequest
   ): Promise<responses.LaunchInstanceResponse> {
-    logger.debug("Calling operation ComputeClient#launchInstance.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#launchInstance.");
     const operationName = "launchInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/LaunchInstance";
@@ -10290,6 +10491,7 @@ To determine whether capacity is available for a specific shape before you creat
       launchInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10354,7 +10556,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listAppCatalogListingResourceVersions(
     listAppCatalogListingResourceVersionsRequest: requests.ListAppCatalogListingResourceVersionsRequest
   ): Promise<responses.ListAppCatalogListingResourceVersionsResponse> {
-    logger.debug("Calling operation ComputeClient#listAppCatalogListingResourceVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listAppCatalogListingResourceVersions.");
     const operationName = "listAppCatalogListingResourceVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListingResourceVersionSummary/ListAppCatalogListingResourceVersions";
@@ -10378,6 +10581,7 @@ To determine whether capacity is available for a specific shape before you creat
       listAppCatalogListingResourceVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10484,7 +10688,7 @@ To determine whether capacity is available for a specific shape before you creat
   public async listAppCatalogListings(
     listAppCatalogListingsRequest: requests.ListAppCatalogListingsRequest
   ): Promise<responses.ListAppCatalogListingsResponse> {
-    logger.debug("Calling operation ComputeClient#listAppCatalogListings.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listAppCatalogListings.");
     const operationName = "listAppCatalogListings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListingSummary/ListAppCatalogListings";
@@ -10509,6 +10713,7 @@ To determine whether capacity is available for a specific shape before you creat
       listAppCatalogListingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10615,7 +10820,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listAppCatalogSubscriptions(
     listAppCatalogSubscriptionsRequest: requests.ListAppCatalogSubscriptionsRequest
   ): Promise<responses.ListAppCatalogSubscriptionsResponse> {
-    logger.debug("Calling operation ComputeClient#listAppCatalogSubscriptions.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listAppCatalogSubscriptions.");
     const operationName = "listAppCatalogSubscriptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogSubscriptionSummary/ListAppCatalogSubscriptions";
@@ -10640,6 +10846,7 @@ To determine whether capacity is available for a specific shape before you creat
       listAppCatalogSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10748,7 +10955,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listBootVolumeAttachments(
     listBootVolumeAttachmentsRequest: requests.ListBootVolumeAttachmentsRequest
   ): Promise<responses.ListBootVolumeAttachmentsResponse> {
-    logger.debug("Calling operation ComputeClient#listBootVolumeAttachments.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listBootVolumeAttachments.");
     const operationName = "listBootVolumeAttachments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeAttachment/ListBootVolumeAttachments";
@@ -10773,6 +10981,7 @@ To determine whether capacity is available for a specific shape before you creat
       listBootVolumeAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10880,7 +11089,10 @@ To determine whether capacity is available for a specific shape before you creat
   public async listComputeCapacityReservationInstanceShapes(
     listComputeCapacityReservationInstanceShapesRequest: requests.ListComputeCapacityReservationInstanceShapesRequest
   ): Promise<responses.ListComputeCapacityReservationInstanceShapesResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeCapacityReservationInstanceShapes.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeCapacityReservationInstanceShapes."
+      );
     const operationName = "listComputeCapacityReservationInstanceShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservationInstanceShapeSummary/ListComputeCapacityReservationInstanceShapes";
@@ -10907,6 +11119,7 @@ To determine whether capacity is available for a specific shape before you creat
       listComputeCapacityReservationInstanceShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11018,7 +11231,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listComputeCapacityReservationInstances(
     listComputeCapacityReservationInstancesRequest: requests.ListComputeCapacityReservationInstancesRequest
   ): Promise<responses.ListComputeCapacityReservationInstancesResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeCapacityReservationInstances.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeCapacityReservationInstances.");
     const operationName = "listComputeCapacityReservationInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CapacityReservationInstanceSummary/ListComputeCapacityReservationInstances";
@@ -11047,6 +11261,7 @@ To determine whether capacity is available for a specific shape before you creat
       listComputeCapacityReservationInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11157,7 +11372,8 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeCapacityReservations(
     listComputeCapacityReservationsRequest: requests.ListComputeCapacityReservationsRequest
   ): Promise<responses.ListComputeCapacityReservationsResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeCapacityReservations.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeCapacityReservations.");
     const operationName = "listComputeCapacityReservations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/ListComputeCapacityReservations";
@@ -11185,6 +11401,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeCapacityReservationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11293,7 +11510,8 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeCapacityTopologies(
     listComputeCapacityTopologiesRequest: requests.ListComputeCapacityTopologiesRequest
   ): Promise<responses.ListComputeCapacityTopologiesResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeCapacityTopologies.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeCapacityTopologies.");
     const operationName = "listComputeCapacityTopologies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/ListComputeCapacityTopologies";
@@ -11320,6 +11538,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeCapacityTopologiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11374,9 +11593,10 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeCapacityTopologyComputeBareMetalHosts(
     listComputeCapacityTopologyComputeBareMetalHostsRequest: requests.ListComputeCapacityTopologyComputeBareMetalHostsRequest
   ): Promise<responses.ListComputeCapacityTopologyComputeBareMetalHostsResponse> {
-    logger.debug(
-      "Calling operation ComputeClient#listComputeCapacityTopologyComputeBareMetalHosts."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeCapacityTopologyComputeBareMetalHosts."
+      );
     const operationName = "listComputeCapacityTopologyComputeBareMetalHosts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeBareMetalHost/ListComputeCapacityTopologyComputeBareMetalHosts";
@@ -11412,6 +11632,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeCapacityTopologyComputeBareMetalHostsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11466,7 +11687,10 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeCapacityTopologyComputeHpcIslands(
     listComputeCapacityTopologyComputeHpcIslandsRequest: requests.ListComputeCapacityTopologyComputeHpcIslandsRequest
   ): Promise<responses.ListComputeCapacityTopologyComputeHpcIslandsResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeCapacityTopologyComputeHpcIslands.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeCapacityTopologyComputeHpcIslands."
+      );
     const operationName = "listComputeCapacityTopologyComputeHpcIslands";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHpcIsland/ListComputeCapacityTopologyComputeHpcIslands";
@@ -11495,6 +11719,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeCapacityTopologyComputeHpcIslandsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11549,9 +11774,10 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeCapacityTopologyComputeNetworkBlocks(
     listComputeCapacityTopologyComputeNetworkBlocksRequest: requests.ListComputeCapacityTopologyComputeNetworkBlocksRequest
   ): Promise<responses.ListComputeCapacityTopologyComputeNetworkBlocksResponse> {
-    logger.debug(
-      "Calling operation ComputeClient#listComputeCapacityTopologyComputeNetworkBlocks."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeCapacityTopologyComputeNetworkBlocks."
+      );
     const operationName = "listComputeCapacityTopologyComputeNetworkBlocks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeNetworkBlock/ListComputeCapacityTopologyComputeNetworkBlocks";
@@ -11583,6 +11809,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeCapacityTopologyComputeNetworkBlocksRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11639,7 +11866,7 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeClusters(
     listComputeClustersRequest: requests.ListComputeClustersRequest
   ): Promise<responses.ListComputeClustersResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeClusters.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listComputeClusters.");
     const operationName = "listComputeClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/ListComputeClusters";
@@ -11666,6 +11893,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11721,7 +11949,10 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeGlobalImageCapabilitySchemaVersions(
     listComputeGlobalImageCapabilitySchemaVersionsRequest: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
   ): Promise<responses.ListComputeGlobalImageCapabilitySchemaVersionsResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeGlobalImageCapabilitySchemaVersions.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#listComputeGlobalImageCapabilitySchemaVersions."
+      );
     const operationName = "listComputeGlobalImageCapabilitySchemaVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGlobalImageCapabilitySchemaVersionSummary/ListComputeGlobalImageCapabilitySchemaVersions";
@@ -11748,6 +11979,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeGlobalImageCapabilitySchemaVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11863,7 +12095,8 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeGlobalImageCapabilitySchemas(
     listComputeGlobalImageCapabilitySchemasRequest: requests.ListComputeGlobalImageCapabilitySchemasRequest
   ): Promise<responses.ListComputeGlobalImageCapabilitySchemasResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeGlobalImageCapabilitySchemas.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeGlobalImageCapabilitySchemas.");
     const operationName = "listComputeGlobalImageCapabilitySchemas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGlobalImageCapabilitySchemaSummary/ListComputeGlobalImageCapabilitySchemas";
@@ -11888,6 +12121,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeGlobalImageCapabilitySchemasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11995,7 +12229,8 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listComputeImageCapabilitySchemas(
     listComputeImageCapabilitySchemasRequest: requests.ListComputeImageCapabilitySchemasRequest
   ): Promise<responses.ListComputeImageCapabilitySchemasResponse> {
-    logger.debug("Calling operation ComputeClient#listComputeImageCapabilitySchemas.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeImageCapabilitySchemas.");
     const operationName = "listComputeImageCapabilitySchemas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchemaSummary/ListComputeImageCapabilitySchemas";
@@ -12021,6 +12256,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listComputeImageCapabilitySchemasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12128,7 +12364,7 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listConsoleHistories(
     listConsoleHistoriesRequest: requests.ListConsoleHistoriesRequest
   ): Promise<responses.ListConsoleHistoriesResponse> {
-    logger.debug("Calling operation ComputeClient#listConsoleHistories.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listConsoleHistories.");
     const operationName = "listConsoleHistories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/ListConsoleHistories";
@@ -12155,6 +12391,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listConsoleHistoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12263,7 +12500,8 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listDedicatedVmHostInstanceShapes(
     listDedicatedVmHostInstanceShapesRequest: requests.ListDedicatedVmHostInstanceShapesRequest
   ): Promise<responses.ListDedicatedVmHostInstanceShapesResponse> {
-    logger.debug("Calling operation ComputeClient#listDedicatedVmHostInstanceShapes.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostInstanceShapes.");
     const operationName = "listDedicatedVmHostInstanceShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHostInstanceShapeSummary/ListDedicatedVmHostInstanceShapes";
@@ -12288,6 +12526,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listDedicatedVmHostInstanceShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12395,7 +12634,8 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listDedicatedVmHostInstances(
     listDedicatedVmHostInstancesRequest: requests.ListDedicatedVmHostInstancesRequest
   ): Promise<responses.ListDedicatedVmHostInstancesResponse> {
-    logger.debug("Calling operation ComputeClient#listDedicatedVmHostInstances.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostInstances.");
     const operationName = "listDedicatedVmHostInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHostInstanceSummary/ListDedicatedVmHostInstances";
@@ -12423,6 +12663,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listDedicatedVmHostInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12530,7 +12771,8 @@ You can limit the list by specifying a compute capacity reservation display name
   public async listDedicatedVmHostShapes(
     listDedicatedVmHostShapesRequest: requests.ListDedicatedVmHostShapesRequest
   ): Promise<responses.ListDedicatedVmHostShapesResponse> {
-    logger.debug("Calling operation ComputeClient#listDedicatedVmHostShapes.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostShapes.");
     const operationName = "listDedicatedVmHostShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHostShapeSummary/ListDedicatedVmHostShapes";
@@ -12555,6 +12797,7 @@ You can limit the list by specifying a compute capacity reservation display name
       listDedicatedVmHostShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12665,7 +12908,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
   public async listDedicatedVmHosts(
     listDedicatedVmHostsRequest: requests.ListDedicatedVmHostsRequest
   ): Promise<responses.ListDedicatedVmHostsResponse> {
-    logger.debug("Calling operation ComputeClient#listDedicatedVmHosts.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listDedicatedVmHosts.");
     const operationName = "listDedicatedVmHosts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHostSummary/ListDedicatedVmHosts";
@@ -12698,6 +12941,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
       listDedicatedVmHostsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12804,7 +13048,8 @@ You can limit the list by specifying a dedicated virtual machine host display na
   public async listImageShapeCompatibilityEntries(
     listImageShapeCompatibilityEntriesRequest: requests.ListImageShapeCompatibilityEntriesRequest
   ): Promise<responses.ListImageShapeCompatibilityEntriesResponse> {
-    logger.debug("Calling operation ComputeClient#listImageShapeCompatibilityEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listImageShapeCompatibilityEntries.");
     const operationName = "listImageShapeCompatibilityEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ImageShapeCompatibilityEntry/ListImageShapeCompatibilityEntries";
@@ -12828,6 +13073,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
       listImageShapeCompatibilityEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12945,7 +13191,7 @@ The list of images returned is ordered to first show the recent platform images,
   public async listImages(
     listImagesRequest: requests.ListImagesRequest
   ): Promise<responses.ListImagesResponse> {
-    logger.debug("Calling operation ComputeClient#listImages.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listImages.");
     const operationName = "listImages";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/ListImages";
     const pathParams = {};
@@ -12973,6 +13219,7 @@ The list of images returned is ordered to first show the recent platform images,
       listImagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13080,7 +13327,8 @@ For more information about instance console connections, see [Troubleshooting In
   public async listInstanceConsoleConnections(
     listInstanceConsoleConnectionsRequest: requests.ListInstanceConsoleConnectionsRequest
   ): Promise<responses.ListInstanceConsoleConnectionsResponse> {
-    logger.debug("Calling operation ComputeClient#listInstanceConsoleConnections.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listInstanceConsoleConnections.");
     const operationName = "listInstanceConsoleConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/ListInstanceConsoleConnections";
@@ -13103,6 +13351,7 @@ For more information about instance console connections, see [Troubleshooting In
       listInstanceConsoleConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13209,7 +13458,7 @@ For more information about instance console connections, see [Troubleshooting In
   public async listInstanceDevices(
     listInstanceDevicesRequest: requests.ListInstanceDevicesRequest
   ): Promise<responses.ListInstanceDevicesResponse> {
-    logger.debug("Calling operation ComputeClient#listInstanceDevices.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listInstanceDevices.");
     const operationName = "listInstanceDevices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Device/ListInstanceDevices";
@@ -13237,6 +13486,7 @@ For more information about instance console connections, see [Troubleshooting In
       listInstanceDevicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13349,7 +13599,7 @@ For more information about instance console connections, see [Troubleshooting In
   public async listInstances(
     listInstancesRequest: requests.ListInstancesRequest
   ): Promise<responses.ListInstancesResponse> {
-    logger.debug("Calling operation ComputeClient#listInstances.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listInstances.");
     const operationName = "listInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/ListInstances";
@@ -13378,6 +13628,7 @@ For more information about instance console connections, see [Troubleshooting In
       listInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13486,7 +13737,7 @@ For more information about instance console connections, see [Troubleshooting In
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
-    logger.debug("Calling operation ComputeClient#listShapes.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listShapes.");
     const operationName = "listShapes";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Shape/ListShapes";
     const pathParams = {};
@@ -13509,6 +13760,7 @@ For more information about instance console connections, see [Troubleshooting In
       listShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13616,7 +13868,7 @@ For more information about instance console connections, see [Troubleshooting In
   public async listVnicAttachments(
     listVnicAttachmentsRequest: requests.ListVnicAttachmentsRequest
   ): Promise<responses.ListVnicAttachmentsResponse> {
-    logger.debug("Calling operation ComputeClient#listVnicAttachments.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listVnicAttachments.");
     const operationName = "listVnicAttachments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VnicAttachment/ListVnicAttachments";
@@ -13641,6 +13893,7 @@ For more information about instance console connections, see [Troubleshooting In
       listVnicAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13752,7 +14005,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   public async listVolumeAttachments(
     listVolumeAttachmentsRequest: requests.ListVolumeAttachmentsRequest
   ): Promise<responses.ListVolumeAttachmentsResponse> {
-    logger.debug("Calling operation ComputeClient#listVolumeAttachments.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listVolumeAttachments.");
     const operationName = "listVolumeAttachments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/ListVolumeAttachments";
@@ -13777,6 +14030,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
       listVolumeAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13883,7 +14137,8 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   public async removeImageShapeCompatibilityEntry(
     removeImageShapeCompatibilityEntryRequest: requests.RemoveImageShapeCompatibilityEntryRequest
   ): Promise<responses.RemoveImageShapeCompatibilityEntryResponse> {
-    logger.debug("Calling operation ComputeClient#removeImageShapeCompatibilityEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#removeImageShapeCompatibilityEntry.");
     const operationName = "removeImageShapeCompatibilityEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ImageShapeCompatibilityEntry/RemoveImageShapeCompatibilityEntry";
@@ -13904,6 +14159,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
       removeImageShapeCompatibilityEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13958,7 +14214,7 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
   public async terminateInstance(
     terminateInstanceRequest: requests.TerminateInstanceRequest
   ): Promise<responses.TerminateInstanceResponse> {
-    logger.debug("Calling operation ComputeClient#terminateInstance.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#terminateInstance.");
     const operationName = "terminateInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -13980,6 +14236,7 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
       terminateInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14028,7 +14285,8 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
   public async updateComputeCapacityReservation(
     updateComputeCapacityReservationRequest: requests.UpdateComputeCapacityReservationRequest
   ): Promise<responses.UpdateComputeCapacityReservationResponse> {
-    logger.debug("Calling operation ComputeClient#updateComputeCapacityReservation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateComputeCapacityReservation.");
     const operationName = "updateComputeCapacityReservation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/UpdateComputeCapacityReservation";
@@ -14050,6 +14308,7 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
       updateComputeCapacityReservationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14106,7 +14365,8 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
   public async updateComputeCapacityTopology(
     updateComputeCapacityTopologyRequest: requests.UpdateComputeCapacityTopologyRequest
   ): Promise<responses.UpdateComputeCapacityTopologyResponse> {
-    logger.debug("Calling operation ComputeClient#updateComputeCapacityTopology.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateComputeCapacityTopology.");
     const operationName = "updateComputeCapacityTopology";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityTopology/UpdateComputeCapacityTopology";
@@ -14128,6 +14388,7 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
       updateComputeCapacityTopologyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14191,7 +14452,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
   public async updateComputeCluster(
     updateComputeClusterRequest: requests.UpdateComputeClusterRequest
   ): Promise<responses.UpdateComputeClusterResponse> {
-    logger.debug("Calling operation ComputeClient#updateComputeCluster.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateComputeCluster.");
     const operationName = "updateComputeCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/UpdateComputeCluster";
@@ -14214,6 +14475,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
       updateComputeClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14274,7 +14536,8 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
   public async updateComputeImageCapabilitySchema(
     updateComputeImageCapabilitySchemaRequest: requests.UpdateComputeImageCapabilitySchemaRequest
   ): Promise<responses.UpdateComputeImageCapabilitySchemaResponse> {
-    logger.debug("Calling operation ComputeClient#updateComputeImageCapabilitySchema.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateComputeImageCapabilitySchema.");
     const operationName = "updateComputeImageCapabilitySchema";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/UpdateComputeImageCapabilitySchema";
@@ -14296,6 +14559,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
       updateComputeImageCapabilitySchemaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14355,7 +14619,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
   public async updateConsoleHistory(
     updateConsoleHistoryRequest: requests.UpdateConsoleHistoryRequest
   ): Promise<responses.UpdateConsoleHistoryResponse> {
-    logger.debug("Calling operation ComputeClient#updateConsoleHistory.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateConsoleHistory.");
     const operationName = "updateConsoleHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/UpdateConsoleHistory";
@@ -14376,6 +14640,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
       updateConsoleHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14437,7 +14702,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
   public async updateDedicatedVmHost(
     updateDedicatedVmHostRequest: requests.UpdateDedicatedVmHostRequest
   ): Promise<responses.UpdateDedicatedVmHostResponse> {
-    logger.debug("Calling operation ComputeClient#updateDedicatedVmHost.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateDedicatedVmHost.");
     const operationName = "updateDedicatedVmHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/UpdateDedicatedVmHost";
@@ -14460,6 +14725,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
       updateDedicatedVmHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14520,7 +14786,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
   public async updateImage(
     updateImageRequest: requests.UpdateImageRequest
   ): Promise<responses.UpdateImageResponse> {
-    logger.debug("Calling operation ComputeClient#updateImage.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateImage.");
     const operationName = "updateImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/UpdateImage";
@@ -14542,6 +14808,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
       updateImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14608,7 +14875,7 @@ The OCID of the instance remains the same.
   public async updateInstance(
     updateInstanceRequest: requests.UpdateInstanceRequest
   ): Promise<responses.UpdateInstanceResponse> {
-    logger.debug("Calling operation ComputeClient#updateInstance.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateInstance.");
     const operationName = "updateInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/UpdateInstance";
@@ -14630,6 +14897,7 @@ The OCID of the instance remains the same.
       updateInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14694,7 +14962,8 @@ The OCID of the instance remains the same.
   public async updateInstanceConsoleConnection(
     updateInstanceConsoleConnectionRequest: requests.UpdateInstanceConsoleConnectionRequest
   ): Promise<responses.UpdateInstanceConsoleConnectionResponse> {
-    logger.debug("Calling operation ComputeClient#updateInstanceConsoleConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateInstanceConsoleConnection.");
     const operationName = "updateInstanceConsoleConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/UpdateInstanceConsoleConnection";
@@ -14717,6 +14986,7 @@ The OCID of the instance remains the same.
       updateInstanceConsoleConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14776,7 +15046,7 @@ The OCID of the instance remains the same.
   public async updateVolumeAttachment(
     updateVolumeAttachmentRequest: requests.UpdateVolumeAttachmentRequest
   ): Promise<responses.UpdateVolumeAttachmentResponse> {
-    logger.debug("Calling operation ComputeClient#updateVolumeAttachment.");
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateVolumeAttachment.");
     const operationName = "updateVolumeAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/UpdateVolumeAttachment";
@@ -14798,6 +15068,7 @@ The OCID of the instance remains the same.
       updateVolumeAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14853,7 +15124,7 @@ export enum ComputeManagementApiKeys {}
 export class ComputeManagementClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeManagementWaiter;
@@ -14934,7 +15205,11 @@ export class ComputeManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    logger.info(`ComputeManagementClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ComputeManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -14944,9 +15219,10 @@ export class ComputeManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ComputeManagementClient.serviceEndpointTemplate,
@@ -15045,7 +15321,8 @@ export class ComputeManagementClient {
   public async attachInstancePoolInstance(
     attachInstancePoolInstanceRequest: requests.AttachInstancePoolInstanceRequest
   ): Promise<responses.AttachInstancePoolInstanceResponse> {
-    logger.debug("Calling operation ComputeManagementClient#attachInstancePoolInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#attachInstancePoolInstance.");
     const operationName = "attachInstancePoolInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15065,6 +15342,7 @@ export class ComputeManagementClient {
       attachInstancePoolInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15135,7 +15413,8 @@ export class ComputeManagementClient {
   public async attachLoadBalancer(
     attachLoadBalancerRequest: requests.AttachLoadBalancerRequest
   ): Promise<responses.AttachLoadBalancerResponse> {
-    logger.debug("Calling operation ComputeManagementClient#attachLoadBalancer.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#attachLoadBalancer.");
     const operationName = "attachLoadBalancer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/AttachLoadBalancer";
@@ -15157,6 +15436,7 @@ export class ComputeManagementClient {
       attachLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15223,7 +15503,10 @@ When you move a cluster network to a different compartment, associated resources
   public async changeClusterNetworkCompartment(
     changeClusterNetworkCompartmentRequest: requests.ChangeClusterNetworkCompartmentRequest
   ): Promise<responses.ChangeClusterNetworkCompartmentResponse> {
-    logger.debug("Calling operation ComputeManagementClient#changeClusterNetworkCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeManagementClient#changeClusterNetworkCompartment."
+      );
     const operationName = "changeClusterNetworkCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/ChangeClusterNetworkCompartment";
@@ -15246,6 +15529,7 @@ When you move a cluster network to a different compartment, associated resources
       changeClusterNetworkCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15314,9 +15598,10 @@ When you move an instance configuration to a different compartment, associated r
   public async changeInstanceConfigurationCompartment(
     changeInstanceConfigurationCompartmentRequest: requests.ChangeInstanceConfigurationCompartmentRequest
   ): Promise<responses.ChangeInstanceConfigurationCompartmentResponse> {
-    logger.debug(
-      "Calling operation ComputeManagementClient#changeInstanceConfigurationCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeManagementClient#changeInstanceConfigurationCompartment."
+      );
     const operationName = "changeInstanceConfigurationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/ChangeInstanceConfigurationCompartment";
@@ -15340,6 +15625,7 @@ When you move an instance configuration to a different compartment, associated r
       changeInstanceConfigurationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15401,7 +15687,8 @@ When you move an instance pool to a different compartment, associated resources 
   public async changeInstancePoolCompartment(
     changeInstancePoolCompartmentRequest: requests.ChangeInstancePoolCompartmentRequest
   ): Promise<responses.ChangeInstancePoolCompartmentResponse> {
-    logger.debug("Calling operation ComputeManagementClient#changeInstancePoolCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#changeInstancePoolCompartment.");
     const operationName = "changeInstancePoolCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/ChangeInstancePoolCompartment";
@@ -15424,6 +15711,7 @@ When you move an instance pool to a different compartment, associated resources 
       changeInstancePoolCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15494,7 +15782,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async createClusterNetwork(
     createClusterNetworkRequest: requests.CreateClusterNetworkRequest
   ): Promise<responses.CreateClusterNetworkResponse> {
-    logger.debug("Calling operation ComputeManagementClient#createClusterNetwork.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#createClusterNetwork.");
     const operationName = "createClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/CreateClusterNetwork";
@@ -15513,6 +15802,7 @@ To determine whether capacity is available for a specific shape before you creat
       createClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15579,7 +15869,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async createInstanceConfiguration(
     createInstanceConfigurationRequest: requests.CreateInstanceConfigurationRequest
   ): Promise<responses.CreateInstanceConfigurationResponse> {
-    logger.debug("Calling operation ComputeManagementClient#createInstanceConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#createInstanceConfiguration.");
     const operationName = "createInstanceConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/CreateInstanceConfiguration";
@@ -15598,6 +15889,7 @@ To determine whether capacity is available for a specific shape before you creat
       createInstanceConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15662,7 +15954,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async createInstancePool(
     createInstancePoolRequest: requests.CreateInstancePoolRequest
   ): Promise<responses.CreateInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#createInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#createInstancePool.");
     const operationName = "createInstancePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/CreateInstancePool";
@@ -15681,6 +15974,7 @@ To determine whether capacity is available for a specific shape before you creat
       createInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15740,7 +16034,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async deleteInstanceConfiguration(
     deleteInstanceConfigurationRequest: requests.DeleteInstanceConfigurationRequest
   ): Promise<responses.DeleteInstanceConfigurationResponse> {
-    logger.debug("Calling operation ComputeManagementClient#deleteInstanceConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#deleteInstanceConfiguration.");
     const operationName = "deleteInstanceConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -15760,6 +16055,7 @@ To determine whether capacity is available for a specific shape before you creat
       deleteInstanceConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15806,7 +16102,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async detachInstancePoolInstance(
     detachInstancePoolInstanceRequest: requests.DetachInstancePoolInstanceRequest
   ): Promise<responses.DetachInstancePoolInstanceResponse> {
-    logger.debug("Calling operation ComputeManagementClient#detachInstancePoolInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#detachInstancePoolInstance.");
     const operationName = "detachInstancePoolInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolInstance/DetachInstancePoolInstance";
@@ -15827,6 +16124,7 @@ To determine whether capacity is available for a specific shape before you creat
       detachInstancePoolInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15883,7 +16181,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async detachLoadBalancer(
     detachLoadBalancerRequest: requests.DetachLoadBalancerRequest
   ): Promise<responses.DetachLoadBalancerResponse> {
-    logger.debug("Calling operation ComputeManagementClient#detachLoadBalancer.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#detachLoadBalancer.");
     const operationName = "detachLoadBalancer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/DetachLoadBalancer";
@@ -15905,6 +16204,7 @@ To determine whether capacity is available for a specific shape before you creat
       detachLoadBalancerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15965,7 +16265,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async getClusterNetwork(
     getClusterNetworkRequest: requests.GetClusterNetworkRequest
   ): Promise<responses.GetClusterNetworkResponse> {
-    logger.debug("Calling operation ComputeManagementClient#getClusterNetwork.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getClusterNetwork.");
     const operationName = "getClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/GetClusterNetwork";
@@ -15985,6 +16286,7 @@ To determine whether capacity is available for a specific shape before you creat
       getClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16039,7 +16341,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async getInstanceConfiguration(
     getInstanceConfigurationRequest: requests.GetInstanceConfigurationRequest
   ): Promise<responses.GetInstanceConfigurationResponse> {
-    logger.debug("Calling operation ComputeManagementClient#getInstanceConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getInstanceConfiguration.");
     const operationName = "getInstanceConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/GetInstanceConfiguration";
@@ -16059,6 +16362,7 @@ To determine whether capacity is available for a specific shape before you creat
       getInstanceConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16113,7 +16417,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async getInstancePool(
     getInstancePoolRequest: requests.GetInstancePoolRequest
   ): Promise<responses.GetInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#getInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getInstancePool.");
     const operationName = "getInstancePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/GetInstancePool";
@@ -16133,6 +16438,7 @@ To determine whether capacity is available for a specific shape before you creat
       getInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16187,7 +16493,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async getInstancePoolInstance(
     getInstancePoolInstanceRequest: requests.GetInstancePoolInstanceRequest
   ): Promise<responses.GetInstancePoolInstanceResponse> {
-    logger.debug("Calling operation ComputeManagementClient#getInstancePoolInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getInstancePoolInstance.");
     const operationName = "getInstancePoolInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolInstance/GetInstancePoolInstance";
@@ -16208,6 +16515,7 @@ To determine whether capacity is available for a specific shape before you creat
       getInstancePoolInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16263,9 +16571,10 @@ To determine whether capacity is available for a specific shape before you creat
   public async getInstancePoolLoadBalancerAttachment(
     getInstancePoolLoadBalancerAttachmentRequest: requests.GetInstancePoolLoadBalancerAttachmentRequest
   ): Promise<responses.GetInstancePoolLoadBalancerAttachmentResponse> {
-    logger.debug(
-      "Calling operation ComputeManagementClient#getInstancePoolLoadBalancerAttachment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeManagementClient#getInstancePoolLoadBalancerAttachment."
+      );
     const operationName = "getInstancePoolLoadBalancerAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolLoadBalancerAttachment/GetInstancePoolLoadBalancerAttachment";
@@ -16287,6 +16596,7 @@ To determine whether capacity is available for a specific shape before you creat
       getInstancePoolLoadBalancerAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16348,7 +16658,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async launchInstanceConfiguration(
     launchInstanceConfigurationRequest: requests.LaunchInstanceConfigurationRequest
   ): Promise<responses.LaunchInstanceConfigurationResponse> {
-    logger.debug("Calling operation ComputeManagementClient#launchInstanceConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#launchInstanceConfiguration.");
     const operationName = "launchInstanceConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/LaunchInstanceConfiguration";
@@ -16369,6 +16680,7 @@ To determine whether capacity is available for a specific shape before you creat
       launchInstanceConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16434,7 +16746,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listClusterNetworkInstances(
     listClusterNetworkInstancesRequest: requests.ListClusterNetworkInstancesRequest
   ): Promise<responses.ListClusterNetworkInstancesResponse> {
-    logger.debug("Calling operation ComputeManagementClient#listClusterNetworkInstances.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listClusterNetworkInstances.");
     const operationName = "listClusterNetworkInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/ListClusterNetworkInstances";
@@ -16461,6 +16774,7 @@ To determine whether capacity is available for a specific shape before you creat
       listClusterNetworkInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16569,7 +16883,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listClusterNetworks(
     listClusterNetworksRequest: requests.ListClusterNetworksRequest
   ): Promise<responses.ListClusterNetworksResponse> {
-    logger.debug("Calling operation ComputeManagementClient#listClusterNetworks.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listClusterNetworks.");
     const operationName = "listClusterNetworks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/ListClusterNetworks";
@@ -16595,6 +16910,7 @@ To determine whether capacity is available for a specific shape before you creat
       listClusterNetworksRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16702,7 +17018,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listInstanceConfigurations(
     listInstanceConfigurationsRequest: requests.ListInstanceConfigurationsRequest
   ): Promise<responses.ListInstanceConfigurationsResponse> {
-    logger.debug("Calling operation ComputeManagementClient#listInstanceConfigurations.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listInstanceConfigurations.");
     const operationName = "listInstanceConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfigurationSummary/ListInstanceConfigurations";
@@ -16726,6 +17043,7 @@ To determine whether capacity is available for a specific shape before you creat
       listInstanceConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16832,7 +17150,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listInstancePoolInstances(
     listInstancePoolInstancesRequest: requests.ListInstancePoolInstancesRequest
   ): Promise<responses.ListInstancePoolInstancesResponse> {
-    logger.debug("Calling operation ComputeManagementClient#listInstancePoolInstances.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listInstancePoolInstances.");
     const operationName = "listInstancePoolInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceSummary/ListInstancePoolInstances";
@@ -16859,6 +17178,7 @@ To determine whether capacity is available for a specific shape before you creat
       listInstancePoolInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16965,7 +17285,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async listInstancePools(
     listInstancePoolsRequest: requests.ListInstancePoolsRequest
   ): Promise<responses.ListInstancePoolsResponse> {
-    logger.debug("Calling operation ComputeManagementClient#listInstancePools.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listInstancePools.");
     const operationName = "listInstancePools";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolSummary/ListInstancePools";
@@ -16991,6 +17312,7 @@ To determine whether capacity is available for a specific shape before you creat
       listInstancePoolsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17099,7 +17421,8 @@ To determine whether capacity is available for a specific shape before you creat
   public async resetInstancePool(
     resetInstancePoolRequest: requests.ResetInstancePoolRequest
   ): Promise<responses.ResetInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#resetInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#resetInstancePool.");
     const operationName = "resetInstancePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/ResetInstancePool";
@@ -17121,6 +17444,7 @@ To determine whether capacity is available for a specific shape before you creat
       resetInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17180,7 +17504,8 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
   public async softresetInstancePool(
     softresetInstancePoolRequest: requests.SoftresetInstancePoolRequest
   ): Promise<responses.SoftresetInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#softresetInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#softresetInstancePool.");
     const operationName = "softresetInstancePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/SoftresetInstancePool";
@@ -17202,6 +17527,7 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
       softresetInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17261,7 +17587,8 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
   public async softstopInstancePool(
     softstopInstancePoolRequest: requests.SoftstopInstancePoolRequest
   ): Promise<responses.SoftstopInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#softstopInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#softstopInstancePool.");
     const operationName = "softstopInstancePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/SoftstopInstancePool";
@@ -17283,6 +17610,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
       softstopInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17339,7 +17667,8 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
   public async startInstancePool(
     startInstancePoolRequest: requests.StartInstancePoolRequest
   ): Promise<responses.StartInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#startInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#startInstancePool.");
     const operationName = "startInstancePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/StartInstancePool";
@@ -17361,6 +17690,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
       startInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17417,7 +17747,8 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
   public async stopInstancePool(
     stopInstancePoolRequest: requests.StopInstancePoolRequest
   ): Promise<responses.StopInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#stopInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#stopInstancePool.");
     const operationName = "stopInstancePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/StopInstancePool";
@@ -17439,6 +17770,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
       stopInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17497,7 +17829,8 @@ When you delete a cluster network, all of its resources are permanently deleted,
   public async terminateClusterNetwork(
     terminateClusterNetworkRequest: requests.TerminateClusterNetworkRequest
   ): Promise<responses.TerminateClusterNetworkResponse> {
-    logger.debug("Calling operation ComputeManagementClient#terminateClusterNetwork.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#terminateClusterNetwork.");
     const operationName = "terminateClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/TerminateClusterNetwork";
@@ -17518,6 +17851,7 @@ When you delete a cluster network, all of its resources are permanently deleted,
       terminateClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17576,7 +17910,8 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   public async terminateInstancePool(
     terminateInstancePoolRequest: requests.TerminateInstancePoolRequest
   ): Promise<responses.TerminateInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#terminateInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#terminateInstancePool.");
     const operationName = "terminateInstancePool";
     const apiReferenceLink = "";
     const pathParams = {
@@ -17596,6 +17931,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       terminateInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17643,7 +17979,8 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   public async updateClusterNetwork(
     updateClusterNetworkRequest: requests.UpdateClusterNetworkRequest
   ): Promise<responses.UpdateClusterNetworkResponse> {
-    logger.debug("Calling operation ComputeManagementClient#updateClusterNetwork.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#updateClusterNetwork.");
     const operationName = "updateClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/UpdateClusterNetwork";
@@ -17665,6 +18002,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       updateClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17724,7 +18062,8 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   public async updateInstanceConfiguration(
     updateInstanceConfigurationRequest: requests.UpdateInstanceConfigurationRequest
   ): Promise<responses.UpdateInstanceConfigurationResponse> {
-    logger.debug("Calling operation ComputeManagementClient#updateInstanceConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#updateInstanceConfiguration.");
     const operationName = "updateInstanceConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/UpdateInstanceConfiguration";
@@ -17746,6 +18085,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       updateInstanceConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17808,7 +18148,8 @@ The OCID of the instance pool remains the same.
   public async updateInstancePool(
     updateInstancePoolRequest: requests.UpdateInstancePoolRequest
   ): Promise<responses.UpdateInstancePoolResponse> {
-    logger.debug("Calling operation ComputeManagementClient#updateInstancePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#updateInstancePool.");
     const operationName = "updateInstancePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/UpdateInstancePool";
@@ -17830,6 +18171,7 @@ The OCID of the instance pool remains the same.
       updateInstancePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17885,7 +18227,7 @@ export enum VirtualNetworkApiKeys {}
 export class VirtualNetworkClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": VirtualNetworkWaiter;
@@ -17966,7 +18308,11 @@ export class VirtualNetworkClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    logger.info(`VirtualNetworkClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`VirtualNetworkClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -17976,9 +18322,10 @@ export class VirtualNetworkClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         VirtualNetworkClient.serviceEndpointTemplate,
@@ -18075,7 +18422,10 @@ export class VirtualNetworkClient {
   public async addDrgRouteDistributionStatements(
     addDrgRouteDistributionStatementsRequest: requests.AddDrgRouteDistributionStatementsRequest
   ): Promise<responses.AddDrgRouteDistributionStatementsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#addDrgRouteDistributionStatements.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#addDrgRouteDistributionStatements."
+      );
     const operationName = "addDrgRouteDistributionStatements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/AddDrgRouteDistributionStatements";
@@ -18095,6 +18445,7 @@ export class VirtualNetworkClient {
       addDrgRouteDistributionStatementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18151,7 +18502,7 @@ export class VirtualNetworkClient {
   public async addDrgRouteRules(
     addDrgRouteRulesRequest: requests.AddDrgRouteRulesRequest
   ): Promise<responses.AddDrgRouteRulesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#addDrgRouteRules.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addDrgRouteRules.");
     const operationName = "addDrgRouteRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteRule/AddDrgRouteRules";
@@ -18172,6 +18523,7 @@ export class VirtualNetworkClient {
       addDrgRouteRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18227,7 +18579,7 @@ export class VirtualNetworkClient {
   public async addIpv6SubnetCidr(
     addIpv6SubnetCidrRequest: requests.AddIpv6SubnetCidrRequest
   ): Promise<responses.AddIpv6SubnetCidrResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#addIpv6SubnetCidr.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addIpv6SubnetCidr.");
     const operationName = "addIpv6SubnetCidr";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/AddIpv6SubnetCidr";
@@ -18250,6 +18602,7 @@ export class VirtualNetworkClient {
       addIpv6SubnetCidrRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18312,7 +18665,7 @@ export class VirtualNetworkClient {
   public async addIpv6VcnCidr(
     addIpv6VcnCidrRequest: requests.AddIpv6VcnCidrRequest
   ): Promise<responses.AddIpv6VcnCidrResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#addIpv6VcnCidr.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addIpv6VcnCidr.");
     const operationName = "addIpv6VcnCidr";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/AddIpv6VcnCidr";
@@ -18335,6 +18688,7 @@ export class VirtualNetworkClient {
       addIpv6VcnCidrRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18391,7 +18745,10 @@ export class VirtualNetworkClient {
   public async addNetworkSecurityGroupSecurityRules(
     addNetworkSecurityGroupSecurityRulesRequest: requests.AddNetworkSecurityGroupSecurityRulesRequest
   ): Promise<responses.AddNetworkSecurityGroupSecurityRulesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#addNetworkSecurityGroupSecurityRules.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#addNetworkSecurityGroupSecurityRules."
+      );
     const operationName = "addNetworkSecurityGroupSecurityRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityRule/AddNetworkSecurityGroupSecurityRules";
@@ -18411,6 +18768,7 @@ export class VirtualNetworkClient {
       addNetworkSecurityGroupSecurityRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18468,7 +18826,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async addPublicIpPoolCapacity(
     addPublicIpPoolCapacityRequest: requests.AddPublicIpPoolCapacityRequest
   ): Promise<responses.AddPublicIpPoolCapacityResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#addPublicIpPoolCapacity.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#addPublicIpPoolCapacity.");
     const operationName = "addPublicIpPoolCapacity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/AddPublicIpPoolCapacity";
@@ -18490,6 +18849,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       addPublicIpPoolCapacityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18556,7 +18916,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async addVcnCidr(
     addVcnCidrRequest: requests.AddVcnCidrRequest
   ): Promise<responses.AddVcnCidrResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#addVcnCidr.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addVcnCidr.");
     const operationName = "addVcnCidr";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/AddVcnCidr";
     const pathParams = {
@@ -18578,6 +18938,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       addVcnCidrRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18635,7 +18996,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async advertiseByoipRange(
     advertiseByoipRangeRequest: requests.AdvertiseByoipRangeRequest
   ): Promise<responses.AdvertiseByoipRangeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#advertiseByoipRange.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#advertiseByoipRange.");
     const operationName = "advertiseByoipRange";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/AdvertiseByoipRange";
@@ -18656,6 +19018,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       advertiseByoipRangeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18711,7 +19074,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async attachServiceId(
     attachServiceIdRequest: requests.AttachServiceIdRequest
   ): Promise<responses.AttachServiceIdResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#attachServiceId.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#attachServiceId.");
     const operationName = "attachServiceId";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/AttachServiceId";
@@ -18732,6 +19095,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       attachServiceIdRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18790,7 +19154,10 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async bulkAddVirtualCircuitPublicPrefixes(
     bulkAddVirtualCircuitPublicPrefixesRequest: requests.BulkAddVirtualCircuitPublicPrefixesRequest
   ): Promise<responses.BulkAddVirtualCircuitPublicPrefixesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#bulkAddVirtualCircuitPublicPrefixes.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#bulkAddVirtualCircuitPublicPrefixes."
+      );
     const operationName = "bulkAddVirtualCircuitPublicPrefixes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitPublicPrefix/BulkAddVirtualCircuitPublicPrefixes";
@@ -18810,6 +19177,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bulkAddVirtualCircuitPublicPrefixesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18858,7 +19226,10 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async bulkDeleteVirtualCircuitPublicPrefixes(
     bulkDeleteVirtualCircuitPublicPrefixesRequest: requests.BulkDeleteVirtualCircuitPublicPrefixesRequest
   ): Promise<responses.BulkDeleteVirtualCircuitPublicPrefixesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#bulkDeleteVirtualCircuitPublicPrefixes.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#bulkDeleteVirtualCircuitPublicPrefixes."
+      );
     const operationName = "bulkDeleteVirtualCircuitPublicPrefixes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitPublicPrefix/BulkDeleteVirtualCircuitPublicPrefixes";
@@ -18878,6 +19249,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       bulkDeleteVirtualCircuitPublicPrefixesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18925,7 +19297,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeByoipRangeCompartment(
     changeByoipRangeCompartmentRequest: requests.ChangeByoipRangeCompartmentRequest
   ): Promise<responses.ChangeByoipRangeCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeByoipRangeCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeByoipRangeCompartment.");
     const operationName = "changeByoipRangeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/ChangeByoipRangeCompartment";
@@ -18947,6 +19320,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeByoipRangeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19000,7 +19374,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeCaptureFilterCompartment(
     changeCaptureFilterCompartmentRequest: requests.ChangeCaptureFilterCompartmentRequest
   ): Promise<responses.ChangeCaptureFilterCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeCaptureFilterCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeCaptureFilterCompartment.");
     const operationName = "changeCaptureFilterCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/ChangeCaptureFilterCompartment";
@@ -19023,6 +19398,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeCaptureFilterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19086,7 +19462,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeCpeCompartment(
     changeCpeCompartmentRequest: requests.ChangeCpeCompartmentRequest
   ): Promise<responses.ChangeCpeCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeCpeCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeCpeCompartment.");
     const operationName = "changeCpeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/ChangeCpeCompartment";
@@ -19108,6 +19485,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeCpeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19166,7 +19544,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeCrossConnectCompartment(
     changeCrossConnectCompartmentRequest: requests.ChangeCrossConnectCompartmentRequest
   ): Promise<responses.ChangeCrossConnectCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeCrossConnectCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeCrossConnectCompartment.");
     const operationName = "changeCrossConnectCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/ChangeCrossConnectCompartment";
@@ -19188,6 +19567,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeCrossConnectCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19246,7 +19626,10 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeCrossConnectGroupCompartment(
     changeCrossConnectGroupCompartmentRequest: requests.ChangeCrossConnectGroupCompartmentRequest
   ): Promise<responses.ChangeCrossConnectGroupCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeCrossConnectGroupCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#changeCrossConnectGroupCompartment."
+      );
     const operationName = "changeCrossConnectGroupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/ChangeCrossConnectGroupCompartment";
@@ -19268,6 +19651,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeCrossConnectGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19326,7 +19710,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeDhcpOptionsCompartment(
     changeDhcpOptionsCompartmentRequest: requests.ChangeDhcpOptionsCompartmentRequest
   ): Promise<responses.ChangeDhcpOptionsCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeDhcpOptionsCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeDhcpOptionsCompartment.");
     const operationName = "changeDhcpOptionsCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/ChangeDhcpOptionsCompartment";
@@ -19348,6 +19733,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeDhcpOptionsCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19406,7 +19792,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeDrgCompartment(
     changeDrgCompartmentRequest: requests.ChangeDrgCompartmentRequest
   ): Promise<responses.ChangeDrgCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeDrgCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeDrgCompartment.");
     const operationName = "changeDrgCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/ChangeDrgCompartment";
@@ -19428,6 +19815,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeDrgCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19491,7 +19879,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeIPSecConnectionCompartment(
     changeIPSecConnectionCompartmentRequest: requests.ChangeIPSecConnectionCompartmentRequest
   ): Promise<responses.ChangeIPSecConnectionCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeIPSecConnectionCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeIPSecConnectionCompartment.");
     const operationName = "changeIPSecConnectionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/ChangeIPSecConnectionCompartment";
@@ -19513,6 +19902,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeIPSecConnectionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19571,7 +19961,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeInternetGatewayCompartment(
     changeInternetGatewayCompartmentRequest: requests.ChangeInternetGatewayCompartmentRequest
   ): Promise<responses.ChangeInternetGatewayCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeInternetGatewayCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeInternetGatewayCompartment.");
     const operationName = "changeInternetGatewayCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/ChangeInternetGatewayCompartment";
@@ -19593,6 +19984,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeInternetGatewayCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19651,7 +20043,10 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeLocalPeeringGatewayCompartment(
     changeLocalPeeringGatewayCompartmentRequest: requests.ChangeLocalPeeringGatewayCompartmentRequest
   ): Promise<responses.ChangeLocalPeeringGatewayCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeLocalPeeringGatewayCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#changeLocalPeeringGatewayCompartment."
+      );
     const operationName = "changeLocalPeeringGatewayCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/ChangeLocalPeeringGatewayCompartment";
@@ -19673,6 +20068,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeLocalPeeringGatewayCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19731,7 +20127,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeNatGatewayCompartment(
     changeNatGatewayCompartmentRequest: requests.ChangeNatGatewayCompartmentRequest
   ): Promise<responses.ChangeNatGatewayCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeNatGatewayCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeNatGatewayCompartment.");
     const operationName = "changeNatGatewayCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/ChangeNatGatewayCompartment";
@@ -19753,6 +20150,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeNatGatewayCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19810,7 +20208,10 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   public async changeNetworkSecurityGroupCompartment(
     changeNetworkSecurityGroupCompartmentRequest: requests.ChangeNetworkSecurityGroupCompartmentRequest
   ): Promise<responses.ChangeNetworkSecurityGroupCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeNetworkSecurityGroupCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#changeNetworkSecurityGroupCompartment."
+      );
     const operationName = "changeNetworkSecurityGroupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/ChangeNetworkSecurityGroupCompartment";
@@ -19833,6 +20234,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       changeNetworkSecurityGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19894,7 +20296,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changePublicIpCompartment(
     changePublicIpCompartmentRequest: requests.ChangePublicIpCompartmentRequest
   ): Promise<responses.ChangePublicIpCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changePublicIpCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changePublicIpCompartment.");
     const operationName = "changePublicIpCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/ChangePublicIpCompartment";
@@ -19916,6 +20319,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changePublicIpCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19974,7 +20378,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changePublicIpPoolCompartment(
     changePublicIpPoolCompartmentRequest: requests.ChangePublicIpPoolCompartmentRequest
   ): Promise<responses.ChangePublicIpPoolCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changePublicIpPoolCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changePublicIpPoolCompartment.");
     const operationName = "changePublicIpPoolCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/ChangePublicIpPoolCompartment";
@@ -19996,6 +20401,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changePublicIpPoolCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20049,9 +20455,10 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeRemotePeeringConnectionCompartment(
     changeRemotePeeringConnectionCompartmentRequest: requests.ChangeRemotePeeringConnectionCompartmentRequest
   ): Promise<responses.ChangeRemotePeeringConnectionCompartmentResponse> {
-    logger.debug(
-      "Calling operation VirtualNetworkClient#changeRemotePeeringConnectionCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#changeRemotePeeringConnectionCompartment."
+      );
     const operationName = "changeRemotePeeringConnectionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/ChangeRemotePeeringConnectionCompartment";
@@ -20074,6 +20481,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeRemotePeeringConnectionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20132,7 +20540,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeRouteTableCompartment(
     changeRouteTableCompartmentRequest: requests.ChangeRouteTableCompartmentRequest
   ): Promise<responses.ChangeRouteTableCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeRouteTableCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeRouteTableCompartment.");
     const operationName = "changeRouteTableCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/ChangeRouteTableCompartment";
@@ -20154,6 +20563,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeRouteTableCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20212,7 +20622,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeSecurityListCompartment(
     changeSecurityListCompartmentRequest: requests.ChangeSecurityListCompartmentRequest
   ): Promise<responses.ChangeSecurityListCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeSecurityListCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeSecurityListCompartment.");
     const operationName = "changeSecurityListCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/ChangeSecurityListCompartment";
@@ -20234,6 +20645,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeSecurityListCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20292,7 +20704,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeServiceGatewayCompartment(
     changeServiceGatewayCompartmentRequest: requests.ChangeServiceGatewayCompartmentRequest
   ): Promise<responses.ChangeServiceGatewayCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeServiceGatewayCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeServiceGatewayCompartment.");
     const operationName = "changeServiceGatewayCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/ChangeServiceGatewayCompartment";
@@ -20314,6 +20727,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeServiceGatewayCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20372,7 +20786,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeSubnetCompartment(
     changeSubnetCompartmentRequest: requests.ChangeSubnetCompartmentRequest
   ): Promise<responses.ChangeSubnetCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeSubnetCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeSubnetCompartment.");
     const operationName = "changeSubnetCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/ChangeSubnetCompartment";
@@ -20394,6 +20809,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeSubnetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20457,7 +20873,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeVcnCompartment(
     changeVcnCompartmentRequest: requests.ChangeVcnCompartmentRequest
   ): Promise<responses.ChangeVcnCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeVcnCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeVcnCompartment.");
     const operationName = "changeVcnCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/ChangeVcnCompartment";
@@ -20479,6 +20896,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeVcnCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20542,7 +20960,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeVirtualCircuitCompartment(
     changeVirtualCircuitCompartmentRequest: requests.ChangeVirtualCircuitCompartmentRequest
   ): Promise<responses.ChangeVirtualCircuitCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeVirtualCircuitCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeVirtualCircuitCompartment.");
     const operationName = "changeVirtualCircuitCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/ChangeVirtualCircuitCompartment";
@@ -20564,6 +20983,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeVirtualCircuitCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20622,7 +21042,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeVlanCompartment(
     changeVlanCompartmentRequest: requests.ChangeVlanCompartmentRequest
   ): Promise<responses.ChangeVlanCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeVlanCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeVlanCompartment.");
     const operationName = "changeVlanCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/ChangeVlanCompartment";
@@ -20645,6 +21066,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeVlanCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20703,7 +21125,8 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   public async changeVtapCompartment(
     changeVtapCompartmentRequest: requests.ChangeVtapCompartmentRequest
   ): Promise<responses.ChangeVtapCompartmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#changeVtapCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeVtapCompartment.");
     const operationName = "changeVtapCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/ChangeVtapCompartment";
@@ -20726,6 +21149,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       changeVtapCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20794,7 +21218,8 @@ This operation must be called by the VCN administrator who is designated as
   public async connectLocalPeeringGateways(
     connectLocalPeeringGatewaysRequest: requests.ConnectLocalPeeringGatewaysRequest
   ): Promise<responses.ConnectLocalPeeringGatewaysResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#connectLocalPeeringGateways.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#connectLocalPeeringGateways.");
     const operationName = "connectLocalPeeringGateways";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/ConnectLocalPeeringGateways";
@@ -20814,6 +21239,7 @@ This operation must be called by the VCN administrator who is designated as
       connectLocalPeeringGatewaysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20872,7 +21298,8 @@ This operation must be called by the VCN administrator who is designated as
   public async connectRemotePeeringConnections(
     connectRemotePeeringConnectionsRequest: requests.ConnectRemotePeeringConnectionsRequest
   ): Promise<responses.ConnectRemotePeeringConnectionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#connectRemotePeeringConnections.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#connectRemotePeeringConnections.");
     const operationName = "connectRemotePeeringConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/ConnectRemotePeeringConnections";
@@ -20893,6 +21320,7 @@ This operation must be called by the VCN administrator who is designated as
       connectRemotePeeringConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20944,7 +21372,7 @@ This operation must be called by the VCN administrator who is designated as
   public async createByoipRange(
     createByoipRangeRequest: requests.CreateByoipRangeRequest
   ): Promise<responses.CreateByoipRangeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createByoipRange.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createByoipRange.");
     const operationName = "createByoipRange";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/CreateByoipRange";
@@ -20964,6 +21392,7 @@ This operation must be called by the VCN administrator who is designated as
       createByoipRangeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21032,7 +21461,8 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   public async createCaptureFilter(
     createCaptureFilterRequest: requests.CreateCaptureFilterRequest
   ): Promise<responses.CreateCaptureFilterResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createCaptureFilter.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createCaptureFilter.");
     const operationName = "createCaptureFilter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/CreateCaptureFilter";
@@ -21052,6 +21482,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       createCaptureFilterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21126,7 +21557,7 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
   public async createCpe(
     createCpeRequest: requests.CreateCpeRequest
   ): Promise<responses.CreateCpeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createCpe.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createCpe.");
     const operationName = "createCpe";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/CreateCpe";
     const pathParams = {};
@@ -21144,6 +21575,7 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
       createCpeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21222,7 +21654,8 @@ You may optionally specify a *display name* for the cross-connect.
   public async createCrossConnect(
     createCrossConnectRequest: requests.CreateCrossConnectRequest
   ): Promise<responses.CreateCrossConnectResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createCrossConnect.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createCrossConnect.");
     const operationName = "createCrossConnect";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/CreateCrossConnect";
@@ -21241,6 +21674,7 @@ You may optionally specify a *display name* for the cross-connect.
       createCrossConnectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21315,7 +21749,8 @@ You may optionally specify a *display name* for the cross-connect group.
   public async createCrossConnectGroup(
     createCrossConnectGroupRequest: requests.CreateCrossConnectGroupRequest
   ): Promise<responses.CreateCrossConnectGroupResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createCrossConnectGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createCrossConnectGroup.");
     const operationName = "createCrossConnectGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/CreateCrossConnectGroup";
@@ -21334,6 +21769,7 @@ You may optionally specify a *display name* for the cross-connect group.
       createCrossConnectGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21405,7 +21841,7 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
   public async createDhcpOptions(
     createDhcpOptionsRequest: requests.CreateDhcpOptionsRequest
   ): Promise<responses.CreateDhcpOptionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createDhcpOptions.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createDhcpOptions.");
     const operationName = "createDhcpOptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/CreateDhcpOptions";
@@ -21424,6 +21860,7 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
       createDhcpOptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21495,7 +21932,7 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
   public async createDrg(
     createDrgRequest: requests.CreateDrgRequest
   ): Promise<responses.CreateDrgResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createDrg.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createDrg.");
     const operationName = "createDrg";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/CreateDrg";
     const pathParams = {};
@@ -21513,6 +21950,7 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
       createDrgRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21583,7 +22021,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
   public async createDrgAttachment(
     createDrgAttachmentRequest: requests.CreateDrgAttachmentRequest
   ): Promise<responses.CreateDrgAttachmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createDrgAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createDrgAttachment.");
     const operationName = "createDrgAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/CreateDrgAttachment";
@@ -21602,6 +22041,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
       createDrgAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21665,7 +22105,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
   public async createDrgRouteDistribution(
     createDrgRouteDistributionRequest: requests.CreateDrgRouteDistributionRequest
   ): Promise<responses.CreateDrgRouteDistributionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createDrgRouteDistribution.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createDrgRouteDistribution.");
     const operationName = "createDrgRouteDistribution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistribution/CreateDrgRouteDistribution";
@@ -21684,6 +22125,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
       createDrgRouteDistributionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21745,7 +22187,8 @@ For the purposes of access control, the DRG attachment is automatically placed i
   public async createDrgRouteTable(
     createDrgRouteTableRequest: requests.CreateDrgRouteTableRequest
   ): Promise<responses.CreateDrgRouteTableResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createDrgRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createDrgRouteTable.");
     const operationName = "createDrgRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/CreateDrgRouteTable";
@@ -21764,6 +22207,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
       createDrgRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21851,7 +22295,8 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
   public async createIPSecConnection(
     createIPSecConnectionRequest: requests.CreateIPSecConnectionRequest
   ): Promise<responses.CreateIPSecConnectionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createIPSecConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createIPSecConnection.");
     const operationName = "createIPSecConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/CreateIPSecConnection";
@@ -21870,6 +22315,7 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
       createIPSecConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21949,7 +22395,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createInternetGateway(
     createInternetGatewayRequest: requests.CreateInternetGatewayRequest
   ): Promise<responses.CreateInternetGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createInternetGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createInternetGateway.");
     const operationName = "createInternetGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/CreateInternetGateway";
@@ -21968,6 +22415,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       createInternetGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22028,7 +22476,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createIpv6(
     createIpv6Request: requests.CreateIpv6Request
   ): Promise<responses.CreateIpv6Response> {
-    logger.debug("Calling operation VirtualNetworkClient#createIpv6.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createIpv6.");
     const operationName = "createIpv6";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/CreateIpv6";
     const pathParams = {};
@@ -22047,6 +22495,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       createIpv6Request.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22107,7 +22556,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createLocalPeeringGateway(
     createLocalPeeringGatewayRequest: requests.CreateLocalPeeringGatewayRequest
   ): Promise<responses.CreateLocalPeeringGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createLocalPeeringGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createLocalPeeringGateway.");
     const operationName = "createLocalPeeringGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/CreateLocalPeeringGateway";
@@ -22126,6 +22576,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       createLocalPeeringGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22187,7 +22638,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createNatGateway(
     createNatGatewayRequest: requests.CreateNatGatewayRequest
   ): Promise<responses.CreateNatGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createNatGateway.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createNatGateway.");
     const operationName = "createNatGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/CreateNatGateway";
@@ -22206,6 +22657,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       createNatGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22266,7 +22718,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createNetworkSecurityGroup(
     createNetworkSecurityGroupRequest: requests.CreateNetworkSecurityGroupRequest
   ): Promise<responses.CreateNetworkSecurityGroupResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createNetworkSecurityGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createNetworkSecurityGroup.");
     const operationName = "createNetworkSecurityGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/CreateNetworkSecurityGroup";
@@ -22285,6 +22738,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       createNetworkSecurityGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22347,7 +22801,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
   public async createPrivateIp(
     createPrivateIpRequest: requests.CreatePrivateIpRequest
   ): Promise<responses.CreatePrivateIpResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createPrivateIp.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createPrivateIp.");
     const operationName = "createPrivateIp";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/CreatePrivateIp";
@@ -22366,6 +22820,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
       createPrivateIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22446,7 +22901,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   public async createPublicIp(
     createPublicIpRequest: requests.CreatePublicIpRequest
   ): Promise<responses.CreatePublicIpResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createPublicIp.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createPublicIp.");
     const operationName = "createPublicIp";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/CreatePublicIp";
@@ -22465,6 +22920,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       createPublicIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22525,7 +22981,8 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   public async createPublicIpPool(
     createPublicIpPoolRequest: requests.CreatePublicIpPoolRequest
   ): Promise<responses.CreatePublicIpPoolResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createPublicIpPool.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createPublicIpPool.");
     const operationName = "createPublicIpPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/CreatePublicIpPool";
@@ -22545,6 +23002,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       createPublicIpPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22605,7 +23063,8 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   public async createRemotePeeringConnection(
     createRemotePeeringConnectionRequest: requests.CreateRemotePeeringConnectionRequest
   ): Promise<responses.CreateRemotePeeringConnectionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createRemotePeeringConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createRemotePeeringConnection.");
     const operationName = "createRemotePeeringConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/CreateRemotePeeringConnection";
@@ -22624,6 +23083,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       createRemotePeeringConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22698,7 +23158,7 @@ You may optionally specify a *display name* for the route table, otherwise a def
   public async createRouteTable(
     createRouteTableRequest: requests.CreateRouteTableRequest
   ): Promise<responses.CreateRouteTableResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createRouteTable.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createRouteTable.");
     const operationName = "createRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/CreateRouteTable";
@@ -22717,6 +23177,7 @@ You may optionally specify a *display name* for the route table, otherwise a def
       createRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22790,7 +23251,8 @@ You may optionally specify a *display name* for the security list, otherwise a d
   public async createSecurityList(
     createSecurityListRequest: requests.CreateSecurityListRequest
   ): Promise<responses.CreateSecurityListResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createSecurityList.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createSecurityList.");
     const operationName = "createSecurityList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/CreateSecurityList";
@@ -22809,6 +23271,7 @@ You may optionally specify a *display name* for the security list, otherwise a d
       createSecurityListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22877,7 +23340,8 @@ You may optionally specify a *display name* for the service gateway, otherwise a
   public async createServiceGateway(
     createServiceGatewayRequest: requests.CreateServiceGatewayRequest
   ): Promise<responses.CreateServiceGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createServiceGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createServiceGateway.");
     const operationName = "createServiceGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/CreateServiceGateway";
@@ -22896,6 +23360,7 @@ You may optionally specify a *display name* for the service gateway, otherwise a
       createServiceGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22981,7 +23446,7 @@ You can also add a DNS label for the subnet, which is required if you want the I
   public async createSubnet(
     createSubnetRequest: requests.CreateSubnetRequest
   ): Promise<responses.CreateSubnetResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createSubnet.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createSubnet.");
     const operationName = "createSubnet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/CreateSubnet";
@@ -23000,6 +23465,7 @@ You can also add a DNS label for the subnet, which is required if you want the I
       createSubnetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23092,7 +23558,7 @@ The VCN and subnets you create are not accessible until you attach an internet g
   public async createVcn(
     createVcnRequest: requests.CreateVcnRequest
   ): Promise<responses.CreateVcnResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createVcn.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVcn.");
     const operationName = "createVcn";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/CreateVcn";
     const pathParams = {};
@@ -23110,6 +23576,7 @@ The VCN and subnets you create are not accessible until you attach an internet g
       createVcnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23190,7 +23657,8 @@ You may optionally specify a *display name* for the virtual circuit.
   public async createVirtualCircuit(
     createVirtualCircuitRequest: requests.CreateVirtualCircuitRequest
   ): Promise<responses.CreateVirtualCircuitResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createVirtualCircuit.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createVirtualCircuit.");
     const operationName = "createVirtualCircuit";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/CreateVirtualCircuit";
@@ -23209,6 +23677,7 @@ You may optionally specify a *display name* for the virtual circuit.
       createVirtualCircuitRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23269,7 +23738,7 @@ You may optionally specify a *display name* for the virtual circuit.
   public async createVlan(
     createVlanRequest: requests.CreateVlanRequest
   ): Promise<responses.CreateVlanResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createVlan.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVlan.");
     const operationName = "createVlan";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/CreateVlan";
     const pathParams = {};
@@ -23288,6 +23757,7 @@ You may optionally specify a *display name* for the virtual circuit.
       createVlanRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23356,7 +23826,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   public async createVtap(
     createVtapRequest: requests.CreateVtapRequest
   ): Promise<responses.CreateVtapResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#createVtap.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVtap.");
     const operationName = "createVtap";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/CreateVtap";
     const pathParams = {};
@@ -23375,6 +23845,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       createVtapRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23439,7 +23910,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   public async deleteByoipRange(
     deleteByoipRangeRequest: requests.DeleteByoipRangeRequest
   ): Promise<responses.DeleteByoipRangeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteByoipRange.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteByoipRange.");
     const operationName = "deleteByoipRange";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/DeleteByoipRange";
@@ -23461,6 +23932,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       deleteByoipRangeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23513,7 +23985,8 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   public async deleteCaptureFilter(
     deleteCaptureFilterRequest: requests.DeleteCaptureFilterRequest
   ): Promise<responses.DeleteCaptureFilterResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteCaptureFilter.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteCaptureFilter.");
     const operationName = "deleteCaptureFilter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/DeleteCaptureFilter";
@@ -23535,6 +24008,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       deleteCaptureFilterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23583,7 +24057,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   public async deleteCpe(
     deleteCpeRequest: requests.DeleteCpeRequest
   ): Promise<responses.DeleteCpeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteCpe.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteCpe.");
     const operationName = "deleteCpe";
     const apiReferenceLink = "";
     const pathParams = {
@@ -23603,6 +24077,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       deleteCpeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23650,7 +24125,8 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   public async deleteCrossConnect(
     deleteCrossConnectRequest: requests.DeleteCrossConnectRequest
   ): Promise<responses.DeleteCrossConnectResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteCrossConnect.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteCrossConnect.");
     const operationName = "deleteCrossConnect";
     const apiReferenceLink = "";
     const pathParams = {
@@ -23670,6 +24146,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       deleteCrossConnectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23718,7 +24195,8 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   public async deleteCrossConnectGroup(
     deleteCrossConnectGroupRequest: requests.DeleteCrossConnectGroupRequest
   ): Promise<responses.DeleteCrossConnectGroupResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteCrossConnectGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteCrossConnectGroup.");
     const operationName = "deleteCrossConnectGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -23738,6 +24216,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       deleteCrossConnectGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23788,7 +24267,7 @@ This is an asynchronous operation. The state of the set of options will switch t
   public async deleteDhcpOptions(
     deleteDhcpOptionsRequest: requests.DeleteDhcpOptionsRequest
   ): Promise<responses.DeleteDhcpOptionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteDhcpOptions.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteDhcpOptions.");
     const operationName = "deleteDhcpOptions";
     const apiReferenceLink = "";
     const pathParams = {
@@ -23808,6 +24287,7 @@ This is an asynchronous operation. The state of the set of options will switch t
       deleteDhcpOptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23857,7 +24337,7 @@ This is an asynchronous operation. The state of the set of options will switch t
   public async deleteDrg(
     deleteDrgRequest: requests.DeleteDrgRequest
   ): Promise<responses.DeleteDrgResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteDrg.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteDrg.");
     const operationName = "deleteDrg";
     const apiReferenceLink = "";
     const pathParams = {
@@ -23877,6 +24357,7 @@ This is an asynchronous operation. The state of the set of options will switch t
       deleteDrgRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23925,7 +24406,8 @@ This is an asynchronous operation. The state of the set of options will switch t
   public async deleteDrgAttachment(
     deleteDrgAttachmentRequest: requests.DeleteDrgAttachmentRequest
   ): Promise<responses.DeleteDrgAttachmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteDrgAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgAttachment.");
     const operationName = "deleteDrgAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -23945,6 +24427,7 @@ This is an asynchronous operation. The state of the set of options will switch t
       deleteDrgAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23993,7 +24476,8 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
   public async deleteDrgRouteDistribution(
     deleteDrgRouteDistributionRequest: requests.DeleteDrgRouteDistributionRequest
   ): Promise<responses.DeleteDrgRouteDistributionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteDrgRouteDistribution.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgRouteDistribution.");
     const operationName = "deleteDrgRouteDistribution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/DeleteDrgRouteDistribution";
@@ -24014,6 +24498,7 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
       deleteDrgRouteDistributionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24060,7 +24545,8 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
   public async deleteDrgRouteTable(
     deleteDrgRouteTableRequest: requests.DeleteDrgRouteTableRequest
   ): Promise<responses.DeleteDrgRouteTableResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteDrgRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgRouteTable.");
     const operationName = "deleteDrgRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternalPublicIp/DeleteDrgRouteTable";
@@ -24081,6 +24567,7 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
       deleteDrgRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24134,7 +24621,8 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
   public async deleteIPSecConnection(
     deleteIPSecConnectionRequest: requests.DeleteIPSecConnectionRequest
   ): Promise<responses.DeleteIPSecConnectionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteIPSecConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteIPSecConnection.");
     const operationName = "deleteIPSecConnection";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24154,6 +24642,7 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
       deleteIPSecConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24204,7 +24693,8 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
   public async deleteInternetGateway(
     deleteInternetGatewayRequest: requests.DeleteInternetGatewayRequest
   ): Promise<responses.DeleteInternetGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteInternetGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteInternetGateway.");
     const operationName = "deleteInternetGateway";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24224,6 +24714,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
       deleteInternetGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24271,7 +24762,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
   public async deleteIpv6(
     deleteIpv6Request: requests.DeleteIpv6Request
   ): Promise<responses.DeleteIpv6Response> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteIpv6.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteIpv6.");
     const operationName = "deleteIpv6";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24292,6 +24783,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
       deleteIpv6Request.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24341,7 +24833,8 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
   public async deleteLocalPeeringGateway(
     deleteLocalPeeringGatewayRequest: requests.DeleteLocalPeeringGatewayRequest
   ): Promise<responses.DeleteLocalPeeringGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteLocalPeeringGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteLocalPeeringGateway.");
     const operationName = "deleteLocalPeeringGateway";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24361,6 +24854,7 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
       deleteLocalPeeringGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24411,7 +24905,7 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
   public async deleteNatGateway(
     deleteNatGatewayRequest: requests.DeleteNatGatewayRequest
   ): Promise<responses.DeleteNatGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteNatGateway.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteNatGateway.");
     const operationName = "deleteNatGateway";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24431,6 +24925,7 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
       deleteNatGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24483,7 +24978,8 @@ To get a list of the VNICs in a network security group, use
   public async deleteNetworkSecurityGroup(
     deleteNetworkSecurityGroupRequest: requests.DeleteNetworkSecurityGroupRequest
   ): Promise<responses.DeleteNetworkSecurityGroupResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteNetworkSecurityGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteNetworkSecurityGroup.");
     const operationName = "deleteNetworkSecurityGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/DeleteNetworkSecurityGroup";
@@ -24504,6 +25000,7 @@ To get a list of the VNICs in a network security group, use
       deleteNetworkSecurityGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24560,7 +25057,7 @@ This operation cannot be used with primary private IPs, which are
   public async deletePrivateIp(
     deletePrivateIpRequest: requests.DeletePrivateIpRequest
   ): Promise<responses.DeletePrivateIpResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deletePrivateIp.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deletePrivateIp.");
     const operationName = "deletePrivateIp";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24580,6 +25077,7 @@ This operation cannot be used with primary private IPs, which are
       deletePrivateIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24640,7 +25138,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
   public async deletePublicIp(
     deletePublicIpRequest: requests.DeletePublicIpRequest
   ): Promise<responses.DeletePublicIpResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deletePublicIp.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deletePublicIp.");
     const operationName = "deletePublicIp";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24660,6 +25158,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
       deletePublicIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24708,7 +25207,8 @@ If you want to simply unassign a reserved public IP and return it to your pool
   public async deletePublicIpPool(
     deletePublicIpPoolRequest: requests.DeletePublicIpPoolRequest
   ): Promise<responses.DeletePublicIpPoolResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deletePublicIpPool.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deletePublicIpPool.");
     const operationName = "deletePublicIpPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/DeletePublicIpPool";
@@ -24730,6 +25230,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
       deletePublicIpPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24779,7 +25280,8 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
   public async deleteRemotePeeringConnection(
     deleteRemotePeeringConnectionRequest: requests.DeleteRemotePeeringConnectionRequest
   ): Promise<responses.DeleteRemotePeeringConnectionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteRemotePeeringConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteRemotePeeringConnection.");
     const operationName = "deleteRemotePeeringConnection";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24799,6 +25301,7 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
       deleteRemotePeeringConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24849,7 +25352,7 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
   public async deleteRouteTable(
     deleteRouteTableRequest: requests.DeleteRouteTableRequest
   ): Promise<responses.DeleteRouteTableResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteRouteTable.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteRouteTable.");
     const operationName = "deleteRouteTable";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24869,6 +25372,7 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
       deleteRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24919,7 +25423,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async deleteSecurityList(
     deleteSecurityListRequest: requests.DeleteSecurityListRequest
   ): Promise<responses.DeleteSecurityListResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteSecurityList.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteSecurityList.");
     const operationName = "deleteSecurityList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -24939,6 +25444,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       deleteSecurityListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24986,7 +25492,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async deleteServiceGateway(
     deleteServiceGatewayRequest: requests.DeleteServiceGatewayRequest
   ): Promise<responses.DeleteServiceGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteServiceGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteServiceGateway.");
     const operationName = "deleteServiceGateway";
     const apiReferenceLink = "";
     const pathParams = {
@@ -25006,6 +25513,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       deleteServiceGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25054,7 +25562,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   public async deleteSubnet(
     deleteSubnetRequest: requests.DeleteSubnetRequest
   ): Promise<responses.DeleteSubnetResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteSubnet.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteSubnet.");
     const operationName = "deleteSubnet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -25074,6 +25582,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       deleteSubnetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25125,7 +25634,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async deleteVcn(
     deleteVcnRequest: requests.DeleteVcnRequest
   ): Promise<responses.DeleteVcnResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteVcn.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVcn.");
     const operationName = "deleteVcn";
     const apiReferenceLink = "";
     const pathParams = {
@@ -25145,6 +25654,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       deleteVcnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25195,7 +25705,8 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async deleteVirtualCircuit(
     deleteVirtualCircuitRequest: requests.DeleteVirtualCircuitRequest
   ): Promise<responses.DeleteVirtualCircuitResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteVirtualCircuit.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteVirtualCircuit.");
     const operationName = "deleteVirtualCircuit";
     const apiReferenceLink = "";
     const pathParams = {
@@ -25215,6 +25726,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       deleteVirtualCircuitRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25261,7 +25773,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async deleteVlan(
     deleteVlanRequest: requests.DeleteVlanRequest
   ): Promise<responses.DeleteVlanResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteVlan.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVlan.");
     const operationName = "deleteVlan";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/DeleteVlan";
     const pathParams = {
@@ -25282,6 +25794,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       deleteVlanRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25329,7 +25842,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async deleteVtap(
     deleteVtapRequest: requests.DeleteVtapRequest
   ): Promise<responses.DeleteVtapResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#deleteVtap.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVtap.");
     const operationName = "deleteVtap";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/DeleteVtap";
     const pathParams = {
@@ -25350,6 +25863,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       deleteVtapRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25412,7 +25926,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async detachServiceId(
     detachServiceIdRequest: requests.DetachServiceIdRequest
   ): Promise<responses.DetachServiceIdResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#detachServiceId.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#detachServiceId.");
     const operationName = "detachServiceId";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/DetachServiceId";
@@ -25433,6 +25947,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       detachServiceIdRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25488,7 +26003,8 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async getAllDrgAttachments(
     getAllDrgAttachmentsRequest: requests.GetAllDrgAttachmentsRequest
   ): Promise<responses.GetAllDrgAttachmentsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getAllDrgAttachments.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getAllDrgAttachments.");
     const operationName = "getAllDrgAttachments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/GetAllDrgAttachments";
@@ -25514,6 +26030,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       getAllDrgAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25621,7 +26138,8 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async getAllowedIkeIPSecParameters(
     getAllowedIkeIPSecParametersRequest: requests.GetAllowedIkeIPSecParametersRequest
   ): Promise<responses.GetAllowedIkeIPSecParametersResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getAllowedIkeIPSecParameters.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getAllowedIkeIPSecParameters.");
     const operationName = "getAllowedIkeIPSecParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AllowedIkeIPSecParameters/GetAllowedIkeIPSecParameters";
@@ -25640,6 +26158,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       getAllowedIkeIPSecParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25690,7 +26209,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async getByoipRange(
     getByoipRangeRequest: requests.GetByoipRangeRequest
   ): Promise<responses.GetByoipRangeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getByoipRange.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getByoipRange.");
     const operationName = "getByoipRange";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/GetByoipRange";
@@ -25711,6 +26230,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       getByoipRangeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25765,7 +26285,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   public async getCaptureFilter(
     getCaptureFilterRequest: requests.GetCaptureFilterRequest
   ): Promise<responses.GetCaptureFilterResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getCaptureFilter.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCaptureFilter.");
     const operationName = "getCaptureFilter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/GetCaptureFilter";
@@ -25786,6 +26306,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       getCaptureFilterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25838,7 +26359,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpe.ts.html |here} to see how to use GetCpe API.
    */
   public async getCpe(getCpeRequest: requests.GetCpeRequest): Promise<responses.GetCpeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getCpe.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCpe.");
     const operationName = "getCpe";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/GetCpe";
     const pathParams = {
@@ -25857,6 +26378,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
       getCpeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25929,7 +26451,8 @@ The operation returns configuration information for *all* of the
   public async getCpeDeviceConfigContent(
     getCpeDeviceConfigContentRequest: requests.GetCpeDeviceConfigContentRequest
   ): Promise<responses.GetCpeDeviceConfigContentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getCpeDeviceConfigContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getCpeDeviceConfigContent.");
     const operationName = "getCpeDeviceConfigContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/GetCpeDeviceConfigContent";
@@ -25950,6 +26473,7 @@ The operation returns configuration information for *all* of the
       getCpeDeviceConfigContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26008,7 +26532,7 @@ The operation returns configuration information for *all* of the
   public async getCpeDeviceShape(
     getCpeDeviceShapeRequest: requests.GetCpeDeviceShapeRequest
   ): Promise<responses.GetCpeDeviceShapeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getCpeDeviceShape.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCpeDeviceShape.");
     const operationName = "getCpeDeviceShape";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CpeDeviceShapeDetail/GetCpeDeviceShape";
@@ -26029,6 +26553,7 @@ The operation returns configuration information for *all* of the
       getCpeDeviceShapeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26078,7 +26603,7 @@ The operation returns configuration information for *all* of the
   public async getCrossConnect(
     getCrossConnectRequest: requests.GetCrossConnectRequest
   ): Promise<responses.GetCrossConnectResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getCrossConnect.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnect.");
     const operationName = "getCrossConnect";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/GetCrossConnect";
@@ -26098,6 +26623,7 @@ The operation returns configuration information for *all* of the
       getCrossConnectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26152,7 +26678,8 @@ The operation returns configuration information for *all* of the
   public async getCrossConnectGroup(
     getCrossConnectGroupRequest: requests.GetCrossConnectGroupRequest
   ): Promise<responses.GetCrossConnectGroupResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getCrossConnectGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectGroup.");
     const operationName = "getCrossConnectGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/GetCrossConnectGroup";
@@ -26172,6 +26699,7 @@ The operation returns configuration information for *all* of the
       getCrossConnectGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26226,7 +26754,8 @@ The operation returns configuration information for *all* of the
   public async getCrossConnectLetterOfAuthority(
     getCrossConnectLetterOfAuthorityRequest: requests.GetCrossConnectLetterOfAuthorityRequest
   ): Promise<responses.GetCrossConnectLetterOfAuthorityResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getCrossConnectLetterOfAuthority.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectLetterOfAuthority.");
     const operationName = "getCrossConnectLetterOfAuthority";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LetterOfAuthority/GetCrossConnectLetterOfAuthority";
@@ -26246,6 +26775,7 @@ The operation returns configuration information for *all* of the
       getCrossConnectLetterOfAuthorityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26296,7 +26826,8 @@ The operation returns configuration information for *all* of the
   public async getCrossConnectStatus(
     getCrossConnectStatusRequest: requests.GetCrossConnectStatusRequest
   ): Promise<responses.GetCrossConnectStatusResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getCrossConnectStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectStatus.");
     const operationName = "getCrossConnectStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectStatus/GetCrossConnectStatus";
@@ -26316,6 +26847,7 @@ The operation returns configuration information for *all* of the
       getCrossConnectStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26365,7 +26897,7 @@ The operation returns configuration information for *all* of the
   public async getDhcpOptions(
     getDhcpOptionsRequest: requests.GetDhcpOptionsRequest
   ): Promise<responses.GetDhcpOptionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getDhcpOptions.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDhcpOptions.");
     const operationName = "getDhcpOptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/GetDhcpOptions";
@@ -26385,6 +26917,7 @@ The operation returns configuration information for *all* of the
       getDhcpOptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26437,7 +26970,7 @@ The operation returns configuration information for *all* of the
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrg.ts.html |here} to see how to use GetDrg API.
    */
   public async getDrg(getDrgRequest: requests.GetDrgRequest): Promise<responses.GetDrgResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getDrg.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrg.");
     const operationName = "getDrg";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/GetDrg";
     const pathParams = {
@@ -26456,6 +26989,7 @@ The operation returns configuration information for *all* of the
       getDrgRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26510,7 +27044,7 @@ The operation returns configuration information for *all* of the
   public async getDrgAttachment(
     getDrgAttachmentRequest: requests.GetDrgAttachmentRequest
   ): Promise<responses.GetDrgAttachmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getDrgAttachment.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrgAttachment.");
     const operationName = "getDrgAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/GetDrgAttachment";
@@ -26530,6 +27064,7 @@ The operation returns configuration information for *all* of the
       getDrgAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26586,7 +27121,8 @@ The operation returns configuration information for *all* of the
   public async getDrgRedundancyStatus(
     getDrgRedundancyStatusRequest: requests.GetDrgRedundancyStatusRequest
   ): Promise<responses.GetDrgRedundancyStatusResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getDrgRedundancyStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getDrgRedundancyStatus.");
     const operationName = "getDrgRedundancyStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRedundancyStatus/GetDrgRedundancyStatus";
@@ -26607,6 +27143,7 @@ The operation returns configuration information for *all* of the
       getDrgRedundancyStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26656,7 +27193,8 @@ The operation returns configuration information for *all* of the
   public async getDrgRouteDistribution(
     getDrgRouteDistributionRequest: requests.GetDrgRouteDistributionRequest
   ): Promise<responses.GetDrgRouteDistributionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getDrgRouteDistribution.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getDrgRouteDistribution.");
     const operationName = "getDrgRouteDistribution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistribution/GetDrgRouteDistribution";
@@ -26676,6 +27214,7 @@ The operation returns configuration information for *all* of the
       getDrgRouteDistributionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26730,7 +27269,7 @@ The operation returns configuration information for *all* of the
   public async getDrgRouteTable(
     getDrgRouteTableRequest: requests.GetDrgRouteTableRequest
   ): Promise<responses.GetDrgRouteTableResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getDrgRouteTable.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrgRouteTable.");
     const operationName = "getDrgRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/GetDrgRouteTable";
@@ -26750,6 +27289,7 @@ The operation returns configuration information for *all* of the
       getDrgRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26806,7 +27346,8 @@ The operation returns configuration information for *all* of the
   public async getFastConnectProviderService(
     getFastConnectProviderServiceRequest: requests.GetFastConnectProviderServiceRequest
   ): Promise<responses.GetFastConnectProviderServiceResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getFastConnectProviderService.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getFastConnectProviderService.");
     const operationName = "getFastConnectProviderService";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FastConnectProviderService/GetFastConnectProviderService";
@@ -26826,6 +27367,7 @@ The operation returns configuration information for *all* of the
       getFastConnectProviderServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26877,7 +27419,8 @@ The operation returns configuration information for *all* of the
   public async getFastConnectProviderServiceKey(
     getFastConnectProviderServiceKeyRequest: requests.GetFastConnectProviderServiceKeyRequest
   ): Promise<responses.GetFastConnectProviderServiceKeyResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getFastConnectProviderServiceKey.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getFastConnectProviderServiceKey.");
     const operationName = "getFastConnectProviderServiceKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FastConnectProviderServiceKey/GetFastConnectProviderServiceKey";
@@ -26898,6 +27441,7 @@ The operation returns configuration information for *all* of the
       getFastConnectProviderServiceKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26951,7 +27495,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnection(
     getIPSecConnectionRequest: requests.GetIPSecConnectionRequest
   ): Promise<responses.GetIPSecConnectionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getIPSecConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnection.");
     const operationName = "getIPSecConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/GetIPSecConnection";
@@ -26971,6 +27516,7 @@ The operation returns configuration information for *all* of the
       getIPSecConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27029,7 +27575,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionDeviceConfig(
     getIPSecConnectionDeviceConfigRequest: requests.GetIPSecConnectionDeviceConfigRequest
   ): Promise<responses.GetIPSecConnectionDeviceConfigResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionDeviceConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionDeviceConfig.");
     const operationName = "getIPSecConnectionDeviceConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionDeviceConfig/GetIPSecConnectionDeviceConfig";
@@ -27049,6 +27596,7 @@ The operation returns configuration information for *all* of the
       getIPSecConnectionDeviceConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27105,7 +27653,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionDeviceStatus(
     getIPSecConnectionDeviceStatusRequest: requests.GetIPSecConnectionDeviceStatusRequest
   ): Promise<responses.GetIPSecConnectionDeviceStatusResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionDeviceStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionDeviceStatus.");
     const operationName = "getIPSecConnectionDeviceStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionDeviceStatus/GetIPSecConnectionDeviceStatus";
@@ -27125,6 +27674,7 @@ The operation returns configuration information for *all* of the
       getIPSecConnectionDeviceStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27182,7 +27732,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionTunnel(
     getIPSecConnectionTunnelRequest: requests.GetIPSecConnectionTunnelRequest
   ): Promise<responses.GetIPSecConnectionTunnelResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnel.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnel.");
     const operationName = "getIPSecConnectionTunnel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnel/GetIPSecConnectionTunnel";
@@ -27203,6 +27754,7 @@ The operation returns configuration information for *all* of the
       getIPSecConnectionTunnelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27258,7 +27810,8 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionTunnelError(
     getIPSecConnectionTunnelErrorRequest: requests.GetIPSecConnectionTunnelErrorRequest
   ): Promise<responses.GetIPSecConnectionTunnelErrorResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnelError.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnelError.");
     const operationName = "getIPSecConnectionTunnelError";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnelErrorDetails/GetIPSecConnectionTunnelError";
@@ -27279,6 +27832,7 @@ The operation returns configuration information for *all* of the
       getIPSecConnectionTunnelErrorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27330,7 +27884,10 @@ The operation returns configuration information for *all* of the
   public async getIPSecConnectionTunnelSharedSecret(
     getIPSecConnectionTunnelSharedSecretRequest: requests.GetIPSecConnectionTunnelSharedSecretRequest
   ): Promise<responses.GetIPSecConnectionTunnelSharedSecretResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnelSharedSecret.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#getIPSecConnectionTunnelSharedSecret."
+      );
     const operationName = "getIPSecConnectionTunnelSharedSecret";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnelSharedSecret/GetIPSecConnectionTunnelSharedSecret";
@@ -27351,6 +27908,7 @@ The operation returns configuration information for *all* of the
       getIPSecConnectionTunnelSharedSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27405,7 +27963,8 @@ The operation returns configuration information for *all* of the
   public async getInternetGateway(
     getInternetGatewayRequest: requests.GetInternetGatewayRequest
   ): Promise<responses.GetInternetGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getInternetGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getInternetGateway.");
     const operationName = "getInternetGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/GetInternetGateway";
@@ -27425,6 +27984,7 @@ The operation returns configuration information for *all* of the
       getInternetGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27498,7 +28058,8 @@ The operation returns configuration information for all tunnels in the single sp
   public async getIpsecCpeDeviceConfigContent(
     getIpsecCpeDeviceConfigContentRequest: requests.GetIpsecCpeDeviceConfigContentRequest
   ): Promise<responses.GetIpsecCpeDeviceConfigContentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getIpsecCpeDeviceConfigContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getIpsecCpeDeviceConfigContent.");
     const operationName = "getIpsecCpeDeviceConfigContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/GetIpsecCpeDeviceConfigContent";
@@ -27519,6 +28080,7 @@ The operation returns configuration information for all tunnels in the single sp
       getIpsecCpeDeviceConfigContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27572,7 +28134,7 @@ The operation returns configuration information for all tunnels in the single sp
   public async getIpv6(
     getIpv6Request: requests.GetIpv6Request
   ): Promise<responses.GetIpv6Response> {
-    logger.debug("Calling operation VirtualNetworkClient#getIpv6.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getIpv6.");
     const operationName = "getIpv6";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/GetIpv6";
     const pathParams = {
@@ -27592,6 +28154,7 @@ The operation returns configuration information for all tunnels in the single sp
       getIpv6Request.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27646,7 +28209,8 @@ The operation returns configuration information for all tunnels in the single sp
   public async getLocalPeeringGateway(
     getLocalPeeringGatewayRequest: requests.GetLocalPeeringGatewayRequest
   ): Promise<responses.GetLocalPeeringGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getLocalPeeringGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getLocalPeeringGateway.");
     const operationName = "getLocalPeeringGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/GetLocalPeeringGateway";
@@ -27666,6 +28230,7 @@ The operation returns configuration information for all tunnels in the single sp
       getLocalPeeringGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27720,7 +28285,7 @@ The operation returns configuration information for all tunnels in the single sp
   public async getNatGateway(
     getNatGatewayRequest: requests.GetNatGatewayRequest
   ): Promise<responses.GetNatGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getNatGateway.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getNatGateway.");
     const operationName = "getNatGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/GetNatGateway";
@@ -27740,6 +28305,7 @@ The operation returns configuration information for all tunnels in the single sp
       getNatGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27801,7 +28367,8 @@ To list the security rules in an NSG, see
   public async getNetworkSecurityGroup(
     getNetworkSecurityGroupRequest: requests.GetNetworkSecurityGroupRequest
   ): Promise<responses.GetNetworkSecurityGroupResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getNetworkSecurityGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getNetworkSecurityGroup.");
     const operationName = "getNetworkSecurityGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/GetNetworkSecurityGroup";
@@ -27821,6 +28388,7 @@ To list the security rules in an NSG, see
       getNetworkSecurityGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27875,7 +28443,8 @@ To list the security rules in an NSG, see
   public async getNetworkingTopology(
     getNetworkingTopologyRequest: requests.GetNetworkingTopologyRequest
   ): Promise<responses.GetNetworkingTopologyResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getNetworkingTopology.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getNetworkingTopology.");
     const operationName = "getNetworkingTopology";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkingTopology/GetNetworkingTopology";
@@ -27900,6 +28469,7 @@ To list the security rules in an NSG, see
       getNetworkingTopologyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27958,7 +28528,7 @@ To list the security rules in an NSG, see
   public async getPrivateIp(
     getPrivateIpRequest: requests.GetPrivateIpRequest
   ): Promise<responses.GetPrivateIpResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getPrivateIp.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPrivateIp.");
     const operationName = "getPrivateIp";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp";
@@ -27978,6 +28548,7 @@ To list the security rules in an NSG, see
       getPrivateIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28043,7 +28614,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getPublicIp(
     getPublicIpRequest: requests.GetPublicIpRequest
   ): Promise<responses.GetPublicIpResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getPublicIp.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPublicIp.");
     const operationName = "getPublicIp";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIp";
@@ -28063,6 +28634,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getPublicIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28122,7 +28694,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getPublicIpByIpAddress(
     getPublicIpByIpAddressRequest: requests.GetPublicIpByIpAddressRequest
   ): Promise<responses.GetPublicIpByIpAddressResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getPublicIpByIpAddress.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpByIpAddress.");
     const operationName = "getPublicIpByIpAddress";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByIpAddress";
@@ -28140,6 +28713,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getPublicIpByIpAddressRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28210,7 +28784,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getPublicIpByPrivateIpId(
     getPublicIpByPrivateIpIdRequest: requests.GetPublicIpByPrivateIpIdRequest
   ): Promise<responses.GetPublicIpByPrivateIpIdResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getPublicIpByPrivateIpId.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpByPrivateIpId.");
     const operationName = "getPublicIpByPrivateIpId";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId";
@@ -28228,6 +28803,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getPublicIpByPrivateIpIdRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28288,7 +28864,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getPublicIpPool(
     getPublicIpPoolRequest: requests.GetPublicIpPoolRequest
   ): Promise<responses.GetPublicIpPoolResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getPublicIpPool.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpPool.");
     const operationName = "getPublicIpPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/GetPublicIpPool";
@@ -28309,6 +28885,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getPublicIpPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28364,7 +28941,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getRemotePeeringConnection(
     getRemotePeeringConnectionRequest: requests.GetRemotePeeringConnectionRequest
   ): Promise<responses.GetRemotePeeringConnectionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getRemotePeeringConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getRemotePeeringConnection.");
     const operationName = "getRemotePeeringConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/GetRemotePeeringConnection";
@@ -28384,6 +28962,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getRemotePeeringConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28438,7 +29017,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getRouteTable(
     getRouteTableRequest: requests.GetRouteTableRequest
   ): Promise<responses.GetRouteTableResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getRouteTable.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getRouteTable.");
     const operationName = "getRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/GetRouteTable";
@@ -28458,6 +29037,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28512,7 +29092,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getSecurityList(
     getSecurityListRequest: requests.GetSecurityListRequest
   ): Promise<responses.GetSecurityListResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getSecurityList.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getSecurityList.");
     const operationName = "getSecurityList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/GetSecurityList";
@@ -28532,6 +29112,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getSecurityListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28587,7 +29168,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getService(
     getServiceRequest: requests.GetServiceRequest
   ): Promise<responses.GetServiceResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getService.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getService.");
     const operationName = "getService";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Service/GetService";
@@ -28607,6 +29188,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28661,7 +29243,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getServiceGateway(
     getServiceGatewayRequest: requests.GetServiceGatewayRequest
   ): Promise<responses.GetServiceGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getServiceGateway.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getServiceGateway.");
     const operationName = "getServiceGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/GetServiceGateway";
@@ -28681,6 +29263,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getServiceGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28735,7 +29318,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getSubnet(
     getSubnetRequest: requests.GetSubnetRequest
   ): Promise<responses.GetSubnetResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getSubnet.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getSubnet.");
     const operationName = "getSubnet";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/GetSubnet";
     const pathParams = {
@@ -28754,6 +29337,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getSubnetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28808,7 +29392,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getSubnetTopology(
     getSubnetTopologyRequest: requests.GetSubnetTopologyRequest
   ): Promise<responses.GetSubnetTopologyResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getSubnetTopology.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getSubnetTopology.");
     const operationName = "getSubnetTopology";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SubnetTopology/GetSubnetTopology";
@@ -28834,6 +29418,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getSubnetTopologyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28893,7 +29478,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   public async getTunnelCpeDeviceConfig(
     getTunnelCpeDeviceConfigRequest: requests.GetTunnelCpeDeviceConfigRequest
   ): Promise<responses.GetTunnelCpeDeviceConfigResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getTunnelCpeDeviceConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getTunnelCpeDeviceConfig.");
     const operationName = "getTunnelCpeDeviceConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelCpeDeviceConfig/GetTunnelCpeDeviceConfig";
@@ -28915,6 +29501,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       getTunnelCpeDeviceConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28987,7 +29574,8 @@ The operation returns configuration information for only the specified IPSec tun
   public async getTunnelCpeDeviceConfigContent(
     getTunnelCpeDeviceConfigContentRequest: requests.GetTunnelCpeDeviceConfigContentRequest
   ): Promise<responses.GetTunnelCpeDeviceConfigContentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getTunnelCpeDeviceConfigContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getTunnelCpeDeviceConfigContent.");
     const operationName = "getTunnelCpeDeviceConfigContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelCpeDeviceConfig/GetTunnelCpeDeviceConfigContent";
@@ -29009,6 +29597,7 @@ The operation returns configuration information for only the specified IPSec tun
       getTunnelCpeDeviceConfigContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29059,7 +29648,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async getUpgradeStatus(
     getUpgradeStatusRequest: requests.GetUpgradeStatusRequest
   ): Promise<responses.GetUpgradeStatusResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getUpgradeStatus.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getUpgradeStatus.");
     const operationName = "getUpgradeStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/GetUpgradeStatus";
@@ -29080,6 +29669,7 @@ The operation returns configuration information for only the specified IPSec tun
       getUpgradeStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29127,7 +29717,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcn.ts.html |here} to see how to use GetVcn API.
    */
   public async getVcn(getVcnRequest: requests.GetVcnRequest): Promise<responses.GetVcnResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getVcn.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVcn.");
     const operationName = "getVcn";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/GetVcn";
     const pathParams = {
@@ -29146,6 +29736,7 @@ The operation returns configuration information for only the specified IPSec tun
       getVcnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29200,7 +29791,8 @@ The operation returns configuration information for only the specified IPSec tun
   public async getVcnDnsResolverAssociation(
     getVcnDnsResolverAssociationRequest: requests.GetVcnDnsResolverAssociationRequest
   ): Promise<responses.GetVcnDnsResolverAssociationResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getVcnDnsResolverAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getVcnDnsResolverAssociation.");
     const operationName = "getVcnDnsResolverAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VcnDnsResolverAssociation/GetVcnDnsResolverAssociation";
@@ -29221,6 +29813,7 @@ The operation returns configuration information for only the specified IPSec tun
       getVcnDnsResolverAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29275,7 +29868,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async getVcnTopology(
     getVcnTopologyRequest: requests.GetVcnTopologyRequest
   ): Promise<responses.GetVcnTopologyResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getVcnTopology.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVcnTopology.");
     const operationName = "getVcnTopology";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VcnTopology/GetVcnTopology";
@@ -29301,6 +29894,7 @@ The operation returns configuration information for only the specified IPSec tun
       getVcnTopologyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29355,7 +29949,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async getVirtualCircuit(
     getVirtualCircuitRequest: requests.GetVirtualCircuitRequest
   ): Promise<responses.GetVirtualCircuitResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getVirtualCircuit.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVirtualCircuit.");
     const operationName = "getVirtualCircuit";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/GetVirtualCircuit";
@@ -29375,6 +29969,7 @@ The operation returns configuration information for only the specified IPSec tun
       getVirtualCircuitRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29429,7 +30024,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async getVlan(
     getVlanRequest: requests.GetVlanRequest
   ): Promise<responses.GetVlanResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getVlan.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVlan.");
     const operationName = "getVlan";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/GetVlan";
     const pathParams = {
@@ -29449,6 +30044,7 @@ The operation returns configuration information for only the specified IPSec tun
       getVlanRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29507,7 +30103,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async getVnic(
     getVnicRequest: requests.GetVnicRequest
   ): Promise<responses.GetVnicResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getVnic.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVnic.");
     const operationName = "getVnic";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vnic/GetVnic";
     const pathParams = {
@@ -29526,6 +30122,7 @@ The operation returns configuration information for only the specified IPSec tun
       getVnicRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29580,7 +30177,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async getVtap(
     getVtapRequest: requests.GetVtapRequest
   ): Promise<responses.GetVtapResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#getVtap.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVtap.");
     const operationName = "getVtap";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/GetVtap";
     const pathParams = {
@@ -29600,6 +30197,7 @@ The operation returns configuration information for only the specified IPSec tun
       getVtapRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29656,7 +30254,10 @@ The operation returns configuration information for only the specified IPSec tun
   public async listAllowedPeerRegionsForRemotePeering(
     listAllowedPeerRegionsForRemotePeeringRequest: requests.ListAllowedPeerRegionsForRemotePeeringRequest
   ): Promise<responses.ListAllowedPeerRegionsForRemotePeeringResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listAllowedPeerRegionsForRemotePeering.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listAllowedPeerRegionsForRemotePeering."
+      );
     const operationName = "listAllowedPeerRegionsForRemotePeering";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PeerRegionForRemotePeering/ListAllowedPeerRegionsForRemotePeering";
@@ -29674,6 +30275,7 @@ The operation returns configuration information for only the specified IPSec tun
       listAllowedPeerRegionsForRemotePeeringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29725,7 +30327,8 @@ The operation returns configuration information for only the specified IPSec tun
   public async listByoipAllocatedRanges(
     listByoipAllocatedRangesRequest: requests.ListByoipAllocatedRangesRequest
   ): Promise<responses.ListByoipAllocatedRangesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listByoipAllocatedRanges.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listByoipAllocatedRanges.");
     const operationName = "listByoipAllocatedRanges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipAllocatedRangeSummary/ListByoipAllocatedRanges";
@@ -29749,6 +30352,7 @@ The operation returns configuration information for only the specified IPSec tun
       listByoipAllocatedRangesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29805,7 +30409,7 @@ The operation returns configuration information for only the specified IPSec tun
   public async listByoipRanges(
     listByoipRangesRequest: requests.ListByoipRangesRequest
   ): Promise<responses.ListByoipRangesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listByoipRanges.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listByoipRanges.");
     const operationName = "listByoipRanges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/ListByoipRanges";
@@ -29832,6 +30436,7 @@ The operation returns configuration information for only the specified IPSec tun
       listByoipRangesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29887,7 +30492,8 @@ The operation returns configuration information for only the specified IPSec tun
   public async listCaptureFilters(
     listCaptureFiltersRequest: requests.ListCaptureFiltersRequest
   ): Promise<responses.ListCaptureFiltersResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listCaptureFilters.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCaptureFilters.");
     const operationName = "listCaptureFilters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/ListCaptureFilters";
@@ -29915,6 +30521,7 @@ The operation returns configuration information for only the specified IPSec tun
       listCaptureFiltersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -30034,7 +30641,8 @@ For information about generating CPE configuration content, see these operations
   public async listCpeDeviceShapes(
     listCpeDeviceShapesRequest: requests.ListCpeDeviceShapesRequest
   ): Promise<responses.ListCpeDeviceShapesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listCpeDeviceShapes.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCpeDeviceShapes.");
     const operationName = "listCpeDeviceShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CpeDeviceShapeSummary/ListCpeDeviceShapes";
@@ -30056,6 +30664,7 @@ For information about generating CPE configuration content, see these operations
       listCpeDeviceShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -30163,7 +30772,7 @@ For information about generating CPE configuration content, see these operations
   public async listCpes(
     listCpesRequest: requests.ListCpesRequest
   ): Promise<responses.ListCpesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listCpes.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listCpes.");
     const operationName = "listCpes";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/ListCpes";
     const pathParams = {};
@@ -30184,6 +30793,7 @@ For information about generating CPE configuration content, see these operations
       listCpesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -30289,7 +30899,8 @@ For information about generating CPE configuration content, see these operations
   public async listCrossConnectGroups(
     listCrossConnectGroupsRequest: requests.ListCrossConnectGroupsRequest
   ): Promise<responses.ListCrossConnectGroupsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listCrossConnectGroups.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectGroups.");
     const operationName = "listCrossConnectGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/ListCrossConnectGroups";
@@ -30315,6 +30926,7 @@ For information about generating CPE configuration content, see these operations
       listCrossConnectGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -30423,7 +31035,8 @@ For information about generating CPE configuration content, see these operations
   public async listCrossConnectLocations(
     listCrossConnectLocationsRequest: requests.ListCrossConnectLocationsRequest
   ): Promise<responses.ListCrossConnectLocationsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listCrossConnectLocations.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectLocations.");
     const operationName = "listCrossConnectLocations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectLocation/ListCrossConnectLocations";
@@ -30445,6 +31058,7 @@ For information about generating CPE configuration content, see these operations
       listCrossConnectLocationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -30553,7 +31167,8 @@ For information about generating CPE configuration content, see these operations
   public async listCrossConnectMappings(
     listCrossConnectMappingsRequest: requests.ListCrossConnectMappingsRequest
   ): Promise<responses.ListCrossConnectMappingsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listCrossConnectMappings.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectMappings.");
     const operationName = "listCrossConnectMappings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectMappingDetailsCollection/ListCrossConnectMappings";
@@ -30574,6 +31189,7 @@ For information about generating CPE configuration content, see these operations
       listCrossConnectMappingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -30625,7 +31241,7 @@ For information about generating CPE configuration content, see these operations
   public async listCrossConnects(
     listCrossConnectsRequest: requests.ListCrossConnectsRequest
   ): Promise<responses.ListCrossConnectsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listCrossConnects.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnects.");
     const operationName = "listCrossConnects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/ListCrossConnects";
@@ -30652,6 +31268,7 @@ For information about generating CPE configuration content, see these operations
       listCrossConnectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -30761,7 +31378,8 @@ For information about generating CPE configuration content, see these operations
   public async listCrossconnectPortSpeedShapes(
     listCrossconnectPortSpeedShapesRequest: requests.ListCrossconnectPortSpeedShapesRequest
   ): Promise<responses.ListCrossconnectPortSpeedShapesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listCrossconnectPortSpeedShapes.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listCrossconnectPortSpeedShapes.");
     const operationName = "listCrossconnectPortSpeedShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectPortSpeedShape/ListCrossconnectPortSpeedShapes";
@@ -30783,6 +31401,7 @@ For information about generating CPE configuration content, see these operations
       listCrossconnectPortSpeedShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -30893,7 +31512,7 @@ For information about generating CPE configuration content, see these operations
   public async listDhcpOptions(
     listDhcpOptionsRequest: requests.ListDhcpOptionsRequest
   ): Promise<responses.ListDhcpOptionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listDhcpOptions.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDhcpOptions.");
     const operationName = "listDhcpOptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/ListDhcpOptions";
@@ -30920,6 +31539,7 @@ For information about generating CPE configuration content, see these operations
       listDhcpOptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -31032,7 +31652,8 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
   public async listDrgAttachments(
     listDrgAttachmentsRequest: requests.ListDrgAttachmentsRequest
   ): Promise<responses.ListDrgAttachmentsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listDrgAttachments.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listDrgAttachments.");
     const operationName = "listDrgAttachments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/ListDrgAttachments";
@@ -31063,6 +31684,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
       listDrgAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -31169,7 +31791,10 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
   public async listDrgRouteDistributionStatements(
     listDrgRouteDistributionStatementsRequest: requests.ListDrgRouteDistributionStatementsRequest
   ): Promise<responses.ListDrgRouteDistributionStatementsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listDrgRouteDistributionStatements.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listDrgRouteDistributionStatements."
+      );
     const operationName = "listDrgRouteDistributionStatements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/ListDrgRouteDistributionStatements";
@@ -31194,6 +31819,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
       listDrgRouteDistributionStatementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -31304,7 +31930,8 @@ To retrieve the statements in a distribution, use the
   public async listDrgRouteDistributions(
     listDrgRouteDistributionsRequest: requests.ListDrgRouteDistributionsRequest
   ): Promise<responses.ListDrgRouteDistributionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listDrgRouteDistributions.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteDistributions.");
     const operationName = "listDrgRouteDistributions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistribution/ListDrgRouteDistributions";
@@ -31330,6 +31957,7 @@ To retrieve the statements in a distribution, use the
       listDrgRouteDistributionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -31436,7 +32064,7 @@ To retrieve the statements in a distribution, use the
   public async listDrgRouteRules(
     listDrgRouteRulesRequest: requests.ListDrgRouteRulesRequest
   ): Promise<responses.ListDrgRouteRulesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listDrgRouteRules.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteRules.");
     const operationName = "listDrgRouteRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteRule/ListDrgRouteRules";
@@ -31460,6 +32088,7 @@ To retrieve the statements in a distribution, use the
       listDrgRouteRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -31569,7 +32198,8 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
   public async listDrgRouteTables(
     listDrgRouteTablesRequest: requests.ListDrgRouteTablesRequest
   ): Promise<responses.ListDrgRouteTablesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listDrgRouteTables.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteTables.");
     const operationName = "listDrgRouteTables";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/ListDrgRouteTables";
@@ -31596,6 +32226,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
       listDrgRouteTablesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -31703,7 +32334,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
   public async listDrgs(
     listDrgsRequest: requests.ListDrgsRequest
   ): Promise<responses.ListDrgsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listDrgs.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDrgs.");
     const operationName = "listDrgs";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/ListDrgs";
     const pathParams = {};
@@ -31724,6 +32355,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
       listDrgsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -31835,7 +32467,8 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
   public async listFastConnectProviderServices(
     listFastConnectProviderServicesRequest: requests.ListFastConnectProviderServicesRequest
   ): Promise<responses.ListFastConnectProviderServicesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listFastConnectProviderServices.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listFastConnectProviderServices.");
     const operationName = "listFastConnectProviderServices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FastConnectProviderService/ListFastConnectProviderServices";
@@ -31857,6 +32490,7 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
       listFastConnectProviderServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -31967,9 +32601,10 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listFastConnectProviderVirtualCircuitBandwidthShapes(
     listFastConnectProviderVirtualCircuitBandwidthShapesRequest: requests.ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
   ): Promise<responses.ListFastConnectProviderVirtualCircuitBandwidthShapesResponse> {
-    logger.debug(
-      "Calling operation VirtualNetworkClient#listFastConnectProviderVirtualCircuitBandwidthShapes."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listFastConnectProviderVirtualCircuitBandwidthShapes."
+      );
     const operationName = "listFastConnectProviderVirtualCircuitBandwidthShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FastConnectProviderService/ListFastConnectProviderVirtualCircuitBandwidthShapes";
@@ -31993,6 +32628,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listFastConnectProviderVirtualCircuitBandwidthShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -32108,7 +32744,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listIPSecConnectionTunnelRoutes(
     listIPSecConnectionTunnelRoutesRequest: requests.ListIPSecConnectionTunnelRoutesRequest
   ): Promise<responses.ListIPSecConnectionTunnelRoutesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listIPSecConnectionTunnelRoutes.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnectionTunnelRoutes.");
     const operationName = "listIPSecConnectionTunnelRoutes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelRouteSummary/ListIPSecConnectionTunnelRoutes";
@@ -32133,6 +32770,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listIPSecConnectionTunnelRoutesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -32245,9 +32883,10 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listIPSecConnectionTunnelSecurityAssociations(
     listIPSecConnectionTunnelSecurityAssociationsRequest: requests.ListIPSecConnectionTunnelSecurityAssociationsRequest
   ): Promise<responses.ListIPSecConnectionTunnelSecurityAssociationsResponse> {
-    logger.debug(
-      "Calling operation VirtualNetworkClient#listIPSecConnectionTunnelSecurityAssociations."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listIPSecConnectionTunnelSecurityAssociations."
+      );
     const operationName = "listIPSecConnectionTunnelSecurityAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelSecurityAssociationSummary/ListIPSecConnectionTunnelSecurityAssociations";
@@ -32271,6 +32910,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listIPSecConnectionTunnelSecurityAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -32387,7 +33027,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listIPSecConnectionTunnels(
     listIPSecConnectionTunnelsRequest: requests.ListIPSecConnectionTunnelsRequest
   ): Promise<responses.ListIPSecConnectionTunnelsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listIPSecConnectionTunnels.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnectionTunnels.");
     const operationName = "listIPSecConnectionTunnels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnel/ListIPSecConnectionTunnels";
@@ -32410,6 +33051,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listIPSecConnectionTunnelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -32518,7 +33160,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listIPSecConnections(
     listIPSecConnectionsRequest: requests.ListIPSecConnectionsRequest
   ): Promise<responses.ListIPSecConnectionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listIPSecConnections.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnections.");
     const operationName = "listIPSecConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/ListIPSecConnections";
@@ -32542,6 +33185,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listIPSecConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -32650,7 +33294,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listInternetGateways(
     listInternetGatewaysRequest: requests.ListInternetGatewaysRequest
   ): Promise<responses.ListInternetGatewaysResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listInternetGateways.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listInternetGateways.");
     const operationName = "listInternetGateways";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/ListInternetGateways";
@@ -32677,6 +33322,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listInternetGatewaysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -32791,7 +33437,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listIpv6s(
     listIpv6sRequest: requests.ListIpv6sRequest
   ): Promise<responses.ListIpv6sResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listIpv6s.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listIpv6s.");
     const operationName = "listIpv6s";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/ListIpv6s";
     const pathParams = {};
@@ -32815,6 +33461,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listIpv6sRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -32921,7 +33568,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listLocalPeeringGateways(
     listLocalPeeringGatewaysRequest: requests.ListLocalPeeringGatewaysRequest
   ): Promise<responses.ListLocalPeeringGatewaysResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listLocalPeeringGateways.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listLocalPeeringGateways.");
     const operationName = "listLocalPeeringGateways";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/ListLocalPeeringGateways";
@@ -32944,6 +33592,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listLocalPeeringGatewaysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -33052,7 +33701,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listNatGateways(
     listNatGatewaysRequest: requests.ListNatGatewaysRequest
   ): Promise<responses.ListNatGatewaysResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listNatGateways.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listNatGateways.");
     const operationName = "listNatGateways";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/ListNatGateways";
@@ -33079,6 +33728,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listNatGatewaysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -33186,7 +33836,10 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listNetworkSecurityGroupSecurityRules(
     listNetworkSecurityGroupSecurityRulesRequest: requests.ListNetworkSecurityGroupSecurityRulesRequest
   ): Promise<responses.ListNetworkSecurityGroupSecurityRulesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroupSecurityRules.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listNetworkSecurityGroupSecurityRules."
+      );
     const operationName = "listNetworkSecurityGroupSecurityRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityRule/ListNetworkSecurityGroupSecurityRules";
@@ -33213,6 +33866,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listNetworkSecurityGroupSecurityRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -33320,7 +33974,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listNetworkSecurityGroupVnics(
     listNetworkSecurityGroupVnicsRequest: requests.ListNetworkSecurityGroupVnicsRequest
   ): Promise<responses.ListNetworkSecurityGroupVnicsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroupVnics.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroupVnics.");
     const operationName = "listNetworkSecurityGroupVnics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroupVnic/ListNetworkSecurityGroupVnics";
@@ -33345,6 +34000,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listNetworkSecurityGroupVnicsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -33453,7 +34109,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   public async listNetworkSecurityGroups(
     listNetworkSecurityGroupsRequest: requests.ListNetworkSecurityGroupsRequest
   ): Promise<responses.ListNetworkSecurityGroupsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroups.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroups.");
     const operationName = "listNetworkSecurityGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/ListNetworkSecurityGroups";
@@ -33481,6 +34138,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       listNetworkSecurityGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -33603,7 +34261,7 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
   public async listPrivateIps(
     listPrivateIpsRequest: requests.ListPrivateIpsRequest
   ): Promise<responses.ListPrivateIpsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listPrivateIps.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPrivateIps.");
     const operationName = "listPrivateIps";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/ListPrivateIps";
@@ -33628,6 +34286,7 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
       listPrivateIpsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -33736,7 +34395,7 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
   public async listPublicIpPools(
     listPublicIpPoolsRequest: requests.ListPublicIpPoolsRequest
   ): Promise<responses.ListPublicIpPoolsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listPublicIpPools.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPublicIpPools.");
     const operationName = "listPublicIpPools";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/ListPublicIpPools";
@@ -33763,6 +34422,7 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
       listPublicIpPoolsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -33837,7 +34497,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listPublicIps(
     listPublicIpsRequest: requests.ListPublicIpsRequest
   ): Promise<responses.ListPublicIpsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listPublicIps.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPublicIps.");
     const operationName = "listPublicIps";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/ListPublicIps";
@@ -33863,6 +34523,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listPublicIpsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -33971,7 +34632,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listRemotePeeringConnections(
     listRemotePeeringConnectionsRequest: requests.ListRemotePeeringConnectionsRequest
   ): Promise<responses.ListRemotePeeringConnectionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listRemotePeeringConnections.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listRemotePeeringConnections.");
     const operationName = "listRemotePeeringConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/ListRemotePeeringConnections";
@@ -33994,6 +34656,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listRemotePeeringConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -34104,7 +34767,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listRouteTables(
     listRouteTablesRequest: requests.ListRouteTablesRequest
   ): Promise<responses.ListRouteTablesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listRouteTables.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listRouteTables.");
     const operationName = "listRouteTables";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/ListRouteTables";
@@ -34131,6 +34794,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listRouteTablesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -34239,7 +34903,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listSecurityLists(
     listSecurityListsRequest: requests.ListSecurityListsRequest
   ): Promise<responses.ListSecurityListsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listSecurityLists.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listSecurityLists.");
     const operationName = "listSecurityLists";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/ListSecurityLists";
@@ -34266,6 +34930,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listSecurityListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -34374,7 +35039,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listServiceGateways(
     listServiceGatewaysRequest: requests.ListServiceGatewaysRequest
   ): Promise<responses.ListServiceGatewaysResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listServiceGateways.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listServiceGateways.");
     const operationName = "listServiceGateways";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/ListServiceGateways";
@@ -34400,6 +35066,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listServiceGatewaysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -34508,7 +35175,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listServices.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listServices.");
     const operationName = "listServices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Service/ListServices";
@@ -34529,6 +35196,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -34637,7 +35305,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listSubnets(
     listSubnetsRequest: requests.ListSubnetsRequest
   ): Promise<responses.ListSubnetsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listSubnets.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listSubnets.");
     const operationName = "listSubnets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/ListSubnets";
@@ -34664,6 +35332,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listSubnetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -34769,7 +35438,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVcns(
     listVcnsRequest: requests.ListVcnsRequest
   ): Promise<responses.ListVcnsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listVcns.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVcns.");
     const operationName = "listVcns";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/ListVcns";
     const pathParams = {};
@@ -34794,6 +35463,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listVcnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -34898,7 +35568,10 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVirtualCircuitAssociatedTunnels(
     listVirtualCircuitAssociatedTunnelsRequest: requests.ListVirtualCircuitAssociatedTunnelsRequest
   ): Promise<responses.ListVirtualCircuitAssociatedTunnelsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuitAssociatedTunnels.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listVirtualCircuitAssociatedTunnels."
+      );
     const operationName = "listVirtualCircuitAssociatedTunnels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitAssociatedTunnelDetails/ListVirtualCircuitAssociatedTunnels";
@@ -34921,6 +35594,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listVirtualCircuitAssociatedTunnelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35033,7 +35707,10 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVirtualCircuitBandwidthShapes(
     listVirtualCircuitBandwidthShapesRequest: requests.ListVirtualCircuitBandwidthShapesRequest
   ): Promise<responses.ListVirtualCircuitBandwidthShapesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuitBandwidthShapes.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listVirtualCircuitBandwidthShapes."
+      );
     const operationName = "listVirtualCircuitBandwidthShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitBandwidthShape/ListVirtualCircuitBandwidthShapes";
@@ -35055,6 +35732,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listVirtualCircuitBandwidthShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35163,7 +35841,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVirtualCircuitPublicPrefixes(
     listVirtualCircuitPublicPrefixesRequest: requests.ListVirtualCircuitPublicPrefixesRequest
   ): Promise<responses.ListVirtualCircuitPublicPrefixesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuitPublicPrefixes.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuitPublicPrefixes.");
     const operationName = "listVirtualCircuitPublicPrefixes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitPublicPrefix/ListVirtualCircuitPublicPrefixes";
@@ -35185,6 +35864,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listVirtualCircuitPublicPrefixesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35235,7 +35915,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVirtualCircuits(
     listVirtualCircuitsRequest: requests.ListVirtualCircuitsRequest
   ): Promise<responses.ListVirtualCircuitsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuits.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuits.");
     const operationName = "listVirtualCircuits";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/ListVirtualCircuits";
@@ -35261,6 +35942,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listVirtualCircuitsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35368,7 +36050,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVlans(
     listVlansRequest: requests.ListVlansRequest
   ): Promise<responses.ListVlansResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listVlans.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVlans.");
     const operationName = "listVlans";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/ListVlans";
     const pathParams = {};
@@ -35395,6 +36077,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listVlansRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35500,7 +36183,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async listVtaps(
     listVtapsRequest: requests.ListVtapsRequest
   ): Promise<responses.ListVtapsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#listVtaps.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVtaps.");
     const operationName = "listVtaps";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/ListVtaps";
     const pathParams = {};
@@ -35531,6 +36214,7 @@ To list the ephemeral public IPs assigned to private IPs:
       listVtapsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35644,7 +36328,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async modifyVcnCidr(
     modifyVcnCidrRequest: requests.ModifyVcnCidrRequest
   ): Promise<responses.ModifyVcnCidrResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#modifyVcnCidr.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#modifyVcnCidr.");
     const operationName = "modifyVcnCidr";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/ModifyVcnCidr";
@@ -35667,6 +36351,7 @@ To list the ephemeral public IPs assigned to private IPs:
       modifyVcnCidrRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35723,7 +36408,10 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeDrgRouteDistributionStatements(
     removeDrgRouteDistributionStatementsRequest: requests.RemoveDrgRouteDistributionStatementsRequest
   ): Promise<responses.RemoveDrgRouteDistributionStatementsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removeDrgRouteDistributionStatements.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#removeDrgRouteDistributionStatements."
+      );
     const operationName = "removeDrgRouteDistributionStatements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/RemoveDrgRouteDistributionStatements";
@@ -35743,6 +36431,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removeDrgRouteDistributionStatementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35795,7 +36484,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeDrgRouteRules(
     removeDrgRouteRulesRequest: requests.RemoveDrgRouteRulesRequest
   ): Promise<responses.RemoveDrgRouteRulesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removeDrgRouteRules.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeDrgRouteRules.");
     const operationName = "removeDrgRouteRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteRule/RemoveDrgRouteRules";
@@ -35815,6 +36505,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removeDrgRouteRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35866,7 +36557,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeExportDrgRouteDistribution(
     removeExportDrgRouteDistributionRequest: requests.RemoveExportDrgRouteDistributionRequest
   ): Promise<responses.RemoveExportDrgRouteDistributionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removeExportDrgRouteDistribution.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeExportDrgRouteDistribution.");
     const operationName = "removeExportDrgRouteDistribution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/RemoveExportDrgRouteDistribution";
@@ -35888,6 +36580,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removeExportDrgRouteDistributionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -35944,7 +36637,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeImportDrgRouteDistribution(
     removeImportDrgRouteDistributionRequest: requests.RemoveImportDrgRouteDistributionRequest
   ): Promise<responses.RemoveImportDrgRouteDistributionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removeImportDrgRouteDistribution.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeImportDrgRouteDistribution.");
     const operationName = "removeImportDrgRouteDistribution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/RemoveImportDrgRouteDistribution";
@@ -35966,6 +36660,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removeImportDrgRouteDistributionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36021,7 +36716,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeIpv6SubnetCidr(
     removeIpv6SubnetCidrRequest: requests.RemoveIpv6SubnetCidrRequest
   ): Promise<responses.RemoveIpv6SubnetCidrResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removeIpv6SubnetCidr.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeIpv6SubnetCidr.");
     const operationName = "removeIpv6SubnetCidr";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/RemoveIpv6SubnetCidr";
@@ -36044,6 +36740,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removeIpv6SubnetCidrRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36105,7 +36802,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeIpv6VcnCidr(
     removeIpv6VcnCidrRequest: requests.RemoveIpv6VcnCidrRequest
   ): Promise<responses.RemoveIpv6VcnCidrResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removeIpv6VcnCidr.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#removeIpv6VcnCidr.");
     const operationName = "removeIpv6VcnCidr";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/RemoveIpv6VcnCidr";
@@ -36128,6 +36825,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removeIpv6VcnCidrRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36189,7 +36887,10 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeNetworkSecurityGroupSecurityRules(
     removeNetworkSecurityGroupSecurityRulesRequest: requests.RemoveNetworkSecurityGroupSecurityRulesRequest
   ): Promise<responses.RemoveNetworkSecurityGroupSecurityRulesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removeNetworkSecurityGroupSecurityRules.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#removeNetworkSecurityGroupSecurityRules."
+      );
     const operationName = "removeNetworkSecurityGroupSecurityRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityRule/RemoveNetworkSecurityGroupSecurityRules";
@@ -36210,6 +36911,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removeNetworkSecurityGroupSecurityRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36261,7 +36963,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removePublicIpPoolCapacity(
     removePublicIpPoolCapacityRequest: requests.RemovePublicIpPoolCapacityRequest
   ): Promise<responses.RemovePublicIpPoolCapacityResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removePublicIpPoolCapacity.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removePublicIpPoolCapacity.");
     const operationName = "removePublicIpPoolCapacity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/RemovePublicIpPoolCapacity";
@@ -36283,6 +36986,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removePublicIpPoolCapacityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36347,7 +37051,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async removeVcnCidr(
     removeVcnCidrRequest: requests.RemoveVcnCidrRequest
   ): Promise<responses.RemoveVcnCidrResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#removeVcnCidr.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#removeVcnCidr.");
     const operationName = "removeVcnCidr";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/RemoveVcnCidr";
@@ -36370,6 +37074,7 @@ To list the ephemeral public IPs assigned to private IPs:
       removeVcnCidrRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36426,7 +37131,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async updateByoipRange(
     updateByoipRangeRequest: requests.UpdateByoipRangeRequest
   ): Promise<responses.UpdateByoipRangeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateByoipRange.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateByoipRange.");
     const operationName = "updateByoipRange";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/UpdateByoipRange";
@@ -36448,6 +37153,7 @@ To list the ephemeral public IPs assigned to private IPs:
       updateByoipRangeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36508,7 +37214,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async updateCaptureFilter(
     updateCaptureFilterRequest: requests.UpdateCaptureFilterRequest
   ): Promise<responses.UpdateCaptureFilterResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateCaptureFilter.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateCaptureFilter.");
     const operationName = "updateCaptureFilter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/UpdateCaptureFilter";
@@ -36530,6 +37237,7 @@ To list the ephemeral public IPs assigned to private IPs:
       updateCaptureFilterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36591,7 +37299,7 @@ To list the ephemeral public IPs assigned to private IPs:
   public async updateCpe(
     updateCpeRequest: requests.UpdateCpeRequest
   ): Promise<responses.UpdateCpeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateCpe.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateCpe.");
     const operationName = "updateCpe";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/UpdateCpe";
     const pathParams = {
@@ -36611,6 +37319,7 @@ To list the ephemeral public IPs assigned to private IPs:
       updateCpeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36670,7 +37379,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async updateCrossConnect(
     updateCrossConnectRequest: requests.UpdateCrossConnectRequest
   ): Promise<responses.UpdateCrossConnectResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateCrossConnect.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateCrossConnect.");
     const operationName = "updateCrossConnect";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/UpdateCrossConnect";
@@ -36691,6 +37401,7 @@ To list the ephemeral public IPs assigned to private IPs:
       updateCrossConnectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36752,7 +37463,8 @@ To list the ephemeral public IPs assigned to private IPs:
   public async updateCrossConnectGroup(
     updateCrossConnectGroupRequest: requests.UpdateCrossConnectGroupRequest
   ): Promise<responses.UpdateCrossConnectGroupResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateCrossConnectGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateCrossConnectGroup.");
     const operationName = "updateCrossConnectGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/UpdateCrossConnectGroup";
@@ -36773,6 +37485,7 @@ To list the ephemeral public IPs assigned to private IPs:
       updateCrossConnectGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36836,7 +37549,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDhcpOptions(
     updateDhcpOptionsRequest: requests.UpdateDhcpOptionsRequest
   ): Promise<responses.UpdateDhcpOptionsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateDhcpOptions.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateDhcpOptions.");
     const operationName = "updateDhcpOptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/UpdateDhcpOptions";
@@ -36857,6 +37570,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       updateDhcpOptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36917,7 +37631,7 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDrg(
     updateDrgRequest: requests.UpdateDrgRequest
   ): Promise<responses.UpdateDrgResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateDrg.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateDrg.");
     const operationName = "updateDrg";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/UpdateDrg";
     const pathParams = {
@@ -36937,6 +37651,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       updateDrgRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -36998,7 +37713,8 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDrgAttachment(
     updateDrgAttachmentRequest: requests.UpdateDrgAttachmentRequest
   ): Promise<responses.UpdateDrgAttachmentResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateDrgAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgAttachment.");
     const operationName = "updateDrgAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/UpdateDrgAttachment";
@@ -37019,6 +37735,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       updateDrgAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37079,7 +37796,8 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDrgRouteDistribution(
     updateDrgRouteDistributionRequest: requests.UpdateDrgRouteDistributionRequest
   ): Promise<responses.UpdateDrgRouteDistributionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteDistribution.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteDistribution.");
     const operationName = "updateDrgRouteDistribution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistribution/UpdateDrgRouteDistribution";
@@ -37100,6 +37818,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       updateDrgRouteDistributionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37160,7 +37879,10 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDrgRouteDistributionStatements(
     updateDrgRouteDistributionStatementsRequest: requests.UpdateDrgRouteDistributionStatementsRequest
   ): Promise<responses.UpdateDrgRouteDistributionStatementsResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteDistributionStatements.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#updateDrgRouteDistributionStatements."
+      );
     const operationName = "updateDrgRouteDistributionStatements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/UpdateDrgRouteDistributionStatements";
@@ -37180,6 +37902,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       updateDrgRouteDistributionStatementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37236,7 +37959,8 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDrgRouteRules(
     updateDrgRouteRulesRequest: requests.UpdateDrgRouteRulesRequest
   ): Promise<responses.UpdateDrgRouteRulesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteRules.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteRules.");
     const operationName = "updateDrgRouteRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteRule/UpdateDrgRouteRules";
@@ -37256,6 +37980,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       updateDrgRouteRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37311,7 +38036,8 @@ Note that the `options` object you provide replaces the entire existing set of o
   public async updateDrgRouteTable(
     updateDrgRouteTableRequest: requests.UpdateDrgRouteTableRequest
   ): Promise<responses.UpdateDrgRouteTableResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteTable.");
     const operationName = "updateDrgRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/UpdateDrgRouteTable";
@@ -37332,6 +38058,7 @@ Note that the `options` object you provide replaces the entire existing set of o
       updateDrgRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37395,7 +38122,8 @@ To update an individual IPSec tunnel's attributes, use
   public async updateIPSecConnection(
     updateIPSecConnectionRequest: requests.UpdateIPSecConnectionRequest
   ): Promise<responses.UpdateIPSecConnectionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnection.");
     const operationName = "updateIPSecConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/UpdateIPSecConnection";
@@ -37416,6 +38144,7 @@ To update an individual IPSec tunnel's attributes, use
       updateIPSecConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37487,7 +38216,8 @@ To update an individual IPSec tunnel's attributes, use
   public async updateIPSecConnectionTunnel(
     updateIPSecConnectionTunnelRequest: requests.UpdateIPSecConnectionTunnelRequest
   ): Promise<responses.UpdateIPSecConnectionTunnelResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnectionTunnel.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnectionTunnel.");
     const operationName = "updateIPSecConnectionTunnel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnel/UpdateIPSecConnectionTunnel";
@@ -37510,6 +38240,7 @@ To update an individual IPSec tunnel's attributes, use
       updateIPSecConnectionTunnelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37572,7 +38303,10 @@ To update an individual IPSec tunnel's attributes, use
   public async updateIPSecConnectionTunnelSharedSecret(
     updateIPSecConnectionTunnelSharedSecretRequest: requests.UpdateIPSecConnectionTunnelSharedSecretRequest
   ): Promise<responses.UpdateIPSecConnectionTunnelSharedSecretResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnectionTunnelSharedSecret.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#updateIPSecConnectionTunnelSharedSecret."
+      );
     const operationName = "updateIPSecConnectionTunnelSharedSecret";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnelSharedSecret/UpdateIPSecConnectionTunnelSharedSecret";
@@ -37594,6 +38328,7 @@ To update an individual IPSec tunnel's attributes, use
       updateIPSecConnectionTunnelSharedSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37658,7 +38393,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateInternetGateway(
     updateInternetGatewayRequest: requests.UpdateInternetGatewayRequest
   ): Promise<responses.UpdateInternetGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateInternetGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateInternetGateway.");
     const operationName = "updateInternetGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/UpdateInternetGateway";
@@ -37679,6 +38415,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       updateInternetGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37745,7 +38482,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateIpv6(
     updateIpv6Request: requests.UpdateIpv6Request
   ): Promise<responses.UpdateIpv6Response> {
-    logger.debug("Calling operation VirtualNetworkClient#updateIpv6.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateIpv6.");
     const operationName = "updateIpv6";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/UpdateIpv6";
     const pathParams = {
@@ -37766,6 +38503,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       updateIpv6Request.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37826,7 +38564,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateLocalPeeringGateway(
     updateLocalPeeringGatewayRequest: requests.UpdateLocalPeeringGatewayRequest
   ): Promise<responses.UpdateLocalPeeringGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateLocalPeeringGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateLocalPeeringGateway.");
     const operationName = "updateLocalPeeringGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/UpdateLocalPeeringGateway";
@@ -37847,6 +38586,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       updateLocalPeeringGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -37907,7 +38647,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   public async updateNatGateway(
     updateNatGatewayRequest: requests.UpdateNatGatewayRequest
   ): Promise<responses.UpdateNatGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateNatGateway.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateNatGateway.");
     const operationName = "updateNatGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/UpdateNatGateway";
@@ -37928,6 +38668,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       updateNatGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38002,7 +38743,8 @@ To edit the contents of existing security rules in the group, use
   public async updateNetworkSecurityGroup(
     updateNetworkSecurityGroupRequest: requests.UpdateNetworkSecurityGroupRequest
   ): Promise<responses.UpdateNetworkSecurityGroupResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateNetworkSecurityGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateNetworkSecurityGroup.");
     const operationName = "updateNetworkSecurityGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/UpdateNetworkSecurityGroup";
@@ -38023,6 +38765,7 @@ To edit the contents of existing security rules in the group, use
       updateNetworkSecurityGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38083,7 +38826,10 @@ To edit the contents of existing security rules in the group, use
   public async updateNetworkSecurityGroupSecurityRules(
     updateNetworkSecurityGroupSecurityRulesRequest: requests.UpdateNetworkSecurityGroupSecurityRulesRequest
   ): Promise<responses.UpdateNetworkSecurityGroupSecurityRulesResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateNetworkSecurityGroupSecurityRules.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#updateNetworkSecurityGroupSecurityRules."
+      );
     const operationName = "updateNetworkSecurityGroupSecurityRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityRule/UpdateNetworkSecurityGroupSecurityRules";
@@ -38104,6 +38850,7 @@ To edit the contents of existing security rules in the group, use
       updateNetworkSecurityGroupSecurityRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38168,7 +38915,7 @@ This operation cannot be used with primary private IPs.
   public async updatePrivateIp(
     updatePrivateIpRequest: requests.UpdatePrivateIpRequest
   ): Promise<responses.UpdatePrivateIpResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updatePrivateIp.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updatePrivateIp.");
     const operationName = "updatePrivateIp";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/UpdatePrivateIp";
@@ -38189,6 +38936,7 @@ This operation cannot be used with primary private IPs.
       updatePrivateIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38287,7 +39035,7 @@ Regarding ephemeral public IPs:
   public async updatePublicIp(
     updatePublicIpRequest: requests.UpdatePublicIpRequest
   ): Promise<responses.UpdatePublicIpResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updatePublicIp.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updatePublicIp.");
     const operationName = "updatePublicIp";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/UpdatePublicIp";
@@ -38308,6 +39056,7 @@ Regarding ephemeral public IPs:
       updatePublicIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38368,7 +39117,8 @@ Regarding ephemeral public IPs:
   public async updatePublicIpPool(
     updatePublicIpPoolRequest: requests.UpdatePublicIpPoolRequest
   ): Promise<responses.UpdatePublicIpPoolResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updatePublicIpPool.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updatePublicIpPool.");
     const operationName = "updatePublicIpPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/UpdatePublicIpPool";
@@ -38390,6 +39140,7 @@ Regarding ephemeral public IPs:
       updatePublicIpPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38450,7 +39201,8 @@ Regarding ephemeral public IPs:
   public async updateRemotePeeringConnection(
     updateRemotePeeringConnectionRequest: requests.UpdateRemotePeeringConnectionRequest
   ): Promise<responses.UpdateRemotePeeringConnectionResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateRemotePeeringConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateRemotePeeringConnection.");
     const operationName = "updateRemotePeeringConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/UpdateRemotePeeringConnection";
@@ -38471,6 +39223,7 @@ Regarding ephemeral public IPs:
       updateRemotePeeringConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38534,7 +39287,7 @@ Note that the `routeRules` object you provide replaces the entire existing set o
   public async updateRouteTable(
     updateRouteTableRequest: requests.UpdateRouteTableRequest
   ): Promise<responses.UpdateRouteTableResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateRouteTable.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateRouteTable.");
     const operationName = "updateRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/UpdateRouteTable";
@@ -38555,6 +39308,7 @@ Note that the `routeRules` object you provide replaces the entire existing set o
       updateRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38619,7 +39373,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateSecurityList(
     updateSecurityListRequest: requests.UpdateSecurityListRequest
   ): Promise<responses.UpdateSecurityListResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateSecurityList.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateSecurityList.");
     const operationName = "updateSecurityList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/UpdateSecurityList";
@@ -38640,6 +39395,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       updateSecurityListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38701,7 +39457,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateServiceGateway(
     updateServiceGatewayRequest: requests.UpdateServiceGatewayRequest
   ): Promise<responses.UpdateServiceGatewayResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateServiceGateway.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateServiceGateway.");
     const operationName = "updateServiceGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/UpdateServiceGateway";
@@ -38722,6 +39479,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       updateServiceGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38782,7 +39540,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateSubnet(
     updateSubnetRequest: requests.UpdateSubnetRequest
   ): Promise<responses.UpdateSubnetResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateSubnet.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateSubnet.");
     const operationName = "updateSubnet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/UpdateSubnet";
@@ -38803,6 +39561,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       updateSubnetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38865,7 +39624,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateTunnelCpeDeviceConfig(
     updateTunnelCpeDeviceConfigRequest: requests.UpdateTunnelCpeDeviceConfigRequest
   ): Promise<responses.UpdateTunnelCpeDeviceConfigResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateTunnelCpeDeviceConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateTunnelCpeDeviceConfig.");
     const operationName = "updateTunnelCpeDeviceConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelCpeDeviceConfig/UpdateTunnelCpeDeviceConfig";
@@ -38889,6 +39649,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       updateTunnelCpeDeviceConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -38949,7 +39710,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   public async updateVcn(
     updateVcnRequest: requests.UpdateVcnRequest
   ): Promise<responses.UpdateVcnResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateVcn.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVcn.");
     const operationName = "updateVcn";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/UpdateVcn";
     const pathParams = {
@@ -38969,6 +39730,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       updateVcnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -39052,7 +39814,8 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async updateVirtualCircuit(
     updateVirtualCircuitRequest: requests.UpdateVirtualCircuitRequest
   ): Promise<responses.UpdateVirtualCircuitResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateVirtualCircuit.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateVirtualCircuit.");
     const operationName = "updateVirtualCircuit";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/UpdateVirtualCircuit";
@@ -39073,6 +39836,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       updateVirtualCircuitRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -39134,7 +39898,7 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async updateVlan(
     updateVlanRequest: requests.UpdateVlanRequest
   ): Promise<responses.UpdateVlanResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateVlan.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVlan.");
     const operationName = "updateVlan";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/UpdateVlan";
     const pathParams = {
@@ -39155,6 +39919,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       updateVlanRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -39215,7 +39980,7 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async updateVnic(
     updateVnicRequest: requests.UpdateVnicRequest
   ): Promise<responses.UpdateVnicResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateVnic.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVnic.");
     const operationName = "updateVnic";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vnic/UpdateVnic";
     const pathParams = {
@@ -39235,6 +40000,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       updateVnicRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -39295,7 +40061,7 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async updateVtap(
     updateVtapRequest: requests.UpdateVtapRequest
   ): Promise<responses.UpdateVtapResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#updateVtap.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVtap.");
     const operationName = "updateVtap";
     const apiReferenceLink = "";
     const pathParams = {
@@ -39316,6 +40082,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       updateVtapRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -39382,7 +40149,7 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async upgradeDrg(
     upgradeDrgRequest: requests.UpgradeDrgRequest
   ): Promise<responses.UpgradeDrgResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#upgradeDrg.");
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#upgradeDrg.");
     const operationName = "upgradeDrg";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/UpgradeDrg";
     const pathParams = {
@@ -39403,6 +40170,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       upgradeDrgRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -39455,7 +40223,8 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async validateByoipRange(
     validateByoipRangeRequest: requests.ValidateByoipRangeRequest
   ): Promise<responses.ValidateByoipRangeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#validateByoipRange.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#validateByoipRange.");
     const operationName = "validateByoipRange";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/ValidateByoipRange";
@@ -39476,6 +40245,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       validateByoipRangeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -39527,7 +40297,8 @@ To change the list of public IP prefixes for a public virtual circuit,
   public async withdrawByoipRange(
     withdrawByoipRangeRequest: requests.WithdrawByoipRangeRequest
   ): Promise<responses.WithdrawByoipRangeResponse> {
-    logger.debug("Calling operation VirtualNetworkClient#withdrawByoipRange.");
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#withdrawByoipRange.");
     const operationName = "withdrawByoipRange";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/WithdrawByoipRange";
@@ -39548,6 +40319,7 @@ To change the list of public IP prefixes for a public virtual circuit,
       withdrawByoipRangeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -39,7 +39,8 @@ export namespace TargetSystemDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.targetSystemType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.targetSystemType}`);
       }
     }
     return jsonObj;
@@ -60,7 +61,8 @@ export namespace TargetSystemDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.targetSystemType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.targetSystemType}`);
       }
     }
     return jsonObj;

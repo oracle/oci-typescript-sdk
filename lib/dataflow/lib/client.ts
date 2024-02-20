@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum DataFlowApiKeys {}
 export class DataFlowClient {
   protected static serviceEndpointTemplate = "https://dataflow.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataFlowWaiter;
@@ -119,7 +118,11 @@ export class DataFlowClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200129";
-    logger.info(`DataFlowClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DataFlowClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class DataFlowClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DataFlowClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class DataFlowClient {
   public async changeApplicationCompartment(
     changeApplicationCompartmentRequest: requests.ChangeApplicationCompartmentRequest
   ): Promise<responses.ChangeApplicationCompartmentResponse> {
-    logger.debug("Calling operation DataFlowClient#changeApplicationCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataFlowClient#changeApplicationCompartment.");
     const operationName = "changeApplicationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/ChangeApplicationCompartment";
@@ -248,6 +253,7 @@ export class DataFlowClient {
       changeApplicationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -302,7 +308,7 @@ export class DataFlowClient {
   public async changePoolCompartment(
     changePoolCompartmentRequest: requests.ChangePoolCompartmentRequest
   ): Promise<responses.ChangePoolCompartmentResponse> {
-    logger.debug("Calling operation DataFlowClient#changePoolCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#changePoolCompartment.");
     const operationName = "changePoolCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Pool/ChangePoolCompartment";
@@ -325,6 +331,7 @@ export class DataFlowClient {
       changePoolCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -376,7 +383,8 @@ export class DataFlowClient {
   public async changePrivateEndpointCompartment(
     changePrivateEndpointCompartmentRequest: requests.ChangePrivateEndpointCompartmentRequest
   ): Promise<responses.ChangePrivateEndpointCompartmentResponse> {
-    logger.debug("Calling operation DataFlowClient#changePrivateEndpointCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataFlowClient#changePrivateEndpointCompartment.");
     const operationName = "changePrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/ChangePrivateEndpointCompartment";
@@ -398,6 +406,7 @@ export class DataFlowClient {
       changePrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -457,7 +466,7 @@ export class DataFlowClient {
   public async changeRunCompartment(
     changeRunCompartmentRequest: requests.ChangeRunCompartmentRequest
   ): Promise<responses.ChangeRunCompartmentResponse> {
-    logger.debug("Calling operation DataFlowClient#changeRunCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#changeRunCompartment.");
     const operationName = "changeRunCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/ChangeRunCompartment";
@@ -480,6 +489,7 @@ export class DataFlowClient {
       changeRunCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -530,7 +540,8 @@ export class DataFlowClient {
   public async changeSqlEndpointCompartment(
     changeSqlEndpointCompartmentRequest: requests.ChangeSqlEndpointCompartmentRequest
   ): Promise<responses.ChangeSqlEndpointCompartmentResponse> {
-    logger.debug("Calling operation DataFlowClient#changeSqlEndpointCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataFlowClient#changeSqlEndpointCompartment.");
     const operationName = "changeSqlEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpoint/ChangeSqlEndpointCompartment";
@@ -553,6 +564,7 @@ export class DataFlowClient {
       changeSqlEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -609,7 +621,7 @@ export class DataFlowClient {
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
   ): Promise<responses.CreateApplicationResponse> {
-    logger.debug("Calling operation DataFlowClient#createApplication.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createApplication.");
     const operationName = "createApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/CreateApplication";
@@ -629,6 +641,7 @@ export class DataFlowClient {
       createApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -689,7 +702,7 @@ export class DataFlowClient {
   public async createPool(
     createPoolRequest: requests.CreatePoolRequest
   ): Promise<responses.CreatePoolResponse> {
-    logger.debug("Calling operation DataFlowClient#createPool.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createPool.");
     const operationName = "createPool";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -708,6 +721,7 @@ export class DataFlowClient {
       createPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -778,7 +792,7 @@ export class DataFlowClient {
   public async createPrivateEndpoint(
     createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
   ): Promise<responses.CreatePrivateEndpointResponse> {
-    logger.debug("Calling operation DataFlowClient#createPrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createPrivateEndpoint.");
     const operationName = "createPrivateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -797,6 +811,7 @@ export class DataFlowClient {
       createPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -867,7 +882,7 @@ export class DataFlowClient {
   public async createRun(
     createRunRequest: requests.CreateRunRequest
   ): Promise<responses.CreateRunResponse> {
-    logger.debug("Calling operation DataFlowClient#createRun.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createRun.");
     const operationName = "createRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/CreateRun";
@@ -887,6 +902,7 @@ export class DataFlowClient {
       createRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -946,7 +962,7 @@ export class DataFlowClient {
   public async createSqlEndpoint(
     createSqlEndpointRequest: requests.CreateSqlEndpointRequest
   ): Promise<responses.CreateSqlEndpointResponse> {
-    logger.debug("Calling operation DataFlowClient#createSqlEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createSqlEndpoint.");
     const operationName = "createSqlEndpoint";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -965,6 +981,7 @@ export class DataFlowClient {
       createSqlEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1030,7 +1047,7 @@ export class DataFlowClient {
   public async createStatement(
     createStatementRequest: requests.CreateStatementRequest
   ): Promise<responses.CreateStatementResponse> {
-    logger.debug("Calling operation DataFlowClient#createStatement.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createStatement.");
     const operationName = "createStatement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Statement/CreateStatement";
@@ -1051,6 +1068,7 @@ export class DataFlowClient {
       createStatementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1111,7 +1129,7 @@ export class DataFlowClient {
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
   ): Promise<responses.DeleteApplicationResponse> {
-    logger.debug("Calling operation DataFlowClient#deleteApplication.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteApplication.");
     const operationName = "deleteApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/DeleteApplication";
@@ -1133,6 +1151,7 @@ export class DataFlowClient {
       deleteApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1179,7 +1198,7 @@ export class DataFlowClient {
   public async deletePool(
     deletePoolRequest: requests.DeletePoolRequest
   ): Promise<responses.DeletePoolResponse> {
-    logger.debug("Calling operation DataFlowClient#deletePool.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deletePool.");
     const operationName = "deletePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Pool/DeletePool";
@@ -1201,6 +1220,7 @@ export class DataFlowClient {
       deletePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1247,7 +1267,7 @@ export class DataFlowClient {
   public async deletePrivateEndpoint(
     deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
   ): Promise<responses.DeletePrivateEndpointResponse> {
-    logger.debug("Calling operation DataFlowClient#deletePrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deletePrivateEndpoint.");
     const operationName = "deletePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/DeletePrivateEndpoint";
@@ -1269,6 +1289,7 @@ export class DataFlowClient {
       deletePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1321,7 +1342,7 @@ export class DataFlowClient {
   public async deleteRun(
     deleteRunRequest: requests.DeleteRunRequest
   ): Promise<responses.DeleteRunResponse> {
-    logger.debug("Calling operation DataFlowClient#deleteRun.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteRun.");
     const operationName = "deleteRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/DeleteRun";
@@ -1343,6 +1364,7 @@ export class DataFlowClient {
       deleteRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1388,7 +1410,7 @@ export class DataFlowClient {
   public async deleteSqlEndpoint(
     deleteSqlEndpointRequest: requests.DeleteSqlEndpointRequest
   ): Promise<responses.DeleteSqlEndpointResponse> {
-    logger.debug("Calling operation DataFlowClient#deleteSqlEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteSqlEndpoint.");
     const operationName = "deleteSqlEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpoint/DeleteSqlEndpoint";
@@ -1410,6 +1432,7 @@ export class DataFlowClient {
       deleteSqlEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1461,7 +1484,7 @@ export class DataFlowClient {
   public async deleteStatement(
     deleteStatementRequest: requests.DeleteStatementRequest
   ): Promise<responses.DeleteStatementResponse> {
-    logger.debug("Calling operation DataFlowClient#deleteStatement.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteStatement.");
     const operationName = "deleteStatement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Statement/DeleteStatement";
@@ -1484,6 +1507,7 @@ export class DataFlowClient {
       deleteStatementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1530,7 +1554,7 @@ export class DataFlowClient {
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
   ): Promise<responses.GetApplicationResponse> {
-    logger.debug("Calling operation DataFlowClient#getApplication.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getApplication.");
     const operationName = "getApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/GetApplication";
@@ -1551,6 +1575,7 @@ export class DataFlowClient {
       getApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1606,7 +1631,7 @@ export class DataFlowClient {
   public async getPool(
     getPoolRequest: requests.GetPoolRequest
   ): Promise<responses.GetPoolResponse> {
-    logger.debug("Calling operation DataFlowClient#getPool.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getPool.");
     const operationName = "getPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Pool/GetPool";
@@ -1627,6 +1652,7 @@ export class DataFlowClient {
       getPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1682,7 +1708,7 @@ export class DataFlowClient {
   public async getPrivateEndpoint(
     getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
   ): Promise<responses.GetPrivateEndpointResponse> {
-    logger.debug("Calling operation DataFlowClient#getPrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getPrivateEndpoint.");
     const operationName = "getPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/GetPrivateEndpoint";
@@ -1703,6 +1729,7 @@ export class DataFlowClient {
       getPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1756,7 +1783,7 @@ export class DataFlowClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetRun.ts.html |here} to see how to use GetRun API.
    */
   public async getRun(getRunRequest: requests.GetRunRequest): Promise<responses.GetRunResponse> {
-    logger.debug("Calling operation DataFlowClient#getRun.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getRun.");
     const operationName = "getRun";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/GetRun";
     const pathParams = {
@@ -1776,6 +1803,7 @@ export class DataFlowClient {
       getRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1831,7 +1859,7 @@ export class DataFlowClient {
   public async getRunLog(
     getRunLogRequest: requests.GetRunLogRequest
   ): Promise<responses.GetRunLogResponse> {
-    logger.debug("Calling operation DataFlowClient#getRunLog.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getRunLog.");
     const operationName = "getRunLog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/GetRunLog";
@@ -1853,6 +1881,7 @@ export class DataFlowClient {
       getRunLogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1930,7 +1959,7 @@ export class DataFlowClient {
   public async getSqlEndpoint(
     getSqlEndpointRequest: requests.GetSqlEndpointRequest
   ): Promise<responses.GetSqlEndpointResponse> {
-    logger.debug("Calling operation DataFlowClient#getSqlEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getSqlEndpoint.");
     const operationName = "getSqlEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpoint/GetSqlEndpoint";
@@ -1951,6 +1980,7 @@ export class DataFlowClient {
       getSqlEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2006,7 +2036,7 @@ export class DataFlowClient {
   public async getStatement(
     getStatementRequest: requests.GetStatementRequest
   ): Promise<responses.GetStatementResponse> {
-    logger.debug("Calling operation DataFlowClient#getStatement.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getStatement.");
     const operationName = "getStatement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Statement/GetStatement";
@@ -2028,6 +2058,7 @@ export class DataFlowClient {
       getStatementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2083,7 +2114,7 @@ export class DataFlowClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation DataFlowClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/WorkRequest/GetWorkRequest";
@@ -2104,6 +2135,7 @@ export class DataFlowClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2154,7 +2186,7 @@ export class DataFlowClient {
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
-    logger.debug("Calling operation DataFlowClient#listApplications.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listApplications.");
     const operationName = "listApplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/ApplicationSummary/ListApplications";
@@ -2183,6 +2215,7 @@ export class DataFlowClient {
       listApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2295,7 +2328,7 @@ export class DataFlowClient {
   public async listPools(
     listPoolsRequest: requests.ListPoolsRequest
   ): Promise<responses.ListPoolsResponse> {
-    logger.debug("Calling operation DataFlowClient#listPools.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listPools.");
     const operationName = "listPools";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Pool/ListPools";
@@ -2324,6 +2357,7 @@ export class DataFlowClient {
       listPoolsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2384,7 +2418,7 @@ export class DataFlowClient {
   public async listPrivateEndpoints(
     listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
   ): Promise<responses.ListPrivateEndpointsResponse> {
-    logger.debug("Calling operation DataFlowClient#listPrivateEndpoints.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listPrivateEndpoints.");
     const operationName = "listPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/ListPrivateEndpoints";
@@ -2413,6 +2447,7 @@ export class DataFlowClient {
       listPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2473,7 +2508,7 @@ export class DataFlowClient {
   public async listRunLogs(
     listRunLogsRequest: requests.ListRunLogsRequest
   ): Promise<responses.ListRunLogsResponse> {
-    logger.debug("Calling operation DataFlowClient#listRunLogs.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listRunLogs.");
     const operationName = "listRunLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/RunLogSummary/ListRunLogs";
@@ -2497,6 +2532,7 @@ export class DataFlowClient {
       listRunLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2609,7 +2645,7 @@ export class DataFlowClient {
   public async listRuns(
     listRunsRequest: requests.ListRunsRequest
   ): Promise<responses.ListRunsResponse> {
-    logger.debug("Calling operation DataFlowClient#listRuns.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listRuns.");
     const operationName = "listRuns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/RunSummary/ListRuns";
@@ -2641,6 +2677,7 @@ export class DataFlowClient {
       listRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2753,7 +2790,7 @@ export class DataFlowClient {
   public async listSqlEndpoints(
     listSqlEndpointsRequest: requests.ListSqlEndpointsRequest
   ): Promise<responses.ListSqlEndpointsResponse> {
-    logger.debug("Calling operation DataFlowClient#listSqlEndpoints.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listSqlEndpoints.");
     const operationName = "listSqlEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpointCollection/ListSqlEndpoints";
@@ -2781,6 +2818,7 @@ export class DataFlowClient {
       listSqlEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2836,7 +2874,7 @@ export class DataFlowClient {
   public async listStatements(
     listStatementsRequest: requests.ListStatementsRequest
   ): Promise<responses.ListStatementsResponse> {
-    logger.debug("Calling operation DataFlowClient#listStatements.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listStatements.");
     const operationName = "listStatements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/StatementCollection/ListStatements";
@@ -2863,6 +2901,7 @@ export class DataFlowClient {
       listStatementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2923,7 +2962,7 @@ export class DataFlowClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation DataFlowClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/WorkRequestError/ListWorkRequestErrors";
@@ -2947,6 +2986,7 @@ export class DataFlowClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3007,7 +3047,7 @@ export class DataFlowClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation DataFlowClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/WorkRequestLog/ListWorkRequestLogs";
@@ -3031,6 +3071,7 @@ export class DataFlowClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3091,7 +3132,7 @@ export class DataFlowClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation DataFlowClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/WorkRequest/ListWorkRequests";
@@ -3114,6 +3155,7 @@ export class DataFlowClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3174,7 +3216,7 @@ export class DataFlowClient {
   public async startPool(
     startPoolRequest: requests.StartPoolRequest
   ): Promise<responses.StartPoolResponse> {
-    logger.debug("Calling operation DataFlowClient#startPool.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#startPool.");
     const operationName = "startPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Pool/StartPool";
@@ -3197,6 +3239,7 @@ export class DataFlowClient {
       startPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3248,7 +3291,7 @@ export class DataFlowClient {
   public async stopPool(
     stopPoolRequest: requests.StopPoolRequest
   ): Promise<responses.StopPoolResponse> {
-    logger.debug("Calling operation DataFlowClient#stopPool.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#stopPool.");
     const operationName = "stopPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Pool/StopPool";
@@ -3271,6 +3314,7 @@ export class DataFlowClient {
       stopPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3322,7 +3366,7 @@ export class DataFlowClient {
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
   ): Promise<responses.UpdateApplicationResponse> {
-    logger.debug("Calling operation DataFlowClient#updateApplication.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#updateApplication.");
     const operationName = "updateApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/UpdateApplication";
@@ -3344,6 +3388,7 @@ export class DataFlowClient {
       updateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3406,7 +3451,7 @@ export class DataFlowClient {
   public async updatePool(
     updatePoolRequest: requests.UpdatePoolRequest
   ): Promise<responses.UpdatePoolResponse> {
-    logger.debug("Calling operation DataFlowClient#updatePool.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#updatePool.");
     const operationName = "updatePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Pool/UpdatePool";
@@ -3428,6 +3473,7 @@ export class DataFlowClient {
       updatePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3486,7 +3532,7 @@ export class DataFlowClient {
   public async updatePrivateEndpoint(
     updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
   ): Promise<responses.UpdatePrivateEndpointResponse> {
-    logger.debug("Calling operation DataFlowClient#updatePrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#updatePrivateEndpoint.");
     const operationName = "updatePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/UpdatePrivateEndpoint";
@@ -3508,6 +3554,7 @@ export class DataFlowClient {
       updatePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3564,7 +3611,7 @@ export class DataFlowClient {
   public async updateRun(
     updateRunRequest: requests.UpdateRunRequest
   ): Promise<responses.UpdateRunResponse> {
-    logger.debug("Calling operation DataFlowClient#updateRun.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#updateRun.");
     const operationName = "updateRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/UpdateRun";
@@ -3586,6 +3633,7 @@ export class DataFlowClient {
       updateRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3645,7 +3693,7 @@ export class DataFlowClient {
   public async updateSqlEndpoint(
     updateSqlEndpointRequest: requests.UpdateSqlEndpointRequest
   ): Promise<responses.UpdateSqlEndpointResponse> {
-    logger.debug("Calling operation DataFlowClient#updateSqlEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#updateSqlEndpoint.");
     const operationName = "updateSqlEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpoint/UpdateSqlEndpoint";
@@ -3667,6 +3715,7 @@ export class DataFlowClient {
       updateSqlEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

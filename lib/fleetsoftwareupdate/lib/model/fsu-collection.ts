@@ -107,7 +107,7 @@ export namespace FsuCollection {
         case "DB":
           return model.DbCollection.getJsonObj(<model.DbCollection>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -135,7 +135,7 @@ export namespace FsuCollection {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

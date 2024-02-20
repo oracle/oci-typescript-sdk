@@ -60,7 +60,7 @@ export namespace Action {
         case "VERTEX":
           return model.VertexAction.getJsonObj(<model.VertexAction>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.actionType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.actionType}`);
       }
     }
     return jsonObj;
@@ -86,7 +86,7 @@ export namespace Action {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.actionType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.actionType}`);
       }
     }
     return jsonObj;

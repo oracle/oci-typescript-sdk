@@ -73,7 +73,7 @@ export namespace HostConfigurationMetricGroup {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.metricName}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.metricName}`);
       }
     }
     return jsonObj;
@@ -124,7 +124,7 @@ export namespace HostConfigurationMetricGroup {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.metricName}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.metricName}`);
       }
     }
     return jsonObj;

@@ -57,7 +57,7 @@ export namespace CreatePluggableDatabaseCreationTypeDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.creationType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.creationType}`);
       }
     }
     return jsonObj;
@@ -83,7 +83,7 @@ export namespace CreatePluggableDatabaseCreationTypeDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.creationType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.creationType}`);
       }
     }
     return jsonObj;

@@ -33,7 +33,8 @@ export namespace DataSourceEventInfo {
         case "LOGGINGQUERY":
           return model.LoggingEventInfo.getJsonObj(<model.LoggingEventInfo>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.dataSourceFeedProvider}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.dataSourceFeedProvider}`);
       }
     }
     return jsonObj;
@@ -49,7 +50,8 @@ export namespace DataSourceEventInfo {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.dataSourceFeedProvider}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.dataSourceFeedProvider}`);
       }
     }
     return jsonObj;

@@ -47,6 +47,12 @@ export interface DataSciencePrivateEndpoint {
    */
   "freeformTags": { [key: string]: string };
   /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The OCID of a private endpoint.
    *
    */

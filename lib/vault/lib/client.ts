@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum VaultsApiKeys {}
 export class VaultsClient {
   protected static serviceEndpointTemplate = "https://vaults.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": VaultsWaiter;
@@ -119,7 +118,11 @@ export class VaultsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180608";
-    logger.info(`VaultsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`VaultsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class VaultsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         VaultsClient.serviceEndpointTemplate,
@@ -230,7 +234,7 @@ export class VaultsClient {
   public async cancelSecretDeletion(
     cancelSecretDeletionRequest: requests.CancelSecretDeletionRequest
   ): Promise<responses.CancelSecretDeletionResponse> {
-    logger.debug("Calling operation VaultsClient#cancelSecretDeletion.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#cancelSecretDeletion.");
     const operationName = "cancelSecretDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/CancelSecretDeletion";
@@ -252,6 +256,7 @@ export class VaultsClient {
       cancelSecretDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,7 +310,7 @@ export class VaultsClient {
   public async cancelSecretRotation(
     cancelSecretRotationRequest: requests.CancelSecretRotationRequest
   ): Promise<responses.CancelSecretRotationResponse> {
-    logger.debug("Calling operation VaultsClient#cancelSecretRotation.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#cancelSecretRotation.");
     const operationName = "cancelSecretRotation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/CancelSecretRotation";
@@ -327,6 +332,7 @@ export class VaultsClient {
       cancelSecretRotationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -372,7 +378,8 @@ export class VaultsClient {
   public async cancelSecretVersionDeletion(
     cancelSecretVersionDeletionRequest: requests.CancelSecretVersionDeletionRequest
   ): Promise<responses.CancelSecretVersionDeletionResponse> {
-    logger.debug("Calling operation VaultsClient#cancelSecretVersionDeletion.");
+    if (this.logger)
+      this.logger.debug("Calling operation VaultsClient#cancelSecretVersionDeletion.");
     const operationName = "cancelSecretVersionDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretVersion/CancelSecretVersionDeletion";
@@ -395,6 +402,7 @@ export class VaultsClient {
       cancelSecretVersionDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -449,7 +457,7 @@ When provided, if-match is checked against the ETag values of the secret.
   public async changeSecretCompartment(
     changeSecretCompartmentRequest: requests.ChangeSecretCompartmentRequest
   ): Promise<responses.ChangeSecretCompartmentResponse> {
-    logger.debug("Calling operation VaultsClient#changeSecretCompartment.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#changeSecretCompartment.");
     const operationName = "changeSecretCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/ChangeSecretCompartment";
@@ -472,6 +480,7 @@ When provided, if-match is checked against the ETag values of the secret.
       changeSecretCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -530,7 +539,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async createSecret(
     createSecretRequest: requests.CreateSecretRequest
   ): Promise<responses.CreateSecretResponse> {
-    logger.debug("Calling operation VaultsClient#createSecret.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#createSecret.");
     const operationName = "createSecret";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/CreateSecret";
@@ -550,6 +559,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       createSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -609,7 +619,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async getSecret(
     getSecretRequest: requests.GetSecretRequest
   ): Promise<responses.GetSecretResponse> {
-    logger.debug("Calling operation VaultsClient#getSecret.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#getSecret.");
     const operationName = "getSecret";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/GetSecret";
@@ -630,6 +640,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       getSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -685,7 +696,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async getSecretVersion(
     getSecretVersionRequest: requests.GetSecretVersionRequest
   ): Promise<responses.GetSecretVersionResponse> {
-    logger.debug("Calling operation VaultsClient#getSecretVersion.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#getSecretVersion.");
     const operationName = "getSecretVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretVersion/GetSecretVersion";
@@ -707,6 +718,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       getSecretVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -761,7 +773,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async listSecretVersions(
     listSecretVersionsRequest: requests.ListSecretVersionsRequest
   ): Promise<responses.ListSecretVersionsResponse> {
-    logger.debug("Calling operation VaultsClient#listSecretVersions.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#listSecretVersions.");
     const operationName = "listSecretVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretVersionSummary/ListSecretVersions";
@@ -787,6 +799,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       listSecretVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -893,7 +906,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async listSecrets(
     listSecretsRequest: requests.ListSecretsRequest
   ): Promise<responses.ListSecretsResponse> {
-    logger.debug("Calling operation VaultsClient#listSecrets.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#listSecrets.");
     const operationName = "listSecrets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretSummary/ListSecrets";
@@ -921,6 +934,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       listSecretsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1028,7 +1042,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async rotateSecret(
     rotateSecretRequest: requests.RotateSecretRequest
   ): Promise<responses.RotateSecretResponse> {
-    logger.debug("Calling operation VaultsClient#rotateSecret.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#rotateSecret.");
     const operationName = "rotateSecret";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/RotateSecret";
@@ -1051,6 +1065,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       rotateSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1103,7 +1118,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async scheduleSecretDeletion(
     scheduleSecretDeletionRequest: requests.ScheduleSecretDeletionRequest
   ): Promise<responses.ScheduleSecretDeletionResponse> {
-    logger.debug("Calling operation VaultsClient#scheduleSecretDeletion.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#scheduleSecretDeletion.");
     const operationName = "scheduleSecretDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/ScheduleSecretDeletion";
@@ -1125,6 +1140,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       scheduleSecretDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1182,7 +1198,8 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async scheduleSecretVersionDeletion(
     scheduleSecretVersionDeletionRequest: requests.ScheduleSecretVersionDeletionRequest
   ): Promise<responses.ScheduleSecretVersionDeletionResponse> {
-    logger.debug("Calling operation VaultsClient#scheduleSecretVersionDeletion.");
+    if (this.logger)
+      this.logger.debug("Calling operation VaultsClient#scheduleSecretVersionDeletion.");
     const operationName = "scheduleSecretVersionDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretVersion/ScheduleSecretVersionDeletion";
@@ -1205,6 +1222,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       scheduleSecretVersionDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1266,7 +1284,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   public async updateSecret(
     updateSecretRequest: requests.UpdateSecretRequest
   ): Promise<responses.UpdateSecretResponse> {
-    logger.debug("Calling operation VaultsClient#updateSecret.");
+    if (this.logger) this.logger.debug("Calling operation VaultsClient#updateSecret.");
     const operationName = "updateSecret";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/UpdateSecret";
@@ -1288,6 +1306,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       updateSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

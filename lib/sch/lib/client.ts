@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -40,7 +39,7 @@ export class ServiceConnectorClient {
   protected static serviceEndpointTemplate =
     "https://service-connector-hub.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ServiceConnectorWaiter;
@@ -121,7 +120,11 @@ export class ServiceConnectorClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200909";
-    logger.info(`ServiceConnectorClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ServiceConnectorClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -131,9 +134,10 @@ export class ServiceConnectorClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ServiceConnectorClient.serviceEndpointTemplate,
@@ -232,7 +236,8 @@ After you send your request, the service connector's state is temporarily
   public async activateServiceConnector(
     activateServiceConnectorRequest: requests.ActivateServiceConnectorRequest
   ): Promise<responses.ActivateServiceConnectorResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#activateServiceConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#activateServiceConnector.");
     const operationName = "activateServiceConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/ActivateServiceConnector";
@@ -255,6 +260,7 @@ After you send your request, the service connector's state is temporarily
       activateServiceConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -310,7 +316,10 @@ When provided, If-Match is checked against ETag values of the resource.
   public async changeServiceConnectorCompartment(
     changeServiceConnectorCompartmentRequest: requests.ChangeServiceConnectorCompartmentRequest
   ): Promise<responses.ChangeServiceConnectorCompartmentResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#changeServiceConnectorCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ServiceConnectorClient#changeServiceConnectorCompartment."
+      );
     const operationName = "changeServiceConnectorCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/ChangeServiceConnectorCompartment";
@@ -332,6 +341,7 @@ When provided, If-Match is checked against ETag values of the resource.
       changeServiceConnectorCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -407,7 +417,8 @@ After you send your request, the new service connector's state is temporarily
   public async createServiceConnector(
     createServiceConnectorRequest: requests.CreateServiceConnectorRequest
   ): Promise<responses.CreateServiceConnectorResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#createServiceConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#createServiceConnector.");
     const operationName = "createServiceConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/CreateServiceConnector";
@@ -427,6 +438,7 @@ After you send your request, the new service connector's state is temporarily
       createServiceConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -488,7 +500,8 @@ After you send your request, the service connector's state is temporarily
   public async deactivateServiceConnector(
     deactivateServiceConnectorRequest: requests.DeactivateServiceConnectorRequest
   ): Promise<responses.DeactivateServiceConnectorResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#deactivateServiceConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#deactivateServiceConnector.");
     const operationName = "deactivateServiceConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/DeactivateServiceConnector";
@@ -511,6 +524,7 @@ After you send your request, the service connector's state is temporarily
       deactivateServiceConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -565,7 +579,8 @@ After you send your request, the service connector's state is temporarily
   public async deleteServiceConnector(
     deleteServiceConnectorRequest: requests.DeleteServiceConnectorRequest
   ): Promise<responses.DeleteServiceConnectorResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#deleteServiceConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#deleteServiceConnector.");
     const operationName = "deleteServiceConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/DeleteServiceConnector";
@@ -587,6 +602,7 @@ After you send your request, the service connector's state is temporarily
       deleteServiceConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -638,7 +654,8 @@ After you send your request, the service connector's state is temporarily
   public async getServiceConnector(
     getServiceConnectorRequest: requests.GetServiceConnectorRequest
   ): Promise<responses.GetServiceConnectorResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#getServiceConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#getServiceConnector.");
     const operationName = "getServiceConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/GetServiceConnector";
@@ -659,6 +676,7 @@ After you send your request, the service connector's state is temporarily
       getServiceConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -714,7 +732,7 @@ After you send your request, the service connector's state is temporarily
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation ServiceConnectorClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/WorkRequest/GetWorkRequest";
@@ -735,6 +753,7 @@ After you send your request, the service connector's state is temporarily
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -790,7 +809,8 @@ After you send your request, the service connector's state is temporarily
   public async listServiceConnectors(
     listServiceConnectorsRequest: requests.ListServiceConnectorsRequest
   ): Promise<responses.ListServiceConnectorsResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#listServiceConnectors.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#listServiceConnectors.");
     const operationName = "listServiceConnectors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/ListServiceConnectors";
@@ -817,6 +837,7 @@ After you send your request, the service connector's state is temporarily
       listServiceConnectorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -877,7 +898,8 @@ After you send your request, the service connector's state is temporarily
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/WorkRequestError/ListWorkRequestErrors";
@@ -901,6 +923,7 @@ After you send your request, the service connector's state is temporarily
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -961,7 +984,8 @@ After you send your request, the service connector's state is temporarily
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -985,6 +1009,7 @@ After you send your request, the service connector's state is temporarily
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1045,7 +1070,8 @@ After you send your request, the service connector's state is temporarily
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/WorkRequest/ListWorkRequests";
@@ -1068,6 +1094,7 @@ After you send your request, the service connector's state is temporarily
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1132,7 +1159,8 @@ After you send your request, the service connector's state is temporarily
   public async updateServiceConnector(
     updateServiceConnectorRequest: requests.UpdateServiceConnectorRequest
   ): Promise<responses.UpdateServiceConnectorResponse> {
-    logger.debug("Calling operation ServiceConnectorClient#updateServiceConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceConnectorClient#updateServiceConnector.");
     const operationName = "updateServiceConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/UpdateServiceConnector";
@@ -1154,6 +1182,7 @@ After you send your request, the service connector's state is temporarily
       updateServiceConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

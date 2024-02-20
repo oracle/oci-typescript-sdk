@@ -22,13 +22,7 @@ export enum AssetSourceConnectionLifecycleState {
   Updating = "UPDATING",
   NeedsAttention = "NEEDS_ATTENTION",
   Deleted = "DELETED",
-  Creating = "CREATING",
-
-  /**
-   * This value is used if a service returns a value for this enum that is not recognized by this
-   * version of the SDK.
-   */
-  UnknownValue = "UNKNOWN_VALUE"
+  Creating = "CREATING"
 }
 
 export namespace AssetSourceConnectionLifecycleState {

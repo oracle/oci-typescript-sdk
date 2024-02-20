@@ -40,7 +40,7 @@ export namespace FunctionProvisionedConcurrencyConfig {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.strategy}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.strategy}`);
       }
     }
     return jsonObj;
@@ -61,7 +61,7 @@ export namespace FunctionProvisionedConcurrencyConfig {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.strategy}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.strategy}`);
       }
     }
     return jsonObj;

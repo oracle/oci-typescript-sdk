@@ -82,6 +82,8 @@ import * as Job from "./job";
 export import Job = Job.Job;
 import * as JobConfigurationDetails from "./job-configuration-details";
 export import JobConfigurationDetails = JobConfigurationDetails.JobConfigurationDetails;
+import * as JobEnvironmentConfigurationDetails from "./job-environment-configuration-details";
+export import JobEnvironmentConfigurationDetails = JobEnvironmentConfigurationDetails.JobEnvironmentConfigurationDetails;
 import * as JobInfrastructureConfigurationDetails from "./job-infrastructure-configuration-details";
 export import JobInfrastructureConfigurationDetails = JobInfrastructureConfigurationDetails.JobInfrastructureConfigurationDetails;
 import * as JobLifecycleState from "./job-lifecycle-state";
@@ -267,6 +269,8 @@ import * as ManagedEgressStandaloneJobInfrastructureConfigurationDetails from ".
 export import ManagedEgressStandaloneJobInfrastructureConfigurationDetails = ManagedEgressStandaloneJobInfrastructureConfigurationDetails.ManagedEgressStandaloneJobInfrastructureConfigurationDetails;
 import * as ObjectStorageMountConfigurationDetails from "./object-storage-mount-configuration-details";
 export import ObjectStorageMountConfigurationDetails = ObjectStorageMountConfigurationDetails.ObjectStorageMountConfigurationDetails;
+import * as OcirContainerJobEnvironmentConfigurationDetails from "./ocir-container-job-environment-configuration-details";
+export import OcirContainerJobEnvironmentConfigurationDetails = OcirContainerJobEnvironmentConfigurationDetails.OcirContainerJobEnvironmentConfigurationDetails;
 import * as OcirModelDeploymentEnvironmentConfigurationDetails from "./ocir-model-deployment-environment-configuration-details";
 export import OcirModelDeploymentEnvironmentConfigurationDetails = OcirModelDeploymentEnvironmentConfigurationDetails.OcirModelDeploymentEnvironmentConfigurationDetails;
 import * as PipelineCustomScriptStepDetails from "./pipeline-custom-script-step-details";

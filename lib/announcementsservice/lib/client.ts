@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export enum AnnouncementApiKeys {}
 export class AnnouncementClient {
   protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -117,7 +116,11 @@ export class AnnouncementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180904";
-    logger.info(`AnnouncementClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AnnouncementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class AnnouncementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AnnouncementClient.serviceEndpointTemplate,
@@ -201,7 +205,7 @@ This call is subject to an Announcements limit that applies to the total number 
   public async getAnnouncement(
     getAnnouncementRequest: requests.GetAnnouncementRequest
   ): Promise<responses.GetAnnouncementResponse> {
-    logger.debug("Calling operation AnnouncementClient#getAnnouncement.");
+    if (this.logger) this.logger.debug("Calling operation AnnouncementClient#getAnnouncement.");
     const operationName = "getAnnouncement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/Announcement/GetAnnouncement";
@@ -222,6 +226,7 @@ This call is subject to an Announcements limit that applies to the total number 
       getAnnouncementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -279,7 +284,8 @@ This call is subject to an Announcements limit that applies to the total number 
   public async getAnnouncementUserStatus(
     getAnnouncementUserStatusRequest: requests.GetAnnouncementUserStatusRequest
   ): Promise<responses.GetAnnouncementUserStatusResponse> {
-    logger.debug("Calling operation AnnouncementClient#getAnnouncementUserStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementClient#getAnnouncementUserStatus.");
     const operationName = "getAnnouncementUserStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementUserStatusDetails/GetAnnouncementUserStatus";
@@ -300,6 +306,7 @@ This call is subject to an Announcements limit that applies to the total number 
       getAnnouncementUserStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -357,7 +364,7 @@ This call is subject to an Announcements limit that applies to the total number 
   public async listAnnouncements(
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
   ): Promise<responses.ListAnnouncementsResponse> {
-    logger.debug("Calling operation AnnouncementClient#listAnnouncements.");
+    if (this.logger) this.logger.debug("Calling operation AnnouncementClient#listAnnouncements.");
     const operationName = "listAnnouncements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsCollection/ListAnnouncements";
@@ -393,6 +400,7 @@ This call is subject to an Announcements limit that applies to the total number 
       listAnnouncementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -455,7 +463,8 @@ This call is subject to an Announcements limit that applies to the total number 
   public async updateAnnouncementUserStatus(
     updateAnnouncementUserStatusRequest: requests.UpdateAnnouncementUserStatusRequest
   ): Promise<responses.UpdateAnnouncementUserStatusResponse> {
-    logger.debug("Calling operation AnnouncementClient#updateAnnouncementUserStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementClient#updateAnnouncementUserStatus.");
     const operationName = "updateAnnouncementUserStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementUserStatusDetails/UpdateAnnouncementUserStatus";
@@ -477,6 +486,7 @@ This call is subject to an Announcements limit that applies to the total number 
       updateAnnouncementUserStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -532,7 +542,7 @@ export enum AnnouncementSubscriptionApiKeys {}
 export class AnnouncementSubscriptionClient {
   protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AnnouncementSubscriptionWaiter;
@@ -613,7 +623,12 @@ export class AnnouncementSubscriptionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180904";
-    logger.info(`AnnouncementSubscriptionClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`AnnouncementSubscriptionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -623,9 +638,10 @@ export class AnnouncementSubscriptionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AnnouncementSubscriptionClient.serviceEndpointTemplate,
@@ -720,9 +736,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async changeAnnouncementSubscriptionCompartment(
     changeAnnouncementSubscriptionCompartmentRequest: requests.ChangeAnnouncementSubscriptionCompartmentRequest
   ): Promise<responses.ChangeAnnouncementSubscriptionCompartmentResponse> {
-    logger.debug(
-      "Calling operation AnnouncementSubscriptionClient#changeAnnouncementSubscriptionCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#changeAnnouncementSubscriptionCompartment."
+      );
     const operationName = "changeAnnouncementSubscriptionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/ChangeAnnouncementSubscriptionCompartment";
@@ -745,6 +762,7 @@ This call is subject to an Announcements limit that applies to the total number 
       changeAnnouncementSubscriptionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -803,9 +821,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async createAnnouncementSubscription(
     createAnnouncementSubscriptionRequest: requests.CreateAnnouncementSubscriptionRequest
   ): Promise<responses.CreateAnnouncementSubscriptionResponse> {
-    logger.debug(
-      "Calling operation AnnouncementSubscriptionClient#createAnnouncementSubscription."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#createAnnouncementSubscription."
+      );
     const operationName = "createAnnouncementSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/CreateAnnouncementSubscription";
@@ -825,6 +844,7 @@ This call is subject to an Announcements limit that applies to the total number 
       createAnnouncementSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -887,7 +907,8 @@ This call is subject to an Announcements limit that applies to the total number 
   public async createFilterGroup(
     createFilterGroupRequest: requests.CreateFilterGroupRequest
   ): Promise<responses.CreateFilterGroupResponse> {
-    logger.debug("Calling operation AnnouncementSubscriptionClient#createFilterGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementSubscriptionClient#createFilterGroup.");
     const operationName = "createFilterGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/CreateFilterGroup";
@@ -910,6 +931,7 @@ This call is subject to an Announcements limit that applies to the total number 
       createFilterGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -972,9 +994,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async deleteAnnouncementSubscription(
     deleteAnnouncementSubscriptionRequest: requests.DeleteAnnouncementSubscriptionRequest
   ): Promise<responses.DeleteAnnouncementSubscriptionResponse> {
-    logger.debug(
-      "Calling operation AnnouncementSubscriptionClient#deleteAnnouncementSubscription."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#deleteAnnouncementSubscription."
+      );
     const operationName = "deleteAnnouncementSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/DeleteAnnouncementSubscription";
@@ -997,6 +1020,7 @@ This call is subject to an Announcements limit that applies to the total number 
       deleteAnnouncementSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1045,7 +1069,8 @@ This call is subject to an Announcements limit that applies to the total number 
   public async deleteFilterGroup(
     deleteFilterGroupRequest: requests.DeleteFilterGroupRequest
   ): Promise<responses.DeleteFilterGroupResponse> {
-    logger.debug("Calling operation AnnouncementSubscriptionClient#deleteFilterGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementSubscriptionClient#deleteFilterGroup.");
     const operationName = "deleteFilterGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/DeleteFilterGroup";
@@ -1068,6 +1093,7 @@ This call is subject to an Announcements limit that applies to the total number 
       deleteFilterGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1122,7 +1148,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async getAnnouncementSubscription(
     getAnnouncementSubscriptionRequest: requests.GetAnnouncementSubscriptionRequest
   ): Promise<responses.GetAnnouncementSubscriptionResponse> {
-    logger.debug("Calling operation AnnouncementSubscriptionClient#getAnnouncementSubscription.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#getAnnouncementSubscription."
+      );
     const operationName = "getAnnouncementSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/GetAnnouncementSubscription";
@@ -1143,6 +1172,7 @@ This call is subject to an Announcements limit that applies to the total number 
       getAnnouncementSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1200,7 +1230,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async listAnnouncementSubscriptions(
     listAnnouncementSubscriptionsRequest: requests.ListAnnouncementSubscriptionsRequest
   ): Promise<responses.ListAnnouncementSubscriptionsResponse> {
-    logger.debug("Calling operation AnnouncementSubscriptionClient#listAnnouncementSubscriptions.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#listAnnouncementSubscriptions."
+      );
     const operationName = "listAnnouncementSubscriptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscriptionCollection/ListAnnouncementSubscriptions";
@@ -1228,6 +1261,7 @@ This call is subject to an Announcements limit that applies to the total number 
       listAnnouncementSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1285,9 +1319,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async updateAnnouncementSubscription(
     updateAnnouncementSubscriptionRequest: requests.UpdateAnnouncementSubscriptionRequest
   ): Promise<responses.UpdateAnnouncementSubscriptionResponse> {
-    logger.debug(
-      "Calling operation AnnouncementSubscriptionClient#updateAnnouncementSubscription."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementSubscriptionClient#updateAnnouncementSubscription."
+      );
     const operationName = "updateAnnouncementSubscription";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/UpdateAnnouncementSubscription";
@@ -1310,6 +1345,7 @@ This call is subject to an Announcements limit that applies to the total number 
       updateAnnouncementSubscriptionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1372,7 +1408,8 @@ This call is subject to an Announcements limit that applies to the total number 
   public async updateFilterGroup(
     updateFilterGroupRequest: requests.UpdateFilterGroupRequest
   ): Promise<responses.UpdateFilterGroupResponse> {
-    logger.debug("Calling operation AnnouncementSubscriptionClient#updateFilterGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnnouncementSubscriptionClient#updateFilterGroup.");
     const operationName = "updateFilterGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/UpdateFilterGroup";
@@ -1395,6 +1432,7 @@ This call is subject to an Announcements limit that applies to the total number 
       updateFilterGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1451,7 +1489,7 @@ export enum AnnouncementsPreferencesApiKeys {}
 export class AnnouncementsPreferencesClient {
   protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -1531,7 +1569,12 @@ export class AnnouncementsPreferencesClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180904";
-    logger.info(`AnnouncementsPreferencesClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`AnnouncementsPreferencesClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1541,9 +1584,10 @@ export class AnnouncementsPreferencesClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AnnouncementsPreferencesClient.serviceEndpointTemplate,
@@ -1615,7 +1659,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async createAnnouncementsPreference(
     createAnnouncementsPreferenceRequest: requests.CreateAnnouncementsPreferenceRequest
   ): Promise<responses.CreateAnnouncementsPreferenceResponse> {
-    logger.debug("Calling operation AnnouncementsPreferencesClient#createAnnouncementsPreference.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementsPreferencesClient#createAnnouncementsPreference."
+      );
     const operationName = "createAnnouncementsPreference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsPreferencesSummary/CreateAnnouncementsPreference";
@@ -1635,6 +1682,7 @@ This call is subject to an Announcements limit that applies to the total number 
       createAnnouncementsPreferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1697,7 +1745,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async getAnnouncementsPreference(
     getAnnouncementsPreferenceRequest: requests.GetAnnouncementsPreferenceRequest
   ): Promise<responses.GetAnnouncementsPreferenceResponse> {
-    logger.debug("Calling operation AnnouncementsPreferencesClient#getAnnouncementsPreference.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementsPreferencesClient#getAnnouncementsPreference."
+      );
     const operationName = "getAnnouncementsPreference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsPreferences/GetAnnouncementsPreference";
@@ -1718,6 +1769,7 @@ This call is subject to an Announcements limit that applies to the total number 
       getAnnouncementsPreferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1775,7 +1827,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async listAnnouncementsPreferences(
     listAnnouncementsPreferencesRequest: requests.ListAnnouncementsPreferencesRequest
   ): Promise<responses.ListAnnouncementsPreferencesResponse> {
-    logger.debug("Calling operation AnnouncementsPreferencesClient#listAnnouncementsPreferences.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementsPreferencesClient#listAnnouncementsPreferences."
+      );
     const operationName = "listAnnouncementsPreferences";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsPreferencesSummary/ListAnnouncementsPreferences";
@@ -1798,6 +1853,7 @@ This call is subject to an Announcements limit that applies to the total number 
       listAnnouncementsPreferencesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1907,7 +1963,10 @@ This call is subject to an Announcements limit that applies to the total number 
   public async updateAnnouncementsPreference(
     updateAnnouncementsPreferenceRequest: requests.UpdateAnnouncementsPreferenceRequest
   ): Promise<responses.UpdateAnnouncementsPreferenceResponse> {
-    logger.debug("Calling operation AnnouncementsPreferencesClient#updateAnnouncementsPreference.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnnouncementsPreferencesClient#updateAnnouncementsPreference."
+      );
     const operationName = "updateAnnouncementsPreference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsPreferencesSummary/UpdateAnnouncementsPreference";
@@ -1929,6 +1988,7 @@ This call is subject to an Announcements limit that applies to the total number 
       updateAnnouncementsPreferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

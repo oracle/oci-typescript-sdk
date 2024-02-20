@@ -53,7 +53,7 @@ export namespace DocumentFeature {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.featureType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.featureType}`);
       }
     }
     return jsonObj;
@@ -89,7 +89,7 @@ export namespace DocumentFeature {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.featureType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.featureType}`);
       }
     }
     return jsonObj;

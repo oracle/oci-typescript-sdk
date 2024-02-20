@@ -52,7 +52,7 @@ export namespace DetectAnomaliesDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.requestType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.requestType}`);
       }
     }
     return jsonObj;
@@ -73,7 +73,7 @@ export namespace DetectAnomaliesDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.requestType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.requestType}`);
       }
     }
     return jsonObj;

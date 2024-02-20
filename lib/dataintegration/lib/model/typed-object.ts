@@ -114,7 +114,7 @@ export namespace TypedObject {
         case "FLOW_PORT":
           return model.FlowPort.getJsonObj(<model.FlowPort>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -205,7 +205,7 @@ export namespace TypedObject {
         case "FLOW_PORT":
           return model.FlowPort.getDeserializedJsonObj(<model.FlowPort>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

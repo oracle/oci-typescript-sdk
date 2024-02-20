@@ -68,7 +68,7 @@ export namespace UpdateDashboardDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.schemaVersion}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.schemaVersion}`);
       }
     }
     return jsonObj;
@@ -84,7 +84,7 @@ export namespace UpdateDashboardDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.schemaVersion}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.schemaVersion}`);
       }
     }
     return jsonObj;

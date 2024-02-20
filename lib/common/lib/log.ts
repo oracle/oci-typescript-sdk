@@ -6,11 +6,9 @@
 /**
  * An interface defines the logger related APIs.
  */
-
-import * as bunyan from "bunyan";
-
 export interface Logger {
-  log(message?: any, ...optionalParams: any[]): void;
+  level: string;
+
   debug(message?: any, ...optionalParams: any[]): void;
   info(message?: any, ...optionalParams: any[]): void;
   warn(message?: any, ...optionalParams: any[]): void;
@@ -18,42 +16,16 @@ export interface Logger {
   trace(message?: any, ...optionalParams: any[]): void;
 }
 
-class DefaultSdkLogger implements Logger {
-  private static instance: DefaultSdkLogger;
-  private _logger: Console | bunyan;
+export module LOG {
+  var _logger: Logger;
 
-  private constructor() {
-    const useBunyan = process.env.USE_BUNYAN === "true";
-    this._logger = useBunyan
-      ? bunyan.createLogger({ name: "OCI TypeScript SDK default logger", level: "info" })
-      : console;
-  }
-
-  static getInstance(): DefaultSdkLogger {
-    if (!DefaultSdkLogger.instance) {
-      DefaultSdkLogger.instance = new DefaultSdkLogger();
+  export declare var logger: Logger;
+  Object.defineProperty(LOG, "logger", {
+    get: function() {
+      return _logger;
+    },
+    set: function(log: Logger) {
+      _logger = log;
     }
-    return DefaultSdkLogger.instance;
-  }
-
-  log(message: string) {
-    console.log(message);
-  }
-  debug(message: string) {
-    this._logger.debug(message);
-  }
-  info(message: string) {
-    this._logger.info(message);
-  }
-  warn(message: string) {
-    this._logger.warn(message);
-  }
-  error(message: string) {
-    this._logger.error(message);
-  }
-  trace(message: string) {
-    this._logger.trace(message);
-  }
+  });
 }
-
-export const logger = DefaultSdkLogger.getInstance();

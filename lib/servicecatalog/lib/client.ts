@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class ServiceCatalogClient {
   protected static serviceEndpointTemplate =
     "https://service-catalog.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ServiceCatalogWaiter;
@@ -118,7 +117,11 @@ export class ServiceCatalogClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210527";
-    logger.info(`ServiceCatalogClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ServiceCatalogClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class ServiceCatalogClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ServiceCatalogClient.serviceEndpointTemplate,
@@ -222,7 +226,10 @@ export class ServiceCatalogClient {
   public async bulkReplaceServiceCatalogAssociations(
     bulkReplaceServiceCatalogAssociationsRequest: requests.BulkReplaceServiceCatalogAssociationsRequest
   ): Promise<responses.BulkReplaceServiceCatalogAssociationsResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#bulkReplaceServiceCatalogAssociations.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ServiceCatalogClient#bulkReplaceServiceCatalogAssociations."
+      );
     const operationName = "bulkReplaceServiceCatalogAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/BulkReplaceServiceCatalogAssociations";
@@ -244,6 +251,7 @@ export class ServiceCatalogClient {
       bulkReplaceServiceCatalogAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -294,7 +302,10 @@ export class ServiceCatalogClient {
   public async changePrivateApplicationCompartment(
     changePrivateApplicationCompartmentRequest: requests.ChangePrivateApplicationCompartmentRequest
   ): Promise<responses.ChangePrivateApplicationCompartmentResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#changePrivateApplicationCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ServiceCatalogClient#changePrivateApplicationCompartment."
+      );
     const operationName = "changePrivateApplicationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/ChangePrivateApplicationCompartment";
@@ -316,6 +327,7 @@ export class ServiceCatalogClient {
       changePrivateApplicationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -371,7 +383,8 @@ export class ServiceCatalogClient {
   public async changeServiceCatalogCompartment(
     changeServiceCatalogCompartmentRequest: requests.ChangeServiceCatalogCompartmentRequest
   ): Promise<responses.ChangeServiceCatalogCompartmentResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#changeServiceCatalogCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#changeServiceCatalogCompartment.");
     const operationName = "changeServiceCatalogCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/ChangeServiceCatalogCompartment";
@@ -393,6 +406,7 @@ export class ServiceCatalogClient {
       changeServiceCatalogCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -443,7 +457,8 @@ export class ServiceCatalogClient {
   public async createPrivateApplication(
     createPrivateApplicationRequest: requests.CreatePrivateApplicationRequest
   ): Promise<responses.CreatePrivateApplicationResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#createPrivateApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#createPrivateApplication.");
     const operationName = "createPrivateApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/CreatePrivateApplication";
@@ -463,6 +478,7 @@ export class ServiceCatalogClient {
       createPrivateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -527,7 +543,8 @@ export class ServiceCatalogClient {
   public async createServiceCatalog(
     createServiceCatalogRequest: requests.CreateServiceCatalogRequest
   ): Promise<responses.CreateServiceCatalogResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#createServiceCatalog.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#createServiceCatalog.");
     const operationName = "createServiceCatalog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/CreateServiceCatalog";
@@ -547,6 +564,7 @@ export class ServiceCatalogClient {
       createServiceCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -606,7 +624,8 @@ export class ServiceCatalogClient {
   public async createServiceCatalogAssociation(
     createServiceCatalogAssociationRequest: requests.CreateServiceCatalogAssociationRequest
   ): Promise<responses.CreateServiceCatalogAssociationResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#createServiceCatalogAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#createServiceCatalogAssociation.");
     const operationName = "createServiceCatalogAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/CreateServiceCatalogAssociation";
@@ -626,6 +645,7 @@ export class ServiceCatalogClient {
       createServiceCatalogAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -685,7 +705,8 @@ export class ServiceCatalogClient {
   public async deletePrivateApplication(
     deletePrivateApplicationRequest: requests.DeletePrivateApplicationRequest
   ): Promise<responses.DeletePrivateApplicationResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#deletePrivateApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#deletePrivateApplication.");
     const operationName = "deletePrivateApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/DeletePrivateApplication";
@@ -707,6 +728,7 @@ export class ServiceCatalogClient {
       deletePrivateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -757,7 +779,8 @@ export class ServiceCatalogClient {
   public async deleteServiceCatalog(
     deleteServiceCatalogRequest: requests.DeleteServiceCatalogRequest
   ): Promise<responses.DeleteServiceCatalogResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#deleteServiceCatalog.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#deleteServiceCatalog.");
     const operationName = "deleteServiceCatalog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/DeleteServiceCatalog";
@@ -779,6 +802,7 @@ export class ServiceCatalogClient {
       deleteServiceCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -824,7 +848,8 @@ export class ServiceCatalogClient {
   public async deleteServiceCatalogAssociation(
     deleteServiceCatalogAssociationRequest: requests.DeleteServiceCatalogAssociationRequest
   ): Promise<responses.DeleteServiceCatalogAssociationResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#deleteServiceCatalogAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#deleteServiceCatalogAssociation.");
     const operationName = "deleteServiceCatalogAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/DeleteServiceCatalogAssociation";
@@ -847,6 +872,7 @@ export class ServiceCatalogClient {
       deleteServiceCatalogAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -892,7 +918,8 @@ export class ServiceCatalogClient {
   public async getPrivateApplication(
     getPrivateApplicationRequest: requests.GetPrivateApplicationRequest
   ): Promise<responses.GetPrivateApplicationResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#getPrivateApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#getPrivateApplication.");
     const operationName = "getPrivateApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/GetPrivateApplication";
@@ -913,6 +940,7 @@ export class ServiceCatalogClient {
       getPrivateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -967,7 +995,10 @@ export class ServiceCatalogClient {
   public async getPrivateApplicationActionDownloadLogo(
     getPrivateApplicationActionDownloadLogoRequest: requests.GetPrivateApplicationActionDownloadLogoRequest
   ): Promise<responses.GetPrivateApplicationActionDownloadLogoResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#getPrivateApplicationActionDownloadLogo.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ServiceCatalogClient#getPrivateApplicationActionDownloadLogo."
+      );
     const operationName = "getPrivateApplicationActionDownloadLogo";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/GetPrivateApplicationActionDownloadLogo";
@@ -988,6 +1019,7 @@ export class ServiceCatalogClient {
       getPrivateApplicationActionDownloadLogoRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1037,7 +1069,8 @@ export class ServiceCatalogClient {
   public async getPrivateApplicationPackage(
     getPrivateApplicationPackageRequest: requests.GetPrivateApplicationPackageRequest
   ): Promise<responses.GetPrivateApplicationPackageResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#getPrivateApplicationPackage.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#getPrivateApplicationPackage.");
     const operationName = "getPrivateApplicationPackage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplicationPackage/GetPrivateApplicationPackage";
@@ -1059,6 +1092,7 @@ export class ServiceCatalogClient {
       getPrivateApplicationPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1113,9 +1147,10 @@ export class ServiceCatalogClient {
   public async getPrivateApplicationPackageActionDownloadConfig(
     getPrivateApplicationPackageActionDownloadConfigRequest: requests.GetPrivateApplicationPackageActionDownloadConfigRequest
   ): Promise<responses.GetPrivateApplicationPackageActionDownloadConfigResponse> {
-    logger.debug(
-      "Calling operation ServiceCatalogClient#getPrivateApplicationPackageActionDownloadConfig."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ServiceCatalogClient#getPrivateApplicationPackageActionDownloadConfig."
+      );
     const operationName = "getPrivateApplicationPackageActionDownloadConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplicationPackage/GetPrivateApplicationPackageActionDownloadConfig";
@@ -1137,6 +1172,7 @@ export class ServiceCatalogClient {
       getPrivateApplicationPackageActionDownloadConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1186,7 +1222,7 @@ export class ServiceCatalogClient {
   public async getServiceCatalog(
     getServiceCatalogRequest: requests.GetServiceCatalogRequest
   ): Promise<responses.GetServiceCatalogResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#getServiceCatalog.");
+    if (this.logger) this.logger.debug("Calling operation ServiceCatalogClient#getServiceCatalog.");
     const operationName = "getServiceCatalog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/GetServiceCatalog";
@@ -1207,6 +1243,7 @@ export class ServiceCatalogClient {
       getServiceCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1261,7 +1298,8 @@ export class ServiceCatalogClient {
   public async getServiceCatalogAssociation(
     getServiceCatalogAssociationRequest: requests.GetServiceCatalogAssociationRequest
   ): Promise<responses.GetServiceCatalogAssociationResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#getServiceCatalogAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#getServiceCatalogAssociation.");
     const operationName = "getServiceCatalogAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/GetServiceCatalogAssociation";
@@ -1283,6 +1321,7 @@ export class ServiceCatalogClient {
       getServiceCatalogAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1337,7 +1376,7 @@ export class ServiceCatalogClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation ServiceCatalogClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/WorkRequest/GetWorkRequest";
@@ -1358,6 +1397,7 @@ export class ServiceCatalogClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1420,7 +1460,7 @@ export class ServiceCatalogClient {
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#listApplications.");
+    if (this.logger) this.logger.debug("Calling operation ServiceCatalogClient#listApplications.");
     const operationName = "listApplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ApplicationSummary/ListApplications";
@@ -1452,6 +1492,7 @@ export class ServiceCatalogClient {
       listApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1506,7 +1547,8 @@ export class ServiceCatalogClient {
   public async listPrivateApplicationPackages(
     listPrivateApplicationPackagesRequest: requests.ListPrivateApplicationPackagesRequest
   ): Promise<responses.ListPrivateApplicationPackagesResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#listPrivateApplicationPackages.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#listPrivateApplicationPackages.");
     const operationName = "listPrivateApplicationPackages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplicationPackage/ListPrivateApplicationPackages";
@@ -1535,6 +1577,7 @@ export class ServiceCatalogClient {
       listPrivateApplicationPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1589,7 +1632,8 @@ export class ServiceCatalogClient {
   public async listPrivateApplications(
     listPrivateApplicationsRequest: requests.ListPrivateApplicationsRequest
   ): Promise<responses.ListPrivateApplicationsResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#listPrivateApplications.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#listPrivateApplications.");
     const operationName = "listPrivateApplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/ListPrivateApplications";
@@ -1616,6 +1660,7 @@ export class ServiceCatalogClient {
       listPrivateApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1670,7 +1715,8 @@ export class ServiceCatalogClient {
   public async listServiceCatalogAssociations(
     listServiceCatalogAssociationsRequest: requests.ListServiceCatalogAssociationsRequest
   ): Promise<responses.ListServiceCatalogAssociationsResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#listServiceCatalogAssociations.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#listServiceCatalogAssociations.");
     const operationName = "listServiceCatalogAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/ListServiceCatalogAssociations";
@@ -1699,6 +1745,7 @@ export class ServiceCatalogClient {
       listServiceCatalogAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1753,7 +1800,8 @@ export class ServiceCatalogClient {
   public async listServiceCatalogs(
     listServiceCatalogsRequest: requests.ListServiceCatalogsRequest
   ): Promise<responses.ListServiceCatalogsResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#listServiceCatalogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#listServiceCatalogs.");
     const operationName = "listServiceCatalogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/ListServiceCatalogs";
@@ -1780,6 +1828,7 @@ export class ServiceCatalogClient {
       listServiceCatalogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1835,7 +1884,8 @@ export class ServiceCatalogClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/WorkRequestError/ListWorkRequestErrors";
@@ -1861,6 +1911,7 @@ export class ServiceCatalogClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1916,7 +1967,8 @@ export class ServiceCatalogClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1942,6 +1994,7 @@ export class ServiceCatalogClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1997,7 +2050,7 @@ export class ServiceCatalogClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation ServiceCatalogClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/WorkRequest/ListWorkRequests";
@@ -2025,6 +2078,7 @@ export class ServiceCatalogClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2079,7 +2133,8 @@ export class ServiceCatalogClient {
   public async updatePrivateApplication(
     updatePrivateApplicationRequest: requests.UpdatePrivateApplicationRequest
   ): Promise<responses.UpdatePrivateApplicationResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#updatePrivateApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#updatePrivateApplication.");
     const operationName = "updatePrivateApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/UpdatePrivateApplication";
@@ -2101,6 +2156,7 @@ export class ServiceCatalogClient {
       updatePrivateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2165,7 +2221,8 @@ export class ServiceCatalogClient {
   public async updateServiceCatalog(
     updateServiceCatalogRequest: requests.UpdateServiceCatalogRequest
   ): Promise<responses.UpdateServiceCatalogResponse> {
-    logger.debug("Calling operation ServiceCatalogClient#updateServiceCatalog.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceCatalogClient#updateServiceCatalog.");
     const operationName = "updateServiceCatalog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/UpdateServiceCatalog";
@@ -2187,6 +2244,7 @@ export class ServiceCatalogClient {
       updateServiceCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

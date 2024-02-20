@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class OccMetricsClient {
   protected static serviceEndpointTemplate =
     "https://control-center.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -117,7 +116,11 @@ export class OccMetricsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230515";
-    logger.info(`OccMetricsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`OccMetricsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class OccMetricsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OccMetricsClient.serviceEndpointTemplate,
@@ -199,7 +203,7 @@ export class OccMetricsClient {
   public async listMetricProperties(
     listMetricPropertiesRequest: requests.ListMetricPropertiesRequest
   ): Promise<responses.ListMetricPropertiesResponse> {
-    logger.debug("Calling operation OccMetricsClient#listMetricProperties.");
+    if (this.logger) this.logger.debug("Calling operation OccMetricsClient#listMetricProperties.");
     const operationName = "listMetricProperties";
     const apiReferenceLink = "";
     const pathParams = {
@@ -223,6 +227,7 @@ export class OccMetricsClient {
       listMetricPropertiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -278,7 +283,7 @@ export class OccMetricsClient {
   public async listNamespaces(
     listNamespacesRequest: requests.ListNamespacesRequest
   ): Promise<responses.ListNamespacesResponse> {
-    logger.debug("Calling operation OccMetricsClient#listNamespaces.");
+    if (this.logger) this.logger.debug("Calling operation OccMetricsClient#listNamespaces.");
     const operationName = "listNamespaces";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -300,6 +305,7 @@ export class OccMetricsClient {
       listNamespacesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -357,7 +363,8 @@ export class OccMetricsClient {
   public async requestSummarizedMetricData(
     requestSummarizedMetricDataRequest: requests.RequestSummarizedMetricDataRequest
   ): Promise<responses.RequestSummarizedMetricDataResponse> {
-    logger.debug("Calling operation OccMetricsClient#requestSummarizedMetricData.");
+    if (this.logger)
+      this.logger.debug("Calling operation OccMetricsClient#requestSummarizedMetricData.");
     const operationName = "requestSummarizedMetricData";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -378,6 +385,7 @@ export class OccMetricsClient {
       requestSummarizedMetricDataRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -152,7 +152,7 @@ export namespace FsuCycle {
         case "PATCH":
           return model.PatchFsuCycle.getJsonObj(<model.PatchFsuCycle>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -190,7 +190,7 @@ export namespace FsuCycle {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

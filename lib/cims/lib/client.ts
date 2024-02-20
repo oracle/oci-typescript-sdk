@@ -26,8 +26,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -43,7 +42,7 @@ export class IncidentClient {
   protected static serviceEndpointTemplate =
     "https://incidentmanagement.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -123,7 +122,11 @@ export class IncidentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181231";
-    logger.info(`IncidentClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`IncidentClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -133,9 +136,10 @@ export class IncidentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         IncidentClient.serviceEndpointTemplate,
@@ -204,7 +208,7 @@ export class IncidentClient {
   public async createIncident(
     createIncidentRequest: requests.CreateIncidentRequest
   ): Promise<responses.CreateIncidentResponse> {
-    logger.debug("Calling operation IncidentClient#createIncident.");
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#createIncident.");
     const operationName = "createIncident";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Incident/CreateIncident";
@@ -229,6 +233,7 @@ export class IncidentClient {
       createIncidentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -283,7 +288,7 @@ export class IncidentClient {
   public async getCsiNumber(
     getCsiNumberRequest: requests.GetCsiNumberRequest
   ): Promise<responses.GetCsiNumberResponse> {
-    logger.debug("Calling operation IncidentClient#getCsiNumber.");
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#getCsiNumber.");
     const operationName = "getCsiNumber";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -310,6 +315,7 @@ export class IncidentClient {
       getCsiNumberRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -359,7 +365,7 @@ export class IncidentClient {
   public async getIncident(
     getIncidentRequest: requests.GetIncidentRequest
   ): Promise<responses.GetIncidentResponse> {
-    logger.debug("Calling operation IncidentClient#getIncident.");
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#getIncident.");
     const operationName = "getIncident";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Incident/GetIncident";
@@ -390,6 +396,7 @@ export class IncidentClient {
       getIncidentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -439,7 +446,7 @@ export class IncidentClient {
   public async getStatus(
     getStatusRequest: requests.GetStatusRequest
   ): Promise<responses.GetStatusResponse> {
-    logger.debug("Calling operation IncidentClient#getStatus.");
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#getStatus.");
     const operationName = "getStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Status/GetStatus";
@@ -460,6 +467,7 @@ export class IncidentClient {
       getStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -509,7 +517,8 @@ export class IncidentClient {
   public async listIncidentResourceTypes(
     listIncidentResourceTypesRequest: requests.ListIncidentResourceTypesRequest
   ): Promise<responses.ListIncidentResourceTypesResponse> {
-    logger.debug("Calling operation IncidentClient#listIncidentResourceTypes.");
+    if (this.logger)
+      this.logger.debug("Calling operation IncidentClient#listIncidentResourceTypes.");
     const operationName = "listIncidentResourceTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/IncidentResourceType/ListIncidentResourceTypes";
@@ -540,6 +549,7 @@ export class IncidentClient {
       listIncidentResourceTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -646,7 +656,7 @@ export class IncidentClient {
   public async listIncidents(
     listIncidentsRequest: requests.ListIncidentsRequest
   ): Promise<responses.ListIncidentsResponse> {
-    logger.debug("Calling operation IncidentClient#listIncidents.");
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#listIncidents.");
     const operationName = "listIncidents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/IncidentSummary/ListIncidents";
@@ -680,6 +690,7 @@ export class IncidentClient {
       listIncidentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -796,7 +807,7 @@ export class IncidentClient {
   public async updateIncident(
     updateIncidentRequest: requests.UpdateIncidentRequest
   ): Promise<responses.UpdateIncidentResponse> {
-    logger.debug("Calling operation IncidentClient#updateIncident.");
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#updateIncident.");
     const operationName = "updateIncident";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/UpdateIncident/UpdateIncident";
@@ -827,6 +838,7 @@ export class IncidentClient {
       updateIncidentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -881,7 +893,7 @@ export class IncidentClient {
   public async validateUser(
     validateUserRequest: requests.ValidateUserRequest
   ): Promise<responses.ValidateUserResponse> {
-    logger.debug("Calling operation IncidentClient#validateUser.");
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#validateUser.");
     const operationName = "validateUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/ValidationResponse/ValidateUser";
@@ -909,6 +921,7 @@ export class IncidentClient {
       validateUserRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

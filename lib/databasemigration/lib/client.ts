@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum DatabaseMigrationApiKeys {}
 export class DatabaseMigrationClient {
   protected static serviceEndpointTemplate = "https://odms.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DatabaseMigrationWaiter;
@@ -117,7 +116,11 @@ export class DatabaseMigrationClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210929";
-    logger.info(`DatabaseMigrationClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DatabaseMigrationClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class DatabaseMigrationClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DatabaseMigrationClient.serviceEndpointTemplate,
@@ -222,7 +226,7 @@ export class DatabaseMigrationClient {
   public async abortJob(
     abortJobRequest: requests.AbortJobRequest
   ): Promise<responses.AbortJobResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#abortJob.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#abortJob.");
     const operationName = "abortJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/AbortJob";
@@ -245,6 +249,7 @@ export class DatabaseMigrationClient {
       abortJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -300,7 +305,8 @@ export class DatabaseMigrationClient {
   public async addMigrationObjects(
     addMigrationObjectsRequest: requests.AddMigrationObjectsRequest
   ): Promise<responses.AddMigrationObjectsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#addMigrationObjects.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#addMigrationObjects.");
     const operationName = "addMigrationObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/AddMigrationObjects";
@@ -322,6 +328,7 @@ export class DatabaseMigrationClient {
       addMigrationObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -373,7 +380,8 @@ export class DatabaseMigrationClient {
   public async changeAgentCompartment(
     changeAgentCompartmentRequest: requests.ChangeAgentCompartmentRequest
   ): Promise<responses.ChangeAgentCompartmentResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#changeAgentCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#changeAgentCompartment.");
     const operationName = "changeAgentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Agent/ChangeAgentCompartment";
@@ -396,6 +404,7 @@ export class DatabaseMigrationClient {
       changeAgentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -447,7 +456,8 @@ export class DatabaseMigrationClient {
   public async changeConnectionCompartment(
     changeConnectionCompartmentRequest: requests.ChangeConnectionCompartmentRequest
   ): Promise<responses.ChangeConnectionCompartmentResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#changeConnectionCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#changeConnectionCompartment.");
     const operationName = "changeConnectionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/ChangeConnectionCompartment";
@@ -470,6 +480,7 @@ export class DatabaseMigrationClient {
       changeConnectionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -521,7 +532,8 @@ export class DatabaseMigrationClient {
   public async changeMigrationCompartment(
     changeMigrationCompartmentRequest: requests.ChangeMigrationCompartmentRequest
   ): Promise<responses.ChangeMigrationCompartmentResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#changeMigrationCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#changeMigrationCompartment.");
     const operationName = "changeMigrationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/ChangeMigrationCompartment";
@@ -544,6 +556,7 @@ export class DatabaseMigrationClient {
       changeMigrationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -595,7 +608,7 @@ export class DatabaseMigrationClient {
   public async cloneMigration(
     cloneMigrationRequest: requests.CloneMigrationRequest
   ): Promise<responses.CloneMigrationResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#cloneMigration.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#cloneMigration.");
     const operationName = "cloneMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/CloneMigration";
@@ -618,6 +631,7 @@ export class DatabaseMigrationClient {
       cloneMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -683,7 +697,8 @@ export class DatabaseMigrationClient {
   public async connectionDiagnostics(
     connectionDiagnosticsRequest: requests.ConnectionDiagnosticsRequest
   ): Promise<responses.ConnectionDiagnosticsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#connectionDiagnostics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#connectionDiagnostics.");
     const operationName = "connectionDiagnostics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/ConnectionDiagnostics";
@@ -706,6 +721,7 @@ export class DatabaseMigrationClient {
       connectionDiagnosticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -762,7 +778,8 @@ export class DatabaseMigrationClient {
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#createConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#createConnection.");
     const operationName = "createConnection";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -781,6 +798,7 @@ export class DatabaseMigrationClient {
       createConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -848,7 +866,8 @@ export class DatabaseMigrationClient {
   public async createMigration(
     createMigrationRequest: requests.CreateMigrationRequest
   ): Promise<responses.CreateMigrationResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#createMigration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#createMigration.");
     const operationName = "createMigration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -867,6 +886,7 @@ export class DatabaseMigrationClient {
       createMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -932,7 +952,7 @@ export class DatabaseMigrationClient {
   public async deleteAgent(
     deleteAgentRequest: requests.DeleteAgentRequest
   ): Promise<responses.DeleteAgentResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#deleteAgent.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#deleteAgent.");
     const operationName = "deleteAgent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Agent/DeleteAgent";
@@ -954,6 +974,7 @@ export class DatabaseMigrationClient {
       deleteAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1005,7 +1026,8 @@ export class DatabaseMigrationClient {
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#deleteConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#deleteConnection.");
     const operationName = "deleteConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/DeleteConnection";
@@ -1027,6 +1049,7 @@ export class DatabaseMigrationClient {
       deleteConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1078,7 +1101,7 @@ export class DatabaseMigrationClient {
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#deleteJob.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#deleteJob.");
     const operationName = "deleteJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/DeleteJob";
@@ -1100,6 +1123,7 @@ export class DatabaseMigrationClient {
       deleteJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1146,7 +1170,8 @@ export class DatabaseMigrationClient {
   public async deleteMigration(
     deleteMigrationRequest: requests.DeleteMigrationRequest
   ): Promise<responses.DeleteMigrationResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#deleteMigration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#deleteMigration.");
     const operationName = "deleteMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/DeleteMigration";
@@ -1168,6 +1193,7 @@ export class DatabaseMigrationClient {
       deleteMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1219,7 +1245,8 @@ export class DatabaseMigrationClient {
   public async evaluateMigration(
     evaluateMigrationRequest: requests.EvaluateMigrationRequest
   ): Promise<responses.EvaluateMigrationResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#evaluateMigration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#evaluateMigration.");
     const operationName = "evaluateMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/EvaluateMigration";
@@ -1242,6 +1269,7 @@ export class DatabaseMigrationClient {
       evaluateMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1302,7 +1330,8 @@ export class DatabaseMigrationClient {
   public async getAdvisorReport(
     getAdvisorReportRequest: requests.GetAdvisorReportRequest
   ): Promise<responses.GetAdvisorReportResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#getAdvisorReport.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#getAdvisorReport.");
     const operationName = "getAdvisorReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/GetAdvisorReport";
@@ -1323,6 +1352,7 @@ export class DatabaseMigrationClient {
       getAdvisorReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1378,7 +1408,7 @@ export class DatabaseMigrationClient {
   public async getAgent(
     getAgentRequest: requests.GetAgentRequest
   ): Promise<responses.GetAgentResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#getAgent.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getAgent.");
     const operationName = "getAgent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Agent/GetAgent";
@@ -1399,6 +1429,7 @@ export class DatabaseMigrationClient {
       getAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1454,7 +1485,7 @@ export class DatabaseMigrationClient {
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#getConnection.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getConnection.");
     const operationName = "getConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/GetConnection";
@@ -1475,6 +1506,7 @@ export class DatabaseMigrationClient {
       getConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1528,7 +1560,7 @@ export class DatabaseMigrationClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#getJob.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getJob.");
     const operationName = "getJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/GetJob";
@@ -1549,6 +1581,7 @@ export class DatabaseMigrationClient {
       getJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1604,7 +1637,8 @@ export class DatabaseMigrationClient {
   public async getJobOutputContent(
     getJobOutputContentRequest: requests.GetJobOutputContentRequest
   ): Promise<responses.GetJobOutputContentResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#getJobOutputContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#getJobOutputContent.");
     const operationName = "getJobOutputContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/GetJobOutputContent";
@@ -1625,6 +1659,7 @@ export class DatabaseMigrationClient {
       getJobOutputContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1675,7 +1710,7 @@ export class DatabaseMigrationClient {
   public async getMigration(
     getMigrationRequest: requests.GetMigrationRequest
   ): Promise<responses.GetMigrationResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#getMigration.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getMigration.");
     const operationName = "getMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/GetMigration";
@@ -1697,6 +1732,7 @@ export class DatabaseMigrationClient {
       getMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1752,7 +1788,7 @@ export class DatabaseMigrationClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/WorkRequest/GetWorkRequest";
@@ -1773,6 +1809,7 @@ export class DatabaseMigrationClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1823,7 +1860,8 @@ export class DatabaseMigrationClient {
   public async listAgentImages(
     listAgentImagesRequest: requests.ListAgentImagesRequest
   ): Promise<responses.ListAgentImagesResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listAgentImages.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listAgentImages.");
     const operationName = "listAgentImages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/AgentImageSummary/ListAgentImages";
@@ -1846,6 +1884,7 @@ export class DatabaseMigrationClient {
       listAgentImagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1901,7 +1940,7 @@ export class DatabaseMigrationClient {
   public async listAgents(
     listAgentsRequest: requests.ListAgentsRequest
   ): Promise<responses.ListAgentsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listAgents.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listAgents.");
     const operationName = "listAgents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/AgentSummary/ListAgents";
@@ -1928,6 +1967,7 @@ export class DatabaseMigrationClient {
       listAgentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1983,7 +2023,8 @@ export class DatabaseMigrationClient {
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listConnections.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listConnections.");
     const operationName = "listConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/ConnectionSummary/ListConnections";
@@ -2010,6 +2051,7 @@ export class DatabaseMigrationClient {
       listConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2065,7 +2107,8 @@ export class DatabaseMigrationClient {
   public async listExcludedObjects(
     listExcludedObjectsRequest: requests.ListExcludedObjectsRequest
   ): Promise<responses.ListExcludedObjectsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listExcludedObjects.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listExcludedObjects.");
     const operationName = "listExcludedObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/ExcludedObjectSummary/ListExcludedObjects";
@@ -2098,6 +2141,7 @@ export class DatabaseMigrationClient {
       listExcludedObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2153,7 +2197,7 @@ export class DatabaseMigrationClient {
   public async listJobOutputs(
     listJobOutputsRequest: requests.ListJobOutputsRequest
   ): Promise<responses.ListJobOutputsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listJobOutputs.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listJobOutputs.");
     const operationName = "listJobOutputs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/JobOutputSummary/ListJobOutputs";
@@ -2177,6 +2221,7 @@ export class DatabaseMigrationClient {
       listJobOutputsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2233,7 +2278,7 @@ export class DatabaseMigrationClient {
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listJobs.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listJobs.");
     const operationName = "listJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/JobSummary/ListJobs";
@@ -2260,6 +2305,7 @@ export class DatabaseMigrationClient {
       listJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2315,7 +2361,8 @@ export class DatabaseMigrationClient {
   public async listMigrationObjectTypes(
     listMigrationObjectTypesRequest: requests.ListMigrationObjectTypesRequest
   ): Promise<responses.ListMigrationObjectTypesResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listMigrationObjectTypes.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listMigrationObjectTypes.");
     const operationName = "listMigrationObjectTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/MigrationObjectTypeSummary/ListMigrationObjectTypes";
@@ -2339,6 +2386,7 @@ export class DatabaseMigrationClient {
       listMigrationObjectTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2394,7 +2442,8 @@ export class DatabaseMigrationClient {
   public async listMigrationObjects(
     listMigrationObjectsRequest: requests.ListMigrationObjectsRequest
   ): Promise<responses.ListMigrationObjectsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listMigrationObjects.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listMigrationObjects.");
     const operationName = "listMigrationObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/MigrationObjectCollection/ListMigrationObjects";
@@ -2419,6 +2468,7 @@ export class DatabaseMigrationClient {
       listMigrationObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2474,7 +2524,7 @@ export class DatabaseMigrationClient {
   public async listMigrations(
     listMigrationsRequest: requests.ListMigrationsRequest
   ): Promise<responses.ListMigrationsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listMigrations.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listMigrations.");
     const operationName = "listMigrations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/MigrationSummary/ListMigrations";
@@ -2502,6 +2552,7 @@ export class DatabaseMigrationClient {
       listMigrationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2557,7 +2608,8 @@ export class DatabaseMigrationClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/WorkRequestError/ListWorkRequestErrors";
@@ -2583,6 +2635,7 @@ export class DatabaseMigrationClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2638,7 +2691,8 @@ export class DatabaseMigrationClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -2664,6 +2718,7 @@ export class DatabaseMigrationClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2719,7 +2774,8 @@ export class DatabaseMigrationClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/WorkRequestSummary/ListWorkRequests";
@@ -2746,6 +2802,7 @@ export class DatabaseMigrationClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2801,7 +2858,8 @@ export class DatabaseMigrationClient {
   public async removeMigrationObjects(
     removeMigrationObjectsRequest: requests.RemoveMigrationObjectsRequest
   ): Promise<responses.RemoveMigrationObjectsResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#removeMigrationObjects.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#removeMigrationObjects.");
     const operationName = "removeMigrationObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/RemoveMigrationObjects";
@@ -2823,6 +2881,7 @@ export class DatabaseMigrationClient {
       removeMigrationObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2874,7 +2933,7 @@ export class DatabaseMigrationClient {
   public async resumeJob(
     resumeJobRequest: requests.ResumeJobRequest
   ): Promise<responses.ResumeJobResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#resumeJob.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#resumeJob.");
     const operationName = "resumeJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/ResumeJob";
@@ -2897,6 +2956,7 @@ export class DatabaseMigrationClient {
       resumeJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2957,7 +3017,8 @@ export class DatabaseMigrationClient {
   public async retrieveSupportedPhases(
     retrieveSupportedPhasesRequest: requests.RetrieveSupportedPhasesRequest
   ): Promise<responses.RetrieveSupportedPhasesResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#retrieveSupportedPhases.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#retrieveSupportedPhases.");
     const operationName = "retrieveSupportedPhases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/RetrieveSupportedPhases";
@@ -2978,6 +3039,7 @@ export class DatabaseMigrationClient {
       retrieveSupportedPhasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3028,7 +3090,7 @@ export class DatabaseMigrationClient {
   public async startMigration(
     startMigrationRequest: requests.StartMigrationRequest
   ): Promise<responses.StartMigrationResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#startMigration.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#startMigration.");
     const operationName = "startMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/StartMigration";
@@ -3051,6 +3113,7 @@ export class DatabaseMigrationClient {
       startMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3116,7 +3179,7 @@ export class DatabaseMigrationClient {
   public async updateAgent(
     updateAgentRequest: requests.UpdateAgentRequest
   ): Promise<responses.UpdateAgentResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#updateAgent.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#updateAgent.");
     const operationName = "updateAgent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Agent/UpdateAgent";
@@ -3139,6 +3202,7 @@ export class DatabaseMigrationClient {
       updateAgentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3199,7 +3263,8 @@ export class DatabaseMigrationClient {
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#updateConnection.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#updateConnection.");
     const operationName = "updateConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/UpdateConnection";
@@ -3221,6 +3286,7 @@ export class DatabaseMigrationClient {
       updateConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3277,7 +3343,7 @@ export class DatabaseMigrationClient {
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#updateJob.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#updateJob.");
     const operationName = "updateJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/UpdateJob";
@@ -3299,6 +3365,7 @@ export class DatabaseMigrationClient {
       updateJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3359,7 +3426,8 @@ export class DatabaseMigrationClient {
   public async updateMigration(
     updateMigrationRequest: requests.UpdateMigrationRequest
   ): Promise<responses.UpdateMigrationResponse> {
-    logger.debug("Calling operation DatabaseMigrationClient#updateMigration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#updateMigration.");
     const operationName = "updateMigration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/UpdateMigration";
@@ -3381,6 +3449,7 @@ export class DatabaseMigrationClient {
       updateMigrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

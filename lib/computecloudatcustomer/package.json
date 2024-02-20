@@ -1,6 +1,6 @@
 {
   "name": "oci-computecloudatcustomer",
-  "version": "2.79.1",
+  "version": "2.80.0",
   "description": "OCI NodeJS client for Compute Cloud At Customer Service",
   "repository": {
     "type": "git",

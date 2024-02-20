@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class StackMonitoringClient {
   protected static serviceEndpointTemplate =
     "https://stack-monitoring.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": StackMonitoringWaiter;
@@ -118,7 +117,11 @@ export class StackMonitoringClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210330";
-    logger.info(`StackMonitoringClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`StackMonitoringClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class StackMonitoringClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         StackMonitoringClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class StackMonitoringClient {
   public async associateMonitoredResources(
     associateMonitoredResourcesRequest: requests.AssociateMonitoredResourcesRequest
   ): Promise<responses.AssociateMonitoredResourcesResponse> {
-    logger.debug("Calling operation StackMonitoringClient#associateMonitoredResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#associateMonitoredResources.");
     const operationName = "associateMonitoredResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/AssociateMonitoredResources";
@@ -246,6 +251,7 @@ export class StackMonitoringClient {
       associateMonitoredResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -316,7 +322,8 @@ When provided, If-Match is checked against ETag values of the resource.
   public async changeConfigCompartment(
     changeConfigCompartmentRequest: requests.ChangeConfigCompartmentRequest
   ): Promise<responses.ChangeConfigCompartmentResponse> {
-    logger.debug("Calling operation StackMonitoringClient#changeConfigCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#changeConfigCompartment.");
     const operationName = "changeConfigCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/ChangeConfigCompartment";
@@ -339,6 +346,7 @@ When provided, If-Match is checked against ETag values of the resource.
       changeConfigCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -391,7 +399,10 @@ When provided, If-Match is checked against ETag values of the resource.
   public async changeMetricExtensionCompartment(
     changeMetricExtensionCompartmentRequest: requests.ChangeMetricExtensionCompartmentRequest
   ): Promise<responses.ChangeMetricExtensionCompartmentResponse> {
-    logger.debug("Calling operation StackMonitoringClient#changeMetricExtensionCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#changeMetricExtensionCompartment."
+      );
     const operationName = "changeMetricExtensionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/ChangeMetricExtensionCompartment";
@@ -414,6 +425,7 @@ When provided, If-Match is checked against ETag values of the resource.
       changeMetricExtensionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -466,7 +478,10 @@ When provided, If-Match is checked against ETag values of the resource.
   public async changeMonitoredResourceCompartment(
     changeMonitoredResourceCompartmentRequest: requests.ChangeMonitoredResourceCompartmentRequest
   ): Promise<responses.ChangeMonitoredResourceCompartmentResponse> {
-    logger.debug("Calling operation StackMonitoringClient#changeMonitoredResourceCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#changeMonitoredResourceCompartment."
+      );
     const operationName = "changeMonitoredResourceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/ChangeMonitoredResourceCompartment";
@@ -489,6 +504,7 @@ When provided, If-Match is checked against ETag values of the resource.
       changeMonitoredResourceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -545,7 +561,10 @@ When provided, If-Match is checked against ETag values of the resource.
   public async changeMonitoredResourceTaskCompartment(
     changeMonitoredResourceTaskCompartmentRequest: requests.ChangeMonitoredResourceTaskCompartmentRequest
   ): Promise<responses.ChangeMonitoredResourceTaskCompartmentResponse> {
-    logger.debug("Calling operation StackMonitoringClient#changeMonitoredResourceTaskCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#changeMonitoredResourceTaskCompartment."
+      );
     const operationName = "changeMonitoredResourceTaskCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/monitoredResourceTask/ChangeMonitoredResourceTaskCompartment";
@@ -569,6 +588,7 @@ When provided, If-Match is checked against ETag values of the resource.
       changeMonitoredResourceTaskCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -620,7 +640,8 @@ When provided, If-Match is checked against ETag values of the resource.
   public async changeProcessSetCompartment(
     changeProcessSetCompartmentRequest: requests.ChangeProcessSetCompartmentRequest
   ): Promise<responses.ChangeProcessSetCompartmentResponse> {
-    logger.debug("Calling operation StackMonitoringClient#changeProcessSetCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#changeProcessSetCompartment.");
     const operationName = "changeProcessSetCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/ProcessSet/ChangeProcessSetCompartment";
@@ -643,6 +664,7 @@ When provided, If-Match is checked against ETag values of the resource.
       changeProcessSetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -693,7 +715,8 @@ When provided, If-Match is checked against ETag values of the resource.
   public async createBaselineableMetric(
     createBaselineableMetricRequest: requests.CreateBaselineableMetricRequest
   ): Promise<responses.CreateBaselineableMetricResponse> {
-    logger.debug("Calling operation StackMonitoringClient#createBaselineableMetric.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createBaselineableMetric.");
     const operationName = "createBaselineableMetric";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/CreateBaselineableMetricDetails/CreateBaselineableMetric";
@@ -713,6 +736,7 @@ When provided, If-Match is checked against ETag values of the resource.
       createBaselineableMetricRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -784,7 +808,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async createConfig(
     createConfigRequest: requests.CreateConfigRequest
   ): Promise<responses.CreateConfigResponse> {
-    logger.debug("Calling operation StackMonitoringClient#createConfig.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#createConfig.");
     const operationName = "createConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/CreateConfig";
@@ -804,6 +828,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       createConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -864,7 +889,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async createDiscoveryJob(
     createDiscoveryJobRequest: requests.CreateDiscoveryJobRequest
   ): Promise<responses.CreateDiscoveryJobResponse> {
-    logger.debug("Calling operation StackMonitoringClient#createDiscoveryJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createDiscoveryJob.");
     const operationName = "createDiscoveryJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJob/CreateDiscoveryJob";
@@ -884,6 +910,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       createDiscoveryJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -944,7 +971,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async createMetricExtension(
     createMetricExtensionRequest: requests.CreateMetricExtensionRequest
   ): Promise<responses.CreateMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#createMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMetricExtension.");
     const operationName = "createMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/CreateMetricExtension";
@@ -964,6 +992,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       createMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1031,7 +1060,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async createMonitoredResource(
     createMonitoredResourceRequest: requests.CreateMonitoredResourceRequest
   ): Promise<responses.CreateMonitoredResourceResponse> {
-    logger.debug("Calling operation StackMonitoringClient#createMonitoredResource.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMonitoredResource.");
     const operationName = "createMonitoredResource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/CreateMonitoredResource";
@@ -1052,6 +1082,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       createMonitoredResourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1131,7 +1162,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async createMonitoredResourceTask(
     createMonitoredResourceTaskRequest: requests.CreateMonitoredResourceTaskRequest
   ): Promise<responses.CreateMonitoredResourceTaskResponse> {
-    logger.debug("Calling operation StackMonitoringClient#createMonitoredResourceTask.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMonitoredResourceTask.");
     const operationName = "createMonitoredResourceTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/CreateMonitoredResourceTask";
@@ -1151,6 +1183,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       createMonitoredResourceTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1215,7 +1248,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async createMonitoredResourceType(
     createMonitoredResourceTypeRequest: requests.CreateMonitoredResourceTypeRequest
   ): Promise<responses.CreateMonitoredResourceTypeResponse> {
-    logger.debug("Calling operation StackMonitoringClient#createMonitoredResourceType.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMonitoredResourceType.");
     const operationName = "createMonitoredResourceType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/CreateMonitoredResourceType";
@@ -1235,6 +1269,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       createMonitoredResourceTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1294,7 +1329,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async createProcessSet(
     createProcessSetRequest: requests.CreateProcessSetRequest
   ): Promise<responses.CreateProcessSetResponse> {
-    logger.debug("Calling operation StackMonitoringClient#createProcessSet.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#createProcessSet.");
     const operationName = "createProcessSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/ProcessSet/CreateProcessSet";
@@ -1314,6 +1349,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       createProcessSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1373,7 +1409,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async deleteBaselineableMetric(
     deleteBaselineableMetricRequest: requests.DeleteBaselineableMetricRequest
   ): Promise<responses.DeleteBaselineableMetricResponse> {
-    logger.debug("Calling operation StackMonitoringClient#deleteBaselineableMetric.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteBaselineableMetric.");
     const operationName = "deleteBaselineableMetric";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetric/DeleteBaselineableMetric";
@@ -1395,6 +1432,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       deleteBaselineableMetricRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1445,7 +1483,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async deleteConfig(
     deleteConfigRequest: requests.DeleteConfigRequest
   ): Promise<responses.DeleteConfigResponse> {
-    logger.debug("Calling operation StackMonitoringClient#deleteConfig.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#deleteConfig.");
     const operationName = "deleteConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/DeleteConfig";
@@ -1467,6 +1505,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       deleteConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1512,7 +1551,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async deleteDiscoveryJob(
     deleteDiscoveryJobRequest: requests.DeleteDiscoveryJobRequest
   ): Promise<responses.DeleteDiscoveryJobResponse> {
-    logger.debug("Calling operation StackMonitoringClient#deleteDiscoveryJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteDiscoveryJob.");
     const operationName = "deleteDiscoveryJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJob/DeleteDiscoveryJob";
@@ -1534,6 +1574,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       deleteDiscoveryJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1579,7 +1620,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async deleteMetricExtension(
     deleteMetricExtensionRequest: requests.DeleteMetricExtensionRequest
   ): Promise<responses.DeleteMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#deleteMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteMetricExtension.");
     const operationName = "deleteMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/DeleteMetricExtension";
@@ -1601,6 +1643,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       deleteMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1650,7 +1693,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async deleteMonitoredResource(
     deleteMonitoredResourceRequest: requests.DeleteMonitoredResourceRequest
   ): Promise<responses.DeleteMonitoredResourceResponse> {
-    logger.debug("Calling operation StackMonitoringClient#deleteMonitoredResource.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteMonitoredResource.");
     const operationName = "deleteMonitoredResource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/DeleteMonitoredResource";
@@ -1674,6 +1718,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       deleteMonitoredResourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1724,7 +1769,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async deleteMonitoredResourceType(
     deleteMonitoredResourceTypeRequest: requests.DeleteMonitoredResourceTypeRequest
   ): Promise<responses.DeleteMonitoredResourceTypeResponse> {
-    logger.debug("Calling operation StackMonitoringClient#deleteMonitoredResourceType.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteMonitoredResourceType.");
     const operationName = "deleteMonitoredResourceType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/DeleteMonitoredResourceType";
@@ -1746,6 +1792,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       deleteMonitoredResourceTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1791,7 +1838,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async deleteProcessSet(
     deleteProcessSetRequest: requests.DeleteProcessSetRequest
   ): Promise<responses.DeleteProcessSetResponse> {
-    logger.debug("Calling operation StackMonitoringClient#deleteProcessSet.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#deleteProcessSet.");
     const operationName = "deleteProcessSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/ProcessSet/DeleteProcessSet";
@@ -1813,6 +1860,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       deleteProcessSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1860,7 +1908,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async disableExternalDatabase(
     disableExternalDatabaseRequest: requests.DisableExternalDatabaseRequest
   ): Promise<responses.DisableExternalDatabaseResponse> {
-    logger.debug("Calling operation StackMonitoringClient#disableExternalDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#disableExternalDatabase.");
     const operationName = "disableExternalDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/DisableExternalDatabase";
@@ -1883,6 +1932,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       disableExternalDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1934,7 +1984,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async disableMetricExtension(
     disableMetricExtensionRequest: requests.DisableMetricExtensionRequest
   ): Promise<responses.DisableMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#disableMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#disableMetricExtension.");
     const operationName = "disableMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/DisableMetricExtension";
@@ -1957,6 +2008,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       disableMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2012,7 +2064,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async disassociateMonitoredResources(
     disassociateMonitoredResourcesRequest: requests.DisassociateMonitoredResourcesRequest
   ): Promise<responses.DisassociateMonitoredResourcesResponse> {
-    logger.debug("Calling operation StackMonitoringClient#disassociateMonitoredResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#disassociateMonitoredResources.");
     const operationName = "disassociateMonitoredResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/DisassociateMonitoredResources";
@@ -2033,6 +2086,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       disassociateMonitoredResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2084,7 +2138,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async enableMetricExtension(
     enableMetricExtensionRequest: requests.EnableMetricExtensionRequest
   ): Promise<responses.EnableMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#enableMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#enableMetricExtension.");
     const operationName = "enableMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/EnableMetricExtension";
@@ -2107,6 +2162,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       enableMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2162,7 +2218,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async evaluateBaselineableMetric(
     evaluateBaselineableMetricRequest: requests.EvaluateBaselineableMetricRequest
   ): Promise<responses.EvaluateBaselineableMetricResponse> {
-    logger.debug("Calling operation StackMonitoringClient#evaluateBaselineableMetric.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#evaluateBaselineableMetric.");
     const operationName = "evaluateBaselineableMetric";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/EvaluateBaselineableMetricResult/EvaluateBaselineableMetric";
@@ -2185,6 +2242,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       evaluateBaselineableMetricRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2246,7 +2304,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async exportMetricExtension(
     exportMetricExtensionRequest: requests.ExportMetricExtensionRequest
   ): Promise<responses.ExportMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#exportMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#exportMetricExtension.");
     const operationName = "exportMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/ExportMetricExtension";
@@ -2269,6 +2328,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       exportMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2323,7 +2383,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getBaselineableMetric(
     getBaselineableMetricRequest: requests.GetBaselineableMetricRequest
   ): Promise<responses.GetBaselineableMetricResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getBaselineableMetric.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getBaselineableMetric.");
     const operationName = "getBaselineableMetric";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetric/GetBaselineableMetric";
@@ -2344,6 +2405,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getBaselineableMetricRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2403,7 +2465,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getConfig(
     getConfigRequest: requests.GetConfigRequest
   ): Promise<responses.GetConfigResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getConfig.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#getConfig.");
     const operationName = "getConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/GetConfig";
@@ -2424,6 +2486,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2479,7 +2542,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getDiscoveryJob(
     getDiscoveryJobRequest: requests.GetDiscoveryJobRequest
   ): Promise<responses.GetDiscoveryJobResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getDiscoveryJob.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#getDiscoveryJob.");
     const operationName = "getDiscoveryJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJob/GetDiscoveryJob";
@@ -2500,6 +2563,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getDiscoveryJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2554,7 +2618,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getMetricExtension(
     getMetricExtensionRequest: requests.GetMetricExtensionRequest
   ): Promise<responses.GetMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMetricExtension.");
     const operationName = "getMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/GetMetricExtension";
@@ -2575,6 +2640,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2630,7 +2696,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getMonitoredResource(
     getMonitoredResourceRequest: requests.GetMonitoredResourceRequest
   ): Promise<responses.GetMonitoredResourceResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getMonitoredResource.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMonitoredResource.");
     const operationName = "getMonitoredResource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/GetMonitoredResource";
@@ -2651,6 +2718,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getMonitoredResourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2705,7 +2773,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getMonitoredResourceTask(
     getMonitoredResourceTaskRequest: requests.GetMonitoredResourceTaskRequest
   ): Promise<responses.GetMonitoredResourceTaskResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getMonitoredResourceTask.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMonitoredResourceTask.");
     const operationName = "getMonitoredResourceTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/GetMonitoredResourceTask";
@@ -2726,6 +2795,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getMonitoredResourceTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2780,7 +2850,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getMonitoredResourceType(
     getMonitoredResourceTypeRequest: requests.GetMonitoredResourceTypeRequest
   ): Promise<responses.GetMonitoredResourceTypeResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getMonitoredResourceType.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMonitoredResourceType.");
     const operationName = "getMonitoredResourceType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/GetMonitoredResourceType";
@@ -2801,6 +2872,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getMonitoredResourceTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2855,7 +2927,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getProcessSet(
     getProcessSetRequest: requests.GetProcessSetRequest
   ): Promise<responses.GetProcessSetResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getProcessSet.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#getProcessSet.");
     const operationName = "getProcessSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/ProcessSet/GetProcessSet";
@@ -2876,6 +2948,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getProcessSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2930,7 +3003,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation StackMonitoringClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/WorkRequest/GetWorkRequest";
@@ -2951,6 +3024,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3005,7 +3079,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listBaselineableMetrics(
     listBaselineableMetricsRequest: requests.ListBaselineableMetricsRequest
   ): Promise<responses.ListBaselineableMetricsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listBaselineableMetrics.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listBaselineableMetrics.");
     const operationName = "listBaselineableMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetricSummary/ListBaselineableMetrics";
@@ -3034,6 +3109,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listBaselineableMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3094,7 +3170,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listConfigs(
     listConfigsRequest: requests.ListConfigsRequest
   ): Promise<responses.ListConfigsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listConfigs.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#listConfigs.");
     const operationName = "listConfigs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/ConfigCollection/ListConfigs";
@@ -3122,6 +3198,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listConfigsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3177,7 +3254,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listDiscoveryJobLogs(
     listDiscoveryJobLogsRequest: requests.ListDiscoveryJobLogsRequest
   ): Promise<responses.ListDiscoveryJobLogsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listDiscoveryJobLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listDiscoveryJobLogs.");
     const operationName = "listDiscoveryJobLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJobLogCollection/ListDiscoveryJobLogs";
@@ -3204,6 +3282,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listDiscoveryJobLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3259,7 +3338,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listDiscoveryJobs(
     listDiscoveryJobsRequest: requests.ListDiscoveryJobsRequest
   ): Promise<responses.ListDiscoveryJobsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listDiscoveryJobs.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listDiscoveryJobs.");
     const operationName = "listDiscoveryJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJobCollection/ListDiscoveryJobs";
@@ -3285,6 +3365,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listDiscoveryJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3339,7 +3420,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listMetricExtensions(
     listMetricExtensionsRequest: requests.ListMetricExtensionsRequest
   ): Promise<responses.ListMetricExtensionsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listMetricExtensions.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMetricExtensions.");
     const operationName = "listMetricExtensions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/ListMetricExtensions";
@@ -3369,6 +3451,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listMetricExtensionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3424,7 +3507,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listMonitoredResourceTasks(
     listMonitoredResourceTasksRequest: requests.ListMonitoredResourceTasksRequest
   ): Promise<responses.ListMonitoredResourceTasksResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listMonitoredResourceTasks.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMonitoredResourceTasks.");
     const operationName = "listMonitoredResourceTasks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/ListMonitoredResourceTasks";
@@ -3450,6 +3534,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listMonitoredResourceTasksRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3515,7 +3600,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listMonitoredResourceTypes(
     listMonitoredResourceTypesRequest: requests.ListMonitoredResourceTypesRequest
   ): Promise<responses.ListMonitoredResourceTypesResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listMonitoredResourceTypes.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMonitoredResourceTypes.");
     const operationName = "listMonitoredResourceTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/ListMonitoredResourceTypes";
@@ -3546,6 +3632,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listMonitoredResourceTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3605,7 +3692,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listMonitoredResources(
     listMonitoredResourcesRequest: requests.ListMonitoredResourcesRequest
   ): Promise<responses.ListMonitoredResourcesResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listMonitoredResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMonitoredResources.");
     const operationName = "listMonitoredResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/ListMonitoredResources";
@@ -3632,6 +3720,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listMonitoredResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3691,7 +3780,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listProcessSets(
     listProcessSetsRequest: requests.ListProcessSetsRequest
   ): Promise<responses.ListProcessSetsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listProcessSets.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#listProcessSets.");
     const operationName = "listProcessSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/ProcessSetCollection/ListProcessSets";
@@ -3717,6 +3806,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listProcessSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3772,7 +3862,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/WorkRequestErrorCollection/ListWorkRequestErrors";
@@ -3798,6 +3889,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3853,7 +3945,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/WorkRequestLogEntryCollection/ListWorkRequestLogs";
@@ -3879,6 +3972,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3934,7 +4028,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/WorkRequestSummaryCollection/ListWorkRequests";
@@ -3962,6 +4056,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4021,7 +4116,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async manageLicense(
     manageLicenseRequest: requests.ManageLicenseRequest
   ): Promise<responses.ManageLicenseResponse> {
-    logger.debug("Calling operation StackMonitoringClient#manageLicense.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#manageLicense.");
     const operationName = "manageLicense";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/ManageLicense";
@@ -4044,6 +4139,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       manageLicenseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4094,7 +4190,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async publishMetricExtension(
     publishMetricExtensionRequest: requests.PublishMetricExtensionRequest
   ): Promise<responses.PublishMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#publishMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#publishMetricExtension.");
     const operationName = "publishMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/PublishMetricExtension";
@@ -4117,6 +4214,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       publishMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4177,9 +4275,10 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async requestMonitoredResourcesSummarizedCount(
     requestMonitoredResourcesSummarizedCountRequest: requests.RequestMonitoredResourcesSummarizedCountRequest
   ): Promise<responses.RequestMonitoredResourcesSummarizedCountResponse> {
-    logger.debug(
-      "Calling operation StackMonitoringClient#requestMonitoredResourcesSummarizedCount."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#requestMonitoredResourcesSummarizedCount."
+      );
     const operationName = "requestMonitoredResourcesSummarizedCount";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/RequestMonitoredResourcesSummarizedCount";
@@ -4207,6 +4306,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       requestMonitoredResourcesSummarizedCountRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4268,7 +4368,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async searchAssociatedResources(
     searchAssociatedResourcesRequest: requests.SearchAssociatedResourcesRequest
   ): Promise<responses.SearchAssociatedResourcesResponse> {
-    logger.debug("Calling operation StackMonitoringClient#searchAssociatedResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#searchAssociatedResources.");
     const operationName = "searchAssociatedResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/SearchAssociatedResources";
@@ -4294,6 +4395,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       searchAssociatedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4359,7 +4461,10 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async searchMonitoredResourceAssociations(
     searchMonitoredResourceAssociationsRequest: requests.SearchMonitoredResourceAssociationsRequest
   ): Promise<responses.SearchMonitoredResourceAssociationsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#searchMonitoredResourceAssociations.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#searchMonitoredResourceAssociations."
+      );
     const operationName = "searchMonitoredResourceAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/SearchMonitoredResourceAssociations";
@@ -4383,6 +4488,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       searchMonitoredResourceAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4448,7 +4554,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async searchMonitoredResourceMembers(
     searchMonitoredResourceMembersRequest: requests.SearchMonitoredResourceMembersRequest
   ): Promise<responses.SearchMonitoredResourceMembersResponse> {
-    logger.debug("Calling operation StackMonitoringClient#searchMonitoredResourceMembers.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#searchMonitoredResourceMembers.");
     const operationName = "searchMonitoredResourceMembers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/SearchMonitoredResourceMembers";
@@ -4476,6 +4583,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       searchMonitoredResourceMembersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4541,7 +4649,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async searchMonitoredResources(
     searchMonitoredResourcesRequest: requests.SearchMonitoredResourcesRequest
   ): Promise<responses.SearchMonitoredResourcesResponse> {
-    logger.debug("Calling operation StackMonitoringClient#searchMonitoredResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#searchMonitoredResources.");
     const operationName = "searchMonitoredResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/SearchMonitoredResources";
@@ -4567,6 +4676,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       searchMonitoredResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4631,7 +4741,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async testMetricExtension(
     testMetricExtensionRequest: requests.TestMetricExtensionRequest
   ): Promise<responses.TestMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#testMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#testMetricExtension.");
     const operationName = "testMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/TestMetricExtension";
@@ -4654,6 +4765,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       testMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4722,7 +4834,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async updateAndPropagateTags(
     updateAndPropagateTagsRequest: requests.UpdateAndPropagateTagsRequest
   ): Promise<responses.UpdateAndPropagateTagsResponse> {
-    logger.debug("Calling operation StackMonitoringClient#updateAndPropagateTags.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateAndPropagateTags.");
     const operationName = "updateAndPropagateTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/UpdateAndPropagateTags";
@@ -4745,6 +4858,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       updateAndPropagateTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4800,7 +4914,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async updateBaselineableMetric(
     updateBaselineableMetricRequest: requests.UpdateBaselineableMetricRequest
   ): Promise<responses.UpdateBaselineableMetricResponse> {
-    logger.debug("Calling operation StackMonitoringClient#updateBaselineableMetric.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateBaselineableMetric.");
     const operationName = "updateBaselineableMetric";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/UpdateBaselineableMetricDetails/UpdateBaselineableMetric";
@@ -4822,6 +4937,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       updateBaselineableMetricRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4886,7 +5002,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async updateConfig(
     updateConfigRequest: requests.UpdateConfigRequest
   ): Promise<responses.UpdateConfigResponse> {
-    logger.debug("Calling operation StackMonitoringClient#updateConfig.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#updateConfig.");
     const operationName = "updateConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/UpdateConfig";
@@ -4908,6 +5024,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       updateConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4967,7 +5084,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async updateMetricExtension(
     updateMetricExtensionRequest: requests.UpdateMetricExtensionRequest
   ): Promise<responses.UpdateMetricExtensionResponse> {
-    logger.debug("Calling operation StackMonitoringClient#updateMetricExtension.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMetricExtension.");
     const operationName = "updateMetricExtension";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/UpdateMetricExtension";
@@ -4989,6 +5107,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       updateMetricExtensionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5056,7 +5175,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async updateMonitoredResource(
     updateMonitoredResourceRequest: requests.UpdateMonitoredResourceRequest
   ): Promise<responses.UpdateMonitoredResourceResponse> {
-    logger.debug("Calling operation StackMonitoringClient#updateMonitoredResource.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMonitoredResource.");
     const operationName = "updateMonitoredResource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/UpdateMonitoredResource";
@@ -5078,6 +5198,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       updateMonitoredResourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5134,7 +5255,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async updateMonitoredResourceTask(
     updateMonitoredResourceTaskRequest: requests.UpdateMonitoredResourceTaskRequest
   ): Promise<responses.UpdateMonitoredResourceTaskResponse> {
-    logger.debug("Calling operation StackMonitoringClient#updateMonitoredResourceTask.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMonitoredResourceTask.");
     const operationName = "updateMonitoredResourceTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/UpdateMonitoredResourceTask";
@@ -5156,6 +5278,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       updateMonitoredResourceTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5216,7 +5339,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async updateMonitoredResourceType(
     updateMonitoredResourceTypeRequest: requests.UpdateMonitoredResourceTypeRequest
   ): Promise<responses.UpdateMonitoredResourceTypeResponse> {
-    logger.debug("Calling operation StackMonitoringClient#updateMonitoredResourceType.");
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMonitoredResourceType.");
     const operationName = "updateMonitoredResourceType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceType/UpdateMonitoredResourceType";
@@ -5238,6 +5362,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       updateMonitoredResourceTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5297,7 +5422,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   public async updateProcessSet(
     updateProcessSetRequest: requests.UpdateProcessSetRequest
   ): Promise<responses.UpdateProcessSetResponse> {
-    logger.debug("Calling operation StackMonitoringClient#updateProcessSet.");
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#updateProcessSet.");
     const operationName = "updateProcessSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/ProcessSet/UpdateProcessSet";
@@ -5319,6 +5444,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       updateProcessSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

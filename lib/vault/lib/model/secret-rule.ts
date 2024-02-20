@@ -32,7 +32,7 @@ export namespace SecretRule {
         case "SECRET_REUSE_RULE":
           return model.SecretReuseRule.getJsonObj(<model.SecretReuseRule>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.ruleType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.ruleType}`);
       }
     }
     return jsonObj;
@@ -53,7 +53,7 @@ export namespace SecretRule {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.ruleType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.ruleType}`);
       }
     }
     return jsonObj;

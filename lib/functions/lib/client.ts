@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum FunctionsInvokeApiKeys {}
 export class FunctionsInvokeClient {
   protected static serviceEndpointTemplate = "https://functions.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -105,7 +104,11 @@ export class FunctionsInvokeClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
-    logger.info(`FunctionsInvokeClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`FunctionsInvokeClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -115,9 +118,10 @@ export class FunctionsInvokeClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
   }
 
   /**
@@ -140,7 +144,7 @@ export class FunctionsInvokeClient {
   public async invokeFunction(
     invokeFunctionRequest: requests.InvokeFunctionRequest
   ): Promise<responses.InvokeFunctionResponse> {
-    logger.debug("Calling operation FunctionsInvokeClient#invokeFunction.");
+    if (this.logger) this.logger.debug("Calling operation FunctionsInvokeClient#invokeFunction.");
     const operationName = "invokeFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/InvokeFunction";
@@ -162,6 +166,7 @@ export class FunctionsInvokeClient {
       invokeFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -209,7 +214,7 @@ export enum FunctionsManagementApiKeys {}
 export class FunctionsManagementClient {
   protected static serviceEndpointTemplate = "https://functions.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": FunctionsManagementWaiter;
@@ -290,7 +295,12 @@ export class FunctionsManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
-    logger.info(`FunctionsManagementClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`FunctionsManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -300,9 +310,10 @@ export class FunctionsManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         FunctionsManagementClient.serviceEndpointTemplate,
@@ -396,7 +407,10 @@ export class FunctionsManagementClient {
   public async changeApplicationCompartment(
     changeApplicationCompartmentRequest: requests.ChangeApplicationCompartmentRequest
   ): Promise<responses.ChangeApplicationCompartmentResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#changeApplicationCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FunctionsManagementClient#changeApplicationCompartment."
+      );
     const operationName = "changeApplicationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/ChangeApplicationCompartment";
@@ -418,6 +432,7 @@ export class FunctionsManagementClient {
       changeApplicationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -468,7 +483,8 @@ export class FunctionsManagementClient {
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
   ): Promise<responses.CreateApplicationResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#createApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#createApplication.");
     const operationName = "createApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/CreateApplication";
@@ -487,6 +503,7 @@ export class FunctionsManagementClient {
       createApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -546,7 +563,8 @@ export class FunctionsManagementClient {
   public async createFunction(
     createFunctionRequest: requests.CreateFunctionRequest
   ): Promise<responses.CreateFunctionResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#createFunction.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#createFunction.");
     const operationName = "createFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/CreateFunction";
@@ -565,6 +583,7 @@ export class FunctionsManagementClient {
       createFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -624,7 +643,8 @@ export class FunctionsManagementClient {
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
   ): Promise<responses.DeleteApplicationResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#deleteApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#deleteApplication.");
     const operationName = "deleteApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/DeleteApplication";
@@ -646,6 +666,7 @@ export class FunctionsManagementClient {
       deleteApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -691,7 +712,8 @@ export class FunctionsManagementClient {
   public async deleteFunction(
     deleteFunctionRequest: requests.DeleteFunctionRequest
   ): Promise<responses.DeleteFunctionResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#deleteFunction.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#deleteFunction.");
     const operationName = "deleteFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/DeleteFunction";
@@ -713,6 +735,7 @@ export class FunctionsManagementClient {
       deleteFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -758,7 +781,8 @@ export class FunctionsManagementClient {
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
   ): Promise<responses.GetApplicationResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#getApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#getApplication.");
     const operationName = "getApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/GetApplication";
@@ -779,6 +803,7 @@ export class FunctionsManagementClient {
       getApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -833,7 +858,7 @@ export class FunctionsManagementClient {
   public async getFunction(
     getFunctionRequest: requests.GetFunctionRequest
   ): Promise<responses.GetFunctionResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#getFunction.");
+    if (this.logger) this.logger.debug("Calling operation FunctionsManagementClient#getFunction.");
     const operationName = "getFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/GetFunction";
@@ -854,6 +879,7 @@ export class FunctionsManagementClient {
       getFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -909,7 +935,8 @@ export class FunctionsManagementClient {
   public async getPbfListing(
     getPbfListingRequest: requests.GetPbfListingRequest
   ): Promise<responses.GetPbfListingResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#getPbfListing.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#getPbfListing.");
     const operationName = "getPbfListing";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/PbfListing/GetPbfListing";
@@ -930,6 +957,7 @@ export class FunctionsManagementClient {
       getPbfListingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -984,7 +1012,8 @@ export class FunctionsManagementClient {
   public async getPbfListingVersion(
     getPbfListingVersionRequest: requests.GetPbfListingVersionRequest
   ): Promise<responses.GetPbfListingVersionResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#getPbfListingVersion.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#getPbfListingVersion.");
     const operationName = "getPbfListingVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/PbfListingVersion/GetPbfListingVersion";
@@ -1005,6 +1034,7 @@ export class FunctionsManagementClient {
       getPbfListingVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1059,7 +1089,8 @@ export class FunctionsManagementClient {
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#listApplications.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#listApplications.");
     const operationName = "listApplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/ApplicationSummary/ListApplications";
@@ -1087,6 +1118,7 @@ export class FunctionsManagementClient {
       listApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1193,7 +1225,8 @@ export class FunctionsManagementClient {
   public async listFunctions(
     listFunctionsRequest: requests.ListFunctionsRequest
   ): Promise<responses.ListFunctionsResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#listFunctions.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#listFunctions.");
     const operationName = "listFunctions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/FunctionSummary/ListFunctions";
@@ -1221,6 +1254,7 @@ export class FunctionsManagementClient {
       listFunctionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1332,7 +1366,8 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   public async listPbfListingVersions(
     listPbfListingVersionsRequest: requests.ListPbfListingVersionsRequest
   ): Promise<responses.ListPbfListingVersionsResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#listPbfListingVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#listPbfListingVersions.");
     const operationName = "listPbfListingVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/PbfListingVersion/ListPbfListingVersions";
@@ -1361,6 +1396,7 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
       listPbfListingVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1417,7 +1453,8 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   public async listPbfListings(
     listPbfListingsRequest: requests.ListPbfListingsRequest
   ): Promise<responses.ListPbfListingsResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#listPbfListings.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#listPbfListings.");
     const operationName = "listPbfListings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/PbfListing/ListPbfListings";
@@ -1447,6 +1484,7 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
       listPbfListingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1502,7 +1540,7 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   public async listTriggers(
     listTriggersRequest: requests.ListTriggersRequest
   ): Promise<responses.ListTriggersResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#listTriggers.");
+    if (this.logger) this.logger.debug("Calling operation FunctionsManagementClient#listTriggers.");
     const operationName = "listTriggers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/TriggersCollection/ListTriggers";
@@ -1526,6 +1564,7 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
       listTriggersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1580,7 +1619,8 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
   ): Promise<responses.UpdateApplicationResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#updateApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#updateApplication.");
     const operationName = "updateApplication";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/UpdateApplication";
@@ -1602,6 +1642,7 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
       updateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1661,7 +1702,8 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   public async updateFunction(
     updateFunctionRequest: requests.UpdateFunctionRequest
   ): Promise<responses.UpdateFunctionResponse> {
-    logger.debug("Calling operation FunctionsManagementClient#updateFunction.");
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#updateFunction.");
     const operationName = "updateFunction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/UpdateFunction";
@@ -1683,6 +1725,7 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
       updateFunctionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

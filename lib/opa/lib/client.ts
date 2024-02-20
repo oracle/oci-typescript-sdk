@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum OpaInstanceApiKeys {}
 export class OpaInstanceClient {
   protected static serviceEndpointTemplate = "https://process.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OpaInstanceWaiter;
@@ -117,7 +116,11 @@ export class OpaInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210621";
-    logger.info(`OpaInstanceClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`OpaInstanceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class OpaInstanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OpaInstanceClient.serviceEndpointTemplate,
@@ -221,7 +225,7 @@ export class OpaInstanceClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation OpaInstanceClient#cancelWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -242,6 +246,7 @@ export class OpaInstanceClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -287,7 +292,8 @@ export class OpaInstanceClient {
   public async changeOpaInstanceCompartment(
     changeOpaInstanceCompartmentRequest: requests.ChangeOpaInstanceCompartmentRequest
   ): Promise<responses.ChangeOpaInstanceCompartmentResponse> {
-    logger.debug("Calling operation OpaInstanceClient#changeOpaInstanceCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpaInstanceClient#changeOpaInstanceCompartment.");
     const operationName = "changeOpaInstanceCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -308,6 +314,7 @@ export class OpaInstanceClient {
       changeOpaInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -364,7 +371,7 @@ export class OpaInstanceClient {
   public async createOpaInstance(
     createOpaInstanceRequest: requests.CreateOpaInstanceRequest
   ): Promise<responses.CreateOpaInstanceResponse> {
-    logger.debug("Calling operation OpaInstanceClient#createOpaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#createOpaInstance.");
     const operationName = "createOpaInstance";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -383,6 +390,7 @@ export class OpaInstanceClient {
       createOpaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -438,7 +446,7 @@ export class OpaInstanceClient {
   public async deleteOpaInstance(
     deleteOpaInstanceRequest: requests.DeleteOpaInstanceRequest
   ): Promise<responses.DeleteOpaInstanceResponse> {
-    logger.debug("Calling operation OpaInstanceClient#deleteOpaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#deleteOpaInstance.");
     const operationName = "deleteOpaInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -459,6 +467,7 @@ export class OpaInstanceClient {
       deleteOpaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -509,7 +518,7 @@ export class OpaInstanceClient {
   public async getOpaInstance(
     getOpaInstanceRequest: requests.GetOpaInstanceRequest
   ): Promise<responses.GetOpaInstanceResponse> {
-    logger.debug("Calling operation OpaInstanceClient#getOpaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#getOpaInstance.");
     const operationName = "getOpaInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -529,6 +538,7 @@ export class OpaInstanceClient {
       getOpaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -583,7 +593,7 @@ export class OpaInstanceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation OpaInstanceClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -603,6 +613,7 @@ export class OpaInstanceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -663,7 +674,7 @@ export class OpaInstanceClient {
   public async listOpaInstances(
     listOpaInstancesRequest: requests.ListOpaInstancesRequest
   ): Promise<responses.ListOpaInstancesResponse> {
-    logger.debug("Calling operation OpaInstanceClient#listOpaInstances.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#listOpaInstances.");
     const operationName = "listOpaInstances";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -690,6 +701,7 @@ export class OpaInstanceClient {
       listOpaInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -745,7 +757,8 @@ export class OpaInstanceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation OpaInstanceClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpaInstanceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -770,6 +783,7 @@ export class OpaInstanceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -825,7 +839,7 @@ export class OpaInstanceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation OpaInstanceClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -850,6 +864,7 @@ export class OpaInstanceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -905,7 +920,7 @@ export class OpaInstanceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation OpaInstanceClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -932,6 +947,7 @@ export class OpaInstanceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -986,7 +1002,7 @@ export class OpaInstanceClient {
   public async updateOpaInstance(
     updateOpaInstanceRequest: requests.UpdateOpaInstanceRequest
   ): Promise<responses.UpdateOpaInstanceResponse> {
-    logger.debug("Calling operation OpaInstanceClient#updateOpaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#updateOpaInstance.");
     const operationName = "updateOpaInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1007,6 +1023,7 @@ export class OpaInstanceClient {
       updateOpaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export enum ConfigApiKeys {}
 export class ConfigClient {
   protected static serviceEndpointTemplate = "https://apm-config.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -117,7 +116,11 @@ export class ConfigClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210201";
-    logger.info(`ConfigClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ConfigClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class ConfigClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ConfigClient.serviceEndpointTemplate,
@@ -198,7 +202,7 @@ export class ConfigClient {
   public async createConfig(
     createConfigRequest: requests.CreateConfigRequest
   ): Promise<responses.CreateConfigResponse> {
-    logger.debug("Calling operation ConfigClient#createConfig.");
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#createConfig.");
     const operationName = "createConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/Config/CreateConfig";
@@ -221,6 +225,7 @@ export class ConfigClient {
       createConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -280,7 +285,7 @@ export class ConfigClient {
   public async deleteConfig(
     deleteConfigRequest: requests.DeleteConfigRequest
   ): Promise<responses.DeleteConfigResponse> {
-    logger.debug("Calling operation ConfigClient#deleteConfig.");
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#deleteConfig.");
     const operationName = "deleteConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/Config/DeleteConfig";
@@ -304,6 +309,7 @@ export class ConfigClient {
       deleteConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -349,7 +355,7 @@ export class ConfigClient {
   public async getConfig(
     getConfigRequest: requests.GetConfigRequest
   ): Promise<responses.GetConfigResponse> {
-    logger.debug("Calling operation ConfigClient#getConfig.");
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#getConfig.");
     const operationName = "getConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/Config/GetConfig";
@@ -372,6 +378,7 @@ export class ConfigClient {
       getConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -426,7 +433,7 @@ export class ConfigClient {
   public async listConfigs(
     listConfigsRequest: requests.ListConfigsRequest
   ): Promise<responses.ListConfigsResponse> {
-    logger.debug("Calling operation ConfigClient#listConfigs.");
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#listConfigs.");
     const operationName = "listConfigs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/ConfigCollection/ListConfigs";
@@ -458,6 +465,7 @@ export class ConfigClient {
       listConfigsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -512,7 +520,7 @@ export class ConfigClient {
   public async retrieveNamespaceMetrics(
     retrieveNamespaceMetricsRequest: requests.RetrieveNamespaceMetricsRequest
   ): Promise<responses.RetrieveNamespaceMetricsResponse> {
-    logger.debug("Calling operation ConfigClient#retrieveNamespaceMetrics.");
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#retrieveNamespaceMetrics.");
     const operationName = "retrieveNamespaceMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/MetricGroup/RetrieveNamespaceMetrics";
@@ -533,6 +541,7 @@ export class ConfigClient {
       retrieveNamespaceMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -592,7 +601,7 @@ export class ConfigClient {
   public async retrieveNamespaces(
     retrieveNamespacesRequest: requests.RetrieveNamespacesRequest
   ): Promise<responses.RetrieveNamespacesResponse> {
-    logger.debug("Calling operation ConfigClient#retrieveNamespaces.");
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#retrieveNamespaces.");
     const operationName = "retrieveNamespaces";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/MetricGroup/RetrieveNamespaces";
@@ -613,6 +622,7 @@ export class ConfigClient {
       retrieveNamespacesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -667,7 +677,7 @@ export class ConfigClient {
   public async updateConfig(
     updateConfigRequest: requests.UpdateConfigRequest
   ): Promise<responses.UpdateConfigResponse> {
-    logger.debug("Calling operation ConfigClient#updateConfig.");
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#updateConfig.");
     const operationName = "updateConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/Config/UpdateConfig";
@@ -692,6 +702,7 @@ export class ConfigClient {
       updateConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -753,7 +764,7 @@ export class ConfigClient {
   public async validateSpanFilterPattern(
     validateSpanFilterPatternRequest: requests.ValidateSpanFilterPatternRequest
   ): Promise<responses.ValidateSpanFilterPatternResponse> {
-    logger.debug("Calling operation ConfigClient#validateSpanFilterPattern.");
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#validateSpanFilterPattern.");
     const operationName = "validateSpanFilterPattern";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/SpanFilter/ValidateSpanFilterPattern";
@@ -774,6 +785,7 @@ export class ConfigClient {
       validateSpanFilterPatternRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

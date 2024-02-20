@@ -62,7 +62,7 @@ export namespace UpdateDrPlanUserDefinedStepDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.stepType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.stepType}`);
       }
     }
     return jsonObj;
@@ -103,7 +103,7 @@ export namespace UpdateDrPlanUserDefinedStepDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.stepType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.stepType}`);
       }
     }
     return jsonObj;

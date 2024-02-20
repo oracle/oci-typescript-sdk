@@ -45,7 +45,6 @@ export interface CreateModelDetails {
     | model.PreTrainedLanguageDetectionModelDetails
     | model.PreTrainedNamedEntityRecognitionModelDetails
     | model.PreTrainedSentimentAnalysisModelDetails
-    | model.PreTrainedPhiModelDetails
     | model.PreTrainedTextClassificationModelDetails
     | model.TextClassificationModelDetails
     | model.PreTrainedSummarization

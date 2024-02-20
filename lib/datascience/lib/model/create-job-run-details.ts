@@ -38,6 +38,7 @@ export interface CreateJobRunDetails {
   "jobId": string;
   "jobConfigurationOverrideDetails"?: model.DefaultJobConfigurationDetails;
   "jobLogConfigurationOverrideDetails"?: model.JobLogConfigurationDetails;
+  "jobEnvironmentConfigurationOverrideDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
@@ -62,6 +63,11 @@ export namespace CreateJobRunDetails {
           : undefined,
         "jobLogConfigurationOverrideDetails": obj.jobLogConfigurationOverrideDetails
           ? model.JobLogConfigurationDetails.getJsonObj(obj.jobLogConfigurationOverrideDetails)
+          : undefined,
+        "jobEnvironmentConfigurationOverrideDetails": obj.jobEnvironmentConfigurationOverrideDetails
+          ? model.JobEnvironmentConfigurationDetails.getJsonObj(
+              obj.jobEnvironmentConfigurationOverrideDetails
+            )
           : undefined
       }
     };
@@ -80,6 +86,11 @@ export namespace CreateJobRunDetails {
         "jobLogConfigurationOverrideDetails": obj.jobLogConfigurationOverrideDetails
           ? model.JobLogConfigurationDetails.getDeserializedJsonObj(
               obj.jobLogConfigurationOverrideDetails
+            )
+          : undefined,
+        "jobEnvironmentConfigurationOverrideDetails": obj.jobEnvironmentConfigurationOverrideDetails
+          ? model.JobEnvironmentConfigurationDetails.getDeserializedJsonObj(
+              obj.jobEnvironmentConfigurationOverrideDetails
             )
           : undefined
       }

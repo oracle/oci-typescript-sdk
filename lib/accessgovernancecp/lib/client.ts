@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class AccessGovernanceCPClient {
   protected static serviceEndpointTemplate =
     "https://cp-prod.access-governance.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AccessGovernanceCPWaiter;
@@ -118,7 +117,11 @@ export class AccessGovernanceCPClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220518";
-    logger.info(`AccessGovernanceCPClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AccessGovernanceCPClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class AccessGovernanceCPClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AccessGovernanceCPClient.serviceEndpointTemplate,
@@ -222,7 +226,10 @@ export class AccessGovernanceCPClient {
   public async changeGovernanceInstanceCompartment(
     changeGovernanceInstanceCompartmentRequest: requests.ChangeGovernanceInstanceCompartmentRequest
   ): Promise<responses.ChangeGovernanceInstanceCompartmentResponse> {
-    logger.debug("Calling operation AccessGovernanceCPClient#changeGovernanceInstanceCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AccessGovernanceCPClient#changeGovernanceInstanceCompartment."
+      );
     const operationName = "changeGovernanceInstanceCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -244,6 +251,7 @@ export class AccessGovernanceCPClient {
       changeGovernanceInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -295,7 +303,8 @@ export class AccessGovernanceCPClient {
   public async createGovernanceInstance(
     createGovernanceInstanceRequest: requests.CreateGovernanceInstanceRequest
   ): Promise<responses.CreateGovernanceInstanceResponse> {
-    logger.debug("Calling operation AccessGovernanceCPClient#createGovernanceInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation AccessGovernanceCPClient#createGovernanceInstance.");
     const operationName = "createGovernanceInstance";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -314,6 +323,7 @@ export class AccessGovernanceCPClient {
       createGovernanceInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -379,7 +389,8 @@ export class AccessGovernanceCPClient {
   public async deleteGovernanceInstance(
     deleteGovernanceInstanceRequest: requests.DeleteGovernanceInstanceRequest
   ): Promise<responses.DeleteGovernanceInstanceResponse> {
-    logger.debug("Calling operation AccessGovernanceCPClient#deleteGovernanceInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation AccessGovernanceCPClient#deleteGovernanceInstance.");
     const operationName = "deleteGovernanceInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -401,6 +412,7 @@ export class AccessGovernanceCPClient {
       deleteGovernanceInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -451,7 +463,8 @@ export class AccessGovernanceCPClient {
   public async getGovernanceInstance(
     getGovernanceInstanceRequest: requests.GetGovernanceInstanceRequest
   ): Promise<responses.GetGovernanceInstanceResponse> {
-    logger.debug("Calling operation AccessGovernanceCPClient#getGovernanceInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation AccessGovernanceCPClient#getGovernanceInstance.");
     const operationName = "getGovernanceInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -471,6 +484,7 @@ export class AccessGovernanceCPClient {
       getGovernanceInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -525,7 +539,10 @@ export class AccessGovernanceCPClient {
   public async getGovernanceInstanceConfiguration(
     getGovernanceInstanceConfigurationRequest: requests.GetGovernanceInstanceConfigurationRequest
   ): Promise<responses.GetGovernanceInstanceConfigurationResponse> {
-    logger.debug("Calling operation AccessGovernanceCPClient#getGovernanceInstanceConfiguration.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AccessGovernanceCPClient#getGovernanceInstanceConfiguration."
+      );
     const operationName = "getGovernanceInstanceConfiguration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -545,6 +562,7 @@ export class AccessGovernanceCPClient {
       getGovernanceInstanceConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -600,7 +618,8 @@ export class AccessGovernanceCPClient {
   public async listGovernanceInstances(
     listGovernanceInstancesRequest: requests.ListGovernanceInstancesRequest
   ): Promise<responses.ListGovernanceInstancesResponse> {
-    logger.debug("Calling operation AccessGovernanceCPClient#listGovernanceInstances.");
+    if (this.logger)
+      this.logger.debug("Calling operation AccessGovernanceCPClient#listGovernanceInstances.");
     const operationName = "listGovernanceInstances";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -627,6 +646,7 @@ export class AccessGovernanceCPClient {
       listGovernanceInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -681,7 +701,8 @@ export class AccessGovernanceCPClient {
   public async updateGovernanceInstance(
     updateGovernanceInstanceRequest: requests.UpdateGovernanceInstanceRequest
   ): Promise<responses.UpdateGovernanceInstanceResponse> {
-    logger.debug("Calling operation AccessGovernanceCPClient#updateGovernanceInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation AccessGovernanceCPClient#updateGovernanceInstance.");
     const operationName = "updateGovernanceInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -702,6 +723,7 @@ export class AccessGovernanceCPClient {
       updateGovernanceInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -766,9 +788,10 @@ export class AccessGovernanceCPClient {
   public async updateGovernanceInstanceConfiguration(
     updateGovernanceInstanceConfigurationRequest: requests.UpdateGovernanceInstanceConfigurationRequest
   ): Promise<responses.UpdateGovernanceInstanceConfigurationResponse> {
-    logger.debug(
-      "Calling operation AccessGovernanceCPClient#updateGovernanceInstanceConfiguration."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AccessGovernanceCPClient#updateGovernanceInstanceConfiguration."
+      );
     const operationName = "updateGovernanceInstanceConfiguration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -789,6 +812,7 @@ export class AccessGovernanceCPClient {
       updateGovernanceInstanceConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

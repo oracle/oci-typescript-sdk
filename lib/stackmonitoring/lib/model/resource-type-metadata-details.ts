@@ -33,7 +33,7 @@ export namespace ResourceTypeMetadataDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.format}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.format}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace ResourceTypeMetadataDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.format}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.format}`);
       }
     }
     return jsonObj;

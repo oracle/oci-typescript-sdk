@@ -19,8 +19,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -35,7 +34,7 @@ export enum DataplaneApiKeys {}
 export class DataplaneClient {
   protected static serviceEndpointTemplate = "https://auth.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -115,7 +114,11 @@ export class DataplaneClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/v1";
-    logger.info(`DataplaneClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DataplaneClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -125,9 +128,10 @@ export class DataplaneClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DataplaneClient.serviceEndpointTemplate,
@@ -197,7 +201,8 @@ export class DataplaneClient {
   public async generateScopedAccessToken(
     generateScopedAccessTokenRequest: requests.GenerateScopedAccessTokenRequest
   ): Promise<responses.GenerateScopedAccessTokenResponse> {
-    logger.debug("Calling operation DataplaneClient#generateScopedAccessToken.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataplaneClient#generateScopedAccessToken.");
     const operationName = "generateScopedAccessToken";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity-dp/v1/SecurityToken/GenerateScopedAccessToken";
@@ -215,6 +220,7 @@ export class DataplaneClient {
       generateScopedAccessTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -272,7 +278,8 @@ export class DataplaneClient {
   public async generateUserSecurityToken(
     generateUserSecurityTokenRequest: requests.GenerateUserSecurityTokenRequest
   ): Promise<responses.GenerateUserSecurityTokenResponse> {
-    logger.debug("Calling operation DataplaneClient#generateUserSecurityToken.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataplaneClient#generateUserSecurityToken.");
     const operationName = "generateUserSecurityToken";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/identity-dp/v1/SecurityToken/GenerateUserSecurityToken";
@@ -291,6 +298,7 @@ export class DataplaneClient {
       generateUserSecurityTokenRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

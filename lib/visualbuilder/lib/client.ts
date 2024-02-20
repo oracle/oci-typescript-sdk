@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export class VbInstanceClient {
   protected static serviceEndpointTemplate =
     "https://visualbuilder.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": VbInstanceWaiter;
@@ -120,7 +119,11 @@ export class VbInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210601";
-    logger.info(`VbInstanceClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`VbInstanceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class VbInstanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         VbInstanceClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class VbInstanceClient {
   public async changeVbInstanceCompartment(
     changeVbInstanceCompartmentRequest: requests.ChangeVbInstanceCompartmentRequest
   ): Promise<responses.ChangeVbInstanceCompartmentResponse> {
-    logger.debug("Calling operation VbInstanceClient#changeVbInstanceCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VbInstanceClient#changeVbInstanceCompartment.");
     const operationName = "changeVbInstanceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/ChangeVbInstanceCompartment";
@@ -248,6 +253,7 @@ export class VbInstanceClient {
       changeVbInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -304,7 +310,7 @@ export class VbInstanceClient {
   public async createVbInstance(
     createVbInstanceRequest: requests.CreateVbInstanceRequest
   ): Promise<responses.CreateVbInstanceResponse> {
-    logger.debug("Calling operation VbInstanceClient#createVbInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#createVbInstance.");
     const operationName = "createVbInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/CreateVbInstance";
@@ -324,6 +330,7 @@ export class VbInstanceClient {
       createVbInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -379,7 +386,7 @@ export class VbInstanceClient {
   public async deleteVbInstance(
     deleteVbInstanceRequest: requests.DeleteVbInstanceRequest
   ): Promise<responses.DeleteVbInstanceResponse> {
-    logger.debug("Calling operation VbInstanceClient#deleteVbInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#deleteVbInstance.");
     const operationName = "deleteVbInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/DeleteVbInstance";
@@ -401,6 +408,7 @@ export class VbInstanceClient {
       deleteVbInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -451,7 +459,7 @@ export class VbInstanceClient {
   public async getVbInstance(
     getVbInstanceRequest: requests.GetVbInstanceRequest
   ): Promise<responses.GetVbInstanceResponse> {
-    logger.debug("Calling operation VbInstanceClient#getVbInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#getVbInstance.");
     const operationName = "getVbInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/GetVbInstance";
@@ -472,6 +480,7 @@ export class VbInstanceClient {
       getVbInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -526,7 +535,7 @@ export class VbInstanceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation VbInstanceClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/WorkRequest/GetWorkRequest";
@@ -547,6 +556,7 @@ export class VbInstanceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -607,7 +617,7 @@ export class VbInstanceClient {
   public async listVbInstances(
     listVbInstancesRequest: requests.ListVbInstancesRequest
   ): Promise<responses.ListVbInstancesResponse> {
-    logger.debug("Calling operation VbInstanceClient#listVbInstances.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#listVbInstances.");
     const operationName = "listVbInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstanceSummaryCollection/ListVbInstances";
@@ -634,6 +644,7 @@ export class VbInstanceClient {
       listVbInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -693,7 +704,7 @@ export class VbInstanceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation VbInstanceClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/WorkRequestErrorCollection/ListWorkRequestErrors";
@@ -718,6 +729,7 @@ export class VbInstanceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -777,7 +789,7 @@ export class VbInstanceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation VbInstanceClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/WorkRequestLogEntryCollection/ListWorkRequestLogs";
@@ -802,6 +814,7 @@ export class VbInstanceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -862,7 +875,7 @@ export class VbInstanceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation VbInstanceClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/WorkRequestSummaryCollection/ListWorkRequests";
@@ -886,6 +899,7 @@ export class VbInstanceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -945,7 +959,8 @@ export class VbInstanceClient {
   public async requestSummarizedApplications(
     requestSummarizedApplicationsRequest: requests.RequestSummarizedApplicationsRequest
   ): Promise<responses.RequestSummarizedApplicationsResponse> {
-    logger.debug("Calling operation VbInstanceClient#requestSummarizedApplications.");
+    if (this.logger)
+      this.logger.debug("Calling operation VbInstanceClient#requestSummarizedApplications.");
     const operationName = "requestSummarizedApplications";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/ApplicationSummaryCollection/RequestSummarizedApplications";
@@ -968,6 +983,7 @@ export class VbInstanceClient {
       requestSummarizedApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1029,7 +1045,7 @@ export class VbInstanceClient {
   public async startVbInstance(
     startVbInstanceRequest: requests.StartVbInstanceRequest
   ): Promise<responses.StartVbInstanceResponse> {
-    logger.debug("Calling operation VbInstanceClient#startVbInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#startVbInstance.");
     const operationName = "startVbInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/StartVbInstance";
@@ -1052,6 +1068,7 @@ export class VbInstanceClient {
       startVbInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1104,7 +1121,7 @@ export class VbInstanceClient {
   public async stopVbInstance(
     stopVbInstanceRequest: requests.StopVbInstanceRequest
   ): Promise<responses.StopVbInstanceResponse> {
-    logger.debug("Calling operation VbInstanceClient#stopVbInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#stopVbInstance.");
     const operationName = "stopVbInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/StopVbInstance";
@@ -1127,6 +1144,7 @@ export class VbInstanceClient {
       stopVbInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1177,7 +1195,7 @@ export class VbInstanceClient {
   public async updateVbInstance(
     updateVbInstanceRequest: requests.UpdateVbInstanceRequest
   ): Promise<responses.UpdateVbInstanceResponse> {
-    logger.debug("Calling operation VbInstanceClient#updateVbInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbInstanceClient#updateVbInstance.");
     const operationName = "updateVbInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/UpdateVbInstance";
@@ -1199,6 +1217,7 @@ export class VbInstanceClient {
       updateVbInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

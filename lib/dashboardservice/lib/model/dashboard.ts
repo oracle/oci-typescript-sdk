@@ -115,7 +115,7 @@ export namespace Dashboard {
         case "V1":
           return model.V1Dashboard.getJsonObj(<model.V1Dashboard>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.schemaVersion}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.schemaVersion}`);
       }
     }
     return jsonObj;
@@ -131,7 +131,7 @@ export namespace Dashboard {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.schemaVersion}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.schemaVersion}`);
       }
     }
     return jsonObj;

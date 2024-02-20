@@ -55,7 +55,7 @@ export namespace CreatePublicationPackage {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.packageType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.packageType}`);
       }
     }
     return jsonObj;
@@ -83,7 +83,7 @@ export namespace CreatePublicationPackage {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.packageType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.packageType}`);
       }
     }
     return jsonObj;

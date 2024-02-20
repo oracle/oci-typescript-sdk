@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum FusionApplicationsApiKeys {}
 export class FusionApplicationsClient {
   protected static serviceEndpointTemplate = "https://fusionapps.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": FusionApplicationsWaiter;
@@ -117,7 +116,11 @@ export class FusionApplicationsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20211201";
-    logger.info(`FusionApplicationsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`FusionApplicationsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class FusionApplicationsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         FusionApplicationsClient.serviceEndpointTemplate,
@@ -223,7 +227,10 @@ export class FusionApplicationsClient {
   public async changeFusionEnvironmentCompartment(
     changeFusionEnvironmentCompartmentRequest: requests.ChangeFusionEnvironmentCompartmentRequest
   ): Promise<responses.ChangeFusionEnvironmentCompartmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#changeFusionEnvironmentCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#changeFusionEnvironmentCompartment."
+      );
     const operationName = "changeFusionEnvironmentCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -245,6 +252,7 @@ export class FusionApplicationsClient {
       changeFusionEnvironmentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -302,9 +310,10 @@ export class FusionApplicationsClient {
   public async changeFusionEnvironmentFamilyCompartment(
     changeFusionEnvironmentFamilyCompartmentRequest: requests.ChangeFusionEnvironmentFamilyCompartmentRequest
   ): Promise<responses.ChangeFusionEnvironmentFamilyCompartmentResponse> {
-    logger.debug(
-      "Calling operation FusionApplicationsClient#changeFusionEnvironmentFamilyCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#changeFusionEnvironmentFamilyCompartment."
+      );
     const operationName = "changeFusionEnvironmentFamilyCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -327,6 +336,7 @@ export class FusionApplicationsClient {
       changeFusionEnvironmentFamilyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -383,7 +393,8 @@ export class FusionApplicationsClient {
   public async createDataMaskingActivity(
     createDataMaskingActivityRequest: requests.CreateDataMaskingActivityRequest
   ): Promise<responses.CreateDataMaskingActivityResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#createDataMaskingActivity.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createDataMaskingActivity.");
     const operationName = "createDataMaskingActivity";
     const apiReferenceLink = "";
     const pathParams = {
@@ -404,6 +415,7 @@ export class FusionApplicationsClient {
       createDataMaskingActivityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -460,7 +472,8 @@ export class FusionApplicationsClient {
   public async createFusionEnvironment(
     createFusionEnvironmentRequest: requests.CreateFusionEnvironmentRequest
   ): Promise<responses.CreateFusionEnvironmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#createFusionEnvironment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createFusionEnvironment.");
     const operationName = "createFusionEnvironment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -479,6 +492,7 @@ export class FusionApplicationsClient {
       createFusionEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -534,7 +548,10 @@ export class FusionApplicationsClient {
   public async createFusionEnvironmentAdminUser(
     createFusionEnvironmentAdminUserRequest: requests.CreateFusionEnvironmentAdminUserRequest
   ): Promise<responses.CreateFusionEnvironmentAdminUserResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#createFusionEnvironmentAdminUser.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#createFusionEnvironmentAdminUser."
+      );
     const operationName = "createFusionEnvironmentAdminUser";
     const apiReferenceLink = "";
     const pathParams = {
@@ -555,6 +572,7 @@ export class FusionApplicationsClient {
       createFusionEnvironmentAdminUserRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -611,7 +629,10 @@ export class FusionApplicationsClient {
   public async createFusionEnvironmentFamily(
     createFusionEnvironmentFamilyRequest: requests.CreateFusionEnvironmentFamilyRequest
   ): Promise<responses.CreateFusionEnvironmentFamilyResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#createFusionEnvironmentFamily.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#createFusionEnvironmentFamily."
+      );
     const operationName = "createFusionEnvironmentFamily";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -630,6 +651,7 @@ export class FusionApplicationsClient {
       createFusionEnvironmentFamilyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -686,7 +708,8 @@ export class FusionApplicationsClient {
   public async createRefreshActivity(
     createRefreshActivityRequest: requests.CreateRefreshActivityRequest
   ): Promise<responses.CreateRefreshActivityResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#createRefreshActivity.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createRefreshActivity.");
     const operationName = "createRefreshActivity";
     const apiReferenceLink = "";
     const pathParams = {
@@ -707,6 +730,7 @@ export class FusionApplicationsClient {
       createRefreshActivityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -763,7 +787,8 @@ export class FusionApplicationsClient {
   public async createServiceAttachment(
     createServiceAttachmentRequest: requests.CreateServiceAttachmentRequest
   ): Promise<responses.CreateServiceAttachmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#createServiceAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createServiceAttachment.");
     const operationName = "createServiceAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -784,6 +809,7 @@ export class FusionApplicationsClient {
       createServiceAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -839,7 +865,8 @@ export class FusionApplicationsClient {
   public async deleteFusionEnvironment(
     deleteFusionEnvironmentRequest: requests.DeleteFusionEnvironmentRequest
   ): Promise<responses.DeleteFusionEnvironmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#deleteFusionEnvironment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteFusionEnvironment.");
     const operationName = "deleteFusionEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -860,6 +887,7 @@ export class FusionApplicationsClient {
       deleteFusionEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -910,7 +938,10 @@ export class FusionApplicationsClient {
   public async deleteFusionEnvironmentAdminUser(
     deleteFusionEnvironmentAdminUserRequest: requests.DeleteFusionEnvironmentAdminUserRequest
   ): Promise<responses.DeleteFusionEnvironmentAdminUserResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#deleteFusionEnvironmentAdminUser.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#deleteFusionEnvironmentAdminUser."
+      );
     const operationName = "deleteFusionEnvironmentAdminUser";
     const apiReferenceLink = "";
     const pathParams = {
@@ -932,6 +963,7 @@ export class FusionApplicationsClient {
       deleteFusionEnvironmentAdminUserRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -982,7 +1014,10 @@ export class FusionApplicationsClient {
   public async deleteFusionEnvironmentFamily(
     deleteFusionEnvironmentFamilyRequest: requests.DeleteFusionEnvironmentFamilyRequest
   ): Promise<responses.DeleteFusionEnvironmentFamilyResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#deleteFusionEnvironmentFamily.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#deleteFusionEnvironmentFamily."
+      );
     const operationName = "deleteFusionEnvironmentFamily";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1003,6 +1038,7 @@ export class FusionApplicationsClient {
       deleteFusionEnvironmentFamilyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1053,7 +1089,8 @@ export class FusionApplicationsClient {
   public async deleteRefreshActivity(
     deleteRefreshActivityRequest: requests.DeleteRefreshActivityRequest
   ): Promise<responses.DeleteRefreshActivityResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#deleteRefreshActivity.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteRefreshActivity.");
     const operationName = "deleteRefreshActivity";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1075,6 +1112,7 @@ export class FusionApplicationsClient {
       deleteRefreshActivityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1125,7 +1163,8 @@ export class FusionApplicationsClient {
   public async deleteServiceAttachment(
     deleteServiceAttachmentRequest: requests.DeleteServiceAttachmentRequest
   ): Promise<responses.DeleteServiceAttachmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#deleteServiceAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteServiceAttachment.");
     const operationName = "deleteServiceAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1147,6 +1186,7 @@ export class FusionApplicationsClient {
       deleteServiceAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1197,7 +1237,8 @@ export class FusionApplicationsClient {
   public async getDataMaskingActivity(
     getDataMaskingActivityRequest: requests.GetDataMaskingActivityRequest
   ): Promise<responses.GetDataMaskingActivityResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#getDataMaskingActivity.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getDataMaskingActivity.");
     const operationName = "getDataMaskingActivity";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1218,6 +1259,7 @@ export class FusionApplicationsClient {
       getDataMaskingActivityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1273,7 +1315,8 @@ export class FusionApplicationsClient {
   public async getFusionEnvironment(
     getFusionEnvironmentRequest: requests.GetFusionEnvironmentRequest
   ): Promise<responses.GetFusionEnvironmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#getFusionEnvironment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getFusionEnvironment.");
     const operationName = "getFusionEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1293,6 +1336,7 @@ export class FusionApplicationsClient {
       getFusionEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1347,7 +1391,8 @@ export class FusionApplicationsClient {
   public async getFusionEnvironmentFamily(
     getFusionEnvironmentFamilyRequest: requests.GetFusionEnvironmentFamilyRequest
   ): Promise<responses.GetFusionEnvironmentFamilyResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#getFusionEnvironmentFamily.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getFusionEnvironmentFamily.");
     const operationName = "getFusionEnvironmentFamily";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1367,6 +1412,7 @@ export class FusionApplicationsClient {
       getFusionEnvironmentFamilyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1421,9 +1467,10 @@ export class FusionApplicationsClient {
   public async getFusionEnvironmentFamilyLimitsAndUsage(
     getFusionEnvironmentFamilyLimitsAndUsageRequest: requests.GetFusionEnvironmentFamilyLimitsAndUsageRequest
   ): Promise<responses.GetFusionEnvironmentFamilyLimitsAndUsageResponse> {
-    logger.debug(
-      "Calling operation FusionApplicationsClient#getFusionEnvironmentFamilyLimitsAndUsage."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#getFusionEnvironmentFamilyLimitsAndUsage."
+      );
     const operationName = "getFusionEnvironmentFamilyLimitsAndUsage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1444,6 +1491,7 @@ export class FusionApplicationsClient {
       getFusionEnvironmentFamilyLimitsAndUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1498,9 +1546,10 @@ export class FusionApplicationsClient {
   public async getFusionEnvironmentFamilySubscriptionDetail(
     getFusionEnvironmentFamilySubscriptionDetailRequest: requests.GetFusionEnvironmentFamilySubscriptionDetailRequest
   ): Promise<responses.GetFusionEnvironmentFamilySubscriptionDetailResponse> {
-    logger.debug(
-      "Calling operation FusionApplicationsClient#getFusionEnvironmentFamilySubscriptionDetail."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#getFusionEnvironmentFamilySubscriptionDetail."
+      );
     const operationName = "getFusionEnvironmentFamilySubscriptionDetail";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1521,6 +1570,7 @@ export class FusionApplicationsClient {
       getFusionEnvironmentFamilySubscriptionDetailRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1575,7 +1625,8 @@ export class FusionApplicationsClient {
   public async getFusionEnvironmentStatus(
     getFusionEnvironmentStatusRequest: requests.GetFusionEnvironmentStatusRequest
   ): Promise<responses.GetFusionEnvironmentStatusResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#getFusionEnvironmentStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getFusionEnvironmentStatus.");
     const operationName = "getFusionEnvironmentStatus";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1595,6 +1646,7 @@ export class FusionApplicationsClient {
       getFusionEnvironmentStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1644,7 +1696,8 @@ export class FusionApplicationsClient {
   public async getRefreshActivity(
     getRefreshActivityRequest: requests.GetRefreshActivityRequest
   ): Promise<responses.GetRefreshActivityResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#getRefreshActivity.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getRefreshActivity.");
     const operationName = "getRefreshActivity";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1665,6 +1718,7 @@ export class FusionApplicationsClient {
       getRefreshActivityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1719,7 +1773,8 @@ export class FusionApplicationsClient {
   public async getScheduledActivity(
     getScheduledActivityRequest: requests.GetScheduledActivityRequest
   ): Promise<responses.GetScheduledActivityResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#getScheduledActivity.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getScheduledActivity.");
     const operationName = "getScheduledActivity";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1740,6 +1795,7 @@ export class FusionApplicationsClient {
       getScheduledActivityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1794,7 +1850,8 @@ export class FusionApplicationsClient {
   public async getServiceAttachment(
     getServiceAttachmentRequest: requests.GetServiceAttachmentRequest
   ): Promise<responses.GetServiceAttachmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#getServiceAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getServiceAttachment.");
     const operationName = "getServiceAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1815,6 +1872,7 @@ export class FusionApplicationsClient {
       getServiceAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1869,7 +1927,8 @@ export class FusionApplicationsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#getWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1889,6 +1948,7 @@ export class FusionApplicationsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1943,7 +2003,8 @@ export class FusionApplicationsClient {
   public async listAdminUsers(
     listAdminUsersRequest: requests.ListAdminUsersRequest
   ): Promise<responses.ListAdminUsersResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listAdminUsers.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listAdminUsers.");
     const operationName = "listAdminUsers";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1963,6 +2024,7 @@ export class FusionApplicationsClient {
       listAdminUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2018,7 +2080,8 @@ export class FusionApplicationsClient {
   public async listDataMaskingActivities(
     listDataMaskingActivitiesRequest: requests.ListDataMaskingActivitiesRequest
   ): Promise<responses.ListDataMaskingActivitiesResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listDataMaskingActivities.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listDataMaskingActivities.");
     const operationName = "listDataMaskingActivities";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2044,6 +2107,7 @@ export class FusionApplicationsClient {
       listDataMaskingActivitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2099,7 +2163,10 @@ export class FusionApplicationsClient {
   public async listFusionEnvironmentFamilies(
     listFusionEnvironmentFamiliesRequest: requests.ListFusionEnvironmentFamiliesRequest
   ): Promise<responses.ListFusionEnvironmentFamiliesResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listFusionEnvironmentFamilies.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#listFusionEnvironmentFamilies."
+      );
     const operationName = "listFusionEnvironmentFamilies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2126,6 +2193,7 @@ export class FusionApplicationsClient {
       listFusionEnvironmentFamiliesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2181,7 +2249,8 @@ export class FusionApplicationsClient {
   public async listFusionEnvironments(
     listFusionEnvironmentsRequest: requests.ListFusionEnvironmentsRequest
   ): Promise<responses.ListFusionEnvironmentsResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listFusionEnvironments.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listFusionEnvironments.");
     const operationName = "listFusionEnvironments";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2208,6 +2277,7 @@ export class FusionApplicationsClient {
       listFusionEnvironmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2263,7 +2333,8 @@ export class FusionApplicationsClient {
   public async listRefreshActivities(
     listRefreshActivitiesRequest: requests.ListRefreshActivitiesRequest
   ): Promise<responses.ListRefreshActivitiesResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listRefreshActivities.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listRefreshActivities.");
     const operationName = "listRefreshActivities";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2294,6 +2365,7 @@ export class FusionApplicationsClient {
       listRefreshActivitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2349,7 +2421,8 @@ export class FusionApplicationsClient {
   public async listScheduledActivities(
     listScheduledActivitiesRequest: requests.ListScheduledActivitiesRequest
   ): Promise<responses.ListScheduledActivitiesResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listScheduledActivities.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listScheduledActivities.");
     const operationName = "listScheduledActivities";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2384,6 +2457,7 @@ export class FusionApplicationsClient {
       listScheduledActivitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2439,7 +2513,8 @@ export class FusionApplicationsClient {
   public async listServiceAttachments(
     listServiceAttachmentsRequest: requests.ListServiceAttachmentsRequest
   ): Promise<responses.ListServiceAttachmentsResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listServiceAttachments.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listServiceAttachments.");
     const operationName = "listServiceAttachments";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2467,6 +2542,7 @@ export class FusionApplicationsClient {
       listServiceAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2521,7 +2597,10 @@ export class FusionApplicationsClient {
   public async listTimeAvailableForRefreshes(
     listTimeAvailableForRefreshesRequest: requests.ListTimeAvailableForRefreshesRequest
   ): Promise<responses.ListTimeAvailableForRefreshesResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listTimeAvailableForRefreshes.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#listTimeAvailableForRefreshes."
+      );
     const operationName = "listTimeAvailableForRefreshes";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2546,6 +2625,7 @@ export class FusionApplicationsClient {
       listTimeAvailableForRefreshesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2601,7 +2681,8 @@ export class FusionApplicationsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2626,6 +2707,7 @@ export class FusionApplicationsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2681,7 +2763,8 @@ export class FusionApplicationsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2706,6 +2789,7 @@ export class FusionApplicationsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2761,7 +2845,8 @@ export class FusionApplicationsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2787,6 +2872,7 @@ export class FusionApplicationsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2841,7 +2927,10 @@ export class FusionApplicationsClient {
   public async resetFusionEnvironmentPassword(
     resetFusionEnvironmentPasswordRequest: requests.ResetFusionEnvironmentPasswordRequest
   ): Promise<responses.ResetFusionEnvironmentPasswordResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#resetFusionEnvironmentPassword.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#resetFusionEnvironmentPassword."
+      );
     const operationName = "resetFusionEnvironmentPassword";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2864,6 +2953,7 @@ export class FusionApplicationsClient {
       resetFusionEnvironmentPasswordRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2920,7 +3010,8 @@ export class FusionApplicationsClient {
   public async updateFusionEnvironment(
     updateFusionEnvironmentRequest: requests.UpdateFusionEnvironmentRequest
   ): Promise<responses.UpdateFusionEnvironmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#updateFusionEnvironment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#updateFusionEnvironment.");
     const operationName = "updateFusionEnvironment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2941,6 +3032,7 @@ export class FusionApplicationsClient {
       updateFusionEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2996,7 +3088,10 @@ export class FusionApplicationsClient {
   public async updateFusionEnvironmentFamily(
     updateFusionEnvironmentFamilyRequest: requests.UpdateFusionEnvironmentFamilyRequest
   ): Promise<responses.UpdateFusionEnvironmentFamilyResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#updateFusionEnvironmentFamily.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#updateFusionEnvironmentFamily."
+      );
     const operationName = "updateFusionEnvironmentFamily";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3017,6 +3112,7 @@ export class FusionApplicationsClient {
       updateFusionEnvironmentFamilyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3073,7 +3169,8 @@ export class FusionApplicationsClient {
   public async updateRefreshActivity(
     updateRefreshActivityRequest: requests.UpdateRefreshActivityRequest
   ): Promise<responses.UpdateRefreshActivityResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#updateRefreshActivity.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#updateRefreshActivity.");
     const operationName = "updateRefreshActivity";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3095,6 +3192,7 @@ export class FusionApplicationsClient {
       updateRefreshActivityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3155,7 +3253,8 @@ export class FusionApplicationsClient {
   public async verifyServiceAttachment(
     verifyServiceAttachmentRequest: requests.VerifyServiceAttachmentRequest
   ): Promise<responses.VerifyServiceAttachmentResponse> {
-    logger.debug("Calling operation FusionApplicationsClient#verifyServiceAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#verifyServiceAttachment.");
     const operationName = "verifyServiceAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3175,6 +3274,7 @@ export class FusionApplicationsClient {
       verifyServiceAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

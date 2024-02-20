@@ -158,7 +158,7 @@ export namespace VolumeAttachment {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.attachmentType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.attachmentType}`);
       }
     }
     return jsonObj;
@@ -184,7 +184,7 @@ export namespace VolumeAttachment {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.attachmentType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.attachmentType}`);
       }
     }
     return jsonObj;

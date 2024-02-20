@@ -59,6 +59,7 @@ export interface JobRun {
   "jobInfrastructureConfigurationDetails":
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
+  "jobEnvironmentConfigurationOverrideDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
   "jobLogConfigurationOverrideDetails"?: model.JobLogConfigurationDetails;
   /**
    * Collection of JobStorageMountConfigurationDetails.
@@ -100,6 +101,11 @@ export namespace JobRun {
               obj.jobInfrastructureConfigurationDetails
             )
           : undefined,
+        "jobEnvironmentConfigurationOverrideDetails": obj.jobEnvironmentConfigurationOverrideDetails
+          ? model.JobEnvironmentConfigurationDetails.getJsonObj(
+              obj.jobEnvironmentConfigurationOverrideDetails
+            )
+          : undefined,
         "jobLogConfigurationOverrideDetails": obj.jobLogConfigurationOverrideDetails
           ? model.JobLogConfigurationDetails.getJsonObj(obj.jobLogConfigurationOverrideDetails)
           : undefined,
@@ -126,6 +132,11 @@ export namespace JobRun {
         "jobInfrastructureConfigurationDetails": obj.jobInfrastructureConfigurationDetails
           ? model.JobInfrastructureConfigurationDetails.getDeserializedJsonObj(
               obj.jobInfrastructureConfigurationDetails
+            )
+          : undefined,
+        "jobEnvironmentConfigurationOverrideDetails": obj.jobEnvironmentConfigurationOverrideDetails
+          ? model.JobEnvironmentConfigurationDetails.getDeserializedJsonObj(
+              obj.jobEnvironmentConfigurationOverrideDetails
             )
           : undefined,
         "jobLogConfigurationOverrideDetails": obj.jobLogConfigurationOverrideDetails

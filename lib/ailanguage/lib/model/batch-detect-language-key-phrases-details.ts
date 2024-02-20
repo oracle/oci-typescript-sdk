@@ -22,6 +22,10 @@ import common = require("oci-common");
  */
 export interface BatchDetectLanguageKeyPhrasesDetails {
   /**
+   * The endpoint which have to be used for inferencing. If endpointId and compartmentId is provided, then inference will be served from custom model which is mapped to this Endpoint.
+   */
+  "endpointId"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that calls the API, inference will be served from pre trained model
    */
   "compartmentId"?: string;

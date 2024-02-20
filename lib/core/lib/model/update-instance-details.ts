@@ -165,6 +165,9 @@ Example: {@code 2018-05-25T21:10:29.600Z}
    *
    */
   "dedicatedVmHostId"?: string;
+  "platformConfig"?:
+    | model.AmdVmUpdateInstancePlatformConfig
+    | model.IntelVmUpdateInstancePlatformConfig;
 }
 
 export namespace UpdateInstanceDetails {
@@ -194,6 +197,10 @@ export namespace UpdateInstanceDetails {
           : undefined,
         "availabilityConfig": obj.availabilityConfig
           ? model.UpdateInstanceAvailabilityConfigDetails.getJsonObj(obj.availabilityConfig)
+          : undefined,
+
+        "platformConfig": obj.platformConfig
+          ? model.UpdateInstancePlatformConfig.getJsonObj(obj.platformConfig)
           : undefined
       }
     };
@@ -223,6 +230,10 @@ export namespace UpdateInstanceDetails {
           ? model.UpdateInstanceAvailabilityConfigDetails.getDeserializedJsonObj(
               obj.availabilityConfig
             )
+          : undefined,
+
+        "platformConfig": obj.platformConfig
+          ? model.UpdateInstancePlatformConfig.getDeserializedJsonObj(obj.platformConfig)
           : undefined
       }
     };

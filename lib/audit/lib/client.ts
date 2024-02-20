@@ -24,8 +24,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -40,7 +39,7 @@ export enum AuditApiKeys {}
 export class AuditClient {
   protected static serviceEndpointTemplate = "https://audit.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -120,7 +119,11 @@ export class AuditClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190901";
-    logger.info(`AuditClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AuditClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class AuditClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AuditClient.serviceEndpointTemplate,
@@ -201,7 +205,7 @@ export class AuditClient {
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
-    logger.debug("Calling operation AuditClient#getConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation AuditClient#getConfiguration.");
     const operationName = "getConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/audit/20190901/Configuration/GetConfiguration";
@@ -221,6 +225,7 @@ export class AuditClient {
       getConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -266,7 +271,7 @@ export class AuditClient {
   public async listEvents(
     listEventsRequest: requests.ListEventsRequest
   ): Promise<responses.ListEventsResponse> {
-    logger.debug("Calling operation AuditClient#listEvents.");
+    if (this.logger) this.logger.debug("Calling operation AuditClient#listEvents.");
     const operationName = "listEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/audit/20190901/AuditEvent/ListEvents";
@@ -290,6 +295,7 @@ export class AuditClient {
       listEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -396,7 +402,7 @@ export class AuditClient {
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
-    logger.debug("Calling operation AuditClient#updateConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation AuditClient#updateConfiguration.");
     const operationName = "updateConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/audit/20190901/Configuration/UpdateConfiguration";
@@ -416,6 +422,7 @@ export class AuditClient {
       updateConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

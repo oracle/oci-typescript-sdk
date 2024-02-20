@@ -30,7 +30,7 @@ export namespace Rule {
         case "ALLOW":
           return model.AllowRule.getJsonObj(<model.AllowRule>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.action}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.action}`);
       }
     }
     return jsonObj;
@@ -43,7 +43,7 @@ export namespace Rule {
         case "ALLOW":
           return model.AllowRule.getDeserializedJsonObj(<model.AllowRule>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.action}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.action}`);
       }
     }
     return jsonObj;

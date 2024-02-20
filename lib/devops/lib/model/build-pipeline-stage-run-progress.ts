@@ -93,7 +93,8 @@ export namespace BuildPipelineStageRunProgress {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
       }
     }
     return jsonObj;
@@ -133,7 +134,8 @@ export namespace BuildPipelineStageRunProgress {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
       }
     }
     return jsonObj;

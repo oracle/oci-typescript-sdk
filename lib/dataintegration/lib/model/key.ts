@@ -30,7 +30,7 @@ export namespace Key {
         case "FOREIGN_KEY":
           return model.ForeignKey.getJsonObj(<model.ForeignKey>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -43,7 +43,7 @@ export namespace Key {
         case "FOREIGN_KEY":
           return model.ForeignKey.getDeserializedJsonObj(<model.ForeignKey>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

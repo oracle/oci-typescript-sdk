@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export enum ComputeInstanceAgentApiKeys {}
 export class ComputeInstanceAgentClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeInstanceAgentWaiter;
@@ -120,7 +119,12 @@ export class ComputeInstanceAgentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180530";
-    logger.info(`ComputeInstanceAgentClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`ComputeInstanceAgentClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +134,10 @@ export class ComputeInstanceAgentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ComputeInstanceAgentClient.serviceEndpointTemplate,
@@ -229,7 +234,8 @@ Canceling a command is a best-effort attempt. If the command has already
   public async cancelInstanceAgentCommand(
     cancelInstanceAgentCommandRequest: requests.CancelInstanceAgentCommandRequest
   ): Promise<responses.CancelInstanceAgentCommandResponse> {
-    logger.debug("Calling operation ComputeInstanceAgentClient#cancelInstanceAgentCommand.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeInstanceAgentClient#cancelInstanceAgentCommand.");
     const operationName = "cancelInstanceAgentCommand";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommand/CancelInstanceAgentCommand";
@@ -251,6 +257,7 @@ Canceling a command is a best-effort attempt. If the command has already
       cancelInstanceAgentCommandRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -303,7 +310,8 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   public async createInstanceAgentCommand(
     createInstanceAgentCommandRequest: requests.CreateInstanceAgentCommandRequest
   ): Promise<responses.CreateInstanceAgentCommandResponse> {
-    logger.debug("Calling operation ComputeInstanceAgentClient#createInstanceAgentCommand.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeInstanceAgentClient#createInstanceAgentCommand.");
     const operationName = "createInstanceAgentCommand";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommand/CreateInstanceAgentCommand";
@@ -323,6 +331,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       createInstanceAgentCommandRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -382,7 +391,8 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   public async getInstanceAgentCommand(
     getInstanceAgentCommandRequest: requests.GetInstanceAgentCommandRequest
   ): Promise<responses.GetInstanceAgentCommandResponse> {
-    logger.debug("Calling operation ComputeInstanceAgentClient#getInstanceAgentCommand.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeInstanceAgentClient#getInstanceAgentCommand.");
     const operationName = "getInstanceAgentCommand";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommand/GetInstanceAgentCommand";
@@ -403,6 +413,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       getInstanceAgentCommandRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -457,7 +468,10 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   public async getInstanceAgentCommandExecution(
     getInstanceAgentCommandExecutionRequest: requests.GetInstanceAgentCommandExecutionRequest
   ): Promise<responses.GetInstanceAgentCommandExecutionResponse> {
-    logger.debug("Calling operation ComputeInstanceAgentClient#getInstanceAgentCommandExecution.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeInstanceAgentClient#getInstanceAgentCommandExecution."
+      );
     const operationName = "getInstanceAgentCommandExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommandExecution/GetInstanceAgentCommandExecution";
@@ -480,6 +494,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       getInstanceAgentCommandExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -536,9 +551,10 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   public async listInstanceAgentCommandExecutions(
     listInstanceAgentCommandExecutionsRequest: requests.ListInstanceAgentCommandExecutionsRequest
   ): Promise<responses.ListInstanceAgentCommandExecutionsResponse> {
-    logger.debug(
-      "Calling operation ComputeInstanceAgentClient#listInstanceAgentCommandExecutions."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeInstanceAgentClient#listInstanceAgentCommandExecutions."
+      );
     const operationName = "listInstanceAgentCommandExecutions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommandExecutionSummary/ListInstanceAgentCommandExecutions";
@@ -565,6 +581,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       listInstanceAgentCommandExecutionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -672,7 +689,8 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   public async listInstanceAgentCommands(
     listInstanceAgentCommandsRequest: requests.ListInstanceAgentCommandsRequest
   ): Promise<responses.ListInstanceAgentCommandsResponse> {
-    logger.debug("Calling operation ComputeInstanceAgentClient#listInstanceAgentCommands.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeInstanceAgentClient#listInstanceAgentCommands.");
     const operationName = "listInstanceAgentCommands";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommandSummary/ListInstanceAgentCommands";
@@ -697,6 +715,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       listInstanceAgentCommandsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -799,7 +818,7 @@ export enum PluginApiKeys {}
 export class PluginClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -879,7 +898,11 @@ export class PluginClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180530";
-    logger.info(`PluginClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`PluginClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -889,9 +912,10 @@ export class PluginClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         PluginClient.serviceEndpointTemplate,
@@ -960,7 +984,7 @@ export class PluginClient {
   public async getInstanceAgentPlugin(
     getInstanceAgentPluginRequest: requests.GetInstanceAgentPluginRequest
   ): Promise<responses.GetInstanceAgentPluginResponse> {
-    logger.debug("Calling operation PluginClient#getInstanceAgentPlugin.");
+    if (this.logger) this.logger.debug("Calling operation PluginClient#getInstanceAgentPlugin.");
     const operationName = "getInstanceAgentPlugin";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/Plugin/GetInstanceAgentPlugin";
@@ -984,6 +1008,7 @@ export class PluginClient {
       getInstanceAgentPluginRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1033,7 +1058,7 @@ export class PluginClient {
   public async listInstanceAgentPlugins(
     listInstanceAgentPluginsRequest: requests.ListInstanceAgentPluginsRequest
   ): Promise<responses.ListInstanceAgentPluginsResponse> {
-    logger.debug("Calling operation PluginClient#listInstanceAgentPlugins.");
+    if (this.logger) this.logger.debug("Calling operation PluginClient#listInstanceAgentPlugins.");
     const operationName = "listInstanceAgentPlugins";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/Plugin/ListInstanceAgentPlugins";
@@ -1062,6 +1087,7 @@ export class PluginClient {
       listInstanceAgentPluginsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1164,7 +1190,7 @@ export enum PluginconfigApiKeys {}
 export class PluginconfigClient {
   protected static serviceEndpointTemplate = "https://iaas.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -1244,7 +1270,11 @@ export class PluginconfigClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180530";
-    logger.info(`PluginconfigClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`PluginconfigClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1254,9 +1284,10 @@ export class PluginconfigClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         PluginconfigClient.serviceEndpointTemplate,
@@ -1325,7 +1356,8 @@ export class PluginconfigClient {
   public async listInstanceagentAvailablePlugins(
     listInstanceagentAvailablePluginsRequest: requests.ListInstanceagentAvailablePluginsRequest
   ): Promise<responses.ListInstanceagentAvailablePluginsResponse> {
-    logger.debug("Calling operation PluginconfigClient#listInstanceagentAvailablePlugins.");
+    if (this.logger)
+      this.logger.debug("Calling operation PluginconfigClient#listInstanceagentAvailablePlugins.");
     const operationName = "listInstanceagentAvailablePlugins";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/Plugin/ListInstanceagentAvailablePlugins";
@@ -1353,6 +1385,7 @@ export class PluginconfigClient {
       listInstanceagentAvailablePluginsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

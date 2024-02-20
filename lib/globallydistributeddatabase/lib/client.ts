@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum ShardedDatabaseServiceApiKeys {}
 export class ShardedDatabaseServiceClient {
   protected static serviceEndpointTemplate = "https://globaldb.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ShardedDatabaseServiceWaiter;
@@ -117,7 +116,12 @@ export class ShardedDatabaseServiceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230301";
-    logger.info(`ShardedDatabaseServiceClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`ShardedDatabaseServiceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +131,10 @@ export class ShardedDatabaseServiceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ShardedDatabaseServiceClient.serviceEndpointTemplate,
@@ -222,9 +227,10 @@ export class ShardedDatabaseServiceClient {
   public async changePrivateEndpointCompartment(
     changePrivateEndpointCompartmentRequest: requests.ChangePrivateEndpointCompartmentRequest
   ): Promise<responses.ChangePrivateEndpointCompartmentResponse> {
-    logger.debug(
-      "Calling operation ShardedDatabaseServiceClient#changePrivateEndpointCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ShardedDatabaseServiceClient#changePrivateEndpointCompartment."
+      );
     const operationName = "changePrivateEndpointCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -246,6 +252,7 @@ export class ShardedDatabaseServiceClient {
       changePrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -302,9 +309,10 @@ export class ShardedDatabaseServiceClient {
   public async changeShardedDatabaseCompartment(
     changeShardedDatabaseCompartmentRequest: requests.ChangeShardedDatabaseCompartmentRequest
   ): Promise<responses.ChangeShardedDatabaseCompartmentResponse> {
-    logger.debug(
-      "Calling operation ShardedDatabaseServiceClient#changeShardedDatabaseCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ShardedDatabaseServiceClient#changeShardedDatabaseCompartment."
+      );
     const operationName = "changeShardedDatabaseCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -326,6 +334,7 @@ export class ShardedDatabaseServiceClient {
       changeShardedDatabaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,7 +394,10 @@ export class ShardedDatabaseServiceClient {
   public async configureShardedDatabaseGsms(
     configureShardedDatabaseGsmsRequest: requests.ConfigureShardedDatabaseGsmsRequest
   ): Promise<responses.ConfigureShardedDatabaseGsmsResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#configureShardedDatabaseGsms.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ShardedDatabaseServiceClient#configureShardedDatabaseGsms."
+      );
     const operationName = "configureShardedDatabaseGsms";
     const apiReferenceLink = "";
     const pathParams = {
@@ -407,6 +419,7 @@ export class ShardedDatabaseServiceClient {
       configureShardedDatabaseGsmsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -467,7 +480,8 @@ export class ShardedDatabaseServiceClient {
   public async configureSharding(
     configureShardingRequest: requests.ConfigureShardingRequest
   ): Promise<responses.ConfigureShardingResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#configureSharding.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#configureSharding.");
     const operationName = "configureSharding";
     const apiReferenceLink = "";
     const pathParams = {
@@ -491,6 +505,7 @@ export class ShardedDatabaseServiceClient {
       configureShardingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -542,7 +557,8 @@ export class ShardedDatabaseServiceClient {
   public async createPrivateEndpoint(
     createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
   ): Promise<responses.CreatePrivateEndpointResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#createPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#createPrivateEndpoint.");
     const operationName = "createPrivateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -561,6 +577,7 @@ export class ShardedDatabaseServiceClient {
       createPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -626,7 +643,8 @@ export class ShardedDatabaseServiceClient {
   public async createShardedDatabase(
     createShardedDatabaseRequest: requests.CreateShardedDatabaseRequest
   ): Promise<responses.CreateShardedDatabaseResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#createShardedDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#createShardedDatabase.");
     const operationName = "createShardedDatabase";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -645,6 +663,7 @@ export class ShardedDatabaseServiceClient {
       createShardedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -710,7 +729,8 @@ export class ShardedDatabaseServiceClient {
   public async deletePrivateEndpoint(
     deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
   ): Promise<responses.DeletePrivateEndpointResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#deletePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#deletePrivateEndpoint.");
     const operationName = "deletePrivateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {
@@ -732,6 +752,7 @@ export class ShardedDatabaseServiceClient {
       deletePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -783,7 +804,8 @@ export class ShardedDatabaseServiceClient {
   public async deleteShardedDatabase(
     deleteShardedDatabaseRequest: requests.DeleteShardedDatabaseRequest
   ): Promise<responses.DeleteShardedDatabaseResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#deleteShardedDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#deleteShardedDatabase.");
     const operationName = "deleteShardedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -805,6 +827,7 @@ export class ShardedDatabaseServiceClient {
       deleteShardedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -859,9 +882,10 @@ export class ShardedDatabaseServiceClient {
   public async downloadGsmCertificateSigningRequest(
     downloadGsmCertificateSigningRequestRequest: requests.DownloadGsmCertificateSigningRequestRequest
   ): Promise<responses.DownloadGsmCertificateSigningRequestResponse> {
-    logger.debug(
-      "Calling operation ShardedDatabaseServiceClient#downloadGsmCertificateSigningRequest."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ShardedDatabaseServiceClient#downloadGsmCertificateSigningRequest."
+      );
     const operationName = "downloadGsmCertificateSigningRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -883,6 +907,7 @@ export class ShardedDatabaseServiceClient {
       downloadGsmCertificateSigningRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -948,7 +973,8 @@ export class ShardedDatabaseServiceClient {
   public async fetchConnectionString(
     fetchConnectionStringRequest: requests.FetchConnectionStringRequest
   ): Promise<responses.FetchConnectionStringResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#fetchConnectionString.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#fetchConnectionString.");
     const operationName = "fetchConnectionString";
     const apiReferenceLink = "";
     const pathParams = {
@@ -970,6 +996,7 @@ export class ShardedDatabaseServiceClient {
       fetchConnectionStringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1025,9 +1052,10 @@ export class ShardedDatabaseServiceClient {
   public async fetchShardableCloudAutonomousVmClusters(
     fetchShardableCloudAutonomousVmClustersRequest: requests.FetchShardableCloudAutonomousVmClustersRequest
   ): Promise<responses.FetchShardableCloudAutonomousVmClustersResponse> {
-    logger.debug(
-      "Calling operation ShardedDatabaseServiceClient#fetchShardableCloudAutonomousVmClusters."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ShardedDatabaseServiceClient#fetchShardableCloudAutonomousVmClusters."
+      );
     const operationName = "fetchShardableCloudAutonomousVmClusters";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1046,6 +1074,7 @@ export class ShardedDatabaseServiceClient {
       fetchShardableCloudAutonomousVmClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1103,9 +1132,10 @@ export class ShardedDatabaseServiceClient {
   public async generateGsmCertificateSigningRequest(
     generateGsmCertificateSigningRequestRequest: requests.GenerateGsmCertificateSigningRequestRequest
   ): Promise<responses.GenerateGsmCertificateSigningRequestResponse> {
-    logger.debug(
-      "Calling operation ShardedDatabaseServiceClient#generateGsmCertificateSigningRequest."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ShardedDatabaseServiceClient#generateGsmCertificateSigningRequest."
+      );
     const operationName = "generateGsmCertificateSigningRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1127,6 +1157,7 @@ export class ShardedDatabaseServiceClient {
       generateGsmCertificateSigningRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1178,7 +1209,8 @@ export class ShardedDatabaseServiceClient {
   public async generateWallet(
     generateWalletRequest: requests.GenerateWalletRequest
   ): Promise<responses.GenerateWalletResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#generateWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#generateWallet.");
     const operationName = "generateWallet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1200,6 +1232,7 @@ export class ShardedDatabaseServiceClient {
       generateWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1270,7 +1303,8 @@ export class ShardedDatabaseServiceClient {
   public async getPrivateEndpoint(
     getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
   ): Promise<responses.GetPrivateEndpointResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#getPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#getPrivateEndpoint.");
     const operationName = "getPrivateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1290,6 +1324,7 @@ export class ShardedDatabaseServiceClient {
       getPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1345,7 +1380,8 @@ export class ShardedDatabaseServiceClient {
   public async getShardedDatabase(
     getShardedDatabaseRequest: requests.GetShardedDatabaseRequest
   ): Promise<responses.GetShardedDatabaseResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#getShardedDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#getShardedDatabase.");
     const operationName = "getShardedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1367,6 +1403,7 @@ export class ShardedDatabaseServiceClient {
       getShardedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1421,7 +1458,8 @@ export class ShardedDatabaseServiceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#getWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1441,6 +1479,7 @@ export class ShardedDatabaseServiceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1496,7 +1535,8 @@ export class ShardedDatabaseServiceClient {
   public async listPrivateEndpoints(
     listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
   ): Promise<responses.ListPrivateEndpointsResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#listPrivateEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#listPrivateEndpoints.");
     const operationName = "listPrivateEndpoints";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1522,6 +1562,7 @@ export class ShardedDatabaseServiceClient {
       listPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1577,7 +1618,8 @@ export class ShardedDatabaseServiceClient {
   public async listShardedDatabases(
     listShardedDatabasesRequest: requests.ListShardedDatabasesRequest
   ): Promise<responses.ListShardedDatabasesResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#listShardedDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#listShardedDatabases.");
     const operationName = "listShardedDatabases";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1603,6 +1645,7 @@ export class ShardedDatabaseServiceClient {
       listShardedDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1658,7 +1701,8 @@ export class ShardedDatabaseServiceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1683,6 +1727,7 @@ export class ShardedDatabaseServiceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1738,7 +1783,8 @@ export class ShardedDatabaseServiceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1763,6 +1809,7 @@ export class ShardedDatabaseServiceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1818,7 +1865,8 @@ export class ShardedDatabaseServiceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1845,6 +1893,7 @@ export class ShardedDatabaseServiceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1902,7 +1951,8 @@ export class ShardedDatabaseServiceClient {
   public async patchShardedDatabase(
     patchShardedDatabaseRequest: requests.PatchShardedDatabaseRequest
   ): Promise<responses.PatchShardedDatabaseResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#patchShardedDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#patchShardedDatabase.");
     const operationName = "patchShardedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1923,6 +1973,7 @@ export class ShardedDatabaseServiceClient {
       patchShardedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1979,7 +2030,10 @@ export class ShardedDatabaseServiceClient {
   public async prevalidateShardedDatabase(
     prevalidateShardedDatabaseRequest: requests.PrevalidateShardedDatabaseRequest
   ): Promise<responses.PrevalidateShardedDatabaseResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#prevalidateShardedDatabase.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ShardedDatabaseServiceClient#prevalidateShardedDatabase."
+      );
     const operationName = "prevalidateShardedDatabase";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2000,6 +2054,7 @@ export class ShardedDatabaseServiceClient {
       prevalidateShardedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2054,7 +2109,8 @@ export class ShardedDatabaseServiceClient {
   public async startShardedDatabase(
     startShardedDatabaseRequest: requests.StartShardedDatabaseRequest
   ): Promise<responses.StartShardedDatabaseResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#startShardedDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#startShardedDatabase.");
     const operationName = "startShardedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2076,6 +2132,7 @@ export class ShardedDatabaseServiceClient {
       startShardedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2126,7 +2183,8 @@ export class ShardedDatabaseServiceClient {
   public async stopShardedDatabase(
     stopShardedDatabaseRequest: requests.StopShardedDatabaseRequest
   ): Promise<responses.StopShardedDatabaseResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#stopShardedDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#stopShardedDatabase.");
     const operationName = "stopShardedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2148,6 +2206,7 @@ export class ShardedDatabaseServiceClient {
       stopShardedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2199,7 +2258,8 @@ export class ShardedDatabaseServiceClient {
   public async updatePrivateEndpoint(
     updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
   ): Promise<responses.UpdatePrivateEndpointResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#updatePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#updatePrivateEndpoint.");
     const operationName = "updatePrivateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2221,6 +2281,7 @@ export class ShardedDatabaseServiceClient {
       updatePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2281,7 +2342,8 @@ export class ShardedDatabaseServiceClient {
   public async updateShardedDatabase(
     updateShardedDatabaseRequest: requests.UpdateShardedDatabaseRequest
   ): Promise<responses.UpdateShardedDatabaseResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#updateShardedDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#updateShardedDatabase.");
     const operationName = "updateShardedDatabase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2302,6 +2364,7 @@ export class ShardedDatabaseServiceClient {
       updateShardedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2364,9 +2427,10 @@ export class ShardedDatabaseServiceClient {
   public async uploadSignedCertificateAndGenerateWallet(
     uploadSignedCertificateAndGenerateWalletRequest: requests.UploadSignedCertificateAndGenerateWalletRequest
   ): Promise<responses.UploadSignedCertificateAndGenerateWalletResponse> {
-    logger.debug(
-      "Calling operation ShardedDatabaseServiceClient#uploadSignedCertificateAndGenerateWallet."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ShardedDatabaseServiceClient#uploadSignedCertificateAndGenerateWallet."
+      );
     const operationName = "uploadSignedCertificateAndGenerateWallet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2388,6 +2452,7 @@ export class ShardedDatabaseServiceClient {
       uploadSignedCertificateAndGenerateWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2445,7 +2510,8 @@ export class ShardedDatabaseServiceClient {
   public async validateNetwork(
     validateNetworkRequest: requests.ValidateNetworkRequest
   ): Promise<responses.ValidateNetworkResponse> {
-    logger.debug("Calling operation ShardedDatabaseServiceClient#validateNetwork.");
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#validateNetwork.");
     const operationName = "validateNetwork";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2471,6 +2537,7 @@ export class ShardedDatabaseServiceClient {
       validateNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -17,7 +17,7 @@ import { HttpRequest } from "./http-request";
 import { isReadableStream } from "./helper";
 import { handleErrorBody, handleErrorResponse } from "./helper";
 import { OciError } from "..";
-import { logger } from "./log";
+import { Logger } from "./log";
 import { BooleanString } from "./constants";
 
 const TROUBLESHOOT_URL =
@@ -96,6 +96,7 @@ export const OciSdkDefaultRetryConfiguration: RetryConfigurationDetails = {
 
 export class GenericRetrier {
   private _retryConfiguration: RetryConfigurationDetails;
+  private _logger: Logger = (undefined as unknown) as Logger;
   private static OPC_CLIENT_RETRIES_HEADER = "opc-client-retries";
   private static OCI_SDK_DEFAULT_RETRY_ENABLED = "OCI_SDK_DEFAULT_RETRY_ENABLED";
 
@@ -124,6 +125,14 @@ export class GenericRetrier {
       ...GenericRetrier.DefaultRetryConfiguration,
       ...retryConfig
     };
+  }
+
+  public set logger(logger: Logger) {
+    this._logger = logger;
+  }
+
+  public get logger(): Logger {
+    return this._logger;
   }
 
   public get backUpBinaryBody(): boolean {
@@ -172,9 +181,11 @@ export class GenericRetrier {
       maxAttempts = configuration.terminationStrategy.maxAttempts;
     }
 
-    logger.debug(
-      `Retry policy to use: MaximumNumberAttempts=${maxAttempts}, MaxSleepBetween=${maxDelayInSeconds}, ExponentialBackoffBase=2`
-    );
+    if (this.logger) {
+      this.logger.debug(
+        `Retry policy to use: MaximumNumberAttempts=${maxAttempts}, MaxSleepBetween=${maxDelayInSeconds}, ExponentialBackoffBase=2`
+      );
+    }
     while (true) {
       try {
         this.addOpcClientRetryHeader(request);
@@ -198,7 +209,9 @@ export class GenericRetrier {
         } else if (response.status && response.status >= 200 && response.status <= 299) {
           const currentTime = new Date().getTime();
           const timeElapsed = currentTime - timestamp.getTime();
-          logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+          if (this.logger) {
+            this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+          }
           return response;
         } else if ((response as any).code === "EOPENBREAKER") {
           // Circuit Breaker is in OPEN state
@@ -246,14 +259,18 @@ export class GenericRetrier {
         console.warn(
           `Request cannot be retried. Not Retrying. Exception occurred : ${lastKnownError}`
         );
-        logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+        if (this.logger) {
+          this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+        }
         throw lastKnownError;
       } else if (this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext)) {
         console.warn(
           `All retry attempts have exhausted. Total Attempts : ${waitContext.attemptCount +
             1}. Last exception occurred : ${lastKnownError}`
         );
-        logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+        if (this.logger) {
+          this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+        }
         throw lastKnownError;
       }
       const delayTime = this.retryConfiguration.delayStrategy.delay(waitContext);
@@ -264,13 +281,15 @@ export class GenericRetrier {
       await delay(delayTime);
       GenericRetrier.refreshRequest(request);
       attempt += 1;
-      lastKnownError instanceof OciError
-        ? logger.debug(
-            `Http Status Code: ${lastKnownError.statusCode}, Error Code: ${lastKnownError.serviceCode}, Attempt: ${attempt}`
-          )
-        : logger.debug(
-            `Code: ${lastKnownError.code}, Message: ${lastKnownError.message}, Attempt: ${attempt}`
-          );
+      if (this.logger) {
+        lastKnownError instanceof OciError
+          ? this.logger.debug(
+              `Http Status Code: ${lastKnownError.statusCode}, Error Code: ${lastKnownError.serviceCode}, Attempt: ${attempt}`
+            )
+          : this.logger.debug(
+              `Code: ${lastKnownError.code}, Message: ${lastKnownError.message}, Attempt: ${attempt}`
+            );
+      }
     }
   }
 

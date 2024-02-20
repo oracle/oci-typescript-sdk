@@ -19,8 +19,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export class CertificatesClient {
   protected static serviceEndpointTemplate =
     "https://certificates.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -116,7 +115,11 @@ export class CertificatesClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210224";
-    logger.info(`CertificatesClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`CertificatesClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -126,9 +129,10 @@ export class CertificatesClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         CertificatesClient.serviceEndpointTemplate,
@@ -198,7 +202,7 @@ export class CertificatesClient {
   public async getCaBundle(
     getCaBundleRequest: requests.GetCaBundleRequest
   ): Promise<responses.GetCaBundleResponse> {
-    logger.debug("Calling operation CertificatesClient#getCaBundle.");
+    if (this.logger) this.logger.debug("Calling operation CertificatesClient#getCaBundle.");
     const operationName = "getCaBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CaBundle/GetCaBundle";
@@ -219,6 +223,7 @@ export class CertificatesClient {
       getCaBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -275,7 +280,8 @@ export class CertificatesClient {
   public async getCertificateAuthorityBundle(
     getCertificateAuthorityBundleRequest: requests.GetCertificateAuthorityBundleRequest
   ): Promise<responses.GetCertificateAuthorityBundleResponse> {
-    logger.debug("Calling operation CertificatesClient#getCertificateAuthorityBundle.");
+    if (this.logger)
+      this.logger.debug("Calling operation CertificatesClient#getCertificateAuthorityBundle.");
     const operationName = "getCertificateAuthorityBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CertificateAuthorityBundle/GetCertificateAuthorityBundle";
@@ -301,6 +307,7 @@ export class CertificatesClient {
       getCertificateAuthorityBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -360,7 +367,8 @@ By default, the private key is not included in the query result, and a Certifica
   public async getCertificateBundle(
     getCertificateBundleRequest: requests.GetCertificateBundleRequest
   ): Promise<responses.GetCertificateBundleResponse> {
-    logger.debug("Calling operation CertificatesClient#getCertificateBundle.");
+    if (this.logger)
+      this.logger.debug("Calling operation CertificatesClient#getCertificateBundle.");
     const operationName = "getCertificateBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CertificateBundle/GetCertificateBundle";
@@ -386,6 +394,7 @@ By default, the private key is not included in the query result, and a Certifica
       getCertificateBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -440,7 +449,10 @@ By default, the private key is not included in the query result, and a Certifica
   public async listCertificateAuthorityBundleVersions(
     listCertificateAuthorityBundleVersionsRequest: requests.ListCertificateAuthorityBundleVersionsRequest
   ): Promise<responses.ListCertificateAuthorityBundleVersionsResponse> {
-    logger.debug("Calling operation CertificatesClient#listCertificateAuthorityBundleVersions.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CertificatesClient#listCertificateAuthorityBundleVersions."
+      );
     const operationName = "listCertificateAuthorityBundleVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CertificateAuthorityBundleVersionSummary/ListCertificateAuthorityBundleVersions";
@@ -465,6 +477,7 @@ By default, the private key is not included in the query result, and a Certifica
       listCertificateAuthorityBundleVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -514,7 +527,8 @@ By default, the private key is not included in the query result, and a Certifica
   public async listCertificateBundleVersions(
     listCertificateBundleVersionsRequest: requests.ListCertificateBundleVersionsRequest
   ): Promise<responses.ListCertificateBundleVersionsResponse> {
-    logger.debug("Calling operation CertificatesClient#listCertificateBundleVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation CertificatesClient#listCertificateBundleVersions.");
     const operationName = "listCertificateBundleVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CertificateBundleVersionSummary/ListCertificateBundleVersions";
@@ -538,6 +552,7 @@ By default, the private key is not included in the query result, and a Certifica
       listCertificateBundleVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

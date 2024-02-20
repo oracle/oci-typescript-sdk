@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum VbsInstanceApiKeys {}
 export class VbsInstanceClient {
   protected static serviceEndpointTemplate = "https://vbstudio.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": VbsInstanceWaiter;
@@ -117,7 +116,11 @@ export class VbsInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180828";
-    logger.info(`VbsInstanceClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`VbsInstanceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class VbsInstanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         VbsInstanceClient.serviceEndpointTemplate,
@@ -221,7 +225,8 @@ export class VbsInstanceClient {
   public async changeVbsInstanceCompartment(
     changeVbsInstanceCompartmentRequest: requests.ChangeVbsInstanceCompartmentRequest
   ): Promise<responses.ChangeVbsInstanceCompartmentResponse> {
-    logger.debug("Calling operation VbsInstanceClient#changeVbsInstanceCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation VbsInstanceClient#changeVbsInstanceCompartment.");
     const operationName = "changeVbsInstanceCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -242,6 +247,7 @@ export class VbsInstanceClient {
       changeVbsInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -298,7 +304,7 @@ export class VbsInstanceClient {
   public async createVbsInstance(
     createVbsInstanceRequest: requests.CreateVbsInstanceRequest
   ): Promise<responses.CreateVbsInstanceResponse> {
-    logger.debug("Calling operation VbsInstanceClient#createVbsInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbsInstanceClient#createVbsInstance.");
     const operationName = "createVbsInstance";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -318,6 +324,7 @@ export class VbsInstanceClient {
       createVbsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -373,7 +380,7 @@ export class VbsInstanceClient {
   public async deleteVbsInstance(
     deleteVbsInstanceRequest: requests.DeleteVbsInstanceRequest
   ): Promise<responses.DeleteVbsInstanceResponse> {
-    logger.debug("Calling operation VbsInstanceClient#deleteVbsInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbsInstanceClient#deleteVbsInstance.");
     const operationName = "deleteVbsInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -394,6 +401,7 @@ export class VbsInstanceClient {
       deleteVbsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -444,7 +452,7 @@ export class VbsInstanceClient {
   public async getVbsInstance(
     getVbsInstanceRequest: requests.GetVbsInstanceRequest
   ): Promise<responses.GetVbsInstanceResponse> {
-    logger.debug("Calling operation VbsInstanceClient#getVbsInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbsInstanceClient#getVbsInstance.");
     const operationName = "getVbsInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -464,6 +472,7 @@ export class VbsInstanceClient {
       getVbsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -518,7 +527,7 @@ export class VbsInstanceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation VbsInstanceClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation VbsInstanceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -538,6 +547,7 @@ export class VbsInstanceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -593,7 +603,7 @@ export class VbsInstanceClient {
   public async listVbsInstances(
     listVbsInstancesRequest: requests.ListVbsInstancesRequest
   ): Promise<responses.ListVbsInstancesResponse> {
-    logger.debug("Calling operation VbsInstanceClient#listVbsInstances.");
+    if (this.logger) this.logger.debug("Calling operation VbsInstanceClient#listVbsInstances.");
     const operationName = "listVbsInstances";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -620,6 +630,7 @@ export class VbsInstanceClient {
       listVbsInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -675,7 +686,8 @@ export class VbsInstanceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation VbsInstanceClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation VbsInstanceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -700,6 +712,7 @@ export class VbsInstanceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -755,7 +768,7 @@ export class VbsInstanceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation VbsInstanceClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation VbsInstanceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -780,6 +793,7 @@ export class VbsInstanceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -835,7 +849,7 @@ export class VbsInstanceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation VbsInstanceClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation VbsInstanceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -860,6 +874,7 @@ export class VbsInstanceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -914,7 +929,7 @@ export class VbsInstanceClient {
   public async updateVbsInstance(
     updateVbsInstanceRequest: requests.UpdateVbsInstanceRequest
   ): Promise<responses.UpdateVbsInstanceResponse> {
-    logger.debug("Calling operation VbsInstanceClient#updateVbsInstance.");
+    if (this.logger) this.logger.debug("Calling operation VbsInstanceClient#updateVbsInstance.");
     const operationName = "updateVbsInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -935,6 +950,7 @@ export class VbsInstanceClient {
       updateVbsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

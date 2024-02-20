@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum PostgresqlApiKeys {}
 export class PostgresqlClient {
   protected static serviceEndpointTemplate = "https://postgresql.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": PostgresqlWaiter;
@@ -119,7 +118,11 @@ export class PostgresqlClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220915";
-    logger.info(`PostgresqlClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`PostgresqlClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class PostgresqlClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         PostgresqlClient.serviceEndpointTemplate,
@@ -223,7 +227,8 @@ export class PostgresqlClient {
   public async changeBackupCompartment(
     changeBackupCompartmentRequest: requests.ChangeBackupCompartmentRequest
   ): Promise<responses.ChangeBackupCompartmentResponse> {
-    logger.debug("Calling operation PostgresqlClient#changeBackupCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#changeBackupCompartment.");
     const operationName = "changeBackupCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -245,6 +250,7 @@ export class PostgresqlClient {
       changeBackupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -300,7 +306,8 @@ export class PostgresqlClient {
   public async changeConfigurationCompartment(
     changeConfigurationCompartmentRequest: requests.ChangeConfigurationCompartmentRequest
   ): Promise<responses.ChangeConfigurationCompartmentResponse> {
-    logger.debug("Calling operation PostgresqlClient#changeConfigurationCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#changeConfigurationCompartment.");
     const operationName = "changeConfigurationCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -322,6 +329,7 @@ export class PostgresqlClient {
       changeConfigurationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -372,7 +380,8 @@ export class PostgresqlClient {
   public async changeDbSystemCompartment(
     changeDbSystemCompartmentRequest: requests.ChangeDbSystemCompartmentRequest
   ): Promise<responses.ChangeDbSystemCompartmentResponse> {
-    logger.debug("Calling operation PostgresqlClient#changeDbSystemCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#changeDbSystemCompartment.");
     const operationName = "changeDbSystemCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -394,6 +403,7 @@ export class PostgresqlClient {
       changeDbSystemCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -450,7 +460,7 @@ export class PostgresqlClient {
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
   ): Promise<responses.CreateBackupResponse> {
-    logger.debug("Calling operation PostgresqlClient#createBackup.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#createBackup.");
     const operationName = "createBackup";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -469,6 +479,7 @@ export class PostgresqlClient {
       createBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -525,7 +536,7 @@ export class PostgresqlClient {
   public async createConfiguration(
     createConfigurationRequest: requests.CreateConfigurationRequest
   ): Promise<responses.CreateConfigurationResponse> {
-    logger.debug("Calling operation PostgresqlClient#createConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#createConfiguration.");
     const operationName = "createConfiguration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -544,6 +555,7 @@ export class PostgresqlClient {
       createConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -604,7 +616,7 @@ export class PostgresqlClient {
   public async createDbSystem(
     createDbSystemRequest: requests.CreateDbSystemRequest
   ): Promise<responses.CreateDbSystemResponse> {
-    logger.debug("Calling operation PostgresqlClient#createDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#createDbSystem.");
     const operationName = "createDbSystem";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -623,6 +635,7 @@ export class PostgresqlClient {
       createDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -687,7 +700,7 @@ export class PostgresqlClient {
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
   ): Promise<responses.DeleteBackupResponse> {
-    logger.debug("Calling operation PostgresqlClient#deleteBackup.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#deleteBackup.");
     const operationName = "deleteBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -708,6 +721,7 @@ export class PostgresqlClient {
       deleteBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -758,7 +772,7 @@ export class PostgresqlClient {
   public async deleteConfiguration(
     deleteConfigurationRequest: requests.DeleteConfigurationRequest
   ): Promise<responses.DeleteConfigurationResponse> {
-    logger.debug("Calling operation PostgresqlClient#deleteConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#deleteConfiguration.");
     const operationName = "deleteConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -779,6 +793,7 @@ export class PostgresqlClient {
       deleteConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -824,7 +839,7 @@ export class PostgresqlClient {
   public async deleteDbSystem(
     deleteDbSystemRequest: requests.DeleteDbSystemRequest
   ): Promise<responses.DeleteDbSystemResponse> {
-    logger.debug("Calling operation PostgresqlClient#deleteDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#deleteDbSystem.");
     const operationName = "deleteDbSystem";
     const apiReferenceLink = "";
     const pathParams = {
@@ -845,6 +860,7 @@ export class PostgresqlClient {
       deleteDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -895,7 +911,7 @@ export class PostgresqlClient {
   public async failoverDbSystem(
     failoverDbSystemRequest: requests.FailoverDbSystemRequest
   ): Promise<responses.FailoverDbSystemResponse> {
-    logger.debug("Calling operation PostgresqlClient#failoverDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#failoverDbSystem.");
     const operationName = "failoverDbSystem";
     const apiReferenceLink = "";
     const pathParams = {
@@ -917,6 +933,7 @@ export class PostgresqlClient {
       failoverDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -972,7 +989,7 @@ export class PostgresqlClient {
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
   ): Promise<responses.GetBackupResponse> {
-    logger.debug("Calling operation PostgresqlClient#getBackup.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#getBackup.");
     const operationName = "getBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -992,6 +1009,7 @@ export class PostgresqlClient {
       getBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1046,7 +1064,7 @@ export class PostgresqlClient {
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
-    logger.debug("Calling operation PostgresqlClient#getConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#getConfiguration.");
     const operationName = "getConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1066,6 +1084,7 @@ export class PostgresqlClient {
       getConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1120,7 +1139,7 @@ export class PostgresqlClient {
   public async getConnectionDetails(
     getConnectionDetailsRequest: requests.GetConnectionDetailsRequest
   ): Promise<responses.GetConnectionDetailsResponse> {
-    logger.debug("Calling operation PostgresqlClient#getConnectionDetails.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#getConnectionDetails.");
     const operationName = "getConnectionDetails";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1140,6 +1159,7 @@ export class PostgresqlClient {
       getConnectionDetailsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1194,7 +1214,7 @@ export class PostgresqlClient {
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
   ): Promise<responses.GetDbSystemResponse> {
-    logger.debug("Calling operation PostgresqlClient#getDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#getDbSystem.");
     const operationName = "getDbSystem";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1216,6 +1236,7 @@ export class PostgresqlClient {
       getDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1270,7 +1291,8 @@ export class PostgresqlClient {
   public async getDefaultConfiguration(
     getDefaultConfigurationRequest: requests.GetDefaultConfigurationRequest
   ): Promise<responses.GetDefaultConfigurationResponse> {
-    logger.debug("Calling operation PostgresqlClient#getDefaultConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#getDefaultConfiguration.");
     const operationName = "getDefaultConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1290,6 +1312,7 @@ export class PostgresqlClient {
       getDefaultConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1344,7 +1367,7 @@ export class PostgresqlClient {
   public async getPrimaryDbInstance(
     getPrimaryDbInstanceRequest: requests.GetPrimaryDbInstanceRequest
   ): Promise<responses.GetPrimaryDbInstanceResponse> {
-    logger.debug("Calling operation PostgresqlClient#getPrimaryDbInstance.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#getPrimaryDbInstance.");
     const operationName = "getPrimaryDbInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1364,6 +1387,7 @@ export class PostgresqlClient {
       getPrimaryDbInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1418,7 +1442,7 @@ export class PostgresqlClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation PostgresqlClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1438,6 +1462,7 @@ export class PostgresqlClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1498,7 +1523,7 @@ export class PostgresqlClient {
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
   ): Promise<responses.ListBackupsResponse> {
-    logger.debug("Calling operation PostgresqlClient#listBackups.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#listBackups.");
     const operationName = "listBackups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1528,6 +1553,7 @@ export class PostgresqlClient {
       listBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1583,7 +1609,7 @@ export class PostgresqlClient {
   public async listConfigurations(
     listConfigurationsRequest: requests.ListConfigurationsRequest
   ): Promise<responses.ListConfigurationsResponse> {
-    logger.debug("Calling operation PostgresqlClient#listConfigurations.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#listConfigurations.");
     const operationName = "listConfigurations";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1612,6 +1638,7 @@ export class PostgresqlClient {
       listConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1667,7 +1694,7 @@ export class PostgresqlClient {
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
   ): Promise<responses.ListDbSystemsResponse> {
-    logger.debug("Calling operation PostgresqlClient#listDbSystems.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#listDbSystems.");
     const operationName = "listDbSystems";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1694,6 +1721,7 @@ export class PostgresqlClient {
       listDbSystemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1749,7 +1777,8 @@ export class PostgresqlClient {
   public async listDefaultConfigurations(
     listDefaultConfigurationsRequest: requests.ListDefaultConfigurationsRequest
   ): Promise<responses.ListDefaultConfigurationsResponse> {
-    logger.debug("Calling operation PostgresqlClient#listDefaultConfigurations.");
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#listDefaultConfigurations.");
     const operationName = "listDefaultConfigurations";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1777,6 +1806,7 @@ export class PostgresqlClient {
       listDefaultConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1831,7 +1861,7 @@ export class PostgresqlClient {
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
-    logger.debug("Calling operation PostgresqlClient#listShapes.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#listShapes.");
     const operationName = "listShapes";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1856,6 +1886,7 @@ export class PostgresqlClient {
       listShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1911,7 +1942,7 @@ export class PostgresqlClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation PostgresqlClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1936,6 +1967,7 @@ export class PostgresqlClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1991,7 +2023,7 @@ export class PostgresqlClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation PostgresqlClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2016,6 +2048,7 @@ export class PostgresqlClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2071,7 +2104,7 @@ export class PostgresqlClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation PostgresqlClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2098,6 +2131,7 @@ export class PostgresqlClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2152,7 +2186,7 @@ export class PostgresqlClient {
   public async patchDbSystem(
     patchDbSystemRequest: requests.PatchDbSystemRequest
   ): Promise<responses.PatchDbSystemResponse> {
-    logger.debug("Calling operation PostgresqlClient#patchDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#patchDbSystem.");
     const operationName = "patchDbSystem";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2173,6 +2207,7 @@ export class PostgresqlClient {
       patchDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2228,7 +2263,8 @@ export class PostgresqlClient {
   public async resetMasterUserPassword(
     resetMasterUserPasswordRequest: requests.ResetMasterUserPasswordRequest
   ): Promise<responses.ResetMasterUserPasswordResponse> {
-    logger.debug("Calling operation PostgresqlClient#resetMasterUserPassword.");
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#resetMasterUserPassword.");
     const operationName = "resetMasterUserPassword";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2250,6 +2286,7 @@ export class PostgresqlClient {
       resetMasterUserPasswordRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2305,7 +2342,8 @@ export class PostgresqlClient {
   public async restartDbInstanceInDbSystem(
     restartDbInstanceInDbSystemRequest: requests.RestartDbInstanceInDbSystemRequest
   ): Promise<responses.RestartDbInstanceInDbSystemResponse> {
-    logger.debug("Calling operation PostgresqlClient#restartDbInstanceInDbSystem.");
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#restartDbInstanceInDbSystem.");
     const operationName = "restartDbInstanceInDbSystem";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2327,6 +2365,7 @@ export class PostgresqlClient {
       restartDbInstanceInDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2382,7 +2421,7 @@ export class PostgresqlClient {
   public async restoreDbSystem(
     restoreDbSystemRequest: requests.RestoreDbSystemRequest
   ): Promise<responses.RestoreDbSystemResponse> {
-    logger.debug("Calling operation PostgresqlClient#restoreDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#restoreDbSystem.");
     const operationName = "restoreDbSystem";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2404,6 +2443,7 @@ export class PostgresqlClient {
       restoreDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2459,7 +2499,7 @@ export class PostgresqlClient {
   public async updateBackup(
     updateBackupRequest: requests.UpdateBackupRequest
   ): Promise<responses.UpdateBackupResponse> {
-    logger.debug("Calling operation PostgresqlClient#updateBackup.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#updateBackup.");
     const operationName = "updateBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2480,6 +2520,7 @@ export class PostgresqlClient {
       updateBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2540,7 +2581,7 @@ export class PostgresqlClient {
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
-    logger.debug("Calling operation PostgresqlClient#updateConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#updateConfiguration.");
     const operationName = "updateConfiguration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2562,6 +2603,7 @@ export class PostgresqlClient {
       updateConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2621,7 +2663,7 @@ export class PostgresqlClient {
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
   ): Promise<responses.UpdateDbSystemResponse> {
-    logger.debug("Calling operation PostgresqlClient#updateDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#updateDbSystem.");
     const operationName = "updateDbSystem";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2643,6 +2685,7 @@ export class PostgresqlClient {
       updateDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2698,7 +2741,8 @@ export class PostgresqlClient {
   public async updateDbSystemDbInstance(
     updateDbSystemDbInstanceRequest: requests.UpdateDbSystemDbInstanceRequest
   ): Promise<responses.UpdateDbSystemDbInstanceResponse> {
-    logger.debug("Calling operation PostgresqlClient#updateDbSystemDbInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#updateDbSystemDbInstance.");
     const operationName = "updateDbSystemDbInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2721,6 +2765,7 @@ export class PostgresqlClient {
       updateDbSystemDbInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -37,7 +37,8 @@ export namespace HostInsightHostRecommendations {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.metricRecommendationName}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.metricRecommendationName}`);
       }
     }
     return jsonObj;
@@ -53,7 +54,8 @@ export namespace HostInsightHostRecommendations {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.metricRecommendationName}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.metricRecommendationName}`);
       }
     }
     return jsonObj;

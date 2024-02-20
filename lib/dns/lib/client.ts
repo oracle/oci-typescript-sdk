@@ -29,8 +29,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -45,7 +44,7 @@ export enum DnsApiKeys {}
 export class DnsClient {
   protected static serviceEndpointTemplate = "https://dns.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DnsWaiter;
@@ -126,7 +125,11 @@ export class DnsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180115";
-    logger.info(`DnsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DnsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -136,9 +139,10 @@ export class DnsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DnsClient.serviceEndpointTemplate,
@@ -238,7 +242,7 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
   public async changeResolverCompartment(
     changeResolverCompartmentRequest: requests.ChangeResolverCompartmentRequest
   ): Promise<responses.ChangeResolverCompartmentResponse> {
-    logger.debug("Calling operation DnsClient#changeResolverCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#changeResolverCompartment.");
     const operationName = "changeResolverCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Resolver/ChangeResolverCompartment";
@@ -263,6 +267,7 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
       changeResolverCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -319,7 +324,8 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
   public async changeSteeringPolicyCompartment(
     changeSteeringPolicyCompartmentRequest: requests.ChangeSteeringPolicyCompartmentRequest
   ): Promise<responses.ChangeSteeringPolicyCompartmentResponse> {
-    logger.debug("Calling operation DnsClient#changeSteeringPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#changeSteeringPolicyCompartment.");
     const operationName = "changeSteeringPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicy/ChangeSteeringPolicyCompartment";
@@ -344,6 +350,7 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
       changeSteeringPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -395,7 +402,7 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
   public async changeTsigKeyCompartment(
     changeTsigKeyCompartmentRequest: requests.ChangeTsigKeyCompartmentRequest
   ): Promise<responses.ChangeTsigKeyCompartmentResponse> {
-    logger.debug("Calling operation DnsClient#changeTsigKeyCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#changeTsigKeyCompartment.");
     const operationName = "changeTsigKeyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/TsigKey/ChangeTsigKeyCompartment";
@@ -420,6 +427,7 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
       changeTsigKeyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -473,7 +481,7 @@ To change the compartment of a protected view, change the compartment of its cor
   public async changeViewCompartment(
     changeViewCompartmentRequest: requests.ChangeViewCompartmentRequest
   ): Promise<responses.ChangeViewCompartmentResponse> {
-    logger.debug("Calling operation DnsClient#changeViewCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#changeViewCompartment.");
     const operationName = "changeViewCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/ChangeViewCompartment";
@@ -498,6 +506,7 @@ To change the compartment of a protected view, change the compartment of its cor
       changeViewCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -561,7 +570,7 @@ Protected zones cannot have their compartment changed. When the zone name is pro
   public async changeZoneCompartment(
     changeZoneCompartmentRequest: requests.ChangeZoneCompartmentRequest
   ): Promise<responses.ChangeZoneCompartmentResponse> {
-    logger.debug("Calling operation DnsClient#changeZoneCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#changeZoneCompartment.");
     const operationName = "changeZoneCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/ChangeZoneCompartment";
@@ -586,6 +595,7 @@ Protected zones cannot have their compartment changed. When the zone name is pro
       changeZoneCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -642,7 +652,7 @@ Protected zones cannot have their compartment changed. When the zone name is pro
   public async createResolverEndpoint(
     createResolverEndpointRequest: requests.CreateResolverEndpointRequest
   ): Promise<responses.CreateResolverEndpointResponse> {
-    logger.debug("Calling operation DnsClient#createResolverEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createResolverEndpoint.");
     const operationName = "createResolverEndpoint";
     const apiReferenceLink = "";
     const pathParams = {
@@ -665,6 +675,7 @@ Protected zones cannot have their compartment changed. When the zone name is pro
       createResolverEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -736,7 +747,7 @@ Protected zones cannot have their compartment changed. When the zone name is pro
   public async createSteeringPolicy(
     createSteeringPolicyRequest: requests.CreateSteeringPolicyRequest
   ): Promise<responses.CreateSteeringPolicyResponse> {
-    logger.debug("Calling operation DnsClient#createSteeringPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createSteeringPolicy.");
     const operationName = "createSteeringPolicy";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -757,6 +768,7 @@ Protected zones cannot have their compartment changed. When the zone name is pro
       createSteeringPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -827,7 +839,8 @@ For the purposes of access control, the attachment is automatically placed
   public async createSteeringPolicyAttachment(
     createSteeringPolicyAttachmentRequest: requests.CreateSteeringPolicyAttachmentRequest
   ): Promise<responses.CreateSteeringPolicyAttachmentResponse> {
-    logger.debug("Calling operation DnsClient#createSteeringPolicyAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#createSteeringPolicyAttachment.");
     const operationName = "createSteeringPolicyAttachment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -848,6 +861,7 @@ For the purposes of access control, the attachment is automatically placed
       createSteeringPolicyAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -914,7 +928,7 @@ For the purposes of access control, the attachment is automatically placed
   public async createTsigKey(
     createTsigKeyRequest: requests.CreateTsigKeyRequest
   ): Promise<responses.CreateTsigKeyResponse> {
-    logger.debug("Calling operation DnsClient#createTsigKey.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createTsigKey.");
     const operationName = "createTsigKey";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -934,6 +948,7 @@ For the purposes of access control, the attachment is automatically placed
       createTsigKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1004,7 +1019,7 @@ For the purposes of access control, the attachment is automatically placed
   public async createView(
     createViewRequest: requests.CreateViewRequest
   ): Promise<responses.CreateViewResponse> {
-    logger.debug("Calling operation DnsClient#createView.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createView.");
     const operationName = "createView";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1025,6 +1040,7 @@ For the purposes of access control, the attachment is automatically placed
       createViewRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1098,7 +1114,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
   public async createZone(
     createZoneRequest: requests.CreateZoneRequest
   ): Promise<responses.CreateZoneResponse> {
-    logger.debug("Calling operation DnsClient#createZone.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createZone.");
     const operationName = "createZone";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1120,6 +1136,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
       createZoneRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1190,7 +1207,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
   public async createZoneFromZoneFile(
     createZoneFromZoneFileRequest: requests.CreateZoneFromZoneFileRequest
   ): Promise<responses.CreateZoneFromZoneFileResponse> {
-    logger.debug("Calling operation DnsClient#createZoneFromZoneFile.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createZoneFromZoneFile.");
     const operationName = "createZoneFromZoneFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/CreateZoneFromZoneFile";
@@ -1212,6 +1229,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
       createZoneFromZoneFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1282,7 +1300,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async deleteDomainRecords(
     deleteDomainRecordsRequest: requests.DeleteDomainRecordsRequest
   ): Promise<responses.DeleteDomainRecordsResponse> {
-    logger.debug("Calling operation DnsClient#deleteDomainRecords.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteDomainRecords.");
     const operationName = "deleteDomainRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/DeleteDomainRecords";
@@ -1310,6 +1328,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       deleteDomainRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1359,7 +1378,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async deleteRRSet(
     deleteRRSetRequest: requests.DeleteRRSetRequest
   ): Promise<responses.DeleteRRSetResponse> {
-    logger.debug("Calling operation DnsClient#deleteRRSet.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteRRSet.");
     const operationName = "deleteRRSet";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1387,6 +1406,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       deleteRRSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1437,7 +1457,7 @@ Note that attempting to delete a resolver endpoint in the DELETED lifecycle stat
   public async deleteResolverEndpoint(
     deleteResolverEndpointRequest: requests.DeleteResolverEndpointRequest
   ): Promise<responses.DeleteResolverEndpointResponse> {
-    logger.debug("Calling operation DnsClient#deleteResolverEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteResolverEndpoint.");
     const operationName = "deleteResolverEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ResolverEndpoint/DeleteResolverEndpoint";
@@ -1463,6 +1483,7 @@ Note that attempting to delete a resolver endpoint in the DELETED lifecycle stat
       deleteResolverEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1518,7 +1539,7 @@ A `204` response indicates that the delete has been successful.
   public async deleteSteeringPolicy(
     deleteSteeringPolicyRequest: requests.DeleteSteeringPolicyRequest
   ): Promise<responses.DeleteSteeringPolicyResponse> {
-    logger.debug("Calling operation DnsClient#deleteSteeringPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteSteeringPolicy.");
     const operationName = "deleteSteeringPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1542,6 +1563,7 @@ A `204` response indicates that the delete has been successful.
       deleteSteeringPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1589,7 +1611,8 @@ A `204` response indicates that the delete has been successful.
   public async deleteSteeringPolicyAttachment(
     deleteSteeringPolicyAttachmentRequest: requests.DeleteSteeringPolicyAttachmentRequest
   ): Promise<responses.DeleteSteeringPolicyAttachmentResponse> {
-    logger.debug("Calling operation DnsClient#deleteSteeringPolicyAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#deleteSteeringPolicyAttachment.");
     const operationName = "deleteSteeringPolicyAttachment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1614,6 +1637,7 @@ A `204` response indicates that the delete has been successful.
       deleteSteeringPolicyAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1660,7 +1684,7 @@ A `204` response indicates that the delete has been successful.
   public async deleteTsigKey(
     deleteTsigKeyRequest: requests.DeleteTsigKeyRequest
   ): Promise<responses.DeleteTsigKeyResponse> {
-    logger.debug("Calling operation DnsClient#deleteTsigKey.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteTsigKey.");
     const operationName = "deleteTsigKey";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1684,6 +1708,7 @@ A `204` response indicates that the delete has been successful.
       deleteTsigKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1740,7 +1765,7 @@ Note that attempting to delete a view in the DELETED lifecycleState will result 
   public async deleteView(
     deleteViewRequest: requests.DeleteViewRequest
   ): Promise<responses.DeleteViewResponse> {
-    logger.debug("Calling operation DnsClient#deleteView.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteView.");
     const operationName = "deleteView";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/DeleteView";
     const pathParams = {
@@ -1764,6 +1789,7 @@ Note that attempting to delete a view in the DELETED lifecycleState will result 
       deleteViewRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1819,7 +1845,7 @@ A `204` response indicates that the zone has been successfully deleted. Protecte
   public async deleteZone(
     deleteZoneRequest: requests.DeleteZoneRequest
   ): Promise<responses.DeleteZoneResponse> {
-    logger.debug("Calling operation DnsClient#deleteZone.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#deleteZone.");
     const operationName = "deleteZone";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1845,6 +1871,7 @@ A `204` response indicates that the zone has been successfully deleted. Protecte
       deleteZoneRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1900,7 +1927,7 @@ The results are sorted by `rtype` in alphabetical order by default. You can opti
   public async getDomainRecords(
     getDomainRecordsRequest: requests.GetDomainRecordsRequest
   ): Promise<responses.GetDomainRecordsResponse> {
-    logger.debug("Calling operation DnsClient#getDomainRecords.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getDomainRecords.");
     const operationName = "getDomainRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/GetDomainRecords";
@@ -1934,6 +1961,7 @@ The results are sorted by `rtype` in alphabetical order by default. You can opti
       getDomainRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2076,7 +2104,7 @@ The results are sorted by `recordHash` by default. When the zone name is provide
   public async getRRSet(
     getRRSetRequest: requests.GetRRSetRequest
   ): Promise<responses.GetRRSetResponse> {
-    logger.debug("Calling operation DnsClient#getRRSet.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getRRSet.");
     const operationName = "getRRSet";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/RRSet/GetRRSet";
     const pathParams = {
@@ -2107,6 +2135,7 @@ The results are sorted by `recordHash` by default. When the zone name is provide
       getRRSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2247,7 +2276,7 @@ Note that attempting to get a resolver in the DELETED lifecycleState will result
   public async getResolver(
     getResolverRequest: requests.GetResolverRequest
   ): Promise<responses.GetResolverResponse> {
-    logger.debug("Calling operation DnsClient#getResolver.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getResolver.");
     const operationName = "getResolver";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Resolver/GetResolver";
@@ -2272,6 +2301,7 @@ Note that attempting to get a resolver in the DELETED lifecycleState will result
       getResolverRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2330,7 +2360,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
   public async getResolverEndpoint(
     getResolverEndpointRequest: requests.GetResolverEndpointRequest
   ): Promise<responses.GetResolverEndpointResponse> {
-    logger.debug("Calling operation DnsClient#getResolverEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getResolverEndpoint.");
     const operationName = "getResolverEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ResolverEndpoint/GetResolverEndpoint";
@@ -2356,6 +2386,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
       getResolverEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2411,7 +2442,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
   public async getSteeringPolicy(
     getSteeringPolicyRequest: requests.GetSteeringPolicyRequest
   ): Promise<responses.GetSteeringPolicyResponse> {
-    logger.debug("Calling operation DnsClient#getSteeringPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getSteeringPolicy.");
     const operationName = "getSteeringPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicy/GetSteeringPolicy";
@@ -2436,6 +2467,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
       getSteeringPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2491,7 +2523,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
   public async getSteeringPolicyAttachment(
     getSteeringPolicyAttachmentRequest: requests.GetSteeringPolicyAttachmentRequest
   ): Promise<responses.GetSteeringPolicyAttachmentResponse> {
-    logger.debug("Calling operation DnsClient#getSteeringPolicyAttachment.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getSteeringPolicyAttachment.");
     const operationName = "getSteeringPolicyAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicyAttachment/GetSteeringPolicyAttachment";
@@ -2516,6 +2548,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
       getSteeringPolicyAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2571,7 +2604,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
   public async getTsigKey(
     getTsigKeyRequest: requests.GetTsigKeyRequest
   ): Promise<responses.GetTsigKeyResponse> {
-    logger.debug("Calling operation DnsClient#getTsigKey.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getTsigKey.");
     const operationName = "getTsigKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/TsigKey/GetTsigKey";
@@ -2596,6 +2629,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
       getTsigKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2655,7 +2689,7 @@ Note that attempting to get a
   public async getView(
     getViewRequest: requests.GetViewRequest
   ): Promise<responses.GetViewResponse> {
-    logger.debug("Calling operation DnsClient#getView.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getView.");
     const operationName = "getView";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/GetView";
     const pathParams = {
@@ -2679,6 +2713,7 @@ Note that attempting to get a
       getViewRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2737,7 +2772,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async getZone(
     getZoneRequest: requests.GetZoneRequest
   ): Promise<responses.GetZoneResponse> {
-    logger.debug("Calling operation DnsClient#getZone.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getZone.");
     const operationName = "getZone";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/GetZone";
     const pathParams = {
@@ -2763,6 +2798,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       getZoneRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2818,7 +2854,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async getZoneContent(
     getZoneContentRequest: requests.GetZoneContentRequest
   ): Promise<responses.GetZoneContentResponse> {
-    logger.debug("Calling operation DnsClient#getZoneContent.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getZoneContent.");
     const operationName = "getZoneContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/GetZoneContent";
@@ -2844,6 +2880,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       getZoneContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2904,7 +2941,7 @@ The results are sorted by `domain` in alphabetical order by default. For more in
   public async getZoneRecords(
     getZoneRecordsRequest: requests.GetZoneRecordsRequest
   ): Promise<responses.GetZoneRecordsResponse> {
-    logger.debug("Calling operation DnsClient#getZoneRecords.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#getZoneRecords.");
     const operationName = "getZoneRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/GetZoneRecords";
@@ -2939,6 +2976,7 @@ The results are sorted by `domain` in alphabetical order by default. For more in
       getZoneRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3081,7 +3119,7 @@ The results are sorted by `domain` in alphabetical order by default. For more in
   public async listResolverEndpoints(
     listResolverEndpointsRequest: requests.ListResolverEndpointsRequest
   ): Promise<responses.ListResolverEndpointsResponse> {
-    logger.debug("Calling operation DnsClient#listResolverEndpoints.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listResolverEndpoints.");
     const operationName = "listResolverEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ResolverEndpoint/ListResolverEndpoints";
@@ -3110,6 +3148,7 @@ The results are sorted by `domain` in alphabetical order by default. For more in
       listResolverEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3222,7 +3261,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
   public async listResolvers(
     listResolversRequest: requests.ListResolversRequest
   ): Promise<responses.ListResolversResponse> {
-    logger.debug("Calling operation DnsClient#listResolvers.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listResolvers.");
     const operationName = "listResolvers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Resolver/ListResolvers";
@@ -3251,6 +3290,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       listResolversRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3358,7 +3398,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
   public async listSteeringPolicies(
     listSteeringPoliciesRequest: requests.ListSteeringPoliciesRequest
   ): Promise<responses.ListSteeringPoliciesResponse> {
-    logger.debug("Calling operation DnsClient#listSteeringPolicies.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listSteeringPolicies.");
     const operationName = "listSteeringPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicy/ListSteeringPolicies";
@@ -3393,6 +3433,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       listSteeringPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3505,7 +3546,8 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
   public async listSteeringPolicyAttachments(
     listSteeringPolicyAttachmentsRequest: requests.ListSteeringPolicyAttachmentsRequest
   ): Promise<responses.ListSteeringPolicyAttachmentsResponse> {
-    logger.debug("Calling operation DnsClient#listSteeringPolicyAttachments.");
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#listSteeringPolicyAttachments.");
     const operationName = "listSteeringPolicyAttachments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicyAttachment/ListSteeringPolicyAttachments";
@@ -3541,6 +3583,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       listSteeringPolicyAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3653,7 +3696,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
   public async listTsigKeys(
     listTsigKeysRequest: requests.ListTsigKeysRequest
   ): Promise<responses.ListTsigKeysResponse> {
-    logger.debug("Calling operation DnsClient#listTsigKeys.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listTsigKeys.");
     const operationName = "listTsigKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/TsigKey/ListTsigKeys";
@@ -3682,6 +3725,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       listTsigKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3794,7 +3838,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
   public async listViews(
     listViewsRequest: requests.ListViewsRequest
   ): Promise<responses.ListViewsResponse> {
-    logger.debug("Calling operation DnsClient#listViews.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listViews.");
     const operationName = "listViews";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/ListViews";
     const pathParams = {};
@@ -3822,6 +3866,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       listViewsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3931,7 +3976,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
   public async listZoneTransferServers(
     listZoneTransferServersRequest: requests.ListZoneTransferServersRequest
   ): Promise<responses.ListZoneTransferServersResponse> {
-    logger.debug("Calling operation DnsClient#listZoneTransferServers.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listZoneTransferServers.");
     const operationName = "listZoneTransferServers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ZoneTransferServer/ListZoneTransferServers";
@@ -3954,6 +3999,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       listZoneTransferServersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4064,7 +4110,7 @@ The collection can be filtered by name, time created, scope, associated view, an
   public async listZones(
     listZonesRequest: requests.ListZonesRequest
   ): Promise<responses.ListZonesResponse> {
-    logger.debug("Calling operation DnsClient#listZones.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#listZones.");
     const operationName = "listZones";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/ListZones";
     const pathParams = {};
@@ -4097,6 +4143,7 @@ The collection can be filtered by name, time created, scope, associated view, an
       listZonesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4214,7 +4261,7 @@ You can update one record or all records for the specified zone depending on the
   public async patchDomainRecords(
     patchDomainRecordsRequest: requests.PatchDomainRecordsRequest
   ): Promise<responses.PatchDomainRecordsResponse> {
-    logger.debug("Calling operation DnsClient#patchDomainRecords.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#patchDomainRecords.");
     const operationName = "patchDomainRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/PatchDomainRecords";
@@ -4242,6 +4289,7 @@ You can update one record or all records for the specified zone depending on the
       patchDomainRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4315,7 +4363,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async patchRRSet(
     patchRRSetRequest: requests.PatchRRSetRequest
   ): Promise<responses.PatchRRSetResponse> {
-    logger.debug("Calling operation DnsClient#patchRRSet.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#patchRRSet.");
     const operationName = "patchRRSet";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/RRSet/PatchRRSet";
     const pathParams = {
@@ -4343,6 +4391,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       patchRRSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4418,7 +4467,7 @@ You can update one record or all records for the specified zone depending on the
   public async patchZoneRecords(
     patchZoneRecordsRequest: requests.PatchZoneRecordsRequest
   ): Promise<responses.PatchZoneRecordsResponse> {
-    logger.debug("Calling operation DnsClient#patchZoneRecords.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#patchZoneRecords.");
     const operationName = "patchZoneRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/PatchZoneRecords";
@@ -4445,6 +4494,7 @@ You can update one record or all records for the specified zone depending on the
       patchZoneRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4520,7 +4570,7 @@ If a specified record does not exist, it will be created. If the record exists, 
   public async updateDomainRecords(
     updateDomainRecordsRequest: requests.UpdateDomainRecordsRequest
   ): Promise<responses.UpdateDomainRecordsResponse> {
-    logger.debug("Calling operation DnsClient#updateDomainRecords.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateDomainRecords.");
     const operationName = "updateDomainRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/UpdateDomainRecords";
@@ -4548,6 +4598,7 @@ If a specified record does not exist, it will be created. If the record exists, 
       updateDomainRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4621,7 +4672,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async updateRRSet(
     updateRRSetRequest: requests.UpdateRRSetRequest
   ): Promise<responses.UpdateRRSetResponse> {
-    logger.debug("Calling operation DnsClient#updateRRSet.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateRRSet.");
     const operationName = "updateRRSet";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/RRSet/UpdateRRSet";
     const pathParams = {
@@ -4649,6 +4700,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       updateRRSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4719,7 +4771,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async updateResolver(
     updateResolverRequest: requests.UpdateResolverRequest
   ): Promise<responses.UpdateResolverResponse> {
-    logger.debug("Calling operation DnsClient#updateResolver.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateResolver.");
     const operationName = "updateResolver";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Resolver/UpdateResolver";
@@ -4744,6 +4796,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       updateResolverRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4809,7 +4862,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async updateResolverEndpoint(
     updateResolverEndpointRequest: requests.UpdateResolverEndpointRequest
   ): Promise<responses.UpdateResolverEndpointResponse> {
-    logger.debug("Calling operation DnsClient#updateResolverEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateResolverEndpoint.");
     const operationName = "updateResolverEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ResolverEndpoint/UpdateResolverEndpoint";
@@ -4835,6 +4888,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       updateResolverEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4900,7 +4954,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async updateSteeringPolicy(
     updateSteeringPolicyRequest: requests.UpdateSteeringPolicyRequest
   ): Promise<responses.UpdateSteeringPolicyResponse> {
-    logger.debug("Calling operation DnsClient#updateSteeringPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateSteeringPolicy.");
     const operationName = "updateSteeringPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicy/UpdateSteeringPolicy";
@@ -4925,6 +4979,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       updateSteeringPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4985,7 +5040,8 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async updateSteeringPolicyAttachment(
     updateSteeringPolicyAttachmentRequest: requests.UpdateSteeringPolicyAttachmentRequest
   ): Promise<responses.UpdateSteeringPolicyAttachmentResponse> {
-    logger.debug("Calling operation DnsClient#updateSteeringPolicyAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DnsClient#updateSteeringPolicyAttachment.");
     const operationName = "updateSteeringPolicyAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicyAttachment/UpdateSteeringPolicyAttachment";
@@ -5011,6 +5067,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       updateSteeringPolicyAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5071,7 +5128,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async updateTsigKey(
     updateTsigKeyRequest: requests.UpdateTsigKeyRequest
   ): Promise<responses.UpdateTsigKeyResponse> {
-    logger.debug("Calling operation DnsClient#updateTsigKey.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateTsigKey.");
     const operationName = "updateTsigKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/TsigKey/UpdateTsigKey";
@@ -5096,6 +5153,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       updateTsigKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5161,7 +5219,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   public async updateView(
     updateViewRequest: requests.UpdateViewRequest
   ): Promise<responses.UpdateViewResponse> {
-    logger.debug("Calling operation DnsClient#updateView.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateView.");
     const operationName = "updateView";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/UpdateView";
     const pathParams = {
@@ -5185,6 +5243,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       updateViewRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5255,7 +5314,7 @@ Global secondary zones may have their external masters updated. For more informa
   public async updateZone(
     updateZoneRequest: requests.UpdateZoneRequest
   ): Promise<responses.UpdateZoneResponse> {
-    logger.debug("Calling operation DnsClient#updateZone.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateZone.");
     const operationName = "updateZone";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/UpdateZone";
     const pathParams = {
@@ -5281,6 +5340,7 @@ Global secondary zones may have their external masters updated. For more informa
       updateZoneRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5352,7 +5412,7 @@ If a specified record does not exist, it will be created. If the record exists, 
   public async updateZoneRecords(
     updateZoneRecordsRequest: requests.UpdateZoneRecordsRequest
   ): Promise<responses.UpdateZoneRecordsResponse> {
-    logger.debug("Calling operation DnsClient#updateZoneRecords.");
+    if (this.logger) this.logger.debug("Calling operation DnsClient#updateZoneRecords.");
     const operationName = "updateZoneRecords";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/UpdateZoneRecords";
@@ -5379,6 +5439,7 @@ If a specified record does not exist, it will be created. If the record exists, 
       updateZoneRecordsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

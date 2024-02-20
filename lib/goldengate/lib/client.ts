@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum GoldenGateApiKeys {}
 export class GoldenGateClient {
   protected static serviceEndpointTemplate = "https://goldengate.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": GoldenGateWaiter;
@@ -119,7 +118,11 @@ export class GoldenGateClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200407";
-    logger.info(`GoldenGateClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`GoldenGateClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class GoldenGateClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         GoldenGateClient.serviceEndpointTemplate,
@@ -223,7 +227,8 @@ export class GoldenGateClient {
   public async cancelDeploymentBackup(
     cancelDeploymentBackupRequest: requests.CancelDeploymentBackupRequest
   ): Promise<responses.CancelDeploymentBackupResponse> {
-    logger.debug("Calling operation GoldenGateClient#cancelDeploymentBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#cancelDeploymentBackup.");
     const operationName = "cancelDeploymentBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/CancelDeploymentBackup";
@@ -246,6 +251,7 @@ export class GoldenGateClient {
       cancelDeploymentBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -302,7 +308,8 @@ export class GoldenGateClient {
   public async cancelDeploymentUpgrade(
     cancelDeploymentUpgradeRequest: requests.CancelDeploymentUpgradeRequest
   ): Promise<responses.CancelDeploymentUpgradeResponse> {
-    logger.debug("Calling operation GoldenGateClient#cancelDeploymentUpgrade.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#cancelDeploymentUpgrade.");
     const operationName = "cancelDeploymentUpgrade";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/CancelDeploymentUpgrade";
@@ -325,6 +332,7 @@ export class GoldenGateClient {
       cancelDeploymentUpgradeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,7 +393,8 @@ export class GoldenGateClient {
   public async cancelSnoozeDeploymentUpgrade(
     cancelSnoozeDeploymentUpgradeRequest: requests.CancelSnoozeDeploymentUpgradeRequest
   ): Promise<responses.CancelSnoozeDeploymentUpgradeResponse> {
-    logger.debug("Calling operation GoldenGateClient#cancelSnoozeDeploymentUpgrade.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#cancelSnoozeDeploymentUpgrade.");
     const operationName = "cancelSnoozeDeploymentUpgrade";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/CancelSnoozeDeploymentUpgrade";
@@ -408,6 +417,7 @@ export class GoldenGateClient {
       cancelSnoozeDeploymentUpgradeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -462,7 +472,8 @@ export class GoldenGateClient {
   public async changeConnectionCompartment(
     changeConnectionCompartmentRequest: requests.ChangeConnectionCompartmentRequest
   ): Promise<responses.ChangeConnectionCompartmentResponse> {
-    logger.debug("Calling operation GoldenGateClient#changeConnectionCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#changeConnectionCompartment.");
     const operationName = "changeConnectionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/ChangeConnectionCompartment";
@@ -484,6 +495,7 @@ export class GoldenGateClient {
       changeConnectionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -544,7 +556,10 @@ export class GoldenGateClient {
   public async changeDatabaseRegistrationCompartment(
     changeDatabaseRegistrationCompartmentRequest: requests.ChangeDatabaseRegistrationCompartmentRequest
   ): Promise<responses.ChangeDatabaseRegistrationCompartmentResponse> {
-    logger.debug("Calling operation GoldenGateClient#changeDatabaseRegistrationCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GoldenGateClient#changeDatabaseRegistrationCompartment."
+      );
     const operationName = "changeDatabaseRegistrationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/ChangeDatabaseRegistrationCompartment";
@@ -568,6 +583,7 @@ export class GoldenGateClient {
       changeDatabaseRegistrationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -632,7 +648,8 @@ export class GoldenGateClient {
   public async changeDeploymentBackupCompartment(
     changeDeploymentBackupCompartmentRequest: requests.ChangeDeploymentBackupCompartmentRequest
   ): Promise<responses.ChangeDeploymentBackupCompartmentResponse> {
-    logger.debug("Calling operation GoldenGateClient#changeDeploymentBackupCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#changeDeploymentBackupCompartment.");
     const operationName = "changeDeploymentBackupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/ChangeDeploymentBackupCompartment";
@@ -655,6 +672,7 @@ export class GoldenGateClient {
       changeDeploymentBackupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -709,7 +727,8 @@ export class GoldenGateClient {
   public async changeDeploymentCompartment(
     changeDeploymentCompartmentRequest: requests.ChangeDeploymentCompartmentRequest
   ): Promise<responses.ChangeDeploymentCompartmentResponse> {
-    logger.debug("Calling operation GoldenGateClient#changeDeploymentCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#changeDeploymentCompartment.");
     const operationName = "changeDeploymentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ChangeDeploymentCompartment";
@@ -732,6 +751,7 @@ export class GoldenGateClient {
       changeDeploymentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -788,7 +808,8 @@ export class GoldenGateClient {
   public async collectDeploymentDiagnostic(
     collectDeploymentDiagnosticRequest: requests.CollectDeploymentDiagnosticRequest
   ): Promise<responses.CollectDeploymentDiagnosticResponse> {
-    logger.debug("Calling operation GoldenGateClient#collectDeploymentDiagnostic.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#collectDeploymentDiagnostic.");
     const operationName = "collectDeploymentDiagnostic";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/CollectDeploymentDiagnostic";
@@ -811,6 +832,7 @@ export class GoldenGateClient {
       collectDeploymentDiagnosticRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -866,7 +888,7 @@ export class GoldenGateClient {
   public async copyDeploymentBackup(
     copyDeploymentBackupRequest: requests.CopyDeploymentBackupRequest
   ): Promise<responses.CopyDeploymentBackupResponse> {
-    logger.debug("Calling operation GoldenGateClient#copyDeploymentBackup.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#copyDeploymentBackup.");
     const operationName = "copyDeploymentBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/CopyDeploymentBackup";
@@ -889,6 +911,7 @@ export class GoldenGateClient {
       copyDeploymentBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -945,7 +968,7 @@ export class GoldenGateClient {
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
-    logger.debug("Calling operation GoldenGateClient#createCertificate.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#createCertificate.");
     const operationName = "createCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/CertificateCollection/CreateCertificate";
@@ -967,6 +990,7 @@ export class GoldenGateClient {
       createCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1023,7 +1047,7 @@ export class GoldenGateClient {
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
-    logger.debug("Calling operation GoldenGateClient#createConnection.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#createConnection.");
     const operationName = "createConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/CreateConnection";
@@ -1043,6 +1067,7 @@ export class GoldenGateClient {
       createConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1107,7 +1132,8 @@ export class GoldenGateClient {
   public async createConnectionAssignment(
     createConnectionAssignmentRequest: requests.CreateConnectionAssignmentRequest
   ): Promise<responses.CreateConnectionAssignmentResponse> {
-    logger.debug("Calling operation GoldenGateClient#createConnectionAssignment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#createConnectionAssignment.");
     const operationName = "createConnectionAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/CreateConnectionAssignment";
@@ -1127,6 +1153,7 @@ export class GoldenGateClient {
       createConnectionAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1193,7 +1220,8 @@ export class GoldenGateClient {
   public async createDatabaseRegistration(
     createDatabaseRegistrationRequest: requests.CreateDatabaseRegistrationRequest
   ): Promise<responses.CreateDatabaseRegistrationResponse> {
-    logger.debug("Calling operation GoldenGateClient#createDatabaseRegistration.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#createDatabaseRegistration.");
     const operationName = "createDatabaseRegistration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/CreateDatabaseRegistration";
@@ -1213,6 +1241,7 @@ export class GoldenGateClient {
       createDatabaseRegistrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1283,7 +1312,7 @@ export class GoldenGateClient {
   public async createDeployment(
     createDeploymentRequest: requests.CreateDeploymentRequest
   ): Promise<responses.CreateDeploymentResponse> {
-    logger.debug("Calling operation GoldenGateClient#createDeployment.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#createDeployment.");
     const operationName = "createDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/CreateDeployment";
@@ -1303,6 +1332,7 @@ export class GoldenGateClient {
       createDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1367,7 +1397,8 @@ export class GoldenGateClient {
   public async createDeploymentBackup(
     createDeploymentBackupRequest: requests.CreateDeploymentBackupRequest
   ): Promise<responses.CreateDeploymentBackupResponse> {
-    logger.debug("Calling operation GoldenGateClient#createDeploymentBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#createDeploymentBackup.");
     const operationName = "createDeploymentBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/CreateDeploymentBackup";
@@ -1387,6 +1418,7 @@ export class GoldenGateClient {
       createDeploymentBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1443,7 +1475,7 @@ export class GoldenGateClient {
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
   ): Promise<responses.DeleteCertificateResponse> {
-    logger.debug("Calling operation GoldenGateClient#deleteCertificate.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#deleteCertificate.");
     const operationName = "deleteCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Certificate/DeleteCertificate";
@@ -1466,6 +1498,7 @@ export class GoldenGateClient {
       deleteCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1517,7 +1550,7 @@ export class GoldenGateClient {
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
-    logger.debug("Calling operation GoldenGateClient#deleteConnection.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#deleteConnection.");
     const operationName = "deleteConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/DeleteConnection";
@@ -1539,6 +1572,7 @@ export class GoldenGateClient {
       deleteConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1589,7 +1623,8 @@ export class GoldenGateClient {
   public async deleteConnectionAssignment(
     deleteConnectionAssignmentRequest: requests.DeleteConnectionAssignmentRequest
   ): Promise<responses.DeleteConnectionAssignmentResponse> {
-    logger.debug("Calling operation GoldenGateClient#deleteConnectionAssignment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#deleteConnectionAssignment.");
     const operationName = "deleteConnectionAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/DeleteConnectionAssignment";
@@ -1611,6 +1646,7 @@ export class GoldenGateClient {
       deleteConnectionAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1663,7 +1699,8 @@ export class GoldenGateClient {
   public async deleteDatabaseRegistration(
     deleteDatabaseRegistrationRequest: requests.DeleteDatabaseRegistrationRequest
   ): Promise<responses.DeleteDatabaseRegistrationResponse> {
-    logger.debug("Calling operation GoldenGateClient#deleteDatabaseRegistration.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#deleteDatabaseRegistration.");
     const operationName = "deleteDatabaseRegistration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/DeleteDatabaseRegistration";
@@ -1685,6 +1722,7 @@ export class GoldenGateClient {
       deleteDatabaseRegistrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1741,7 +1779,7 @@ export class GoldenGateClient {
   public async deleteDeployment(
     deleteDeploymentRequest: requests.DeleteDeploymentRequest
   ): Promise<responses.DeleteDeploymentResponse> {
-    logger.debug("Calling operation GoldenGateClient#deleteDeployment.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#deleteDeployment.");
     const operationName = "deleteDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/DeleteDeployment";
@@ -1763,6 +1801,7 @@ export class GoldenGateClient {
       deleteDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1814,7 +1853,8 @@ export class GoldenGateClient {
   public async deleteDeploymentBackup(
     deleteDeploymentBackupRequest: requests.DeleteDeploymentBackupRequest
   ): Promise<responses.DeleteDeploymentBackupResponse> {
-    logger.debug("Calling operation GoldenGateClient#deleteDeploymentBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#deleteDeploymentBackup.");
     const operationName = "deleteDeploymentBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/DeleteDeploymentBackup";
@@ -1836,6 +1876,7 @@ export class GoldenGateClient {
       deleteDeploymentBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1887,7 +1928,8 @@ export class GoldenGateClient {
   public async deploymentWalletExists(
     deploymentWalletExistsRequest: requests.DeploymentWalletExistsRequest
   ): Promise<responses.DeploymentWalletExistsResponse> {
-    logger.debug("Calling operation GoldenGateClient#deploymentWalletExists.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#deploymentWalletExists.");
     const operationName = "deploymentWalletExists";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/DeploymentWalletExists";
@@ -1910,6 +1952,7 @@ export class GoldenGateClient {
       deploymentWalletExistsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1970,7 +2013,8 @@ export class GoldenGateClient {
   public async exportDeploymentWallet(
     exportDeploymentWalletRequest: requests.ExportDeploymentWalletRequest
   ): Promise<responses.ExportDeploymentWalletResponse> {
-    logger.debug("Calling operation GoldenGateClient#exportDeploymentWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#exportDeploymentWallet.");
     const operationName = "exportDeploymentWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ExportDeploymentWallet";
@@ -1993,6 +2037,7 @@ export class GoldenGateClient {
       exportDeploymentWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2049,7 +2094,7 @@ export class GoldenGateClient {
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
   ): Promise<responses.GetCertificateResponse> {
-    logger.debug("Calling operation GoldenGateClient#getCertificate.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getCertificate.");
     const operationName = "getCertificate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Certificate/GetCertificate";
@@ -2071,6 +2116,7 @@ export class GoldenGateClient {
       getCertificateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2126,7 +2172,7 @@ export class GoldenGateClient {
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
-    logger.debug("Calling operation GoldenGateClient#getConnection.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getConnection.");
     const operationName = "getConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/GetConnection";
@@ -2147,6 +2193,7 @@ export class GoldenGateClient {
       getConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2202,7 +2249,8 @@ export class GoldenGateClient {
   public async getConnectionAssignment(
     getConnectionAssignmentRequest: requests.GetConnectionAssignmentRequest
   ): Promise<responses.GetConnectionAssignmentResponse> {
-    logger.debug("Calling operation GoldenGateClient#getConnectionAssignment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#getConnectionAssignment.");
     const operationName = "getConnectionAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/GetConnectionAssignment";
@@ -2223,6 +2271,7 @@ export class GoldenGateClient {
       getConnectionAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2279,7 +2328,8 @@ export class GoldenGateClient {
   public async getDatabaseRegistration(
     getDatabaseRegistrationRequest: requests.GetDatabaseRegistrationRequest
   ): Promise<responses.GetDatabaseRegistrationResponse> {
-    logger.debug("Calling operation GoldenGateClient#getDatabaseRegistration.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#getDatabaseRegistration.");
     const operationName = "getDatabaseRegistration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/GetDatabaseRegistration";
@@ -2300,6 +2350,7 @@ export class GoldenGateClient {
       getDatabaseRegistrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2360,7 +2411,7 @@ export class GoldenGateClient {
   public async getDeployment(
     getDeploymentRequest: requests.GetDeploymentRequest
   ): Promise<responses.GetDeploymentResponse> {
-    logger.debug("Calling operation GoldenGateClient#getDeployment.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getDeployment.");
     const operationName = "getDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/GetDeployment";
@@ -2381,6 +2432,7 @@ export class GoldenGateClient {
       getDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2436,7 +2488,7 @@ export class GoldenGateClient {
   public async getDeploymentBackup(
     getDeploymentBackupRequest: requests.GetDeploymentBackupRequest
   ): Promise<responses.GetDeploymentBackupResponse> {
-    logger.debug("Calling operation GoldenGateClient#getDeploymentBackup.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getDeploymentBackup.");
     const operationName = "getDeploymentBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/GetDeploymentBackup";
@@ -2457,6 +2509,7 @@ export class GoldenGateClient {
       getDeploymentBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2512,7 +2565,7 @@ export class GoldenGateClient {
   public async getDeploymentUpgrade(
     getDeploymentUpgradeRequest: requests.GetDeploymentUpgradeRequest
   ): Promise<responses.GetDeploymentUpgradeResponse> {
-    logger.debug("Calling operation GoldenGateClient#getDeploymentUpgrade.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getDeploymentUpgrade.");
     const operationName = "getDeploymentUpgrade";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/GetDeploymentUpgrade";
@@ -2533,6 +2586,7 @@ export class GoldenGateClient {
       getDeploymentUpgradeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2588,7 +2642,7 @@ export class GoldenGateClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation GoldenGateClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/WorkRequest/GetWorkRequest";
@@ -2609,6 +2663,7 @@ export class GoldenGateClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2664,7 +2719,8 @@ export class GoldenGateClient {
   public async importDeploymentWallet(
     importDeploymentWalletRequest: requests.ImportDeploymentWalletRequest
   ): Promise<responses.ImportDeploymentWalletResponse> {
-    logger.debug("Calling operation GoldenGateClient#importDeploymentWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#importDeploymentWallet.");
     const operationName = "importDeploymentWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ImportDeploymentWallet";
@@ -2687,6 +2743,7 @@ export class GoldenGateClient {
       importDeploymentWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2742,7 +2799,7 @@ export class GoldenGateClient {
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
-    logger.debug("Calling operation GoldenGateClient#listCertificates.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listCertificates.");
     const operationName = "listCertificates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/CertificateCollection/ListCertificates";
@@ -2769,6 +2826,7 @@ export class GoldenGateClient {
       listCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2823,7 +2881,8 @@ export class GoldenGateClient {
   public async listConnectionAssignments(
     listConnectionAssignmentsRequest: requests.ListConnectionAssignmentsRequest
   ): Promise<responses.ListConnectionAssignmentsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listConnectionAssignments.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listConnectionAssignments.");
     const operationName = "listConnectionAssignments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/ListConnectionAssignments";
@@ -2852,6 +2911,7 @@ export class GoldenGateClient {
       listConnectionAssignmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2907,7 +2967,7 @@ export class GoldenGateClient {
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listConnections.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listConnections.");
     const operationName = "listConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/ListConnections";
@@ -2939,6 +2999,7 @@ export class GoldenGateClient {
       listConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2995,7 +3056,8 @@ export class GoldenGateClient {
   public async listDatabaseRegistrations(
     listDatabaseRegistrationsRequest: requests.ListDatabaseRegistrationsRequest
   ): Promise<responses.ListDatabaseRegistrationsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listDatabaseRegistrations.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listDatabaseRegistrations.");
     const operationName = "listDatabaseRegistrations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/ListDatabaseRegistrations";
@@ -3022,6 +3084,7 @@ export class GoldenGateClient {
       listDatabaseRegistrationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3082,7 +3145,7 @@ export class GoldenGateClient {
   public async listDeploymentBackups(
     listDeploymentBackupsRequest: requests.ListDeploymentBackupsRequest
   ): Promise<responses.ListDeploymentBackupsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listDeploymentBackups.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listDeploymentBackups.");
     const operationName = "listDeploymentBackups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/ListDeploymentBackups";
@@ -3110,6 +3173,7 @@ export class GoldenGateClient {
       listDeploymentBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3165,7 +3229,7 @@ export class GoldenGateClient {
   public async listDeploymentTypes(
     listDeploymentTypesRequest: requests.ListDeploymentTypesRequest
   ): Promise<responses.ListDeploymentTypesResponse> {
-    logger.debug("Calling operation GoldenGateClient#listDeploymentTypes.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listDeploymentTypes.");
     const operationName = "listDeploymentTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentTypeCollection/ListDeploymentTypes";
@@ -3193,6 +3257,7 @@ export class GoldenGateClient {
       listDeploymentTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3248,7 +3313,8 @@ export class GoldenGateClient {
   public async listDeploymentUpgrades(
     listDeploymentUpgradesRequest: requests.ListDeploymentUpgradesRequest
   ): Promise<responses.ListDeploymentUpgradesResponse> {
-    logger.debug("Calling operation GoldenGateClient#listDeploymentUpgrades.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listDeploymentUpgrades.");
     const operationName = "listDeploymentUpgrades";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/ListDeploymentUpgrades";
@@ -3276,6 +3342,7 @@ export class GoldenGateClient {
       listDeploymentUpgradesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3331,7 +3398,8 @@ export class GoldenGateClient {
   public async listDeploymentVersions(
     listDeploymentVersionsRequest: requests.ListDeploymentVersionsRequest
   ): Promise<responses.ListDeploymentVersionsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listDeploymentVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listDeploymentVersions.");
     const operationName = "listDeploymentVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentVersionCollection/ListDeploymentVersions";
@@ -3358,6 +3426,7 @@ export class GoldenGateClient {
       listDeploymentVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3413,7 +3482,8 @@ export class GoldenGateClient {
   public async listDeploymentWalletsOperations(
     listDeploymentWalletsOperationsRequest: requests.ListDeploymentWalletsOperationsRequest
   ): Promise<responses.ListDeploymentWalletsOperationsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listDeploymentWalletsOperations.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listDeploymentWalletsOperations.");
     const operationName = "listDeploymentWalletsOperations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentWalletsOperationSummary/ListDeploymentWalletsOperations";
@@ -3440,6 +3510,7 @@ export class GoldenGateClient {
       listDeploymentWalletsOperationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3495,7 +3566,7 @@ export class GoldenGateClient {
   public async listDeployments(
     listDeploymentsRequest: requests.ListDeploymentsRequest
   ): Promise<responses.ListDeploymentsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listDeployments.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listDeployments.");
     const operationName = "listDeployments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ListDeployments";
@@ -3527,6 +3598,7 @@ export class GoldenGateClient {
       listDeploymentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3582,7 +3654,7 @@ export class GoldenGateClient {
   public async listMessages(
     listMessagesRequest: requests.ListMessagesRequest
   ): Promise<responses.ListMessagesResponse> {
-    logger.debug("Calling operation GoldenGateClient#listMessages.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listMessages.");
     const operationName = "listMessages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/MessageSummary/ListMessages";
@@ -3605,6 +3677,7 @@ export class GoldenGateClient {
       listMessagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3655,7 +3728,7 @@ export class GoldenGateClient {
   public async listTrailFiles(
     listTrailFilesRequest: requests.ListTrailFilesRequest
   ): Promise<responses.ListTrailFilesResponse> {
-    logger.debug("Calling operation GoldenGateClient#listTrailFiles.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listTrailFiles.");
     const operationName = "listTrailFiles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/TrailFileSummary/ListTrailFiles";
@@ -3682,6 +3755,7 @@ export class GoldenGateClient {
       listTrailFilesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3737,7 +3811,7 @@ export class GoldenGateClient {
   public async listTrailSequences(
     listTrailSequencesRequest: requests.ListTrailSequencesRequest
   ): Promise<responses.ListTrailSequencesResponse> {
-    logger.debug("Calling operation GoldenGateClient#listTrailSequences.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listTrailSequences.");
     const operationName = "listTrailSequences";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/TrailSequenceSummary/ListTrailSequences";
@@ -3765,6 +3839,7 @@ export class GoldenGateClient {
       listTrailSequencesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3820,7 +3895,7 @@ export class GoldenGateClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/WorkRequestError/ListWorkRequestErrors";
@@ -3844,6 +3919,7 @@ export class GoldenGateClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3951,7 +4027,7 @@ export class GoldenGateClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -3975,6 +4051,7 @@ export class GoldenGateClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4082,7 +4159,7 @@ export class GoldenGateClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation GoldenGateClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/WorkRequest/ListWorkRequests";
@@ -4106,6 +4183,7 @@ export class GoldenGateClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4213,7 +4291,8 @@ export class GoldenGateClient {
   public async rescheduleDeploymentUpgrade(
     rescheduleDeploymentUpgradeRequest: requests.RescheduleDeploymentUpgradeRequest
   ): Promise<responses.RescheduleDeploymentUpgradeResponse> {
-    logger.debug("Calling operation GoldenGateClient#rescheduleDeploymentUpgrade.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#rescheduleDeploymentUpgrade.");
     const operationName = "rescheduleDeploymentUpgrade";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/RescheduleDeploymentUpgrade";
@@ -4236,6 +4315,7 @@ export class GoldenGateClient {
       rescheduleDeploymentUpgradeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4295,7 +4375,7 @@ export class GoldenGateClient {
   public async restoreDeployment(
     restoreDeploymentRequest: requests.RestoreDeploymentRequest
   ): Promise<responses.RestoreDeploymentResponse> {
-    logger.debug("Calling operation GoldenGateClient#restoreDeployment.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#restoreDeployment.");
     const operationName = "restoreDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/RestoreDeployment";
@@ -4318,6 +4398,7 @@ export class GoldenGateClient {
       restoreDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4374,7 +4455,8 @@ export class GoldenGateClient {
   public async rollbackDeploymentUpgrade(
     rollbackDeploymentUpgradeRequest: requests.RollbackDeploymentUpgradeRequest
   ): Promise<responses.RollbackDeploymentUpgradeResponse> {
-    logger.debug("Calling operation GoldenGateClient#rollbackDeploymentUpgrade.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#rollbackDeploymentUpgrade.");
     const operationName = "rollbackDeploymentUpgrade";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/RollbackDeploymentUpgrade";
@@ -4397,6 +4479,7 @@ export class GoldenGateClient {
       rollbackDeploymentUpgradeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4453,7 +4536,8 @@ export class GoldenGateClient {
   public async snoozeDeploymentUpgrade(
     snoozeDeploymentUpgradeRequest: requests.SnoozeDeploymentUpgradeRequest
   ): Promise<responses.SnoozeDeploymentUpgradeResponse> {
-    logger.debug("Calling operation GoldenGateClient#snoozeDeploymentUpgrade.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#snoozeDeploymentUpgrade.");
     const operationName = "snoozeDeploymentUpgrade";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/SnoozeDeploymentUpgrade";
@@ -4476,6 +4560,7 @@ export class GoldenGateClient {
       snoozeDeploymentUpgradeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4527,7 +4612,7 @@ export class GoldenGateClient {
   public async startDeployment(
     startDeploymentRequest: requests.StartDeploymentRequest
   ): Promise<responses.StartDeploymentResponse> {
-    logger.debug("Calling operation GoldenGateClient#startDeployment.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#startDeployment.");
     const operationName = "startDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/StartDeployment";
@@ -4550,6 +4635,7 @@ export class GoldenGateClient {
       startDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4606,7 +4692,7 @@ export class GoldenGateClient {
   public async stopDeployment(
     stopDeploymentRequest: requests.StopDeploymentRequest
   ): Promise<responses.StopDeploymentResponse> {
-    logger.debug("Calling operation GoldenGateClient#stopDeployment.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#stopDeployment.");
     const operationName = "stopDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/StopDeployment";
@@ -4629,6 +4715,7 @@ export class GoldenGateClient {
       stopDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4686,7 +4773,8 @@ export class GoldenGateClient {
   public async testConnectionAssignment(
     testConnectionAssignmentRequest: requests.TestConnectionAssignmentRequest
   ): Promise<responses.TestConnectionAssignmentResponse> {
-    logger.debug("Calling operation GoldenGateClient#testConnectionAssignment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#testConnectionAssignment.");
     const operationName = "testConnectionAssignment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/TestConnectionAssignment";
@@ -4709,6 +4797,7 @@ export class GoldenGateClient {
       testConnectionAssignmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4769,7 +4858,7 @@ export class GoldenGateClient {
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
-    logger.debug("Calling operation GoldenGateClient#updateConnection.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#updateConnection.");
     const operationName = "updateConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/UpdateConnection";
@@ -4791,6 +4880,7 @@ export class GoldenGateClient {
       updateConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4848,7 +4938,8 @@ export class GoldenGateClient {
   public async updateDatabaseRegistration(
     updateDatabaseRegistrationRequest: requests.UpdateDatabaseRegistrationRequest
   ): Promise<responses.UpdateDatabaseRegistrationResponse> {
-    logger.debug("Calling operation GoldenGateClient#updateDatabaseRegistration.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#updateDatabaseRegistration.");
     const operationName = "updateDatabaseRegistration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/UpdateDatabaseRegistration";
@@ -4870,6 +4961,7 @@ export class GoldenGateClient {
       updateDatabaseRegistrationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4931,7 +5023,7 @@ export class GoldenGateClient {
   public async updateDeployment(
     updateDeploymentRequest: requests.UpdateDeploymentRequest
   ): Promise<responses.UpdateDeploymentResponse> {
-    logger.debug("Calling operation GoldenGateClient#updateDeployment.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#updateDeployment.");
     const operationName = "updateDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/UpdateDeployment";
@@ -4953,6 +5045,7 @@ export class GoldenGateClient {
       updateDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5009,7 +5102,8 @@ export class GoldenGateClient {
   public async updateDeploymentBackup(
     updateDeploymentBackupRequest: requests.UpdateDeploymentBackupRequest
   ): Promise<responses.UpdateDeploymentBackupResponse> {
-    logger.debug("Calling operation GoldenGateClient#updateDeploymentBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#updateDeploymentBackup.");
     const operationName = "updateDeploymentBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/UpdateDeploymentBackup";
@@ -5031,6 +5125,7 @@ export class GoldenGateClient {
       updateDeploymentBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5091,7 +5186,7 @@ export class GoldenGateClient {
   public async upgradeDeployment(
     upgradeDeploymentRequest: requests.UpgradeDeploymentRequest
   ): Promise<responses.UpgradeDeploymentResponse> {
-    logger.debug("Calling operation GoldenGateClient#upgradeDeployment.");
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#upgradeDeployment.");
     const operationName = "upgradeDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/UpgradeDeployment";
@@ -5114,6 +5209,7 @@ export class GoldenGateClient {
       upgradeDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5170,7 +5266,8 @@ export class GoldenGateClient {
   public async upgradeDeploymentUpgrade(
     upgradeDeploymentUpgradeRequest: requests.UpgradeDeploymentUpgradeRequest
   ): Promise<responses.UpgradeDeploymentUpgradeResponse> {
-    logger.debug("Calling operation GoldenGateClient#upgradeDeploymentUpgrade.");
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#upgradeDeploymentUpgrade.");
     const operationName = "upgradeDeploymentUpgrade";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/UpgradeDeploymentUpgrade";
@@ -5193,6 +5290,7 @@ export class GoldenGateClient {
       upgradeDeploymentUpgradeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -75,7 +75,8 @@ export namespace CreateContainerHealthCheckDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.healthCheckType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.healthCheckType}`);
       }
     }
     return jsonObj;
@@ -101,7 +102,8 @@ export namespace CreateContainerHealthCheckDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.healthCheckType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.healthCheckType}`);
       }
     }
     return jsonObj;

@@ -36,7 +36,7 @@ export namespace LogAnalyticsEndpoint {
         case "LOG":
           return model.LogTypeEndpoint.getJsonObj(<model.LogTypeEndpoint>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.endpointType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.endpointType}`);
       }
     }
     return jsonObj;
@@ -57,7 +57,7 @@ export namespace LogAnalyticsEndpoint {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.endpointType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.endpointType}`);
       }
     }
     return jsonObj;

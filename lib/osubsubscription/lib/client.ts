@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export enum CommitmentApiKeys {}
 export class CommitmentClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -117,7 +116,11 @@ export class CommitmentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/oalapp/service/onesubs/proxy/20210501";
-    logger.info(`CommitmentClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`CommitmentClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class CommitmentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         CommitmentClient.serviceEndpointTemplate,
@@ -199,7 +203,7 @@ export class CommitmentClient {
   public async getCommitment(
     getCommitmentRequest: requests.GetCommitmentRequest
   ): Promise<responses.GetCommitmentResponse> {
-    logger.debug("Calling operation CommitmentClient#getCommitment.");
+    if (this.logger) this.logger.debug("Calling operation CommitmentClient#getCommitment.");
     const operationName = "getCommitment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -221,6 +225,7 @@ export class CommitmentClient {
       getCommitmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -271,7 +276,7 @@ export class CommitmentClient {
   public async listCommitments(
     listCommitmentsRequest: requests.ListCommitmentsRequest
   ): Promise<responses.ListCommitmentsResponse> {
-    logger.debug("Calling operation CommitmentClient#listCommitments.");
+    if (this.logger) this.logger.debug("Calling operation CommitmentClient#listCommitments.");
     const operationName = "listCommitments";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -298,6 +303,7 @@ export class CommitmentClient {
       listCommitmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -400,7 +406,7 @@ export enum RatecardApiKeys {}
 export class RatecardClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -480,7 +486,11 @@ export class RatecardClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/oalapp/service/onesubs/proxy/20210501";
-    logger.info(`RatecardClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`RatecardClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -490,9 +500,10 @@ export class RatecardClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RatecardClient.serviceEndpointTemplate,
@@ -563,7 +574,7 @@ export class RatecardClient {
   public async listRateCards(
     listRateCardsRequest: requests.ListRateCardsRequest
   ): Promise<responses.ListRateCardsResponse> {
-    logger.debug("Calling operation RatecardClient#listRateCards.");
+    if (this.logger) this.logger.debug("Calling operation RatecardClient#listRateCards.");
     const operationName = "listRateCards";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -592,6 +603,7 @@ export class RatecardClient {
       listRateCardsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -694,7 +706,7 @@ export enum SubscriptionApiKeys {}
 export class SubscriptionClient {
   protected static serviceEndpointTemplate = "https://csaap-e.oracle.com";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -774,7 +786,11 @@ export class SubscriptionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/oalapp/service/onesubs/proxy/20210501";
-    logger.info(`SubscriptionClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`SubscriptionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -784,9 +800,10 @@ export class SubscriptionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SubscriptionClient.serviceEndpointTemplate,
@@ -859,7 +876,7 @@ export class SubscriptionClient {
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
   ): Promise<responses.ListSubscriptionsResponse> {
-    logger.debug("Calling operation SubscriptionClient#listSubscriptions.");
+    if (this.logger) this.logger.debug("Calling operation SubscriptionClient#listSubscriptions.");
     const operationName = "listSubscriptions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -889,6 +906,7 @@ export class SubscriptionClient {
       listSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum RedisClusterApiKeys {}
 export class RedisClusterClient {
   protected static serviceEndpointTemplate = "https://redis.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RedisClusterWaiter;
@@ -117,7 +116,11 @@ export class RedisClusterClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220315";
-    logger.info(`RedisClusterClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`RedisClusterClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class RedisClusterClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RedisClusterClient.serviceEndpointTemplate,
@@ -221,7 +225,7 @@ export class RedisClusterClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation RedisClusterClient#cancelWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -242,6 +246,7 @@ export class RedisClusterClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -287,7 +292,8 @@ export class RedisClusterClient {
   public async changeRedisClusterCompartment(
     changeRedisClusterCompartmentRequest: requests.ChangeRedisClusterCompartmentRequest
   ): Promise<responses.ChangeRedisClusterCompartmentResponse> {
-    logger.debug("Calling operation RedisClusterClient#changeRedisClusterCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation RedisClusterClient#changeRedisClusterCompartment.");
     const operationName = "changeRedisClusterCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -309,6 +315,7 @@ export class RedisClusterClient {
       changeRedisClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -365,7 +372,7 @@ export class RedisClusterClient {
   public async createRedisCluster(
     createRedisClusterRequest: requests.CreateRedisClusterRequest
   ): Promise<responses.CreateRedisClusterResponse> {
-    logger.debug("Calling operation RedisClusterClient#createRedisCluster.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#createRedisCluster.");
     const operationName = "createRedisCluster";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -384,6 +391,7 @@ export class RedisClusterClient {
       createRedisClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -448,7 +456,7 @@ export class RedisClusterClient {
   public async deleteRedisCluster(
     deleteRedisClusterRequest: requests.DeleteRedisClusterRequest
   ): Promise<responses.DeleteRedisClusterResponse> {
-    logger.debug("Calling operation RedisClusterClient#deleteRedisCluster.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#deleteRedisCluster.");
     const operationName = "deleteRedisCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -469,6 +477,7 @@ export class RedisClusterClient {
       deleteRedisClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -519,7 +528,7 @@ export class RedisClusterClient {
   public async getRedisCluster(
     getRedisClusterRequest: requests.GetRedisClusterRequest
   ): Promise<responses.GetRedisClusterResponse> {
-    logger.debug("Calling operation RedisClusterClient#getRedisCluster.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#getRedisCluster.");
     const operationName = "getRedisCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -539,6 +548,7 @@ export class RedisClusterClient {
       getRedisClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -593,7 +603,7 @@ export class RedisClusterClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation RedisClusterClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -613,6 +623,7 @@ export class RedisClusterClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -673,7 +684,7 @@ export class RedisClusterClient {
   public async listRedisClusters(
     listRedisClustersRequest: requests.ListRedisClustersRequest
   ): Promise<responses.ListRedisClustersResponse> {
-    logger.debug("Calling operation RedisClusterClient#listRedisClusters.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#listRedisClusters.");
     const operationName = "listRedisClusters";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -700,6 +711,7 @@ export class RedisClusterClient {
       listRedisClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -755,7 +767,8 @@ export class RedisClusterClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation RedisClusterClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation RedisClusterClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -780,6 +793,7 @@ export class RedisClusterClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -835,7 +849,7 @@ export class RedisClusterClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation RedisClusterClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -860,6 +874,7 @@ export class RedisClusterClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -915,7 +930,7 @@ export class RedisClusterClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation RedisClusterClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -942,6 +957,7 @@ export class RedisClusterClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -996,7 +1012,7 @@ export class RedisClusterClient {
   public async updateRedisCluster(
     updateRedisClusterRequest: requests.UpdateRedisClusterRequest
   ): Promise<responses.UpdateRedisClusterResponse> {
-    logger.debug("Calling operation RedisClusterClient#updateRedisCluster.");
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#updateRedisCluster.");
     const operationName = "updateRedisCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1017,6 +1033,7 @@ export class RedisClusterClient {
       updateRedisClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

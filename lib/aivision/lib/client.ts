@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class AIServiceVisionClient {
   protected static serviceEndpointTemplate =
     "https://vision.aiservice.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AIServiceVisionWaiter;
@@ -118,7 +117,11 @@ export class AIServiceVisionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220125";
-    logger.info(`AIServiceVisionClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AIServiceVisionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class AIServiceVisionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AIServiceVisionClient.serviceEndpointTemplate,
@@ -223,7 +227,7 @@ export class AIServiceVisionClient {
   public async analyzeDocument(
     analyzeDocumentRequest: requests.AnalyzeDocumentRequest
   ): Promise<responses.AnalyzeDocumentResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#analyzeDocument.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#analyzeDocument.");
     const operationName = "analyzeDocument";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/AnalyzeDocumentResult/AnalyzeDocument";
@@ -242,6 +246,7 @@ export class AIServiceVisionClient {
       analyzeDocumentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -302,7 +307,7 @@ export class AIServiceVisionClient {
   public async analyzeImage(
     analyzeImageRequest: requests.AnalyzeImageRequest
   ): Promise<responses.AnalyzeImageResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#analyzeImage.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#analyzeImage.");
     const operationName = "analyzeImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/AnalyzeImageResult/AnalyzeImage";
@@ -321,6 +326,7 @@ export class AIServiceVisionClient {
       analyzeImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -381,7 +387,8 @@ export class AIServiceVisionClient {
   public async cancelDocumentJob(
     cancelDocumentJobRequest: requests.CancelDocumentJobRequest
   ): Promise<responses.CancelDocumentJobResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#cancelDocumentJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#cancelDocumentJob.");
     const operationName = "cancelDocumentJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/DocumentJob/CancelDocumentJob";
@@ -403,6 +410,7 @@ export class AIServiceVisionClient {
       cancelDocumentJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -449,7 +457,7 @@ export class AIServiceVisionClient {
   public async cancelImageJob(
     cancelImageJobRequest: requests.CancelImageJobRequest
   ): Promise<responses.CancelImageJobResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#cancelImageJob.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#cancelImageJob.");
     const operationName = "cancelImageJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ImageJob/CancelImageJob";
@@ -471,6 +479,7 @@ export class AIServiceVisionClient {
       cancelImageJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -516,7 +525,8 @@ export class AIServiceVisionClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#cancelWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequest/CancelWorkRequest";
@@ -538,6 +548,7 @@ export class AIServiceVisionClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -583,7 +594,8 @@ export class AIServiceVisionClient {
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
   ): Promise<responses.ChangeModelCompartmentResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#changeModelCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#changeModelCompartment.");
     const operationName = "changeModelCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Model/ChangeModelCompartment";
@@ -605,6 +617,7 @@ export class AIServiceVisionClient {
       changeModelCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -655,7 +668,8 @@ export class AIServiceVisionClient {
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
   ): Promise<responses.ChangeProjectCompartmentResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#changeProjectCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#changeProjectCompartment.");
     const operationName = "changeProjectCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Project/ChangeProjectCompartment";
@@ -677,6 +691,7 @@ export class AIServiceVisionClient {
       changeProjectCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -728,7 +743,8 @@ export class AIServiceVisionClient {
   public async createDocumentJob(
     createDocumentJobRequest: requests.CreateDocumentJobRequest
   ): Promise<responses.CreateDocumentJobResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#createDocumentJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#createDocumentJob.");
     const operationName = "createDocumentJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/DocumentJob/CreateDocumentJob";
@@ -748,6 +764,7 @@ export class AIServiceVisionClient {
       createDocumentJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -808,7 +825,7 @@ export class AIServiceVisionClient {
   public async createImageJob(
     createImageJobRequest: requests.CreateImageJobRequest
   ): Promise<responses.CreateImageJobResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#createImageJob.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#createImageJob.");
     const operationName = "createImageJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ImageJob/CreateImageJob";
@@ -828,6 +845,7 @@ export class AIServiceVisionClient {
       createImageJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -888,7 +906,7 @@ export class AIServiceVisionClient {
   public async createModel(
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#createModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#createModel.");
     const operationName = "createModel";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -907,6 +925,7 @@ export class AIServiceVisionClient {
       createModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -972,7 +991,7 @@ export class AIServiceVisionClient {
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#createProject.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#createProject.");
     const operationName = "createProject";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -991,6 +1010,7 @@ export class AIServiceVisionClient {
       createProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1055,7 +1075,7 @@ export class AIServiceVisionClient {
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#deleteModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#deleteModel.");
     const operationName = "deleteModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Model/DeleteModel";
@@ -1077,6 +1097,7 @@ export class AIServiceVisionClient {
       deleteModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1127,7 +1148,7 @@ export class AIServiceVisionClient {
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#deleteProject.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#deleteProject.");
     const operationName = "deleteProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Project/DeleteProject";
@@ -1149,6 +1170,7 @@ export class AIServiceVisionClient {
       deleteProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1200,7 +1222,7 @@ export class AIServiceVisionClient {
   public async getDocumentJob(
     getDocumentJobRequest: requests.GetDocumentJobRequest
   ): Promise<responses.GetDocumentJobResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#getDocumentJob.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getDocumentJob.");
     const operationName = "getDocumentJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/DocumentJob/GetDocumentJob";
@@ -1221,6 +1243,7 @@ export class AIServiceVisionClient {
       getDocumentJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1276,7 +1299,7 @@ export class AIServiceVisionClient {
   public async getImageJob(
     getImageJobRequest: requests.GetImageJobRequest
   ): Promise<responses.GetImageJobResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#getImageJob.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getImageJob.");
     const operationName = "getImageJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ImageJob/GetImageJob";
@@ -1297,6 +1320,7 @@ export class AIServiceVisionClient {
       getImageJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1351,7 +1375,7 @@ export class AIServiceVisionClient {
   public async getModel(
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#getModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getModel.");
     const operationName = "getModel";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Model/GetModel";
     const pathParams = {
@@ -1371,6 +1395,7 @@ export class AIServiceVisionClient {
       getModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1425,7 +1450,7 @@ export class AIServiceVisionClient {
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#getProject.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getProject.");
     const operationName = "getProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Project/GetProject";
@@ -1446,6 +1471,7 @@ export class AIServiceVisionClient {
       getProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1500,7 +1526,7 @@ export class AIServiceVisionClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequest/GetWorkRequest";
@@ -1521,6 +1547,7 @@ export class AIServiceVisionClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1581,7 +1608,7 @@ export class AIServiceVisionClient {
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#listModels.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#listModels.");
     const operationName = "listModels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ModelCollection/ListModels";
@@ -1610,6 +1637,7 @@ export class AIServiceVisionClient {
       listModelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1665,7 +1693,7 @@ export class AIServiceVisionClient {
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#listProjects.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#listProjects.");
     const operationName = "listProjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ProjectCollection/ListProjects";
@@ -1693,6 +1721,7 @@ export class AIServiceVisionClient {
       listProjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1748,7 +1777,8 @@ export class AIServiceVisionClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequestError/ListWorkRequestErrors";
@@ -1774,6 +1804,7 @@ export class AIServiceVisionClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1829,7 +1860,8 @@ export class AIServiceVisionClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1855,6 +1887,7 @@ export class AIServiceVisionClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1910,7 +1943,7 @@ export class AIServiceVisionClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequest/ListWorkRequests";
@@ -1938,6 +1971,7 @@ export class AIServiceVisionClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1992,7 +2026,7 @@ export class AIServiceVisionClient {
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#updateModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#updateModel.");
     const operationName = "updateModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Model/UpdateModel";
@@ -2014,6 +2048,7 @@ export class AIServiceVisionClient {
       updateModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2069,7 +2104,7 @@ export class AIServiceVisionClient {
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
-    logger.debug("Calling operation AIServiceVisionClient#updateProject.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#updateProject.");
     const operationName = "updateProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Project/UpdateProject";
@@ -2091,6 +2126,7 @@ export class AIServiceVisionClient {
       updateProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

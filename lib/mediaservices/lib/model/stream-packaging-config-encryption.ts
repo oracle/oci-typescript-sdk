@@ -41,7 +41,7 @@ export namespace StreamPackagingConfigEncryption {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.algorithm}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.algorithm}`);
       }
     }
     return jsonObj;
@@ -62,7 +62,7 @@ export namespace StreamPackagingConfigEncryption {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.algorithm}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.algorithm}`);
       }
     }
     return jsonObj;

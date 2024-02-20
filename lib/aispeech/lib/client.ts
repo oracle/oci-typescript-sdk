@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class AIServiceSpeechClient {
   protected static serviceEndpointTemplate =
     "https://speech.aiservice.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AIServiceSpeechWaiter;
@@ -118,7 +117,11 @@ export class AIServiceSpeechClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220101";
-    logger.info(`AIServiceSpeechClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AIServiceSpeechClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class AIServiceSpeechClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AIServiceSpeechClient.serviceEndpointTemplate,
@@ -222,7 +226,8 @@ export class AIServiceSpeechClient {
   public async cancelTranscriptionJob(
     cancelTranscriptionJobRequest: requests.CancelTranscriptionJobRequest
   ): Promise<responses.CancelTranscriptionJobResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#cancelTranscriptionJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#cancelTranscriptionJob.");
     const operationName = "cancelTranscriptionJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/CancelTranscriptionJob";
@@ -245,6 +250,7 @@ export class AIServiceSpeechClient {
       cancelTranscriptionJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -290,7 +296,8 @@ export class AIServiceSpeechClient {
   public async cancelTranscriptionTask(
     cancelTranscriptionTaskRequest: requests.CancelTranscriptionTaskRequest
   ): Promise<responses.CancelTranscriptionTaskResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#cancelTranscriptionTask.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#cancelTranscriptionTask.");
     const operationName = "cancelTranscriptionTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionTask/CancelTranscriptionTask";
@@ -314,6 +321,7 @@ export class AIServiceSpeechClient {
       cancelTranscriptionTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -360,7 +368,10 @@ export class AIServiceSpeechClient {
   public async changeTranscriptionJobCompartment(
     changeTranscriptionJobCompartmentRequest: requests.ChangeTranscriptionJobCompartmentRequest
   ): Promise<responses.ChangeTranscriptionJobCompartmentResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#changeTranscriptionJobCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AIServiceSpeechClient#changeTranscriptionJobCompartment."
+      );
     const operationName = "changeTranscriptionJobCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/ChangeTranscriptionJobCompartment";
@@ -383,6 +394,7 @@ export class AIServiceSpeechClient {
       changeTranscriptionJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -434,7 +446,8 @@ export class AIServiceSpeechClient {
   public async createTranscriptionJob(
     createTranscriptionJobRequest: requests.CreateTranscriptionJobRequest
   ): Promise<responses.CreateTranscriptionJobResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#createTranscriptionJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#createTranscriptionJob.");
     const operationName = "createTranscriptionJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/CreateTranscriptionJob";
@@ -454,6 +467,7 @@ export class AIServiceSpeechClient {
       createTranscriptionJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -513,7 +527,8 @@ export class AIServiceSpeechClient {
   public async getTranscriptionJob(
     getTranscriptionJobRequest: requests.GetTranscriptionJobRequest
   ): Promise<responses.GetTranscriptionJobResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#getTranscriptionJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#getTranscriptionJob.");
     const operationName = "getTranscriptionJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/GetTranscriptionJob";
@@ -534,6 +549,7 @@ export class AIServiceSpeechClient {
       getTranscriptionJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -588,7 +604,8 @@ export class AIServiceSpeechClient {
   public async getTranscriptionTask(
     getTranscriptionTaskRequest: requests.GetTranscriptionTaskRequest
   ): Promise<responses.GetTranscriptionTaskResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#getTranscriptionTask.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#getTranscriptionTask.");
     const operationName = "getTranscriptionTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionTask/GetTranscriptionTask";
@@ -610,6 +627,7 @@ export class AIServiceSpeechClient {
       getTranscriptionTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -665,7 +683,8 @@ export class AIServiceSpeechClient {
   public async listTranscriptionJobs(
     listTranscriptionJobsRequest: requests.ListTranscriptionJobsRequest
   ): Promise<responses.ListTranscriptionJobsResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#listTranscriptionJobs.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#listTranscriptionJobs.");
     const operationName = "listTranscriptionJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/ListTranscriptionJobs";
@@ -693,6 +712,7 @@ export class AIServiceSpeechClient {
       listTranscriptionJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -753,7 +773,8 @@ export class AIServiceSpeechClient {
   public async listTranscriptionTasks(
     listTranscriptionTasksRequest: requests.ListTranscriptionTasksRequest
   ): Promise<responses.ListTranscriptionTasksResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#listTranscriptionTasks.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#listTranscriptionTasks.");
     const operationName = "listTranscriptionTasks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionTask/ListTranscriptionTasks";
@@ -782,6 +803,7 @@ export class AIServiceSpeechClient {
       listTranscriptionTasksRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -841,7 +863,8 @@ export class AIServiceSpeechClient {
   public async updateTranscriptionJob(
     updateTranscriptionJobRequest: requests.UpdateTranscriptionJobRequest
   ): Promise<responses.UpdateTranscriptionJobResponse> {
-    logger.debug("Calling operation AIServiceSpeechClient#updateTranscriptionJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#updateTranscriptionJob.");
     const operationName = "updateTranscriptionJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/UpdateTranscriptionJob";
@@ -863,6 +886,7 @@ export class AIServiceSpeechClient {
       updateTranscriptionJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

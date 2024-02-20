@@ -52,7 +52,7 @@ export namespace ImportInventoryDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.resourceType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.resourceType}`);
       }
     }
     return jsonObj;
@@ -68,7 +68,7 @@ export namespace ImportInventoryDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.resourceType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.resourceType}`);
       }
     }
     return jsonObj;

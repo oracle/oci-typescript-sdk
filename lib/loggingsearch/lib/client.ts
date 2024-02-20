@@ -19,8 +19,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -35,7 +34,7 @@ export enum LogSearchApiKeys {}
 export class LogSearchClient {
   protected static serviceEndpointTemplate = "https://logging.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -115,7 +114,11 @@ export class LogSearchClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190909";
-    logger.info(`LogSearchClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`LogSearchClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -125,9 +128,10 @@ export class LogSearchClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LogSearchClient.serviceEndpointTemplate,
@@ -199,7 +203,7 @@ See [Using the API](https://docs.cloud.oracle.com/Content/Logging/Concepts/using
   public async searchLogs(
     searchLogsRequest: requests.SearchLogsRequest
   ): Promise<responses.SearchLogsResponse> {
-    logger.debug("Calling operation LogSearchClient#searchLogs.");
+    if (this.logger) this.logger.debug("Calling operation LogSearchClient#searchLogs.");
     const operationName = "searchLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-search/20190909/SearchResult/SearchLogs";
@@ -221,6 +225,7 @@ See [Using the API](https://docs.cloud.oracle.com/Content/Logging/Concepts/using
       searchLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

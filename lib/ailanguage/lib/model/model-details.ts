@@ -70,11 +70,6 @@ export namespace ModelDetails {
             <model.PreTrainedSentimentAnalysisModelDetails>(<object>jsonObj),
             true
           );
-        case "PRE_TRAINED_PHI":
-          return model.PreTrainedPhiModelDetails.getJsonObj(
-            <model.PreTrainedPhiModelDetails>(<object>jsonObj),
-            true
-          );
         case "PRE_TRAINED_TEXT_CLASSIFICATION":
           return model.PreTrainedTextClassificationModelDetails.getJsonObj(
             <model.PreTrainedTextClassificationModelDetails>(<object>jsonObj),
@@ -96,7 +91,7 @@ export namespace ModelDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -141,11 +136,6 @@ export namespace ModelDetails {
             <model.PreTrainedSentimentAnalysisModelDetails>(<object>jsonObj),
             true
           );
-        case "PRE_TRAINED_PHI":
-          return model.PreTrainedPhiModelDetails.getDeserializedJsonObj(
-            <model.PreTrainedPhiModelDetails>(<object>jsonObj),
-            true
-          );
         case "PRE_TRAINED_TEXT_CLASSIFICATION":
           return model.PreTrainedTextClassificationModelDetails.getDeserializedJsonObj(
             <model.PreTrainedTextClassificationModelDetails>(<object>jsonObj),
@@ -167,7 +157,7 @@ export namespace ModelDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

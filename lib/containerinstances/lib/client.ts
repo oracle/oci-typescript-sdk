@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class ContainerInstanceClient {
   protected static serviceEndpointTemplate =
     "https://compute-containers.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ContainerInstanceWaiter;
@@ -118,7 +117,11 @@ export class ContainerInstanceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210415";
-    logger.info(`ContainerInstanceClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ContainerInstanceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class ContainerInstanceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ContainerInstanceClient.serviceEndpointTemplate,
@@ -222,7 +226,10 @@ export class ContainerInstanceClient {
   public async changeContainerInstanceCompartment(
     changeContainerInstanceCompartmentRequest: requests.ChangeContainerInstanceCompartmentRequest
   ): Promise<responses.ChangeContainerInstanceCompartmentResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#changeContainerInstanceCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ContainerInstanceClient#changeContainerInstanceCompartment."
+      );
     const operationName = "changeContainerInstanceCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -243,6 +250,7 @@ export class ContainerInstanceClient {
       changeContainerInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -299,7 +307,8 @@ export class ContainerInstanceClient {
   public async createContainerInstance(
     createContainerInstanceRequest: requests.CreateContainerInstanceRequest
   ): Promise<responses.CreateContainerInstanceResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#createContainerInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#createContainerInstance.");
     const operationName = "createContainerInstance";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -318,6 +327,7 @@ export class ContainerInstanceClient {
       createContainerInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -382,7 +392,8 @@ export class ContainerInstanceClient {
   public async deleteContainerInstance(
     deleteContainerInstanceRequest: requests.DeleteContainerInstanceRequest
   ): Promise<responses.DeleteContainerInstanceResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#deleteContainerInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#deleteContainerInstance.");
     const operationName = "deleteContainerInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -403,6 +414,7 @@ export class ContainerInstanceClient {
       deleteContainerInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -453,7 +465,7 @@ export class ContainerInstanceClient {
   public async getContainer(
     getContainerRequest: requests.GetContainerRequest
   ): Promise<responses.GetContainerResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#getContainer.");
+    if (this.logger) this.logger.debug("Calling operation ContainerInstanceClient#getContainer.");
     const operationName = "getContainer";
     const apiReferenceLink = "";
     const pathParams = {
@@ -473,6 +485,7 @@ export class ContainerInstanceClient {
       getContainerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -527,7 +540,8 @@ export class ContainerInstanceClient {
   public async getContainerInstance(
     getContainerInstanceRequest: requests.GetContainerInstanceRequest
   ): Promise<responses.GetContainerInstanceResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#getContainerInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#getContainerInstance.");
     const operationName = "getContainerInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -547,6 +561,7 @@ export class ContainerInstanceClient {
       getContainerInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -601,7 +616,7 @@ export class ContainerInstanceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation ContainerInstanceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -621,6 +636,7 @@ export class ContainerInstanceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -675,7 +691,8 @@ export class ContainerInstanceClient {
   public async listContainerInstanceShapes(
     listContainerInstanceShapesRequest: requests.ListContainerInstanceShapesRequest
   ): Promise<responses.ListContainerInstanceShapesResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#listContainerInstanceShapes.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#listContainerInstanceShapes.");
     const operationName = "listContainerInstanceShapes";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -698,6 +715,7 @@ export class ContainerInstanceClient {
       listContainerInstanceShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -753,7 +771,8 @@ export class ContainerInstanceClient {
   public async listContainerInstances(
     listContainerInstancesRequest: requests.ListContainerInstancesRequest
   ): Promise<responses.ListContainerInstancesResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#listContainerInstances.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#listContainerInstances.");
     const operationName = "listContainerInstances";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -780,6 +799,7 @@ export class ContainerInstanceClient {
       listContainerInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -835,7 +855,7 @@ export class ContainerInstanceClient {
   public async listContainers(
     listContainersRequest: requests.ListContainersRequest
   ): Promise<responses.ListContainersResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#listContainers.");
+    if (this.logger) this.logger.debug("Calling operation ContainerInstanceClient#listContainers.");
     const operationName = "listContainers";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -863,6 +883,7 @@ export class ContainerInstanceClient {
       listContainersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -918,7 +939,8 @@ export class ContainerInstanceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -943,6 +965,7 @@ export class ContainerInstanceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -998,7 +1021,8 @@ export class ContainerInstanceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1023,6 +1047,7 @@ export class ContainerInstanceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1078,7 +1103,8 @@ export class ContainerInstanceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1106,6 +1132,7 @@ export class ContainerInstanceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1160,7 +1187,8 @@ export class ContainerInstanceClient {
   public async restartContainerInstance(
     restartContainerInstanceRequest: requests.RestartContainerInstanceRequest
   ): Promise<responses.RestartContainerInstanceResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#restartContainerInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#restartContainerInstance.");
     const operationName = "restartContainerInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1181,6 +1209,7 @@ export class ContainerInstanceClient {
       restartContainerInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1232,7 +1261,7 @@ export class ContainerInstanceClient {
   public async retrieveLogs(
     retrieveLogsRequest: requests.RetrieveLogsRequest
   ): Promise<responses.RetrieveLogsResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#retrieveLogs.");
+    if (this.logger) this.logger.debug("Calling operation ContainerInstanceClient#retrieveLogs.");
     const operationName = "retrieveLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1252,6 +1281,7 @@ export class ContainerInstanceClient {
       retrieveLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1301,7 +1331,8 @@ export class ContainerInstanceClient {
   public async startContainerInstance(
     startContainerInstanceRequest: requests.StartContainerInstanceRequest
   ): Promise<responses.StartContainerInstanceResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#startContainerInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#startContainerInstance.");
     const operationName = "startContainerInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1322,6 +1353,7 @@ export class ContainerInstanceClient {
       startContainerInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1372,7 +1404,8 @@ export class ContainerInstanceClient {
   public async stopContainerInstance(
     stopContainerInstanceRequest: requests.StopContainerInstanceRequest
   ): Promise<responses.StopContainerInstanceResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#stopContainerInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#stopContainerInstance.");
     const operationName = "stopContainerInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1393,6 +1426,7 @@ export class ContainerInstanceClient {
       stopContainerInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1443,7 +1477,8 @@ export class ContainerInstanceClient {
   public async updateContainer(
     updateContainerRequest: requests.UpdateContainerRequest
   ): Promise<responses.UpdateContainerResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#updateContainer.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#updateContainer.");
     const operationName = "updateContainer";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1464,6 +1499,7 @@ export class ContainerInstanceClient {
       updateContainerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1519,7 +1555,8 @@ export class ContainerInstanceClient {
   public async updateContainerInstance(
     updateContainerInstanceRequest: requests.UpdateContainerInstanceRequest
   ): Promise<responses.UpdateContainerInstanceResponse> {
-    logger.debug("Calling operation ContainerInstanceClient#updateContainerInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerInstanceClient#updateContainerInstance.");
     const operationName = "updateContainerInstance";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1540,6 +1577,7 @@ export class ContainerInstanceClient {
       updateContainerInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

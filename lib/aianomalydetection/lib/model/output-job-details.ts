@@ -36,7 +36,7 @@ export namespace OutputJobDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.outputType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.outputType}`);
       }
     }
     return jsonObj;
@@ -52,7 +52,7 @@ export namespace OutputJobDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.outputType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.outputType}`);
       }
     }
     return jsonObj;

@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum ServiceMeshApiKeys {}
 export class ServiceMeshClient {
   protected static serviceEndpointTemplate = "https://servicemesh.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ServiceMeshWaiter;
@@ -117,7 +116,11 @@ export class ServiceMeshClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220615";
-    logger.info(`ServiceMeshClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ServiceMeshClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class ServiceMeshClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ServiceMeshClient.serviceEndpointTemplate,
@@ -221,7 +225,7 @@ export class ServiceMeshClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation ServiceMeshClient#cancelWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/WorkRequest/CancelWorkRequest";
@@ -243,6 +247,7 @@ export class ServiceMeshClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -288,7 +293,8 @@ export class ServiceMeshClient {
   public async changeAccessPolicyCompartment(
     changeAccessPolicyCompartmentRequest: requests.ChangeAccessPolicyCompartmentRequest
   ): Promise<responses.ChangeAccessPolicyCompartmentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#changeAccessPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#changeAccessPolicyCompartment.");
     const operationName = "changeAccessPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/AccessPolicy/ChangeAccessPolicyCompartment";
@@ -311,6 +317,7 @@ export class ServiceMeshClient {
       changeAccessPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -366,7 +373,8 @@ export class ServiceMeshClient {
   public async changeIngressGatewayCompartment(
     changeIngressGatewayCompartmentRequest: requests.ChangeIngressGatewayCompartmentRequest
   ): Promise<responses.ChangeIngressGatewayCompartmentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#changeIngressGatewayCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#changeIngressGatewayCompartment.");
     const operationName = "changeIngressGatewayCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGateway/ChangeIngressGatewayCompartment";
@@ -389,6 +397,7 @@ export class ServiceMeshClient {
       changeIngressGatewayCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -444,7 +453,10 @@ export class ServiceMeshClient {
   public async changeIngressGatewayRouteTableCompartment(
     changeIngressGatewayRouteTableCompartmentRequest: requests.ChangeIngressGatewayRouteTableCompartmentRequest
   ): Promise<responses.ChangeIngressGatewayRouteTableCompartmentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#changeIngressGatewayRouteTableCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ServiceMeshClient#changeIngressGatewayRouteTableCompartment."
+      );
     const operationName = "changeIngressGatewayRouteTableCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGatewayRouteTable/ChangeIngressGatewayRouteTableCompartment";
@@ -468,6 +480,7 @@ export class ServiceMeshClient {
       changeIngressGatewayRouteTableCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -523,7 +536,8 @@ export class ServiceMeshClient {
   public async changeMeshCompartment(
     changeMeshCompartmentRequest: requests.ChangeMeshCompartmentRequest
   ): Promise<responses.ChangeMeshCompartmentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#changeMeshCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#changeMeshCompartment.");
     const operationName = "changeMeshCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/Mesh/ChangeMeshCompartment";
@@ -546,6 +560,7 @@ export class ServiceMeshClient {
       changeMeshCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -601,7 +616,8 @@ export class ServiceMeshClient {
   public async changeVirtualDeploymentCompartment(
     changeVirtualDeploymentCompartmentRequest: requests.ChangeVirtualDeploymentCompartmentRequest
   ): Promise<responses.ChangeVirtualDeploymentCompartmentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#changeVirtualDeploymentCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#changeVirtualDeploymentCompartment.");
     const operationName = "changeVirtualDeploymentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualDeployment/ChangeVirtualDeploymentCompartment";
@@ -624,6 +640,7 @@ export class ServiceMeshClient {
       changeVirtualDeploymentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -679,7 +696,8 @@ export class ServiceMeshClient {
   public async changeVirtualServiceCompartment(
     changeVirtualServiceCompartmentRequest: requests.ChangeVirtualServiceCompartmentRequest
   ): Promise<responses.ChangeVirtualServiceCompartmentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#changeVirtualServiceCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#changeVirtualServiceCompartment.");
     const operationName = "changeVirtualServiceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualService/ChangeVirtualServiceCompartment";
@@ -702,6 +720,7 @@ export class ServiceMeshClient {
       changeVirtualServiceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -757,7 +776,10 @@ export class ServiceMeshClient {
   public async changeVirtualServiceRouteTableCompartment(
     changeVirtualServiceRouteTableCompartmentRequest: requests.ChangeVirtualServiceRouteTableCompartmentRequest
   ): Promise<responses.ChangeVirtualServiceRouteTableCompartmentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#changeVirtualServiceRouteTableCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ServiceMeshClient#changeVirtualServiceRouteTableCompartment."
+      );
     const operationName = "changeVirtualServiceRouteTableCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualServiceRouteTable/ChangeVirtualServiceRouteTableCompartment";
@@ -781,6 +803,7 @@ export class ServiceMeshClient {
       changeVirtualServiceRouteTableCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -837,7 +860,7 @@ export class ServiceMeshClient {
   public async createAccessPolicy(
     createAccessPolicyRequest: requests.CreateAccessPolicyRequest
   ): Promise<responses.CreateAccessPolicyResponse> {
-    logger.debug("Calling operation ServiceMeshClient#createAccessPolicy.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#createAccessPolicy.");
     const operationName = "createAccessPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/AccessPolicy/CreateAccessPolicy";
@@ -857,6 +880,7 @@ export class ServiceMeshClient {
       createAccessPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -927,7 +951,7 @@ export class ServiceMeshClient {
   public async createIngressGateway(
     createIngressGatewayRequest: requests.CreateIngressGatewayRequest
   ): Promise<responses.CreateIngressGatewayResponse> {
-    logger.debug("Calling operation ServiceMeshClient#createIngressGateway.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#createIngressGateway.");
     const operationName = "createIngressGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGateway/CreateIngressGateway";
@@ -947,6 +971,7 @@ export class ServiceMeshClient {
       createIngressGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1017,7 +1042,8 @@ export class ServiceMeshClient {
   public async createIngressGatewayRouteTable(
     createIngressGatewayRouteTableRequest: requests.CreateIngressGatewayRouteTableRequest
   ): Promise<responses.CreateIngressGatewayRouteTableResponse> {
-    logger.debug("Calling operation ServiceMeshClient#createIngressGatewayRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#createIngressGatewayRouteTable.");
     const operationName = "createIngressGatewayRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGatewayRouteTable/CreateIngressGatewayRouteTable";
@@ -1037,6 +1063,7 @@ export class ServiceMeshClient {
       createIngressGatewayRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1107,7 +1134,7 @@ export class ServiceMeshClient {
   public async createMesh(
     createMeshRequest: requests.CreateMeshRequest
   ): Promise<responses.CreateMeshResponse> {
-    logger.debug("Calling operation ServiceMeshClient#createMesh.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#createMesh.");
     const operationName = "createMesh";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/Mesh/CreateMesh";
@@ -1127,6 +1154,7 @@ export class ServiceMeshClient {
       createMeshRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1197,7 +1225,8 @@ export class ServiceMeshClient {
   public async createVirtualDeployment(
     createVirtualDeploymentRequest: requests.CreateVirtualDeploymentRequest
   ): Promise<responses.CreateVirtualDeploymentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#createVirtualDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#createVirtualDeployment.");
     const operationName = "createVirtualDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualDeployment/CreateVirtualDeployment";
@@ -1217,6 +1246,7 @@ export class ServiceMeshClient {
       createVirtualDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1287,7 +1317,7 @@ export class ServiceMeshClient {
   public async createVirtualService(
     createVirtualServiceRequest: requests.CreateVirtualServiceRequest
   ): Promise<responses.CreateVirtualServiceResponse> {
-    logger.debug("Calling operation ServiceMeshClient#createVirtualService.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#createVirtualService.");
     const operationName = "createVirtualService";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualService/CreateVirtualService";
@@ -1307,6 +1337,7 @@ export class ServiceMeshClient {
       createVirtualServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1377,7 +1408,8 @@ export class ServiceMeshClient {
   public async createVirtualServiceRouteTable(
     createVirtualServiceRouteTableRequest: requests.CreateVirtualServiceRouteTableRequest
   ): Promise<responses.CreateVirtualServiceRouteTableResponse> {
-    logger.debug("Calling operation ServiceMeshClient#createVirtualServiceRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#createVirtualServiceRouteTable.");
     const operationName = "createVirtualServiceRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualServiceRouteTable/CreateVirtualServiceRouteTable";
@@ -1397,6 +1429,7 @@ export class ServiceMeshClient {
       createVirtualServiceRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1466,7 +1499,7 @@ export class ServiceMeshClient {
   public async deleteAccessPolicy(
     deleteAccessPolicyRequest: requests.DeleteAccessPolicyRequest
   ): Promise<responses.DeleteAccessPolicyResponse> {
-    logger.debug("Calling operation ServiceMeshClient#deleteAccessPolicy.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#deleteAccessPolicy.");
     const operationName = "deleteAccessPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/AccessPolicy/DeleteAccessPolicy";
@@ -1488,6 +1521,7 @@ export class ServiceMeshClient {
       deleteAccessPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1538,7 +1572,7 @@ export class ServiceMeshClient {
   public async deleteIngressGateway(
     deleteIngressGatewayRequest: requests.DeleteIngressGatewayRequest
   ): Promise<responses.DeleteIngressGatewayResponse> {
-    logger.debug("Calling operation ServiceMeshClient#deleteIngressGateway.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#deleteIngressGateway.");
     const operationName = "deleteIngressGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGateway/DeleteIngressGateway";
@@ -1560,6 +1594,7 @@ export class ServiceMeshClient {
       deleteIngressGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1610,7 +1645,8 @@ export class ServiceMeshClient {
   public async deleteIngressGatewayRouteTable(
     deleteIngressGatewayRouteTableRequest: requests.DeleteIngressGatewayRouteTableRequest
   ): Promise<responses.DeleteIngressGatewayRouteTableResponse> {
-    logger.debug("Calling operation ServiceMeshClient#deleteIngressGatewayRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#deleteIngressGatewayRouteTable.");
     const operationName = "deleteIngressGatewayRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGatewayRouteTable/DeleteIngressGatewayRouteTable";
@@ -1633,6 +1669,7 @@ export class ServiceMeshClient {
       deleteIngressGatewayRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1683,7 +1720,7 @@ export class ServiceMeshClient {
   public async deleteMesh(
     deleteMeshRequest: requests.DeleteMeshRequest
   ): Promise<responses.DeleteMeshResponse> {
-    logger.debug("Calling operation ServiceMeshClient#deleteMesh.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#deleteMesh.");
     const operationName = "deleteMesh";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/Mesh/DeleteMesh";
@@ -1705,6 +1742,7 @@ export class ServiceMeshClient {
       deleteMeshRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1755,7 +1793,8 @@ export class ServiceMeshClient {
   public async deleteVirtualDeployment(
     deleteVirtualDeploymentRequest: requests.DeleteVirtualDeploymentRequest
   ): Promise<responses.DeleteVirtualDeploymentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#deleteVirtualDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#deleteVirtualDeployment.");
     const operationName = "deleteVirtualDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualDeployment/DeleteVirtualDeployment";
@@ -1777,6 +1816,7 @@ export class ServiceMeshClient {
       deleteVirtualDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1827,7 +1867,7 @@ export class ServiceMeshClient {
   public async deleteVirtualService(
     deleteVirtualServiceRequest: requests.DeleteVirtualServiceRequest
   ): Promise<responses.DeleteVirtualServiceResponse> {
-    logger.debug("Calling operation ServiceMeshClient#deleteVirtualService.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#deleteVirtualService.");
     const operationName = "deleteVirtualService";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualService/DeleteVirtualService";
@@ -1849,6 +1889,7 @@ export class ServiceMeshClient {
       deleteVirtualServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1899,7 +1940,8 @@ export class ServiceMeshClient {
   public async deleteVirtualServiceRouteTable(
     deleteVirtualServiceRouteTableRequest: requests.DeleteVirtualServiceRouteTableRequest
   ): Promise<responses.DeleteVirtualServiceRouteTableResponse> {
-    logger.debug("Calling operation ServiceMeshClient#deleteVirtualServiceRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#deleteVirtualServiceRouteTable.");
     const operationName = "deleteVirtualServiceRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualServiceRouteTable/DeleteVirtualServiceRouteTable";
@@ -1922,6 +1964,7 @@ export class ServiceMeshClient {
       deleteVirtualServiceRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1972,7 +2015,7 @@ export class ServiceMeshClient {
   public async getAccessPolicy(
     getAccessPolicyRequest: requests.GetAccessPolicyRequest
   ): Promise<responses.GetAccessPolicyResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getAccessPolicy.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getAccessPolicy.");
     const operationName = "getAccessPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/AccessPolicy/GetAccessPolicy";
@@ -1993,6 +2036,7 @@ export class ServiceMeshClient {
       getAccessPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2047,7 +2091,7 @@ export class ServiceMeshClient {
   public async getIngressGateway(
     getIngressGatewayRequest: requests.GetIngressGatewayRequest
   ): Promise<responses.GetIngressGatewayResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getIngressGateway.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getIngressGateway.");
     const operationName = "getIngressGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGateway/GetIngressGateway";
@@ -2068,6 +2112,7 @@ export class ServiceMeshClient {
       getIngressGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2122,7 +2167,8 @@ export class ServiceMeshClient {
   public async getIngressGatewayRouteTable(
     getIngressGatewayRouteTableRequest: requests.GetIngressGatewayRouteTableRequest
   ): Promise<responses.GetIngressGatewayRouteTableResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getIngressGatewayRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#getIngressGatewayRouteTable.");
     const operationName = "getIngressGatewayRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGatewayRouteTable/GetIngressGatewayRouteTable";
@@ -2143,6 +2189,7 @@ export class ServiceMeshClient {
       getIngressGatewayRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2197,7 +2244,7 @@ export class ServiceMeshClient {
   public async getMesh(
     getMeshRequest: requests.GetMeshRequest
   ): Promise<responses.GetMeshResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getMesh.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getMesh.");
     const operationName = "getMesh";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/Mesh/GetMesh";
@@ -2218,6 +2265,7 @@ export class ServiceMeshClient {
       getMeshRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2273,7 +2321,7 @@ export class ServiceMeshClient {
   public async getProxyDetails(
     getProxyDetailsRequest: requests.GetProxyDetailsRequest
   ): Promise<responses.GetProxyDetailsResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getProxyDetails.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getProxyDetails.");
     const operationName = "getProxyDetails";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/ProxyDetails/GetProxyDetails";
@@ -2292,6 +2340,7 @@ export class ServiceMeshClient {
       getProxyDetailsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2341,7 +2390,7 @@ export class ServiceMeshClient {
   public async getVirtualDeployment(
     getVirtualDeploymentRequest: requests.GetVirtualDeploymentRequest
   ): Promise<responses.GetVirtualDeploymentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getVirtualDeployment.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getVirtualDeployment.");
     const operationName = "getVirtualDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualDeployment/GetVirtualDeployment";
@@ -2362,6 +2411,7 @@ export class ServiceMeshClient {
       getVirtualDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2416,7 +2466,7 @@ export class ServiceMeshClient {
   public async getVirtualService(
     getVirtualServiceRequest: requests.GetVirtualServiceRequest
   ): Promise<responses.GetVirtualServiceResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getVirtualService.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getVirtualService.");
     const operationName = "getVirtualService";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualService/GetVirtualService";
@@ -2437,6 +2487,7 @@ export class ServiceMeshClient {
       getVirtualServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2491,7 +2542,8 @@ export class ServiceMeshClient {
   public async getVirtualServiceRouteTable(
     getVirtualServiceRouteTableRequest: requests.GetVirtualServiceRouteTableRequest
   ): Promise<responses.GetVirtualServiceRouteTableResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getVirtualServiceRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#getVirtualServiceRouteTable.");
     const operationName = "getVirtualServiceRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualServiceRouteTable/GetVirtualServiceRouteTable";
@@ -2512,6 +2564,7 @@ export class ServiceMeshClient {
       getVirtualServiceRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2566,7 +2619,7 @@ export class ServiceMeshClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation ServiceMeshClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/WorkRequest/GetWorkRequest";
@@ -2587,6 +2640,7 @@ export class ServiceMeshClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2647,7 +2701,7 @@ export class ServiceMeshClient {
   public async listAccessPolicies(
     listAccessPoliciesRequest: requests.ListAccessPoliciesRequest
   ): Promise<responses.ListAccessPoliciesResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listAccessPolicies.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listAccessPolicies.");
     const operationName = "listAccessPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/AccessPolicy/ListAccessPolicies";
@@ -2676,6 +2730,7 @@ export class ServiceMeshClient {
       listAccessPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2731,7 +2786,8 @@ export class ServiceMeshClient {
   public async listIngressGatewayRouteTables(
     listIngressGatewayRouteTablesRequest: requests.ListIngressGatewayRouteTablesRequest
   ): Promise<responses.ListIngressGatewayRouteTablesResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listIngressGatewayRouteTables.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#listIngressGatewayRouteTables.");
     const operationName = "listIngressGatewayRouteTables";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGatewayRouteTable/ListIngressGatewayRouteTables";
@@ -2760,6 +2816,7 @@ export class ServiceMeshClient {
       listIngressGatewayRouteTablesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2815,7 +2872,7 @@ export class ServiceMeshClient {
   public async listIngressGateways(
     listIngressGatewaysRequest: requests.ListIngressGatewaysRequest
   ): Promise<responses.ListIngressGatewaysResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listIngressGateways.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listIngressGateways.");
     const operationName = "listIngressGateways";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGateway/ListIngressGateways";
@@ -2844,6 +2901,7 @@ export class ServiceMeshClient {
       listIngressGatewaysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2899,7 +2957,7 @@ export class ServiceMeshClient {
   public async listMeshes(
     listMeshesRequest: requests.ListMeshesRequest
   ): Promise<responses.ListMeshesResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listMeshes.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listMeshes.");
     const operationName = "listMeshes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/Mesh/ListMeshes";
@@ -2927,6 +2985,7 @@ export class ServiceMeshClient {
       listMeshesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2982,7 +3041,8 @@ export class ServiceMeshClient {
   public async listVirtualDeployments(
     listVirtualDeploymentsRequest: requests.ListVirtualDeploymentsRequest
   ): Promise<responses.ListVirtualDeploymentsResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listVirtualDeployments.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#listVirtualDeployments.");
     const operationName = "listVirtualDeployments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualDeployment/ListVirtualDeployments";
@@ -3011,6 +3071,7 @@ export class ServiceMeshClient {
       listVirtualDeploymentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3066,7 +3127,8 @@ export class ServiceMeshClient {
   public async listVirtualServiceRouteTables(
     listVirtualServiceRouteTablesRequest: requests.ListVirtualServiceRouteTablesRequest
   ): Promise<responses.ListVirtualServiceRouteTablesResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listVirtualServiceRouteTables.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#listVirtualServiceRouteTables.");
     const operationName = "listVirtualServiceRouteTables";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualServiceRouteTable/ListVirtualServiceRouteTables";
@@ -3095,6 +3157,7 @@ export class ServiceMeshClient {
       listVirtualServiceRouteTablesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3150,7 +3213,7 @@ export class ServiceMeshClient {
   public async listVirtualServices(
     listVirtualServicesRequest: requests.ListVirtualServicesRequest
   ): Promise<responses.ListVirtualServicesResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listVirtualServices.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listVirtualServices.");
     const operationName = "listVirtualServices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualService/ListVirtualServices";
@@ -3179,6 +3242,7 @@ export class ServiceMeshClient {
       listVirtualServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3234,7 +3298,8 @@ export class ServiceMeshClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/WorkRequest/ListWorkRequestErrors";
@@ -3260,6 +3325,7 @@ export class ServiceMeshClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3315,7 +3381,7 @@ export class ServiceMeshClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/WorkRequest/ListWorkRequestLogs";
@@ -3341,6 +3407,7 @@ export class ServiceMeshClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3396,7 +3463,7 @@ export class ServiceMeshClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation ServiceMeshClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/WorkRequest/ListWorkRequests";
@@ -3424,6 +3491,7 @@ export class ServiceMeshClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3478,7 +3546,7 @@ export class ServiceMeshClient {
   public async updateAccessPolicy(
     updateAccessPolicyRequest: requests.UpdateAccessPolicyRequest
   ): Promise<responses.UpdateAccessPolicyResponse> {
-    logger.debug("Calling operation ServiceMeshClient#updateAccessPolicy.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#updateAccessPolicy.");
     const operationName = "updateAccessPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/AccessPolicy/UpdateAccessPolicy";
@@ -3501,6 +3569,7 @@ export class ServiceMeshClient {
       updateAccessPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3556,7 +3625,7 @@ export class ServiceMeshClient {
   public async updateIngressGateway(
     updateIngressGatewayRequest: requests.UpdateIngressGatewayRequest
   ): Promise<responses.UpdateIngressGatewayResponse> {
-    logger.debug("Calling operation ServiceMeshClient#updateIngressGateway.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#updateIngressGateway.");
     const operationName = "updateIngressGateway";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGateway/UpdateIngressGateway";
@@ -3579,6 +3648,7 @@ export class ServiceMeshClient {
       updateIngressGatewayRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3634,7 +3704,8 @@ export class ServiceMeshClient {
   public async updateIngressGatewayRouteTable(
     updateIngressGatewayRouteTableRequest: requests.UpdateIngressGatewayRouteTableRequest
   ): Promise<responses.UpdateIngressGatewayRouteTableResponse> {
-    logger.debug("Calling operation ServiceMeshClient#updateIngressGatewayRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#updateIngressGatewayRouteTable.");
     const operationName = "updateIngressGatewayRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/IngressGatewayRouteTable/UpdateIngressGatewayRouteTable";
@@ -3658,6 +3729,7 @@ export class ServiceMeshClient {
       updateIngressGatewayRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3713,7 +3785,7 @@ export class ServiceMeshClient {
   public async updateMesh(
     updateMeshRequest: requests.UpdateMeshRequest
   ): Promise<responses.UpdateMeshResponse> {
-    logger.debug("Calling operation ServiceMeshClient#updateMesh.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#updateMesh.");
     const operationName = "updateMesh";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/Mesh/UpdateMesh";
@@ -3736,6 +3808,7 @@ export class ServiceMeshClient {
       updateMeshRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3791,7 +3864,8 @@ export class ServiceMeshClient {
   public async updateVirtualDeployment(
     updateVirtualDeploymentRequest: requests.UpdateVirtualDeploymentRequest
   ): Promise<responses.UpdateVirtualDeploymentResponse> {
-    logger.debug("Calling operation ServiceMeshClient#updateVirtualDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#updateVirtualDeployment.");
     const operationName = "updateVirtualDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualDeployment/UpdateVirtualDeployment";
@@ -3814,6 +3888,7 @@ export class ServiceMeshClient {
       updateVirtualDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3869,7 +3944,7 @@ export class ServiceMeshClient {
   public async updateVirtualService(
     updateVirtualServiceRequest: requests.UpdateVirtualServiceRequest
   ): Promise<responses.UpdateVirtualServiceResponse> {
-    logger.debug("Calling operation ServiceMeshClient#updateVirtualService.");
+    if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#updateVirtualService.");
     const operationName = "updateVirtualService";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualService/UpdateVirtualService";
@@ -3892,6 +3967,7 @@ export class ServiceMeshClient {
       updateVirtualServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3947,7 +4023,8 @@ export class ServiceMeshClient {
   public async updateVirtualServiceRouteTable(
     updateVirtualServiceRouteTableRequest: requests.UpdateVirtualServiceRouteTableRequest
   ): Promise<responses.UpdateVirtualServiceRouteTableResponse> {
-    logger.debug("Calling operation ServiceMeshClient#updateVirtualServiceRouteTable.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceMeshClient#updateVirtualServiceRouteTable.");
     const operationName = "updateVirtualServiceRouteTable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/service-mesh/20220615/VirtualServiceRouteTable/UpdateVirtualServiceRouteTable";
@@ -3971,6 +4048,7 @@ export class ServiceMeshClient {
       updateVirtualServiceRouteTableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

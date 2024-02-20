@@ -42,7 +42,7 @@ export namespace InstanceConfigurationInstanceDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.instanceType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.instanceType}`);
       }
     }
     return jsonObj;
@@ -63,7 +63,7 @@ export namespace InstanceConfigurationInstanceDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.instanceType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.instanceType}`);
       }
     }
     return jsonObj;

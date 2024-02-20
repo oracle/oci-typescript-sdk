@@ -45,7 +45,7 @@ export namespace LlmInferenceRequest {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.runtimeType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.runtimeType}`);
       }
     }
     return jsonObj;
@@ -66,7 +66,7 @@ export namespace LlmInferenceRequest {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.runtimeType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.runtimeType}`);
       }
     }
     return jsonObj;
