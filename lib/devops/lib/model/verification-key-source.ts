@@ -43,7 +43,8 @@ export namespace VerificationKeySource {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.verificationKeySourceType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.verificationKeySourceType}`);
       }
     }
     return jsonObj;
@@ -69,7 +70,8 @@ export namespace VerificationKeySource {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.verificationKeySourceType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.verificationKeySourceType}`);
       }
     }
     return jsonObj;

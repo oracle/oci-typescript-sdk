@@ -38,7 +38,7 @@ export namespace PrevalidatePayload {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.operation}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.operation}`);
       }
     }
     return jsonObj;
@@ -59,7 +59,7 @@ export namespace PrevalidatePayload {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.operation}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.operation}`);
       }
     }
     return jsonObj;

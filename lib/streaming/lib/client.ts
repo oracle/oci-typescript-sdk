@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export enum StreamApiKeys {}
 export class StreamClient {
   protected static serviceEndpointTemplate = "https://streaming.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -104,7 +103,11 @@ export class StreamClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180418";
-    logger.info(`StreamClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`StreamClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -114,9 +117,10 @@ export class StreamClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
   }
 
   /**
@@ -141,7 +145,7 @@ export class StreamClient {
   public async consumerCommit(
     consumerCommitRequest: requests.ConsumerCommitRequest
   ): Promise<responses.ConsumerCommitResponse> {
-    logger.debug("Calling operation StreamClient#consumerCommit.");
+    if (this.logger) this.logger.debug("Calling operation StreamClient#consumerCommit.");
     const operationName = "consumerCommit";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Group/ConsumerCommit";
@@ -164,6 +168,7 @@ export class StreamClient {
       consumerCommitRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -214,7 +219,7 @@ export class StreamClient {
   public async consumerHeartbeat(
     consumerHeartbeatRequest: requests.ConsumerHeartbeatRequest
   ): Promise<responses.ConsumerHeartbeatResponse> {
-    logger.debug("Calling operation StreamClient#consumerHeartbeat.");
+    if (this.logger) this.logger.debug("Calling operation StreamClient#consumerHeartbeat.");
     const operationName = "consumerHeartbeat";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Group/ConsumerHeartbeat";
@@ -237,6 +242,7 @@ export class StreamClient {
       consumerHeartbeatRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -291,7 +297,7 @@ export class StreamClient {
   public async createCursor(
     createCursorRequest: requests.CreateCursorRequest
   ): Promise<responses.CreateCursorResponse> {
-    logger.debug("Calling operation StreamClient#createCursor.");
+    if (this.logger) this.logger.debug("Calling operation StreamClient#createCursor.");
     const operationName = "createCursor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Cursor/CreateCursor";
@@ -312,6 +318,7 @@ export class StreamClient {
       createCursorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -367,7 +374,7 @@ export class StreamClient {
   public async createGroupCursor(
     createGroupCursorRequest: requests.CreateGroupCursorRequest
   ): Promise<responses.CreateGroupCursorResponse> {
-    logger.debug("Calling operation StreamClient#createGroupCursor.");
+    if (this.logger) this.logger.debug("Calling operation StreamClient#createGroupCursor.");
     const operationName = "createGroupCursor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Cursor/CreateGroupCursor";
@@ -388,6 +395,7 @@ export class StreamClient {
       createGroupCursorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -443,7 +451,7 @@ export class StreamClient {
   public async getGroup(
     getGroupRequest: requests.GetGroupRequest
   ): Promise<responses.GetGroupResponse> {
-    logger.debug("Calling operation StreamClient#getGroup.");
+    if (this.logger) this.logger.debug("Calling operation StreamClient#getGroup.");
     const operationName = "getGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Group/GetGroup";
@@ -465,6 +473,7 @@ export class StreamClient {
       getGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -517,7 +526,7 @@ export class StreamClient {
   public async getMessages(
     getMessagesRequest: requests.GetMessagesRequest
   ): Promise<responses.GetMessagesResponse> {
-    logger.debug("Calling operation StreamClient#getMessages.");
+    if (this.logger) this.logger.debug("Calling operation StreamClient#getMessages.");
     const operationName = "getMessages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Message/GetMessages";
@@ -541,6 +550,7 @@ export class StreamClient {
       getMessagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -599,7 +609,7 @@ export class StreamClient {
   public async putMessages(
     putMessagesRequest: requests.PutMessagesRequest
   ): Promise<responses.PutMessagesResponse> {
-    logger.debug("Calling operation StreamClient#putMessages.");
+    if (this.logger) this.logger.debug("Calling operation StreamClient#putMessages.");
     const operationName = "putMessages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Message/PutMessages";
@@ -620,6 +630,7 @@ export class StreamClient {
       putMessagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -676,7 +687,7 @@ export class StreamClient {
   public async updateGroup(
     updateGroupRequest: requests.UpdateGroupRequest
   ): Promise<responses.UpdateGroupResponse> {
-    logger.debug("Calling operation StreamClient#updateGroup.");
+    if (this.logger) this.logger.debug("Calling operation StreamClient#updateGroup.");
     const operationName = "updateGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Group/UpdateGroup";
@@ -698,6 +709,7 @@ export class StreamClient {
       updateGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -744,7 +756,7 @@ export enum StreamAdminApiKeys {}
 export class StreamAdminClient {
   protected static serviceEndpointTemplate = "https://streaming.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": StreamAdminWaiter;
@@ -825,7 +837,11 @@ export class StreamAdminClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180418";
-    logger.info(`StreamAdminClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`StreamAdminClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -835,9 +851,10 @@ export class StreamAdminClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         StreamAdminClient.serviceEndpointTemplate,
@@ -929,7 +946,8 @@ export class StreamAdminClient {
   public async changeConnectHarnessCompartment(
     changeConnectHarnessCompartmentRequest: requests.ChangeConnectHarnessCompartmentRequest
   ): Promise<responses.ChangeConnectHarnessCompartmentResponse> {
-    logger.debug("Calling operation StreamAdminClient#changeConnectHarnessCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation StreamAdminClient#changeConnectHarnessCompartment.");
     const operationName = "changeConnectHarnessCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/ChangeConnectHarnessCompartment";
@@ -951,6 +969,7 @@ export class StreamAdminClient {
       changeConnectHarnessCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1004,7 +1023,8 @@ export class StreamAdminClient {
   public async changeStreamCompartment(
     changeStreamCompartmentRequest: requests.ChangeStreamCompartmentRequest
   ): Promise<responses.ChangeStreamCompartmentResponse> {
-    logger.debug("Calling operation StreamAdminClient#changeStreamCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation StreamAdminClient#changeStreamCompartment.");
     const operationName = "changeStreamCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/ChangeStreamCompartment";
@@ -1026,6 +1046,7 @@ export class StreamAdminClient {
       changeStreamCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1076,7 +1097,8 @@ export class StreamAdminClient {
   public async changeStreamPoolCompartment(
     changeStreamPoolCompartmentRequest: requests.ChangeStreamPoolCompartmentRequest
   ): Promise<responses.ChangeStreamPoolCompartmentResponse> {
-    logger.debug("Calling operation StreamAdminClient#changeStreamPoolCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation StreamAdminClient#changeStreamPoolCompartment.");
     const operationName = "changeStreamPoolCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/ChangeStreamPoolCompartment";
@@ -1098,6 +1120,7 @@ export class StreamAdminClient {
       changeStreamPoolCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1150,7 +1173,7 @@ export class StreamAdminClient {
   public async createConnectHarness(
     createConnectHarnessRequest: requests.CreateConnectHarnessRequest
   ): Promise<responses.CreateConnectHarnessResponse> {
-    logger.debug("Calling operation StreamAdminClient#createConnectHarness.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createConnectHarness.");
     const operationName = "createConnectHarness";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/CreateConnectHarness";
@@ -1170,6 +1193,7 @@ export class StreamAdminClient {
       createConnectHarnessRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1234,7 +1258,7 @@ export class StreamAdminClient {
   public async createStream(
     createStreamRequest: requests.CreateStreamRequest
   ): Promise<responses.CreateStreamResponse> {
-    logger.debug("Calling operation StreamAdminClient#createStream.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createStream.");
     const operationName = "createStream";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/CreateStream";
@@ -1253,6 +1277,7 @@ export class StreamAdminClient {
       createStreamRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1315,7 +1340,7 @@ export class StreamAdminClient {
   public async createStreamPool(
     createStreamPoolRequest: requests.CreateStreamPoolRequest
   ): Promise<responses.CreateStreamPoolResponse> {
-    logger.debug("Calling operation StreamAdminClient#createStreamPool.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createStreamPool.");
     const operationName = "createStreamPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/CreateStreamPool";
@@ -1335,6 +1360,7 @@ export class StreamAdminClient {
       createStreamPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1399,7 +1425,7 @@ export class StreamAdminClient {
   public async deleteConnectHarness(
     deleteConnectHarnessRequest: requests.DeleteConnectHarnessRequest
   ): Promise<responses.DeleteConnectHarnessResponse> {
-    logger.debug("Calling operation StreamAdminClient#deleteConnectHarness.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteConnectHarness.");
     const operationName = "deleteConnectHarness";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/DeleteConnectHarness";
@@ -1421,6 +1447,7 @@ export class StreamAdminClient {
       deleteConnectHarnessRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1471,7 +1498,7 @@ export class StreamAdminClient {
   public async deleteStream(
     deleteStreamRequest: requests.DeleteStreamRequest
   ): Promise<responses.DeleteStreamResponse> {
-    logger.debug("Calling operation StreamAdminClient#deleteStream.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteStream.");
     const operationName = "deleteStream";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/DeleteStream";
@@ -1493,6 +1520,7 @@ export class StreamAdminClient {
       deleteStreamRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1540,7 +1568,7 @@ export class StreamAdminClient {
   public async deleteStreamPool(
     deleteStreamPoolRequest: requests.DeleteStreamPoolRequest
   ): Promise<responses.DeleteStreamPoolResponse> {
-    logger.debug("Calling operation StreamAdminClient#deleteStreamPool.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteStreamPool.");
     const operationName = "deleteStreamPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/DeleteStreamPool";
@@ -1562,6 +1590,7 @@ export class StreamAdminClient {
       deleteStreamPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1607,7 +1636,7 @@ export class StreamAdminClient {
   public async getConnectHarness(
     getConnectHarnessRequest: requests.GetConnectHarnessRequest
   ): Promise<responses.GetConnectHarnessResponse> {
-    logger.debug("Calling operation StreamAdminClient#getConnectHarness.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getConnectHarness.");
     const operationName = "getConnectHarness";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/GetConnectHarness";
@@ -1628,6 +1657,7 @@ export class StreamAdminClient {
       getConnectHarnessRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1682,7 +1712,7 @@ export class StreamAdminClient {
   public async getStream(
     getStreamRequest: requests.GetStreamRequest
   ): Promise<responses.GetStreamResponse> {
-    logger.debug("Calling operation StreamAdminClient#getStream.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getStream.");
     const operationName = "getStream";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/GetStream";
@@ -1703,6 +1733,7 @@ export class StreamAdminClient {
       getStreamRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1757,7 +1788,7 @@ export class StreamAdminClient {
   public async getStreamPool(
     getStreamPoolRequest: requests.GetStreamPoolRequest
   ): Promise<responses.GetStreamPoolResponse> {
-    logger.debug("Calling operation StreamAdminClient#getStreamPool.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getStreamPool.");
     const operationName = "getStreamPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/GetStreamPool";
@@ -1778,6 +1809,7 @@ export class StreamAdminClient {
       getStreamPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1832,7 +1864,7 @@ export class StreamAdminClient {
   public async listConnectHarnesses(
     listConnectHarnessesRequest: requests.ListConnectHarnessesRequest
   ): Promise<responses.ListConnectHarnessesResponse> {
-    logger.debug("Calling operation StreamAdminClient#listConnectHarnesses.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listConnectHarnesses.");
     const operationName = "listConnectHarnesses";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarnessSummary/ListConnectHarnesses";
@@ -1860,6 +1892,7 @@ export class StreamAdminClient {
       listConnectHarnessesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1971,7 +2004,7 @@ export class StreamAdminClient {
   public async listStreamPools(
     listStreamPoolsRequest: requests.ListStreamPoolsRequest
   ): Promise<responses.ListStreamPoolsResponse> {
-    logger.debug("Calling operation StreamAdminClient#listStreamPools.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listStreamPools.");
     const operationName = "listStreamPools";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPoolSummary/ListStreamPools";
@@ -1999,6 +2032,7 @@ export class StreamAdminClient {
       listStreamPoolsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2114,7 +2148,7 @@ export class StreamAdminClient {
   public async listStreams(
     listStreamsRequest: requests.ListStreamsRequest
   ): Promise<responses.ListStreamsResponse> {
-    logger.debug("Calling operation StreamAdminClient#listStreams.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listStreams.");
     const operationName = "listStreams";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamSummary/ListStreams";
@@ -2143,6 +2177,7 @@ export class StreamAdminClient {
       listStreamsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2255,7 +2290,7 @@ export class StreamAdminClient {
   public async updateConnectHarness(
     updateConnectHarnessRequest: requests.UpdateConnectHarnessRequest
   ): Promise<responses.UpdateConnectHarnessResponse> {
-    logger.debug("Calling operation StreamAdminClient#updateConnectHarness.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateConnectHarness.");
     const operationName = "updateConnectHarness";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/UpdateConnectHarness";
@@ -2277,6 +2312,7 @@ export class StreamAdminClient {
       updateConnectHarnessRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2337,7 +2373,7 @@ export class StreamAdminClient {
   public async updateStream(
     updateStreamRequest: requests.UpdateStreamRequest
   ): Promise<responses.UpdateStreamResponse> {
-    logger.debug("Calling operation StreamAdminClient#updateStream.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateStream.");
     const operationName = "updateStream";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/UpdateStream";
@@ -2359,6 +2395,7 @@ export class StreamAdminClient {
       updateStreamRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2419,7 +2456,7 @@ export class StreamAdminClient {
   public async updateStreamPool(
     updateStreamPoolRequest: requests.UpdateStreamPoolRequest
   ): Promise<responses.UpdateStreamPoolResponse> {
-    logger.debug("Calling operation StreamAdminClient#updateStreamPool.");
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateStreamPool.");
     const operationName = "updateStreamPool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/UpdateStreamPool";
@@ -2441,6 +2478,7 @@ export class StreamAdminClient {
       updateStreamPoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

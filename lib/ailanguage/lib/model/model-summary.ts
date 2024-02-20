@@ -45,7 +45,6 @@ export interface ModelSummary {
     | model.PreTrainedLanguageDetectionModelDetails
     | model.PreTrainedNamedEntityRecognitionModelDetails
     | model.PreTrainedSentimentAnalysisModelDetails
-    | model.PreTrainedPhiModelDetails
     | model.PreTrainedTextClassificationModelDetails
     | model.TextClassificationModelDetails
     | model.PreTrainedSummarization
@@ -68,8 +67,8 @@ export interface ModelSummary {
   "projectId": string;
   /**
    * For pre trained models this will identify model type version used for model creation
-   * For custom identifying the model by model id is difficult. This param provides ease of use for end customer.
-   * <<service>>::<<service-name>>-<<model-type-version>>::<<custom model on which this training has to be done>>
+   * For custom this will identify model type version used for model creation and custom model on which training has to be done
+   * <<service>>::<<service-name>>_<<model-type-version>>::<<custom model on which this training has to be done>>
    * ex: ai-lang::NER_V1::CUSTOM-V0
    *
    */
@@ -91,7 +90,7 @@ export interface ModelSummary {
    * Example: {@code { \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }}
    *
    */
-  "systemTags"?: { [key: string]: any };
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace ModelSummary {

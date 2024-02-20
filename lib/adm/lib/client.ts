@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum ApplicationDependencyManagementApiKeys {}
 export class ApplicationDependencyManagementClient {
   protected static serviceEndpointTemplate = "https://adm.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ApplicationDependencyManagementWaiter;
@@ -117,7 +116,12 @@ export class ApplicationDependencyManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20220421";
-    logger.info(`ApplicationDependencyManagementClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`ApplicationDependencyManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +131,10 @@ export class ApplicationDependencyManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ApplicationDependencyManagementClient.serviceEndpointTemplate,
@@ -221,9 +226,10 @@ export class ApplicationDependencyManagementClient {
   public async activateRemediationRecipe(
     activateRemediationRecipeRequest: requests.ActivateRemediationRecipeRequest
   ): Promise<responses.ActivateRemediationRecipeResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#activateRemediationRecipe."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#activateRemediationRecipe."
+      );
     const operationName = "activateRemediationRecipe";
     const apiReferenceLink = "";
     const pathParams = {
@@ -244,6 +250,7 @@ export class ApplicationDependencyManagementClient {
       activateRemediationRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -294,7 +301,10 @@ export class ApplicationDependencyManagementClient {
   public async cancelRemediationRun(
     cancelRemediationRunRequest: requests.CancelRemediationRunRequest
   ): Promise<responses.CancelRemediationRunResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#cancelRemediationRun.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#cancelRemediationRun."
+      );
     const operationName = "cancelRemediationRun";
     const apiReferenceLink = "";
     const pathParams = {
@@ -316,6 +326,7 @@ export class ApplicationDependencyManagementClient {
       cancelRemediationRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -370,7 +381,10 @@ export class ApplicationDependencyManagementClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#cancelWorkRequest.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#cancelWorkRequest."
+      );
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -391,6 +405,7 @@ export class ApplicationDependencyManagementClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -436,9 +451,10 @@ export class ApplicationDependencyManagementClient {
   public async changeKnowledgeBaseCompartment(
     changeKnowledgeBaseCompartmentRequest: requests.ChangeKnowledgeBaseCompartmentRequest
   ): Promise<responses.ChangeKnowledgeBaseCompartmentResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#changeKnowledgeBaseCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#changeKnowledgeBaseCompartment."
+      );
     const operationName = "changeKnowledgeBaseCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -460,6 +476,7 @@ export class ApplicationDependencyManagementClient {
       changeKnowledgeBaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -515,9 +532,10 @@ export class ApplicationDependencyManagementClient {
   public async changeRemediationRecipeCompartment(
     changeRemediationRecipeCompartmentRequest: requests.ChangeRemediationRecipeCompartmentRequest
   ): Promise<responses.ChangeRemediationRecipeCompartmentResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#changeRemediationRecipeCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#changeRemediationRecipeCompartment."
+      );
     const operationName = "changeRemediationRecipeCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -539,6 +557,7 @@ export class ApplicationDependencyManagementClient {
       changeRemediationRecipeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -594,9 +613,10 @@ export class ApplicationDependencyManagementClient {
   public async changeRemediationRunCompartment(
     changeRemediationRunCompartmentRequest: requests.ChangeRemediationRunCompartmentRequest
   ): Promise<responses.ChangeRemediationRunCompartmentResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#changeRemediationRunCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#changeRemediationRunCompartment."
+      );
     const operationName = "changeRemediationRunCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -618,6 +638,7 @@ export class ApplicationDependencyManagementClient {
       changeRemediationRunCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -668,9 +689,10 @@ export class ApplicationDependencyManagementClient {
   public async changeVulnerabilityAuditCompartment(
     changeVulnerabilityAuditCompartmentRequest: requests.ChangeVulnerabilityAuditCompartmentRequest
   ): Promise<responses.ChangeVulnerabilityAuditCompartmentResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#changeVulnerabilityAuditCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#changeVulnerabilityAuditCompartment."
+      );
     const operationName = "changeVulnerabilityAuditCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -692,6 +714,7 @@ export class ApplicationDependencyManagementClient {
       changeVulnerabilityAuditCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -742,7 +765,10 @@ export class ApplicationDependencyManagementClient {
   public async createKnowledgeBase(
     createKnowledgeBaseRequest: requests.CreateKnowledgeBaseRequest
   ): Promise<responses.CreateKnowledgeBaseResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#createKnowledgeBase.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#createKnowledgeBase."
+      );
     const operationName = "createKnowledgeBase";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -761,6 +787,7 @@ export class ApplicationDependencyManagementClient {
       createKnowledgeBaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -816,9 +843,10 @@ export class ApplicationDependencyManagementClient {
   public async createRemediationRecipe(
     createRemediationRecipeRequest: requests.CreateRemediationRecipeRequest
   ): Promise<responses.CreateRemediationRecipeResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#createRemediationRecipe."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#createRemediationRecipe."
+      );
     const operationName = "createRemediationRecipe";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -837,6 +865,7 @@ export class ApplicationDependencyManagementClient {
       createRemediationRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -892,7 +921,10 @@ export class ApplicationDependencyManagementClient {
   public async createRemediationRun(
     createRemediationRunRequest: requests.CreateRemediationRunRequest
   ): Promise<responses.CreateRemediationRunResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#createRemediationRun.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#createRemediationRun."
+      );
     const operationName = "createRemediationRun";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -911,6 +943,7 @@ export class ApplicationDependencyManagementClient {
       createRemediationRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -970,9 +1003,10 @@ export class ApplicationDependencyManagementClient {
   public async createVulnerabilityAudit(
     createVulnerabilityAuditRequest: requests.CreateVulnerabilityAuditRequest
   ): Promise<responses.CreateVulnerabilityAuditResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#createVulnerabilityAudit."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#createVulnerabilityAudit."
+      );
     const operationName = "createVulnerabilityAudit";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -992,6 +1026,7 @@ export class ApplicationDependencyManagementClient {
       createVulnerabilityAuditRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1051,9 +1086,10 @@ export class ApplicationDependencyManagementClient {
   public async deactivateRemediationRecipe(
     deactivateRemediationRecipeRequest: requests.DeactivateRemediationRecipeRequest
   ): Promise<responses.DeactivateRemediationRecipeResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#deactivateRemediationRecipe."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#deactivateRemediationRecipe."
+      );
     const operationName = "deactivateRemediationRecipe";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1074,6 +1110,7 @@ export class ApplicationDependencyManagementClient {
       deactivateRemediationRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1124,7 +1161,10 @@ export class ApplicationDependencyManagementClient {
   public async deleteKnowledgeBase(
     deleteKnowledgeBaseRequest: requests.DeleteKnowledgeBaseRequest
   ): Promise<responses.DeleteKnowledgeBaseResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#deleteKnowledgeBase.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#deleteKnowledgeBase."
+      );
     const operationName = "deleteKnowledgeBase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1145,6 +1185,7 @@ export class ApplicationDependencyManagementClient {
       deleteKnowledgeBaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1195,9 +1236,10 @@ export class ApplicationDependencyManagementClient {
   public async deleteRemediationRecipe(
     deleteRemediationRecipeRequest: requests.DeleteRemediationRecipeRequest
   ): Promise<responses.DeleteRemediationRecipeResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#deleteRemediationRecipe."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#deleteRemediationRecipe."
+      );
     const operationName = "deleteRemediationRecipe";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1218,6 +1260,7 @@ export class ApplicationDependencyManagementClient {
       deleteRemediationRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1268,7 +1311,10 @@ export class ApplicationDependencyManagementClient {
   public async deleteRemediationRun(
     deleteRemediationRunRequest: requests.DeleteRemediationRunRequest
   ): Promise<responses.DeleteRemediationRunResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#deleteRemediationRun.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#deleteRemediationRun."
+      );
     const operationName = "deleteRemediationRun";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1289,6 +1335,7 @@ export class ApplicationDependencyManagementClient {
       deleteRemediationRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1334,9 +1381,10 @@ export class ApplicationDependencyManagementClient {
   public async deleteVulnerabilityAudit(
     deleteVulnerabilityAuditRequest: requests.DeleteVulnerabilityAuditRequest
   ): Promise<responses.DeleteVulnerabilityAuditResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#deleteVulnerabilityAudit."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#deleteVulnerabilityAudit."
+      );
     const operationName = "deleteVulnerabilityAudit";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1357,6 +1405,7 @@ export class ApplicationDependencyManagementClient {
       deleteVulnerabilityAuditRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1402,7 +1451,10 @@ export class ApplicationDependencyManagementClient {
   public async getKnowledgeBase(
     getKnowledgeBaseRequest: requests.GetKnowledgeBaseRequest
   ): Promise<responses.GetKnowledgeBaseResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#getKnowledgeBase.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#getKnowledgeBase."
+      );
     const operationName = "getKnowledgeBase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1422,6 +1474,7 @@ export class ApplicationDependencyManagementClient {
       getKnowledgeBaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1476,7 +1529,10 @@ export class ApplicationDependencyManagementClient {
   public async getRemediationRecipe(
     getRemediationRecipeRequest: requests.GetRemediationRecipeRequest
   ): Promise<responses.GetRemediationRecipeResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#getRemediationRecipe.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#getRemediationRecipe."
+      );
     const operationName = "getRemediationRecipe";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1496,6 +1552,7 @@ export class ApplicationDependencyManagementClient {
       getRemediationRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1550,7 +1607,10 @@ export class ApplicationDependencyManagementClient {
   public async getRemediationRun(
     getRemediationRunRequest: requests.GetRemediationRunRequest
   ): Promise<responses.GetRemediationRunResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#getRemediationRun.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#getRemediationRun."
+      );
     const operationName = "getRemediationRun";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1570,6 +1630,7 @@ export class ApplicationDependencyManagementClient {
       getRemediationRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1624,7 +1685,8 @@ export class ApplicationDependencyManagementClient {
   public async getStage(
     getStageRequest: requests.GetStageRequest
   ): Promise<responses.GetStageResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#getStage.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationDependencyManagementClient#getStage.");
     const operationName = "getStage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1645,6 +1707,7 @@ export class ApplicationDependencyManagementClient {
       getStageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1694,7 +1757,10 @@ export class ApplicationDependencyManagementClient {
   public async getVulnerabilityAudit(
     getVulnerabilityAuditRequest: requests.GetVulnerabilityAuditRequest
   ): Promise<responses.GetVulnerabilityAuditResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#getVulnerabilityAudit.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#getVulnerabilityAudit."
+      );
     const operationName = "getVulnerabilityAudit";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1714,6 +1780,7 @@ export class ApplicationDependencyManagementClient {
       getVulnerabilityAuditRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1768,7 +1835,8 @@ export class ApplicationDependencyManagementClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#getWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationDependencyManagementClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1788,6 +1856,7 @@ export class ApplicationDependencyManagementClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1847,9 +1916,10 @@ export class ApplicationDependencyManagementClient {
   public async listApplicationDependencyRecommendations(
     listApplicationDependencyRecommendationsRequest: requests.ListApplicationDependencyRecommendationsRequest
   ): Promise<responses.ListApplicationDependencyRecommendationsResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#listApplicationDependencyRecommendations."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listApplicationDependencyRecommendations."
+      );
     const operationName = "listApplicationDependencyRecommendations";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1876,6 +1946,7 @@ export class ApplicationDependencyManagementClient {
       listApplicationDependencyRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1930,9 +2001,10 @@ export class ApplicationDependencyManagementClient {
   public async listApplicationDependencyVulnerabilities(
     listApplicationDependencyVulnerabilitiesRequest: requests.ListApplicationDependencyVulnerabilitiesRequest
   ): Promise<responses.ListApplicationDependencyVulnerabilitiesResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#listApplicationDependencyVulnerabilities."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listApplicationDependencyVulnerabilities."
+      );
     const operationName = "listApplicationDependencyVulnerabilities";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1968,6 +2040,7 @@ export class ApplicationDependencyManagementClient {
       listApplicationDependencyVulnerabilitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2024,7 +2097,10 @@ export class ApplicationDependencyManagementClient {
   public async listKnowledgeBases(
     listKnowledgeBasesRequest: requests.ListKnowledgeBasesRequest
   ): Promise<responses.ListKnowledgeBasesResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#listKnowledgeBases.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listKnowledgeBases."
+      );
     const operationName = "listKnowledgeBases";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2051,6 +2127,7 @@ export class ApplicationDependencyManagementClient {
       listKnowledgeBasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2107,7 +2184,10 @@ export class ApplicationDependencyManagementClient {
   public async listRemediationRecipes(
     listRemediationRecipesRequest: requests.ListRemediationRecipesRequest
   ): Promise<responses.ListRemediationRecipesResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#listRemediationRecipes.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listRemediationRecipes."
+      );
     const operationName = "listRemediationRecipes";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2134,6 +2214,7 @@ export class ApplicationDependencyManagementClient {
       listRemediationRecipesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2190,7 +2271,10 @@ export class ApplicationDependencyManagementClient {
   public async listRemediationRuns(
     listRemediationRunsRequest: requests.ListRemediationRunsRequest
   ): Promise<responses.ListRemediationRunsResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#listRemediationRuns.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listRemediationRuns."
+      );
     const operationName = "listRemediationRuns";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2218,6 +2302,7 @@ export class ApplicationDependencyManagementClient {
       listRemediationRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2272,7 +2357,8 @@ export class ApplicationDependencyManagementClient {
   public async listStages(
     listStagesRequest: requests.ListStagesRequest
   ): Promise<responses.ListStagesResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#listStages.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApplicationDependencyManagementClient#listStages.");
     const operationName = "listStages";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2299,6 +2385,7 @@ export class ApplicationDependencyManagementClient {
       listStagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2355,9 +2442,10 @@ export class ApplicationDependencyManagementClient {
   public async listVulnerabilityAudits(
     listVulnerabilityAuditsRequest: requests.ListVulnerabilityAuditsRequest
   ): Promise<responses.ListVulnerabilityAuditsResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#listVulnerabilityAudits."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listVulnerabilityAudits."
+      );
     const operationName = "listVulnerabilityAudits";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2391,6 +2479,7 @@ export class ApplicationDependencyManagementClient {
       listVulnerabilityAuditsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2446,7 +2535,10 @@ export class ApplicationDependencyManagementClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listWorkRequestErrors."
+      );
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2471,6 +2563,7 @@ export class ApplicationDependencyManagementClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2526,7 +2619,10 @@ export class ApplicationDependencyManagementClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listWorkRequestLogs."
+      );
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2551,6 +2647,7 @@ export class ApplicationDependencyManagementClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2606,7 +2703,10 @@ export class ApplicationDependencyManagementClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listWorkRequests."
+      );
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2633,6 +2733,7 @@ export class ApplicationDependencyManagementClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2687,7 +2788,10 @@ export class ApplicationDependencyManagementClient {
   public async updateKnowledgeBase(
     updateKnowledgeBaseRequest: requests.UpdateKnowledgeBaseRequest
   ): Promise<responses.UpdateKnowledgeBaseResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#updateKnowledgeBase.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#updateKnowledgeBase."
+      );
     const operationName = "updateKnowledgeBase";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2708,6 +2812,7 @@ export class ApplicationDependencyManagementClient {
       updateKnowledgeBaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2763,9 +2868,10 @@ export class ApplicationDependencyManagementClient {
   public async updateRemediationRecipe(
     updateRemediationRecipeRequest: requests.UpdateRemediationRecipeRequest
   ): Promise<responses.UpdateRemediationRecipeResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#updateRemediationRecipe."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#updateRemediationRecipe."
+      );
     const operationName = "updateRemediationRecipe";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2786,6 +2892,7 @@ export class ApplicationDependencyManagementClient {
       updateRemediationRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2841,7 +2948,10 @@ export class ApplicationDependencyManagementClient {
   public async updateRemediationRun(
     updateRemediationRunRequest: requests.UpdateRemediationRunRequest
   ): Promise<responses.UpdateRemediationRunResponse> {
-    logger.debug("Calling operation ApplicationDependencyManagementClient#updateRemediationRun.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#updateRemediationRun."
+      );
     const operationName = "updateRemediationRun";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2862,6 +2972,7 @@ export class ApplicationDependencyManagementClient {
       updateRemediationRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2921,9 +3032,10 @@ export class ApplicationDependencyManagementClient {
   public async updateVulnerabilityAudit(
     updateVulnerabilityAuditRequest: requests.UpdateVulnerabilityAuditRequest
   ): Promise<responses.UpdateVulnerabilityAuditResponse> {
-    logger.debug(
-      "Calling operation ApplicationDependencyManagementClient#updateVulnerabilityAudit."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#updateVulnerabilityAudit."
+      );
     const operationName = "updateVulnerabilityAudit";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2944,6 +3056,7 @@ export class ApplicationDependencyManagementClient {
       updateVulnerabilityAuditRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

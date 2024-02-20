@@ -27,8 +27,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -44,7 +43,7 @@ export class GenerativeAiClient {
   protected static serviceEndpointTemplate =
     "https://generativeai.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": GenerativeAiWaiter;
@@ -125,7 +124,11 @@ export class GenerativeAiClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20231130";
-    logger.info(`GenerativeAiClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`GenerativeAiClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -135,9 +138,10 @@ export class GenerativeAiClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         GenerativeAiClient.serviceEndpointTemplate,
@@ -229,7 +233,10 @@ export class GenerativeAiClient {
   public async changeDedicatedAiClusterCompartment(
     changeDedicatedAiClusterCompartmentRequest: requests.ChangeDedicatedAiClusterCompartmentRequest
   ): Promise<responses.ChangeDedicatedAiClusterCompartmentResponse> {
-    logger.debug("Calling operation GenerativeAiClient#changeDedicatedAiClusterCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiClient#changeDedicatedAiClusterCompartment."
+      );
     const operationName = "changeDedicatedAiClusterCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -251,6 +258,7 @@ export class GenerativeAiClient {
       changeDedicatedAiClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -301,7 +309,8 @@ export class GenerativeAiClient {
   public async changeEndpointCompartment(
     changeEndpointCompartmentRequest: requests.ChangeEndpointCompartmentRequest
   ): Promise<responses.ChangeEndpointCompartmentResponse> {
-    logger.debug("Calling operation GenerativeAiClient#changeEndpointCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#changeEndpointCompartment.");
     const operationName = "changeEndpointCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -323,6 +332,7 @@ export class GenerativeAiClient {
       changeEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -373,7 +383,8 @@ export class GenerativeAiClient {
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
   ): Promise<responses.ChangeModelCompartmentResponse> {
-    logger.debug("Calling operation GenerativeAiClient#changeModelCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#changeModelCompartment.");
     const operationName = "changeModelCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -395,6 +406,7 @@ export class GenerativeAiClient {
       changeModelCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -445,7 +457,8 @@ export class GenerativeAiClient {
   public async createDedicatedAiCluster(
     createDedicatedAiClusterRequest: requests.CreateDedicatedAiClusterRequest
   ): Promise<responses.CreateDedicatedAiClusterResponse> {
-    logger.debug("Calling operation GenerativeAiClient#createDedicatedAiCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createDedicatedAiCluster.");
     const operationName = "createDedicatedAiCluster";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -464,6 +477,7 @@ export class GenerativeAiClient {
       createDedicatedAiClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -531,7 +545,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
   public async createEndpoint(
     createEndpointRequest: requests.CreateEndpointRequest
   ): Promise<responses.CreateEndpointResponse> {
-    logger.debug("Calling operation GenerativeAiClient#createEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#createEndpoint.");
     const operationName = "createEndpoint";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -550,6 +564,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       createEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -617,7 +632,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
   public async createModel(
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
-    logger.debug("Calling operation GenerativeAiClient#createModel.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#createModel.");
     const operationName = "createModel";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -636,6 +651,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       createModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -703,7 +719,8 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async deleteDedicatedAiCluster(
     deleteDedicatedAiClusterRequest: requests.DeleteDedicatedAiClusterRequest
   ): Promise<responses.DeleteDedicatedAiClusterResponse> {
-    logger.debug("Calling operation GenerativeAiClient#deleteDedicatedAiCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteDedicatedAiCluster.");
     const operationName = "deleteDedicatedAiCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -724,6 +741,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       deleteDedicatedAiClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -774,7 +792,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async deleteEndpoint(
     deleteEndpointRequest: requests.DeleteEndpointRequest
   ): Promise<responses.DeleteEndpointResponse> {
-    logger.debug("Calling operation GenerativeAiClient#deleteEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#deleteEndpoint.");
     const operationName = "deleteEndpoint";
     const apiReferenceLink = "";
     const pathParams = {
@@ -795,6 +813,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       deleteEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -845,7 +864,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
-    logger.debug("Calling operation GenerativeAiClient#deleteModel.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#deleteModel.");
     const operationName = "deleteModel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -866,6 +885,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       deleteModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -916,7 +936,8 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async getDedicatedAiCluster(
     getDedicatedAiClusterRequest: requests.GetDedicatedAiClusterRequest
   ): Promise<responses.GetDedicatedAiClusterResponse> {
-    logger.debug("Calling operation GenerativeAiClient#getDedicatedAiCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getDedicatedAiCluster.");
     const operationName = "getDedicatedAiCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -936,6 +957,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       getDedicatedAiClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -990,7 +1012,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async getEndpoint(
     getEndpointRequest: requests.GetEndpointRequest
   ): Promise<responses.GetEndpointResponse> {
-    logger.debug("Calling operation GenerativeAiClient#getEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#getEndpoint.");
     const operationName = "getEndpoint";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1010,6 +1032,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       getEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1064,7 +1087,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async getModel(
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
-    logger.debug("Calling operation GenerativeAiClient#getModel.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#getModel.");
     const operationName = "getModel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1084,6 +1107,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       getModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1138,7 +1162,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation GenerativeAiClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1158,6 +1182,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1217,7 +1242,8 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async listDedicatedAiClusters(
     listDedicatedAiClustersRequest: requests.ListDedicatedAiClustersRequest
   ): Promise<responses.ListDedicatedAiClustersResponse> {
-    logger.debug("Calling operation GenerativeAiClient#listDedicatedAiClusters.");
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listDedicatedAiClusters.");
     const operationName = "listDedicatedAiClusters";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1244,6 +1270,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       listDedicatedAiClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1298,7 +1325,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async listEndpoints(
     listEndpointsRequest: requests.ListEndpointsRequest
   ): Promise<responses.ListEndpointsResponse> {
-    logger.debug("Calling operation GenerativeAiClient#listEndpoints.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#listEndpoints.");
     const operationName = "listEndpoints";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1325,6 +1352,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       listEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1379,7 +1407,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
-    logger.debug("Calling operation GenerativeAiClient#listModels.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#listModels.");
     const operationName = "listModels";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1408,6 +1436,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       listModelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1462,7 +1491,8 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation GenerativeAiClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1487,6 +1517,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1541,7 +1572,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation GenerativeAiClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1566,6 +1597,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1620,7 +1652,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation GenerativeAiClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1647,6 +1679,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1701,7 +1734,8 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async updateDedicatedAiCluster(
     updateDedicatedAiClusterRequest: requests.UpdateDedicatedAiClusterRequest
   ): Promise<responses.UpdateDedicatedAiClusterResponse> {
-    logger.debug("Calling operation GenerativeAiClient#updateDedicatedAiCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateDedicatedAiCluster.");
     const operationName = "updateDedicatedAiCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1722,6 +1756,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       updateDedicatedAiClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1786,7 +1821,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async updateEndpoint(
     updateEndpointRequest: requests.UpdateEndpointRequest
   ): Promise<responses.UpdateEndpointResponse> {
-    logger.debug("Calling operation GenerativeAiClient#updateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#updateEndpoint.");
     const operationName = "updateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1807,6 +1842,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       updateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1871,7 +1907,7 @@ You can only delete clusters without attached resources. Before you delete a hos
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
-    logger.debug("Calling operation GenerativeAiClient#updateModel.");
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#updateModel.");
     const operationName = "updateModel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1892,6 +1928,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       updateModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

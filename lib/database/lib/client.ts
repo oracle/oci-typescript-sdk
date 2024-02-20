@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export enum DatabaseApiKeys {}
 export class DatabaseClient {
   protected static serviceEndpointTemplate = "https://database.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DatabaseWaiter;
@@ -120,7 +119,11 @@ export class DatabaseClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    logger.info(`DatabaseClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DatabaseClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class DatabaseClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DatabaseClient.serviceEndpointTemplate,
@@ -229,7 +233,8 @@ export class DatabaseClient {
   public async activateExadataInfrastructure(
     activateExadataInfrastructureRequest: requests.ActivateExadataInfrastructureRequest
   ): Promise<responses.ActivateExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#activateExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#activateExadataInfrastructure.");
     const operationName = "activateExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/ActivateExadataInfrastructure";
@@ -251,6 +256,7 @@ export class DatabaseClient {
       activateExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -316,7 +322,10 @@ export class DatabaseClient {
   public async addStorageCapacityCloudExadataInfrastructure(
     addStorageCapacityCloudExadataInfrastructureRequest: requests.AddStorageCapacityCloudExadataInfrastructureRequest
   ): Promise<responses.AddStorageCapacityCloudExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#addStorageCapacityCloudExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#addStorageCapacityCloudExadataInfrastructure."
+      );
     const operationName = "addStorageCapacityCloudExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/AddStorageCapacityCloudExadataInfrastructure";
@@ -340,6 +349,7 @@ export class DatabaseClient {
       addStorageCapacityCloudExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -401,7 +411,10 @@ export class DatabaseClient {
   public async addStorageCapacityExadataInfrastructure(
     addStorageCapacityExadataInfrastructureRequest: requests.AddStorageCapacityExadataInfrastructureRequest
   ): Promise<responses.AddStorageCapacityExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#addStorageCapacityExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#addStorageCapacityExadataInfrastructure."
+      );
     const operationName = "addStorageCapacityExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/AddStorageCapacityExadataInfrastructure";
@@ -425,6 +438,7 @@ export class DatabaseClient {
       addStorageCapacityExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -485,7 +499,8 @@ export class DatabaseClient {
   public async addVirtualMachineToCloudVmCluster(
     addVirtualMachineToCloudVmClusterRequest: requests.AddVirtualMachineToCloudVmClusterRequest
   ): Promise<responses.AddVirtualMachineToCloudVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#addVirtualMachineToCloudVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#addVirtualMachineToCloudVmCluster.");
     const operationName = "addVirtualMachineToCloudVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/AddVirtualMachineToCloudVmCluster";
@@ -508,6 +523,7 @@ export class DatabaseClient {
       addVirtualMachineToCloudVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -573,7 +589,8 @@ export class DatabaseClient {
   public async addVirtualMachineToVmCluster(
     addVirtualMachineToVmClusterRequest: requests.AddVirtualMachineToVmClusterRequest
   ): Promise<responses.AddVirtualMachineToVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#addVirtualMachineToVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#addVirtualMachineToVmCluster.");
     const operationName = "addVirtualMachineToVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/AddVirtualMachineToVmCluster";
@@ -596,6 +613,7 @@ export class DatabaseClient {
       addVirtualMachineToVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -661,7 +679,8 @@ export class DatabaseClient {
   public async autonomousDatabaseManualRefresh(
     autonomousDatabaseManualRefreshRequest: requests.AutonomousDatabaseManualRefreshRequest
   ): Promise<responses.AutonomousDatabaseManualRefreshResponse> {
-    logger.debug("Calling operation DatabaseClient#autonomousDatabaseManualRefresh.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#autonomousDatabaseManualRefresh.");
     const operationName = "autonomousDatabaseManualRefresh";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/AutonomousDatabaseManualRefresh";
@@ -684,6 +703,7 @@ export class DatabaseClient {
       autonomousDatabaseManualRefreshRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -748,7 +768,7 @@ export class DatabaseClient {
   public async cancelBackup(
     cancelBackupRequest: requests.CancelBackupRequest
   ): Promise<responses.CancelBackupResponse> {
-    logger.debug("Calling operation DatabaseClient#cancelBackup.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#cancelBackup.");
     const operationName = "cancelBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/CancelBackup";
@@ -771,6 +791,7 @@ export class DatabaseClient {
       cancelBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -824,7 +845,10 @@ export class DatabaseClient {
   public async changeAutonomousContainerDatabaseCompartment(
     changeAutonomousContainerDatabaseCompartmentRequest: requests.ChangeAutonomousContainerDatabaseCompartmentRequest
   ): Promise<responses.ChangeAutonomousContainerDatabaseCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeAutonomousContainerDatabaseCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeAutonomousContainerDatabaseCompartment."
+      );
     const operationName = "changeAutonomousContainerDatabaseCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/ChangeAutonomousContainerDatabaseCompartment";
@@ -848,6 +872,7 @@ export class DatabaseClient {
       changeAutonomousContainerDatabaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -912,7 +937,8 @@ export class DatabaseClient {
   public async changeAutonomousDatabaseCompartment(
     changeAutonomousDatabaseCompartmentRequest: requests.ChangeAutonomousDatabaseCompartmentRequest
   ): Promise<responses.ChangeAutonomousDatabaseCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeAutonomousDatabaseCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeAutonomousDatabaseCompartment.");
     const operationName = "changeAutonomousDatabaseCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ChangeAutonomousDatabaseCompartment";
@@ -935,6 +961,7 @@ export class DatabaseClient {
       changeAutonomousDatabaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -998,9 +1025,10 @@ export class DatabaseClient {
   public async changeAutonomousExadataInfrastructureCompartment(
     changeAutonomousExadataInfrastructureCompartmentRequest: requests.ChangeAutonomousExadataInfrastructureCompartmentRequest
   ): Promise<responses.ChangeAutonomousExadataInfrastructureCompartmentResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#changeAutonomousExadataInfrastructureCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeAutonomousExadataInfrastructureCompartment."
+      );
     const operationName = "changeAutonomousExadataInfrastructureCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/ChangeAutonomousExadataInfrastructureCompartment";
@@ -1024,6 +1052,7 @@ export class DatabaseClient {
       changeAutonomousExadataInfrastructureCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1086,7 +1115,8 @@ export class DatabaseClient {
   public async changeAutonomousVmClusterCompartment(
     changeAutonomousVmClusterCompartmentRequest: requests.ChangeAutonomousVmClusterCompartmentRequest
   ): Promise<responses.ChangeAutonomousVmClusterCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeAutonomousVmClusterCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeAutonomousVmClusterCompartment.");
     const operationName = "changeAutonomousVmClusterCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/ChangeAutonomousVmClusterCompartment";
@@ -1109,6 +1139,7 @@ export class DatabaseClient {
       changeAutonomousVmClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1167,7 +1198,8 @@ export class DatabaseClient {
   public async changeBackupDestinationCompartment(
     changeBackupDestinationCompartmentRequest: requests.ChangeBackupDestinationCompartmentRequest
   ): Promise<responses.ChangeBackupDestinationCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeBackupDestinationCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeBackupDestinationCompartment.");
     const operationName = "changeBackupDestinationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/ChangeBackupDestinationCompartment";
@@ -1190,6 +1222,7 @@ export class DatabaseClient {
       changeBackupDestinationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1251,7 +1284,10 @@ export class DatabaseClient {
   public async changeCloudAutonomousVmClusterCompartment(
     changeCloudAutonomousVmClusterCompartmentRequest: requests.ChangeCloudAutonomousVmClusterCompartmentRequest
   ): Promise<responses.ChangeCloudAutonomousVmClusterCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeCloudAutonomousVmClusterCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeCloudAutonomousVmClusterCompartment."
+      );
     const operationName = "changeCloudAutonomousVmClusterCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/ChangeCloudAutonomousVmClusterCompartment";
@@ -1275,6 +1311,7 @@ export class DatabaseClient {
       changeCloudAutonomousVmClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1331,7 +1368,10 @@ export class DatabaseClient {
   public async changeCloudExadataInfrastructureCompartment(
     changeCloudExadataInfrastructureCompartmentRequest: requests.ChangeCloudExadataInfrastructureCompartmentRequest
   ): Promise<responses.ChangeCloudExadataInfrastructureCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeCloudExadataInfrastructureCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeCloudExadataInfrastructureCompartment."
+      );
     const operationName = "changeCloudExadataInfrastructureCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/ChangeCloudExadataInfrastructureCompartment";
@@ -1355,6 +1395,7 @@ export class DatabaseClient {
       changeCloudExadataInfrastructureCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1411,7 +1452,8 @@ export class DatabaseClient {
   public async changeCloudVmClusterCompartment(
     changeCloudVmClusterCompartmentRequest: requests.ChangeCloudVmClusterCompartmentRequest
   ): Promise<responses.ChangeCloudVmClusterCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeCloudVmClusterCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeCloudVmClusterCompartment.");
     const operationName = "changeCloudVmClusterCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/ChangeCloudVmClusterCompartment";
@@ -1434,6 +1476,7 @@ export class DatabaseClient {
       changeCloudVmClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1492,7 +1535,8 @@ export class DatabaseClient {
   public async changeDatabaseSoftwareImageCompartment(
     changeDatabaseSoftwareImageCompartmentRequest: requests.ChangeDatabaseSoftwareImageCompartmentRequest
   ): Promise<responses.ChangeDatabaseSoftwareImageCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeDatabaseSoftwareImageCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeDatabaseSoftwareImageCompartment.");
     const operationName = "changeDatabaseSoftwareImageCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/ChangeDatabaseSoftwareImageCompartment";
@@ -1516,6 +1560,7 @@ export class DatabaseClient {
       changeDatabaseSoftwareImageCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1579,7 +1624,7 @@ export class DatabaseClient {
   public async changeDataguardRole(
     changeDataguardRoleRequest: requests.ChangeDataguardRoleRequest
   ): Promise<responses.ChangeDataguardRoleResponse> {
-    logger.debug("Calling operation DatabaseClient#changeDataguardRole.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#changeDataguardRole.");
     const operationName = "changeDataguardRole";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/ChangeDataguardRole";
@@ -1602,6 +1647,7 @@ export class DatabaseClient {
       changeDataguardRoleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1670,7 +1716,8 @@ export class DatabaseClient {
   public async changeDbSystemCompartment(
     changeDbSystemCompartmentRequest: requests.ChangeDbSystemCompartmentRequest
   ): Promise<responses.ChangeDbSystemCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeDbSystemCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeDbSystemCompartment.");
     const operationName = "changeDbSystemCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ChangeDbSystemCompartment";
@@ -1693,6 +1740,7 @@ export class DatabaseClient {
       changeDbSystemCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1753,7 +1801,8 @@ export class DatabaseClient {
   public async changeDisasterRecoveryConfiguration(
     changeDisasterRecoveryConfigurationRequest: requests.ChangeDisasterRecoveryConfigurationRequest
   ): Promise<responses.ChangeDisasterRecoveryConfigurationResponse> {
-    logger.debug("Calling operation DatabaseClient#changeDisasterRecoveryConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeDisasterRecoveryConfiguration.");
     const operationName = "changeDisasterRecoveryConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ChangeDisasterRecoveryConfiguration";
@@ -1775,6 +1824,7 @@ export class DatabaseClient {
       changeDisasterRecoveryConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1842,7 +1892,8 @@ export class DatabaseClient {
   public async changeExadataInfrastructureCompartment(
     changeExadataInfrastructureCompartmentRequest: requests.ChangeExadataInfrastructureCompartmentRequest
   ): Promise<responses.ChangeExadataInfrastructureCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeExadataInfrastructureCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeExadataInfrastructureCompartment.");
     const operationName = "changeExadataInfrastructureCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/ChangeExadataInfrastructureCompartment";
@@ -1866,6 +1917,7 @@ export class DatabaseClient {
       changeExadataInfrastructureCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1925,7 +1977,10 @@ export class DatabaseClient {
   public async changeExternalContainerDatabaseCompartment(
     changeExternalContainerDatabaseCompartmentRequest: requests.ChangeExternalContainerDatabaseCompartmentRequest
   ): Promise<responses.ChangeExternalContainerDatabaseCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeExternalContainerDatabaseCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeExternalContainerDatabaseCompartment."
+      );
     const operationName = "changeExternalContainerDatabaseCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/ChangeExternalContainerDatabaseCompartment";
@@ -1949,6 +2004,7 @@ export class DatabaseClient {
       changeExternalContainerDatabaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2012,7 +2068,10 @@ export class DatabaseClient {
   public async changeExternalNonContainerDatabaseCompartment(
     changeExternalNonContainerDatabaseCompartmentRequest: requests.ChangeExternalNonContainerDatabaseCompartmentRequest
   ): Promise<responses.ChangeExternalNonContainerDatabaseCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeExternalNonContainerDatabaseCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeExternalNonContainerDatabaseCompartment."
+      );
     const operationName = "changeExternalNonContainerDatabaseCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/ChangeExternalNonContainerDatabaseCompartment";
@@ -2036,6 +2095,7 @@ export class DatabaseClient {
       changeExternalNonContainerDatabaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2101,7 +2161,10 @@ export class DatabaseClient {
   public async changeExternalPluggableDatabaseCompartment(
     changeExternalPluggableDatabaseCompartmentRequest: requests.ChangeExternalPluggableDatabaseCompartmentRequest
   ): Promise<responses.ChangeExternalPluggableDatabaseCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeExternalPluggableDatabaseCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeExternalPluggableDatabaseCompartment."
+      );
     const operationName = "changeExternalPluggableDatabaseCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/ChangeExternalPluggableDatabaseCompartment";
@@ -2125,6 +2188,7 @@ export class DatabaseClient {
       changeExternalPluggableDatabaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2188,7 +2252,8 @@ export class DatabaseClient {
   public async changeKeyStoreCompartment(
     changeKeyStoreCompartmentRequest: requests.ChangeKeyStoreCompartmentRequest
   ): Promise<responses.ChangeKeyStoreCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeKeyStoreCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeKeyStoreCompartment.");
     const operationName = "changeKeyStoreCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/ChangeKeyStoreCompartment";
@@ -2211,6 +2276,7 @@ export class DatabaseClient {
       changeKeyStoreCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2266,7 +2332,7 @@ export class DatabaseClient {
   public async changeKeyStoreType(
     changeKeyStoreTypeRequest: requests.ChangeKeyStoreTypeRequest
   ): Promise<responses.ChangeKeyStoreTypeResponse> {
-    logger.debug("Calling operation DatabaseClient#changeKeyStoreType.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#changeKeyStoreType.");
     const operationName = "changeKeyStoreType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ChangeKeyStoreType";
@@ -2289,6 +2355,7 @@ export class DatabaseClient {
       changeKeyStoreTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2345,7 +2412,8 @@ export class DatabaseClient {
   public async changeOneoffPatchCompartment(
     changeOneoffPatchCompartmentRequest: requests.ChangeOneoffPatchCompartmentRequest
   ): Promise<responses.ChangeOneoffPatchCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeOneoffPatchCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeOneoffPatchCompartment.");
     const operationName = "changeOneoffPatchCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/ChangeOneoffPatchCompartment";
@@ -2368,6 +2436,7 @@ export class DatabaseClient {
       changeOneoffPatchCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2425,7 +2494,8 @@ export class DatabaseClient {
   public async changeVmClusterCompartment(
     changeVmClusterCompartmentRequest: requests.ChangeVmClusterCompartmentRequest
   ): Promise<responses.ChangeVmClusterCompartmentResponse> {
-    logger.debug("Calling operation DatabaseClient#changeVmClusterCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeVmClusterCompartment.");
     const operationName = "changeVmClusterCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/ChangeVmClusterCompartment";
@@ -2448,6 +2518,7 @@ export class DatabaseClient {
       changeVmClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2505,9 +2576,10 @@ export class DatabaseClient {
   public async checkExternalDatabaseConnectorConnectionStatus(
     checkExternalDatabaseConnectorConnectionStatusRequest: requests.CheckExternalDatabaseConnectorConnectionStatusRequest
   ): Promise<responses.CheckExternalDatabaseConnectorConnectionStatusResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#checkExternalDatabaseConnectorConnectionStatus."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#checkExternalDatabaseConnectorConnectionStatus."
+      );
     const operationName = "checkExternalDatabaseConnectorConnectionStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/CheckExternalDatabaseConnectorConnectionStatus";
@@ -2531,6 +2603,7 @@ export class DatabaseClient {
       checkExternalDatabaseConnectorConnectionStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2590,7 +2663,8 @@ export class DatabaseClient {
   public async completeExternalBackupJob(
     completeExternalBackupJobRequest: requests.CompleteExternalBackupJobRequest
   ): Promise<responses.CompleteExternalBackupJobResponse> {
-    logger.debug("Calling operation DatabaseClient#completeExternalBackupJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#completeExternalBackupJob.");
     const operationName = "completeExternalBackupJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalBackupJob/CompleteExternalBackupJob";
@@ -2612,6 +2686,7 @@ export class DatabaseClient {
       completeExternalBackupJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2677,7 +2752,8 @@ export class DatabaseClient {
   public async configureAutonomousDatabaseVaultKey(
     configureAutonomousDatabaseVaultKeyRequest: requests.ConfigureAutonomousDatabaseVaultKeyRequest
   ): Promise<responses.ConfigureAutonomousDatabaseVaultKeyResponse> {
-    logger.debug("Calling operation DatabaseClient#configureAutonomousDatabaseVaultKey.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#configureAutonomousDatabaseVaultKey.");
     const operationName = "configureAutonomousDatabaseVaultKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ConfigureAutonomousDatabaseVaultKey";
@@ -2700,6 +2776,7 @@ export class DatabaseClient {
       configureAutonomousDatabaseVaultKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2756,7 +2833,7 @@ export class DatabaseClient {
   public async configureSaasAdminUser(
     configureSaasAdminUserRequest: requests.ConfigureSaasAdminUserRequest
   ): Promise<responses.ConfigureSaasAdminUserResponse> {
-    logger.debug("Calling operation DatabaseClient#configureSaasAdminUser.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#configureSaasAdminUser.");
     const operationName = "configureSaasAdminUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ConfigureSaasAdminUser";
@@ -2778,6 +2855,7 @@ export class DatabaseClient {
       configureSaasAdminUserRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2843,7 +2921,7 @@ export class DatabaseClient {
   public async convertToPdb(
     convertToPdbRequest: requests.ConvertToPdbRequest
   ): Promise<responses.ConvertToPdbResponse> {
-    logger.debug("Calling operation DatabaseClient#convertToPdb.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#convertToPdb.");
     const operationName = "convertToPdb";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ConvertToPdb";
@@ -2865,6 +2943,7 @@ export class DatabaseClient {
       convertToPdbRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2931,7 +3010,8 @@ export class DatabaseClient {
   public async convertToRegularPluggableDatabase(
     convertToRegularPluggableDatabaseRequest: requests.ConvertToRegularPluggableDatabaseRequest
   ): Promise<responses.ConvertToRegularPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#convertToRegularPluggableDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#convertToRegularPluggableDatabase.");
     const operationName = "convertToRegularPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/ConvertToRegularPluggableDatabase";
@@ -2954,6 +3034,7 @@ export class DatabaseClient {
       convertToRegularPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3019,7 +3100,7 @@ export class DatabaseClient {
   public async createApplicationVip(
     createApplicationVipRequest: requests.CreateApplicationVipRequest
   ): Promise<responses.CreateApplicationVipResponse> {
-    logger.debug("Calling operation DatabaseClient#createApplicationVip.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createApplicationVip.");
     const operationName = "createApplicationVip";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ApplicationVip/CreateApplicationVip";
@@ -3039,6 +3120,7 @@ export class DatabaseClient {
       createApplicationVipRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3104,7 +3186,8 @@ export class DatabaseClient {
   public async createAutonomousContainerDatabase(
     createAutonomousContainerDatabaseRequest: requests.CreateAutonomousContainerDatabaseRequest
   ): Promise<responses.CreateAutonomousContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#createAutonomousContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousContainerDatabase.");
     const operationName = "createAutonomousContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/CreateAutonomousContainerDatabase";
@@ -3123,6 +3206,7 @@ export class DatabaseClient {
       createAutonomousContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3195,9 +3279,10 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createAutonomousContainerDatabaseDataguardAssociation(
     createAutonomousContainerDatabaseDataguardAssociationRequest: requests.CreateAutonomousContainerDatabaseDataguardAssociationRequest
   ): Promise<responses.CreateAutonomousContainerDatabaseDataguardAssociationResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#createAutonomousContainerDatabaseDataguardAssociation."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#createAutonomousContainerDatabaseDataguardAssociation."
+      );
     const operationName = "createAutonomousContainerDatabaseDataguardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/CreateAutonomousContainerDatabaseDataguardAssociation";
@@ -3219,6 +3304,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3285,7 +3371,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createAutonomousDatabase(
     createAutonomousDatabaseRequest: requests.CreateAutonomousDatabaseRequest
   ): Promise<responses.CreateAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#createAutonomousDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousDatabase.");
     const operationName = "createAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/CreateAutonomousDatabase";
@@ -3305,6 +3392,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3370,7 +3458,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createAutonomousDatabaseBackup(
     createAutonomousDatabaseBackupRequest: requests.CreateAutonomousDatabaseBackupRequest
   ): Promise<responses.CreateAutonomousDatabaseBackupResponse> {
-    logger.debug("Calling operation DatabaseClient#createAutonomousDatabaseBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousDatabaseBackup.");
     const operationName = "createAutonomousDatabaseBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/CreateAutonomousDatabaseBackup";
@@ -3390,6 +3479,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createAutonomousDatabaseBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3455,7 +3545,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createAutonomousVmCluster(
     createAutonomousVmClusterRequest: requests.CreateAutonomousVmClusterRequest
   ): Promise<responses.CreateAutonomousVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#createAutonomousVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousVmCluster.");
     const operationName = "createAutonomousVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/CreateAutonomousVmCluster";
@@ -3475,6 +3566,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createAutonomousVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3540,7 +3632,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
   ): Promise<responses.CreateBackupResponse> {
-    logger.debug("Calling operation DatabaseClient#createBackup.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createBackup.");
     const operationName = "createBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/CreateBackup";
@@ -3559,6 +3651,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3624,7 +3717,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createBackupDestination(
     createBackupDestinationRequest: requests.CreateBackupDestinationRequest
   ): Promise<responses.CreateBackupDestinationResponse> {
-    logger.debug("Calling operation DatabaseClient#createBackupDestination.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createBackupDestination.");
     const operationName = "createBackupDestination";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/CreateBackupDestination";
@@ -3644,6 +3737,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createBackupDestinationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3704,7 +3798,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createCloudAutonomousVmCluster(
     createCloudAutonomousVmClusterRequest: requests.CreateCloudAutonomousVmClusterRequest
   ): Promise<responses.CreateCloudAutonomousVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#createCloudAutonomousVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createCloudAutonomousVmCluster.");
     const operationName = "createCloudAutonomousVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/CreateCloudAutonomousVmCluster";
@@ -3724,6 +3819,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createCloudAutonomousVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3789,7 +3885,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createCloudExadataInfrastructure(
     createCloudExadataInfrastructureRequest: requests.CreateCloudExadataInfrastructureRequest
   ): Promise<responses.CreateCloudExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#createCloudExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createCloudExadataInfrastructure.");
     const operationName = "createCloudExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/CreateCloudExadataInfrastructure";
@@ -3809,6 +3906,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createCloudExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3874,7 +3972,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createCloudVmCluster(
     createCloudVmClusterRequest: requests.CreateCloudVmClusterRequest
   ): Promise<responses.CreateCloudVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#createCloudVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createCloudVmCluster.");
     const operationName = "createCloudVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/CreateCloudVmCluster";
@@ -3894,6 +3992,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createCloudVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3961,7 +4060,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createConsoleConnection(
     createConsoleConnectionRequest: requests.CreateConsoleConnectionRequest
   ): Promise<responses.CreateConsoleConnectionResponse> {
-    logger.debug("Calling operation DatabaseClient#createConsoleConnection.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createConsoleConnection.");
     const operationName = "createConsoleConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/CreateConsoleConnection";
@@ -3982,6 +4081,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createConsoleConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4047,7 +4147,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createConsoleHistory(
     createConsoleHistoryRequest: requests.CreateConsoleHistoryRequest
   ): Promise<responses.CreateConsoleHistoryResponse> {
-    logger.debug("Calling operation DatabaseClient#createConsoleHistory.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createConsoleHistory.");
     const operationName = "createConsoleHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/CreateConsoleHistory";
@@ -4069,6 +4169,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createConsoleHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4141,7 +4242,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createDataGuardAssociation(
     createDataGuardAssociationRequest: requests.CreateDataGuardAssociationRequest
   ): Promise<responses.CreateDataGuardAssociationResponse> {
-    logger.debug("Calling operation DatabaseClient#createDataGuardAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createDataGuardAssociation.");
     const operationName = "createDataGuardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/CreateDataGuardAssociation";
@@ -4162,6 +4264,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createDataGuardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4227,7 +4330,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createDatabase(
     createDatabaseRequest: requests.CreateDatabaseRequest
   ): Promise<responses.CreateDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#createDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createDatabase.");
     const operationName = "createDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/CreateDatabase";
@@ -4247,6 +4350,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4312,7 +4416,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createDatabaseSoftwareImage(
     createDatabaseSoftwareImageRequest: requests.CreateDatabaseSoftwareImageRequest
   ): Promise<responses.CreateDatabaseSoftwareImageResponse> {
-    logger.debug("Calling operation DatabaseClient#createDatabaseSoftwareImage.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createDatabaseSoftwareImage.");
     const operationName = "createDatabaseSoftwareImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/CreateDatabaseSoftwareImage";
@@ -4331,6 +4436,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createDatabaseSoftwareImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4396,7 +4502,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createDbHome(
     createDbHomeRequest: requests.CreateDbHomeRequest
   ): Promise<responses.CreateDbHomeResponse> {
-    logger.debug("Calling operation DatabaseClient#createDbHome.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createDbHome.");
     const operationName = "createDbHome";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/CreateDbHome";
@@ -4415,6 +4521,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createDbHomeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4481,7 +4588,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createExadataInfrastructure(
     createExadataInfrastructureRequest: requests.CreateExadataInfrastructureRequest
   ): Promise<responses.CreateExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#createExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExadataInfrastructure.");
     const operationName = "createExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/CreateExadataInfrastructure";
@@ -4501,6 +4609,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4568,7 +4677,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createExternalBackupJob(
     createExternalBackupJobRequest: requests.CreateExternalBackupJobRequest
   ): Promise<responses.CreateExternalBackupJobResponse> {
-    logger.debug("Calling operation DatabaseClient#createExternalBackupJob.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createExternalBackupJob.");
     const operationName = "createExternalBackupJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalBackupJob/CreateExternalBackupJob";
@@ -4587,6 +4696,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createExternalBackupJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4651,7 +4761,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createExternalContainerDatabase(
     createExternalContainerDatabaseRequest: requests.CreateExternalContainerDatabaseRequest
   ): Promise<responses.CreateExternalContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#createExternalContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExternalContainerDatabase.");
     const operationName = "createExternalContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/CreateExternalContainerDatabase";
@@ -4671,6 +4782,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createExternalContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4735,7 +4847,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createExternalDatabaseConnector(
     createExternalDatabaseConnectorRequest: requests.CreateExternalDatabaseConnectorRequest
   ): Promise<responses.CreateExternalDatabaseConnectorResponse> {
-    logger.debug("Calling operation DatabaseClient#createExternalDatabaseConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExternalDatabaseConnector.");
     const operationName = "createExternalDatabaseConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/CreateExternalDatabaseConnector";
@@ -4755,6 +4868,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createExternalDatabaseConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4820,7 +4934,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createExternalNonContainerDatabase(
     createExternalNonContainerDatabaseRequest: requests.CreateExternalNonContainerDatabaseRequest
   ): Promise<responses.CreateExternalNonContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#createExternalNonContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExternalNonContainerDatabase.");
     const operationName = "createExternalNonContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/CreateExternalNonContainerDatabase";
@@ -4840,6 +4955,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createExternalNonContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4906,7 +5022,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createExternalPluggableDatabase(
     createExternalPluggableDatabaseRequest: requests.CreateExternalPluggableDatabaseRequest
   ): Promise<responses.CreateExternalPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#createExternalPluggableDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExternalPluggableDatabase.");
     const operationName = "createExternalPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/CreateExternalPluggableDatabase";
@@ -4926,6 +5043,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createExternalPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4991,7 +5109,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createKeyStore(
     createKeyStoreRequest: requests.CreateKeyStoreRequest
   ): Promise<responses.CreateKeyStoreResponse> {
-    logger.debug("Calling operation DatabaseClient#createKeyStore.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createKeyStore.");
     const operationName = "createKeyStore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/CreateKeyStore";
@@ -5011,6 +5129,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createKeyStoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5074,7 +5193,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createMaintenanceRun(
     createMaintenanceRunRequest: requests.CreateMaintenanceRunRequest
   ): Promise<responses.CreateMaintenanceRunResponse> {
-    logger.debug("Calling operation DatabaseClient#createMaintenanceRun.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createMaintenanceRun.");
     const operationName = "createMaintenanceRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRun/CreateMaintenanceRun";
@@ -5094,6 +5213,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createMaintenanceRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5154,7 +5274,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createOneoffPatch(
     createOneoffPatchRequest: requests.CreateOneoffPatchRequest
   ): Promise<responses.CreateOneoffPatchResponse> {
-    logger.debug("Calling operation DatabaseClient#createOneoffPatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createOneoffPatch.");
     const operationName = "createOneoffPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/CreateOneoffPatch";
@@ -5174,6 +5294,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createOneoffPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5241,7 +5362,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createPluggableDatabase(
     createPluggableDatabaseRequest: requests.CreatePluggableDatabaseRequest
   ): Promise<responses.CreatePluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#createPluggableDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createPluggableDatabase.");
     const operationName = "createPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/CreatePluggableDatabase";
@@ -5261,6 +5382,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5326,7 +5448,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createVmCluster(
     createVmClusterRequest: requests.CreateVmClusterRequest
   ): Promise<responses.CreateVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#createVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createVmCluster.");
     const operationName = "createVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/CreateVmCluster";
@@ -5346,6 +5468,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5412,7 +5535,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async createVmClusterNetwork(
     createVmClusterNetworkRequest: requests.CreateVmClusterNetworkRequest
   ): Promise<responses.CreateVmClusterNetworkResponse> {
-    logger.debug("Calling operation DatabaseClient#createVmClusterNetwork.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createVmClusterNetwork.");
     const operationName = "createVmClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/CreateVmClusterNetwork";
@@ -5434,6 +5557,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       createVmClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5511,7 +5635,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async dbNodeAction(
     dbNodeActionRequest: requests.DbNodeActionRequest
   ): Promise<responses.DbNodeActionResponse> {
-    logger.debug("Calling operation DatabaseClient#dbNodeAction.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#dbNodeAction.");
     const operationName = "dbNodeAction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/DbNodeAction";
@@ -5535,6 +5659,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       dbNodeActionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5595,7 +5720,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteApplicationVip(
     deleteApplicationVipRequest: requests.DeleteApplicationVipRequest
   ): Promise<responses.DeleteApplicationVipResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteApplicationVip.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteApplicationVip.");
     const operationName = "deleteApplicationVip";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ApplicationVip/DeleteApplicationVip";
@@ -5617,6 +5742,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteApplicationVipRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5668,7 +5794,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteAutonomousDatabase(
     deleteAutonomousDatabaseRequest: requests.DeleteAutonomousDatabaseRequest
   ): Promise<responses.DeleteAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteAutonomousDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousDatabase.");
     const operationName = "deleteAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/DeleteAutonomousDatabase";
@@ -5690,6 +5817,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5740,7 +5868,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteAutonomousDatabaseBackup(
     deleteAutonomousDatabaseBackupRequest: requests.DeleteAutonomousDatabaseBackupRequest
   ): Promise<responses.DeleteAutonomousDatabaseBackupResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteAutonomousDatabaseBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousDatabaseBackup.");
     const operationName = "deleteAutonomousDatabaseBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/DeleteAutonomousDatabaseBackup";
@@ -5763,6 +5892,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteAutonomousDatabaseBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5814,7 +5944,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteAutonomousVmCluster(
     deleteAutonomousVmClusterRequest: requests.DeleteAutonomousVmClusterRequest
   ): Promise<responses.DeleteAutonomousVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteAutonomousVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousVmCluster.");
     const operationName = "deleteAutonomousVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/DeleteAutonomousVmCluster";
@@ -5836,6 +5967,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteAutonomousVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5886,7 +6018,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
   ): Promise<responses.DeleteBackupResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteBackup.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteBackup.");
     const operationName = "deleteBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/DeleteBackup";
@@ -5907,6 +6039,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5958,7 +6091,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteBackupDestination(
     deleteBackupDestinationRequest: requests.DeleteBackupDestinationRequest
   ): Promise<responses.DeleteBackupDestinationResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteBackupDestination.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteBackupDestination.");
     const operationName = "deleteBackupDestination";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/DeleteBackupDestination";
@@ -5980,6 +6113,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteBackupDestinationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6026,7 +6160,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteCloudAutonomousVmCluster(
     deleteCloudAutonomousVmClusterRequest: requests.DeleteCloudAutonomousVmClusterRequest
   ): Promise<responses.DeleteCloudAutonomousVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteCloudAutonomousVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteCloudAutonomousVmCluster.");
     const operationName = "deleteCloudAutonomousVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/DeleteCloudAutonomousVmCluster";
@@ -6049,6 +6184,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteCloudAutonomousVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6100,7 +6236,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteCloudExadataInfrastructure(
     deleteCloudExadataInfrastructureRequest: requests.DeleteCloudExadataInfrastructureRequest
   ): Promise<responses.DeleteCloudExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteCloudExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteCloudExadataInfrastructure.");
     const operationName = "deleteCloudExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/DeleteCloudExadataInfrastructure";
@@ -6125,6 +6262,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteCloudExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6176,7 +6314,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteCloudVmCluster(
     deleteCloudVmClusterRequest: requests.DeleteCloudVmClusterRequest
   ): Promise<responses.DeleteCloudVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteCloudVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteCloudVmCluster.");
     const operationName = "deleteCloudVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/DeleteCloudVmCluster";
@@ -6198,6 +6336,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteCloudVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6248,7 +6387,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteConsoleConnection(
     deleteConsoleConnectionRequest: requests.DeleteConsoleConnectionRequest
   ): Promise<responses.DeleteConsoleConnectionResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteConsoleConnection.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteConsoleConnection.");
     const operationName = "deleteConsoleConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/DeleteConsoleConnection";
@@ -6270,6 +6409,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteConsoleConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6321,7 +6461,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   public async deleteConsoleHistory(
     deleteConsoleHistoryRequest: requests.DeleteConsoleHistoryRequest
   ): Promise<responses.DeleteConsoleHistoryResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteConsoleHistory.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteConsoleHistory.");
     const operationName = "deleteConsoleHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/DeleteConsoleHistory";
@@ -6344,6 +6484,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       deleteConsoleHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6397,7 +6538,7 @@ The data in this database is local to the Exadata system and will be lost when t
   public async deleteDatabase(
     deleteDatabaseRequest: requests.DeleteDatabaseRequest
   ): Promise<responses.DeleteDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteDatabase.");
     const operationName = "deleteDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/DeleteDatabase";
@@ -6421,6 +6562,7 @@ The data in this database is local to the Exadata system and will be lost when t
       deleteDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6471,7 +6613,8 @@ The data in this database is local to the Exadata system and will be lost when t
   public async deleteDatabaseSoftwareImage(
     deleteDatabaseSoftwareImageRequest: requests.DeleteDatabaseSoftwareImageRequest
   ): Promise<responses.DeleteDatabaseSoftwareImageResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteDatabaseSoftwareImage.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteDatabaseSoftwareImage.");
     const operationName = "deleteDatabaseSoftwareImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/DeleteDatabaseSoftwareImage";
@@ -6492,6 +6635,7 @@ The data in this database is local to the Exadata system and will be lost when t
       deleteDatabaseSoftwareImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6545,7 +6689,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteDbHome(
     deleteDbHomeRequest: requests.DeleteDbHomeRequest
   ): Promise<responses.DeleteDbHomeResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteDbHome.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteDbHome.");
     const operationName = "deleteDbHome";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/DeleteDbHome";
@@ -6568,6 +6712,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteDbHomeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6619,7 +6764,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteExadataInfrastructure(
     deleteExadataInfrastructureRequest: requests.DeleteExadataInfrastructureRequest
   ): Promise<responses.DeleteExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExadataInfrastructure.");
     const operationName = "deleteExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/DeleteExadataInfrastructure";
@@ -6641,6 +6787,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6694,7 +6841,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteExternalContainerDatabase(
     deleteExternalContainerDatabaseRequest: requests.DeleteExternalContainerDatabaseRequest
   ): Promise<responses.DeleteExternalContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteExternalContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExternalContainerDatabase.");
     const operationName = "deleteExternalContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/DeleteExternalContainerDatabase";
@@ -6717,6 +6865,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteExternalContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6770,7 +6919,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteExternalDatabaseConnector(
     deleteExternalDatabaseConnectorRequest: requests.DeleteExternalDatabaseConnectorRequest
   ): Promise<responses.DeleteExternalDatabaseConnectorResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteExternalDatabaseConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExternalDatabaseConnector.");
     const operationName = "deleteExternalDatabaseConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/DeleteExternalDatabaseConnector";
@@ -6793,6 +6943,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteExternalDatabaseConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6844,7 +6995,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteExternalNonContainerDatabase(
     deleteExternalNonContainerDatabaseRequest: requests.DeleteExternalNonContainerDatabaseRequest
   ): Promise<responses.DeleteExternalNonContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteExternalNonContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExternalNonContainerDatabase.");
     const operationName = "deleteExternalNonContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/DeleteExternalNonContainerDatabase";
@@ -6867,6 +7019,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteExternalNonContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6919,7 +7072,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteExternalPluggableDatabase(
     deleteExternalPluggableDatabaseRequest: requests.DeleteExternalPluggableDatabaseRequest
   ): Promise<responses.DeleteExternalPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteExternalPluggableDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExternalPluggableDatabase.");
     const operationName = "deleteExternalPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/DeleteExternalPluggableDatabase";
@@ -6942,6 +7096,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteExternalPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6993,7 +7148,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteKeyStore(
     deleteKeyStoreRequest: requests.DeleteKeyStoreRequest
   ): Promise<responses.DeleteKeyStoreResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteKeyStore.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteKeyStore.");
     const operationName = "deleteKeyStore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/DeleteKeyStore";
@@ -7015,6 +7170,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteKeyStoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7061,7 +7217,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteOneoffPatch(
     deleteOneoffPatchRequest: requests.DeleteOneoffPatchRequest
   ): Promise<responses.DeleteOneoffPatchResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteOneoffPatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteOneoffPatch.");
     const operationName = "deleteOneoffPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/DeleteOneoffPatch";
@@ -7083,6 +7239,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteOneoffPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7133,7 +7290,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deletePluggableDatabase(
     deletePluggableDatabaseRequest: requests.DeletePluggableDatabaseRequest
   ): Promise<responses.DeletePluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#deletePluggableDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deletePluggableDatabase.");
     const operationName = "deletePluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/DeletePluggableDatabase";
@@ -7155,6 +7312,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deletePluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7206,7 +7364,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteVmCluster(
     deleteVmClusterRequest: requests.DeleteVmClusterRequest
   ): Promise<responses.DeleteVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteVmCluster.");
     const operationName = "deleteVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/DeleteVmCluster";
@@ -7228,6 +7386,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7280,7 +7439,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deleteVmClusterNetwork(
     deleteVmClusterNetworkRequest: requests.DeleteVmClusterNetworkRequest
   ): Promise<responses.DeleteVmClusterNetworkResponse> {
-    logger.debug("Calling operation DatabaseClient#deleteVmClusterNetwork.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteVmClusterNetwork.");
     const operationName = "deleteVmClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/DeleteVmClusterNetwork";
@@ -7303,6 +7462,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deleteVmClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7355,7 +7515,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async deregisterAutonomousDatabaseDataSafe(
     deregisterAutonomousDatabaseDataSafeRequest: requests.DeregisterAutonomousDatabaseDataSafeRequest
   ): Promise<responses.DeregisterAutonomousDatabaseDataSafeResponse> {
-    logger.debug("Calling operation DatabaseClient#deregisterAutonomousDatabaseDataSafe.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deregisterAutonomousDatabaseDataSafe.");
     const operationName = "deregisterAutonomousDatabaseDataSafe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/DeregisterAutonomousDatabaseDataSafe";
@@ -7376,6 +7537,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       deregisterAutonomousDatabaseDataSafeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7432,7 +7594,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableAutonomousDatabaseManagement(
     disableAutonomousDatabaseManagementRequest: requests.DisableAutonomousDatabaseManagementRequest
   ): Promise<responses.DisableAutonomousDatabaseManagementResponse> {
-    logger.debug("Calling operation DatabaseClient#disableAutonomousDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#disableAutonomousDatabaseManagement.");
     const operationName = "disableAutonomousDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/DisableAutonomousDatabaseManagement";
@@ -7453,6 +7616,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableAutonomousDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7504,7 +7668,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableAutonomousDatabaseOperationsInsights(
     disableAutonomousDatabaseOperationsInsightsRequest: requests.DisableAutonomousDatabaseOperationsInsightsRequest
   ): Promise<responses.DisableAutonomousDatabaseOperationsInsightsResponse> {
-    logger.debug("Calling operation DatabaseClient#disableAutonomousDatabaseOperationsInsights.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableAutonomousDatabaseOperationsInsights."
+      );
     const operationName = "disableAutonomousDatabaseOperationsInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/DisableAutonomousDatabaseOperationsInsights";
@@ -7526,6 +7693,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableAutonomousDatabaseOperationsInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7577,7 +7745,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableDatabaseManagement(
     disableDatabaseManagementRequest: requests.DisableDatabaseManagementRequest
   ): Promise<responses.DisableDatabaseManagementResponse> {
-    logger.debug("Calling operation DatabaseClient#disableDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#disableDatabaseManagement.");
     const operationName = "disableDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/DisableDatabaseManagement";
@@ -7600,6 +7769,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7660,9 +7830,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableExternalContainerDatabaseDatabaseManagement(
     disableExternalContainerDatabaseDatabaseManagementRequest: requests.DisableExternalContainerDatabaseDatabaseManagementRequest
   ): Promise<responses.DisableExternalContainerDatabaseDatabaseManagementResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#disableExternalContainerDatabaseDatabaseManagement."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalContainerDatabaseDatabaseManagement."
+      );
     const operationName = "disableExternalContainerDatabaseDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/DisableExternalContainerDatabaseDatabaseManagement";
@@ -7686,6 +7857,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableExternalContainerDatabaseDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7743,9 +7915,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableExternalContainerDatabaseStackMonitoring(
     disableExternalContainerDatabaseStackMonitoringRequest: requests.DisableExternalContainerDatabaseStackMonitoringRequest
   ): Promise<responses.DisableExternalContainerDatabaseStackMonitoringResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#disableExternalContainerDatabaseStackMonitoring."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalContainerDatabaseStackMonitoring."
+      );
     const operationName = "disableExternalContainerDatabaseStackMonitoring";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/DisableExternalContainerDatabaseStackMonitoring";
@@ -7769,6 +7942,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableExternalContainerDatabaseStackMonitoringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7823,9 +7997,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableExternalNonContainerDatabaseDatabaseManagement(
     disableExternalNonContainerDatabaseDatabaseManagementRequest: requests.DisableExternalNonContainerDatabaseDatabaseManagementRequest
   ): Promise<responses.DisableExternalNonContainerDatabaseDatabaseManagementResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#disableExternalNonContainerDatabaseDatabaseManagement."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalNonContainerDatabaseDatabaseManagement."
+      );
     const operationName = "disableExternalNonContainerDatabaseDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/DisableExternalNonContainerDatabaseDatabaseManagement";
@@ -7849,6 +8024,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableExternalNonContainerDatabaseDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7906,9 +8082,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableExternalNonContainerDatabaseOperationsInsights(
     disableExternalNonContainerDatabaseOperationsInsightsRequest: requests.DisableExternalNonContainerDatabaseOperationsInsightsRequest
   ): Promise<responses.DisableExternalNonContainerDatabaseOperationsInsightsResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#disableExternalNonContainerDatabaseOperationsInsights."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalNonContainerDatabaseOperationsInsights."
+      );
     const operationName = "disableExternalNonContainerDatabaseOperationsInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/DisableExternalNonContainerDatabaseOperationsInsights";
@@ -7932,6 +8109,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableExternalNonContainerDatabaseOperationsInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7989,9 +8167,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableExternalNonContainerDatabaseStackMonitoring(
     disableExternalNonContainerDatabaseStackMonitoringRequest: requests.DisableExternalNonContainerDatabaseStackMonitoringRequest
   ): Promise<responses.DisableExternalNonContainerDatabaseStackMonitoringResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#disableExternalNonContainerDatabaseStackMonitoring."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalNonContainerDatabaseStackMonitoring."
+      );
     const operationName = "disableExternalNonContainerDatabaseStackMonitoring";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/DisableExternalNonContainerDatabaseStackMonitoring";
@@ -8015,6 +8194,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableExternalNonContainerDatabaseStackMonitoringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8069,9 +8249,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableExternalPluggableDatabaseDatabaseManagement(
     disableExternalPluggableDatabaseDatabaseManagementRequest: requests.DisableExternalPluggableDatabaseDatabaseManagementRequest
   ): Promise<responses.DisableExternalPluggableDatabaseDatabaseManagementResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#disableExternalPluggableDatabaseDatabaseManagement."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalPluggableDatabaseDatabaseManagement."
+      );
     const operationName = "disableExternalPluggableDatabaseDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/DisableExternalPluggableDatabaseDatabaseManagement";
@@ -8095,6 +8276,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableExternalPluggableDatabaseDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8152,9 +8334,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableExternalPluggableDatabaseOperationsInsights(
     disableExternalPluggableDatabaseOperationsInsightsRequest: requests.DisableExternalPluggableDatabaseOperationsInsightsRequest
   ): Promise<responses.DisableExternalPluggableDatabaseOperationsInsightsResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#disableExternalPluggableDatabaseOperationsInsights."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalPluggableDatabaseOperationsInsights."
+      );
     const operationName = "disableExternalPluggableDatabaseOperationsInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/DisableExternalPluggableDatabaseOperationsInsights";
@@ -8178,6 +8361,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableExternalPluggableDatabaseOperationsInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8235,9 +8419,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disableExternalPluggableDatabaseStackMonitoring(
     disableExternalPluggableDatabaseStackMonitoringRequest: requests.DisableExternalPluggableDatabaseStackMonitoringRequest
   ): Promise<responses.DisableExternalPluggableDatabaseStackMonitoringResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#disableExternalPluggableDatabaseStackMonitoring."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#disableExternalPluggableDatabaseStackMonitoring."
+      );
     const operationName = "disableExternalPluggableDatabaseStackMonitoring";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/DisableExternalPluggableDatabaseStackMonitoring";
@@ -8261,6 +8446,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disableExternalPluggableDatabaseStackMonitoringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8313,7 +8499,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async disablePluggableDatabaseManagement(
     disablePluggableDatabaseManagementRequest: requests.DisablePluggableDatabaseManagementRequest
   ): Promise<responses.DisablePluggableDatabaseManagementResponse> {
-    logger.debug("Calling operation DatabaseClient#disablePluggableDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#disablePluggableDatabaseManagement.");
     const operationName = "disablePluggableDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/DisablePluggableDatabaseManagement";
@@ -8336,6 +8523,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       disablePluggableDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8396,7 +8584,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async downloadExadataInfrastructureConfigFile(
     downloadExadataInfrastructureConfigFileRequest: requests.DownloadExadataInfrastructureConfigFileRequest
   ): Promise<responses.DownloadExadataInfrastructureConfigFileResponse> {
-    logger.debug("Calling operation DatabaseClient#downloadExadataInfrastructureConfigFile.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#downloadExadataInfrastructureConfigFile."
+      );
     const operationName = "downloadExadataInfrastructureConfigFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/DownloadExadataInfrastructureConfigFile";
@@ -8419,6 +8610,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       downloadExadataInfrastructureConfigFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8484,7 +8676,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async downloadOneoffPatch(
     downloadOneoffPatchRequest: requests.DownloadOneoffPatchRequest
   ): Promise<responses.DownloadOneoffPatchResponse> {
-    logger.debug("Calling operation DatabaseClient#downloadOneoffPatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#downloadOneoffPatch.");
     const operationName = "downloadOneoffPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/DownloadOneoffPatch";
@@ -8507,6 +8699,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       downloadOneoffPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8562,7 +8755,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async downloadValidationReport(
     downloadValidationReportRequest: requests.DownloadValidationReportRequest
   ): Promise<responses.DownloadValidationReportResponse> {
-    logger.debug("Calling operation DatabaseClient#downloadValidationReport.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#downloadValidationReport.");
     const operationName = "downloadValidationReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/DownloadValidationReport";
@@ -8585,6 +8779,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       downloadValidationReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8651,7 +8846,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async downloadVmClusterNetworkConfigFile(
     downloadVmClusterNetworkConfigFileRequest: requests.DownloadVmClusterNetworkConfigFileRequest
   ): Promise<responses.DownloadVmClusterNetworkConfigFileResponse> {
-    logger.debug("Calling operation DatabaseClient#downloadVmClusterNetworkConfigFile.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#downloadVmClusterNetworkConfigFile.");
     const operationName = "downloadVmClusterNetworkConfigFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/DownloadVmClusterNetworkConfigFile";
@@ -8675,6 +8871,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       downloadVmClusterNetworkConfigFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8741,7 +8938,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableAutonomousDatabaseManagement(
     enableAutonomousDatabaseManagementRequest: requests.EnableAutonomousDatabaseManagementRequest
   ): Promise<responses.EnableAutonomousDatabaseManagementResponse> {
-    logger.debug("Calling operation DatabaseClient#enableAutonomousDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#enableAutonomousDatabaseManagement.");
     const operationName = "enableAutonomousDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/EnableAutonomousDatabaseManagement";
@@ -8762,6 +8960,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableAutonomousDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8813,7 +9012,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableAutonomousDatabaseOperationsInsights(
     enableAutonomousDatabaseOperationsInsightsRequest: requests.EnableAutonomousDatabaseOperationsInsightsRequest
   ): Promise<responses.EnableAutonomousDatabaseOperationsInsightsResponse> {
-    logger.debug("Calling operation DatabaseClient#enableAutonomousDatabaseOperationsInsights.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableAutonomousDatabaseOperationsInsights."
+      );
     const operationName = "enableAutonomousDatabaseOperationsInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/EnableAutonomousDatabaseOperationsInsights";
@@ -8835,6 +9037,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableAutonomousDatabaseOperationsInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8885,7 +9088,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableDatabaseManagement(
     enableDatabaseManagementRequest: requests.EnableDatabaseManagementRequest
   ): Promise<responses.EnableDatabaseManagementResponse> {
-    logger.debug("Calling operation DatabaseClient#enableDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#enableDatabaseManagement.");
     const operationName = "enableDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/EnableDatabaseManagement";
@@ -8908,6 +9112,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8975,9 +9180,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableExternalContainerDatabaseDatabaseManagement(
     enableExternalContainerDatabaseDatabaseManagementRequest: requests.EnableExternalContainerDatabaseDatabaseManagementRequest
   ): Promise<responses.EnableExternalContainerDatabaseDatabaseManagementResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#enableExternalContainerDatabaseDatabaseManagement."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalContainerDatabaseDatabaseManagement."
+      );
     const operationName = "enableExternalContainerDatabaseDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/EnableExternalContainerDatabaseDatabaseManagement";
@@ -9001,6 +9207,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableExternalContainerDatabaseDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9063,9 +9270,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableExternalContainerDatabaseStackMonitoring(
     enableExternalContainerDatabaseStackMonitoringRequest: requests.EnableExternalContainerDatabaseStackMonitoringRequest
   ): Promise<responses.EnableExternalContainerDatabaseStackMonitoringResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#enableExternalContainerDatabaseStackMonitoring."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalContainerDatabaseStackMonitoring."
+      );
     const operationName = "enableExternalContainerDatabaseStackMonitoring";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/EnableExternalContainerDatabaseStackMonitoring";
@@ -9089,6 +9297,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableExternalContainerDatabaseStackMonitoringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9148,9 +9357,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableExternalNonContainerDatabaseDatabaseManagement(
     enableExternalNonContainerDatabaseDatabaseManagementRequest: requests.EnableExternalNonContainerDatabaseDatabaseManagementRequest
   ): Promise<responses.EnableExternalNonContainerDatabaseDatabaseManagementResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#enableExternalNonContainerDatabaseDatabaseManagement."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalNonContainerDatabaseDatabaseManagement."
+      );
     const operationName = "enableExternalNonContainerDatabaseDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/EnableExternalNonContainerDatabaseDatabaseManagement";
@@ -9174,6 +9384,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableExternalNonContainerDatabaseDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9236,9 +9447,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableExternalNonContainerDatabaseOperationsInsights(
     enableExternalNonContainerDatabaseOperationsInsightsRequest: requests.EnableExternalNonContainerDatabaseOperationsInsightsRequest
   ): Promise<responses.EnableExternalNonContainerDatabaseOperationsInsightsResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#enableExternalNonContainerDatabaseOperationsInsights."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalNonContainerDatabaseOperationsInsights."
+      );
     const operationName = "enableExternalNonContainerDatabaseOperationsInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/EnableExternalNonContainerDatabaseOperationsInsights";
@@ -9262,6 +9474,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableExternalNonContainerDatabaseOperationsInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9324,9 +9537,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableExternalNonContainerDatabaseStackMonitoring(
     enableExternalNonContainerDatabaseStackMonitoringRequest: requests.EnableExternalNonContainerDatabaseStackMonitoringRequest
   ): Promise<responses.EnableExternalNonContainerDatabaseStackMonitoringResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#enableExternalNonContainerDatabaseStackMonitoring."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalNonContainerDatabaseStackMonitoring."
+      );
     const operationName = "enableExternalNonContainerDatabaseStackMonitoring";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/EnableExternalNonContainerDatabaseStackMonitoring";
@@ -9350,6 +9564,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableExternalNonContainerDatabaseStackMonitoringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9409,9 +9624,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableExternalPluggableDatabaseDatabaseManagement(
     enableExternalPluggableDatabaseDatabaseManagementRequest: requests.EnableExternalPluggableDatabaseDatabaseManagementRequest
   ): Promise<responses.EnableExternalPluggableDatabaseDatabaseManagementResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#enableExternalPluggableDatabaseDatabaseManagement."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalPluggableDatabaseDatabaseManagement."
+      );
     const operationName = "enableExternalPluggableDatabaseDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/EnableExternalPluggableDatabaseDatabaseManagement";
@@ -9435,6 +9651,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableExternalPluggableDatabaseDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9497,9 +9714,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableExternalPluggableDatabaseOperationsInsights(
     enableExternalPluggableDatabaseOperationsInsightsRequest: requests.EnableExternalPluggableDatabaseOperationsInsightsRequest
   ): Promise<responses.EnableExternalPluggableDatabaseOperationsInsightsResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#enableExternalPluggableDatabaseOperationsInsights."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalPluggableDatabaseOperationsInsights."
+      );
     const operationName = "enableExternalPluggableDatabaseOperationsInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/EnableExternalPluggableDatabaseOperationsInsights";
@@ -9523,6 +9741,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableExternalPluggableDatabaseOperationsInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9585,9 +9804,10 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enableExternalPluggableDatabaseStackMonitoring(
     enableExternalPluggableDatabaseStackMonitoringRequest: requests.EnableExternalPluggableDatabaseStackMonitoringRequest
   ): Promise<responses.EnableExternalPluggableDatabaseStackMonitoringResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#enableExternalPluggableDatabaseStackMonitoring."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#enableExternalPluggableDatabaseStackMonitoring."
+      );
     const operationName = "enableExternalPluggableDatabaseStackMonitoring";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/EnableExternalPluggableDatabaseStackMonitoring";
@@ -9611,6 +9831,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enableExternalPluggableDatabaseStackMonitoringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9667,7 +9888,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async enablePluggableDatabaseManagement(
     enablePluggableDatabaseManagementRequest: requests.EnablePluggableDatabaseManagementRequest
   ): Promise<responses.EnablePluggableDatabaseManagementResponse> {
-    logger.debug("Calling operation DatabaseClient#enablePluggableDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#enablePluggableDatabaseManagement.");
     const operationName = "enablePluggableDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/EnablePluggableDatabaseManagement";
@@ -9690,6 +9912,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       enablePluggableDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9755,7 +9978,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   public async failOverAutonomousDatabase(
     failOverAutonomousDatabaseRequest: requests.FailOverAutonomousDatabaseRequest
   ): Promise<responses.FailOverAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#failOverAutonomousDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#failOverAutonomousDatabase.");
     const operationName = "failOverAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/FailOverAutonomousDatabase";
@@ -9780,6 +10004,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       failOverAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9842,9 +10067,10 @@ A failover can result in data loss, depending on the protection mode in effect a
   public async failoverAutonomousContainerDatabaseDataguardAssociation(
     failoverAutonomousContainerDatabaseDataguardAssociationRequest: requests.FailoverAutonomousContainerDatabaseDataguardAssociationRequest
   ): Promise<responses.FailoverAutonomousContainerDatabaseDataguardAssociationResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#failoverAutonomousContainerDatabaseDataguardAssociation."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#failoverAutonomousContainerDatabaseDataguardAssociation."
+      );
     const operationName = "failoverAutonomousContainerDatabaseDataguardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/FailoverAutonomousContainerDatabaseDataguardAssociation";
@@ -9868,6 +10094,7 @@ A failover can result in data loss, depending on the protection mode in effect a
       failoverAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9935,7 +10162,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async failoverDataGuardAssociation(
     failoverDataGuardAssociationRequest: requests.FailoverDataGuardAssociationRequest
   ): Promise<responses.FailoverDataGuardAssociationResponse> {
-    logger.debug("Calling operation DatabaseClient#failoverDataGuardAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#failoverDataGuardAssociation.");
     const operationName = "failoverDataGuardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/FailoverDataGuardAssociation";
@@ -9957,6 +10185,7 @@ A failover might result in data loss depending on the protection mode in effect 
       failoverDataGuardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10023,7 +10252,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async generateAutonomousDatabaseWallet(
     generateAutonomousDatabaseWalletRequest: requests.GenerateAutonomousDatabaseWalletRequest
   ): Promise<responses.GenerateAutonomousDatabaseWalletResponse> {
-    logger.debug("Calling operation DatabaseClient#generateAutonomousDatabaseWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#generateAutonomousDatabaseWallet.");
     const operationName = "generateAutonomousDatabaseWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/GenerateAutonomousDatabaseWallet";
@@ -10045,6 +10275,7 @@ A failover might result in data loss depending on the protection mode in effect 
       generateAutonomousDatabaseWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10115,7 +10346,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async generateRecommendedVmClusterNetwork(
     generateRecommendedVmClusterNetworkRequest: requests.GenerateRecommendedVmClusterNetworkRequest
   ): Promise<responses.GenerateRecommendedVmClusterNetworkResponse> {
-    logger.debug("Calling operation DatabaseClient#generateRecommendedVmClusterNetwork.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#generateRecommendedVmClusterNetwork.");
     const operationName = "generateRecommendedVmClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/GenerateRecommendedVmClusterNetwork";
@@ -10138,6 +10370,7 @@ A failover might result in data loss depending on the protection mode in effect 
       generateRecommendedVmClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10198,7 +10431,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getApplicationVip(
     getApplicationVipRequest: requests.GetApplicationVipRequest
   ): Promise<responses.GetApplicationVipResponse> {
-    logger.debug("Calling operation DatabaseClient#getApplicationVip.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getApplicationVip.");
     const operationName = "getApplicationVip";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ApplicationVip/GetApplicationVip";
@@ -10219,6 +10452,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getApplicationVipRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10273,7 +10507,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousContainerDatabase(
     getAutonomousContainerDatabaseRequest: requests.GetAutonomousContainerDatabaseRequest
   ): Promise<responses.GetAutonomousContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousContainerDatabase.");
     const operationName = "getAutonomousContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/GetAutonomousContainerDatabase";
@@ -10294,6 +10529,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10349,9 +10585,10 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousContainerDatabaseDataguardAssociation(
     getAutonomousContainerDatabaseDataguardAssociationRequest: requests.GetAutonomousContainerDatabaseDataguardAssociationRequest
   ): Promise<responses.GetAutonomousContainerDatabaseDataguardAssociationResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#getAutonomousContainerDatabaseDataguardAssociation."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getAutonomousContainerDatabaseDataguardAssociation."
+      );
     const operationName = "getAutonomousContainerDatabaseDataguardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/GetAutonomousContainerDatabaseDataguardAssociation";
@@ -10374,6 +10611,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10430,7 +10668,10 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousContainerDatabaseResourceUsage(
     getAutonomousContainerDatabaseResourceUsageRequest: requests.GetAutonomousContainerDatabaseResourceUsageRequest
   ): Promise<responses.GetAutonomousContainerDatabaseResourceUsageResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousContainerDatabaseResourceUsage.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getAutonomousContainerDatabaseResourceUsage."
+      );
     const operationName = "getAutonomousContainerDatabaseResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/GetAutonomousContainerDatabaseResourceUsage";
@@ -10452,6 +10693,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousContainerDatabaseResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10507,7 +10749,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabase(
     getAutonomousDatabaseRequest: requests.GetAutonomousDatabaseRequest
   ): Promise<responses.GetAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabase.");
     const operationName = "getAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/GetAutonomousDatabase";
@@ -10528,6 +10770,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10582,7 +10825,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabaseBackup(
     getAutonomousDatabaseBackupRequest: requests.GetAutonomousDatabaseBackupRequest
   ): Promise<responses.GetAutonomousDatabaseBackupResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseBackup.");
     const operationName = "getAutonomousDatabaseBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/GetAutonomousDatabaseBackup";
@@ -10603,6 +10847,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousDatabaseBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10658,7 +10903,10 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabaseDataguardAssociation(
     getAutonomousDatabaseDataguardAssociationRequest: requests.GetAutonomousDatabaseDataguardAssociationRequest
   ): Promise<responses.GetAutonomousDatabaseDataguardAssociationResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseDataguardAssociation.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getAutonomousDatabaseDataguardAssociation."
+      );
     const operationName = "getAutonomousDatabaseDataguardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseDataguardAssociation/GetAutonomousDatabaseDataguardAssociation";
@@ -10682,6 +10930,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousDatabaseDataguardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10738,7 +10987,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabaseRegionalWallet(
     getAutonomousDatabaseRegionalWalletRequest: requests.GetAutonomousDatabaseRegionalWalletRequest
   ): Promise<responses.GetAutonomousDatabaseRegionalWalletResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseRegionalWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseRegionalWallet.");
     const operationName = "getAutonomousDatabaseRegionalWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseWallet/GetAutonomousDatabaseRegionalWallet";
@@ -10757,6 +11007,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousDatabaseRegionalWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10807,7 +11058,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousDatabaseWallet(
     getAutonomousDatabaseWalletRequest: requests.GetAutonomousDatabaseWalletRequest
   ): Promise<responses.GetAutonomousDatabaseWalletResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseWallet.");
     const operationName = "getAutonomousDatabaseWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseWallet/GetAutonomousDatabaseWallet";
@@ -10828,6 +11080,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousDatabaseWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10878,7 +11131,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousExadataInfrastructure(
     getAutonomousExadataInfrastructureRequest: requests.GetAutonomousExadataInfrastructureRequest
   ): Promise<responses.GetAutonomousExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousExadataInfrastructure.");
     const operationName = "getAutonomousExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/GetAutonomousExadataInfrastructure";
@@ -10899,6 +11153,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10953,7 +11208,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousPatch(
     getAutonomousPatchRequest: requests.GetAutonomousPatchRequest
   ): Promise<responses.GetAutonomousPatchResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousPatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousPatch.");
     const operationName = "getAutonomousPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousPatch/GetAutonomousPatch";
@@ -10973,6 +11228,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11028,7 +11284,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousVirtualMachine(
     getAutonomousVirtualMachineRequest: requests.GetAutonomousVirtualMachineRequest
   ): Promise<responses.GetAutonomousVirtualMachineResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousVirtualMachine.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousVirtualMachine.");
     const operationName = "getAutonomousVirtualMachine";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVirtualMachine/GetAutonomousVirtualMachine";
@@ -11049,6 +11306,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousVirtualMachineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11104,7 +11362,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousVmCluster(
     getAutonomousVmClusterRequest: requests.GetAutonomousVmClusterRequest
   ): Promise<responses.GetAutonomousVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousVmCluster.");
     const operationName = "getAutonomousVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/GetAutonomousVmCluster";
@@ -11125,6 +11383,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11180,7 +11439,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getAutonomousVmClusterResourceUsage(
     getAutonomousVmClusterResourceUsageRequest: requests.GetAutonomousVmClusterResourceUsageRequest
   ): Promise<responses.GetAutonomousVmClusterResourceUsageResponse> {
-    logger.debug("Calling operation DatabaseClient#getAutonomousVmClusterResourceUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousVmClusterResourceUsage.");
     const operationName = "getAutonomousVmClusterResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/GetAutonomousVmClusterResourceUsage";
@@ -11201,6 +11461,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getAutonomousVmClusterResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11255,7 +11516,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
   ): Promise<responses.GetBackupResponse> {
-    logger.debug("Calling operation DatabaseClient#getBackup.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getBackup.");
     const operationName = "getBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/GetBackup";
@@ -11275,6 +11536,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11330,7 +11592,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getBackupDestination(
     getBackupDestinationRequest: requests.GetBackupDestinationRequest
   ): Promise<responses.GetBackupDestinationResponse> {
-    logger.debug("Calling operation DatabaseClient#getBackupDestination.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getBackupDestination.");
     const operationName = "getBackupDestination";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/GetBackupDestination";
@@ -11351,6 +11613,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getBackupDestinationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11406,7 +11669,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getCloudAutonomousVmCluster(
     getCloudAutonomousVmClusterRequest: requests.GetCloudAutonomousVmClusterRequest
   ): Promise<responses.GetCloudAutonomousVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#getCloudAutonomousVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getCloudAutonomousVmCluster.");
     const operationName = "getCloudAutonomousVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/GetCloudAutonomousVmCluster";
@@ -11427,6 +11691,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getCloudAutonomousVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11482,7 +11747,10 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getCloudAutonomousVmClusterResourceUsage(
     getCloudAutonomousVmClusterResourceUsageRequest: requests.GetCloudAutonomousVmClusterResourceUsageRequest
   ): Promise<responses.GetCloudAutonomousVmClusterResourceUsageResponse> {
-    logger.debug("Calling operation DatabaseClient#getCloudAutonomousVmClusterResourceUsage.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getCloudAutonomousVmClusterResourceUsage."
+      );
     const operationName = "getCloudAutonomousVmClusterResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/GetCloudAutonomousVmClusterResourceUsage";
@@ -11504,6 +11772,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getCloudAutonomousVmClusterResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11559,7 +11828,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getCloudExadataInfrastructure(
     getCloudExadataInfrastructureRequest: requests.GetCloudExadataInfrastructureRequest
   ): Promise<responses.GetCloudExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#getCloudExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getCloudExadataInfrastructure.");
     const operationName = "getCloudExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/GetCloudExadataInfrastructure";
@@ -11581,6 +11851,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getCloudExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11636,9 +11907,10 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getCloudExadataInfrastructureUnallocatedResources(
     getCloudExadataInfrastructureUnallocatedResourcesRequest: requests.GetCloudExadataInfrastructureUnallocatedResourcesRequest
   ): Promise<responses.GetCloudExadataInfrastructureUnallocatedResourcesResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#getCloudExadataInfrastructureUnallocatedResources."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getCloudExadataInfrastructureUnallocatedResources."
+      );
     const operationName = "getCloudExadataInfrastructureUnallocatedResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructureUnallocatedResources/GetCloudExadataInfrastructureUnallocatedResources";
@@ -11662,6 +11934,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getCloudExadataInfrastructureUnallocatedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11717,7 +11990,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getCloudVmCluster(
     getCloudVmClusterRequest: requests.GetCloudVmClusterRequest
   ): Promise<responses.GetCloudVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#getCloudVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getCloudVmCluster.");
     const operationName = "getCloudVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/GetCloudVmCluster";
@@ -11738,6 +12011,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getCloudVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11794,7 +12068,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getCloudVmClusterIormConfig(
     getCloudVmClusterIormConfigRequest: requests.GetCloudVmClusterIormConfigRequest
   ): Promise<responses.GetCloudVmClusterIormConfigResponse> {
-    logger.debug("Calling operation DatabaseClient#getCloudVmClusterIormConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterIormConfig.");
     const operationName = "getCloudVmClusterIormConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/GetCloudVmClusterIormConfig";
@@ -11815,6 +12090,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getCloudVmClusterIormConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11870,7 +12146,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getCloudVmClusterUpdate(
     getCloudVmClusterUpdateRequest: requests.GetCloudVmClusterUpdateRequest
   ): Promise<responses.GetCloudVmClusterUpdateResponse> {
-    logger.debug("Calling operation DatabaseClient#getCloudVmClusterUpdate.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterUpdate.");
     const operationName = "getCloudVmClusterUpdate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Update/GetCloudVmClusterUpdate";
@@ -11892,6 +12168,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getCloudVmClusterUpdateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11942,7 +12219,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getCloudVmClusterUpdateHistoryEntry(
     getCloudVmClusterUpdateHistoryEntryRequest: requests.GetCloudVmClusterUpdateHistoryEntryRequest
   ): Promise<responses.GetCloudVmClusterUpdateHistoryEntryResponse> {
-    logger.debug("Calling operation DatabaseClient#getCloudVmClusterUpdateHistoryEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterUpdateHistoryEntry.");
     const operationName = "getCloudVmClusterUpdateHistoryEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/UpdateHistoryEntry/GetCloudVmClusterUpdateHistoryEntry";
@@ -11964,6 +12242,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getCloudVmClusterUpdateHistoryEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12018,7 +12297,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getConsoleConnection(
     getConsoleConnectionRequest: requests.GetConsoleConnectionRequest
   ): Promise<responses.GetConsoleConnectionResponse> {
-    logger.debug("Calling operation DatabaseClient#getConsoleConnection.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getConsoleConnection.");
     const operationName = "getConsoleConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/GetConsoleConnection";
@@ -12039,6 +12318,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getConsoleConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12094,7 +12374,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getConsoleHistory(
     getConsoleHistoryRequest: requests.GetConsoleHistoryRequest
   ): Promise<responses.GetConsoleHistoryResponse> {
-    logger.debug("Calling operation DatabaseClient#getConsoleHistory.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getConsoleHistory.");
     const operationName = "getConsoleHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/GetConsoleHistory";
@@ -12116,6 +12396,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getConsoleHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12171,7 +12452,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getConsoleHistoryContent(
     getConsoleHistoryContentRequest: requests.GetConsoleHistoryContentRequest
   ): Promise<responses.GetConsoleHistoryContentResponse> {
-    logger.debug("Calling operation DatabaseClient#getConsoleHistoryContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getConsoleHistoryContent.");
     const operationName = "getConsoleHistoryContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/GetConsoleHistoryContent";
@@ -12193,6 +12475,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getConsoleHistoryContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12248,7 +12531,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDataGuardAssociation(
     getDataGuardAssociationRequest: requests.GetDataGuardAssociationRequest
   ): Promise<responses.GetDataGuardAssociationResponse> {
-    logger.debug("Calling operation DatabaseClient#getDataGuardAssociation.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDataGuardAssociation.");
     const operationName = "getDataGuardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/GetDataGuardAssociation";
@@ -12269,6 +12552,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDataGuardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12323,7 +12607,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDatabase(
     getDatabaseRequest: requests.GetDatabaseRequest
   ): Promise<responses.GetDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#getDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDatabase.");
     const operationName = "getDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/GetDatabase";
@@ -12343,6 +12627,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12397,7 +12682,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDatabaseSoftwareImage(
     getDatabaseSoftwareImageRequest: requests.GetDatabaseSoftwareImageRequest
   ): Promise<responses.GetDatabaseSoftwareImageResponse> {
-    logger.debug("Calling operation DatabaseClient#getDatabaseSoftwareImage.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDatabaseSoftwareImage.");
     const operationName = "getDatabaseSoftwareImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/GetDatabaseSoftwareImage";
@@ -12417,6 +12703,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDatabaseSoftwareImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12472,7 +12759,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDatabaseUpgradeHistoryEntry(
     getDatabaseUpgradeHistoryEntryRequest: requests.GetDatabaseUpgradeHistoryEntryRequest
   ): Promise<responses.GetDatabaseUpgradeHistoryEntryResponse> {
-    logger.debug("Calling operation DatabaseClient#getDatabaseUpgradeHistoryEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDatabaseUpgradeHistoryEntry.");
     const operationName = "getDatabaseUpgradeHistoryEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseUpgradeHistoryEntry/GetDatabaseUpgradeHistoryEntry";
@@ -12494,6 +12782,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDatabaseUpgradeHistoryEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12543,7 +12832,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbHome(
     getDbHomeRequest: requests.GetDbHomeRequest
   ): Promise<responses.GetDbHomeResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbHome.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbHome.");
     const operationName = "getDbHome";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/GetDbHome";
@@ -12563,6 +12852,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDbHomeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12618,7 +12908,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbHomePatch(
     getDbHomePatchRequest: requests.GetDbHomePatchRequest
   ): Promise<responses.GetDbHomePatchResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbHomePatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbHomePatch.");
     const operationName = "getDbHomePatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/GetDbHomePatch";
@@ -12639,6 +12929,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDbHomePatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12689,7 +12980,8 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbHomePatchHistoryEntry(
     getDbHomePatchHistoryEntryRequest: requests.GetDbHomePatchHistoryEntryRequest
   ): Promise<responses.GetDbHomePatchHistoryEntryResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbHomePatchHistoryEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDbHomePatchHistoryEntry.");
     const operationName = "getDbHomePatchHistoryEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/GetDbHomePatchHistoryEntry";
@@ -12710,6 +13002,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDbHomePatchHistoryEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12764,7 +13057,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbNode(
     getDbNodeRequest: requests.GetDbNodeRequest
   ): Promise<responses.GetDbNodeResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbNode.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbNode.");
     const operationName = "getDbNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/GetDbNode";
@@ -12784,6 +13077,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDbNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12839,7 +13133,7 @@ A failover might result in data loss depending on the protection mode in effect 
   public async getDbServer(
     getDbServerRequest: requests.GetDbServerRequest
   ): Promise<responses.GetDbServerResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbServer.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbServer.");
     const operationName = "getDbServer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbServer/GetDbServer";
@@ -12862,6 +13156,7 @@ A failover might result in data loss depending on the protection mode in effect 
       getDbServerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12921,7 +13216,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
   ): Promise<responses.GetDbSystemResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbSystem.");
     const operationName = "getDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/GetDbSystem";
@@ -12941,6 +13236,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       getDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12996,7 +13292,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async getDbSystemPatch(
     getDbSystemPatchRequest: requests.GetDbSystemPatchRequest
   ): Promise<responses.GetDbSystemPatchResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbSystemPatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbSystemPatch.");
     const operationName = "getDbSystemPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/GetDbSystemPatch";
@@ -13017,6 +13313,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       getDbSystemPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13067,7 +13364,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async getDbSystemPatchHistoryEntry(
     getDbSystemPatchHistoryEntryRequest: requests.GetDbSystemPatchHistoryEntryRequest
   ): Promise<responses.GetDbSystemPatchHistoryEntryResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbSystemPatchHistoryEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDbSystemPatchHistoryEntry.");
     const operationName = "getDbSystemPatchHistoryEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/GetDbSystemPatchHistoryEntry";
@@ -13088,6 +13386,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       getDbSystemPatchHistoryEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13143,7 +13442,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async getDbSystemUpgradeHistoryEntry(
     getDbSystemUpgradeHistoryEntryRequest: requests.GetDbSystemUpgradeHistoryEntryRequest
   ): Promise<responses.GetDbSystemUpgradeHistoryEntryResponse> {
-    logger.debug("Calling operation DatabaseClient#getDbSystemUpgradeHistoryEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDbSystemUpgradeHistoryEntry.");
     const operationName = "getDbSystemUpgradeHistoryEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemUpgradeHistoryEntry/GetDbSystemUpgradeHistoryEntry";
@@ -13165,6 +13465,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       getDbSystemUpgradeHistoryEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13216,7 +13517,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async getExadataInfrastructure(
     getExadataInfrastructureRequest: requests.GetExadataInfrastructureRequest
   ): Promise<responses.GetExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#getExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExadataInfrastructure.");
     const operationName = "getExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/GetExadataInfrastructure";
@@ -13239,6 +13541,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       getExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13294,7 +13597,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async getExadataInfrastructureOcpus(
     getExadataInfrastructureOcpusRequest: requests.GetExadataInfrastructureOcpusRequest
   ): Promise<responses.GetExadataInfrastructureOcpusResponse> {
-    logger.debug("Calling operation DatabaseClient#getExadataInfrastructureOcpus.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExadataInfrastructureOcpus.");
     const operationName = "getExadataInfrastructureOcpus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/OCPUs/GetExadataInfrastructureOcpus";
@@ -13316,6 +13620,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       getExadataInfrastructureOcpusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13366,7 +13671,10 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async getExadataInfrastructureUnAllocatedResources(
     getExadataInfrastructureUnAllocatedResourcesRequest: requests.GetExadataInfrastructureUnAllocatedResourcesRequest
   ): Promise<responses.GetExadataInfrastructureUnAllocatedResourcesResponse> {
-    logger.debug("Calling operation DatabaseClient#getExadataInfrastructureUnAllocatedResources.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getExadataInfrastructureUnAllocatedResources."
+      );
     const operationName = "getExadataInfrastructureUnAllocatedResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructureUnAllocatedResources/GetExadataInfrastructureUnAllocatedResources";
@@ -13390,6 +13698,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       getExadataInfrastructureUnAllocatedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13453,7 +13762,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getExadataIormConfig(
     getExadataIormConfigRequest: requests.GetExadataIormConfigRequest
   ): Promise<responses.GetExadataIormConfigResponse> {
-    logger.debug("Calling operation DatabaseClient#getExadataIormConfig.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExadataIormConfig.");
     const operationName = "getExadataIormConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/GetExadataIormConfig";
@@ -13474,6 +13783,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getExadataIormConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13526,7 +13836,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getExternalBackupJob(
     getExternalBackupJobRequest: requests.GetExternalBackupJobRequest
   ): Promise<responses.GetExternalBackupJobResponse> {
-    logger.debug("Calling operation DatabaseClient#getExternalBackupJob.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExternalBackupJob.");
     const operationName = "getExternalBackupJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalBackupJob/GetExternalBackupJob";
@@ -13546,6 +13856,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getExternalBackupJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13600,7 +13911,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getExternalContainerDatabase(
     getExternalContainerDatabaseRequest: requests.GetExternalContainerDatabaseRequest
   ): Promise<responses.GetExternalContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#getExternalContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExternalContainerDatabase.");
     const operationName = "getExternalContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/GetExternalContainerDatabase";
@@ -13622,6 +13934,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getExternalContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13676,7 +13989,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getExternalDatabaseConnector(
     getExternalDatabaseConnectorRequest: requests.GetExternalDatabaseConnectorRequest
   ): Promise<responses.GetExternalDatabaseConnectorResponse> {
-    logger.debug("Calling operation DatabaseClient#getExternalDatabaseConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExternalDatabaseConnector.");
     const operationName = "getExternalDatabaseConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/GetExternalDatabaseConnector";
@@ -13698,6 +14012,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getExternalDatabaseConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13752,7 +14067,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getExternalNonContainerDatabase(
     getExternalNonContainerDatabaseRequest: requests.GetExternalNonContainerDatabaseRequest
   ): Promise<responses.GetExternalNonContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#getExternalNonContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExternalNonContainerDatabase.");
     const operationName = "getExternalNonContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/GetExternalNonContainerDatabase";
@@ -13774,6 +14090,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getExternalNonContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13830,7 +14147,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getExternalPluggableDatabase(
     getExternalPluggableDatabaseRequest: requests.GetExternalPluggableDatabaseRequest
   ): Promise<responses.GetExternalPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#getExternalPluggableDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExternalPluggableDatabase.");
     const operationName = "getExternalPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/GetExternalPluggableDatabase";
@@ -13852,6 +14170,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getExternalPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13908,7 +14227,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getInfrastructureTargetVersions(
     getInfrastructureTargetVersionsRequest: requests.GetInfrastructureTargetVersionsRequest
   ): Promise<responses.GetInfrastructureTargetVersionsResponse> {
-    logger.debug("Calling operation DatabaseClient#getInfrastructureTargetVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getInfrastructureTargetVersions.");
     const operationName = "getInfrastructureTargetVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/InfrastructureTargetVersion/GetInfrastructureTargetVersions";
@@ -13931,6 +14251,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getInfrastructureTargetVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13986,7 +14307,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getKeyStore(
     getKeyStoreRequest: requests.GetKeyStoreRequest
   ): Promise<responses.GetKeyStoreResponse> {
-    logger.debug("Calling operation DatabaseClient#getKeyStore.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getKeyStore.");
     const operationName = "getKeyStore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/GetKeyStore";
@@ -14007,6 +14328,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getKeyStoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14061,7 +14383,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getMaintenanceRun(
     getMaintenanceRunRequest: requests.GetMaintenanceRunRequest
   ): Promise<responses.GetMaintenanceRunResponse> {
-    logger.debug("Calling operation DatabaseClient#getMaintenanceRun.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getMaintenanceRun.");
     const operationName = "getMaintenanceRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRun/GetMaintenanceRun";
@@ -14081,6 +14403,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getMaintenanceRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14135,7 +14458,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getMaintenanceRunHistory(
     getMaintenanceRunHistoryRequest: requests.GetMaintenanceRunHistoryRequest
   ): Promise<responses.GetMaintenanceRunHistoryResponse> {
-    logger.debug("Calling operation DatabaseClient#getMaintenanceRunHistory.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getMaintenanceRunHistory.");
     const operationName = "getMaintenanceRunHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRunHistory/GetMaintenanceRunHistory";
@@ -14155,6 +14479,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getMaintenanceRunHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14210,7 +14535,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getOneoffPatch(
     getOneoffPatchRequest: requests.GetOneoffPatchRequest
   ): Promise<responses.GetOneoffPatchResponse> {
-    logger.debug("Calling operation DatabaseClient#getOneoffPatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getOneoffPatch.");
     const operationName = "getOneoffPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/GetOneoffPatch";
@@ -14231,6 +14556,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getOneoffPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14286,7 +14612,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getPdbConversionHistoryEntry(
     getPdbConversionHistoryEntryRequest: requests.GetPdbConversionHistoryEntryRequest
   ): Promise<responses.GetPdbConversionHistoryEntryResponse> {
-    logger.debug("Calling operation DatabaseClient#getPdbConversionHistoryEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getPdbConversionHistoryEntry.");
     const operationName = "getPdbConversionHistoryEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PdbConversionHistoryEntry/GetPdbConversionHistoryEntry";
@@ -14309,6 +14636,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getPdbConversionHistoryEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14358,7 +14686,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getPluggableDatabase(
     getPluggableDatabaseRequest: requests.GetPluggableDatabaseRequest
   ): Promise<responses.GetPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#getPluggableDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getPluggableDatabase.");
     const operationName = "getPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/GetPluggableDatabase";
@@ -14378,6 +14706,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14433,7 +14762,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getVmCluster(
     getVmClusterRequest: requests.GetVmClusterRequest
   ): Promise<responses.GetVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#getVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmCluster.");
     const operationName = "getVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/GetVmCluster";
@@ -14454,6 +14783,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14510,7 +14840,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getVmClusterNetwork(
     getVmClusterNetworkRequest: requests.GetVmClusterNetworkRequest
   ): Promise<responses.GetVmClusterNetworkResponse> {
-    logger.debug("Calling operation DatabaseClient#getVmClusterNetwork.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterNetwork.");
     const operationName = "getVmClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/GetVmClusterNetwork";
@@ -14532,6 +14862,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getVmClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14588,7 +14919,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getVmClusterPatch(
     getVmClusterPatchRequest: requests.GetVmClusterPatchRequest
   ): Promise<responses.GetVmClusterPatchResponse> {
-    logger.debug("Calling operation DatabaseClient#getVmClusterPatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterPatch.");
     const operationName = "getVmClusterPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/GetVmClusterPatch";
@@ -14609,6 +14940,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getVmClusterPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14659,7 +14991,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getVmClusterPatchHistoryEntry(
     getVmClusterPatchHistoryEntryRequest: requests.GetVmClusterPatchHistoryEntryRequest
   ): Promise<responses.GetVmClusterPatchHistoryEntryResponse> {
-    logger.debug("Calling operation DatabaseClient#getVmClusterPatchHistoryEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getVmClusterPatchHistoryEntry.");
     const operationName = "getVmClusterPatchHistoryEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/GetVmClusterPatchHistoryEntry";
@@ -14680,6 +15013,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getVmClusterPatchHistoryEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14735,7 +15069,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getVmClusterUpdate(
     getVmClusterUpdateRequest: requests.GetVmClusterUpdateRequest
   ): Promise<responses.GetVmClusterUpdateResponse> {
-    logger.debug("Calling operation DatabaseClient#getVmClusterUpdate.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterUpdate.");
     const operationName = "getVmClusterUpdate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterUpdate/GetVmClusterUpdate";
@@ -14757,6 +15091,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getVmClusterUpdateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14807,7 +15142,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async getVmClusterUpdateHistoryEntry(
     getVmClusterUpdateHistoryEntryRequest: requests.GetVmClusterUpdateHistoryEntryRequest
   ): Promise<responses.GetVmClusterUpdateHistoryEntryResponse> {
-    logger.debug("Calling operation DatabaseClient#getVmClusterUpdateHistoryEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getVmClusterUpdateHistoryEntry.");
     const operationName = "getVmClusterUpdateHistoryEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterUpdateHistoryEntry/GetVmClusterUpdateHistoryEntry";
@@ -14829,6 +15165,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       getVmClusterUpdateHistoryEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14884,7 +15221,8 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   public async launchAutonomousExadataInfrastructure(
     launchAutonomousExadataInfrastructureRequest: requests.LaunchAutonomousExadataInfrastructureRequest
   ): Promise<responses.LaunchAutonomousExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#launchAutonomousExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#launchAutonomousExadataInfrastructure.");
     const operationName = "launchAutonomousExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/LaunchAutonomousExadataInfrastructure";
@@ -14903,6 +15241,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       launchAutonomousExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14978,7 +15317,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async launchDbSystem(
     launchDbSystemRequest: requests.LaunchDbSystemRequest
   ): Promise<responses.LaunchDbSystemResponse> {
-    logger.debug("Calling operation DatabaseClient#launchDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#launchDbSystem.");
     const operationName = "launchDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/LaunchDbSystem";
@@ -14997,6 +15336,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       launchDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15062,7 +15402,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listApplicationVips(
     listApplicationVipsRequest: requests.ListApplicationVipsRequest
   ): Promise<responses.ListApplicationVipsResponse> {
-    logger.debug("Calling operation DatabaseClient#listApplicationVips.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listApplicationVips.");
     const operationName = "listApplicationVips";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ApplicationVipSummary/ListApplicationVips";
@@ -15089,6 +15429,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listApplicationVipsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15196,9 +15537,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousContainerDatabaseDataguardAssociations(
     listAutonomousContainerDatabaseDataguardAssociationsRequest: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
   ): Promise<responses.ListAutonomousContainerDatabaseDataguardAssociationsResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#listAutonomousContainerDatabaseDataguardAssociations."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousContainerDatabaseDataguardAssociations."
+      );
     const operationName = "listAutonomousContainerDatabaseDataguardAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/ListAutonomousContainerDatabaseDataguardAssociations";
@@ -15222,6 +15564,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousContainerDatabaseDataguardAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15337,7 +15680,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousContainerDatabaseVersions(
     listAutonomousContainerDatabaseVersionsRequest: requests.ListAutonomousContainerDatabaseVersionsRequest
   ): Promise<responses.ListAutonomousContainerDatabaseVersionsResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousContainerDatabaseVersions.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousContainerDatabaseVersions."
+      );
     const operationName = "listAutonomousContainerDatabaseVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseVersionSummary/ListAutonomousContainerDatabaseVersions";
@@ -15362,6 +15708,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousContainerDatabaseVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15469,7 +15816,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousContainerDatabases(
     listAutonomousContainerDatabasesRequest: requests.ListAutonomousContainerDatabasesRequest
   ): Promise<responses.ListAutonomousContainerDatabasesResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousContainerDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousContainerDatabases.");
     const operationName = "listAutonomousContainerDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/ListAutonomousContainerDatabases";
@@ -15504,6 +15852,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousContainerDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15611,7 +15960,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousDatabaseBackups(
     listAutonomousDatabaseBackupsRequest: requests.ListAutonomousDatabaseBackupsRequest
   ): Promise<responses.ListAutonomousDatabaseBackupsResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseBackups.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseBackups.");
     const operationName = "listAutonomousDatabaseBackups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/ListAutonomousDatabaseBackups";
@@ -15640,6 +15990,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousDatabaseBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15746,7 +16097,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousDatabaseCharacterSets(
     listAutonomousDatabaseCharacterSetsRequest: requests.ListAutonomousDatabaseCharacterSetsRequest
   ): Promise<responses.ListAutonomousDatabaseCharacterSetsResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseCharacterSets.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseCharacterSets.");
     const operationName = "listAutonomousDatabaseCharacterSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseCharacterSets/ListAutonomousDatabaseCharacterSets";
@@ -15769,6 +16121,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousDatabaseCharacterSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15824,7 +16177,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousDatabaseClones(
     listAutonomousDatabaseClonesRequest: requests.ListAutonomousDatabaseClonesRequest
   ): Promise<responses.ListAutonomousDatabaseClonesResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseClones.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseClones.");
     const operationName = "listAutonomousDatabaseClones";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ListAutonomousDatabaseClones";
@@ -15854,6 +16208,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousDatabaseClonesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15961,7 +16316,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousDatabaseDataguardAssociations(
     listAutonomousDatabaseDataguardAssociationsRequest: requests.ListAutonomousDatabaseDataguardAssociationsRequest
   ): Promise<responses.ListAutonomousDatabaseDataguardAssociationsResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseDataguardAssociations.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousDatabaseDataguardAssociations."
+      );
     const operationName = "listAutonomousDatabaseDataguardAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseDataguardAssociation/ListAutonomousDatabaseDataguardAssociations";
@@ -15985,6 +16343,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousDatabaseDataguardAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16092,7 +16451,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousDatabaseRefreshableClones(
     listAutonomousDatabaseRefreshableClonesRequest: requests.ListAutonomousDatabaseRefreshableClonesRequest
   ): Promise<responses.ListAutonomousDatabaseRefreshableClonesResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseRefreshableClones.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousDatabaseRefreshableClones."
+      );
     const operationName = "listAutonomousDatabaseRefreshableClones";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ListAutonomousDatabaseRefreshableClones";
@@ -16116,6 +16478,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousDatabaseRefreshableClonesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16171,7 +16534,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousDatabases(
     listAutonomousDatabasesRequest: requests.ListAutonomousDatabasesRequest
   ): Promise<responses.ListAutonomousDatabasesResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousDatabases.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabases.");
     const operationName = "listAutonomousDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ListAutonomousDatabases";
@@ -16207,6 +16570,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16315,7 +16679,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousDbPreviewVersions(
     listAutonomousDbPreviewVersionsRequest: requests.ListAutonomousDbPreviewVersionsRequest
   ): Promise<responses.ListAutonomousDbPreviewVersionsResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousDbPreviewVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDbPreviewVersions.");
     const operationName = "listAutonomousDbPreviewVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDbPreviewVersionSummary/ListAutonomousDbPreviewVersions";
@@ -16340,6 +16705,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousDbPreviewVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16446,7 +16812,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousDbVersions(
     listAutonomousDbVersionsRequest: requests.ListAutonomousDbVersionsRequest
   ): Promise<responses.ListAutonomousDbVersionsResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousDbVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDbVersions.");
     const operationName = "listAutonomousDbVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDbVersionSummary/ListAutonomousDbVersions";
@@ -16471,6 +16838,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousDbVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16578,7 +16946,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousExadataInfrastructureShapes(
     listAutonomousExadataInfrastructureShapesRequest: requests.ListAutonomousExadataInfrastructureShapesRequest
   ): Promise<responses.ListAutonomousExadataInfrastructureShapesResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousExadataInfrastructureShapes.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousExadataInfrastructureShapes."
+      );
     const operationName = "listAutonomousExadataInfrastructureShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructureShapeSummary/ListAutonomousExadataInfrastructureShapes";
@@ -16602,6 +16973,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousExadataInfrastructureShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16709,7 +17081,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousExadataInfrastructures(
     listAutonomousExadataInfrastructuresRequest: requests.ListAutonomousExadataInfrastructuresRequest
   ): Promise<responses.ListAutonomousExadataInfrastructuresResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousExadataInfrastructures.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousExadataInfrastructures.");
     const operationName = "listAutonomousExadataInfrastructures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/ListAutonomousExadataInfrastructures";
@@ -16736,6 +17109,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousExadataInfrastructuresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16843,7 +17217,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousVirtualMachines(
     listAutonomousVirtualMachinesRequest: requests.ListAutonomousVirtualMachinesRequest
   ): Promise<responses.ListAutonomousVirtualMachinesResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousVirtualMachines.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousVirtualMachines.");
     const operationName = "listAutonomousVirtualMachines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVirtualMachine/ListAutonomousVirtualMachines";
@@ -16868,6 +17243,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousVirtualMachinesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16975,7 +17351,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousVmClusterAcdResourceUsage(
     listAutonomousVmClusterAcdResourceUsageRequest: requests.ListAutonomousVmClusterAcdResourceUsageRequest
   ): Promise<responses.ListAutonomousVmClusterAcdResourceUsageResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousVmClusterAcdResourceUsage.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousVmClusterAcdResourceUsage."
+      );
     const operationName = "listAutonomousVmClusterAcdResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/ListAutonomousVmClusterAcdResourceUsage";
@@ -17001,6 +17380,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousVmClusterAcdResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17108,7 +17488,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listAutonomousVmClusters(
     listAutonomousVmClustersRequest: requests.ListAutonomousVmClustersRequest
   ): Promise<responses.ListAutonomousVmClustersResponse> {
-    logger.debug("Calling operation DatabaseClient#listAutonomousVmClusters.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousVmClusters.");
     const operationName = "listAutonomousVmClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/ListAutonomousVmClusters";
@@ -17136,6 +17517,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listAutonomousVmClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17243,7 +17625,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listBackupDestination(
     listBackupDestinationRequest: requests.ListBackupDestinationRequest
   ): Promise<responses.ListBackupDestinationResponse> {
-    logger.debug("Calling operation DatabaseClient#listBackupDestination.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listBackupDestination.");
     const operationName = "listBackupDestination";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestinationSummary/ListBackupDestination";
@@ -17267,6 +17649,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listBackupDestinationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17379,7 +17762,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
   ): Promise<responses.ListBackupsResponse> {
-    logger.debug("Calling operation DatabaseClient#listBackups.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listBackups.");
     const operationName = "listBackups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/ListBackups";
@@ -17402,6 +17785,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17510,7 +17894,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listCloudAutonomousVmClusterAcdResourceUsage(
     listCloudAutonomousVmClusterAcdResourceUsageRequest: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
   ): Promise<responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse> {
-    logger.debug("Calling operation DatabaseClient#listCloudAutonomousVmClusterAcdResourceUsage.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listCloudAutonomousVmClusterAcdResourceUsage."
+      );
     const operationName = "listCloudAutonomousVmClusterAcdResourceUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/ListCloudAutonomousVmClusterAcdResourceUsage";
@@ -17536,6 +17923,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listCloudAutonomousVmClusterAcdResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17647,7 +18035,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listCloudAutonomousVmClusters(
     listCloudAutonomousVmClustersRequest: requests.ListCloudAutonomousVmClustersRequest
   ): Promise<responses.ListCloudAutonomousVmClustersResponse> {
-    logger.debug("Calling operation DatabaseClient#listCloudAutonomousVmClusters.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listCloudAutonomousVmClusters.");
     const operationName = "listCloudAutonomousVmClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/ListCloudAutonomousVmClusters";
@@ -17677,6 +18066,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listCloudAutonomousVmClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17784,7 +18174,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listCloudExadataInfrastructures(
     listCloudExadataInfrastructuresRequest: requests.ListCloudExadataInfrastructuresRequest
   ): Promise<responses.ListCloudExadataInfrastructuresResponse> {
-    logger.debug("Calling operation DatabaseClient#listCloudExadataInfrastructures.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listCloudExadataInfrastructures.");
     const operationName = "listCloudExadataInfrastructures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/ListCloudExadataInfrastructures";
@@ -17811,6 +18202,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listCloudExadataInfrastructuresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17918,7 +18310,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listCloudVmClusterUpdateHistoryEntries(
     listCloudVmClusterUpdateHistoryEntriesRequest: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
   ): Promise<responses.ListCloudVmClusterUpdateHistoryEntriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listCloudVmClusterUpdateHistoryEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listCloudVmClusterUpdateHistoryEntries.");
     const operationName = "listCloudVmClusterUpdateHistoryEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/UpdateHistoryEntry/ListCloudVmClusterUpdateHistoryEntries";
@@ -17943,6 +18336,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listCloudVmClusterUpdateHistoryEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18050,7 +18444,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listCloudVmClusterUpdates(
     listCloudVmClusterUpdatesRequest: requests.ListCloudVmClusterUpdatesRequest
   ): Promise<responses.ListCloudVmClusterUpdatesResponse> {
-    logger.debug("Calling operation DatabaseClient#listCloudVmClusterUpdates.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listCloudVmClusterUpdates.");
     const operationName = "listCloudVmClusterUpdates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Update/ListCloudVmClusterUpdates";
@@ -18075,6 +18470,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listCloudVmClusterUpdatesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18182,7 +18578,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listCloudVmClusters(
     listCloudVmClustersRequest: requests.ListCloudVmClustersRequest
   ): Promise<responses.ListCloudVmClustersResponse> {
-    logger.debug("Calling operation DatabaseClient#listCloudVmClusters.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listCloudVmClusters.");
     const operationName = "listCloudVmClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/ListCloudVmClusters";
@@ -18210,6 +18606,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listCloudVmClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18317,7 +18714,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listConsoleConnections(
     listConsoleConnectionsRequest: requests.ListConsoleConnectionsRequest
   ): Promise<responses.ListConsoleConnectionsResponse> {
-    logger.debug("Calling operation DatabaseClient#listConsoleConnections.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listConsoleConnections.");
     const operationName = "listConsoleConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/ListConsoleConnections";
@@ -18337,6 +18734,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listConsoleConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18392,7 +18790,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listConsoleHistories(
     listConsoleHistoriesRequest: requests.ListConsoleHistoriesRequest
   ): Promise<responses.ListConsoleHistoriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listConsoleHistories.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listConsoleHistories.");
     const operationName = "listConsoleHistories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/ListConsoleHistories";
@@ -18420,6 +18818,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listConsoleHistoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18475,7 +18874,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listContainerDatabasePatches(
     listContainerDatabasePatchesRequest: requests.ListContainerDatabasePatchesRequest
   ): Promise<responses.ListContainerDatabasePatchesResponse> {
-    logger.debug("Calling operation DatabaseClient#listContainerDatabasePatches.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listContainerDatabasePatches.");
     const operationName = "listContainerDatabasePatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousPatch/ListContainerDatabasePatches";
@@ -18501,6 +18901,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listContainerDatabasePatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18608,7 +19009,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDataGuardAssociations(
     listDataGuardAssociationsRequest: requests.ListDataGuardAssociationsRequest
   ): Promise<responses.ListDataGuardAssociationsResponse> {
-    logger.debug("Calling operation DatabaseClient#listDataGuardAssociations.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDataGuardAssociations.");
     const operationName = "listDataGuardAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/ListDataGuardAssociations";
@@ -18631,6 +19033,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDataGuardAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18738,7 +19141,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDatabaseSoftwareImages(
     listDatabaseSoftwareImagesRequest: requests.ListDatabaseSoftwareImagesRequest
   ): Promise<responses.ListDatabaseSoftwareImagesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDatabaseSoftwareImages.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDatabaseSoftwareImages.");
     const operationName = "listDatabaseSoftwareImages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/ListDatabaseSoftwareImages";
@@ -18767,6 +19171,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDatabaseSoftwareImagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18874,7 +19279,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDatabaseUpgradeHistoryEntries(
     listDatabaseUpgradeHistoryEntriesRequest: requests.ListDatabaseUpgradeHistoryEntriesRequest
   ): Promise<responses.ListDatabaseUpgradeHistoryEntriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDatabaseUpgradeHistoryEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDatabaseUpgradeHistoryEntries.");
     const operationName = "listDatabaseUpgradeHistoryEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ListDatabaseUpgradeHistoryEntries";
@@ -18902,6 +19308,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDatabaseUpgradeHistoryEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19009,7 +19416,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDatabases(
     listDatabasesRequest: requests.ListDatabasesRequest
   ): Promise<responses.ListDatabasesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDatabases.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDatabases.");
     const operationName = "listDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ListDatabases";
@@ -19037,6 +19444,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19144,7 +19552,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbHomePatchHistoryEntries(
     listDbHomePatchHistoryEntriesRequest: requests.ListDbHomePatchHistoryEntriesRequest
   ): Promise<responses.ListDbHomePatchHistoryEntriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbHomePatchHistoryEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbHomePatchHistoryEntries.");
     const operationName = "listDbHomePatchHistoryEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/ListDbHomePatchHistoryEntries";
@@ -19167,6 +19576,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbHomePatchHistoryEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19274,7 +19684,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbHomePatches(
     listDbHomePatchesRequest: requests.ListDbHomePatchesRequest
   ): Promise<responses.ListDbHomePatchesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbHomePatches.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbHomePatches.");
     const operationName = "listDbHomePatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/ListDbHomePatches";
@@ -19297,6 +19707,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbHomePatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19404,7 +19815,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbHomes(
     listDbHomesRequest: requests.ListDbHomesRequest
   ): Promise<responses.ListDbHomesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbHomes.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbHomes.");
     const operationName = "listDbHomes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/ListDbHomes";
@@ -19434,6 +19845,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbHomesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19541,7 +19953,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbNodes(
     listDbNodesRequest: requests.ListDbNodesRequest
   ): Promise<responses.ListDbNodesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbNodes.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbNodes.");
     const operationName = "listDbNodes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/ListDbNodes";
@@ -19569,6 +19981,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbNodesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19676,7 +20089,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbServers(
     listDbServersRequest: requests.ListDbServersRequest
   ): Promise<responses.ListDbServersResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbServers.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbServers.");
     const operationName = "listDbServers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbServer/ListDbServers";
@@ -19704,6 +20117,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbServersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19811,7 +20225,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbSystemComputePerformances(
     listDbSystemComputePerformancesRequest: requests.ListDbSystemComputePerformancesRequest
   ): Promise<responses.ListDbSystemComputePerformancesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbSystemComputePerformances.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemComputePerformances.");
     const operationName = "listDbSystemComputePerformances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ListDbSystemComputePerformances";
@@ -19832,6 +20247,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbSystemComputePerformancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19887,7 +20303,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbSystemPatchHistoryEntries(
     listDbSystemPatchHistoryEntriesRequest: requests.ListDbSystemPatchHistoryEntriesRequest
   ): Promise<responses.ListDbSystemPatchHistoryEntriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbSystemPatchHistoryEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemPatchHistoryEntries.");
     const operationName = "listDbSystemPatchHistoryEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/ListDbSystemPatchHistoryEntries";
@@ -19910,6 +20327,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbSystemPatchHistoryEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20017,7 +20435,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbSystemPatches(
     listDbSystemPatchesRequest: requests.ListDbSystemPatchesRequest
   ): Promise<responses.ListDbSystemPatchesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbSystemPatches.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystemPatches.");
     const operationName = "listDbSystemPatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/ListDbSystemPatches";
@@ -20040,6 +20458,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbSystemPatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20146,7 +20565,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbSystemShapes(
     listDbSystemShapesRequest: requests.ListDbSystemShapesRequest
   ): Promise<responses.ListDbSystemShapesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbSystemShapes.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystemShapes.");
     const operationName = "listDbSystemShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemShapeSummary/ListDbSystemShapes";
@@ -20169,6 +20588,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbSystemShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20276,7 +20696,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbSystemStoragePerformances(
     listDbSystemStoragePerformancesRequest: requests.ListDbSystemStoragePerformancesRequest
   ): Promise<responses.ListDbSystemStoragePerformancesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbSystemStoragePerformances.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemStoragePerformances.");
     const operationName = "listDbSystemStoragePerformances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ListDbSystemStoragePerformances";
@@ -20298,6 +20719,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbSystemStoragePerformancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20353,7 +20775,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   public async listDbSystemUpgradeHistoryEntries(
     listDbSystemUpgradeHistoryEntriesRequest: requests.ListDbSystemUpgradeHistoryEntriesRequest
   ): Promise<responses.ListDbSystemUpgradeHistoryEntriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbSystemUpgradeHistoryEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemUpgradeHistoryEntries.");
     const operationName = "listDbSystemUpgradeHistoryEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemUpgradeHistoryEntry/ListDbSystemUpgradeHistoryEntries";
@@ -20381,6 +20804,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       listDbSystemUpgradeHistoryEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20492,7 +20916,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
   ): Promise<responses.ListDbSystemsResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbSystems.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystems.");
     const operationName = "listDbSystems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ListDbSystems";
@@ -20520,6 +20944,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listDbSystemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20626,7 +21051,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listDbVersions(
     listDbVersionsRequest: requests.ListDbVersionsRequest
   ): Promise<responses.ListDbVersionsResponse> {
-    logger.debug("Calling operation DatabaseClient#listDbVersions.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbVersions.");
     const operationName = "listDbVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbVersionSummary/ListDbVersions";
@@ -20653,6 +21078,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listDbVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20761,7 +21187,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listExadataInfrastructures(
     listExadataInfrastructuresRequest: requests.ListExadataInfrastructuresRequest
   ): Promise<responses.ListExadataInfrastructuresResponse> {
-    logger.debug("Calling operation DatabaseClient#listExadataInfrastructures.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExadataInfrastructures.");
     const operationName = "listExadataInfrastructures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/ListExadataInfrastructures";
@@ -20789,6 +21216,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listExadataInfrastructuresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20896,7 +21324,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listExternalContainerDatabases(
     listExternalContainerDatabasesRequest: requests.ListExternalContainerDatabasesRequest
   ): Promise<responses.ListExternalContainerDatabasesResponse> {
-    logger.debug("Calling operation DatabaseClient#listExternalContainerDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExternalContainerDatabases.");
     const operationName = "listExternalContainerDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/ListExternalContainerDatabases";
@@ -20923,6 +21352,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listExternalContainerDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21030,7 +21460,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listExternalDatabaseConnectors(
     listExternalDatabaseConnectorsRequest: requests.ListExternalDatabaseConnectorsRequest
   ): Promise<responses.ListExternalDatabaseConnectorsResponse> {
-    logger.debug("Calling operation DatabaseClient#listExternalDatabaseConnectors.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExternalDatabaseConnectors.");
     const operationName = "listExternalDatabaseConnectors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/ListExternalDatabaseConnectors";
@@ -21058,6 +21489,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listExternalDatabaseConnectorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21165,7 +21597,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listExternalNonContainerDatabases(
     listExternalNonContainerDatabasesRequest: requests.ListExternalNonContainerDatabasesRequest
   ): Promise<responses.ListExternalNonContainerDatabasesResponse> {
-    logger.debug("Calling operation DatabaseClient#listExternalNonContainerDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExternalNonContainerDatabases.");
     const operationName = "listExternalNonContainerDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/ListExternalNonContainerDatabases";
@@ -21192,6 +21625,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listExternalNonContainerDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21300,7 +21734,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listExternalPluggableDatabases(
     listExternalPluggableDatabasesRequest: requests.ListExternalPluggableDatabasesRequest
   ): Promise<responses.ListExternalPluggableDatabasesResponse> {
-    logger.debug("Calling operation DatabaseClient#listExternalPluggableDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExternalPluggableDatabases.");
     const operationName = "listExternalPluggableDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/ListExternalPluggableDatabases";
@@ -21329,6 +21764,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listExternalPluggableDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21435,7 +21871,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listFlexComponents(
     listFlexComponentsRequest: requests.ListFlexComponentsRequest
   ): Promise<responses.ListFlexComponentsResponse> {
-    logger.debug("Calling operation DatabaseClient#listFlexComponents.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listFlexComponents.");
     const operationName = "listFlexComponents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/FlexComponentCollection/ListFlexComponents";
@@ -21460,6 +21896,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listFlexComponentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21514,7 +21951,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listGiVersions(
     listGiVersionsRequest: requests.ListGiVersionsRequest
   ): Promise<responses.ListGiVersionsResponse> {
-    logger.debug("Calling operation DatabaseClient#listGiVersions.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listGiVersions.");
     const operationName = "listGiVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/GiVersionSummary/ListGiVersions";
@@ -21538,6 +21975,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listGiVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21645,7 +22083,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listKeyStores(
     listKeyStoresRequest: requests.ListKeyStoresRequest
   ): Promise<responses.ListKeyStoresResponse> {
-    logger.debug("Calling operation DatabaseClient#listKeyStores.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listKeyStores.");
     const operationName = "listKeyStores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStoreSummary/ListKeyStores";
@@ -21668,6 +22106,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listKeyStoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21775,7 +22214,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listMaintenanceRunHistory(
     listMaintenanceRunHistoryRequest: requests.ListMaintenanceRunHistoryRequest
   ): Promise<responses.ListMaintenanceRunHistoryResponse> {
-    logger.debug("Calling operation DatabaseClient#listMaintenanceRunHistory.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listMaintenanceRunHistory.");
     const operationName = "listMaintenanceRunHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRunHistory/ListMaintenanceRunHistory";
@@ -21805,6 +22245,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listMaintenanceRunHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21912,7 +22353,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listMaintenanceRuns(
     listMaintenanceRunsRequest: requests.ListMaintenanceRunsRequest
   ): Promise<responses.ListMaintenanceRunsResponse> {
-    logger.debug("Calling operation DatabaseClient#listMaintenanceRuns.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listMaintenanceRuns.");
     const operationName = "listMaintenanceRuns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRun/ListMaintenanceRuns";
@@ -21942,6 +22383,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listMaintenanceRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22049,7 +22491,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listOneoffPatches(
     listOneoffPatchesRequest: requests.ListOneoffPatchesRequest
   ): Promise<responses.ListOneoffPatchesResponse> {
-    logger.debug("Calling operation DatabaseClient#listOneoffPatches.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listOneoffPatches.");
     const operationName = "listOneoffPatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/ListOneoffPatches";
@@ -22076,6 +22518,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listOneoffPatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22183,7 +22626,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listPdbConversionHistoryEntries(
     listPdbConversionHistoryEntriesRequest: requests.ListPdbConversionHistoryEntriesRequest
   ): Promise<responses.ListPdbConversionHistoryEntriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listPdbConversionHistoryEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listPdbConversionHistoryEntries.");
     const operationName = "listPdbConversionHistoryEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ListPdbConversionHistoryEntries";
@@ -22211,6 +22655,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listPdbConversionHistoryEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22318,7 +22763,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listPluggableDatabases(
     listPluggableDatabasesRequest: requests.ListPluggableDatabasesRequest
   ): Promise<responses.ListPluggableDatabasesResponse> {
-    logger.debug("Calling operation DatabaseClient#listPluggableDatabases.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listPluggableDatabases.");
     const operationName = "listPluggableDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/ListPluggableDatabases";
@@ -22345,6 +22790,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listPluggableDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22451,7 +22897,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listSystemVersions(
     listSystemVersionsRequest: requests.ListSystemVersionsRequest
   ): Promise<responses.ListSystemVersionsResponse> {
-    logger.debug("Calling operation DatabaseClient#listSystemVersions.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listSystemVersions.");
     const operationName = "listSystemVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/SystemVersionCollection/ListSystemVersions";
@@ -22477,6 +22923,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listSystemVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22532,7 +22979,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listVmClusterNetworks(
     listVmClusterNetworksRequest: requests.ListVmClusterNetworksRequest
   ): Promise<responses.ListVmClusterNetworksResponse> {
-    logger.debug("Calling operation DatabaseClient#listVmClusterNetworks.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterNetworks.");
     const operationName = "listVmClusterNetworks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/ListVmClusterNetworks";
@@ -22561,6 +23008,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listVmClusterNetworksRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22668,7 +23116,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listVmClusterPatchHistoryEntries(
     listVmClusterPatchHistoryEntriesRequest: requests.ListVmClusterPatchHistoryEntriesRequest
   ): Promise<responses.ListVmClusterPatchHistoryEntriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listVmClusterPatchHistoryEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listVmClusterPatchHistoryEntries.");
     const operationName = "listVmClusterPatchHistoryEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/ListVmClusterPatchHistoryEntries";
@@ -22691,6 +23140,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listVmClusterPatchHistoryEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22798,7 +23248,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listVmClusterPatches(
     listVmClusterPatchesRequest: requests.ListVmClusterPatchesRequest
   ): Promise<responses.ListVmClusterPatchesResponse> {
-    logger.debug("Calling operation DatabaseClient#listVmClusterPatches.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterPatches.");
     const operationName = "listVmClusterPatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/ListVmClusterPatches";
@@ -22821,6 +23271,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listVmClusterPatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22928,7 +23379,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listVmClusterUpdateHistoryEntries(
     listVmClusterUpdateHistoryEntriesRequest: requests.ListVmClusterUpdateHistoryEntriesRequest
   ): Promise<responses.ListVmClusterUpdateHistoryEntriesResponse> {
-    logger.debug("Calling operation DatabaseClient#listVmClusterUpdateHistoryEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listVmClusterUpdateHistoryEntries.");
     const operationName = "listVmClusterUpdateHistoryEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterUpdateHistoryEntry/ListVmClusterUpdateHistoryEntries";
@@ -22954,6 +23406,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listVmClusterUpdateHistoryEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23061,7 +23514,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listVmClusterUpdates(
     listVmClusterUpdatesRequest: requests.ListVmClusterUpdatesRequest
   ): Promise<responses.ListVmClusterUpdatesResponse> {
-    logger.debug("Calling operation DatabaseClient#listVmClusterUpdates.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterUpdates.");
     const operationName = "listVmClusterUpdates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterUpdate/ListVmClusterUpdates";
@@ -23087,6 +23540,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listVmClusterUpdatesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23195,7 +23649,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async listVmClusters(
     listVmClustersRequest: requests.ListVmClustersRequest
   ): Promise<responses.ListVmClustersResponse> {
-    logger.debug("Calling operation DatabaseClient#listVmClusters.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusters.");
     const operationName = "listVmClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/ListVmClusters";
@@ -23223,6 +23677,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       listVmClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23331,7 +23786,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async localClonePluggableDatabase(
     localClonePluggableDatabaseRequest: requests.LocalClonePluggableDatabaseRequest
   ): Promise<responses.LocalClonePluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#localClonePluggableDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#localClonePluggableDatabase.");
     const operationName = "localClonePluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/LocalClonePluggableDatabase";
@@ -23354,6 +23810,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       localClonePluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23420,7 +23877,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async migrateExadataDbSystemResourceModel(
     migrateExadataDbSystemResourceModelRequest: requests.MigrateExadataDbSystemResourceModelRequest
   ): Promise<responses.MigrateExadataDbSystemResourceModelResponse> {
-    logger.debug("Calling operation DatabaseClient#migrateExadataDbSystemResourceModel.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#migrateExadataDbSystemResourceModel.");
     const operationName = "migrateExadataDbSystemResourceModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/MigrateExadataDbSystemResourceModel";
@@ -23443,6 +23901,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       migrateExadataDbSystemResourceModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23502,7 +23961,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async migrateVaultKey(
     migrateVaultKeyRequest: requests.MigrateVaultKeyRequest
   ): Promise<responses.MigrateVaultKeyResponse> {
-    logger.debug("Calling operation DatabaseClient#migrateVaultKey.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#migrateVaultKey.");
     const operationName = "migrateVaultKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/MigrateVaultKey";
@@ -23525,6 +23984,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       migrateVaultKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23589,7 +24049,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async modifyDatabaseManagement(
     modifyDatabaseManagementRequest: requests.ModifyDatabaseManagementRequest
   ): Promise<responses.ModifyDatabaseManagementResponse> {
-    logger.debug("Calling operation DatabaseClient#modifyDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#modifyDatabaseManagement.");
     const operationName = "modifyDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ModifyDatabaseManagement";
@@ -23612,6 +24073,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       modifyDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23676,7 +24138,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async modifyPluggableDatabaseManagement(
     modifyPluggableDatabaseManagementRequest: requests.ModifyPluggableDatabaseManagementRequest
   ): Promise<responses.ModifyPluggableDatabaseManagementResponse> {
-    logger.debug("Calling operation DatabaseClient#modifyPluggableDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#modifyPluggableDatabaseManagement.");
     const operationName = "modifyPluggableDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/ModifyPluggableDatabaseManagement";
@@ -23699,6 +24162,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       modifyPluggableDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23764,7 +24228,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async refreshPluggableDatabase(
     refreshPluggableDatabaseRequest: requests.RefreshPluggableDatabaseRequest
   ): Promise<responses.RefreshPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#refreshPluggableDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#refreshPluggableDatabase.");
     const operationName = "refreshPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/RefreshPluggableDatabase";
@@ -23787,6 +24252,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       refreshPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23847,7 +24313,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async registerAutonomousDatabaseDataSafe(
     registerAutonomousDatabaseDataSafeRequest: requests.RegisterAutonomousDatabaseDataSafeRequest
   ): Promise<responses.RegisterAutonomousDatabaseDataSafeResponse> {
-    logger.debug("Calling operation DatabaseClient#registerAutonomousDatabaseDataSafe.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#registerAutonomousDatabaseDataSafe.");
     const operationName = "registerAutonomousDatabaseDataSafe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/RegisterAutonomousDatabaseDataSafe";
@@ -23868,6 +24335,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       registerAutonomousDatabaseDataSafeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23924,9 +24392,10 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async reinstateAutonomousContainerDatabaseDataguardAssociation(
     reinstateAutonomousContainerDatabaseDataguardAssociationRequest: requests.ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
   ): Promise<responses.ReinstateAutonomousContainerDatabaseDataguardAssociationResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#reinstateAutonomousContainerDatabaseDataguardAssociation."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#reinstateAutonomousContainerDatabaseDataguardAssociation."
+      );
     const operationName = "reinstateAutonomousContainerDatabaseDataguardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/ReinstateAutonomousContainerDatabaseDataguardAssociation";
@@ -23950,6 +24419,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       reinstateAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24013,7 +24483,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async reinstateDataGuardAssociation(
     reinstateDataGuardAssociationRequest: requests.ReinstateDataGuardAssociationRequest
   ): Promise<responses.ReinstateDataGuardAssociationResponse> {
-    logger.debug("Calling operation DatabaseClient#reinstateDataGuardAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#reinstateDataGuardAssociation.");
     const operationName = "reinstateDataGuardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/ReinstateDataGuardAssociation";
@@ -24035,6 +24506,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       reinstateDataGuardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24103,7 +24575,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async remoteClonePluggableDatabase(
     remoteClonePluggableDatabaseRequest: requests.RemoteClonePluggableDatabaseRequest
   ): Promise<responses.RemoteClonePluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#remoteClonePluggableDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#remoteClonePluggableDatabase.");
     const operationName = "remoteClonePluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/RemoteClonePluggableDatabase";
@@ -24126,6 +24599,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       remoteClonePluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24191,7 +24665,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async removeVirtualMachineFromCloudVmCluster(
     removeVirtualMachineFromCloudVmClusterRequest: requests.RemoveVirtualMachineFromCloudVmClusterRequest
   ): Promise<responses.RemoveVirtualMachineFromCloudVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#removeVirtualMachineFromCloudVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#removeVirtualMachineFromCloudVmCluster.");
     const operationName = "removeVirtualMachineFromCloudVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/RemoveVirtualMachineFromCloudVmCluster";
@@ -24214,6 +24689,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       removeVirtualMachineFromCloudVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24279,7 +24755,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async removeVirtualMachineFromVmCluster(
     removeVirtualMachineFromVmClusterRequest: requests.RemoveVirtualMachineFromVmClusterRequest
   ): Promise<responses.RemoveVirtualMachineFromVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#removeVirtualMachineFromVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#removeVirtualMachineFromVmCluster.");
     const operationName = "removeVirtualMachineFromVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/RemoveVirtualMachineFromVmCluster";
@@ -24302,6 +24779,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       removeVirtualMachineFromVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24368,7 +24846,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async resizeVmClusterNetwork(
     resizeVmClusterNetworkRequest: requests.ResizeVmClusterNetworkRequest
   ): Promise<responses.ResizeVmClusterNetworkResponse> {
-    logger.debug("Calling operation DatabaseClient#resizeVmClusterNetwork.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#resizeVmClusterNetwork.");
     const operationName = "resizeVmClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/ResizeVmClusterNetwork";
@@ -24392,6 +24870,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       resizeVmClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24457,7 +24936,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async resourcePoolShapes(
     resourcePoolShapesRequest: requests.ResourcePoolShapesRequest
   ): Promise<responses.ResourcePoolShapesResponse> {
-    logger.debug("Calling operation DatabaseClient#resourcePoolShapes.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#resourcePoolShapes.");
     const operationName = "resourcePoolShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ResourcePoolShapes";
@@ -24481,6 +24960,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       resourcePoolShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24541,7 +25021,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async restartAutonomousContainerDatabase(
     restartAutonomousContainerDatabaseRequest: requests.RestartAutonomousContainerDatabaseRequest
   ): Promise<responses.RestartAutonomousContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#restartAutonomousContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restartAutonomousContainerDatabase.");
     const operationName = "restartAutonomousContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/RestartAutonomousContainerDatabase";
@@ -24564,6 +25045,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       restartAutonomousContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24624,7 +25106,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async restartAutonomousDatabase(
     restartAutonomousDatabaseRequest: requests.RestartAutonomousDatabaseRequest
   ): Promise<responses.RestartAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#restartAutonomousDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restartAutonomousDatabase.");
     const operationName = "restartAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/RestartAutonomousDatabase";
@@ -24645,6 +25128,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       restartAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24705,7 +25189,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async restoreAutonomousDatabase(
     restoreAutonomousDatabaseRequest: requests.RestoreAutonomousDatabaseRequest
   ): Promise<responses.RestoreAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#restoreAutonomousDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restoreAutonomousDatabase.");
     const operationName = "restoreAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/RestoreAutonomousDatabase";
@@ -24726,6 +25211,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       restoreAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24791,7 +25277,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async restoreDatabase(
     restoreDatabaseRequest: requests.RestoreDatabaseRequest
   ): Promise<responses.RestoreDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#restoreDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#restoreDatabase.");
     const operationName = "restoreDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/RestoreDatabase";
@@ -24812,6 +25298,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       restoreDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24876,9 +25363,10 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateAutonomousContainerDatabaseEncryptionKey(
     rotateAutonomousContainerDatabaseEncryptionKeyRequest: requests.RotateAutonomousContainerDatabaseEncryptionKeyRequest
   ): Promise<responses.RotateAutonomousContainerDatabaseEncryptionKeyResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#rotateAutonomousContainerDatabaseEncryptionKey."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#rotateAutonomousContainerDatabaseEncryptionKey."
+      );
     const operationName = "rotateAutonomousContainerDatabaseEncryptionKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/RotateAutonomousContainerDatabaseEncryptionKey";
@@ -24902,6 +25390,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateAutonomousContainerDatabaseEncryptionKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -24961,7 +25450,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateAutonomousDatabaseEncryptionKey(
     rotateAutonomousDatabaseEncryptionKeyRequest: requests.RotateAutonomousDatabaseEncryptionKeyRequest
   ): Promise<responses.RotateAutonomousDatabaseEncryptionKeyResponse> {
-    logger.debug("Calling operation DatabaseClient#rotateAutonomousDatabaseEncryptionKey.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotateAutonomousDatabaseEncryptionKey.");
     const operationName = "rotateAutonomousDatabaseEncryptionKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/RotateAutonomousDatabaseEncryptionKey";
@@ -24984,6 +25474,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateAutonomousDatabaseEncryptionKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25044,7 +25535,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateAutonomousVmClusterOrdsCerts(
     rotateAutonomousVmClusterOrdsCertsRequest: requests.RotateAutonomousVmClusterOrdsCertsRequest
   ): Promise<responses.RotateAutonomousVmClusterOrdsCertsResponse> {
-    logger.debug("Calling operation DatabaseClient#rotateAutonomousVmClusterOrdsCerts.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotateAutonomousVmClusterOrdsCerts.");
     const operationName = "rotateAutonomousVmClusterOrdsCerts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/RotateAutonomousVmClusterOrdsCerts";
@@ -25067,6 +25559,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateAutonomousVmClusterOrdsCertsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25123,7 +25616,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateAutonomousVmClusterSslCerts(
     rotateAutonomousVmClusterSslCertsRequest: requests.RotateAutonomousVmClusterSslCertsRequest
   ): Promise<responses.RotateAutonomousVmClusterSslCertsResponse> {
-    logger.debug("Calling operation DatabaseClient#rotateAutonomousVmClusterSslCerts.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotateAutonomousVmClusterSslCerts.");
     const operationName = "rotateAutonomousVmClusterSslCerts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/RotateAutonomousVmClusterSslCerts";
@@ -25146,6 +25640,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateAutonomousVmClusterSslCertsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25202,7 +25697,10 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateCloudAutonomousVmClusterOrdsCerts(
     rotateCloudAutonomousVmClusterOrdsCertsRequest: requests.RotateCloudAutonomousVmClusterOrdsCertsRequest
   ): Promise<responses.RotateCloudAutonomousVmClusterOrdsCertsResponse> {
-    logger.debug("Calling operation DatabaseClient#rotateCloudAutonomousVmClusterOrdsCerts.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#rotateCloudAutonomousVmClusterOrdsCerts."
+      );
     const operationName = "rotateCloudAutonomousVmClusterOrdsCerts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/RotateCloudAutonomousVmClusterOrdsCerts";
@@ -25226,6 +25724,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateCloudAutonomousVmClusterOrdsCertsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25282,7 +25781,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateCloudAutonomousVmClusterSslCerts(
     rotateCloudAutonomousVmClusterSslCertsRequest: requests.RotateCloudAutonomousVmClusterSslCertsRequest
   ): Promise<responses.RotateCloudAutonomousVmClusterSslCertsResponse> {
-    logger.debug("Calling operation DatabaseClient#rotateCloudAutonomousVmClusterSslCerts.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotateCloudAutonomousVmClusterSslCerts.");
     const operationName = "rotateCloudAutonomousVmClusterSslCerts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/RotateCloudAutonomousVmClusterSslCerts";
@@ -25306,6 +25806,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateCloudAutonomousVmClusterSslCertsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25362,7 +25863,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateOrdsCerts(
     rotateOrdsCertsRequest: requests.RotateOrdsCertsRequest
   ): Promise<responses.RotateOrdsCertsResponse> {
-    logger.debug("Calling operation DatabaseClient#rotateOrdsCerts.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateOrdsCerts.");
     const operationName = "rotateOrdsCerts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/RotateOrdsCerts";
@@ -25386,6 +25887,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateOrdsCertsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25437,7 +25939,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotatePluggableDatabaseEncryptionKey(
     rotatePluggableDatabaseEncryptionKeyRequest: requests.RotatePluggableDatabaseEncryptionKeyRequest
   ): Promise<responses.RotatePluggableDatabaseEncryptionKeyResponse> {
-    logger.debug("Calling operation DatabaseClient#rotatePluggableDatabaseEncryptionKey.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotatePluggableDatabaseEncryptionKey.");
     const operationName = "rotatePluggableDatabaseEncryptionKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/RotatePluggableDatabaseEncryptionKey";
@@ -25460,6 +25963,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotatePluggableDatabaseEncryptionKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25511,7 +26015,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateSslCerts(
     rotateSslCertsRequest: requests.RotateSslCertsRequest
   ): Promise<responses.RotateSslCertsResponse> {
-    logger.debug("Calling operation DatabaseClient#rotateSslCerts.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateSslCerts.");
     const operationName = "rotateSslCerts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/RotateSslCerts";
@@ -25534,6 +26038,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateSslCertsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25585,7 +26090,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async rotateVaultKey(
     rotateVaultKeyRequest: requests.RotateVaultKeyRequest
   ): Promise<responses.RotateVaultKeyResponse> {
-    logger.debug("Calling operation DatabaseClient#rotateVaultKey.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateVaultKey.");
     const operationName = "rotateVaultKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/RotateVaultKey";
@@ -25608,6 +26113,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       rotateVaultKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25667,7 +26173,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async saasAdminUserStatus(
     saasAdminUserStatusRequest: requests.SaasAdminUserStatusRequest
   ): Promise<responses.SaasAdminUserStatusResponse> {
-    logger.debug("Calling operation DatabaseClient#saasAdminUserStatus.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#saasAdminUserStatus.");
     const operationName = "saasAdminUserStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/SaasAdminUserStatus";
@@ -25688,6 +26194,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       saasAdminUserStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25744,9 +26251,10 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async scanExternalContainerDatabasePluggableDatabases(
     scanExternalContainerDatabasePluggableDatabasesRequest: requests.ScanExternalContainerDatabasePluggableDatabasesRequest
   ): Promise<responses.ScanExternalContainerDatabasePluggableDatabasesResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#scanExternalContainerDatabasePluggableDatabases."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#scanExternalContainerDatabasePluggableDatabases."
+      );
     const operationName = "scanExternalContainerDatabasePluggableDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/ScanExternalContainerDatabasePluggableDatabases";
@@ -25772,6 +26280,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       scanExternalContainerDatabasePluggableDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25824,7 +26333,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async shrinkAutonomousDatabase(
     shrinkAutonomousDatabaseRequest: requests.ShrinkAutonomousDatabaseRequest
   ): Promise<responses.ShrinkAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#shrinkAutonomousDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#shrinkAutonomousDatabase.");
     const operationName = "shrinkAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ShrinkAutonomousDatabase";
@@ -25845,6 +26355,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       shrinkAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25905,7 +26416,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async startAutonomousDatabase(
     startAutonomousDatabaseRequest: requests.StartAutonomousDatabaseRequest
   ): Promise<responses.StartAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#startAutonomousDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#startAutonomousDatabase.");
     const operationName = "startAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/StartAutonomousDatabase";
@@ -25926,6 +26437,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       startAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -25985,7 +26497,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async startPluggableDatabase(
     startPluggableDatabaseRequest: requests.StartPluggableDatabaseRequest
   ): Promise<responses.StartPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#startPluggableDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#startPluggableDatabase.");
     const operationName = "startPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/StartPluggableDatabase";
@@ -26008,6 +26520,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       startPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26068,7 +26581,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async stopAutonomousDatabase(
     stopAutonomousDatabaseRequest: requests.StopAutonomousDatabaseRequest
   ): Promise<responses.StopAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#stopAutonomousDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#stopAutonomousDatabase.");
     const operationName = "stopAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/StopAutonomousDatabase";
@@ -26090,6 +26603,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       stopAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26149,7 +26663,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async stopPluggableDatabase(
     stopPluggableDatabaseRequest: requests.StopPluggableDatabaseRequest
   ): Promise<responses.StopPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#stopPluggableDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#stopPluggableDatabase.");
     const operationName = "stopPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/StopPluggableDatabase";
@@ -26172,6 +26686,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       stopPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26234,9 +26749,10 @@ A switchover incurs no data loss.
   public async switchoverAutonomousContainerDatabaseDataguardAssociation(
     switchoverAutonomousContainerDatabaseDataguardAssociationRequest: requests.SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
   ): Promise<responses.SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#switchoverAutonomousContainerDatabaseDataguardAssociation."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#switchoverAutonomousContainerDatabaseDataguardAssociation."
+      );
     const operationName = "switchoverAutonomousContainerDatabaseDataguardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/SwitchoverAutonomousContainerDatabaseDataguardAssociation";
@@ -26260,6 +26776,7 @@ A switchover incurs no data loss.
       switchoverAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26323,7 +26840,8 @@ A switchover incurs no data loss.
   public async switchoverAutonomousDatabase(
     switchoverAutonomousDatabaseRequest: requests.SwitchoverAutonomousDatabaseRequest
   ): Promise<responses.SwitchoverAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#switchoverAutonomousDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#switchoverAutonomousDatabase.");
     const operationName = "switchoverAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/SwitchoverAutonomousDatabase";
@@ -26348,6 +26866,7 @@ A switchover incurs no data loss.
       switchoverAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26411,7 +26930,8 @@ A switchover guarantees no data loss.
   public async switchoverDataGuardAssociation(
     switchoverDataGuardAssociationRequest: requests.SwitchoverDataGuardAssociationRequest
   ): Promise<responses.SwitchoverDataGuardAssociationResponse> {
-    logger.debug("Calling operation DatabaseClient#switchoverDataGuardAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#switchoverDataGuardAssociation.");
     const operationName = "switchoverDataGuardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/SwitchoverDataGuardAssociation";
@@ -26433,6 +26953,7 @@ A switchover guarantees no data loss.
       switchoverDataGuardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26498,7 +27019,8 @@ A switchover guarantees no data loss.
   public async terminateAutonomousContainerDatabase(
     terminateAutonomousContainerDatabaseRequest: requests.TerminateAutonomousContainerDatabaseRequest
   ): Promise<responses.TerminateAutonomousContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#terminateAutonomousContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#terminateAutonomousContainerDatabase.");
     const operationName = "terminateAutonomousContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/TerminateAutonomousContainerDatabase";
@@ -26520,6 +27042,7 @@ A switchover guarantees no data loss.
       terminateAutonomousContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26571,7 +27094,10 @@ A switchover guarantees no data loss.
   public async terminateAutonomousExadataInfrastructure(
     terminateAutonomousExadataInfrastructureRequest: requests.TerminateAutonomousExadataInfrastructureRequest
   ): Promise<responses.TerminateAutonomousExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#terminateAutonomousExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#terminateAutonomousExadataInfrastructure."
+      );
     const operationName = "terminateAutonomousExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/TerminateAutonomousExadataInfrastructure";
@@ -26593,6 +27119,7 @@ A switchover guarantees no data loss.
       terminateAutonomousExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26648,7 +27175,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async terminateDbSystem(
     terminateDbSystemRequest: requests.TerminateDbSystemRequest
   ): Promise<responses.TerminateDbSystemResponse> {
-    logger.debug("Calling operation DatabaseClient#terminateDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#terminateDbSystem.");
     const operationName = "terminateDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/TerminateDbSystem";
@@ -26669,6 +27196,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       terminateDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26719,7 +27247,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateAutonomousContainerDatabase(
     updateAutonomousContainerDatabaseRequest: requests.UpdateAutonomousContainerDatabaseRequest
   ): Promise<responses.UpdateAutonomousContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#updateAutonomousContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousContainerDatabase.");
     const operationName = "updateAutonomousContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/UpdateAutonomousContainerDatabase";
@@ -26741,6 +27270,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateAutonomousContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26806,9 +27336,10 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateAutonomousContainerDatabaseDataguardAssociation(
     updateAutonomousContainerDatabaseDataguardAssociationRequest: requests.UpdateAutonomousContainerDatabaseDataguardAssociationRequest
   ): Promise<responses.UpdateAutonomousContainerDatabaseDataguardAssociationResponse> {
-    logger.debug(
-      "Calling operation DatabaseClient#updateAutonomousContainerDatabaseDataguardAssociation."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#updateAutonomousContainerDatabaseDataguardAssociation."
+      );
     const operationName = "updateAutonomousContainerDatabaseDataguardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/UpdateAutonomousContainerDatabaseDataguardAssociation";
@@ -26833,6 +27364,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26899,7 +27431,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateAutonomousDatabase(
     updateAutonomousDatabaseRequest: requests.UpdateAutonomousDatabaseRequest
   ): Promise<responses.UpdateAutonomousDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#updateAutonomousDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabase.");
     const operationName = "updateAutonomousDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/UpdateAutonomousDatabase";
@@ -26921,6 +27454,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateAutonomousDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -26986,7 +27520,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateAutonomousDatabaseBackup(
     updateAutonomousDatabaseBackupRequest: requests.UpdateAutonomousDatabaseBackupRequest
   ): Promise<responses.UpdateAutonomousDatabaseBackupResponse> {
-    logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseBackup.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseBackup.");
     const operationName = "updateAutonomousDatabaseBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/UpdateAutonomousDatabaseBackup";
@@ -27009,6 +27544,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateAutonomousDatabaseBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27074,7 +27610,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateAutonomousDatabaseRegionalWallet(
     updateAutonomousDatabaseRegionalWalletRequest: requests.UpdateAutonomousDatabaseRegionalWalletRequest
   ): Promise<responses.UpdateAutonomousDatabaseRegionalWalletResponse> {
-    logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseRegionalWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseRegionalWallet.");
     const operationName = "updateAutonomousDatabaseRegionalWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseWallet/UpdateAutonomousDatabaseRegionalWallet";
@@ -27093,6 +27630,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateAutonomousDatabaseRegionalWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27149,7 +27687,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateAutonomousDatabaseWallet(
     updateAutonomousDatabaseWalletRequest: requests.UpdateAutonomousDatabaseWalletRequest
   ): Promise<responses.UpdateAutonomousDatabaseWalletResponse> {
-    logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseWallet.");
     const operationName = "updateAutonomousDatabaseWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseWallet/UpdateAutonomousDatabaseWallet";
@@ -27170,6 +27709,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateAutonomousDatabaseWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27226,7 +27766,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateAutonomousExadataInfrastructure(
     updateAutonomousExadataInfrastructureRequest: requests.UpdateAutonomousExadataInfrastructureRequest
   ): Promise<responses.UpdateAutonomousExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#updateAutonomousExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousExadataInfrastructure.");
     const operationName = "updateAutonomousExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/UpdateAutonomousExadataInfrastructure";
@@ -27248,6 +27789,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateAutonomousExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27313,7 +27855,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateAutonomousVmCluster(
     updateAutonomousVmClusterRequest: requests.UpdateAutonomousVmClusterRequest
   ): Promise<responses.UpdateAutonomousVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#updateAutonomousVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousVmCluster.");
     const operationName = "updateAutonomousVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/UpdateAutonomousVmCluster";
@@ -27335,6 +27878,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateAutonomousVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27402,7 +27946,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateBackupDestination(
     updateBackupDestinationRequest: requests.UpdateBackupDestinationRequest
   ): Promise<responses.UpdateBackupDestinationResponse> {
-    logger.debug("Calling operation DatabaseClient#updateBackupDestination.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateBackupDestination.");
     const operationName = "updateBackupDestination";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/UpdateBackupDestination";
@@ -27424,6 +27968,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateBackupDestinationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27484,7 +28029,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateCloudAutonomousVmCluster(
     updateCloudAutonomousVmClusterRequest: requests.UpdateCloudAutonomousVmClusterRequest
   ): Promise<responses.UpdateCloudAutonomousVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#updateCloudAutonomousVmCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateCloudAutonomousVmCluster.");
     const operationName = "updateCloudAutonomousVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/UpdateCloudAutonomousVmCluster";
@@ -27507,6 +28053,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateCloudAutonomousVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27572,7 +28119,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateCloudExadataInfrastructure(
     updateCloudExadataInfrastructureRequest: requests.UpdateCloudExadataInfrastructureRequest
   ): Promise<responses.UpdateCloudExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#updateCloudExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateCloudExadataInfrastructure.");
     const operationName = "updateCloudExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/UpdateCloudExadataInfrastructure";
@@ -27595,6 +28143,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateCloudExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27660,7 +28209,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateCloudVmCluster(
     updateCloudVmClusterRequest: requests.UpdateCloudVmClusterRequest
   ): Promise<responses.UpdateCloudVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#updateCloudVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateCloudVmCluster.");
     const operationName = "updateCloudVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/UpdateCloudVmCluster";
@@ -27682,6 +28231,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateCloudVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27747,7 +28297,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateCloudVmClusterIormConfig(
     updateCloudVmClusterIormConfigRequest: requests.UpdateCloudVmClusterIormConfigRequest
   ): Promise<responses.UpdateCloudVmClusterIormConfigResponse> {
-    logger.debug("Calling operation DatabaseClient#updateCloudVmClusterIormConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateCloudVmClusterIormConfig.");
     const operationName = "updateCloudVmClusterIormConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/UpdateCloudVmClusterIormConfig";
@@ -27769,6 +28320,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateCloudVmClusterIormConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27833,7 +28385,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateConsoleConnection(
     updateConsoleConnectionRequest: requests.UpdateConsoleConnectionRequest
   ): Promise<responses.UpdateConsoleConnectionResponse> {
-    logger.debug("Calling operation DatabaseClient#updateConsoleConnection.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateConsoleConnection.");
     const operationName = "updateConsoleConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/UpdateConsoleConnection";
@@ -27856,6 +28408,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateConsoleConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -27921,7 +28474,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateConsoleHistory(
     updateConsoleHistoryRequest: requests.UpdateConsoleHistoryRequest
   ): Promise<responses.UpdateConsoleHistoryResponse> {
-    logger.debug("Calling operation DatabaseClient#updateConsoleHistory.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateConsoleHistory.");
     const operationName = "updateConsoleHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleHistory/UpdateConsoleHistory";
@@ -27944,6 +28497,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateConsoleHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28009,7 +28563,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateDataGuardAssociation(
     updateDataGuardAssociationRequest: requests.UpdateDataGuardAssociationRequest
   ): Promise<responses.UpdateDataGuardAssociationResponse> {
-    logger.debug("Calling operation DatabaseClient#updateDataGuardAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateDataGuardAssociation.");
     const operationName = "updateDataGuardAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/UpdateDataGuardAssociation";
@@ -28032,6 +28587,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateDataGuardAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28097,7 +28653,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateDatabase(
     updateDatabaseRequest: requests.UpdateDatabaseRequest
   ): Promise<responses.UpdateDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#updateDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDatabase.");
     const operationName = "updateDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/UpdateDatabase";
@@ -28118,6 +28674,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28182,7 +28739,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateDatabaseSoftwareImage(
     updateDatabaseSoftwareImageRequest: requests.UpdateDatabaseSoftwareImageRequest
   ): Promise<responses.UpdateDatabaseSoftwareImageResponse> {
-    logger.debug("Calling operation DatabaseClient#updateDatabaseSoftwareImage.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateDatabaseSoftwareImage.");
     const operationName = "updateDatabaseSoftwareImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/UpdateDatabaseSoftwareImage";
@@ -28203,6 +28761,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateDatabaseSoftwareImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28262,7 +28821,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateDbHome(
     updateDbHomeRequest: requests.UpdateDbHomeRequest
   ): Promise<responses.UpdateDbHomeResponse> {
-    logger.debug("Calling operation DatabaseClient#updateDbHome.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbHome.");
     const operationName = "updateDbHome";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/UpdateDbHome";
@@ -28283,6 +28842,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateDbHomeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28347,7 +28907,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateDbNode(
     updateDbNodeRequest: requests.UpdateDbNodeRequest
   ): Promise<responses.UpdateDbNodeResponse> {
-    logger.debug("Calling operation DatabaseClient#updateDbNode.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbNode.");
     const operationName = "updateDbNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/UpdateDbNode";
@@ -28369,6 +28929,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateDbNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28438,7 +28999,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
   ): Promise<responses.UpdateDbSystemResponse> {
-    logger.debug("Calling operation DatabaseClient#updateDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbSystem.");
     const operationName = "updateDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/UpdateDbSystem";
@@ -28459,6 +29020,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28525,7 +29087,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   public async updateExadataInfrastructure(
     updateExadataInfrastructureRequest: requests.UpdateExadataInfrastructureRequest
   ): Promise<responses.UpdateExadataInfrastructureResponse> {
-    logger.debug("Calling operation DatabaseClient#updateExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExadataInfrastructure.");
     const operationName = "updateExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/UpdateExadataInfrastructure";
@@ -28547,6 +29110,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       updateExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28619,7 +29183,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateExadataIormConfig(
     updateExadataIormConfigRequest: requests.UpdateExadataIormConfigRequest
   ): Promise<responses.UpdateExadataIormConfigResponse> {
-    logger.debug("Calling operation DatabaseClient#updateExadataIormConfig.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateExadataIormConfig.");
     const operationName = "updateExadataIormConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/UpdateExadataIormConfig";
@@ -28641,6 +29205,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateExadataIormConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28708,7 +29273,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateExternalContainerDatabase(
     updateExternalContainerDatabaseRequest: requests.UpdateExternalContainerDatabaseRequest
   ): Promise<responses.UpdateExternalContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#updateExternalContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExternalContainerDatabase.");
     const operationName = "updateExternalContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/UpdateExternalContainerDatabase";
@@ -28731,6 +29297,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateExternalContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28795,7 +29362,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateExternalDatabaseConnector(
     updateExternalDatabaseConnectorRequest: requests.UpdateExternalDatabaseConnectorRequest
   ): Promise<responses.UpdateExternalDatabaseConnectorResponse> {
-    logger.debug("Calling operation DatabaseClient#updateExternalDatabaseConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExternalDatabaseConnector.");
     const operationName = "updateExternalDatabaseConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/UpdateExternalDatabaseConnector";
@@ -28818,6 +29386,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateExternalDatabaseConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28882,7 +29451,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateExternalNonContainerDatabase(
     updateExternalNonContainerDatabaseRequest: requests.UpdateExternalNonContainerDatabaseRequest
   ): Promise<responses.UpdateExternalNonContainerDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#updateExternalNonContainerDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExternalNonContainerDatabase.");
     const operationName = "updateExternalNonContainerDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/UpdateExternalNonContainerDatabase";
@@ -28905,6 +29475,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateExternalNonContainerDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -28972,7 +29543,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateExternalPluggableDatabase(
     updateExternalPluggableDatabaseRequest: requests.UpdateExternalPluggableDatabaseRequest
   ): Promise<responses.UpdateExternalPluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#updateExternalPluggableDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExternalPluggableDatabase.");
     const operationName = "updateExternalPluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/UpdateExternalPluggableDatabase";
@@ -28995,6 +29567,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateExternalPluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29060,7 +29633,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateKeyStore(
     updateKeyStoreRequest: requests.UpdateKeyStoreRequest
   ): Promise<responses.UpdateKeyStoreResponse> {
-    logger.debug("Calling operation DatabaseClient#updateKeyStore.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateKeyStore.");
     const operationName = "updateKeyStore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/UpdateKeyStore";
@@ -29082,6 +29655,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateKeyStoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29141,7 +29715,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateMaintenanceRun(
     updateMaintenanceRunRequest: requests.UpdateMaintenanceRunRequest
   ): Promise<responses.UpdateMaintenanceRunResponse> {
-    logger.debug("Calling operation DatabaseClient#updateMaintenanceRun.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateMaintenanceRun.");
     const operationName = "updateMaintenanceRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRun/UpdateMaintenanceRun";
@@ -29162,6 +29736,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateMaintenanceRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29222,7 +29797,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateOneoffPatch(
     updateOneoffPatchRequest: requests.UpdateOneoffPatchRequest
   ): Promise<responses.UpdateOneoffPatchResponse> {
-    logger.debug("Calling operation DatabaseClient#updateOneoffPatch.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateOneoffPatch.");
     const operationName = "updateOneoffPatch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/UpdateOneoffPatch";
@@ -29244,6 +29819,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateOneoffPatchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29303,7 +29879,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updatePluggableDatabase(
     updatePluggableDatabaseRequest: requests.UpdatePluggableDatabaseRequest
   ): Promise<responses.UpdatePluggableDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#updatePluggableDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updatePluggableDatabase.");
     const operationName = "updatePluggableDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/UpdatePluggableDatabase";
@@ -29324,6 +29900,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updatePluggableDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29389,7 +29966,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateVmCluster(
     updateVmClusterRequest: requests.UpdateVmClusterRequest
   ): Promise<responses.UpdateVmClusterResponse> {
-    logger.debug("Calling operation DatabaseClient#updateVmCluster.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateVmCluster.");
     const operationName = "updateVmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/UpdateVmCluster";
@@ -29411,6 +29988,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateVmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29477,7 +30055,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async updateVmClusterNetwork(
     updateVmClusterNetworkRequest: requests.UpdateVmClusterNetworkRequest
   ): Promise<responses.UpdateVmClusterNetworkResponse> {
-    logger.debug("Calling operation DatabaseClient#updateVmClusterNetwork.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateVmClusterNetwork.");
     const operationName = "updateVmClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/UpdateVmClusterNetwork";
@@ -29500,6 +30078,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       updateVmClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29566,7 +30145,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async upgradeDatabase(
     upgradeDatabaseRequest: requests.UpgradeDatabaseRequest
   ): Promise<responses.UpgradeDatabaseResponse> {
-    logger.debug("Calling operation DatabaseClient#upgradeDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#upgradeDatabase.");
     const operationName = "upgradeDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/UpgradeDatabase";
@@ -29588,6 +30167,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       upgradeDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29653,7 +30233,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async upgradeDbSystem(
     upgradeDbSystemRequest: requests.UpgradeDbSystemRequest
   ): Promise<responses.UpgradeDbSystemResponse> {
-    logger.debug("Calling operation DatabaseClient#upgradeDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#upgradeDbSystem.");
     const operationName = "upgradeDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/UpgradeDbSystem";
@@ -29676,6 +30256,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       upgradeDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -29741,7 +30322,8 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   public async validateVmClusterNetwork(
     validateVmClusterNetworkRequest: requests.ValidateVmClusterNetworkRequest
   ): Promise<responses.ValidateVmClusterNetworkResponse> {
-    logger.debug("Calling operation DatabaseClient#validateVmClusterNetwork.");
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#validateVmClusterNetwork.");
     const operationName = "validateVmClusterNetwork";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/ValidateVmClusterNetwork";
@@ -29764,6 +30346,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       validateVmClusterNetworkRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

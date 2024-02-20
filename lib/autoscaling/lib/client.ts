@@ -26,8 +26,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -42,7 +41,7 @@ export enum AutoScalingApiKeys {}
 export class AutoScalingClient {
   protected static serviceEndpointTemplate = "https://autoscaling.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -122,7 +121,11 @@ export class AutoScalingClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181001";
-    logger.info(`AutoScalingClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AutoScalingClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -132,9 +135,10 @@ export class AutoScalingClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AutoScalingClient.serviceEndpointTemplate,
@@ -209,7 +213,10 @@ When you move an autoscaling configuration to a different compartment, associate
   public async changeAutoScalingConfigurationCompartment(
     changeAutoScalingConfigurationCompartmentRequest: requests.ChangeAutoScalingConfigurationCompartmentRequest
   ): Promise<responses.ChangeAutoScalingConfigurationCompartmentResponse> {
-    logger.debug("Calling operation AutoScalingClient#changeAutoScalingConfigurationCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AutoScalingClient#changeAutoScalingConfigurationCompartment."
+      );
     const operationName = "changeAutoScalingConfigurationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/ChangeAutoScalingConfigurationCompartment";
@@ -233,6 +240,7 @@ When you move an autoscaling configuration to a different compartment, associate
       changeAutoScalingConfigurationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -288,7 +296,8 @@ When you move an autoscaling configuration to a different compartment, associate
   public async createAutoScalingConfiguration(
     createAutoScalingConfigurationRequest: requests.CreateAutoScalingConfigurationRequest
   ): Promise<responses.CreateAutoScalingConfigurationResponse> {
-    logger.debug("Calling operation AutoScalingClient#createAutoScalingConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#createAutoScalingConfiguration.");
     const operationName = "createAutoScalingConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/CreateAutoScalingConfiguration";
@@ -308,6 +317,7 @@ When you move an autoscaling configuration to a different compartment, associate
       createAutoScalingConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -376,7 +386,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async createAutoScalingPolicy(
     createAutoScalingPolicyRequest: requests.CreateAutoScalingPolicyRequest
   ): Promise<responses.CreateAutoScalingPolicyResponse> {
-    logger.debug("Calling operation AutoScalingClient#createAutoScalingPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#createAutoScalingPolicy.");
     const operationName = "createAutoScalingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicy/CreateAutoScalingPolicy";
@@ -398,6 +409,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       createAutoScalingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -457,7 +469,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async deleteAutoScalingConfiguration(
     deleteAutoScalingConfigurationRequest: requests.DeleteAutoScalingConfigurationRequest
   ): Promise<responses.DeleteAutoScalingConfigurationResponse> {
-    logger.debug("Calling operation AutoScalingClient#deleteAutoScalingConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#deleteAutoScalingConfiguration.");
     const operationName = "deleteAutoScalingConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/DeleteAutoScalingConfiguration";
@@ -480,6 +493,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       deleteAutoScalingConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -525,7 +539,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async deleteAutoScalingPolicy(
     deleteAutoScalingPolicyRequest: requests.DeleteAutoScalingPolicyRequest
   ): Promise<responses.DeleteAutoScalingPolicyResponse> {
-    logger.debug("Calling operation AutoScalingClient#deleteAutoScalingPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#deleteAutoScalingPolicy.");
     const operationName = "deleteAutoScalingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicy/DeleteAutoScalingPolicy";
@@ -548,6 +563,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       deleteAutoScalingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -594,7 +610,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async getAutoScalingConfiguration(
     getAutoScalingConfigurationRequest: requests.GetAutoScalingConfigurationRequest
   ): Promise<responses.GetAutoScalingConfigurationResponse> {
-    logger.debug("Calling operation AutoScalingClient#getAutoScalingConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#getAutoScalingConfiguration.");
     const operationName = "getAutoScalingConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/GetAutoScalingConfiguration";
@@ -615,6 +632,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       getAutoScalingConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -669,7 +687,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async getAutoScalingPolicy(
     getAutoScalingPolicyRequest: requests.GetAutoScalingPolicyRequest
   ): Promise<responses.GetAutoScalingPolicyResponse> {
-    logger.debug("Calling operation AutoScalingClient#getAutoScalingPolicy.");
+    if (this.logger) this.logger.debug("Calling operation AutoScalingClient#getAutoScalingPolicy.");
     const operationName = "getAutoScalingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicy/GetAutoScalingPolicy";
@@ -691,6 +709,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       getAutoScalingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -747,7 +766,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async listAutoScalingConfigurations(
     listAutoScalingConfigurationsRequest: requests.ListAutoScalingConfigurationsRequest
   ): Promise<responses.ListAutoScalingConfigurationsResponse> {
-    logger.debug("Calling operation AutoScalingClient#listAutoScalingConfigurations.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#listAutoScalingConfigurations.");
     const operationName = "listAutoScalingConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfigurationSummary/ListAutoScalingConfigurations";
@@ -773,6 +793,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       listAutoScalingConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -880,7 +901,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async listAutoScalingPolicies(
     listAutoScalingPoliciesRequest: requests.ListAutoScalingPoliciesRequest
   ): Promise<responses.ListAutoScalingPoliciesResponse> {
-    logger.debug("Calling operation AutoScalingClient#listAutoScalingPolicies.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#listAutoScalingPolicies.");
     const operationName = "listAutoScalingPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicySummary/ListAutoScalingPolicies";
@@ -907,6 +929,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       listAutoScalingPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1015,7 +1038,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async updateAutoScalingConfiguration(
     updateAutoScalingConfigurationRequest: requests.UpdateAutoScalingConfigurationRequest
   ): Promise<responses.UpdateAutoScalingConfigurationResponse> {
-    logger.debug("Calling operation AutoScalingClient#updateAutoScalingConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#updateAutoScalingConfiguration.");
     const operationName = "updateAutoScalingConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/UpdateAutoScalingConfiguration";
@@ -1039,6 +1063,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       updateAutoScalingConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1098,7 +1123,8 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   public async updateAutoScalingPolicy(
     updateAutoScalingPolicyRequest: requests.UpdateAutoScalingPolicyRequest
   ): Promise<responses.UpdateAutoScalingPolicyResponse> {
-    logger.debug("Calling operation AutoScalingClient#updateAutoScalingPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation AutoScalingClient#updateAutoScalingPolicy.");
     const operationName = "updateAutoScalingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicy/UpdateAutoScalingPolicy";
@@ -1122,6 +1148,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       updateAutoScalingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

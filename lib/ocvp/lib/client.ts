@@ -25,8 +25,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -41,7 +40,7 @@ export enum ClusterApiKeys {}
 export class ClusterClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ClusterWaiter;
@@ -122,7 +121,11 @@ export class ClusterClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230701";
-    logger.info(`ClusterClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ClusterClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -132,9 +135,10 @@ export class ClusterClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ClusterClient.serviceEndpointTemplate,
@@ -232,7 +236,7 @@ Use the {@link WorkRequest} operations to track the
   public async createCluster(
     createClusterRequest: requests.CreateClusterRequest
   ): Promise<responses.CreateClusterResponse> {
-    logger.debug("Calling operation ClusterClient#createCluster.");
+    if (this.logger) this.logger.debug("Calling operation ClusterClient#createCluster.");
     const operationName = "createCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Cluster/CreateCluster";
@@ -252,6 +256,7 @@ Use the {@link WorkRequest} operations to track the
       createClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -313,7 +318,7 @@ Use the {@link WorkRequest} operations to track the
   public async deleteCluster(
     deleteClusterRequest: requests.DeleteClusterRequest
   ): Promise<responses.DeleteClusterResponse> {
-    logger.debug("Calling operation ClusterClient#deleteCluster.");
+    if (this.logger) this.logger.debug("Calling operation ClusterClient#deleteCluster.");
     const operationName = "deleteCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Cluster/DeleteCluster";
@@ -335,6 +340,7 @@ Use the {@link WorkRequest} operations to track the
       deleteClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,7 +391,7 @@ Use the {@link WorkRequest} operations to track the
   public async getCluster(
     getClusterRequest: requests.GetClusterRequest
   ): Promise<responses.GetClusterResponse> {
-    logger.debug("Calling operation ClusterClient#getCluster.");
+    if (this.logger) this.logger.debug("Calling operation ClusterClient#getCluster.");
     const operationName = "getCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Cluster/GetCluster";
@@ -406,6 +412,7 @@ Use the {@link WorkRequest} operations to track the
       getClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -461,7 +468,7 @@ Use the {@link WorkRequest} operations to track the
   public async listClusters(
     listClustersRequest: requests.ListClustersRequest
   ): Promise<responses.ListClustersResponse> {
-    logger.debug("Calling operation ClusterClient#listClusters.");
+    if (this.logger) this.logger.debug("Calling operation ClusterClient#listClusters.");
     const operationName = "listClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/ClusterSummary/ListClusters";
@@ -489,6 +496,7 @@ Use the {@link WorkRequest} operations to track the
       listClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -548,7 +556,7 @@ Use the {@link WorkRequest} operations to track the
   public async updateCluster(
     updateClusterRequest: requests.UpdateClusterRequest
   ): Promise<responses.UpdateClusterResponse> {
-    logger.debug("Calling operation ClusterClient#updateCluster.");
+    if (this.logger) this.logger.debug("Calling operation ClusterClient#updateCluster.");
     const operationName = "updateCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Cluster/UpdateCluster";
@@ -570,6 +578,7 @@ Use the {@link WorkRequest} operations to track the
       updateClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -625,7 +634,7 @@ export enum EsxiHostApiKeys {}
 export class EsxiHostClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": EsxiHostWaiter;
@@ -706,7 +715,11 @@ export class EsxiHostClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230701";
-    logger.info(`EsxiHostClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`EsxiHostClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -716,9 +729,10 @@ export class EsxiHostClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         EsxiHostClient.serviceEndpointTemplate,
@@ -816,7 +830,7 @@ Use the {@link WorkRequest} operations to track the
   public async createEsxiHost(
     createEsxiHostRequest: requests.CreateEsxiHostRequest
   ): Promise<responses.CreateEsxiHostResponse> {
-    logger.debug("Calling operation EsxiHostClient#createEsxiHost.");
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#createEsxiHost.");
     const operationName = "createEsxiHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/EsxiHost/CreateEsxiHost";
@@ -836,6 +850,7 @@ Use the {@link WorkRequest} operations to track the
       createEsxiHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -905,7 +920,7 @@ Use the {@link WorkRequest} operations to track the
   public async deleteEsxiHost(
     deleteEsxiHostRequest: requests.DeleteEsxiHostRequest
   ): Promise<responses.DeleteEsxiHostResponse> {
-    logger.debug("Calling operation EsxiHostClient#deleteEsxiHost.");
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#deleteEsxiHost.");
     const operationName = "deleteEsxiHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/EsxiHost/DeleteEsxiHost";
@@ -927,6 +942,7 @@ Use the {@link WorkRequest} operations to track the
       deleteEsxiHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -977,7 +993,7 @@ Use the {@link WorkRequest} operations to track the
   public async getEsxiHost(
     getEsxiHostRequest: requests.GetEsxiHostRequest
   ): Promise<responses.GetEsxiHostResponse> {
-    logger.debug("Calling operation EsxiHostClient#getEsxiHost.");
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#getEsxiHost.");
     const operationName = "getEsxiHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/EsxiHost/GetEsxiHost";
@@ -998,6 +1014,7 @@ Use the {@link WorkRequest} operations to track the
       getEsxiHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1053,7 +1070,7 @@ Use the {@link WorkRequest} operations to track the
   public async inplaceUpgrade(
     inplaceUpgradeRequest: requests.InplaceUpgradeRequest
   ): Promise<responses.InplaceUpgradeResponse> {
-    logger.debug("Calling operation EsxiHostClient#inplaceUpgrade.");
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#inplaceUpgrade.");
     const operationName = "inplaceUpgrade";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/EsxiHost/InplaceUpgrade";
@@ -1076,6 +1093,7 @@ Use the {@link WorkRequest} operations to track the
       inplaceUpgradeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1135,7 +1153,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
   public async listEsxiHosts(
     listEsxiHostsRequest: requests.ListEsxiHostsRequest
   ): Promise<responses.ListEsxiHostsResponse> {
-    logger.debug("Calling operation EsxiHostClient#listEsxiHosts.");
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#listEsxiHosts.");
     const operationName = "listEsxiHosts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/EsxiHostSummary/ListEsxiHosts";
@@ -1167,6 +1185,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       listEsxiHostsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1222,7 +1241,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
   public async replaceHost(
     replaceHostRequest: requests.ReplaceHostRequest
   ): Promise<responses.ReplaceHostResponse> {
-    logger.debug("Calling operation EsxiHostClient#replaceHost.");
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#replaceHost.");
     const operationName = "replaceHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/EsxiHost/ReplaceHost";
@@ -1245,6 +1264,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       replaceHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1301,7 +1321,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
   public async swapBilling(
     swapBillingRequest: requests.SwapBillingRequest
   ): Promise<responses.SwapBillingResponse> {
-    logger.debug("Calling operation EsxiHostClient#swapBilling.");
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#swapBilling.");
     const operationName = "swapBilling";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/EsxiHost/SwapBilling";
@@ -1326,6 +1346,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       swapBillingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1376,7 +1397,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
   public async updateEsxiHost(
     updateEsxiHostRequest: requests.UpdateEsxiHostRequest
   ): Promise<responses.UpdateEsxiHostResponse> {
-    logger.debug("Calling operation EsxiHostClient#updateEsxiHost.");
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#updateEsxiHost.");
     const operationName = "updateEsxiHost";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/EsxiHost/UpdateEsxiHost";
@@ -1398,6 +1419,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       updateEsxiHostRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1453,7 +1475,7 @@ export enum SddcApiKeys {}
 export class SddcClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": SddcWaiter;
@@ -1534,7 +1556,11 @@ export class SddcClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230701";
-    logger.info(`SddcClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`SddcClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1544,9 +1570,10 @@ export class SddcClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SddcClient.serviceEndpointTemplate,
@@ -1639,7 +1666,7 @@ export class SddcClient {
   public async cancelDowngradeHcx(
     cancelDowngradeHcxRequest: requests.CancelDowngradeHcxRequest
   ): Promise<responses.CancelDowngradeHcxResponse> {
-    logger.debug("Calling operation SddcClient#cancelDowngradeHcx.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#cancelDowngradeHcx.");
     const operationName = "cancelDowngradeHcx";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/CancelDowngradeHcx";
@@ -1662,6 +1689,7 @@ export class SddcClient {
       cancelDowngradeHcxRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1715,7 +1743,7 @@ export class SddcClient {
   public async changeSddcCompartment(
     changeSddcCompartmentRequest: requests.ChangeSddcCompartmentRequest
   ): Promise<responses.ChangeSddcCompartmentResponse> {
-    logger.debug("Calling operation SddcClient#changeSddcCompartment.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#changeSddcCompartment.");
     const operationName = "changeSddcCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/ChangeSddcCompartment";
@@ -1738,6 +1766,7 @@ export class SddcClient {
       changeSddcCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1794,7 +1823,7 @@ Use the {@link WorkRequest} operations to track the
   public async createSddc(
     createSddcRequest: requests.CreateSddcRequest
   ): Promise<responses.CreateSddcResponse> {
-    logger.debug("Calling operation SddcClient#createSddc.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#createSddc.");
     const operationName = "createSddc";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/CreateSddc";
@@ -1814,6 +1843,7 @@ Use the {@link WorkRequest} operations to track the
       createSddcRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1875,7 +1905,7 @@ Use the {@link WorkRequest} operations to track the
   public async deleteSddc(
     deleteSddcRequest: requests.DeleteSddcRequest
   ): Promise<responses.DeleteSddcResponse> {
-    logger.debug("Calling operation SddcClient#deleteSddc.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#deleteSddc.");
     const operationName = "deleteSddc";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/DeleteSddc";
@@ -1897,6 +1927,7 @@ Use the {@link WorkRequest} operations to track the
       deleteSddcRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1952,7 +1983,7 @@ Use the {@link WorkRequest} operations to track the
   public async downgradeHcx(
     downgradeHcxRequest: requests.DowngradeHcxRequest
   ): Promise<responses.DowngradeHcxResponse> {
-    logger.debug("Calling operation SddcClient#downgradeHcx.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#downgradeHcx.");
     const operationName = "downgradeHcx";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/DowngradeHcx";
@@ -1975,6 +2006,7 @@ Use the {@link WorkRequest} operations to track the
       downgradeHcxRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2030,7 +2062,7 @@ Use the {@link WorkRequest} operations to track the
   public async getSddc(
     getSddcRequest: requests.GetSddcRequest
   ): Promise<responses.GetSddcResponse> {
-    logger.debug("Calling operation SddcClient#getSddc.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#getSddc.");
     const operationName = "getSddc";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/GetSddc";
     const pathParams = {
@@ -2050,6 +2082,7 @@ Use the {@link WorkRequest} operations to track the
       getSddcRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2106,7 +2139,7 @@ Use the {@link WorkRequest} operations to track the
   public async listSddcs(
     listSddcsRequest: requests.ListSddcsRequest
   ): Promise<responses.ListSddcsResponse> {
-    logger.debug("Calling operation SddcClient#listSddcs.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#listSddcs.");
     const operationName = "listSddcs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/SddcSummary/ListSddcs";
@@ -2134,6 +2167,7 @@ Use the {@link WorkRequest} operations to track the
       listSddcsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2189,7 +2223,7 @@ Use the {@link WorkRequest} operations to track the
   public async listSupportedCommitments(
     listSupportedCommitmentsRequest: requests.ListSupportedCommitmentsRequest
   ): Promise<responses.ListSupportedCommitmentsResponse> {
-    logger.debug("Calling operation SddcClient#listSupportedCommitments.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#listSupportedCommitments.");
     const operationName = "listSupportedCommitments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/SupportedCommitmentSummary/ListSupportedCommitments";
@@ -2213,6 +2247,7 @@ Use the {@link WorkRequest} operations to track the
       listSupportedCommitmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2268,7 +2303,7 @@ Use the {@link WorkRequest} operations to track the
   public async listSupportedHostShapes(
     listSupportedHostShapesRequest: requests.ListSupportedHostShapesRequest
   ): Promise<responses.ListSupportedHostShapesResponse> {
-    logger.debug("Calling operation SddcClient#listSupportedHostShapes.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#listSupportedHostShapes.");
     const operationName = "listSupportedHostShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/SupportedHostShapeSummary/ListSupportedHostShapes";
@@ -2294,6 +2329,7 @@ Use the {@link WorkRequest} operations to track the
       listSupportedHostShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2350,7 +2386,8 @@ Use the {@link WorkRequest} operations to track the
   public async listSupportedVmwareSoftwareVersions(
     listSupportedVmwareSoftwareVersionsRequest: requests.ListSupportedVmwareSoftwareVersionsRequest
   ): Promise<responses.ListSupportedVmwareSoftwareVersionsResponse> {
-    logger.debug("Calling operation SddcClient#listSupportedVmwareSoftwareVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation SddcClient#listSupportedVmwareSoftwareVersions.");
     const operationName = "listSupportedVmwareSoftwareVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/SupportedVmwareSoftwareVersionSummary/ListSupportedVmwareSoftwareVersions";
@@ -2375,6 +2412,7 @@ Use the {@link WorkRequest} operations to track the
       listSupportedVmwareSoftwareVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2429,7 +2467,7 @@ Use the {@link WorkRequest} operations to track the
   public async refreshHcxLicenseStatus(
     refreshHcxLicenseStatusRequest: requests.RefreshHcxLicenseStatusRequest
   ): Promise<responses.RefreshHcxLicenseStatusResponse> {
-    logger.debug("Calling operation SddcClient#refreshHcxLicenseStatus.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#refreshHcxLicenseStatus.");
     const operationName = "refreshHcxLicenseStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/RefreshHcxLicenseStatus";
@@ -2452,6 +2490,7 @@ Use the {@link WorkRequest} operations to track the
       refreshHcxLicenseStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2503,7 +2542,7 @@ Use the {@link WorkRequest} operations to track the
   public async retrievePassword(
     retrievePasswordRequest: requests.RetrievePasswordRequest
   ): Promise<responses.RetrievePasswordResponse> {
-    logger.debug("Calling operation SddcClient#retrievePassword.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#retrievePassword.");
     const operationName = "retrievePassword";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/RetrievePassword";
@@ -2528,6 +2567,7 @@ Use the {@link WorkRequest} operations to track the
       retrievePasswordRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2588,7 +2628,7 @@ Use the {@link WorkRequest} operations to track the
   public async updateSddc(
     updateSddcRequest: requests.UpdateSddcRequest
   ): Promise<responses.UpdateSddcResponse> {
-    logger.debug("Calling operation SddcClient#updateSddc.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#updateSddc.");
     const operationName = "updateSddc";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/UpdateSddc";
@@ -2610,6 +2650,7 @@ Use the {@link WorkRequest} operations to track the
       updateSddcRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2670,7 +2711,7 @@ Use the {@link WorkRequest} operations to track the
   public async upgradeHcx(
     upgradeHcxRequest: requests.UpgradeHcxRequest
   ): Promise<responses.UpgradeHcxResponse> {
-    logger.debug("Calling operation SddcClient#upgradeHcx.");
+    if (this.logger) this.logger.debug("Calling operation SddcClient#upgradeHcx.");
     const operationName = "upgradeHcx";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/UpgradeHcx";
@@ -2693,6 +2734,7 @@ Use the {@link WorkRequest} operations to track the
       upgradeHcxRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2739,7 +2781,7 @@ export enum WorkRequestApiKeys {}
 export class WorkRequestClient {
   protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestWaiter;
@@ -2820,7 +2862,11 @@ export class WorkRequestClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230701";
-    logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -2830,9 +2876,10 @@ export class WorkRequestClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WorkRequestClient.serviceEndpointTemplate,
@@ -2924,7 +2971,7 @@ export class WorkRequestClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/WorkRequest/GetWorkRequest";
@@ -2945,6 +2992,7 @@ export class WorkRequestClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3000,7 +3048,8 @@ export class WorkRequestClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/WorkRequestError/ListWorkRequestErrors";
@@ -3024,6 +3073,7 @@ export class WorkRequestClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3079,7 +3129,7 @@ export class WorkRequestClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -3103,6 +3153,7 @@ export class WorkRequestClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3158,7 +3209,7 @@ export class WorkRequestClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/WorkRequest/ListWorkRequests";
@@ -3182,6 +3233,7 @@ export class WorkRequestClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum ArtifactsApiKeys {}
 export class ArtifactsClient {
   protected static serviceEndpointTemplate = "https://artifacts.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ArtifactsWaiter;
@@ -119,7 +118,11 @@ export class ArtifactsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20160918";
-    logger.info(`ArtifactsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ArtifactsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class ArtifactsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ArtifactsClient.serviceEndpointTemplate,
@@ -226,7 +230,8 @@ export class ArtifactsClient {
   public async changeContainerRepositoryCompartment(
     changeContainerRepositoryCompartmentRequest: requests.ChangeContainerRepositoryCompartmentRequest
   ): Promise<responses.ChangeContainerRepositoryCompartmentResponse> {
-    logger.debug("Calling operation ArtifactsClient#changeContainerRepositoryCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#changeContainerRepositoryCompartment.");
     const operationName = "changeContainerRepositoryCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/ChangeContainerRepositoryCompartment";
@@ -249,6 +254,7 @@ export class ArtifactsClient {
       changeContainerRepositoryCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -302,7 +308,8 @@ export class ArtifactsClient {
   public async changeRepositoryCompartment(
     changeRepositoryCompartmentRequest: requests.ChangeRepositoryCompartmentRequest
   ): Promise<responses.ChangeRepositoryCompartmentResponse> {
-    logger.debug("Calling operation ArtifactsClient#changeRepositoryCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#changeRepositoryCompartment.");
     const operationName = "changeRepositoryCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/ChangeRepositoryCompartment";
@@ -325,6 +332,7 @@ export class ArtifactsClient {
       changeRepositoryCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -375,7 +383,8 @@ export class ArtifactsClient {
   public async createContainerImageSignature(
     createContainerImageSignatureRequest: requests.CreateContainerImageSignatureRequest
   ): Promise<responses.CreateContainerImageSignatureResponse> {
-    logger.debug("Calling operation ArtifactsClient#createContainerImageSignature.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#createContainerImageSignature.");
     const operationName = "createContainerImageSignature";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignature/CreateContainerImageSignature";
@@ -396,6 +405,7 @@ export class ArtifactsClient {
       createContainerImageSignatureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -455,7 +465,8 @@ export class ArtifactsClient {
   public async createContainerRepository(
     createContainerRepositoryRequest: requests.CreateContainerRepositoryRequest
   ): Promise<responses.CreateContainerRepositoryResponse> {
-    logger.debug("Calling operation ArtifactsClient#createContainerRepository.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#createContainerRepository.");
     const operationName = "createContainerRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/CreateContainerRepository";
@@ -475,6 +486,7 @@ export class ArtifactsClient {
       createContainerRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -534,7 +546,7 @@ export class ArtifactsClient {
   public async createRepository(
     createRepositoryRequest: requests.CreateRepositoryRequest
   ): Promise<responses.CreateRepositoryResponse> {
-    logger.debug("Calling operation ArtifactsClient#createRepository.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#createRepository.");
     const operationName = "createRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/CreateRepository";
@@ -554,6 +566,7 @@ export class ArtifactsClient {
       createRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -613,7 +626,7 @@ export class ArtifactsClient {
   public async deleteContainerImage(
     deleteContainerImageRequest: requests.DeleteContainerImageRequest
   ): Promise<responses.DeleteContainerImageResponse> {
-    logger.debug("Calling operation ArtifactsClient#deleteContainerImage.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#deleteContainerImage.");
     const operationName = "deleteContainerImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/DeleteContainerImage";
@@ -635,6 +648,7 @@ export class ArtifactsClient {
       deleteContainerImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -680,7 +694,8 @@ export class ArtifactsClient {
   public async deleteContainerImageSignature(
     deleteContainerImageSignatureRequest: requests.DeleteContainerImageSignatureRequest
   ): Promise<responses.DeleteContainerImageSignatureResponse> {
-    logger.debug("Calling operation ArtifactsClient#deleteContainerImageSignature.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#deleteContainerImageSignature.");
     const operationName = "deleteContainerImageSignature";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignature/DeleteContainerImageSignature";
@@ -702,6 +717,7 @@ export class ArtifactsClient {
       deleteContainerImageSignatureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -747,7 +763,8 @@ export class ArtifactsClient {
   public async deleteContainerRepository(
     deleteContainerRepositoryRequest: requests.DeleteContainerRepositoryRequest
   ): Promise<responses.DeleteContainerRepositoryResponse> {
-    logger.debug("Calling operation ArtifactsClient#deleteContainerRepository.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#deleteContainerRepository.");
     const operationName = "deleteContainerRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/DeleteContainerRepository";
@@ -769,6 +786,7 @@ export class ArtifactsClient {
       deleteContainerRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -814,7 +832,7 @@ export class ArtifactsClient {
   public async deleteGenericArtifact(
     deleteGenericArtifactRequest: requests.DeleteGenericArtifactRequest
   ): Promise<responses.DeleteGenericArtifactResponse> {
-    logger.debug("Calling operation ArtifactsClient#deleteGenericArtifact.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#deleteGenericArtifact.");
     const operationName = "deleteGenericArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/DeleteGenericArtifact";
@@ -836,6 +854,7 @@ export class ArtifactsClient {
       deleteGenericArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -881,7 +900,8 @@ export class ArtifactsClient {
   public async deleteGenericArtifactByPath(
     deleteGenericArtifactByPathRequest: requests.DeleteGenericArtifactByPathRequest
   ): Promise<responses.DeleteGenericArtifactByPathResponse> {
-    logger.debug("Calling operation ArtifactsClient#deleteGenericArtifactByPath.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#deleteGenericArtifactByPath.");
     const operationName = "deleteGenericArtifactByPath";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/DeleteGenericArtifactByPath";
@@ -905,6 +925,7 @@ export class ArtifactsClient {
       deleteGenericArtifactByPathRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -950,7 +971,7 @@ export class ArtifactsClient {
   public async deleteRepository(
     deleteRepositoryRequest: requests.DeleteRepositoryRequest
   ): Promise<responses.DeleteRepositoryResponse> {
-    logger.debug("Calling operation ArtifactsClient#deleteRepository.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#deleteRepository.");
     const operationName = "deleteRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/DeleteRepository";
@@ -972,6 +993,7 @@ export class ArtifactsClient {
       deleteRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1017,7 +1039,8 @@ export class ArtifactsClient {
   public async getContainerConfiguration(
     getContainerConfigurationRequest: requests.GetContainerConfigurationRequest
   ): Promise<responses.GetContainerConfigurationResponse> {
-    logger.debug("Calling operation ArtifactsClient#getContainerConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#getContainerConfiguration.");
     const operationName = "getContainerConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerConfiguration/GetContainerConfiguration";
@@ -1038,6 +1061,7 @@ export class ArtifactsClient {
       getContainerConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1092,7 +1116,7 @@ export class ArtifactsClient {
   public async getContainerImage(
     getContainerImageRequest: requests.GetContainerImageRequest
   ): Promise<responses.GetContainerImageResponse> {
-    logger.debug("Calling operation ArtifactsClient#getContainerImage.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getContainerImage.");
     const operationName = "getContainerImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/GetContainerImage";
@@ -1113,6 +1137,7 @@ export class ArtifactsClient {
       getContainerImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1167,7 +1192,8 @@ export class ArtifactsClient {
   public async getContainerImageSignature(
     getContainerImageSignatureRequest: requests.GetContainerImageSignatureRequest
   ): Promise<responses.GetContainerImageSignatureResponse> {
-    logger.debug("Calling operation ArtifactsClient#getContainerImageSignature.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#getContainerImageSignature.");
     const operationName = "getContainerImageSignature";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignature/GetContainerImageSignature";
@@ -1188,6 +1214,7 @@ export class ArtifactsClient {
       getContainerImageSignatureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1242,7 +1269,7 @@ export class ArtifactsClient {
   public async getContainerRepository(
     getContainerRepositoryRequest: requests.GetContainerRepositoryRequest
   ): Promise<responses.GetContainerRepositoryResponse> {
-    logger.debug("Calling operation ArtifactsClient#getContainerRepository.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getContainerRepository.");
     const operationName = "getContainerRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/GetContainerRepository";
@@ -1263,6 +1290,7 @@ export class ArtifactsClient {
       getContainerRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1317,7 +1345,7 @@ export class ArtifactsClient {
   public async getGenericArtifact(
     getGenericArtifactRequest: requests.GetGenericArtifactRequest
   ): Promise<responses.GetGenericArtifactResponse> {
-    logger.debug("Calling operation ArtifactsClient#getGenericArtifact.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getGenericArtifact.");
     const operationName = "getGenericArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/GetGenericArtifact";
@@ -1338,6 +1366,7 @@ export class ArtifactsClient {
       getGenericArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1392,7 +1421,8 @@ export class ArtifactsClient {
   public async getGenericArtifactByPath(
     getGenericArtifactByPathRequest: requests.GetGenericArtifactByPathRequest
   ): Promise<responses.GetGenericArtifactByPathResponse> {
-    logger.debug("Calling operation ArtifactsClient#getGenericArtifactByPath.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#getGenericArtifactByPath.");
     const operationName = "getGenericArtifactByPath";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/GetGenericArtifactByPath";
@@ -1415,6 +1445,7 @@ export class ArtifactsClient {
       getGenericArtifactByPathRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1469,7 +1500,7 @@ export class ArtifactsClient {
   public async getRepository(
     getRepositoryRequest: requests.GetRepositoryRequest
   ): Promise<responses.GetRepositoryResponse> {
-    logger.debug("Calling operation ArtifactsClient#getRepository.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getRepository.");
     const operationName = "getRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/GetRepository";
@@ -1490,6 +1521,7 @@ export class ArtifactsClient {
       getRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1544,7 +1576,8 @@ export class ArtifactsClient {
   public async listContainerImageSignatures(
     listContainerImageSignaturesRequest: requests.ListContainerImageSignaturesRequest
   ): Promise<responses.ListContainerImageSignaturesResponse> {
-    logger.debug("Calling operation ArtifactsClient#listContainerImageSignatures.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#listContainerImageSignatures.");
     const operationName = "listContainerImageSignatures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignatureSummary/ListContainerImageSignatures";
@@ -1578,6 +1611,7 @@ export class ArtifactsClient {
       listContainerImageSignaturesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1632,7 +1666,7 @@ export class ArtifactsClient {
   public async listContainerImages(
     listContainerImagesRequest: requests.ListContainerImagesRequest
   ): Promise<responses.ListContainerImagesResponse> {
-    logger.debug("Calling operation ArtifactsClient#listContainerImages.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#listContainerImages.");
     const operationName = "listContainerImages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSummary/ListContainerImages";
@@ -1665,6 +1699,7 @@ export class ArtifactsClient {
       listContainerImagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1719,7 +1754,8 @@ export class ArtifactsClient {
   public async listContainerRepositories(
     listContainerRepositoriesRequest: requests.ListContainerRepositoriesRequest
   ): Promise<responses.ListContainerRepositoriesResponse> {
-    logger.debug("Calling operation ArtifactsClient#listContainerRepositories.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#listContainerRepositories.");
     const operationName = "listContainerRepositories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/ListContainerRepositories";
@@ -1749,6 +1785,7 @@ export class ArtifactsClient {
       listContainerRepositoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1803,7 +1840,7 @@ export class ArtifactsClient {
   public async listGenericArtifacts(
     listGenericArtifactsRequest: requests.ListGenericArtifactsRequest
   ): Promise<responses.ListGenericArtifactsResponse> {
-    logger.debug("Calling operation ArtifactsClient#listGenericArtifacts.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#listGenericArtifacts.");
     const operationName = "listGenericArtifacts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/ListGenericArtifacts";
@@ -1835,6 +1872,7 @@ export class ArtifactsClient {
       listGenericArtifactsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1889,7 +1927,7 @@ export class ArtifactsClient {
   public async listRepositories(
     listRepositoriesRequest: requests.ListRepositoriesRequest
   ): Promise<responses.ListRepositoriesResponse> {
-    logger.debug("Calling operation ArtifactsClient#listRepositories.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#listRepositories.");
     const operationName = "listRepositories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/ListRepositories";
@@ -1918,6 +1956,7 @@ export class ArtifactsClient {
       listRepositoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1972,7 +2011,7 @@ export class ArtifactsClient {
   public async removeContainerVersion(
     removeContainerVersionRequest: requests.RemoveContainerVersionRequest
   ): Promise<responses.RemoveContainerVersionResponse> {
-    logger.debug("Calling operation ArtifactsClient#removeContainerVersion.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#removeContainerVersion.");
     const operationName = "removeContainerVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/RemoveContainerVersion";
@@ -1995,6 +2034,7 @@ export class ArtifactsClient {
       removeContainerVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2054,7 +2094,7 @@ export class ArtifactsClient {
   public async restoreContainerImage(
     restoreContainerImageRequest: requests.RestoreContainerImageRequest
   ): Promise<responses.RestoreContainerImageResponse> {
-    logger.debug("Calling operation ArtifactsClient#restoreContainerImage.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#restoreContainerImage.");
     const operationName = "restoreContainerImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/RestoreContainerImage";
@@ -2077,6 +2117,7 @@ export class ArtifactsClient {
       restoreContainerImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2136,7 +2177,8 @@ export class ArtifactsClient {
   public async updateContainerConfiguration(
     updateContainerConfigurationRequest: requests.UpdateContainerConfigurationRequest
   ): Promise<responses.UpdateContainerConfigurationResponse> {
-    logger.debug("Calling operation ArtifactsClient#updateContainerConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#updateContainerConfiguration.");
     const operationName = "updateContainerConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerConfiguration/UpdateContainerConfiguration";
@@ -2158,6 +2200,7 @@ export class ArtifactsClient {
       updateContainerConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2217,7 +2260,7 @@ export class ArtifactsClient {
   public async updateContainerImage(
     updateContainerImageRequest: requests.UpdateContainerImageRequest
   ): Promise<responses.UpdateContainerImageResponse> {
-    logger.debug("Calling operation ArtifactsClient#updateContainerImage.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#updateContainerImage.");
     const operationName = "updateContainerImage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/UpdateContainerImage";
@@ -2239,6 +2282,7 @@ export class ArtifactsClient {
       updateContainerImageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2298,7 +2342,8 @@ export class ArtifactsClient {
   public async updateContainerImageSignature(
     updateContainerImageSignatureRequest: requests.UpdateContainerImageSignatureRequest
   ): Promise<responses.UpdateContainerImageSignatureResponse> {
-    logger.debug("Calling operation ArtifactsClient#updateContainerImageSignature.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#updateContainerImageSignature.");
     const operationName = "updateContainerImageSignature";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignature/UpdateContainerImageSignature";
@@ -2320,6 +2365,7 @@ export class ArtifactsClient {
       updateContainerImageSignatureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2379,7 +2425,8 @@ export class ArtifactsClient {
   public async updateContainerRepository(
     updateContainerRepositoryRequest: requests.UpdateContainerRepositoryRequest
   ): Promise<responses.UpdateContainerRepositoryResponse> {
-    logger.debug("Calling operation ArtifactsClient#updateContainerRepository.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#updateContainerRepository.");
     const operationName = "updateContainerRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/UpdateContainerRepository";
@@ -2401,6 +2448,7 @@ export class ArtifactsClient {
       updateContainerRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2460,7 +2508,7 @@ export class ArtifactsClient {
   public async updateGenericArtifact(
     updateGenericArtifactRequest: requests.UpdateGenericArtifactRequest
   ): Promise<responses.UpdateGenericArtifactResponse> {
-    logger.debug("Calling operation ArtifactsClient#updateGenericArtifact.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#updateGenericArtifact.");
     const operationName = "updateGenericArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/UpdateGenericArtifact";
@@ -2482,6 +2530,7 @@ export class ArtifactsClient {
       updateGenericArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2541,7 +2590,8 @@ export class ArtifactsClient {
   public async updateGenericArtifactByPath(
     updateGenericArtifactByPathRequest: requests.UpdateGenericArtifactByPathRequest
   ): Promise<responses.UpdateGenericArtifactByPathResponse> {
-    logger.debug("Calling operation ArtifactsClient#updateGenericArtifactByPath.");
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#updateGenericArtifactByPath.");
     const operationName = "updateGenericArtifactByPath";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/UpdateGenericArtifactByPath";
@@ -2565,6 +2615,7 @@ export class ArtifactsClient {
       updateGenericArtifactByPathRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2624,7 +2675,7 @@ export class ArtifactsClient {
   public async updateRepository(
     updateRepositoryRequest: requests.UpdateRepositoryRequest
   ): Promise<responses.UpdateRepositoryResponse> {
-    logger.debug("Calling operation ArtifactsClient#updateRepository.");
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#updateRepository.");
     const operationName = "updateRepository";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/UpdateRepository";
@@ -2646,6 +2697,7 @@ export class ArtifactsClient {
       updateRepositoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

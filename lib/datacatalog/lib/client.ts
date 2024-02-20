@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export enum DataCatalogApiKeys {}
 export class DataCatalogClient {
   protected static serviceEndpointTemplate = "https://datacatalog.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataCatalogWaiter;
@@ -120,7 +119,11 @@ export class DataCatalogClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190325";
-    logger.info(`DataCatalogClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DataCatalogClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class DataCatalogClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DataCatalogClient.serviceEndpointTemplate,
@@ -224,7 +228,7 @@ export class DataCatalogClient {
   public async addCatalogLock(
     addCatalogLockRequest: requests.AddCatalogLockRequest
   ): Promise<responses.AddCatalogLockResponse> {
-    logger.debug("Calling operation DataCatalogClient#addCatalogLock.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#addCatalogLock.");
     const operationName = "addCatalogLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/AddCatalogLock";
@@ -246,6 +250,7 @@ export class DataCatalogClient {
       addCatalogLockRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,7 +310,8 @@ export class DataCatalogClient {
   public async addCatalogPrivateEndpointLock(
     addCatalogPrivateEndpointLockRequest: requests.AddCatalogPrivateEndpointLockRequest
   ): Promise<responses.AddCatalogPrivateEndpointLockResponse> {
-    logger.debug("Calling operation DataCatalogClient#addCatalogPrivateEndpointLock.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#addCatalogPrivateEndpointLock.");
     const operationName = "addCatalogPrivateEndpointLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/AddCatalogPrivateEndpointLock";
@@ -327,6 +333,7 @@ export class DataCatalogClient {
       addCatalogPrivateEndpointLockRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -386,7 +393,8 @@ export class DataCatalogClient {
   public async addDataSelectorPatterns(
     addDataSelectorPatternsRequest: requests.AddDataSelectorPatternsRequest
   ): Promise<responses.AddDataSelectorPatternsResponse> {
-    logger.debug("Calling operation DataCatalogClient#addDataSelectorPatterns.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#addDataSelectorPatterns.");
     const operationName = "addDataSelectorPatterns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/AddDataSelectorPatterns";
@@ -410,6 +418,7 @@ export class DataCatalogClient {
       addDataSelectorPatternsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -469,7 +478,7 @@ export class DataCatalogClient {
   public async addMetastoreLock(
     addMetastoreLockRequest: requests.AddMetastoreLockRequest
   ): Promise<responses.AddMetastoreLockResponse> {
-    logger.debug("Calling operation DataCatalogClient#addMetastoreLock.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#addMetastoreLock.");
     const operationName = "addMetastoreLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/AddMetastoreLock";
@@ -491,6 +500,7 @@ export class DataCatalogClient {
       addMetastoreLockRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -550,7 +560,8 @@ export class DataCatalogClient {
   public async associateCustomProperty(
     associateCustomPropertyRequest: requests.AssociateCustomPropertyRequest
   ): Promise<responses.AssociateCustomPropertyResponse> {
-    logger.debug("Calling operation DataCatalogClient#associateCustomProperty.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#associateCustomProperty.");
     const operationName = "associateCustomProperty";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Type/AssociateCustomProperty";
@@ -574,6 +585,7 @@ export class DataCatalogClient {
       associateCustomPropertyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -634,7 +646,8 @@ export class DataCatalogClient {
   public async asynchronousExportGlossary(
     asynchronousExportGlossaryRequest: requests.AsynchronousExportGlossaryRequest
   ): Promise<responses.AsynchronousExportGlossaryResponse> {
-    logger.debug("Calling operation DataCatalogClient#asynchronousExportGlossary.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#asynchronousExportGlossary.");
     const operationName = "asynchronousExportGlossary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/AsynchronousExportGlossary";
@@ -657,6 +670,7 @@ export class DataCatalogClient {
       asynchronousExportGlossaryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -716,7 +730,8 @@ export class DataCatalogClient {
   public async attachCatalogPrivateEndpoint(
     attachCatalogPrivateEndpointRequest: requests.AttachCatalogPrivateEndpointRequest
   ): Promise<responses.AttachCatalogPrivateEndpointResponse> {
-    logger.debug("Calling operation DataCatalogClient#attachCatalogPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#attachCatalogPrivateEndpoint.");
     const operationName = "attachCatalogPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/AttachCatalogPrivateEndpoint";
@@ -741,6 +756,7 @@ export class DataCatalogClient {
       attachCatalogPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -796,7 +812,8 @@ export class DataCatalogClient {
   public async changeCatalogCompartment(
     changeCatalogCompartmentRequest: requests.ChangeCatalogCompartmentRequest
   ): Promise<responses.ChangeCatalogCompartmentResponse> {
-    logger.debug("Calling operation DataCatalogClient#changeCatalogCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#changeCatalogCompartment.");
     const operationName = "changeCatalogCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/ChangeCatalogCompartment";
@@ -820,6 +837,7 @@ export class DataCatalogClient {
       changeCatalogCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -875,7 +893,10 @@ export class DataCatalogClient {
   public async changeCatalogPrivateEndpointCompartment(
     changeCatalogPrivateEndpointCompartmentRequest: requests.ChangeCatalogPrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeCatalogPrivateEndpointCompartmentResponse> {
-    logger.debug("Calling operation DataCatalogClient#changeCatalogPrivateEndpointCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataCatalogClient#changeCatalogPrivateEndpointCompartment."
+      );
     const operationName = "changeCatalogPrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/ChangeCatalogPrivateEndpointCompartment";
@@ -900,6 +921,7 @@ export class DataCatalogClient {
       changeCatalogPrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -955,7 +977,8 @@ export class DataCatalogClient {
   public async changeMetastoreCompartment(
     changeMetastoreCompartmentRequest: requests.ChangeMetastoreCompartmentRequest
   ): Promise<responses.ChangeMetastoreCompartmentResponse> {
-    logger.debug("Calling operation DataCatalogClient#changeMetastoreCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#changeMetastoreCompartment.");
     const operationName = "changeMetastoreCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/ChangeMetastoreCompartment";
@@ -979,6 +1002,7 @@ export class DataCatalogClient {
       changeMetastoreCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1034,7 +1058,7 @@ export class DataCatalogClient {
   public async createAttribute(
     createAttributeRequest: requests.CreateAttributeRequest
   ): Promise<responses.CreateAttributeResponse> {
-    logger.debug("Calling operation DataCatalogClient#createAttribute.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createAttribute.");
     const operationName = "createAttribute";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Attribute/CreateAttribute";
@@ -1058,6 +1082,7 @@ export class DataCatalogClient {
       createAttributeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1117,7 +1142,7 @@ export class DataCatalogClient {
   public async createAttributeTag(
     createAttributeTagRequest: requests.CreateAttributeTagRequest
   ): Promise<responses.CreateAttributeTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#createAttributeTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createAttributeTag.");
     const operationName = "createAttributeTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeTag/CreateAttributeTag";
@@ -1142,6 +1167,7 @@ export class DataCatalogClient {
       createAttributeTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1204,7 +1230,7 @@ export class DataCatalogClient {
   public async createCatalog(
     createCatalogRequest: requests.CreateCatalogRequest
   ): Promise<responses.CreateCatalogResponse> {
-    logger.debug("Calling operation DataCatalogClient#createCatalog.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createCatalog.");
     const operationName = "createCatalog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/CreateCatalog";
@@ -1224,6 +1250,7 @@ export class DataCatalogClient {
       createCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1279,7 +1306,8 @@ export class DataCatalogClient {
   public async createCatalogPrivateEndpoint(
     createCatalogPrivateEndpointRequest: requests.CreateCatalogPrivateEndpointRequest
   ): Promise<responses.CreateCatalogPrivateEndpointResponse> {
-    logger.debug("Calling operation DataCatalogClient#createCatalogPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#createCatalogPrivateEndpoint.");
     const operationName = "createCatalogPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/CreateCatalogPrivateEndpoint";
@@ -1299,6 +1327,7 @@ export class DataCatalogClient {
       createCatalogPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1354,7 +1383,7 @@ export class DataCatalogClient {
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
-    logger.debug("Calling operation DataCatalogClient#createConnection.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createConnection.");
     const operationName = "createConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/CreateConnection";
@@ -1377,6 +1406,7 @@ export class DataCatalogClient {
       createConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1436,7 +1466,7 @@ export class DataCatalogClient {
   public async createCustomProperty(
     createCustomPropertyRequest: requests.CreateCustomPropertyRequest
   ): Promise<responses.CreateCustomPropertyResponse> {
-    logger.debug("Calling operation DataCatalogClient#createCustomProperty.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createCustomProperty.");
     const operationName = "createCustomProperty";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/CreateCustomProperty";
@@ -1459,6 +1489,7 @@ export class DataCatalogClient {
       createCustomPropertyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1518,7 +1549,7 @@ export class DataCatalogClient {
   public async createDataAsset(
     createDataAssetRequest: requests.CreateDataAssetRequest
   ): Promise<responses.CreateDataAssetResponse> {
-    logger.debug("Calling operation DataCatalogClient#createDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createDataAsset.");
     const operationName = "createDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/CreateDataAsset";
@@ -1540,6 +1571,7 @@ export class DataCatalogClient {
       createDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1599,7 +1631,7 @@ export class DataCatalogClient {
   public async createDataAssetTag(
     createDataAssetTagRequest: requests.CreateDataAssetTagRequest
   ): Promise<responses.CreateDataAssetTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#createDataAssetTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createDataAssetTag.");
     const operationName = "createDataAssetTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetTag/CreateDataAssetTag";
@@ -1622,6 +1654,7 @@ export class DataCatalogClient {
       createDataAssetTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1681,7 +1714,7 @@ export class DataCatalogClient {
   public async createEntity(
     createEntityRequest: requests.CreateEntityRequest
   ): Promise<responses.CreateEntityResponse> {
-    logger.debug("Calling operation DataCatalogClient#createEntity.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createEntity.");
     const operationName = "createEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/CreateEntity";
@@ -1704,6 +1737,7 @@ export class DataCatalogClient {
       createEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1763,7 +1797,7 @@ export class DataCatalogClient {
   public async createEntityTag(
     createEntityTagRequest: requests.CreateEntityTagRequest
   ): Promise<responses.CreateEntityTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#createEntityTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createEntityTag.");
     const operationName = "createEntityTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/EntityTag/CreateEntityTag";
@@ -1787,6 +1821,7 @@ export class DataCatalogClient {
       createEntityTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1846,7 +1881,7 @@ export class DataCatalogClient {
   public async createFolder(
     createFolderRequest: requests.CreateFolderRequest
   ): Promise<responses.CreateFolderResponse> {
-    logger.debug("Calling operation DataCatalogClient#createFolder.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createFolder.");
     const operationName = "createFolder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Folder/CreateFolder";
@@ -1869,6 +1904,7 @@ export class DataCatalogClient {
       createFolderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1928,7 +1964,7 @@ export class DataCatalogClient {
   public async createFolderTag(
     createFolderTagRequest: requests.CreateFolderTagRequest
   ): Promise<responses.CreateFolderTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#createFolderTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createFolderTag.");
     const operationName = "createFolderTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderTag/CreateFolderTag";
@@ -1952,6 +1988,7 @@ export class DataCatalogClient {
       createFolderTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2011,7 +2048,7 @@ export class DataCatalogClient {
   public async createGlossary(
     createGlossaryRequest: requests.CreateGlossaryRequest
   ): Promise<responses.CreateGlossaryResponse> {
-    logger.debug("Calling operation DataCatalogClient#createGlossary.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createGlossary.");
     const operationName = "createGlossary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/CreateGlossary";
@@ -2033,6 +2070,7 @@ export class DataCatalogClient {
       createGlossaryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2092,7 +2130,7 @@ export class DataCatalogClient {
   public async createJob(
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
-    logger.debug("Calling operation DataCatalogClient#createJob.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJob.");
     const operationName = "createJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Job/CreateJob";
@@ -2114,6 +2152,7 @@ export class DataCatalogClient {
       createJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2173,7 +2212,7 @@ export class DataCatalogClient {
   public async createJobDefinition(
     createJobDefinitionRequest: requests.CreateJobDefinitionRequest
   ): Promise<responses.CreateJobDefinitionResponse> {
-    logger.debug("Calling operation DataCatalogClient#createJobDefinition.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJobDefinition.");
     const operationName = "createJobDefinition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinition/CreateJobDefinition";
@@ -2195,6 +2234,7 @@ export class DataCatalogClient {
       createJobDefinitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2254,7 +2294,7 @@ export class DataCatalogClient {
   public async createJobExecution(
     createJobExecutionRequest: requests.CreateJobExecutionRequest
   ): Promise<responses.CreateJobExecutionResponse> {
-    logger.debug("Calling operation DataCatalogClient#createJobExecution.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJobExecution.");
     const operationName = "createJobExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobExecution/CreateJobExecution";
@@ -2277,6 +2317,7 @@ export class DataCatalogClient {
       createJobExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2337,7 +2378,7 @@ export class DataCatalogClient {
   public async createMetastore(
     createMetastoreRequest: requests.CreateMetastoreRequest
   ): Promise<responses.CreateMetastoreResponse> {
-    logger.debug("Calling operation DataCatalogClient#createMetastore.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createMetastore.");
     const operationName = "createMetastore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/CreateMetastore";
@@ -2357,6 +2398,7 @@ export class DataCatalogClient {
       createMetastoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2412,7 +2454,7 @@ export class DataCatalogClient {
   public async createNamespace(
     createNamespaceRequest: requests.CreateNamespaceRequest
   ): Promise<responses.CreateNamespaceResponse> {
-    logger.debug("Calling operation DataCatalogClient#createNamespace.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createNamespace.");
     const operationName = "createNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/CreateNamespace";
@@ -2434,6 +2476,7 @@ export class DataCatalogClient {
       createNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2493,7 +2536,7 @@ export class DataCatalogClient {
   public async createPattern(
     createPatternRequest: requests.CreatePatternRequest
   ): Promise<responses.CreatePatternResponse> {
-    logger.debug("Calling operation DataCatalogClient#createPattern.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createPattern.");
     const operationName = "createPattern";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/CreatePattern";
@@ -2515,6 +2558,7 @@ export class DataCatalogClient {
       createPatternRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2574,7 +2618,7 @@ export class DataCatalogClient {
   public async createTerm(
     createTermRequest: requests.CreateTermRequest
   ): Promise<responses.CreateTermResponse> {
-    logger.debug("Calling operation DataCatalogClient#createTerm.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createTerm.");
     const operationName = "createTerm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/CreateTerm";
@@ -2597,6 +2641,7 @@ export class DataCatalogClient {
       createTermRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2656,7 +2701,8 @@ export class DataCatalogClient {
   public async createTermRelationship(
     createTermRelationshipRequest: requests.CreateTermRelationshipRequest
   ): Promise<responses.CreateTermRelationshipResponse> {
-    logger.debug("Calling operation DataCatalogClient#createTermRelationship.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#createTermRelationship.");
     const operationName = "createTermRelationship";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/CreateTermRelationship";
@@ -2680,6 +2726,7 @@ export class DataCatalogClient {
       createTermRelationshipRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2739,7 +2786,7 @@ export class DataCatalogClient {
   public async deleteAttribute(
     deleteAttributeRequest: requests.DeleteAttributeRequest
   ): Promise<responses.DeleteAttributeResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteAttribute.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteAttribute.");
     const operationName = "deleteAttribute";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Attribute/DeleteAttribute";
@@ -2764,6 +2811,7 @@ export class DataCatalogClient {
       deleteAttributeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2810,7 +2858,7 @@ export class DataCatalogClient {
   public async deleteAttributeTag(
     deleteAttributeTagRequest: requests.DeleteAttributeTagRequest
   ): Promise<responses.DeleteAttributeTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteAttributeTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteAttributeTag.");
     const operationName = "deleteAttributeTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeTag/DeleteAttributeTag";
@@ -2836,6 +2884,7 @@ export class DataCatalogClient {
       deleteAttributeTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2882,7 +2931,7 @@ export class DataCatalogClient {
   public async deleteCatalog(
     deleteCatalogRequest: requests.DeleteCatalogRequest
   ): Promise<responses.DeleteCatalogResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteCatalog.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteCatalog.");
     const operationName = "deleteCatalog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/DeleteCatalog";
@@ -2906,6 +2955,7 @@ export class DataCatalogClient {
       deleteCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2956,7 +3006,8 @@ export class DataCatalogClient {
   public async deleteCatalogPrivateEndpoint(
     deleteCatalogPrivateEndpointRequest: requests.DeleteCatalogPrivateEndpointRequest
   ): Promise<responses.DeleteCatalogPrivateEndpointResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteCatalogPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#deleteCatalogPrivateEndpoint.");
     const operationName = "deleteCatalogPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/DeleteCatalogPrivateEndpoint";
@@ -2980,6 +3031,7 @@ export class DataCatalogClient {
       deleteCatalogPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3030,7 +3082,7 @@ export class DataCatalogClient {
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteConnection.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteConnection.");
     const operationName = "deleteConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/DeleteConnection";
@@ -3054,6 +3106,7 @@ export class DataCatalogClient {
       deleteConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3099,7 +3152,7 @@ export class DataCatalogClient {
   public async deleteCustomProperty(
     deleteCustomPropertyRequest: requests.DeleteCustomPropertyRequest
   ): Promise<responses.DeleteCustomPropertyResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteCustomProperty.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteCustomProperty.");
     const operationName = "deleteCustomProperty";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/DeleteCustomProperty";
@@ -3123,6 +3176,7 @@ export class DataCatalogClient {
       deleteCustomPropertyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3168,7 +3222,7 @@ export class DataCatalogClient {
   public async deleteDataAsset(
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
   ): Promise<responses.DeleteDataAssetResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteDataAsset.");
     const operationName = "deleteDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/DeleteDataAsset";
@@ -3191,6 +3245,7 @@ export class DataCatalogClient {
       deleteDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3236,7 +3291,7 @@ export class DataCatalogClient {
   public async deleteDataAssetTag(
     deleteDataAssetTagRequest: requests.DeleteDataAssetTagRequest
   ): Promise<responses.DeleteDataAssetTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteDataAssetTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteDataAssetTag.");
     const operationName = "deleteDataAssetTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetTag/DeleteDataAssetTag";
@@ -3260,6 +3315,7 @@ export class DataCatalogClient {
       deleteDataAssetTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3305,7 +3361,7 @@ export class DataCatalogClient {
   public async deleteEntity(
     deleteEntityRequest: requests.DeleteEntityRequest
   ): Promise<responses.DeleteEntityResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteEntity.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteEntity.");
     const operationName = "deleteEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/DeleteEntity";
@@ -3329,6 +3385,7 @@ export class DataCatalogClient {
       deleteEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3374,7 +3431,7 @@ export class DataCatalogClient {
   public async deleteEntityTag(
     deleteEntityTagRequest: requests.DeleteEntityTagRequest
   ): Promise<responses.DeleteEntityTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteEntityTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteEntityTag.");
     const operationName = "deleteEntityTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/EntityTag/DeleteEntityTag";
@@ -3399,6 +3456,7 @@ export class DataCatalogClient {
       deleteEntityTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3444,7 +3502,7 @@ export class DataCatalogClient {
   public async deleteFolder(
     deleteFolderRequest: requests.DeleteFolderRequest
   ): Promise<responses.DeleteFolderResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteFolder.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteFolder.");
     const operationName = "deleteFolder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Folder/DeleteFolder";
@@ -3468,6 +3526,7 @@ export class DataCatalogClient {
       deleteFolderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3513,7 +3572,7 @@ export class DataCatalogClient {
   public async deleteFolderTag(
     deleteFolderTagRequest: requests.DeleteFolderTagRequest
   ): Promise<responses.DeleteFolderTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteFolderTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteFolderTag.");
     const operationName = "deleteFolderTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderTag/DeleteFolderTag";
@@ -3538,6 +3597,7 @@ export class DataCatalogClient {
       deleteFolderTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3583,7 +3643,7 @@ export class DataCatalogClient {
   public async deleteGlossary(
     deleteGlossaryRequest: requests.DeleteGlossaryRequest
   ): Promise<responses.DeleteGlossaryResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteGlossary.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteGlossary.");
     const operationName = "deleteGlossary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/DeleteGlossary";
@@ -3606,6 +3666,7 @@ export class DataCatalogClient {
       deleteGlossaryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3651,7 +3712,7 @@ export class DataCatalogClient {
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteJob.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteJob.");
     const operationName = "deleteJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Job/DeleteJob";
@@ -3674,6 +3735,7 @@ export class DataCatalogClient {
       deleteJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3719,7 +3781,7 @@ export class DataCatalogClient {
   public async deleteJobDefinition(
     deleteJobDefinitionRequest: requests.DeleteJobDefinitionRequest
   ): Promise<responses.DeleteJobDefinitionResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteJobDefinition.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteJobDefinition.");
     const operationName = "deleteJobDefinition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinition/DeleteJobDefinition";
@@ -3742,6 +3804,7 @@ export class DataCatalogClient {
       deleteJobDefinitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3787,7 +3850,7 @@ export class DataCatalogClient {
   public async deleteMetastore(
     deleteMetastoreRequest: requests.DeleteMetastoreRequest
   ): Promise<responses.DeleteMetastoreResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteMetastore.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteMetastore.");
     const operationName = "deleteMetastore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/DeleteMetastore";
@@ -3811,6 +3874,7 @@ export class DataCatalogClient {
       deleteMetastoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3861,7 +3925,7 @@ export class DataCatalogClient {
   public async deleteNamespace(
     deleteNamespaceRequest: requests.DeleteNamespaceRequest
   ): Promise<responses.DeleteNamespaceResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteNamespace.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteNamespace.");
     const operationName = "deleteNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/DeleteNamespace";
@@ -3884,6 +3948,7 @@ export class DataCatalogClient {
       deleteNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3929,7 +3994,7 @@ export class DataCatalogClient {
   public async deletePattern(
     deletePatternRequest: requests.DeletePatternRequest
   ): Promise<responses.DeletePatternResponse> {
-    logger.debug("Calling operation DataCatalogClient#deletePattern.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deletePattern.");
     const operationName = "deletePattern";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/DeletePattern";
@@ -3952,6 +4017,7 @@ export class DataCatalogClient {
       deletePatternRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3997,7 +4063,7 @@ export class DataCatalogClient {
   public async deleteTerm(
     deleteTermRequest: requests.DeleteTermRequest
   ): Promise<responses.DeleteTermResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteTerm.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteTerm.");
     const operationName = "deleteTerm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/DeleteTerm";
@@ -4021,6 +4087,7 @@ export class DataCatalogClient {
       deleteTermRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4066,7 +4133,8 @@ export class DataCatalogClient {
   public async deleteTermRelationship(
     deleteTermRelationshipRequest: requests.DeleteTermRelationshipRequest
   ): Promise<responses.DeleteTermRelationshipResponse> {
-    logger.debug("Calling operation DataCatalogClient#deleteTermRelationship.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#deleteTermRelationship.");
     const operationName = "deleteTermRelationship";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/DeleteTermRelationship";
@@ -4091,6 +4159,7 @@ export class DataCatalogClient {
       deleteTermRelationshipRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4137,7 +4206,8 @@ export class DataCatalogClient {
   public async detachCatalogPrivateEndpoint(
     detachCatalogPrivateEndpointRequest: requests.DetachCatalogPrivateEndpointRequest
   ): Promise<responses.DetachCatalogPrivateEndpointResponse> {
-    logger.debug("Calling operation DataCatalogClient#detachCatalogPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#detachCatalogPrivateEndpoint.");
     const operationName = "detachCatalogPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/DetachCatalogPrivateEndpoint";
@@ -4161,6 +4231,7 @@ export class DataCatalogClient {
       detachCatalogPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4216,7 +4287,8 @@ export class DataCatalogClient {
   public async disassociateCustomProperty(
     disassociateCustomPropertyRequest: requests.DisassociateCustomPropertyRequest
   ): Promise<responses.DisassociateCustomPropertyResponse> {
-    logger.debug("Calling operation DataCatalogClient#disassociateCustomProperty.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#disassociateCustomProperty.");
     const operationName = "disassociateCustomProperty";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Type/DisassociateCustomProperty";
@@ -4240,6 +4312,7 @@ export class DataCatalogClient {
       disassociateCustomPropertyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4299,7 +4372,8 @@ export class DataCatalogClient {
   public async expandTreeForGlossary(
     expandTreeForGlossaryRequest: requests.ExpandTreeForGlossaryRequest
   ): Promise<responses.ExpandTreeForGlossaryResponse> {
-    logger.debug("Calling operation DataCatalogClient#expandTreeForGlossary.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#expandTreeForGlossary.");
     const operationName = "expandTreeForGlossary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/ExpandTreeForGlossary";
@@ -4322,6 +4396,7 @@ export class DataCatalogClient {
       expandTreeForGlossaryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4376,7 +4451,7 @@ export class DataCatalogClient {
   public async exportGlossary(
     exportGlossaryRequest: requests.ExportGlossaryRequest
   ): Promise<responses.ExportGlossaryResponse> {
-    logger.debug("Calling operation DataCatalogClient#exportGlossary.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#exportGlossary.");
     const operationName = "exportGlossary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/ExportGlossary";
@@ -4401,6 +4476,7 @@ export class DataCatalogClient {
       exportGlossaryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4455,7 +4531,7 @@ export class DataCatalogClient {
   public async fetchEntityLineage(
     fetchEntityLineageRequest: requests.FetchEntityLineageRequest
   ): Promise<responses.FetchEntityLineageResponse> {
-    logger.debug("Calling operation DataCatalogClient#fetchEntityLineage.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#fetchEntityLineage.");
     const operationName = "fetchEntityLineage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/FetchEntityLineage";
@@ -4482,6 +4558,7 @@ export class DataCatalogClient {
       fetchEntityLineageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4542,7 +4619,7 @@ export class DataCatalogClient {
   public async getAttribute(
     getAttributeRequest: requests.GetAttributeRequest
   ): Promise<responses.GetAttributeResponse> {
-    logger.debug("Calling operation DataCatalogClient#getAttribute.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getAttribute.");
     const operationName = "getAttribute";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Attribute/GetAttribute";
@@ -4569,6 +4646,7 @@ export class DataCatalogClient {
       getAttributeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4624,7 +4702,7 @@ export class DataCatalogClient {
   public async getAttributeTag(
     getAttributeTagRequest: requests.GetAttributeTagRequest
   ): Promise<responses.GetAttributeTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#getAttributeTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getAttributeTag.");
     const operationName = "getAttributeTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeTag/GetAttributeTag";
@@ -4651,6 +4729,7 @@ export class DataCatalogClient {
       getAttributeTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4706,7 +4785,7 @@ export class DataCatalogClient {
   public async getCatalog(
     getCatalogRequest: requests.GetCatalogRequest
   ): Promise<responses.GetCatalogResponse> {
-    logger.debug("Calling operation DataCatalogClient#getCatalog.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getCatalog.");
     const operationName = "getCatalog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/GetCatalog";
@@ -4727,6 +4806,7 @@ export class DataCatalogClient {
       getCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4781,7 +4861,8 @@ export class DataCatalogClient {
   public async getCatalogPrivateEndpoint(
     getCatalogPrivateEndpointRequest: requests.GetCatalogPrivateEndpointRequest
   ): Promise<responses.GetCatalogPrivateEndpointResponse> {
-    logger.debug("Calling operation DataCatalogClient#getCatalogPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#getCatalogPrivateEndpoint.");
     const operationName = "getCatalogPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/GetCatalogPrivateEndpoint";
@@ -4802,6 +4883,7 @@ export class DataCatalogClient {
       getCatalogPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4856,7 +4938,7 @@ export class DataCatalogClient {
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
-    logger.debug("Calling operation DataCatalogClient#getConnection.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getConnection.");
     const operationName = "getConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/GetConnection";
@@ -4881,6 +4963,7 @@ export class DataCatalogClient {
       getConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4935,7 +5018,7 @@ export class DataCatalogClient {
   public async getCustomProperty(
     getCustomPropertyRequest: requests.GetCustomPropertyRequest
   ): Promise<responses.GetCustomPropertyResponse> {
-    logger.debug("Calling operation DataCatalogClient#getCustomProperty.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getCustomProperty.");
     const operationName = "getCustomProperty";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/GetCustomProperty";
@@ -4960,6 +5043,7 @@ export class DataCatalogClient {
       getCustomPropertyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5014,7 +5098,7 @@ export class DataCatalogClient {
   public async getDataAsset(
     getDataAssetRequest: requests.GetDataAssetRequest
   ): Promise<responses.GetDataAssetResponse> {
-    logger.debug("Calling operation DataCatalogClient#getDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getDataAsset.");
     const operationName = "getDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/GetDataAsset";
@@ -5038,6 +5122,7 @@ export class DataCatalogClient {
       getDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5092,7 +5177,7 @@ export class DataCatalogClient {
   public async getDataAssetTag(
     getDataAssetTagRequest: requests.GetDataAssetTagRequest
   ): Promise<responses.GetDataAssetTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#getDataAssetTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getDataAssetTag.");
     const operationName = "getDataAssetTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetTag/GetDataAssetTag";
@@ -5117,6 +5202,7 @@ export class DataCatalogClient {
       getDataAssetTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5171,7 +5257,7 @@ export class DataCatalogClient {
   public async getEntity(
     getEntityRequest: requests.GetEntityRequest
   ): Promise<responses.GetEntityResponse> {
-    logger.debug("Calling operation DataCatalogClient#getEntity.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getEntity.");
     const operationName = "getEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/GetEntity";
@@ -5197,6 +5283,7 @@ export class DataCatalogClient {
       getEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5251,7 +5338,7 @@ export class DataCatalogClient {
   public async getEntityTag(
     getEntityTagRequest: requests.GetEntityTagRequest
   ): Promise<responses.GetEntityTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#getEntityTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getEntityTag.");
     const operationName = "getEntityTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/EntityTag/GetEntityTag";
@@ -5277,6 +5364,7 @@ export class DataCatalogClient {
       getEntityTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5331,7 +5419,7 @@ export class DataCatalogClient {
   public async getFolder(
     getFolderRequest: requests.GetFolderRequest
   ): Promise<responses.GetFolderResponse> {
-    logger.debug("Calling operation DataCatalogClient#getFolder.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getFolder.");
     const operationName = "getFolder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Folder/GetFolder";
@@ -5357,6 +5445,7 @@ export class DataCatalogClient {
       getFolderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5411,7 +5500,7 @@ export class DataCatalogClient {
   public async getFolderTag(
     getFolderTagRequest: requests.GetFolderTagRequest
   ): Promise<responses.GetFolderTagResponse> {
-    logger.debug("Calling operation DataCatalogClient#getFolderTag.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getFolderTag.");
     const operationName = "getFolderTag";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderTag/GetFolderTag";
@@ -5437,6 +5526,7 @@ export class DataCatalogClient {
       getFolderTagRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5491,7 +5581,7 @@ export class DataCatalogClient {
   public async getGlossary(
     getGlossaryRequest: requests.GetGlossaryRequest
   ): Promise<responses.GetGlossaryResponse> {
-    logger.debug("Calling operation DataCatalogClient#getGlossary.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getGlossary.");
     const operationName = "getGlossary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/GetGlossary";
@@ -5515,6 +5605,7 @@ export class DataCatalogClient {
       getGlossaryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5567,7 +5658,7 @@ export class DataCatalogClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
-    logger.debug("Calling operation DataCatalogClient#getJob.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJob.");
     const operationName = "getJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Job/GetJob";
@@ -5591,6 +5682,7 @@ export class DataCatalogClient {
       getJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5645,7 +5737,7 @@ export class DataCatalogClient {
   public async getJobDefinition(
     getJobDefinitionRequest: requests.GetJobDefinitionRequest
   ): Promise<responses.GetJobDefinitionResponse> {
-    logger.debug("Calling operation DataCatalogClient#getJobDefinition.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobDefinition.");
     const operationName = "getJobDefinition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinition/GetJobDefinition";
@@ -5669,6 +5761,7 @@ export class DataCatalogClient {
       getJobDefinitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5723,7 +5816,7 @@ export class DataCatalogClient {
   public async getJobExecution(
     getJobExecutionRequest: requests.GetJobExecutionRequest
   ): Promise<responses.GetJobExecutionResponse> {
-    logger.debug("Calling operation DataCatalogClient#getJobExecution.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobExecution.");
     const operationName = "getJobExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobExecution/GetJobExecution";
@@ -5748,6 +5841,7 @@ export class DataCatalogClient {
       getJobExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5802,7 +5896,7 @@ export class DataCatalogClient {
   public async getJobLog(
     getJobLogRequest: requests.GetJobLogRequest
   ): Promise<responses.GetJobLogResponse> {
-    logger.debug("Calling operation DataCatalogClient#getJobLog.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobLog.");
     const operationName = "getJobLog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobLog/GetJobLog";
@@ -5828,6 +5922,7 @@ export class DataCatalogClient {
       getJobLogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5882,7 +5977,7 @@ export class DataCatalogClient {
   public async getJobMetrics(
     getJobMetricsRequest: requests.GetJobMetricsRequest
   ): Promise<responses.GetJobMetricsResponse> {
-    logger.debug("Calling operation DataCatalogClient#getJobMetrics.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobMetrics.");
     const operationName = "getJobMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobMetric/GetJobMetrics";
@@ -5908,6 +6003,7 @@ export class DataCatalogClient {
       getJobMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5963,7 +6059,7 @@ export class DataCatalogClient {
   public async getMetastore(
     getMetastoreRequest: requests.GetMetastoreRequest
   ): Promise<responses.GetMetastoreResponse> {
-    logger.debug("Calling operation DataCatalogClient#getMetastore.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getMetastore.");
     const operationName = "getMetastore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/GetMetastore";
@@ -5984,6 +6080,7 @@ export class DataCatalogClient {
       getMetastoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6038,7 +6135,7 @@ export class DataCatalogClient {
   public async getNamespace(
     getNamespaceRequest: requests.GetNamespaceRequest
   ): Promise<responses.GetNamespaceResponse> {
-    logger.debug("Calling operation DataCatalogClient#getNamespace.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getNamespace.");
     const operationName = "getNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/GetNamespace";
@@ -6062,6 +6159,7 @@ export class DataCatalogClient {
       getNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6116,7 +6214,7 @@ export class DataCatalogClient {
   public async getPattern(
     getPatternRequest: requests.GetPatternRequest
   ): Promise<responses.GetPatternResponse> {
-    logger.debug("Calling operation DataCatalogClient#getPattern.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getPattern.");
     const operationName = "getPattern";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/GetPattern";
@@ -6140,6 +6238,7 @@ export class DataCatalogClient {
       getPatternRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6194,7 +6293,7 @@ export class DataCatalogClient {
   public async getTerm(
     getTermRequest: requests.GetTermRequest
   ): Promise<responses.GetTermResponse> {
-    logger.debug("Calling operation DataCatalogClient#getTerm.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getTerm.");
     const operationName = "getTerm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/GetTerm";
@@ -6219,6 +6318,7 @@ export class DataCatalogClient {
       getTermRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6273,7 +6373,7 @@ export class DataCatalogClient {
   public async getTermRelationship(
     getTermRelationshipRequest: requests.GetTermRelationshipRequest
   ): Promise<responses.GetTermRelationshipResponse> {
-    logger.debug("Calling operation DataCatalogClient#getTermRelationship.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getTermRelationship.");
     const operationName = "getTermRelationship";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/GetTermRelationship";
@@ -6299,6 +6399,7 @@ export class DataCatalogClient {
       getTermRelationshipRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6354,7 +6455,7 @@ export class DataCatalogClient {
   public async getType(
     getTypeRequest: requests.GetTypeRequest
   ): Promise<responses.GetTypeResponse> {
-    logger.debug("Calling operation DataCatalogClient#getType.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getType.");
     const operationName = "getType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Type/GetType";
@@ -6378,6 +6479,7 @@ export class DataCatalogClient {
       getTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6432,7 +6534,7 @@ export class DataCatalogClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation DataCatalogClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/WorkRequest/GetWorkRequest";
@@ -6453,6 +6555,7 @@ export class DataCatalogClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6512,7 +6615,7 @@ export class DataCatalogClient {
   public async importConnection(
     importConnectionRequest: requests.ImportConnectionRequest
   ): Promise<responses.ImportConnectionResponse> {
-    logger.debug("Calling operation DataCatalogClient#importConnection.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importConnection.");
     const operationName = "importConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ImportConnection";
@@ -6536,6 +6639,7 @@ export class DataCatalogClient {
       importConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6595,7 +6699,7 @@ export class DataCatalogClient {
   public async importDataAsset(
     importDataAssetRequest: requests.ImportDataAssetRequest
   ): Promise<responses.ImportDataAssetResponse> {
-    logger.debug("Calling operation DataCatalogClient#importDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importDataAsset.");
     const operationName = "importDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ImportDataAsset";
@@ -6621,6 +6725,7 @@ export class DataCatalogClient {
       importDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6675,7 +6780,7 @@ export class DataCatalogClient {
   public async importGlossary(
     importGlossaryRequest: requests.ImportGlossaryRequest
   ): Promise<responses.ImportGlossaryResponse> {
-    logger.debug("Calling operation DataCatalogClient#importGlossary.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importGlossary.");
     const operationName = "importGlossary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/ImportGlossary";
@@ -6700,6 +6805,7 @@ export class DataCatalogClient {
       importGlossaryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6755,7 +6861,8 @@ export class DataCatalogClient {
   public async listAggregatedPhysicalEntities(
     listAggregatedPhysicalEntitiesRequest: requests.ListAggregatedPhysicalEntitiesRequest
   ): Promise<responses.ListAggregatedPhysicalEntitiesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listAggregatedPhysicalEntities.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listAggregatedPhysicalEntities.");
     const operationName = "listAggregatedPhysicalEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/ListAggregatedPhysicalEntities";
@@ -6786,6 +6893,7 @@ export class DataCatalogClient {
       listAggregatedPhysicalEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6836,7 +6944,7 @@ export class DataCatalogClient {
   public async listAttributeTags(
     listAttributeTagsRequest: requests.ListAttributeTagsRequest
   ): Promise<responses.ListAttributeTagsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listAttributeTags.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listAttributeTags.");
     const operationName = "listAttributeTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeTagCollection/ListAttributeTags";
@@ -6872,6 +6980,7 @@ export class DataCatalogClient {
       listAttributeTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6927,7 +7036,7 @@ export class DataCatalogClient {
   public async listAttributes(
     listAttributesRequest: requests.ListAttributesRequest
   ): Promise<responses.ListAttributesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listAttributes.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listAttributes.");
     const operationName = "listAttributes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeCollection/ListAttributes";
@@ -6974,6 +7083,7 @@ export class DataCatalogClient {
       listAttributesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7029,7 +7139,8 @@ export class DataCatalogClient {
   public async listCatalogPrivateEndpoints(
     listCatalogPrivateEndpointsRequest: requests.ListCatalogPrivateEndpointsRequest
   ): Promise<responses.ListCatalogPrivateEndpointsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listCatalogPrivateEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listCatalogPrivateEndpoints.");
     const operationName = "listCatalogPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpointSummary/ListCatalogPrivateEndpoints";
@@ -7056,6 +7167,7 @@ export class DataCatalogClient {
       listCatalogPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7163,7 +7275,7 @@ export class DataCatalogClient {
   public async listCatalogs(
     listCatalogsRequest: requests.ListCatalogsRequest
   ): Promise<responses.ListCatalogsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listCatalogs.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listCatalogs.");
     const operationName = "listCatalogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogSummary/ListCatalogs";
@@ -7190,6 +7302,7 @@ export class DataCatalogClient {
       listCatalogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7296,7 +7409,7 @@ export class DataCatalogClient {
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listConnections.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listConnections.");
     const operationName = "listConnections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/ConnectionCollection/ListConnections";
@@ -7334,6 +7447,7 @@ export class DataCatalogClient {
       listConnectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7388,7 +7502,7 @@ export class DataCatalogClient {
   public async listCustomProperties(
     listCustomPropertiesRequest: requests.ListCustomPropertiesRequest
   ): Promise<responses.ListCustomPropertiesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listCustomProperties.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listCustomProperties.");
     const operationName = "listCustomProperties";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/ListCustomProperties";
@@ -7425,6 +7539,7 @@ export class DataCatalogClient {
       listCustomPropertiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7479,7 +7594,7 @@ export class DataCatalogClient {
   public async listDataAssetTags(
     listDataAssetTagsRequest: requests.ListDataAssetTagsRequest
   ): Promise<responses.ListDataAssetTagsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listDataAssetTags.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listDataAssetTags.");
     const operationName = "listDataAssetTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetTagCollection/ListDataAssetTags";
@@ -7513,6 +7628,7 @@ export class DataCatalogClient {
       listDataAssetTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7567,7 +7683,7 @@ export class DataCatalogClient {
   public async listDataAssets(
     listDataAssetsRequest: requests.ListDataAssetsRequest
   ): Promise<responses.ListDataAssetsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listDataAssets.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listDataAssets.");
     const operationName = "listDataAssets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetCollection/ListDataAssets";
@@ -7603,6 +7719,7 @@ export class DataCatalogClient {
       listDataAssetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7657,7 +7774,8 @@ export class DataCatalogClient {
   public async listDerivedLogicalEntities(
     listDerivedLogicalEntitiesRequest: requests.ListDerivedLogicalEntitiesRequest
   ): Promise<responses.ListDerivedLogicalEntitiesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listDerivedLogicalEntities.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listDerivedLogicalEntities.");
     const operationName = "listDerivedLogicalEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/ListDerivedLogicalEntities";
@@ -7687,6 +7805,7 @@ export class DataCatalogClient {
       listDerivedLogicalEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7736,7 +7855,7 @@ export class DataCatalogClient {
   public async listEntities(
     listEntitiesRequest: requests.ListEntitiesRequest
   ): Promise<responses.ListEntitiesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listEntities.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listEntities.");
     const operationName = "listEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/ListEntities";
@@ -7784,6 +7903,7 @@ export class DataCatalogClient {
       listEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7838,7 +7958,7 @@ export class DataCatalogClient {
   public async listEntityTags(
     listEntityTagsRequest: requests.ListEntityTagsRequest
   ): Promise<responses.ListEntityTagsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listEntityTags.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listEntityTags.");
     const operationName = "listEntityTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/EntityTagCollection/ListEntityTags";
@@ -7873,6 +7993,7 @@ export class DataCatalogClient {
       listEntityTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7927,7 +8048,7 @@ export class DataCatalogClient {
   public async listFolderTags(
     listFolderTagsRequest: requests.ListFolderTagsRequest
   ): Promise<responses.ListFolderTagsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listFolderTags.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listFolderTags.");
     const operationName = "listFolderTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderTagCollection/ListFolderTags";
@@ -7962,6 +8083,7 @@ export class DataCatalogClient {
       listFolderTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8016,7 +8138,7 @@ export class DataCatalogClient {
   public async listFolders(
     listFoldersRequest: requests.ListFoldersRequest
   ): Promise<responses.ListFoldersResponse> {
-    logger.debug("Calling operation DataCatalogClient#listFolders.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listFolders.");
     const operationName = "listFolders";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderCollection/ListFolders";
@@ -8059,6 +8181,7 @@ export class DataCatalogClient {
       listFoldersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8113,7 +8236,7 @@ export class DataCatalogClient {
   public async listGlossaries(
     listGlossariesRequest: requests.ListGlossariesRequest
   ): Promise<responses.ListGlossariesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listGlossaries.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listGlossaries.");
     const operationName = "listGlossaries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/ListGlossaries";
@@ -8147,6 +8270,7 @@ export class DataCatalogClient {
       listGlossariesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8201,7 +8325,7 @@ export class DataCatalogClient {
   public async listJobDefinitions(
     listJobDefinitionsRequest: requests.ListJobDefinitionsRequest
   ): Promise<responses.ListJobDefinitionsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listJobDefinitions.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobDefinitions.");
     const operationName = "listJobDefinitions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinitionCollection/ListJobDefinitions";
@@ -8242,6 +8366,7 @@ export class DataCatalogClient {
       listJobDefinitionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8296,7 +8421,7 @@ export class DataCatalogClient {
   public async listJobExecutions(
     listJobExecutionsRequest: requests.ListJobExecutionsRequest
   ): Promise<responses.ListJobExecutionsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listJobExecutions.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobExecutions.");
     const operationName = "listJobExecutions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobExecutionCollection/ListJobExecutions";
@@ -8340,6 +8465,7 @@ export class DataCatalogClient {
       listJobExecutionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8394,7 +8520,7 @@ export class DataCatalogClient {
   public async listJobLogs(
     listJobLogsRequest: requests.ListJobLogsRequest
   ): Promise<responses.ListJobLogsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listJobLogs.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobLogs.");
     const operationName = "listJobLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobLogCollection/ListJobLogs";
@@ -8429,6 +8555,7 @@ export class DataCatalogClient {
       listJobLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8483,7 +8610,7 @@ export class DataCatalogClient {
   public async listJobMetrics(
     listJobMetricsRequest: requests.ListJobMetricsRequest
   ): Promise<responses.ListJobMetricsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listJobMetrics.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobMetrics.");
     const operationName = "listJobMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobMetricCollection/ListJobMetrics";
@@ -8524,6 +8651,7 @@ export class DataCatalogClient {
       listJobMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8578,7 +8706,7 @@ export class DataCatalogClient {
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listJobs.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobs.");
     const operationName = "listJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobCollection/ListJobs";
@@ -8623,6 +8751,7 @@ export class DataCatalogClient {
       listJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8678,7 +8807,7 @@ export class DataCatalogClient {
   public async listMetastores(
     listMetastoresRequest: requests.ListMetastoresRequest
   ): Promise<responses.ListMetastoresResponse> {
-    logger.debug("Calling operation DataCatalogClient#listMetastores.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listMetastores.");
     const operationName = "listMetastores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/MetastoreSummary/ListMetastores";
@@ -8705,6 +8834,7 @@ export class DataCatalogClient {
       listMetastoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8811,7 +8941,7 @@ export class DataCatalogClient {
   public async listNamespaces(
     listNamespacesRequest: requests.ListNamespacesRequest
   ): Promise<responses.ListNamespacesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listNamespaces.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listNamespaces.");
     const operationName = "listNamespaces";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/ListNamespaces";
@@ -8845,6 +8975,7 @@ export class DataCatalogClient {
       listNamespacesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8899,7 +9030,7 @@ export class DataCatalogClient {
   public async listPatterns(
     listPatternsRequest: requests.ListPatternsRequest
   ): Promise<responses.ListPatternsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listPatterns.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listPatterns.");
     const operationName = "listPatterns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/ListPatterns";
@@ -8933,6 +9064,7 @@ export class DataCatalogClient {
       listPatternsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8987,7 +9119,7 @@ export class DataCatalogClient {
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
   ): Promise<responses.ListRulesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listRules.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listRules.");
     const operationName = "listRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/RuleSummary/ListRules";
@@ -9026,6 +9158,7 @@ export class DataCatalogClient {
       listRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9080,7 +9213,7 @@ export class DataCatalogClient {
   public async listTags(
     listTagsRequest: requests.ListTagsRequest
   ): Promise<responses.ListTagsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listTags.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTags.");
     const operationName = "listTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/ListTags";
@@ -9110,6 +9243,7 @@ export class DataCatalogClient {
       listTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9164,7 +9298,8 @@ export class DataCatalogClient {
   public async listTermRelationships(
     listTermRelationshipsRequest: requests.ListTermRelationshipsRequest
   ): Promise<responses.ListTermRelationshipsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listTermRelationships.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listTermRelationships.");
     const operationName = "listTermRelationships";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/ListTermRelationships";
@@ -9196,6 +9331,7 @@ export class DataCatalogClient {
       listTermRelationshipsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9250,7 +9386,7 @@ export class DataCatalogClient {
   public async listTerms(
     listTermsRequest: requests.ListTermsRequest
   ): Promise<responses.ListTermsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listTerms.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTerms.");
     const operationName = "listTerms";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/ListTerms";
@@ -9285,6 +9421,7 @@ export class DataCatalogClient {
       listTermsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9339,7 +9476,7 @@ export class DataCatalogClient {
   public async listTypes(
     listTypesRequest: requests.ListTypesRequest
   ): Promise<responses.ListTypesResponse> {
-    logger.debug("Calling operation DataCatalogClient#listTypes.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTypes.");
     const operationName = "listTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TypeCollection/ListTypes";
@@ -9373,6 +9510,7 @@ export class DataCatalogClient {
       listTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9428,7 +9566,8 @@ export class DataCatalogClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/WorkRequestError/ListWorkRequestErrors";
@@ -9454,6 +9593,7 @@ export class DataCatalogClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9561,7 +9701,7 @@ export class DataCatalogClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/WorkRequestLog/ListWorkRequestLogs";
@@ -9587,6 +9727,7 @@ export class DataCatalogClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9694,7 +9835,7 @@ export class DataCatalogClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation DataCatalogClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/WorkRequest/ListWorkRequests";
@@ -9717,6 +9858,7 @@ export class DataCatalogClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9823,7 +9965,7 @@ export class DataCatalogClient {
   public async objectStats(
     objectStatsRequest: requests.ObjectStatsRequest
   ): Promise<responses.ObjectStatsResponse> {
-    logger.debug("Calling operation DataCatalogClient#objectStats.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#objectStats.");
     const operationName = "objectStats";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/ObjectStats";
@@ -9849,6 +9991,7 @@ export class DataCatalogClient {
       objectStatsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9903,7 +10046,7 @@ export class DataCatalogClient {
   public async parseConnection(
     parseConnectionRequest: requests.ParseConnectionRequest
   ): Promise<responses.ParseConnectionResponse> {
-    logger.debug("Calling operation DataCatalogClient#parseConnection.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#parseConnection.");
     const operationName = "parseConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ParseConnection";
@@ -9928,6 +10071,7 @@ export class DataCatalogClient {
       parseConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9989,7 +10133,8 @@ export class DataCatalogClient {
   public async processRecommendation(
     processRecommendationRequest: requests.ProcessRecommendationRequest
   ): Promise<responses.ProcessRecommendationResponse> {
-    logger.debug("Calling operation DataCatalogClient#processRecommendation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#processRecommendation.");
     const operationName = "processRecommendation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/ProcessRecommendation";
@@ -10011,6 +10156,7 @@ export class DataCatalogClient {
       processRecommendationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10073,7 +10219,7 @@ export class DataCatalogClient {
   public async recommendations(
     recommendationsRequest: requests.RecommendationsRequest
   ): Promise<responses.RecommendationsResponse> {
-    logger.debug("Calling operation DataCatalogClient#recommendations.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#recommendations.");
     const operationName = "recommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/Recommendations";
@@ -10099,6 +10245,7 @@ export class DataCatalogClient {
       recommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10148,7 +10295,7 @@ export class DataCatalogClient {
   public async removeCatalogLock(
     removeCatalogLockRequest: requests.RemoveCatalogLockRequest
   ): Promise<responses.RemoveCatalogLockResponse> {
-    logger.debug("Calling operation DataCatalogClient#removeCatalogLock.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#removeCatalogLock.");
     const operationName = "removeCatalogLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/RemoveCatalogLock";
@@ -10170,6 +10317,7 @@ export class DataCatalogClient {
       removeCatalogLockRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10229,7 +10377,8 @@ export class DataCatalogClient {
   public async removeCatalogPrivateEndpointLock(
     removeCatalogPrivateEndpointLockRequest: requests.RemoveCatalogPrivateEndpointLockRequest
   ): Promise<responses.RemoveCatalogPrivateEndpointLockResponse> {
-    logger.debug("Calling operation DataCatalogClient#removeCatalogPrivateEndpointLock.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#removeCatalogPrivateEndpointLock.");
     const operationName = "removeCatalogPrivateEndpointLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/RemoveCatalogPrivateEndpointLock";
@@ -10251,6 +10400,7 @@ export class DataCatalogClient {
       removeCatalogPrivateEndpointLockRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10310,7 +10460,8 @@ export class DataCatalogClient {
   public async removeDataSelectorPatterns(
     removeDataSelectorPatternsRequest: requests.RemoveDataSelectorPatternsRequest
   ): Promise<responses.RemoveDataSelectorPatternsResponse> {
-    logger.debug("Calling operation DataCatalogClient#removeDataSelectorPatterns.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#removeDataSelectorPatterns.");
     const operationName = "removeDataSelectorPatterns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/RemoveDataSelectorPatterns";
@@ -10334,6 +10485,7 @@ export class DataCatalogClient {
       removeDataSelectorPatternsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10393,7 +10545,7 @@ export class DataCatalogClient {
   public async removeMetastoreLock(
     removeMetastoreLockRequest: requests.RemoveMetastoreLockRequest
   ): Promise<responses.RemoveMetastoreLockResponse> {
-    logger.debug("Calling operation DataCatalogClient#removeMetastoreLock.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#removeMetastoreLock.");
     const operationName = "removeMetastoreLock";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/RemoveMetastoreLock";
@@ -10415,6 +10567,7 @@ export class DataCatalogClient {
       removeMetastoreLockRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10474,7 +10627,7 @@ export class DataCatalogClient {
   public async searchCriteria(
     searchCriteriaRequest: requests.SearchCriteriaRequest
   ): Promise<responses.SearchCriteriaResponse> {
-    logger.debug("Calling operation DataCatalogClient#searchCriteria.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#searchCriteria.");
     const operationName = "searchCriteria";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/SearchResult/SearchCriteria";
@@ -10504,6 +10657,7 @@ export class DataCatalogClient {
       searchCriteriaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10563,7 +10717,7 @@ export class DataCatalogClient {
   public async suggestMatches(
     suggestMatchesRequest: requests.SuggestMatchesRequest
   ): Promise<responses.SuggestMatchesResponse> {
-    logger.debug("Calling operation DataCatalogClient#suggestMatches.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#suggestMatches.");
     const operationName = "suggestMatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/SuggestResults/SuggestMatches";
@@ -10588,6 +10742,7 @@ export class DataCatalogClient {
       suggestMatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10637,7 +10792,8 @@ export class DataCatalogClient {
   public async synchronousExportDataAsset(
     synchronousExportDataAssetRequest: requests.SynchronousExportDataAssetRequest
   ): Promise<responses.SynchronousExportDataAssetResponse> {
-    logger.debug("Calling operation DataCatalogClient#synchronousExportDataAsset.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#synchronousExportDataAsset.");
     const operationName = "synchronousExportDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/SynchronousExportDataAsset";
@@ -10662,6 +10818,7 @@ export class DataCatalogClient {
       synchronousExportDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10716,7 +10873,7 @@ export class DataCatalogClient {
   public async testConnection(
     testConnectionRequest: requests.TestConnectionRequest
   ): Promise<responses.TestConnectionResponse> {
-    logger.debug("Calling operation DataCatalogClient#testConnection.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#testConnection.");
     const operationName = "testConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/TestConnection";
@@ -10740,6 +10897,7 @@ export class DataCatalogClient {
       testConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10795,7 +10953,7 @@ export class DataCatalogClient {
   public async updateAttribute(
     updateAttributeRequest: requests.UpdateAttributeRequest
   ): Promise<responses.UpdateAttributeResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateAttribute.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateAttribute.");
     const operationName = "updateAttribute";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Attribute/UpdateAttribute";
@@ -10820,6 +10978,7 @@ export class DataCatalogClient {
       updateAttributeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10880,7 +11039,7 @@ export class DataCatalogClient {
   public async updateCatalog(
     updateCatalogRequest: requests.UpdateCatalogRequest
   ): Promise<responses.UpdateCatalogResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateCatalog.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateCatalog.");
     const operationName = "updateCatalog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/UpdateCatalog";
@@ -10904,6 +11063,7 @@ export class DataCatalogClient {
       updateCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10963,7 +11123,8 @@ export class DataCatalogClient {
   public async updateCatalogPrivateEndpoint(
     updateCatalogPrivateEndpointRequest: requests.UpdateCatalogPrivateEndpointRequest
   ): Promise<responses.UpdateCatalogPrivateEndpointResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateCatalogPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#updateCatalogPrivateEndpoint.");
     const operationName = "updateCatalogPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/UpdateCatalogPrivateEndpoint";
@@ -10987,6 +11148,7 @@ export class DataCatalogClient {
       updateCatalogPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11042,7 +11204,7 @@ export class DataCatalogClient {
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateConnection.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateConnection.");
     const operationName = "updateConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/UpdateConnection";
@@ -11066,6 +11228,7 @@ export class DataCatalogClient {
       updateConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11125,7 +11288,7 @@ export class DataCatalogClient {
   public async updateCustomProperty(
     updateCustomPropertyRequest: requests.UpdateCustomPropertyRequest
   ): Promise<responses.UpdateCustomPropertyResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateCustomProperty.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateCustomProperty.");
     const operationName = "updateCustomProperty";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/UpdateCustomProperty";
@@ -11149,6 +11312,7 @@ export class DataCatalogClient {
       updateCustomPropertyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11208,7 +11372,7 @@ export class DataCatalogClient {
   public async updateDataAsset(
     updateDataAssetRequest: requests.UpdateDataAssetRequest
   ): Promise<responses.UpdateDataAssetResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateDataAsset.");
     const operationName = "updateDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/UpdateDataAsset";
@@ -11231,6 +11395,7 @@ export class DataCatalogClient {
       updateDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11290,7 +11455,7 @@ export class DataCatalogClient {
   public async updateEntity(
     updateEntityRequest: requests.UpdateEntityRequest
   ): Promise<responses.UpdateEntityResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateEntity.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateEntity.");
     const operationName = "updateEntity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/UpdateEntity";
@@ -11314,6 +11479,7 @@ export class DataCatalogClient {
       updateEntityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11373,7 +11539,7 @@ export class DataCatalogClient {
   public async updateFolder(
     updateFolderRequest: requests.UpdateFolderRequest
   ): Promise<responses.UpdateFolderResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateFolder.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateFolder.");
     const operationName = "updateFolder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Folder/UpdateFolder";
@@ -11397,6 +11563,7 @@ export class DataCatalogClient {
       updateFolderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11456,7 +11623,7 @@ export class DataCatalogClient {
   public async updateGlossary(
     updateGlossaryRequest: requests.UpdateGlossaryRequest
   ): Promise<responses.UpdateGlossaryResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateGlossary.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateGlossary.");
     const operationName = "updateGlossary";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/UpdateGlossary";
@@ -11479,6 +11646,7 @@ export class DataCatalogClient {
       updateGlossaryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11538,7 +11706,7 @@ export class DataCatalogClient {
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateJob.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateJob.");
     const operationName = "updateJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Job/UpdateJob";
@@ -11561,6 +11729,7 @@ export class DataCatalogClient {
       updateJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11620,7 +11789,7 @@ export class DataCatalogClient {
   public async updateJobDefinition(
     updateJobDefinitionRequest: requests.UpdateJobDefinitionRequest
   ): Promise<responses.UpdateJobDefinitionResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateJobDefinition.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateJobDefinition.");
     const operationName = "updateJobDefinition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinition/UpdateJobDefinition";
@@ -11643,6 +11812,7 @@ export class DataCatalogClient {
       updateJobDefinitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11702,7 +11872,7 @@ export class DataCatalogClient {
   public async updateMetastore(
     updateMetastoreRequest: requests.UpdateMetastoreRequest
   ): Promise<responses.UpdateMetastoreResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateMetastore.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateMetastore.");
     const operationName = "updateMetastore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/UpdateMetastore";
@@ -11726,6 +11896,7 @@ export class DataCatalogClient {
       updateMetastoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11785,7 +11956,7 @@ export class DataCatalogClient {
   public async updateNamespace(
     updateNamespaceRequest: requests.UpdateNamespaceRequest
   ): Promise<responses.UpdateNamespaceResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateNamespace.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateNamespace.");
     const operationName = "updateNamespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/UpdateNamespace";
@@ -11808,6 +11979,7 @@ export class DataCatalogClient {
       updateNamespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11867,7 +12039,7 @@ export class DataCatalogClient {
   public async updatePattern(
     updatePatternRequest: requests.UpdatePatternRequest
   ): Promise<responses.UpdatePatternResponse> {
-    logger.debug("Calling operation DataCatalogClient#updatePattern.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updatePattern.");
     const operationName = "updatePattern";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/UpdatePattern";
@@ -11890,6 +12062,7 @@ export class DataCatalogClient {
       updatePatternRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11949,7 +12122,7 @@ export class DataCatalogClient {
   public async updateTerm(
     updateTermRequest: requests.UpdateTermRequest
   ): Promise<responses.UpdateTermResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateTerm.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateTerm.");
     const operationName = "updateTerm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/UpdateTerm";
@@ -11973,6 +12146,7 @@ export class DataCatalogClient {
       updateTermRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12032,7 +12206,8 @@ export class DataCatalogClient {
   public async updateTermRelationship(
     updateTermRelationshipRequest: requests.UpdateTermRelationshipRequest
   ): Promise<responses.UpdateTermRelationshipResponse> {
-    logger.debug("Calling operation DataCatalogClient#updateTermRelationship.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#updateTermRelationship.");
     const operationName = "updateTermRelationship";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/UpdateTermRelationship";
@@ -12057,6 +12232,7 @@ export class DataCatalogClient {
       updateTermRelationshipRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12117,7 +12293,7 @@ export class DataCatalogClient {
   public async uploadCredentials(
     uploadCredentialsRequest: requests.UploadCredentialsRequest
   ): Promise<responses.UploadCredentialsResponse> {
-    logger.debug("Calling operation DataCatalogClient#uploadCredentials.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#uploadCredentials.");
     const operationName = "uploadCredentials";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/UploadCredentials";
@@ -12142,6 +12318,7 @@ export class DataCatalogClient {
       uploadCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12200,7 +12377,7 @@ export class DataCatalogClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/Users.ts.html |here} to see how to use Users API.
    */
   public async users(usersRequest: requests.UsersRequest): Promise<responses.UsersResponse> {
-    logger.debug("Calling operation DataCatalogClient#users.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#users.");
     const operationName = "users";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/Users";
@@ -12226,6 +12403,7 @@ export class DataCatalogClient {
       usersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12280,7 +12458,7 @@ export class DataCatalogClient {
   public async validateConnection(
     validateConnectionRequest: requests.ValidateConnectionRequest
   ): Promise<responses.ValidateConnectionResponse> {
-    logger.debug("Calling operation DataCatalogClient#validateConnection.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#validateConnection.");
     const operationName = "validateConnection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ValidateConnection";
@@ -12303,6 +12481,7 @@ export class DataCatalogClient {
       validateConnectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12362,7 +12541,7 @@ export class DataCatalogClient {
   public async validatePattern(
     validatePatternRequest: requests.ValidatePatternRequest
   ): Promise<responses.ValidatePatternResponse> {
-    logger.debug("Calling operation DataCatalogClient#validatePattern.");
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#validatePattern.");
     const operationName = "validatePattern";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/ValidatePattern";
@@ -12385,6 +12564,7 @@ export class DataCatalogClient {
       validatePatternRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

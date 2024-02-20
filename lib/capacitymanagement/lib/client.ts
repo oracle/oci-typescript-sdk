@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class CapacityManagementClient {
   protected static serviceEndpointTemplate =
     "https://control-center-cp.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "control-center-cp";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": CapacityManagementWaiter;
@@ -118,7 +117,11 @@ export class CapacityManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20231107";
-    logger.info(`CapacityManagementClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`CapacityManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class CapacityManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         CapacityManagementClient.serviceEndpointTemplate,
@@ -222,7 +226,8 @@ export class CapacityManagementClient {
   public async createOccAvailabilityCatalog(
     createOccAvailabilityCatalogRequest: requests.CreateOccAvailabilityCatalogRequest
   ): Promise<responses.CreateOccAvailabilityCatalogResponse> {
-    logger.debug("Calling operation CapacityManagementClient#createOccAvailabilityCatalog.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#createOccAvailabilityCatalog.");
     const operationName = "createOccAvailabilityCatalog";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -241,6 +246,7 @@ export class CapacityManagementClient {
       createOccAvailabilityCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,7 +311,8 @@ export class CapacityManagementClient {
   public async createOccCapacityRequest(
     createOccCapacityRequestRequest: requests.CreateOccCapacityRequestRequest
   ): Promise<responses.CreateOccCapacityRequestResponse> {
-    logger.debug("Calling operation CapacityManagementClient#createOccCapacityRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#createOccCapacityRequest.");
     const operationName = "createOccCapacityRequest";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -324,6 +331,7 @@ export class CapacityManagementClient {
       createOccCapacityRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -388,7 +396,8 @@ export class CapacityManagementClient {
   public async deleteOccAvailabilityCatalog(
     deleteOccAvailabilityCatalogRequest: requests.DeleteOccAvailabilityCatalogRequest
   ): Promise<responses.DeleteOccAvailabilityCatalogResponse> {
-    logger.debug("Calling operation CapacityManagementClient#deleteOccAvailabilityCatalog.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#deleteOccAvailabilityCatalog.");
     const operationName = "deleteOccAvailabilityCatalog";
     const apiReferenceLink = "";
     const pathParams = {
@@ -409,6 +418,7 @@ export class CapacityManagementClient {
       deleteOccAvailabilityCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -459,7 +469,8 @@ export class CapacityManagementClient {
   public async deleteOccCapacityRequest(
     deleteOccCapacityRequestRequest: requests.DeleteOccCapacityRequestRequest
   ): Promise<responses.DeleteOccCapacityRequestResponse> {
-    logger.debug("Calling operation CapacityManagementClient#deleteOccCapacityRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#deleteOccCapacityRequest.");
     const operationName = "deleteOccCapacityRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -480,6 +491,7 @@ export class CapacityManagementClient {
       deleteOccCapacityRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -530,7 +542,8 @@ export class CapacityManagementClient {
   public async getOccAvailabilityCatalog(
     getOccAvailabilityCatalogRequest: requests.GetOccAvailabilityCatalogRequest
   ): Promise<responses.GetOccAvailabilityCatalogResponse> {
-    logger.debug("Calling operation CapacityManagementClient#getOccAvailabilityCatalog.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#getOccAvailabilityCatalog.");
     const operationName = "getOccAvailabilityCatalog";
     const apiReferenceLink = "";
     const pathParams = {
@@ -550,6 +563,7 @@ export class CapacityManagementClient {
       getOccAvailabilityCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -605,7 +619,10 @@ export class CapacityManagementClient {
   public async getOccAvailabilityCatalogContent(
     getOccAvailabilityCatalogContentRequest: requests.GetOccAvailabilityCatalogContentRequest
   ): Promise<responses.GetOccAvailabilityCatalogContentResponse> {
-    logger.debug("Calling operation CapacityManagementClient#getOccAvailabilityCatalogContent.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#getOccAvailabilityCatalogContent."
+      );
     const operationName = "getOccAvailabilityCatalogContent";
     const apiReferenceLink = "";
     const pathParams = {
@@ -627,6 +644,7 @@ export class CapacityManagementClient {
       getOccAvailabilityCatalogContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -676,7 +694,8 @@ export class CapacityManagementClient {
   public async getOccCapacityRequest(
     getOccCapacityRequestRequest: requests.GetOccCapacityRequestRequest
   ): Promise<responses.GetOccCapacityRequestResponse> {
-    logger.debug("Calling operation CapacityManagementClient#getOccCapacityRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#getOccCapacityRequest.");
     const operationName = "getOccCapacityRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -696,6 +715,7 @@ export class CapacityManagementClient {
       getOccCapacityRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -751,7 +771,8 @@ export class CapacityManagementClient {
   public async getOccCustomerGroup(
     getOccCustomerGroupRequest: requests.GetOccCustomerGroupRequest
   ): Promise<responses.GetOccCustomerGroupResponse> {
-    logger.debug("Calling operation CapacityManagementClient#getOccCustomerGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#getOccCustomerGroup.");
     const operationName = "getOccCustomerGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -771,6 +792,7 @@ export class CapacityManagementClient {
       getOccCustomerGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -825,7 +847,8 @@ export class CapacityManagementClient {
   public async listOccAvailabilities(
     listOccAvailabilitiesRequest: requests.ListOccAvailabilitiesRequest
   ): Promise<responses.ListOccAvailabilitiesResponse> {
-    logger.debug("Calling operation CapacityManagementClient#listOccAvailabilities.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#listOccAvailabilities.");
     const operationName = "listOccAvailabilities";
     const apiReferenceLink = "";
     const pathParams = {
@@ -854,6 +877,7 @@ export class CapacityManagementClient {
       listOccAvailabilitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -908,7 +932,8 @@ export class CapacityManagementClient {
   public async listOccAvailabilityCatalogs(
     listOccAvailabilityCatalogsRequest: requests.ListOccAvailabilityCatalogsRequest
   ): Promise<responses.ListOccAvailabilityCatalogsResponse> {
-    logger.debug("Calling operation CapacityManagementClient#listOccAvailabilityCatalogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#listOccAvailabilityCatalogs.");
     const operationName = "listOccAvailabilityCatalogs";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -936,6 +961,7 @@ export class CapacityManagementClient {
       listOccAvailabilityCatalogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -990,7 +1016,10 @@ export class CapacityManagementClient {
   public async listOccAvailabilityCatalogsInternal(
     listOccAvailabilityCatalogsInternalRequest: requests.ListOccAvailabilityCatalogsInternalRequest
   ): Promise<responses.ListOccAvailabilityCatalogsInternalResponse> {
-    logger.debug("Calling operation CapacityManagementClient#listOccAvailabilityCatalogsInternal.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#listOccAvailabilityCatalogsInternal."
+      );
     const operationName = "listOccAvailabilityCatalogsInternal";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1019,6 +1048,7 @@ export class CapacityManagementClient {
       listOccAvailabilityCatalogsInternalRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1073,7 +1103,8 @@ export class CapacityManagementClient {
   public async listOccCapacityRequests(
     listOccCapacityRequestsRequest: requests.ListOccCapacityRequestsRequest
   ): Promise<responses.ListOccCapacityRequestsResponse> {
-    logger.debug("Calling operation CapacityManagementClient#listOccCapacityRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#listOccCapacityRequests.");
     const operationName = "listOccCapacityRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1101,6 +1132,7 @@ export class CapacityManagementClient {
       listOccCapacityRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1155,7 +1187,10 @@ export class CapacityManagementClient {
   public async listOccCapacityRequestsInternal(
     listOccCapacityRequestsInternalRequest: requests.ListOccCapacityRequestsInternalRequest
   ): Promise<responses.ListOccCapacityRequestsInternalResponse> {
-    logger.debug("Calling operation CapacityManagementClient#listOccCapacityRequestsInternal.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#listOccCapacityRequestsInternal."
+      );
     const operationName = "listOccCapacityRequestsInternal";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1184,6 +1219,7 @@ export class CapacityManagementClient {
       listOccCapacityRequestsInternalRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1239,7 +1275,8 @@ export class CapacityManagementClient {
   public async listOccCustomerGroups(
     listOccCustomerGroupsRequest: requests.ListOccCustomerGroupsRequest
   ): Promise<responses.ListOccCustomerGroupsResponse> {
-    logger.debug("Calling operation CapacityManagementClient#listOccCustomerGroups.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#listOccCustomerGroups.");
     const operationName = "listOccCustomerGroups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1266,6 +1303,7 @@ export class CapacityManagementClient {
       listOccCustomerGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1320,7 +1358,8 @@ export class CapacityManagementClient {
   public async patchOccCapacityRequest(
     patchOccCapacityRequestRequest: requests.PatchOccCapacityRequestRequest
   ): Promise<responses.PatchOccCapacityRequestResponse> {
-    logger.debug("Calling operation CapacityManagementClient#patchOccCapacityRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#patchOccCapacityRequest.");
     const operationName = "patchOccCapacityRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1341,6 +1380,7 @@ export class CapacityManagementClient {
       patchOccCapacityRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1401,7 +1441,10 @@ export class CapacityManagementClient {
   public async publishOccAvailabilityCatalog(
     publishOccAvailabilityCatalogRequest: requests.PublishOccAvailabilityCatalogRequest
   ): Promise<responses.PublishOccAvailabilityCatalogResponse> {
-    logger.debug("Calling operation CapacityManagementClient#publishOccAvailabilityCatalog.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#publishOccAvailabilityCatalog."
+      );
     const operationName = "publishOccAvailabilityCatalog";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1423,6 +1466,7 @@ export class CapacityManagementClient {
       publishOccAvailabilityCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1468,7 +1512,10 @@ export class CapacityManagementClient {
   public async updateInternalOccCapacityRequest(
     updateInternalOccCapacityRequestRequest: requests.UpdateInternalOccCapacityRequestRequest
   ): Promise<responses.UpdateInternalOccCapacityRequestResponse> {
-    logger.debug("Calling operation CapacityManagementClient#updateInternalOccCapacityRequest.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#updateInternalOccCapacityRequest."
+      );
     const operationName = "updateInternalOccCapacityRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1489,6 +1536,7 @@ export class CapacityManagementClient {
       updateInternalOccCapacityRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1553,7 +1601,8 @@ export class CapacityManagementClient {
   public async updateOccAvailabilityCatalog(
     updateOccAvailabilityCatalogRequest: requests.UpdateOccAvailabilityCatalogRequest
   ): Promise<responses.UpdateOccAvailabilityCatalogResponse> {
-    logger.debug("Calling operation CapacityManagementClient#updateOccAvailabilityCatalog.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#updateOccAvailabilityCatalog.");
     const operationName = "updateOccAvailabilityCatalog";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1574,6 +1623,7 @@ export class CapacityManagementClient {
       updateOccAvailabilityCatalogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1638,7 +1688,8 @@ export class CapacityManagementClient {
   public async updateOccCapacityRequest(
     updateOccCapacityRequestRequest: requests.UpdateOccCapacityRequestRequest
   ): Promise<responses.UpdateOccCapacityRequestResponse> {
-    logger.debug("Calling operation CapacityManagementClient#updateOccCapacityRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#updateOccCapacityRequest.");
     const operationName = "updateOccCapacityRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1659,6 +1710,7 @@ export class CapacityManagementClient {
       updateOccCapacityRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

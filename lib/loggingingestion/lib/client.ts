@@ -19,8 +19,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export class LoggingClient {
   protected static serviceEndpointTemplate =
     "https://ingestion.logging.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -116,7 +115,11 @@ export class LoggingClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200831";
-    logger.info(`LoggingClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`LoggingClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -126,9 +129,10 @@ export class LoggingClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         LoggingClient.serviceEndpointTemplate,
@@ -199,7 +203,7 @@ export class LoggingClient {
   public async putLogs(
     putLogsRequest: requests.PutLogsRequest
   ): Promise<responses.PutLogsResponse> {
-    logger.debug("Calling operation LoggingClient#putLogs.");
+    if (this.logger) this.logger.debug("Calling operation LoggingClient#putLogs.");
     const operationName = "putLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/logging-dataplane/20200831/LogEntry/PutLogs";
@@ -222,6 +226,7 @@ export class LoggingClient {
       putLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

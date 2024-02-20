@@ -5,7 +5,6 @@
 
 import { Region } from "./region";
 import { Realm } from "./realm";
-import { logger } from "./log";
 
 export class EndpointBuilder {
   public static createEndpointFromRegion(
@@ -70,13 +69,13 @@ export class EndpointBuilder {
     const realmId = realm.realmId.toLowerCase();
     if (serviceEndpointTemplatePerRealm) {
       if (serviceEndpointTemplatePerRealm[realmId]) {
-        logger.info(
+        console.log(
           `Using ${serviceEndpointTemplatePerRealm[realmId]} as the realm specific endpoint template`
         );
         return serviceEndpointTemplatePerRealm[realmId];
       }
     }
-    logger.info(
+    console.log(
       `Realm specific endpoint template for realm ${realmId} does not exist. Falling back to endpoint template : ${defaultTemplate}`
     );
     return defaultTemplate;

@@ -43,7 +43,8 @@ export namespace MetricExtensionUpdateQueryProperties {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.collectionMethod}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.collectionMethod}`);
       }
     }
     return jsonObj;
@@ -69,7 +70,8 @@ export namespace MetricExtensionUpdateQueryProperties {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.collectionMethod}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.collectionMethod}`);
       }
     }
     return jsonObj;

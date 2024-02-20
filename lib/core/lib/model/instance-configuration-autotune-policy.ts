@@ -45,7 +45,7 @@ export namespace InstanceConfigurationAutotunePolicy {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.autotuneType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.autotuneType}`);
       }
     }
     return jsonObj;
@@ -66,7 +66,7 @@ export namespace InstanceConfigurationAutotunePolicy {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.autotuneType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.autotuneType}`);
       }
     }
     return jsonObj;

@@ -57,7 +57,8 @@ export namespace OpsiDataObjectDetailsInQuery {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.dataObjectDetailsTarget}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.dataObjectDetailsTarget}`);
       }
     }
     return jsonObj;
@@ -87,7 +88,8 @@ export namespace OpsiDataObjectDetailsInQuery {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.dataObjectDetailsTarget}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.dataObjectDetailsTarget}`);
       }
     }
     return jsonObj;

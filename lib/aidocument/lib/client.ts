@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class AIServiceDocumentClient {
   protected static serviceEndpointTemplate =
     "https://document.aiservice.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AIServiceDocumentWaiter;
@@ -118,7 +117,11 @@ export class AIServiceDocumentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20221109";
-    logger.info(`AIServiceDocumentClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AIServiceDocumentClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class AIServiceDocumentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AIServiceDocumentClient.serviceEndpointTemplate,
@@ -223,7 +227,8 @@ export class AIServiceDocumentClient {
   public async analyzeDocument(
     analyzeDocumentRequest: requests.AnalyzeDocumentRequest
   ): Promise<responses.AnalyzeDocumentResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#analyzeDocument.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#analyzeDocument.");
     const operationName = "analyzeDocument";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -242,6 +247,7 @@ export class AIServiceDocumentClient {
       analyzeDocumentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -312,7 +318,8 @@ export class AIServiceDocumentClient {
   public async cancelProcessorJob(
     cancelProcessorJobRequest: requests.CancelProcessorJobRequest
   ): Promise<responses.CancelProcessorJobResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#cancelProcessorJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#cancelProcessorJob.");
     const operationName = "cancelProcessorJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -333,6 +340,7 @@ export class AIServiceDocumentClient {
       cancelProcessorJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -378,7 +386,8 @@ export class AIServiceDocumentClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#cancelWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -399,6 +408,7 @@ export class AIServiceDocumentClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -444,7 +454,8 @@ export class AIServiceDocumentClient {
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
   ): Promise<responses.ChangeModelCompartmentResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#changeModelCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#changeModelCompartment.");
     const operationName = "changeModelCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -465,6 +476,7 @@ export class AIServiceDocumentClient {
       changeModelCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -515,7 +527,8 @@ export class AIServiceDocumentClient {
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
   ): Promise<responses.ChangeProjectCompartmentResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#changeProjectCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#changeProjectCompartment.");
     const operationName = "changeProjectCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -536,6 +549,7 @@ export class AIServiceDocumentClient {
       changeProjectCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -587,7 +601,7 @@ export class AIServiceDocumentClient {
   public async createModel(
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#createModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#createModel.");
     const operationName = "createModel";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -606,6 +620,7 @@ export class AIServiceDocumentClient {
       createModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -681,7 +696,8 @@ export class AIServiceDocumentClient {
   public async createProcessorJob(
     createProcessorJobRequest: requests.CreateProcessorJobRequest
   ): Promise<responses.CreateProcessorJobResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#createProcessorJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#createProcessorJob.");
     const operationName = "createProcessorJob";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -700,6 +716,7 @@ export class AIServiceDocumentClient {
       createProcessorJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -760,7 +777,7 @@ export class AIServiceDocumentClient {
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#createProject.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#createProject.");
     const operationName = "createProject";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -779,6 +796,7 @@ export class AIServiceDocumentClient {
       createProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -853,7 +871,7 @@ export class AIServiceDocumentClient {
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#deleteModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#deleteModel.");
     const operationName = "deleteModel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -874,6 +892,7 @@ export class AIServiceDocumentClient {
       deleteModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -924,7 +943,7 @@ export class AIServiceDocumentClient {
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#deleteProject.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#deleteProject.");
     const operationName = "deleteProject";
     const apiReferenceLink = "";
     const pathParams = {
@@ -945,6 +964,7 @@ export class AIServiceDocumentClient {
       deleteProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -995,7 +1015,7 @@ export class AIServiceDocumentClient {
   public async getModel(
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#getModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#getModel.");
     const operationName = "getModel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1015,6 +1035,7 @@ export class AIServiceDocumentClient {
       getModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1070,7 +1091,8 @@ export class AIServiceDocumentClient {
   public async getProcessorJob(
     getProcessorJobRequest: requests.GetProcessorJobRequest
   ): Promise<responses.GetProcessorJobResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#getProcessorJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#getProcessorJob.");
     const operationName = "getProcessorJob";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1090,6 +1112,7 @@ export class AIServiceDocumentClient {
       getProcessorJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1144,7 +1167,7 @@ export class AIServiceDocumentClient {
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#getProject.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#getProject.");
     const operationName = "getProject";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1164,6 +1187,7 @@ export class AIServiceDocumentClient {
       getProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1218,7 +1242,7 @@ export class AIServiceDocumentClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1238,6 +1262,7 @@ export class AIServiceDocumentClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1298,7 +1323,7 @@ export class AIServiceDocumentClient {
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#listModels.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#listModels.");
     const operationName = "listModels";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1326,6 +1351,7 @@ export class AIServiceDocumentClient {
       listModelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1381,7 +1407,7 @@ export class AIServiceDocumentClient {
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#listProjects.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#listProjects.");
     const operationName = "listProjects";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1408,6 +1434,7 @@ export class AIServiceDocumentClient {
       listProjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1463,7 +1490,8 @@ export class AIServiceDocumentClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1488,6 +1516,7 @@ export class AIServiceDocumentClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1543,7 +1572,8 @@ export class AIServiceDocumentClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1568,6 +1598,7 @@ export class AIServiceDocumentClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1623,7 +1654,8 @@ export class AIServiceDocumentClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1650,6 +1682,7 @@ export class AIServiceDocumentClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1704,7 +1737,7 @@ export class AIServiceDocumentClient {
   public async patchModel(
     patchModelRequest: requests.PatchModelRequest
   ): Promise<responses.PatchModelResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#patchModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#patchModel.");
     const operationName = "patchModel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1725,6 +1758,7 @@ export class AIServiceDocumentClient {
       patchModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1789,7 +1823,7 @@ export class AIServiceDocumentClient {
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#updateModel.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#updateModel.");
     const operationName = "updateModel";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1810,6 +1844,7 @@ export class AIServiceDocumentClient {
       updateModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1865,7 +1900,7 @@ export class AIServiceDocumentClient {
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
-    logger.debug("Calling operation AIServiceDocumentClient#updateProject.");
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#updateProject.");
     const operationName = "updateProject";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1886,6 +1921,7 @@ export class AIServiceDocumentClient {
       updateProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export enum DataSafeApiKeys {}
 export class DataSafeClient {
   protected static serviceEndpointTemplate = "https://datasafe.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataSafeWaiter;
@@ -118,7 +117,11 @@ export class DataSafeClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20181201";
-    logger.info(`DataSafeClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DataSafeClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class DataSafeClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DataSafeClient.serviceEndpointTemplate,
@@ -223,7 +227,7 @@ export class DataSafeClient {
   public async activateTargetDatabase(
     activateTargetDatabaseRequest: requests.ActivateTargetDatabaseRequest
   ): Promise<responses.ActivateTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#activateTargetDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#activateTargetDatabase.");
     const operationName = "activateTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ActivateTargetDatabase";
@@ -246,6 +250,7 @@ export class DataSafeClient {
       activateTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,7 +310,8 @@ export class DataSafeClient {
   public async addMaskingColumnsFromSdm(
     addMaskingColumnsFromSdmRequest: requests.AddMaskingColumnsFromSdmRequest
   ): Promise<responses.AddMaskingColumnsFromSdmResponse> {
-    logger.debug("Calling operation DataSafeClient#addMaskingColumnsFromSdm.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#addMaskingColumnsFromSdm.");
     const operationName = "addMaskingColumnsFromSdm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/AddMaskingColumnsFromSdm";
@@ -327,6 +333,7 @@ export class DataSafeClient {
       addMaskingColumnsFromSdmRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -377,7 +384,7 @@ export class DataSafeClient {
   public async alertsUpdate(
     alertsUpdateRequest: requests.AlertsUpdateRequest
   ): Promise<responses.AlertsUpdateResponse> {
-    logger.debug("Calling operation DataSafeClient#alertsUpdate.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#alertsUpdate.");
     const operationName = "alertsUpdate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/AlertsUpdate";
@@ -401,6 +408,7 @@ export class DataSafeClient {
       alertsUpdateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -460,7 +468,8 @@ export class DataSafeClient {
   public async applyDiscoveryJobResults(
     applyDiscoveryJobResultsRequest: requests.ApplyDiscoveryJobResultsRequest
   ): Promise<responses.ApplyDiscoveryJobResultsResponse> {
-    logger.debug("Calling operation DataSafeClient#applyDiscoveryJobResults.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#applyDiscoveryJobResults.");
     const operationName = "applyDiscoveryJobResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/ApplyDiscoveryJobResults";
@@ -482,6 +491,7 @@ export class DataSafeClient {
       applyDiscoveryJobResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -544,7 +554,8 @@ export class DataSafeClient {
   public async applySdmMaskingPolicyDifference(
     applySdmMaskingPolicyDifferenceRequest: requests.ApplySdmMaskingPolicyDifferenceRequest
   ): Promise<responses.ApplySdmMaskingPolicyDifferenceResponse> {
-    logger.debug("Calling operation DataSafeClient#applySdmMaskingPolicyDifference.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#applySdmMaskingPolicyDifference.");
     const operationName = "applySdmMaskingPolicyDifference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ApplySdmMaskingPolicyDifference";
@@ -567,6 +578,7 @@ export class DataSafeClient {
       applySdmMaskingPolicyDifferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -623,7 +635,8 @@ export class DataSafeClient {
   public async calculateAuditVolumeAvailable(
     calculateAuditVolumeAvailableRequest: requests.CalculateAuditVolumeAvailableRequest
   ): Promise<responses.CalculateAuditVolumeAvailableResponse> {
-    logger.debug("Calling operation DataSafeClient#calculateAuditVolumeAvailable.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#calculateAuditVolumeAvailable.");
     const operationName = "calculateAuditVolumeAvailable";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/CalculateAuditVolumeAvailable";
@@ -646,6 +659,7 @@ export class DataSafeClient {
       calculateAuditVolumeAvailableRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -701,7 +715,8 @@ export class DataSafeClient {
   public async calculateAuditVolumeCollected(
     calculateAuditVolumeCollectedRequest: requests.CalculateAuditVolumeCollectedRequest
   ): Promise<responses.CalculateAuditVolumeCollectedResponse> {
-    logger.debug("Calling operation DataSafeClient#calculateAuditVolumeCollected.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#calculateAuditVolumeCollected.");
     const operationName = "calculateAuditVolumeCollected";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/CalculateAuditVolumeCollected";
@@ -724,6 +739,7 @@ export class DataSafeClient {
       calculateAuditVolumeCollectedRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -780,7 +796,7 @@ export class DataSafeClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation DataSafeClient#cancelWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequest/CancelWorkRequest";
@@ -803,6 +819,7 @@ export class DataSafeClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -853,7 +870,7 @@ export class DataSafeClient {
   public async changeAlertCompartment(
     changeAlertCompartmentRequest: requests.ChangeAlertCompartmentRequest
   ): Promise<responses.ChangeAlertCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeAlertCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeAlertCompartment.");
     const operationName = "changeAlertCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/ChangeAlertCompartment";
@@ -876,6 +893,7 @@ export class DataSafeClient {
       changeAlertCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -927,7 +945,8 @@ export class DataSafeClient {
   public async changeAuditArchiveRetrievalCompartment(
     changeAuditArchiveRetrievalCompartmentRequest: requests.ChangeAuditArchiveRetrievalCompartmentRequest
   ): Promise<responses.ChangeAuditArchiveRetrievalCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeAuditArchiveRetrievalCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeAuditArchiveRetrievalCompartment.");
     const operationName = "changeAuditArchiveRetrievalCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/ChangeAuditArchiveRetrievalCompartment";
@@ -951,6 +970,7 @@ export class DataSafeClient {
       changeAuditArchiveRetrievalCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1006,7 +1026,8 @@ export class DataSafeClient {
   public async changeAuditPolicyCompartment(
     changeAuditPolicyCompartmentRequest: requests.ChangeAuditPolicyCompartmentRequest
   ): Promise<responses.ChangeAuditPolicyCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeAuditPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeAuditPolicyCompartment.");
     const operationName = "changeAuditPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/ChangeAuditPolicyCompartment";
@@ -1029,6 +1050,7 @@ export class DataSafeClient {
       changeAuditPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1084,7 +1106,8 @@ export class DataSafeClient {
   public async changeAuditProfileCompartment(
     changeAuditProfileCompartmentRequest: requests.ChangeAuditProfileCompartmentRequest
   ): Promise<responses.ChangeAuditProfileCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeAuditProfileCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeAuditProfileCompartment.");
     const operationName = "changeAuditProfileCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ChangeAuditProfileCompartment";
@@ -1107,6 +1130,7 @@ export class DataSafeClient {
       changeAuditProfileCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1162,7 +1186,10 @@ export class DataSafeClient {
   public async changeDataSafePrivateEndpointCompartment(
     changeDataSafePrivateEndpointCompartmentRequest: requests.ChangeDataSafePrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeDataSafePrivateEndpointCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeDataSafePrivateEndpointCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeDataSafePrivateEndpointCompartment."
+      );
     const operationName = "changeDataSafePrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/ChangeDataSafePrivateEndpointCompartment";
@@ -1185,6 +1212,7 @@ export class DataSafeClient {
       changeDataSafePrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1240,7 +1268,10 @@ export class DataSafeClient {
   public async changeDatabaseSecurityConfigCompartment(
     changeDatabaseSecurityConfigCompartmentRequest: requests.ChangeDatabaseSecurityConfigCompartmentRequest
   ): Promise<responses.ChangeDatabaseSecurityConfigCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeDatabaseSecurityConfigCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeDatabaseSecurityConfigCompartment."
+      );
     const operationName = "changeDatabaseSecurityConfigCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfig/ChangeDatabaseSecurityConfigCompartment";
@@ -1264,6 +1295,7 @@ export class DataSafeClient {
       changeDatabaseSecurityConfigCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1319,7 +1351,8 @@ export class DataSafeClient {
   public async changeDiscoveryJobCompartment(
     changeDiscoveryJobCompartmentRequest: requests.ChangeDiscoveryJobCompartmentRequest
   ): Promise<responses.ChangeDiscoveryJobCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeDiscoveryJobCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeDiscoveryJobCompartment.");
     const operationName = "changeDiscoveryJobCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/ChangeDiscoveryJobCompartment";
@@ -1342,6 +1375,7 @@ export class DataSafeClient {
       changeDiscoveryJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1392,7 +1426,8 @@ export class DataSafeClient {
   public async changeLibraryMaskingFormatCompartment(
     changeLibraryMaskingFormatCompartmentRequest: requests.ChangeLibraryMaskingFormatCompartmentRequest
   ): Promise<responses.ChangeLibraryMaskingFormatCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeLibraryMaskingFormatCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeLibraryMaskingFormatCompartment.");
     const operationName = "changeLibraryMaskingFormatCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/ChangeLibraryMaskingFormatCompartment";
@@ -1416,6 +1451,7 @@ export class DataSafeClient {
       changeLibraryMaskingFormatCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1466,7 +1502,8 @@ export class DataSafeClient {
   public async changeMaskingPolicyCompartment(
     changeMaskingPolicyCompartmentRequest: requests.ChangeMaskingPolicyCompartmentRequest
   ): Promise<responses.ChangeMaskingPolicyCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeMaskingPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeMaskingPolicyCompartment.");
     const operationName = "changeMaskingPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ChangeMaskingPolicyCompartment";
@@ -1489,6 +1526,7 @@ export class DataSafeClient {
       changeMaskingPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1539,7 +1577,8 @@ export class DataSafeClient {
   public async changeOnPremConnectorCompartment(
     changeOnPremConnectorCompartmentRequest: requests.ChangeOnPremConnectorCompartmentRequest
   ): Promise<responses.ChangeOnPremConnectorCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeOnPremConnectorCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeOnPremConnectorCompartment.");
     const operationName = "changeOnPremConnectorCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/ChangeOnPremConnectorCompartment";
@@ -1562,6 +1601,7 @@ export class DataSafeClient {
       changeOnPremConnectorCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1612,7 +1652,7 @@ export class DataSafeClient {
   public async changeReportCompartment(
     changeReportCompartmentRequest: requests.ChangeReportCompartmentRequest
   ): Promise<responses.ChangeReportCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeReportCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeReportCompartment.");
     const operationName = "changeReportCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Report/ChangeReportCompartment";
@@ -1635,6 +1675,7 @@ export class DataSafeClient {
       changeReportCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1690,7 +1731,8 @@ export class DataSafeClient {
   public async changeReportDefinitionCompartment(
     changeReportDefinitionCompartmentRequest: requests.ChangeReportDefinitionCompartmentRequest
   ): Promise<responses.ChangeReportDefinitionCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeReportDefinitionCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeReportDefinitionCompartment.");
     const operationName = "changeReportDefinitionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/ChangeReportDefinitionCompartment";
@@ -1713,6 +1755,7 @@ export class DataSafeClient {
       changeReportDefinitionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1768,7 +1811,7 @@ export class DataSafeClient {
   public async changeRetention(
     changeRetentionRequest: requests.ChangeRetentionRequest
   ): Promise<responses.ChangeRetentionResponse> {
-    logger.debug("Calling operation DataSafeClient#changeRetention.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeRetention.");
     const operationName = "changeRetention";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ChangeRetention";
@@ -1791,6 +1834,7 @@ export class DataSafeClient {
       changeRetentionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1846,7 +1890,10 @@ export class DataSafeClient {
   public async changeSdmMaskingPolicyDifferenceCompartment(
     changeSdmMaskingPolicyDifferenceCompartmentRequest: requests.ChangeSdmMaskingPolicyDifferenceCompartmentRequest
   ): Promise<responses.ChangeSdmMaskingPolicyDifferenceCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeSdmMaskingPolicyDifferenceCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeSdmMaskingPolicyDifferenceCompartment."
+      );
     const operationName = "changeSdmMaskingPolicyDifferenceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/ChangeSdmMaskingPolicyDifferenceCompartment";
@@ -1870,6 +1917,7 @@ export class DataSafeClient {
       changeSdmMaskingPolicyDifferenceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1925,7 +1973,8 @@ The existing saved security assessments created due to the schedule are not move
   public async changeSecurityAssessmentCompartment(
     changeSecurityAssessmentCompartmentRequest: requests.ChangeSecurityAssessmentCompartmentRequest
   ): Promise<responses.ChangeSecurityAssessmentCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeSecurityAssessmentCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSecurityAssessmentCompartment.");
     const operationName = "changeSecurityAssessmentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/ChangeSecurityAssessmentCompartment";
@@ -1948,6 +1997,7 @@ The existing saved security assessments created due to the schedule are not move
       changeSecurityAssessmentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1998,7 +2048,8 @@ The existing saved security assessments created due to the schedule are not move
   public async changeSecurityPolicyCompartment(
     changeSecurityPolicyCompartmentRequest: requests.ChangeSecurityPolicyCompartmentRequest
   ): Promise<responses.ChangeSecurityPolicyCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeSecurityPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSecurityPolicyCompartment.");
     const operationName = "changeSecurityPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicy/ChangeSecurityPolicyCompartment";
@@ -2021,6 +2072,7 @@ The existing saved security assessments created due to the schedule are not move
       changeSecurityPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2076,7 +2128,10 @@ The existing saved security assessments created due to the schedule are not move
   public async changeSecurityPolicyDeploymentCompartment(
     changeSecurityPolicyDeploymentCompartmentRequest: requests.ChangeSecurityPolicyDeploymentCompartmentRequest
   ): Promise<responses.ChangeSecurityPolicyDeploymentCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeSecurityPolicyDeploymentCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeSecurityPolicyDeploymentCompartment."
+      );
     const operationName = "changeSecurityPolicyDeploymentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyDeployment/ChangeSecurityPolicyDeploymentCompartment";
@@ -2100,6 +2155,7 @@ The existing saved security assessments created due to the schedule are not move
       changeSecurityPolicyDeploymentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2155,7 +2211,8 @@ The existing saved security assessments created due to the schedule are not move
   public async changeSensitiveDataModelCompartment(
     changeSensitiveDataModelCompartmentRequest: requests.ChangeSensitiveDataModelCompartmentRequest
   ): Promise<responses.ChangeSensitiveDataModelCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeSensitiveDataModelCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSensitiveDataModelCompartment.");
     const operationName = "changeSensitiveDataModelCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/ChangeSensitiveDataModelCompartment";
@@ -2178,6 +2235,7 @@ The existing saved security assessments created due to the schedule are not move
       changeSensitiveDataModelCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2228,7 +2286,8 @@ The existing saved security assessments created due to the schedule are not move
   public async changeSensitiveTypeCompartment(
     changeSensitiveTypeCompartmentRequest: requests.ChangeSensitiveTypeCompartmentRequest
   ): Promise<responses.ChangeSensitiveTypeCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeSensitiveTypeCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSensitiveTypeCompartment.");
     const operationName = "changeSensitiveTypeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/ChangeSensitiveTypeCompartment";
@@ -2251,6 +2310,7 @@ The existing saved security assessments created due to the schedule are not move
       changeSensitiveTypeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2301,7 +2361,8 @@ The existing saved security assessments created due to the schedule are not move
   public async changeSqlCollectionCompartment(
     changeSqlCollectionCompartmentRequest: requests.ChangeSqlCollectionCompartmentRequest
   ): Promise<responses.ChangeSqlCollectionCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeSqlCollectionCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSqlCollectionCompartment.");
     const operationName = "changeSqlCollectionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/ChangeSqlCollectionCompartment";
@@ -2324,6 +2385,7 @@ The existing saved security assessments created due to the schedule are not move
       changeSqlCollectionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2379,7 +2441,8 @@ The existing saved security assessments created due to the schedule are not move
   public async changeSqlFirewallPolicyCompartment(
     changeSqlFirewallPolicyCompartmentRequest: requests.ChangeSqlFirewallPolicyCompartmentRequest
   ): Promise<responses.ChangeSqlFirewallPolicyCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeSqlFirewallPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSqlFirewallPolicyCompartment.");
     const operationName = "changeSqlFirewallPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicy/ChangeSqlFirewallPolicyCompartment";
@@ -2402,6 +2465,7 @@ The existing saved security assessments created due to the schedule are not move
       changeSqlFirewallPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2457,7 +2521,10 @@ The existing saved security assessments created due to the schedule are not move
   public async changeTargetAlertPolicyAssociationCompartment(
     changeTargetAlertPolicyAssociationCompartmentRequest: requests.ChangeTargetAlertPolicyAssociationCompartmentRequest
   ): Promise<responses.ChangeTargetAlertPolicyAssociationCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeTargetAlertPolicyAssociationCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeTargetAlertPolicyAssociationCompartment."
+      );
     const operationName = "changeTargetAlertPolicyAssociationCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/ChangeTargetAlertPolicyAssociationCompartment";
@@ -2481,6 +2548,7 @@ The existing saved security assessments created due to the schedule are not move
       changeTargetAlertPolicyAssociationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2532,7 +2600,8 @@ The existing saved security assessments created due to the schedule are not move
   public async changeTargetDatabaseCompartment(
     changeTargetDatabaseCompartmentRequest: requests.ChangeTargetDatabaseCompartmentRequest
   ): Promise<responses.ChangeTargetDatabaseCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeTargetDatabaseCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeTargetDatabaseCompartment.");
     const operationName = "changeTargetDatabaseCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ChangeTargetDatabaseCompartment";
@@ -2555,6 +2624,7 @@ The existing saved security assessments created due to the schedule are not move
       changeTargetDatabaseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2610,7 +2680,8 @@ The existing saved security assessments created due to the schedule are not move
   public async changeUserAssessmentCompartment(
     changeUserAssessmentCompartmentRequest: requests.ChangeUserAssessmentCompartmentRequest
   ): Promise<responses.ChangeUserAssessmentCompartmentResponse> {
-    logger.debug("Calling operation DataSafeClient#changeUserAssessmentCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeUserAssessmentCompartment.");
     const operationName = "changeUserAssessmentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ChangeUserAssessmentCompartment";
@@ -2633,6 +2704,7 @@ The existing saved security assessments created due to the schedule are not move
       changeUserAssessmentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2685,7 +2757,8 @@ The existing saved security assessments created due to the schedule are not move
   public async compareSecurityAssessment(
     compareSecurityAssessmentRequest: requests.CompareSecurityAssessmentRequest
   ): Promise<responses.CompareSecurityAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#compareSecurityAssessment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#compareSecurityAssessment.");
     const operationName = "compareSecurityAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/CompareSecurityAssessment";
@@ -2708,6 +2781,7 @@ The existing saved security assessments created due to the schedule are not move
       compareSecurityAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2765,7 +2839,7 @@ The existing saved security assessments created due to the schedule are not move
   public async compareUserAssessment(
     compareUserAssessmentRequest: requests.CompareUserAssessmentRequest
   ): Promise<responses.CompareUserAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#compareUserAssessment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#compareUserAssessment.");
     const operationName = "compareUserAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/CompareUserAssessment";
@@ -2788,6 +2862,7 @@ The existing saved security assessments created due to the schedule are not move
       compareUserAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2846,7 +2921,8 @@ The existing saved security assessments created due to the schedule are not move
   public async createAuditArchiveRetrieval(
     createAuditArchiveRetrievalRequest: requests.CreateAuditArchiveRetrievalRequest
   ): Promise<responses.CreateAuditArchiveRetrievalResponse> {
-    logger.debug("Calling operation DataSafeClient#createAuditArchiveRetrieval.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createAuditArchiveRetrieval.");
     const operationName = "createAuditArchiveRetrieval";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2865,6 +2941,7 @@ The existing saved security assessments created due to the schedule are not move
       createAuditArchiveRetrievalRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2930,7 +3007,8 @@ The existing saved security assessments created due to the schedule are not move
   public async createDataSafePrivateEndpoint(
     createDataSafePrivateEndpointRequest: requests.CreateDataSafePrivateEndpointRequest
   ): Promise<responses.CreateDataSafePrivateEndpointResponse> {
-    logger.debug("Calling operation DataSafeClient#createDataSafePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createDataSafePrivateEndpoint.");
     const operationName = "createDataSafePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/CreateDataSafePrivateEndpoint";
@@ -2950,6 +3028,7 @@ The existing saved security assessments created due to the schedule are not move
       createDataSafePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3024,7 +3103,7 @@ The existing saved security assessments created due to the schedule are not move
   public async createDiscoveryJob(
     createDiscoveryJobRequest: requests.CreateDiscoveryJobRequest
   ): Promise<responses.CreateDiscoveryJobResponse> {
-    logger.debug("Calling operation DataSafeClient#createDiscoveryJob.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createDiscoveryJob.");
     const operationName = "createDiscoveryJob";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3043,6 +3122,7 @@ The existing saved security assessments created due to the schedule are not move
       createDiscoveryJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3117,7 +3197,8 @@ The existing saved security assessments created due to the schedule are not move
   public async createLibraryMaskingFormat(
     createLibraryMaskingFormatRequest: requests.CreateLibraryMaskingFormatRequest
   ): Promise<responses.CreateLibraryMaskingFormatResponse> {
-    logger.debug("Calling operation DataSafeClient#createLibraryMaskingFormat.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createLibraryMaskingFormat.");
     const operationName = "createLibraryMaskingFormat";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/CreateLibraryMaskingFormat";
@@ -3137,6 +3218,7 @@ The existing saved security assessments created due to the schedule are not move
       createLibraryMaskingFormatRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3226,7 +3308,7 @@ You can use the maskingColumnGroup attribute to group the columns that you would
   public async createMaskingColumn(
     createMaskingColumnRequest: requests.CreateMaskingColumnRequest
   ): Promise<responses.CreateMaskingColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#createMaskingColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createMaskingColumn.");
     const operationName = "createMaskingColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/CreateMaskingColumn";
@@ -3248,6 +3330,7 @@ You can use the maskingColumnGroup attribute to group the columns that you would
       createMaskingColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3320,7 +3403,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createMaskingPolicy(
     createMaskingPolicyRequest: requests.CreateMaskingPolicyRequest
   ): Promise<responses.CreateMaskingPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#createMaskingPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createMaskingPolicy.");
     const operationName = "createMaskingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/CreateMaskingPolicy";
@@ -3340,6 +3423,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createMaskingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3410,7 +3494,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createOnPremConnector(
     createOnPremConnectorRequest: requests.CreateOnPremConnectorRequest
   ): Promise<responses.CreateOnPremConnectorResponse> {
-    logger.debug("Calling operation DataSafeClient#createOnPremConnector.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createOnPremConnector.");
     const operationName = "createOnPremConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/CreateOnPremConnector";
@@ -3430,6 +3514,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createOnPremConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3499,7 +3584,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createPeerTargetDatabase(
     createPeerTargetDatabaseRequest: requests.CreatePeerTargetDatabaseRequest
   ): Promise<responses.CreatePeerTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#createPeerTargetDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createPeerTargetDatabase.");
     const operationName = "createPeerTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/PeerTargetDatabase/CreatePeerTargetDatabase";
@@ -3522,6 +3608,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createPeerTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3592,7 +3679,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createReportDefinition(
     createReportDefinitionRequest: requests.CreateReportDefinitionRequest
   ): Promise<responses.CreateReportDefinitionResponse> {
-    logger.debug("Calling operation DataSafeClient#createReportDefinition.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createReportDefinition.");
     const operationName = "createReportDefinition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/CreateReportDefinition";
@@ -3612,6 +3699,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createReportDefinitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3681,7 +3769,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createSdmMaskingPolicyDifference(
     createSdmMaskingPolicyDifferenceRequest: requests.CreateSdmMaskingPolicyDifferenceRequest
   ): Promise<responses.CreateSdmMaskingPolicyDifferenceResponse> {
-    logger.debug("Calling operation DataSafeClient#createSdmMaskingPolicyDifference.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createSdmMaskingPolicyDifference.");
     const operationName = "createSdmMaskingPolicyDifference";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3700,6 +3789,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createSdmMaskingPolicyDifferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3772,7 +3862,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createSecurityAssessment(
     createSecurityAssessmentRequest: requests.CreateSecurityAssessmentRequest
   ): Promise<responses.CreateSecurityAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#createSecurityAssessment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createSecurityAssessment.");
     const operationName = "createSecurityAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/CreateSecurityAssessment";
@@ -3792,6 +3883,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createSecurityAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3862,7 +3954,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createSensitiveColumn(
     createSensitiveColumnRequest: requests.CreateSensitiveColumnRequest
   ): Promise<responses.CreateSensitiveColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#createSensitiveColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSensitiveColumn.");
     const operationName = "createSensitiveColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/CreateSensitiveColumn";
@@ -3884,6 +3976,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createSensitiveColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3942,7 +4035,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createSensitiveDataModel(
     createSensitiveDataModelRequest: requests.CreateSensitiveDataModelRequest
   ): Promise<responses.CreateSensitiveDataModelResponse> {
-    logger.debug("Calling operation DataSafeClient#createSensitiveDataModel.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createSensitiveDataModel.");
     const operationName = "createSensitiveDataModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/CreateSensitiveDataModel";
@@ -3962,6 +4056,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createSensitiveDataModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4034,7 +4129,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createSensitiveType(
     createSensitiveTypeRequest: requests.CreateSensitiveTypeRequest
   ): Promise<responses.CreateSensitiveTypeResponse> {
-    logger.debug("Calling operation DataSafeClient#createSensitiveType.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSensitiveType.");
     const operationName = "createSensitiveType";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4053,6 +4148,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createSensitiveTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4123,7 +4219,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createSqlCollection(
     createSqlCollectionRequest: requests.CreateSqlCollectionRequest
   ): Promise<responses.CreateSqlCollectionResponse> {
-    logger.debug("Calling operation DataSafeClient#createSqlCollection.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSqlCollection.");
     const operationName = "createSqlCollection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/CreateSqlCollection";
@@ -4143,6 +4239,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createSqlCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4213,7 +4310,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createTargetAlertPolicyAssociation(
     createTargetAlertPolicyAssociationRequest: requests.CreateTargetAlertPolicyAssociationRequest
   ): Promise<responses.CreateTargetAlertPolicyAssociationResponse> {
-    logger.debug("Calling operation DataSafeClient#createTargetAlertPolicyAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createTargetAlertPolicyAssociation.");
     const operationName = "createTargetAlertPolicyAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/CreateTargetAlertPolicyAssociation";
@@ -4233,6 +4331,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createTargetAlertPolicyAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4303,7 +4402,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createTargetDatabase(
     createTargetDatabaseRequest: requests.CreateTargetDatabaseRequest
   ): Promise<responses.CreateTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#createTargetDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createTargetDatabase.");
     const operationName = "createTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/CreateTargetDatabase";
@@ -4323,6 +4422,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4395,7 +4495,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async createUserAssessment(
     createUserAssessmentRequest: requests.CreateUserAssessmentRequest
   ): Promise<responses.CreateUserAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#createUserAssessment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createUserAssessment.");
     const operationName = "createUserAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/CreateUserAssessment";
@@ -4415,6 +4515,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       createUserAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4485,7 +4586,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deactivateTargetDatabase(
     deactivateTargetDatabaseRequest: requests.DeactivateTargetDatabaseRequest
   ): Promise<responses.DeactivateTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#deactivateTargetDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deactivateTargetDatabase.");
     const operationName = "deactivateTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/DeactivateTargetDatabase";
@@ -4508,6 +4610,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deactivateTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4560,7 +4663,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteAuditArchiveRetrieval(
     deleteAuditArchiveRetrievalRequest: requests.DeleteAuditArchiveRetrievalRequest
   ): Promise<responses.DeleteAuditArchiveRetrievalResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteAuditArchiveRetrieval.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteAuditArchiveRetrieval.");
     const operationName = "deleteAuditArchiveRetrieval";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/DeleteAuditArchiveRetrieval";
@@ -4582,6 +4686,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteAuditArchiveRetrievalRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4632,7 +4737,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteAuditTrail(
     deleteAuditTrailRequest: requests.DeleteAuditTrailRequest
   ): Promise<responses.DeleteAuditTrailResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteAuditTrail.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteAuditTrail.");
     const operationName = "deleteAuditTrail";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/DeleteAuditTrail";
@@ -4654,6 +4759,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteAuditTrailRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4704,7 +4810,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteDataSafePrivateEndpoint(
     deleteDataSafePrivateEndpointRequest: requests.DeleteDataSafePrivateEndpointRequest
   ): Promise<responses.DeleteDataSafePrivateEndpointResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteDataSafePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteDataSafePrivateEndpoint.");
     const operationName = "deleteDataSafePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/DeleteDataSafePrivateEndpoint";
@@ -4726,6 +4833,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteDataSafePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4776,7 +4884,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteDiscoveryJob(
     deleteDiscoveryJobRequest: requests.DeleteDiscoveryJobRequest
   ): Promise<responses.DeleteDiscoveryJobResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteDiscoveryJob.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteDiscoveryJob.");
     const operationName = "deleteDiscoveryJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/DeleteDiscoveryJob";
@@ -4798,6 +4906,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteDiscoveryJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4848,7 +4957,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteDiscoveryJobResult(
     deleteDiscoveryJobResultRequest: requests.DeleteDiscoveryJobResultRequest
   ): Promise<responses.DeleteDiscoveryJobResultResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteDiscoveryJobResult.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteDiscoveryJobResult.");
     const operationName = "deleteDiscoveryJobResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJobResult/DeleteDiscoveryJobResult";
@@ -4871,6 +4981,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteDiscoveryJobResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4916,7 +5027,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteLibraryMaskingFormat(
     deleteLibraryMaskingFormatRequest: requests.DeleteLibraryMaskingFormatRequest
   ): Promise<responses.DeleteLibraryMaskingFormatResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteLibraryMaskingFormat.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteLibraryMaskingFormat.");
     const operationName = "deleteLibraryMaskingFormat";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/DeleteLibraryMaskingFormat";
@@ -4938,6 +5050,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteLibraryMaskingFormatRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4983,7 +5096,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteMaskingColumn(
     deleteMaskingColumnRequest: requests.DeleteMaskingColumnRequest
   ): Promise<responses.DeleteMaskingColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteMaskingColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteMaskingColumn.");
     const operationName = "deleteMaskingColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/DeleteMaskingColumn";
@@ -5006,6 +5119,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteMaskingColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5051,7 +5165,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteMaskingPolicy(
     deleteMaskingPolicyRequest: requests.DeleteMaskingPolicyRequest
   ): Promise<responses.DeleteMaskingPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteMaskingPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteMaskingPolicy.");
     const operationName = "deleteMaskingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/DeleteMaskingPolicy";
@@ -5073,6 +5187,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteMaskingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5123,7 +5238,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteOnPremConnector(
     deleteOnPremConnectorRequest: requests.DeleteOnPremConnectorRequest
   ): Promise<responses.DeleteOnPremConnectorResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteOnPremConnector.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteOnPremConnector.");
     const operationName = "deleteOnPremConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/DeleteOnPremConnector";
@@ -5145,6 +5260,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteOnPremConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5195,7 +5311,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deletePeerTargetDatabase(
     deletePeerTargetDatabaseRequest: requests.DeletePeerTargetDatabaseRequest
   ): Promise<responses.DeletePeerTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#deletePeerTargetDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deletePeerTargetDatabase.");
     const operationName = "deletePeerTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/PeerTargetDatabase/DeletePeerTargetDatabase";
@@ -5218,6 +5335,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deletePeerTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5268,7 +5386,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteReportDefinition(
     deleteReportDefinitionRequest: requests.DeleteReportDefinitionRequest
   ): Promise<responses.DeleteReportDefinitionResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteReportDefinition.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteReportDefinition.");
     const operationName = "deleteReportDefinition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/DeleteReportDefinition";
@@ -5290,6 +5408,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteReportDefinitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5340,7 +5459,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteSdmMaskingPolicyDifference(
     deleteSdmMaskingPolicyDifferenceRequest: requests.DeleteSdmMaskingPolicyDifferenceRequest
   ): Promise<responses.DeleteSdmMaskingPolicyDifferenceResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteSdmMaskingPolicyDifference.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSdmMaskingPolicyDifference.");
     const operationName = "deleteSdmMaskingPolicyDifference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/DeleteSdmMaskingPolicyDifference";
@@ -5363,6 +5483,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteSdmMaskingPolicyDifferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5417,7 +5538,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteSecurityAssessment(
     deleteSecurityAssessmentRequest: requests.DeleteSecurityAssessmentRequest
   ): Promise<responses.DeleteSecurityAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteSecurityAssessment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSecurityAssessment.");
     const operationName = "deleteSecurityAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/DeleteSecurityAssessment";
@@ -5439,6 +5561,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteSecurityAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5489,7 +5612,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteSensitiveColumn(
     deleteSensitiveColumnRequest: requests.DeleteSensitiveColumnRequest
   ): Promise<responses.DeleteSensitiveColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteSensitiveColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSensitiveColumn.");
     const operationName = "deleteSensitiveColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/DeleteSensitiveColumn";
@@ -5512,6 +5635,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteSensitiveColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5557,7 +5681,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteSensitiveDataModel(
     deleteSensitiveDataModelRequest: requests.DeleteSensitiveDataModelRequest
   ): Promise<responses.DeleteSensitiveDataModelResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteSensitiveDataModel.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSensitiveDataModel.");
     const operationName = "deleteSensitiveDataModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/DeleteSensitiveDataModel";
@@ -5579,6 +5704,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteSensitiveDataModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5629,7 +5755,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteSensitiveType(
     deleteSensitiveTypeRequest: requests.DeleteSensitiveTypeRequest
   ): Promise<responses.DeleteSensitiveTypeResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteSensitiveType.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSensitiveType.");
     const operationName = "deleteSensitiveType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/DeleteSensitiveType";
@@ -5651,6 +5777,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteSensitiveTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5696,7 +5823,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteSqlCollection(
     deleteSqlCollectionRequest: requests.DeleteSqlCollectionRequest
   ): Promise<responses.DeleteSqlCollectionResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteSqlCollection.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSqlCollection.");
     const operationName = "deleteSqlCollection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/DeleteSqlCollection";
@@ -5718,6 +5845,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteSqlCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5769,7 +5897,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteSqlFirewallPolicy(
     deleteSqlFirewallPolicyRequest: requests.DeleteSqlFirewallPolicyRequest
   ): Promise<responses.DeleteSqlFirewallPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteSqlFirewallPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSqlFirewallPolicy.");
     const operationName = "deleteSqlFirewallPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicy/DeleteSqlFirewallPolicy";
@@ -5791,6 +5919,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteSqlFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5841,7 +5970,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteTargetAlertPolicyAssociation(
     deleteTargetAlertPolicyAssociationRequest: requests.DeleteTargetAlertPolicyAssociationRequest
   ): Promise<responses.DeleteTargetAlertPolicyAssociationResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteTargetAlertPolicyAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteTargetAlertPolicyAssociation.");
     const operationName = "deleteTargetAlertPolicyAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/DeleteTargetAlertPolicyAssociation";
@@ -5864,6 +5994,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteTargetAlertPolicyAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5914,7 +6045,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteTargetDatabase(
     deleteTargetDatabaseRequest: requests.DeleteTargetDatabaseRequest
   ): Promise<responses.DeleteTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteTargetDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteTargetDatabase.");
     const operationName = "deleteTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/DeleteTargetDatabase";
@@ -5936,6 +6067,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5990,7 +6122,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async deleteUserAssessment(
     deleteUserAssessmentRequest: requests.DeleteUserAssessmentRequest
   ): Promise<responses.DeleteUserAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#deleteUserAssessment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteUserAssessment.");
     const operationName = "deleteUserAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/DeleteUserAssessment";
@@ -6012,6 +6144,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       deleteUserAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6066,7 +6199,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async discoverAuditTrails(
     discoverAuditTrailsRequest: requests.DiscoverAuditTrailsRequest
   ): Promise<responses.DiscoverAuditTrailsResponse> {
-    logger.debug("Calling operation DataSafeClient#discoverAuditTrails.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#discoverAuditTrails.");
     const operationName = "discoverAuditTrails";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/DiscoverAuditTrails";
@@ -6089,6 +6222,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       discoverAuditTrailsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6143,7 +6277,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async downloadDiscoveryReport(
     downloadDiscoveryReportRequest: requests.DownloadDiscoveryReportRequest
   ): Promise<responses.DownloadDiscoveryReportResponse> {
-    logger.debug("Calling operation DataSafeClient#downloadDiscoveryReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadDiscoveryReport.");
     const operationName = "downloadDiscoveryReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/DownloadDiscoveryReport";
@@ -6164,6 +6298,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       downloadDiscoveryReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6228,7 +6363,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async downloadMaskingLog(
     downloadMaskingLogRequest: requests.DownloadMaskingLogRequest
   ): Promise<responses.DownloadMaskingLogResponse> {
-    logger.debug("Calling operation DataSafeClient#downloadMaskingLog.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingLog.");
     const operationName = "downloadMaskingLog";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/DownloadMaskingLog";
@@ -6249,6 +6384,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       downloadMaskingLogRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6317,7 +6453,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async downloadMaskingPolicy(
     downloadMaskingPolicyRequest: requests.DownloadMaskingPolicyRequest
   ): Promise<responses.DownloadMaskingPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#downloadMaskingPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingPolicy.");
     const operationName = "downloadMaskingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/DownloadMaskingPolicy";
@@ -6338,6 +6474,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       downloadMaskingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6405,7 +6542,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async downloadMaskingReport(
     downloadMaskingReportRequest: requests.DownloadMaskingReportRequest
   ): Promise<responses.DownloadMaskingReportResponse> {
-    logger.debug("Calling operation DataSafeClient#downloadMaskingReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingReport.");
     const operationName = "downloadMaskingReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/DownloadMaskingReport";
@@ -6426,6 +6563,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       downloadMaskingReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6491,7 +6629,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async downloadPrivilegeScript(
     downloadPrivilegeScriptRequest: requests.DownloadPrivilegeScriptRequest
   ): Promise<responses.DownloadPrivilegeScriptResponse> {
-    logger.debug("Calling operation DataSafeClient#downloadPrivilegeScript.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadPrivilegeScript.");
     const operationName = "downloadPrivilegeScript";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/DownloadPrivilegeScript";
@@ -6512,6 +6650,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       downloadPrivilegeScriptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6573,7 +6712,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async downloadSecurityAssessmentReport(
     downloadSecurityAssessmentReportRequest: requests.DownloadSecurityAssessmentReportRequest
   ): Promise<responses.DownloadSecurityAssessmentReportResponse> {
-    logger.debug("Calling operation DataSafeClient#downloadSecurityAssessmentReport.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadSecurityAssessmentReport.");
     const operationName = "downloadSecurityAssessmentReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/DownloadSecurityAssessmentReport";
@@ -6596,6 +6736,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       downloadSecurityAssessmentReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6664,7 +6805,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async downloadSensitiveDataModel(
     downloadSensitiveDataModelRequest: requests.DownloadSensitiveDataModelRequest
   ): Promise<responses.DownloadSensitiveDataModelResponse> {
-    logger.debug("Calling operation DataSafeClient#downloadSensitiveDataModel.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadSensitiveDataModel.");
     const operationName = "downloadSensitiveDataModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/DownloadSensitiveDataModel";
@@ -6685,6 +6827,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       downloadSensitiveDataModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6751,7 +6894,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async downloadUserAssessmentReport(
     downloadUserAssessmentReportRequest: requests.DownloadUserAssessmentReportRequest
   ): Promise<responses.DownloadUserAssessmentReportResponse> {
-    logger.debug("Calling operation DataSafeClient#downloadUserAssessmentReport.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadUserAssessmentReport.");
     const operationName = "downloadUserAssessmentReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/DownloadUserAssessmentReport";
@@ -6774,6 +6918,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       downloadUserAssessmentReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6839,7 +6984,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async enableDataSafeConfiguration(
     enableDataSafeConfigurationRequest: requests.EnableDataSafeConfigurationRequest
   ): Promise<responses.EnableDataSafeConfigurationResponse> {
-    logger.debug("Calling operation DataSafeClient#enableDataSafeConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#enableDataSafeConfiguration.");
     const operationName = "enableDataSafeConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafeConfiguration/EnableDataSafeConfiguration";
@@ -6861,6 +7007,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       enableDataSafeConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6920,7 +7067,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateDiscoveryReportForDownload(
     generateDiscoveryReportForDownloadRequest: requests.GenerateDiscoveryReportForDownloadRequest
   ): Promise<responses.GenerateDiscoveryReportForDownloadResponse> {
-    logger.debug("Calling operation DataSafeClient#generateDiscoveryReportForDownload.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateDiscoveryReportForDownload.");
     const operationName = "generateDiscoveryReportForDownload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/GenerateDiscoveryReportForDownload";
@@ -6941,6 +7089,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateDiscoveryReportForDownloadRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7001,7 +7150,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateMaskingPolicyForDownload(
     generateMaskingPolicyForDownloadRequest: requests.GenerateMaskingPolicyForDownloadRequest
   ): Promise<responses.GenerateMaskingPolicyForDownloadResponse> {
-    logger.debug("Calling operation DataSafeClient#generateMaskingPolicyForDownload.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateMaskingPolicyForDownload.");
     const operationName = "generateMaskingPolicyForDownload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/GenerateMaskingPolicyForDownload";
@@ -7022,6 +7172,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateMaskingPolicyForDownloadRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7081,7 +7232,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateMaskingReportForDownload(
     generateMaskingReportForDownloadRequest: requests.GenerateMaskingReportForDownloadRequest
   ): Promise<responses.GenerateMaskingReportForDownloadResponse> {
-    logger.debug("Calling operation DataSafeClient#generateMaskingReportForDownload.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateMaskingReportForDownload.");
     const operationName = "generateMaskingReportForDownload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/GenerateMaskingReportForDownload";
@@ -7102,6 +7254,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateMaskingReportForDownloadRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7158,7 +7311,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateOnPremConnectorConfiguration(
     generateOnPremConnectorConfigurationRequest: requests.GenerateOnPremConnectorConfigurationRequest
   ): Promise<responses.GenerateOnPremConnectorConfigurationResponse> {
-    logger.debug("Calling operation DataSafeClient#generateOnPremConnectorConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateOnPremConnectorConfiguration.");
     const operationName = "generateOnPremConnectorConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/GenerateOnPremConnectorConfiguration";
@@ -7181,6 +7335,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateOnPremConnectorConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7245,7 +7400,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateReport(
     generateReportRequest: requests.GenerateReportRequest
   ): Promise<responses.GenerateReportResponse> {
-    logger.debug("Calling operation DataSafeClient#generateReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#generateReport.");
     const operationName = "generateReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/GenerateReport";
@@ -7270,6 +7425,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7327,7 +7483,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateSecurityAssessmentReport(
     generateSecurityAssessmentReportRequest: requests.GenerateSecurityAssessmentReportRequest
   ): Promise<responses.GenerateSecurityAssessmentReportResponse> {
-    logger.debug("Calling operation DataSafeClient#generateSecurityAssessmentReport.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSecurityAssessmentReport.");
     const operationName = "generateSecurityAssessmentReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/GenerateSecurityAssessmentReport";
@@ -7350,6 +7507,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateSecurityAssessmentReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7409,7 +7567,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateSensitiveDataModelForDownload(
     generateSensitiveDataModelForDownloadRequest: requests.GenerateSensitiveDataModelForDownloadRequest
   ): Promise<responses.GenerateSensitiveDataModelForDownloadResponse> {
-    logger.debug("Calling operation DataSafeClient#generateSensitiveDataModelForDownload.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSensitiveDataModelForDownload.");
     const operationName = "generateSensitiveDataModelForDownload";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/GenerateSensitiveDataModelForDownload";
@@ -7430,6 +7589,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateSensitiveDataModelForDownloadRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7485,7 +7645,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateSqlFirewallPolicy(
     generateSqlFirewallPolicyRequest: requests.GenerateSqlFirewallPolicyRequest
   ): Promise<responses.GenerateSqlFirewallPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#generateSqlFirewallPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSqlFirewallPolicy.");
     const operationName = "generateSqlFirewallPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/GenerateSqlFirewallPolicy";
@@ -7508,6 +7669,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateSqlFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7560,7 +7722,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async generateUserAssessmentReport(
     generateUserAssessmentReportRequest: requests.GenerateUserAssessmentReportRequest
   ): Promise<responses.GenerateUserAssessmentReportResponse> {
-    logger.debug("Calling operation DataSafeClient#generateUserAssessmentReport.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateUserAssessmentReport.");
     const operationName = "generateUserAssessmentReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/GenerateUserAssessmentReport";
@@ -7583,6 +7746,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       generateUserAssessmentReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7638,7 +7802,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getAlert(
     getAlertRequest: requests.GetAlertRequest
   ): Promise<responses.GetAlertResponse> {
-    logger.debug("Calling operation DataSafeClient#getAlert.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAlert.");
     const operationName = "getAlert";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/GetAlert";
@@ -7659,6 +7823,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getAlertRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7713,7 +7878,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getAlertPolicy(
     getAlertPolicyRequest: requests.GetAlertPolicyRequest
   ): Promise<responses.GetAlertPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#getAlertPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAlertPolicy.");
     const operationName = "getAlertPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/GetAlertPolicy";
@@ -7734,6 +7899,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getAlertPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7788,7 +7954,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getAuditArchiveRetrieval(
     getAuditArchiveRetrievalRequest: requests.GetAuditArchiveRetrievalRequest
   ): Promise<responses.GetAuditArchiveRetrievalResponse> {
-    logger.debug("Calling operation DataSafeClient#getAuditArchiveRetrieval.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getAuditArchiveRetrieval.");
     const operationName = "getAuditArchiveRetrieval";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/GetAuditArchiveRetrieval";
@@ -7810,6 +7977,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getAuditArchiveRetrievalRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7864,7 +8032,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getAuditPolicy(
     getAuditPolicyRequest: requests.GetAuditPolicyRequest
   ): Promise<responses.GetAuditPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#getAuditPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditPolicy.");
     const operationName = "getAuditPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/GetAuditPolicy";
@@ -7885,6 +8053,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getAuditPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7939,7 +8108,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getAuditProfile(
     getAuditProfileRequest: requests.GetAuditProfileRequest
   ): Promise<responses.GetAuditProfileResponse> {
-    logger.debug("Calling operation DataSafeClient#getAuditProfile.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditProfile.");
     const operationName = "getAuditProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/GetAuditProfile";
@@ -7960,6 +8129,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getAuditProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8014,7 +8184,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getAuditTrail(
     getAuditTrailRequest: requests.GetAuditTrailRequest
   ): Promise<responses.GetAuditTrailResponse> {
-    logger.debug("Calling operation DataSafeClient#getAuditTrail.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditTrail.");
     const operationName = "getAuditTrail";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/GetAuditTrail";
@@ -8035,6 +8205,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getAuditTrailRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8096,7 +8267,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getCompatibleFormatsForDataTypes(
     getCompatibleFormatsForDataTypesRequest: requests.GetCompatibleFormatsForDataTypesRequest
   ): Promise<responses.GetCompatibleFormatsForDataTypesResponse> {
-    logger.debug("Calling operation DataSafeClient#getCompatibleFormatsForDataTypes.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getCompatibleFormatsForDataTypes.");
     const operationName = "getCompatibleFormatsForDataTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/GetCompatibleFormatsForDataTypes";
@@ -8118,6 +8290,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getCompatibleFormatsForDataTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8181,7 +8354,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getCompatibleFormatsForSensitiveTypes(
     getCompatibleFormatsForSensitiveTypesRequest: requests.GetCompatibleFormatsForSensitiveTypesRequest
   ): Promise<responses.GetCompatibleFormatsForSensitiveTypesResponse> {
-    logger.debug("Calling operation DataSafeClient#getCompatibleFormatsForSensitiveTypes.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getCompatibleFormatsForSensitiveTypes.");
     const operationName = "getCompatibleFormatsForSensitiveTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/GetCompatibleFormatsForSensitiveTypes";
@@ -8206,6 +8380,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getCompatibleFormatsForSensitiveTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8265,7 +8440,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getDataSafeConfiguration(
     getDataSafeConfigurationRequest: requests.GetDataSafeConfigurationRequest
   ): Promise<responses.GetDataSafeConfigurationResponse> {
-    logger.debug("Calling operation DataSafeClient#getDataSafeConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getDataSafeConfiguration.");
     const operationName = "getDataSafeConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafeConfiguration/GetDataSafeConfiguration";
@@ -8286,6 +8462,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getDataSafeConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8340,7 +8517,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getDataSafePrivateEndpoint(
     getDataSafePrivateEndpointRequest: requests.GetDataSafePrivateEndpointRequest
   ): Promise<responses.GetDataSafePrivateEndpointResponse> {
-    logger.debug("Calling operation DataSafeClient#getDataSafePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getDataSafePrivateEndpoint.");
     const operationName = "getDataSafePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/GetDataSafePrivateEndpoint";
@@ -8361,6 +8539,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getDataSafePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8415,7 +8594,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getDatabaseSecurityConfig(
     getDatabaseSecurityConfigRequest: requests.GetDatabaseSecurityConfigRequest
   ): Promise<responses.GetDatabaseSecurityConfigResponse> {
-    logger.debug("Calling operation DataSafeClient#getDatabaseSecurityConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getDatabaseSecurityConfig.");
     const operationName = "getDatabaseSecurityConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfig/GetDatabaseSecurityConfig";
@@ -8436,6 +8616,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getDatabaseSecurityConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8490,7 +8671,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getDatabaseTableAccessEntry(
     getDatabaseTableAccessEntryRequest: requests.GetDatabaseTableAccessEntryRequest
   ): Promise<responses.GetDatabaseTableAccessEntryResponse> {
-    logger.debug("Calling operation DataSafeClient#getDatabaseTableAccessEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getDatabaseTableAccessEntry.");
     const operationName = "getDatabaseTableAccessEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseTableAccessEntry/GetDatabaseTableAccessEntry";
@@ -8513,6 +8695,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getDatabaseTableAccessEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8568,7 +8751,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getDatabaseViewAccessEntry(
     getDatabaseViewAccessEntryRequest: requests.GetDatabaseViewAccessEntryRequest
   ): Promise<responses.GetDatabaseViewAccessEntryResponse> {
-    logger.debug("Calling operation DataSafeClient#getDatabaseViewAccessEntry.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getDatabaseViewAccessEntry.");
     const operationName = "getDatabaseViewAccessEntry";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseViewAccessEntry/GetDatabaseViewAccessEntry";
@@ -8590,6 +8774,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getDatabaseViewAccessEntryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8645,7 +8830,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getDifferenceColumn(
     getDifferenceColumnRequest: requests.GetDifferenceColumnRequest
   ): Promise<responses.GetDifferenceColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#getDifferenceColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getDifferenceColumn.");
     const operationName = "getDifferenceColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DifferenceColumn/GetDifferenceColumn";
@@ -8667,6 +8852,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getDifferenceColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8722,7 +8908,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getDiscoveryJob(
     getDiscoveryJobRequest: requests.GetDiscoveryJobRequest
   ): Promise<responses.GetDiscoveryJobResponse> {
-    logger.debug("Calling operation DataSafeClient#getDiscoveryJob.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getDiscoveryJob.");
     const operationName = "getDiscoveryJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/GetDiscoveryJob";
@@ -8743,6 +8929,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getDiscoveryJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8797,7 +8984,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getDiscoveryJobResult(
     getDiscoveryJobResultRequest: requests.GetDiscoveryJobResultRequest
   ): Promise<responses.GetDiscoveryJobResultResponse> {
-    logger.debug("Calling operation DataSafeClient#getDiscoveryJobResult.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getDiscoveryJobResult.");
     const operationName = "getDiscoveryJobResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJobResult/GetDiscoveryJobResult";
@@ -8819,6 +9006,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getDiscoveryJobResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8873,7 +9061,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getLibraryMaskingFormat(
     getLibraryMaskingFormatRequest: requests.GetLibraryMaskingFormatRequest
   ): Promise<responses.GetLibraryMaskingFormatResponse> {
-    logger.debug("Calling operation DataSafeClient#getLibraryMaskingFormat.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getLibraryMaskingFormat.");
     const operationName = "getLibraryMaskingFormat";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/GetLibraryMaskingFormat";
@@ -8894,6 +9082,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getLibraryMaskingFormatRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8948,7 +9137,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getMaskingColumn(
     getMaskingColumnRequest: requests.GetMaskingColumnRequest
   ): Promise<responses.GetMaskingColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#getMaskingColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingColumn.");
     const operationName = "getMaskingColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/GetMaskingColumn";
@@ -8970,6 +9159,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getMaskingColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9024,7 +9214,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getMaskingPolicy(
     getMaskingPolicyRequest: requests.GetMaskingPolicyRequest
   ): Promise<responses.GetMaskingPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#getMaskingPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingPolicy.");
     const operationName = "getMaskingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/GetMaskingPolicy";
@@ -9045,6 +9235,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getMaskingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9099,7 +9290,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getMaskingReport(
     getMaskingReportRequest: requests.GetMaskingReportRequest
   ): Promise<responses.GetMaskingReportResponse> {
-    logger.debug("Calling operation DataSafeClient#getMaskingReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingReport.");
     const operationName = "getMaskingReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingReport/GetMaskingReport";
@@ -9120,6 +9311,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getMaskingReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9174,7 +9366,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getOnPremConnector(
     getOnPremConnectorRequest: requests.GetOnPremConnectorRequest
   ): Promise<responses.GetOnPremConnectorResponse> {
-    logger.debug("Calling operation DataSafeClient#getOnPremConnector.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getOnPremConnector.");
     const operationName = "getOnPremConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/GetOnPremConnector";
@@ -9195,6 +9387,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getOnPremConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9250,7 +9443,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   public async getPeerTargetDatabase(
     getPeerTargetDatabaseRequest: requests.GetPeerTargetDatabaseRequest
   ): Promise<responses.GetPeerTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#getPeerTargetDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getPeerTargetDatabase.");
     const operationName = "getPeerTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/PeerTargetDatabase/GetPeerTargetDatabase";
@@ -9272,6 +9465,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       getPeerTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9330,7 +9524,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getProfile(
     getProfileRequest: requests.GetProfileRequest
   ): Promise<responses.GetProfileResponse> {
-    logger.debug("Calling operation DataSafeClient#getProfile.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getProfile.");
     const operationName = "getProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/GetProfile";
@@ -9352,6 +9546,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9411,7 +9606,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getReport(
     getReportRequest: requests.GetReportRequest
   ): Promise<responses.GetReportResponse> {
-    logger.debug("Calling operation DataSafeClient#getReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReport.");
     const operationName = "getReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Report/GetReport";
@@ -9432,6 +9627,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9486,7 +9682,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getReportContent(
     getReportContentRequest: requests.GetReportContentRequest
   ): Promise<responses.GetReportContentResponse> {
-    logger.debug("Calling operation DataSafeClient#getReportContent.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReportContent.");
     const operationName = "getReportContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Report/GetReportContent";
@@ -9507,6 +9703,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getReportContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9571,7 +9768,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getReportDefinition(
     getReportDefinitionRequest: requests.GetReportDefinitionRequest
   ): Promise<responses.GetReportDefinitionResponse> {
-    logger.debug("Calling operation DataSafeClient#getReportDefinition.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReportDefinition.");
     const operationName = "getReportDefinition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/GetReportDefinition";
@@ -9592,6 +9789,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getReportDefinitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9646,7 +9844,8 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSdmMaskingPolicyDifference(
     getSdmMaskingPolicyDifferenceRequest: requests.GetSdmMaskingPolicyDifferenceRequest
   ): Promise<responses.GetSdmMaskingPolicyDifferenceResponse> {
-    logger.debug("Calling operation DataSafeClient#getSdmMaskingPolicyDifference.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSdmMaskingPolicyDifference.");
     const operationName = "getSdmMaskingPolicyDifference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/GetSdmMaskingPolicyDifference";
@@ -9668,6 +9867,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSdmMaskingPolicyDifferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9722,7 +9922,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSecurityAssessment(
     getSecurityAssessmentRequest: requests.GetSecurityAssessmentRequest
   ): Promise<responses.GetSecurityAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#getSecurityAssessment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSecurityAssessment.");
     const operationName = "getSecurityAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/GetSecurityAssessment";
@@ -9743,6 +9943,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSecurityAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9797,7 +9998,8 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSecurityAssessmentComparison(
     getSecurityAssessmentComparisonRequest: requests.GetSecurityAssessmentComparisonRequest
   ): Promise<responses.GetSecurityAssessmentComparisonResponse> {
-    logger.debug("Calling operation DataSafeClient#getSecurityAssessmentComparison.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSecurityAssessmentComparison.");
     const operationName = "getSecurityAssessmentComparison";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/GetSecurityAssessmentComparison";
@@ -9820,6 +10022,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSecurityAssessmentComparisonRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9875,7 +10078,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSecurityPolicy(
     getSecurityPolicyRequest: requests.GetSecurityPolicyRequest
   ): Promise<responses.GetSecurityPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#getSecurityPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSecurityPolicy.");
     const operationName = "getSecurityPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicy/GetSecurityPolicy";
@@ -9896,6 +10099,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSecurityPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9950,7 +10154,8 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSecurityPolicyDeployment(
     getSecurityPolicyDeploymentRequest: requests.GetSecurityPolicyDeploymentRequest
   ): Promise<responses.GetSecurityPolicyDeploymentResponse> {
-    logger.debug("Calling operation DataSafeClient#getSecurityPolicyDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSecurityPolicyDeployment.");
     const operationName = "getSecurityPolicyDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyDeployment/GetSecurityPolicyDeployment";
@@ -9971,6 +10176,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSecurityPolicyDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10025,7 +10231,8 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSecurityPolicyEntryState(
     getSecurityPolicyEntryStateRequest: requests.GetSecurityPolicyEntryStateRequest
   ): Promise<responses.GetSecurityPolicyEntryStateResponse> {
-    logger.debug("Calling operation DataSafeClient#getSecurityPolicyEntryState.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSecurityPolicyEntryState.");
     const operationName = "getSecurityPolicyEntryState";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyEntryState/GetSecurityPolicyEntryState";
@@ -10047,6 +10254,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSecurityPolicyEntryStateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10102,7 +10310,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSecurityPolicyReport(
     getSecurityPolicyReportRequest: requests.GetSecurityPolicyReportRequest
   ): Promise<responses.GetSecurityPolicyReportResponse> {
-    logger.debug("Calling operation DataSafeClient#getSecurityPolicyReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSecurityPolicyReport.");
     const operationName = "getSecurityPolicyReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyReport/GetSecurityPolicyReport";
@@ -10123,6 +10331,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSecurityPolicyReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10177,7 +10386,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSensitiveColumn(
     getSensitiveColumnRequest: requests.GetSensitiveColumnRequest
   ): Promise<responses.GetSensitiveColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#getSensitiveColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveColumn.");
     const operationName = "getSensitiveColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/GetSensitiveColumn";
@@ -10199,6 +10408,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSensitiveColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10253,7 +10463,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSensitiveDataModel(
     getSensitiveDataModelRequest: requests.GetSensitiveDataModelRequest
   ): Promise<responses.GetSensitiveDataModelResponse> {
-    logger.debug("Calling operation DataSafeClient#getSensitiveDataModel.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveDataModel.");
     const operationName = "getSensitiveDataModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/GetSensitiveDataModel";
@@ -10274,6 +10484,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSensitiveDataModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10328,7 +10539,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSensitiveType(
     getSensitiveTypeRequest: requests.GetSensitiveTypeRequest
   ): Promise<responses.GetSensitiveTypeResponse> {
-    logger.debug("Calling operation DataSafeClient#getSensitiveType.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveType.");
     const operationName = "getSensitiveType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/GetSensitiveType";
@@ -10349,6 +10560,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSensitiveTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10403,7 +10615,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSqlCollection(
     getSqlCollectionRequest: requests.GetSqlCollectionRequest
   ): Promise<responses.GetSqlCollectionResponse> {
-    logger.debug("Calling operation DataSafeClient#getSqlCollection.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSqlCollection.");
     const operationName = "getSqlCollection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/GetSqlCollection";
@@ -10424,6 +10636,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSqlCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10478,7 +10691,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getSqlFirewallPolicy(
     getSqlFirewallPolicyRequest: requests.GetSqlFirewallPolicyRequest
   ): Promise<responses.GetSqlFirewallPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#getSqlFirewallPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSqlFirewallPolicy.");
     const operationName = "getSqlFirewallPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicy/GetSqlFirewallPolicy";
@@ -10499,6 +10712,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getSqlFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10553,7 +10767,8 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getTargetAlertPolicyAssociation(
     getTargetAlertPolicyAssociationRequest: requests.GetTargetAlertPolicyAssociationRequest
   ): Promise<responses.GetTargetAlertPolicyAssociationResponse> {
-    logger.debug("Calling operation DataSafeClient#getTargetAlertPolicyAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getTargetAlertPolicyAssociation.");
     const operationName = "getTargetAlertPolicyAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/GetTargetAlertPolicyAssociation";
@@ -10575,6 +10790,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getTargetAlertPolicyAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10630,7 +10846,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getTargetDatabase(
     getTargetDatabaseRequest: requests.GetTargetDatabaseRequest
   ): Promise<responses.GetTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#getTargetDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getTargetDatabase.");
     const operationName = "getTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/GetTargetDatabase";
@@ -10651,6 +10867,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10705,7 +10922,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getUserAssessment(
     getUserAssessmentRequest: requests.GetUserAssessmentRequest
   ): Promise<responses.GetUserAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#getUserAssessment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getUserAssessment.");
     const operationName = "getUserAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/GetUserAssessment";
@@ -10726,6 +10943,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getUserAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10780,7 +10998,8 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getUserAssessmentComparison(
     getUserAssessmentComparisonRequest: requests.GetUserAssessmentComparisonRequest
   ): Promise<responses.GetUserAssessmentComparisonResponse> {
-    logger.debug("Calling operation DataSafeClient#getUserAssessmentComparison.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getUserAssessmentComparison.");
     const operationName = "getUserAssessmentComparison";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/GetUserAssessmentComparison";
@@ -10802,6 +11021,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getUserAssessmentComparisonRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10851,7 +11071,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation DataSafeClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequest/GetWorkRequest";
@@ -10872,6 +11092,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10932,7 +11153,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async listAlertAnalytics(
     listAlertAnalyticsRequest: requests.ListAlertAnalyticsRequest
   ): Promise<responses.ListAlertAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAlertAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertAnalytics.");
     const operationName = "listAlertAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertSummary/ListAlertAnalytics";
@@ -10967,6 +11188,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       listAlertAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11022,7 +11244,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async listAlertPolicies(
     listAlertPoliciesRequest: requests.ListAlertPoliciesRequest
   ): Promise<responses.ListAlertPoliciesResponse> {
-    logger.debug("Calling operation DataSafeClient#listAlertPolicies.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertPolicies.");
     const operationName = "listAlertPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/ListAlertPolicies";
@@ -11056,6 +11278,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       listAlertPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11122,7 +11345,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async listAlertPolicyRules(
     listAlertPolicyRulesRequest: requests.ListAlertPolicyRulesRequest
   ): Promise<responses.ListAlertPolicyRulesResponse> {
-    logger.debug("Calling operation DataSafeClient#listAlertPolicyRules.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertPolicyRules.");
     const operationName = "listAlertPolicyRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/ListAlertPolicyRules";
@@ -11146,6 +11369,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       listAlertPolicyRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11211,7 +11435,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async listAlerts(
     listAlertsRequest: requests.ListAlertsRequest
   ): Promise<responses.ListAlertsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAlerts.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlerts.");
     const operationName = "listAlerts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertSummary/ListAlerts";
@@ -11241,6 +11465,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       listAlertsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11301,7 +11526,8 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async listAuditArchiveRetrievals(
     listAuditArchiveRetrievalsRequest: requests.ListAuditArchiveRetrievalsRequest
   ): Promise<responses.ListAuditArchiveRetrievalsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditArchiveRetrievals.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listAuditArchiveRetrievals.");
     const operationName = "listAuditArchiveRetrievals";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/ListAuditArchiveRetrievals";
@@ -11333,6 +11559,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       listAuditArchiveRetrievalsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11405,7 +11632,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   public async listAuditEventAnalytics(
     listAuditEventAnalyticsRequest: requests.ListAuditEventAnalyticsRequest
   ): Promise<responses.ListAuditEventAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditEventAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditEventAnalytics.");
     const operationName = "listAuditEventAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditEventSummary/ListAuditEventAnalytics";
@@ -11440,6 +11667,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
       listAuditEventAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11512,7 +11740,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditEvents 
   public async listAuditEvents(
     listAuditEventsRequest: requests.ListAuditEventsRequest
   ): Promise<responses.ListAuditEventsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditEvents.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditEvents.");
     const operationName = "listAuditEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditEventSummary/ListAuditEvents";
@@ -11540,6 +11768,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditEvents 
       listAuditEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11614,7 +11843,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicie
   public async listAuditPolicies(
     listAuditPoliciesRequest: requests.ListAuditPoliciesRequest
   ): Promise<responses.ListAuditPoliciesResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditPolicies.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditPolicies.");
     const operationName = "listAuditPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicyCollection/ListAuditPolicies";
@@ -11645,6 +11874,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicie
       listAuditPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11720,7 +11950,8 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedAuditP
   public async listAuditPolicyAnalytics(
     listAuditPolicyAnalyticsRequest: requests.ListAuditPolicyAnalyticsRequest
   ): Promise<responses.ListAuditPolicyAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditPolicyAnalytics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listAuditPolicyAnalytics.");
     const operationName = "listAuditPolicyAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicyAnalyticCollection/ListAuditPolicyAnalytics";
@@ -11750,6 +11981,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedAuditP
       listAuditPolicyAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11822,7 +12054,8 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditProfileAnal
   public async listAuditProfileAnalytics(
     listAuditProfileAnalyticsRequest: requests.ListAuditProfileAnalyticsRequest
   ): Promise<responses.ListAuditProfileAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditProfileAnalytics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listAuditProfileAnalytics.");
     const operationName = "listAuditProfileAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfileAnalyticCollection/ListAuditProfileAnalytics";
@@ -11848,6 +12081,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditProfileAnal
       listAuditProfileAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11922,7 +12156,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditProfile
   public async listAuditProfiles(
     listAuditProfilesRequest: requests.ListAuditProfilesRequest
   ): Promise<responses.ListAuditProfilesResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditProfiles.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditProfiles.");
     const operationName = "listAuditProfiles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ListAuditProfiles";
@@ -11957,6 +12191,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditProfile
       listAuditProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12029,7 +12264,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditTrailAnalyt
   public async listAuditTrailAnalytics(
     listAuditTrailAnalyticsRequest: requests.ListAuditTrailAnalyticsRequest
   ): Promise<responses.ListAuditTrailAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditTrailAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditTrailAnalytics.");
     const operationName = "listAuditTrailAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrailAnalyticCollection/ListAuditTrailAnalytics";
@@ -12056,6 +12291,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditTrailAnalyt
       listAuditTrailAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12129,7 +12365,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   public async listAuditTrails(
     listAuditTrailsRequest: requests.ListAuditTrailsRequest
   ): Promise<responses.ListAuditTrailsResponse> {
-    logger.debug("Calling operation DataSafeClient#listAuditTrails.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditTrails.");
     const operationName = "listAuditTrails";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/ListAuditTrails";
@@ -12161,6 +12397,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       listAuditTrailsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12220,7 +12457,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   public async listAvailableAuditVolumes(
     listAvailableAuditVolumesRequest: requests.ListAvailableAuditVolumesRequest
   ): Promise<responses.ListAvailableAuditVolumesResponse> {
-    logger.debug("Calling operation DataSafeClient#listAvailableAuditVolumes.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listAvailableAuditVolumes.");
     const operationName = "listAvailableAuditVolumes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ListAvailableAuditVolumes";
@@ -12251,6 +12489,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       listAvailableAuditVolumesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12310,7 +12549,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   public async listCollectedAuditVolumes(
     listCollectedAuditVolumesRequest: requests.ListCollectedAuditVolumesRequest
   ): Promise<responses.ListCollectedAuditVolumesResponse> {
-    logger.debug("Calling operation DataSafeClient#listCollectedAuditVolumes.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCollectedAuditVolumes.");
     const operationName = "listCollectedAuditVolumes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ListCollectedAuditVolumes";
@@ -12340,6 +12580,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       listCollectedAuditVolumesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12400,7 +12641,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   public async listColumns(
     listColumnsRequest: requests.ListColumnsRequest
   ): Promise<responses.ListColumnsResponse> {
-    logger.debug("Calling operation DataSafeClient#listColumns.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listColumns.");
     const operationName = "listColumns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ListColumns";
@@ -12433,6 +12674,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       listColumnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12545,7 +12787,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   public async listDataSafePrivateEndpoints(
     listDataSafePrivateEndpointsRequest: requests.ListDataSafePrivateEndpointsRequest
   ): Promise<responses.ListDataSafePrivateEndpointsResponse> {
-    logger.debug("Calling operation DataSafeClient#listDataSafePrivateEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listDataSafePrivateEndpoints.");
     const operationName = "listDataSafePrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpointSummary/ListDataSafePrivateEndpoints";
@@ -12575,6 +12818,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       listDataSafePrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12695,7 +12939,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDatabaseSecu
   public async listDatabaseSecurityConfigs(
     listDatabaseSecurityConfigsRequest: requests.ListDatabaseSecurityConfigsRequest
   ): Promise<responses.ListDatabaseSecurityConfigsResponse> {
-    logger.debug("Calling operation DataSafeClient#listDatabaseSecurityConfigs.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listDatabaseSecurityConfigs.");
     const operationName = "listDatabaseSecurityConfigs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfigCollection/ListDatabaseSecurityConfigs";
@@ -12729,6 +12974,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDatabaseSecu
       listDatabaseSecurityConfigsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12791,7 +13037,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDatabaseSecu
   public async listDatabaseTableAccessEntries(
     listDatabaseTableAccessEntriesRequest: requests.ListDatabaseTableAccessEntriesRequest
   ): Promise<responses.ListDatabaseTableAccessEntriesResponse> {
-    logger.debug("Calling operation DataSafeClient#listDatabaseTableAccessEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listDatabaseTableAccessEntries.");
     const operationName = "listDatabaseTableAccessEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseTableAccessEntryCollection/ListDatabaseTableAccessEntries";
@@ -12818,6 +13065,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDatabaseSecu
       listDatabaseTableAccessEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12880,7 +13128,8 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
   public async listDatabaseViewAccessEntries(
     listDatabaseViewAccessEntriesRequest: requests.ListDatabaseViewAccessEntriesRequest
   ): Promise<responses.ListDatabaseViewAccessEntriesResponse> {
-    logger.debug("Calling operation DataSafeClient#listDatabaseViewAccessEntries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listDatabaseViewAccessEntries.");
     const operationName = "listDatabaseViewAccessEntries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseViewAccessEntryCollection/ListDatabaseViewAccessEntries";
@@ -12908,6 +13157,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
       listDatabaseViewAccessEntriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12967,7 +13217,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
   public async listDifferenceColumns(
     listDifferenceColumnsRequest: requests.ListDifferenceColumnsRequest
   ): Promise<responses.ListDifferenceColumnsResponse> {
-    logger.debug("Calling operation DataSafeClient#listDifferenceColumns.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDifferenceColumns.");
     const operationName = "listDifferenceColumns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/ListDifferenceColumns";
@@ -12999,6 +13249,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
       listDifferenceColumnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13061,7 +13312,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
   public async listDiscoveryAnalytics(
     listDiscoveryAnalyticsRequest: requests.ListDiscoveryAnalyticsRequest
   ): Promise<responses.ListDiscoveryAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listDiscoveryAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryAnalytics.");
     const operationName = "listDiscoveryAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/ListDiscoveryAnalytics";
@@ -13090,6 +13341,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
       listDiscoveryAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13149,7 +13401,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
   public async listDiscoveryJobResults(
     listDiscoveryJobResultsRequest: requests.ListDiscoveryJobResultsRequest
   ): Promise<responses.ListDiscoveryJobResultsResponse> {
-    logger.debug("Calling operation DataSafeClient#listDiscoveryJobResults.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryJobResults.");
     const operationName = "listDiscoveryJobResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/ListDiscoveryJobResults";
@@ -13181,6 +13433,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
       listDiscoveryJobResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13240,7 +13493,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
   public async listDiscoveryJobs(
     listDiscoveryJobsRequest: requests.ListDiscoveryJobsRequest
   ): Promise<responses.ListDiscoveryJobsResponse> {
-    logger.debug("Calling operation DataSafeClient#listDiscoveryJobs.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryJobs.");
     const operationName = "listDiscoveryJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/ListDiscoveryJobs";
@@ -13272,6 +13525,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
       listDiscoveryJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13341,7 +13595,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listFindingAnalytics(
     listFindingAnalyticsRequest: requests.ListFindingAnalyticsRequest
   ): Promise<responses.ListFindingAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listFindingAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listFindingAnalytics.");
     const operationName = "listFindingAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/ListFindingAnalytics";
@@ -13371,6 +13625,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listFindingAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13431,7 +13686,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listFindings(
     listFindingsRequest: requests.ListFindingsRequest
   ): Promise<responses.ListFindingsResponse> {
-    logger.debug("Calling operation DataSafeClient#listFindings.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listFindings.");
     const operationName = "listFindings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/ListFindings";
@@ -13462,6 +13717,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listFindingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13574,7 +13830,8 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listFindingsChangeAuditLogs(
     listFindingsChangeAuditLogsRequest: requests.ListFindingsChangeAuditLogsRequest
   ): Promise<responses.ListFindingsChangeAuditLogsResponse> {
-    logger.debug("Calling operation DataSafeClient#listFindingsChangeAuditLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listFindingsChangeAuditLogs.");
     const operationName = "listFindingsChangeAuditLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/ListFindingsChangeAuditLogs";
@@ -13611,6 +13868,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listFindingsChangeAuditLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13674,7 +13932,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listGrants(
     listGrantsRequest: requests.ListGrantsRequest
   ): Promise<responses.ListGrantsResponse> {
-    logger.debug("Calling operation DataSafeClient#listGrants.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listGrants.");
     const operationName = "listGrants";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListGrants";
@@ -13708,6 +13966,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listGrantsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13820,7 +14079,8 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listLibraryMaskingFormats(
     listLibraryMaskingFormatsRequest: requests.ListLibraryMaskingFormatsRequest
   ): Promise<responses.ListLibraryMaskingFormatsResponse> {
-    logger.debug("Calling operation DataSafeClient#listLibraryMaskingFormats.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listLibraryMaskingFormats.");
     const operationName = "listLibraryMaskingFormats";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormatSummary/ListLibraryMaskingFormats";
@@ -13854,6 +14114,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listLibraryMaskingFormatsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13914,7 +14175,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listMaskedColumns(
     listMaskedColumnsRequest: requests.ListMaskedColumnsRequest
   ): Promise<responses.ListMaskedColumnsResponse> {
-    logger.debug("Calling operation DataSafeClient#listMaskedColumns.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskedColumns.");
     const operationName = "listMaskedColumns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskedColumnSummary/ListMaskedColumns";
@@ -13946,6 +14207,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listMaskedColumnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14008,7 +14270,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listMaskingAnalytics(
     listMaskingAnalyticsRequest: requests.ListMaskingAnalyticsRequest
   ): Promise<responses.ListMaskingAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listMaskingAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingAnalytics.");
     const operationName = "listMaskingAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ListMaskingAnalytics";
@@ -14035,6 +14297,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listMaskingAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14095,7 +14358,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listMaskingColumns(
     listMaskingColumnsRequest: requests.ListMaskingColumnsRequest
   ): Promise<responses.ListMaskingColumnsResponse> {
-    logger.debug("Calling operation DataSafeClient#listMaskingColumns.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingColumns.");
     const operationName = "listMaskingColumns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/ListMaskingColumns";
@@ -14135,6 +14398,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listMaskingColumnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14195,7 +14459,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listMaskingObjects(
     listMaskingObjectsRequest: requests.ListMaskingObjectsRequest
   ): Promise<responses.ListMaskingObjectsResponse> {
-    logger.debug("Calling operation DataSafeClient#listMaskingObjects.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingObjects.");
     const operationName = "listMaskingObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingObjectCollection/ListMaskingObjects";
@@ -14224,6 +14488,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listMaskingObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14283,7 +14548,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listMaskingPolicies(
     listMaskingPoliciesRequest: requests.ListMaskingPoliciesRequest
   ): Promise<responses.ListMaskingPoliciesResponse> {
-    logger.debug("Calling operation DataSafeClient#listMaskingPolicies.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingPolicies.");
     const operationName = "listMaskingPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ListMaskingPolicies";
@@ -14317,6 +14582,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listMaskingPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14376,7 +14642,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listMaskingReports(
     listMaskingReportsRequest: requests.ListMaskingReportsRequest
   ): Promise<responses.ListMaskingReportsResponse> {
-    logger.debug("Calling operation DataSafeClient#listMaskingReports.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingReports.");
     const operationName = "listMaskingReports";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ListMaskingReports";
@@ -14405,6 +14671,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listMaskingReportsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14465,7 +14732,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listMaskingSchemas(
     listMaskingSchemasRequest: requests.ListMaskingSchemasRequest
   ): Promise<responses.ListMaskingSchemasResponse> {
-    logger.debug("Calling operation DataSafeClient#listMaskingSchemas.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingSchemas.");
     const operationName = "listMaskingSchemas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingSchemaCollection/ListMaskingSchemas";
@@ -14492,6 +14759,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listMaskingSchemasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14552,7 +14820,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listOnPremConnectors(
     listOnPremConnectorsRequest: requests.ListOnPremConnectorsRequest
   ): Promise<responses.ListOnPremConnectorsResponse> {
-    logger.debug("Calling operation DataSafeClient#listOnPremConnectors.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listOnPremConnectors.");
     const operationName = "listOnPremConnectors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnectorSummary/ListOnPremConnectors";
@@ -14582,6 +14850,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listOnPremConnectorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14688,7 +14957,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   public async listPeerTargetDatabases(
     listPeerTargetDatabasesRequest: requests.ListPeerTargetDatabasesRequest
   ): Promise<responses.ListPeerTargetDatabasesResponse> {
-    logger.debug("Calling operation DataSafeClient#listPeerTargetDatabases.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listPeerTargetDatabases.");
     const operationName = "listPeerTargetDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/PeerTargetDatabase/ListPeerTargetDatabases";
@@ -14714,6 +14983,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       listPeerTargetDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14793,7 +15063,7 @@ To use ListProfileAnalytics to get a full list of all compartments and subcompar
   public async listProfileAnalytics(
     listProfileAnalyticsRequest: requests.ListProfileAnalyticsRequest
   ): Promise<responses.ListProfileAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listProfileAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listProfileAnalytics.");
     const operationName = "listProfileAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Profile/ListProfileAnalytics";
@@ -14824,6 +15094,7 @@ To use ListProfileAnalytics to get a full list of all compartments and subcompar
       listProfileAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14950,7 +15221,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
   public async listProfileSummaries(
     listProfileSummariesRequest: requests.ListProfileSummariesRequest
   ): Promise<responses.ListProfileSummariesResponse> {
-    logger.debug("Calling operation DataSafeClient#listProfileSummaries.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listProfileSummaries.");
     const operationName = "listProfileSummaries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListProfileSummaries";
@@ -14997,6 +15268,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
       listProfileSummariesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15111,7 +15383,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
   public async listReportDefinitions(
     listReportDefinitionsRequest: requests.ListReportDefinitionsRequest
   ): Promise<responses.ListReportDefinitionsResponse> {
-    logger.debug("Calling operation DataSafeClient#listReportDefinitions.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listReportDefinitions.");
     const operationName = "listReportDefinitions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/ListReportDefinitions";
@@ -15143,6 +15415,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
       listReportDefinitionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15197,7 +15470,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
   public async listReports(
     listReportsRequest: requests.ListReportsRequest
   ): Promise<responses.ListReportsResponse> {
-    logger.debug("Calling operation DataSafeClient#listReports.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listReports.");
     const operationName = "listReports";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportSummary/ListReports";
@@ -15228,6 +15501,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
       listReportsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15285,7 +15559,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
   public async listRoleGrantPaths(
     listRoleGrantPathsRequest: requests.ListRoleGrantPathsRequest
   ): Promise<responses.ListRoleGrantPathsResponse> {
-    logger.debug("Calling operation DataSafeClient#listRoleGrantPaths.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listRoleGrantPaths.");
     const operationName = "listRoleGrantPaths";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/RoleGrantPathCollection/ListRoleGrantPaths";
@@ -15311,6 +15585,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
       listRoleGrantPathsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15371,7 +15646,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
   public async listRoles(
     listRolesRequest: requests.ListRolesRequest
   ): Promise<responses.ListRolesResponse> {
-    logger.debug("Calling operation DataSafeClient#listRoles.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listRoles.");
     const operationName = "listRoles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ListRoles";
@@ -15401,6 +15676,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
       listRolesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15513,7 +15789,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
   public async listSchemas(
     listSchemasRequest: requests.ListSchemasRequest
   ): Promise<responses.ListSchemasResponse> {
-    logger.debug("Calling operation DataSafeClient#listSchemas.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSchemas.");
     const operationName = "listSchemas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ListSchemas";
@@ -15542,6 +15818,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
       listSchemasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15653,7 +15930,8 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
   public async listSdmMaskingPolicyDifferences(
     listSdmMaskingPolicyDifferencesRequest: requests.ListSdmMaskingPolicyDifferencesRequest
   ): Promise<responses.ListSdmMaskingPolicyDifferencesResponse> {
-    logger.debug("Calling operation DataSafeClient#listSdmMaskingPolicyDifferences.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSdmMaskingPolicyDifferences.");
     const operationName = "listSdmMaskingPolicyDifferences";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/ListSdmMaskingPolicyDifferences";
@@ -15684,6 +15962,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
       listSdmMaskingPolicyDifferencesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15758,7 +16037,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   public async listSecurityAssessments(
     listSecurityAssessmentsRequest: requests.ListSecurityAssessmentsRequest
   ): Promise<responses.ListSecurityAssessmentsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSecurityAssessments.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSecurityAssessments.");
     const operationName = "listSecurityAssessments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessmentSummary/ListSecurityAssessments";
@@ -15796,6 +16075,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       listSecurityAssessmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15915,7 +16195,8 @@ When you perform the ListSecurityFeatureAnalytics operation, if the parameter co
   public async listSecurityFeatureAnalytics(
     listSecurityFeatureAnalyticsRequest: requests.ListSecurityFeatureAnalyticsRequest
   ): Promise<responses.ListSecurityFeatureAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSecurityFeatureAnalytics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSecurityFeatureAnalytics.");
     const operationName = "listSecurityFeatureAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/ListSecurityFeatureAnalytics";
@@ -15939,6 +16220,7 @@ When you perform the ListSecurityFeatureAnalytics operation, if the parameter co
       listSecurityFeatureAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15989,7 +16271,7 @@ When you perform the ListSecurityFeatureAnalytics operation, if the parameter co
   public async listSecurityFeatures(
     listSecurityFeaturesRequest: requests.ListSecurityFeaturesRequest
   ): Promise<responses.ListSecurityFeaturesResponse> {
-    logger.debug("Calling operation DataSafeClient#listSecurityFeatures.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSecurityFeatures.");
     const operationName = "listSecurityFeatures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/ListSecurityFeatures";
@@ -16030,6 +16312,7 @@ When you perform the ListSecurityFeatureAnalytics operation, if the parameter co
       listSecurityFeaturesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16103,7 +16386,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   public async listSecurityPolicies(
     listSecurityPoliciesRequest: requests.ListSecurityPoliciesRequest
   ): Promise<responses.ListSecurityPoliciesResponse> {
-    logger.debug("Calling operation DataSafeClient#listSecurityPolicies.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSecurityPolicies.");
     const operationName = "listSecurityPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyCollection/ListSecurityPolicies";
@@ -16133,6 +16416,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
       listSecurityPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16206,7 +16490,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   public async listSecurityPolicyDeployments(
     listSecurityPolicyDeploymentsRequest: requests.ListSecurityPolicyDeploymentsRequest
   ): Promise<responses.ListSecurityPolicyDeploymentsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSecurityPolicyDeployments.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSecurityPolicyDeployments.");
     const operationName = "listSecurityPolicyDeployments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyDeploymentCollection/ListSecurityPolicyDeployments";
@@ -16238,6 +16523,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
       listSecurityPolicyDeploymentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16300,7 +16586,8 @@ The ListSecurityPolicyEntryStates operation returns only the security policy ent
   public async listSecurityPolicyEntryStates(
     listSecurityPolicyEntryStatesRequest: requests.ListSecurityPolicyEntryStatesRequest
   ): Promise<responses.ListSecurityPolicyEntryStatesResponse> {
-    logger.debug("Calling operation DataSafeClient#listSecurityPolicyEntryStates.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSecurityPolicyEntryStates.");
     const operationName = "listSecurityPolicyEntryStates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyEntryStateCollection/ListSecurityPolicyEntryStates";
@@ -16327,6 +16614,7 @@ The ListSecurityPolicyEntryStates operation returns only the security policy ent
       listSecurityPolicyEntryStatesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16400,7 +16688,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   public async listSecurityPolicyReports(
     listSecurityPolicyReportsRequest: requests.ListSecurityPolicyReportsRequest
   ): Promise<responses.ListSecurityPolicyReportsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSecurityPolicyReports.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSecurityPolicyReports.");
     const operationName = "listSecurityPolicyReports";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyReportCollection/ListSecurityPolicyReports";
@@ -16431,6 +16720,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
       listSecurityPolicyReportsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16491,7 +16781,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   public async listSensitiveColumns(
     listSensitiveColumnsRequest: requests.ListSensitiveColumnsRequest
   ): Promise<responses.ListSensitiveColumnsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSensitiveColumns.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveColumns.");
     const operationName = "listSensitiveColumns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/ListSensitiveColumns";
@@ -16535,6 +16825,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
       listSensitiveColumnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16595,7 +16886,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   public async listSensitiveDataModels(
     listSensitiveDataModelsRequest: requests.ListSensitiveDataModelsRequest
   ): Promise<responses.ListSensitiveDataModelsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSensitiveDataModels.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveDataModels.");
     const operationName = "listSensitiveDataModels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/ListSensitiveDataModels";
@@ -16629,6 +16920,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
       listSensitiveDataModelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16689,7 +16981,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   public async listSensitiveObjects(
     listSensitiveObjectsRequest: requests.ListSensitiveObjectsRequest
   ): Promise<responses.ListSensitiveObjectsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSensitiveObjects.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveObjects.");
     const operationName = "listSensitiveObjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveObjectCollection/ListSensitiveObjects";
@@ -16718,6 +17010,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
       listSensitiveObjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16778,7 +17071,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   public async listSensitiveSchemas(
     listSensitiveSchemasRequest: requests.ListSensitiveSchemasRequest
   ): Promise<responses.ListSensitiveSchemasResponse> {
-    logger.debug("Calling operation DataSafeClient#listSensitiveSchemas.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveSchemas.");
     const operationName = "listSensitiveSchemas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveSchemaCollection/ListSensitiveSchemas";
@@ -16805,6 +17098,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
       listSensitiveSchemasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16865,7 +17159,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   public async listSensitiveTypes(
     listSensitiveTypesRequest: requests.ListSensitiveTypesRequest
   ): Promise<responses.ListSensitiveTypesResponse> {
-    logger.debug("Calling operation DataSafeClient#listSensitiveTypes.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveTypes.");
     const operationName = "listSensitiveTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/ListSensitiveTypes";
@@ -16902,6 +17196,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
       listSensitiveTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16975,7 +17270,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
   public async listSqlCollectionAnalytics(
     listSqlCollectionAnalyticsRequest: requests.ListSqlCollectionAnalyticsRequest
   ): Promise<responses.ListSqlCollectionAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlCollectionAnalytics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlCollectionAnalytics.");
     const operationName = "listSqlCollectionAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollectionAnalyticsCollection/ListSqlCollectionAnalytics";
@@ -17005,6 +17301,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
       listSqlCollectionAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17065,7 +17362,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
   public async listSqlCollectionLogInsights(
     listSqlCollectionLogInsightsRequest: requests.ListSqlCollectionLogInsightsRequest
   ): Promise<responses.ListSqlCollectionLogInsightsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlCollectionLogInsights.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlCollectionLogInsights.");
     const operationName = "listSqlCollectionLogInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollectionLogInsightsCollection/ListSqlCollectionLogInsights";
@@ -17092,6 +17390,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
       listSqlCollectionLogInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17165,7 +17464,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
   public async listSqlCollections(
     listSqlCollectionsRequest: requests.ListSqlCollectionsRequest
   ): Promise<responses.ListSqlCollectionsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlCollections.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSqlCollections.");
     const operationName = "listSqlCollections";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollectionCollection/ListSqlCollections";
@@ -17199,6 +17498,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
       listSqlCollectionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17272,7 +17572,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallA
   public async listSqlFirewallAllowedSqlAnalytics(
     listSqlFirewallAllowedSqlAnalyticsRequest: requests.ListSqlFirewallAllowedSqlAnalyticsRequest
   ): Promise<responses.ListSqlFirewallAllowedSqlAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlFirewallAllowedSqlAnalytics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallAllowedSqlAnalytics.");
     const operationName = "listSqlFirewallAllowedSqlAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSqlAnalyticsCollection/ListSqlFirewallAllowedSqlAnalytics";
@@ -17299,6 +17600,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallA
       listSqlFirewallAllowedSqlAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17372,7 +17674,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallP
   public async listSqlFirewallAllowedSqls(
     listSqlFirewallAllowedSqlsRequest: requests.ListSqlFirewallAllowedSqlsRequest
   ): Promise<responses.ListSqlFirewallAllowedSqlsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlFirewallAllowedSqls.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallAllowedSqls.");
     const operationName = "listSqlFirewallAllowedSqls";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSqlCollection/ListSqlFirewallAllowedSqls";
@@ -17400,6 +17703,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallP
       listSqlFirewallAllowedSqlsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17473,7 +17777,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallP
   public async listSqlFirewallPolicies(
     listSqlFirewallPoliciesRequest: requests.ListSqlFirewallPoliciesRequest
   ): Promise<responses.ListSqlFirewallPoliciesResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlFirewallPolicies.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSqlFirewallPolicies.");
     const operationName = "listSqlFirewallPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicyCollection/ListSqlFirewallPolicies";
@@ -17509,6 +17813,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallP
       listSqlFirewallPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17580,7 +17885,8 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
   public async listSqlFirewallPolicyAnalytics(
     listSqlFirewallPolicyAnalyticsRequest: requests.ListSqlFirewallPolicyAnalyticsRequest
   ): Promise<responses.ListSqlFirewallPolicyAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlFirewallPolicyAnalytics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallPolicyAnalytics.");
     const operationName = "listSqlFirewallPolicyAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicyAnalyticsCollection/ListSqlFirewallPolicyAnalytics";
@@ -17610,6 +17916,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
       listSqlFirewallPolicyAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17670,7 +17977,8 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
   public async listSqlFirewallViolationAnalytics(
     listSqlFirewallViolationAnalyticsRequest: requests.ListSqlFirewallViolationAnalyticsRequest
   ): Promise<responses.ListSqlFirewallViolationAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlFirewallViolationAnalytics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallViolationAnalytics.");
     const operationName = "listSqlFirewallViolationAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallViolationSummary/ListSqlFirewallViolationAnalytics";
@@ -17704,6 +18012,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
       listSqlFirewallViolationAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17764,7 +18073,8 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
   public async listSqlFirewallViolations(
     listSqlFirewallViolationsRequest: requests.ListSqlFirewallViolationsRequest
   ): Promise<responses.ListSqlFirewallViolationsResponse> {
-    logger.debug("Calling operation DataSafeClient#listSqlFirewallViolations.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSqlFirewallViolations.");
     const operationName = "listSqlFirewallViolations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallViolationSummary/ListSqlFirewallViolations";
@@ -17792,6 +18102,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
       listSqlFirewallViolationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17852,7 +18163,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
   public async listTables(
     listTablesRequest: requests.ListTablesRequest
   ): Promise<responses.ListTablesResponse> {
-    logger.debug("Calling operation DataSafeClient#listTables.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listTables.");
     const operationName = "listTables";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ListTables";
@@ -17882,6 +18193,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
       listTablesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17994,7 +18306,8 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
   public async listTargetAlertPolicyAssociations(
     listTargetAlertPolicyAssociationsRequest: requests.ListTargetAlertPolicyAssociationsRequest
   ): Promise<responses.ListTargetAlertPolicyAssociationsResponse> {
-    logger.debug("Calling operation DataSafeClient#listTargetAlertPolicyAssociations.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listTargetAlertPolicyAssociations.");
     const operationName = "listTargetAlertPolicyAssociations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociationSummary/ListTargetAlertPolicyAssociations";
@@ -18029,6 +18342,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
       listTargetAlertPolicyAssociationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18094,7 +18408,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
   public async listTargetDatabases(
     listTargetDatabasesRequest: requests.ListTargetDatabasesRequest
   ): Promise<responses.ListTargetDatabasesResponse> {
-    logger.debug("Calling operation DataSafeClient#listTargetDatabases.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listTargetDatabases.");
     const operationName = "listTargetDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabaseSummary/ListTargetDatabases";
@@ -18127,6 +18441,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
       listTargetDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18239,7 +18554,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
   public async listUserAccessAnalytics(
     listUserAccessAnalyticsRequest: requests.ListUserAccessAnalyticsRequest
   ): Promise<responses.ListUserAccessAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listUserAccessAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUserAccessAnalytics.");
     const operationName = "listUserAccessAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListUserAccessAnalytics";
@@ -18265,6 +18580,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
       listUserAccessAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18339,7 +18655,7 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
   public async listUserAnalytics(
     listUserAnalyticsRequest: requests.ListUserAnalyticsRequest
   ): Promise<responses.ListUserAnalyticsResponse> {
-    logger.debug("Calling operation DataSafeClient#listUserAnalytics.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUserAnalytics.");
     const operationName = "listUserAnalytics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListUserAnalytics";
@@ -18382,6 +18698,7 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
       listUserAnalyticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18503,7 +18820,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async listUserAssessments(
     listUserAssessmentsRequest: requests.ListUserAssessmentsRequest
   ): Promise<responses.ListUserAssessmentsResponse> {
-    logger.debug("Calling operation DataSafeClient#listUserAssessments.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUserAssessments.");
     const operationName = "listUserAssessments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessmentSummary/ListUserAssessments";
@@ -18540,6 +18857,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       listUserAssessmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18655,7 +18973,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
   ): Promise<responses.ListUsersResponse> {
-    logger.debug("Calling operation DataSafeClient#listUsers.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUsers.");
     const operationName = "listUsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListUsers";
@@ -18701,6 +19019,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       listUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18813,7 +19132,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation DataSafeClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequestError/ListWorkRequestErrors";
@@ -18837,6 +19156,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18944,7 +19264,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation DataSafeClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -18968,6 +19288,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19075,7 +19396,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation DataSafeClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequestSummary/ListWorkRequests";
@@ -19105,6 +19426,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19211,7 +19533,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async maskData(
     maskDataRequest: requests.MaskDataRequest
   ): Promise<responses.MaskDataResponse> {
-    logger.debug("Calling operation DataSafeClient#maskData.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#maskData.");
     const operationName = "maskData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/MaskData";
@@ -19232,6 +19554,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       maskDataRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19288,7 +19611,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async modifyGlobalSettings(
     modifyGlobalSettingsRequest: requests.ModifyGlobalSettingsRequest
   ): Promise<responses.ModifyGlobalSettingsResponse> {
-    logger.debug("Calling operation DataSafeClient#modifyGlobalSettings.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#modifyGlobalSettings.");
     const operationName = "modifyGlobalSettings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafeConfiguration/ModifyGlobalSettings";
@@ -19311,6 +19634,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       modifyGlobalSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19366,7 +19690,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async patchAlerts(
     patchAlertsRequest: requests.PatchAlertsRequest
   ): Promise<responses.PatchAlertsResponse> {
-    logger.debug("Calling operation DataSafeClient#patchAlerts.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchAlerts.");
     const operationName = "patchAlerts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/PatchAlerts";
@@ -19389,6 +19713,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       patchAlertsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19446,7 +19771,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async patchDiscoveryJobResults(
     patchDiscoveryJobResultsRequest: requests.PatchDiscoveryJobResultsRequest
   ): Promise<responses.PatchDiscoveryJobResultsResponse> {
-    logger.debug("Calling operation DataSafeClient#patchDiscoveryJobResults.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#patchDiscoveryJobResults.");
     const operationName = "patchDiscoveryJobResults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/PatchDiscoveryJobResults";
@@ -19468,6 +19794,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       patchDiscoveryJobResultsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19526,7 +19853,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async patchMaskingColumns(
     patchMaskingColumnsRequest: requests.PatchMaskingColumnsRequest
   ): Promise<responses.PatchMaskingColumnsResponse> {
-    logger.debug("Calling operation DataSafeClient#patchMaskingColumns.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchMaskingColumns.");
     const operationName = "patchMaskingColumns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/PatchMaskingColumns";
@@ -19548,6 +19875,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       patchMaskingColumnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19605,7 +19933,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async patchSdmMaskingPolicyDifferenceColumns(
     patchSdmMaskingPolicyDifferenceColumnsRequest: requests.PatchSdmMaskingPolicyDifferenceColumnsRequest
   ): Promise<responses.PatchSdmMaskingPolicyDifferenceColumnsResponse> {
-    logger.debug("Calling operation DataSafeClient#patchSdmMaskingPolicyDifferenceColumns.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#patchSdmMaskingPolicyDifferenceColumns.");
     const operationName = "patchSdmMaskingPolicyDifferenceColumns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/PatchSdmMaskingPolicyDifferenceColumns";
@@ -19628,6 +19957,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       patchSdmMaskingPolicyDifferenceColumnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19686,7 +20016,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async patchSensitiveColumns(
     patchSensitiveColumnsRequest: requests.PatchSensitiveColumnsRequest
   ): Promise<responses.PatchSensitiveColumnsResponse> {
-    logger.debug("Calling operation DataSafeClient#patchSensitiveColumns.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchSensitiveColumns.");
     const operationName = "patchSensitiveColumns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/PatchSensitiveColumns";
@@ -19708,6 +20038,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       patchSensitiveColumnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19764,7 +20095,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async patchTargetAlertPolicyAssociation(
     patchTargetAlertPolicyAssociationRequest: requests.PatchTargetAlertPolicyAssociationRequest
   ): Promise<responses.PatchTargetAlertPolicyAssociationResponse> {
-    logger.debug("Calling operation DataSafeClient#patchTargetAlertPolicyAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#patchTargetAlertPolicyAssociation.");
     const operationName = "patchTargetAlertPolicyAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/PatchTargetAlertPolicyAssociation";
@@ -19784,6 +20116,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       patchTargetAlertPolicyAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19839,7 +20172,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async provisionAuditPolicy(
     provisionAuditPolicyRequest: requests.ProvisionAuditPolicyRequest
   ): Promise<responses.ProvisionAuditPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#provisionAuditPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#provisionAuditPolicy.");
     const operationName = "provisionAuditPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/ProvisionAuditPolicy";
@@ -19862,6 +20195,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       provisionAuditPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19917,7 +20251,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async purgeSqlCollectionLogs(
     purgeSqlCollectionLogsRequest: requests.PurgeSqlCollectionLogsRequest
   ): Promise<responses.PurgeSqlCollectionLogsResponse> {
-    logger.debug("Calling operation DataSafeClient#purgeSqlCollectionLogs.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#purgeSqlCollectionLogs.");
     const operationName = "purgeSqlCollectionLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/PurgeSqlCollectionLogs";
@@ -19940,6 +20274,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       purgeSqlCollectionLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -19990,7 +20325,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async refreshDatabaseSecurityConfiguration(
     refreshDatabaseSecurityConfigurationRequest: requests.RefreshDatabaseSecurityConfigurationRequest
   ): Promise<responses.RefreshDatabaseSecurityConfigurationResponse> {
-    logger.debug("Calling operation DataSafeClient#refreshDatabaseSecurityConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#refreshDatabaseSecurityConfiguration.");
     const operationName = "refreshDatabaseSecurityConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfig/RefreshDatabaseSecurityConfiguration";
@@ -20014,6 +20350,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       refreshDatabaseSecurityConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20066,7 +20403,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async refreshSecurityAssessment(
     refreshSecurityAssessmentRequest: requests.RefreshSecurityAssessmentRequest
   ): Promise<responses.RefreshSecurityAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#refreshSecurityAssessment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#refreshSecurityAssessment.");
     const operationName = "refreshSecurityAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/RefreshSecurityAssessment";
@@ -20089,6 +20427,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       refreshSecurityAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20144,7 +20483,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async refreshSqlCollectionLogInsights(
     refreshSqlCollectionLogInsightsRequest: requests.RefreshSqlCollectionLogInsightsRequest
   ): Promise<responses.RefreshSqlCollectionLogInsightsResponse> {
-    logger.debug("Calling operation DataSafeClient#refreshSqlCollectionLogInsights.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#refreshSqlCollectionLogInsights.");
     const operationName = "refreshSqlCollectionLogInsights";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/RefreshSqlCollectionLogInsights";
@@ -20167,6 +20507,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       refreshSqlCollectionLogInsightsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20218,7 +20559,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async refreshTargetDatabase(
     refreshTargetDatabaseRequest: requests.RefreshTargetDatabaseRequest
   ): Promise<responses.RefreshTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#refreshTargetDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#refreshTargetDatabase.");
     const operationName = "refreshTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/RefreshTargetDatabase";
@@ -20241,6 +20582,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       refreshTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20294,7 +20636,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async refreshUserAssessment(
     refreshUserAssessmentRequest: requests.RefreshUserAssessmentRequest
   ): Promise<responses.RefreshUserAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#refreshUserAssessment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#refreshUserAssessment.");
     const operationName = "refreshUserAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/RefreshUserAssessment";
@@ -20317,6 +20659,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       refreshUserAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20372,7 +20715,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async removeScheduleReport(
     removeScheduleReportRequest: requests.RemoveScheduleReportRequest
   ): Promise<responses.RemoveScheduleReportResponse> {
-    logger.debug("Calling operation DataSafeClient#removeScheduleReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#removeScheduleReport.");
     const operationName = "removeScheduleReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/RemoveScheduleReport";
@@ -20395,6 +20738,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       removeScheduleReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20445,7 +20789,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async resumeAuditTrail(
     resumeAuditTrailRequest: requests.ResumeAuditTrailRequest
   ): Promise<responses.ResumeAuditTrailResponse> {
-    logger.debug("Calling operation DataSafeClient#resumeAuditTrail.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#resumeAuditTrail.");
     const operationName = "resumeAuditTrail";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/ResumeAuditTrail";
@@ -20467,6 +20811,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       resumeAuditTrailRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20518,7 +20863,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async resumeWorkRequest(
     resumeWorkRequestRequest: requests.ResumeWorkRequestRequest
   ): Promise<responses.ResumeWorkRequestResponse> {
-    logger.debug("Calling operation DataSafeClient#resumeWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#resumeWorkRequest.");
     const operationName = "resumeWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequest/ResumeWorkRequest";
@@ -20541,6 +20886,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       resumeWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20591,7 +20937,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async retrieveAuditPolicies(
     retrieveAuditPoliciesRequest: requests.RetrieveAuditPoliciesRequest
   ): Promise<responses.RetrieveAuditPoliciesResponse> {
-    logger.debug("Calling operation DataSafeClient#retrieveAuditPolicies.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#retrieveAuditPolicies.");
     const operationName = "retrieveAuditPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/RetrieveAuditPolicies";
@@ -20614,6 +20960,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       retrieveAuditPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20664,7 +21011,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async scheduleReport(
     scheduleReportRequest: requests.ScheduleReportRequest
   ): Promise<responses.ScheduleReportResponse> {
-    logger.debug("Calling operation DataSafeClient#scheduleReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#scheduleReport.");
     const operationName = "scheduleReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/ScheduleReport";
@@ -20687,6 +21034,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       scheduleReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20742,7 +21090,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async setSecurityAssessmentBaseline(
     setSecurityAssessmentBaselineRequest: requests.SetSecurityAssessmentBaselineRequest
   ): Promise<responses.SetSecurityAssessmentBaselineResponse> {
-    logger.debug("Calling operation DataSafeClient#setSecurityAssessmentBaseline.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#setSecurityAssessmentBaseline.");
     const operationName = "setSecurityAssessmentBaseline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/SetSecurityAssessmentBaseline";
@@ -20765,6 +21114,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       setSecurityAssessmentBaselineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20820,7 +21170,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async setUserAssessmentBaseline(
     setUserAssessmentBaselineRequest: requests.SetUserAssessmentBaselineRequest
   ): Promise<responses.SetUserAssessmentBaselineResponse> {
-    logger.debug("Calling operation DataSafeClient#setUserAssessmentBaseline.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#setUserAssessmentBaseline.");
     const operationName = "setUserAssessmentBaseline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/SetUserAssessmentBaseline";
@@ -20843,6 +21194,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       setUserAssessmentBaselineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20898,7 +21250,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async startAuditTrail(
     startAuditTrailRequest: requests.StartAuditTrailRequest
   ): Promise<responses.StartAuditTrailResponse> {
-    logger.debug("Calling operation DataSafeClient#startAuditTrail.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#startAuditTrail.");
     const operationName = "startAuditTrail";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/StartAuditTrail";
@@ -20921,6 +21273,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       startAuditTrailRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -20976,7 +21329,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async startSqlCollection(
     startSqlCollectionRequest: requests.StartSqlCollectionRequest
   ): Promise<responses.StartSqlCollectionResponse> {
-    logger.debug("Calling operation DataSafeClient#startSqlCollection.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#startSqlCollection.");
     const operationName = "startSqlCollection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/sqlCollection/StartSqlCollection";
@@ -20999,6 +21352,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       startSqlCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21049,7 +21403,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async stopAuditTrail(
     stopAuditTrailRequest: requests.StopAuditTrailRequest
   ): Promise<responses.StopAuditTrailResponse> {
-    logger.debug("Calling operation DataSafeClient#stopAuditTrail.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#stopAuditTrail.");
     const operationName = "stopAuditTrail";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/StopAuditTrail";
@@ -21071,6 +21425,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       stopAuditTrailRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21121,7 +21476,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async stopSqlCollection(
     stopSqlCollectionRequest: requests.StopSqlCollectionRequest
   ): Promise<responses.StopSqlCollectionResponse> {
-    logger.debug("Calling operation DataSafeClient#stopSqlCollection.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#stopSqlCollection.");
     const operationName = "stopSqlCollection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/StopSqlCollection";
@@ -21144,6 +21499,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       stopSqlCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21195,7 +21551,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async suspendWorkRequest(
     suspendWorkRequestRequest: requests.SuspendWorkRequestRequest
   ): Promise<responses.SuspendWorkRequestResponse> {
-    logger.debug("Calling operation DataSafeClient#suspendWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#suspendWorkRequest.");
     const operationName = "suspendWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequest/SuspendWorkRequest";
@@ -21218,6 +21574,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       suspendWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21270,7 +21627,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async unsetSecurityAssessmentBaseline(
     unsetSecurityAssessmentBaselineRequest: requests.UnsetSecurityAssessmentBaselineRequest
   ): Promise<responses.UnsetSecurityAssessmentBaselineResponse> {
-    logger.debug("Calling operation DataSafeClient#unsetSecurityAssessmentBaseline.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#unsetSecurityAssessmentBaseline.");
     const operationName = "unsetSecurityAssessmentBaseline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/UnsetSecurityAssessmentBaseline";
@@ -21293,6 +21651,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       unsetSecurityAssessmentBaselineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21345,7 +21704,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async unsetUserAssessmentBaseline(
     unsetUserAssessmentBaselineRequest: requests.UnsetUserAssessmentBaselineRequest
   ): Promise<responses.UnsetUserAssessmentBaselineResponse> {
-    logger.debug("Calling operation DataSafeClient#unsetUserAssessmentBaseline.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#unsetUserAssessmentBaseline.");
     const operationName = "unsetUserAssessmentBaseline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/UnsetUserAssessmentBaseline";
@@ -21368,6 +21728,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       unsetUserAssessmentBaselineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21418,7 +21779,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateAlert(
     updateAlertRequest: requests.UpdateAlertRequest
   ): Promise<responses.UpdateAlertResponse> {
-    logger.debug("Calling operation DataSafeClient#updateAlert.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAlert.");
     const operationName = "updateAlert";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/UpdateAlert";
@@ -21440,6 +21801,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateAlertRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21499,7 +21861,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateAuditArchiveRetrieval(
     updateAuditArchiveRetrievalRequest: requests.UpdateAuditArchiveRetrievalRequest
   ): Promise<responses.UpdateAuditArchiveRetrievalResponse> {
-    logger.debug("Calling operation DataSafeClient#updateAuditArchiveRetrieval.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateAuditArchiveRetrieval.");
     const operationName = "updateAuditArchiveRetrieval";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/UpdateAuditArchiveRetrieval";
@@ -21521,6 +21884,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateAuditArchiveRetrievalRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21576,7 +21940,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateAuditPolicy(
     updateAuditPolicyRequest: requests.UpdateAuditPolicyRequest
   ): Promise<responses.UpdateAuditPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#updateAuditPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditPolicy.");
     const operationName = "updateAuditPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/UpdateAuditPolicy";
@@ -21598,6 +21962,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateAuditPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21653,7 +22018,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateAuditProfile(
     updateAuditProfileRequest: requests.UpdateAuditProfileRequest
   ): Promise<responses.UpdateAuditProfileResponse> {
-    logger.debug("Calling operation DataSafeClient#updateAuditProfile.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditProfile.");
     const operationName = "updateAuditProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/UpdateAuditProfile";
@@ -21675,6 +22040,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateAuditProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21730,7 +22096,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateAuditTrail(
     updateAuditTrailRequest: requests.UpdateAuditTrailRequest
   ): Promise<responses.UpdateAuditTrailResponse> {
-    logger.debug("Calling operation DataSafeClient#updateAuditTrail.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditTrail.");
     const operationName = "updateAuditTrail";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/UpdateAuditTrail";
@@ -21752,6 +22118,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateAuditTrailRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21807,7 +22174,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateDataSafePrivateEndpoint(
     updateDataSafePrivateEndpointRequest: requests.UpdateDataSafePrivateEndpointRequest
   ): Promise<responses.UpdateDataSafePrivateEndpointResponse> {
-    logger.debug("Calling operation DataSafeClient#updateDataSafePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateDataSafePrivateEndpoint.");
     const operationName = "updateDataSafePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/UpdateDataSafePrivateEndpoint";
@@ -21829,6 +22197,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateDataSafePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21884,7 +22253,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateDatabaseSecurityConfig(
     updateDatabaseSecurityConfigRequest: requests.UpdateDatabaseSecurityConfigRequest
   ): Promise<responses.UpdateDatabaseSecurityConfigResponse> {
-    logger.debug("Calling operation DataSafeClient#updateDatabaseSecurityConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateDatabaseSecurityConfig.");
     const operationName = "updateDatabaseSecurityConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DatabaseSecurityConfig/UpdateDatabaseSecurityConfig";
@@ -21906,6 +22276,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateDatabaseSecurityConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -21961,7 +22332,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateFinding(
     updateFindingRequest: requests.UpdateFindingRequest
   ): Promise<responses.UpdateFindingResponse> {
-    logger.debug("Calling operation DataSafeClient#updateFinding.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateFinding.");
     const operationName = "updateFinding";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Finding/UpdateFinding";
@@ -21985,6 +22356,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateFindingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22040,7 +22412,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateLibraryMaskingFormat(
     updateLibraryMaskingFormatRequest: requests.UpdateLibraryMaskingFormatRequest
   ): Promise<responses.UpdateLibraryMaskingFormatResponse> {
-    logger.debug("Calling operation DataSafeClient#updateLibraryMaskingFormat.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateLibraryMaskingFormat.");
     const operationName = "updateLibraryMaskingFormat";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/UpdateLibraryMaskingFormat";
@@ -22062,6 +22435,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateLibraryMaskingFormatRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22119,7 +22493,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateMaskingColumn(
     updateMaskingColumnRequest: requests.UpdateMaskingColumnRequest
   ): Promise<responses.UpdateMaskingColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#updateMaskingColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateMaskingColumn.");
     const operationName = "updateMaskingColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/UpdateMaskingColumn";
@@ -22142,6 +22516,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateMaskingColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22197,7 +22572,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateMaskingPolicy(
     updateMaskingPolicyRequest: requests.UpdateMaskingPolicyRequest
   ): Promise<responses.UpdateMaskingPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#updateMaskingPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateMaskingPolicy.");
     const operationName = "updateMaskingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/UpdateMaskingPolicy";
@@ -22219,6 +22594,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateMaskingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22274,7 +22650,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateOnPremConnector(
     updateOnPremConnectorRequest: requests.UpdateOnPremConnectorRequest
   ): Promise<responses.UpdateOnPremConnectorResponse> {
-    logger.debug("Calling operation DataSafeClient#updateOnPremConnector.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateOnPremConnector.");
     const operationName = "updateOnPremConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/UpdateOnPremConnector";
@@ -22296,6 +22672,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateOnPremConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22352,7 +22729,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateOnPremConnectorWallet(
     updateOnPremConnectorWalletRequest: requests.UpdateOnPremConnectorWalletRequest
   ): Promise<responses.UpdateOnPremConnectorWalletResponse> {
-    logger.debug("Calling operation DataSafeClient#updateOnPremConnectorWallet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateOnPremConnectorWallet.");
     const operationName = "updateOnPremConnectorWallet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/UpdateOnPremConnectorWallet";
@@ -22375,6 +22753,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateOnPremConnectorWalletRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22430,7 +22809,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updatePeerTargetDatabase(
     updatePeerTargetDatabaseRequest: requests.UpdatePeerTargetDatabaseRequest
   ): Promise<responses.UpdatePeerTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#updatePeerTargetDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updatePeerTargetDatabase.");
     const operationName = "updatePeerTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/PeerTargetDatabase/UpdatePeerTargetDatabase";
@@ -22454,6 +22834,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updatePeerTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22509,7 +22890,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateReport(
     updateReportRequest: requests.UpdateReportRequest
   ): Promise<responses.UpdateReportResponse> {
-    logger.debug("Calling operation DataSafeClient#updateReport.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateReport.");
     const operationName = "updateReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Report/UpdateReport";
@@ -22532,6 +22913,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22587,7 +22969,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateReportDefinition(
     updateReportDefinitionRequest: requests.UpdateReportDefinitionRequest
   ): Promise<responses.UpdateReportDefinitionResponse> {
-    logger.debug("Calling operation DataSafeClient#updateReportDefinition.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateReportDefinition.");
     const operationName = "updateReportDefinition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/UpdateReportDefinition";
@@ -22610,6 +22992,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateReportDefinitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22665,7 +23048,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSdmMaskingPolicyDifference(
     updateSdmMaskingPolicyDifferenceRequest: requests.UpdateSdmMaskingPolicyDifferenceRequest
   ): Promise<responses.UpdateSdmMaskingPolicyDifferenceResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSdmMaskingPolicyDifference.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSdmMaskingPolicyDifference.");
     const operationName = "updateSdmMaskingPolicyDifference";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/UpdateSdmMaskingPolicyDifference";
@@ -22688,6 +23072,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSdmMaskingPolicyDifferenceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22744,7 +23129,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSecurityAssessment(
     updateSecurityAssessmentRequest: requests.UpdateSecurityAssessmentRequest
   ): Promise<responses.UpdateSecurityAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSecurityAssessment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSecurityAssessment.");
     const operationName = "updateSecurityAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/UpdateSecurityAssessment";
@@ -22766,6 +23152,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSecurityAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22821,7 +23208,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSecurityPolicy(
     updateSecurityPolicyRequest: requests.UpdateSecurityPolicyRequest
   ): Promise<responses.UpdateSecurityPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSecurityPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSecurityPolicy.");
     const operationName = "updateSecurityPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicy/UpdateSecurityPolicy";
@@ -22843,6 +23230,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSecurityPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22898,7 +23286,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSecurityPolicyDeployment(
     updateSecurityPolicyDeploymentRequest: requests.UpdateSecurityPolicyDeploymentRequest
   ): Promise<responses.UpdateSecurityPolicyDeploymentResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSecurityPolicyDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSecurityPolicyDeployment.");
     const operationName = "updateSecurityPolicyDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityPolicyDeployment/UpdateSecurityPolicyDeployment";
@@ -22921,6 +23310,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSecurityPolicyDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -22976,7 +23366,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSensitiveColumn(
     updateSensitiveColumnRequest: requests.UpdateSensitiveColumnRequest
   ): Promise<responses.UpdateSensitiveColumnResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSensitiveColumn.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSensitiveColumn.");
     const operationName = "updateSensitiveColumn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/UpdateSensitiveColumn";
@@ -22999,6 +23389,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSensitiveColumnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23056,7 +23447,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSensitiveDataModel(
     updateSensitiveDataModelRequest: requests.UpdateSensitiveDataModelRequest
   ): Promise<responses.UpdateSensitiveDataModelResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSensitiveDataModel.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSensitiveDataModel.");
     const operationName = "updateSensitiveDataModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/UpdateSensitiveDataModel";
@@ -23078,6 +23470,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSensitiveDataModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23133,7 +23526,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSensitiveType(
     updateSensitiveTypeRequest: requests.UpdateSensitiveTypeRequest
   ): Promise<responses.UpdateSensitiveTypeResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSensitiveType.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSensitiveType.");
     const operationName = "updateSensitiveType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/UpdateSensitiveType";
@@ -23155,6 +23548,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSensitiveTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23210,7 +23604,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSqlCollection(
     updateSqlCollectionRequest: requests.UpdateSqlCollectionRequest
   ): Promise<responses.UpdateSqlCollectionResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSqlCollection.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSqlCollection.");
     const operationName = "updateSqlCollection";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlCollection/UpdateSqlCollection";
@@ -23232,6 +23626,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSqlCollectionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23287,7 +23682,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateSqlFirewallPolicy(
     updateSqlFirewallPolicyRequest: requests.UpdateSqlFirewallPolicyRequest
   ): Promise<responses.UpdateSqlFirewallPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#updateSqlFirewallPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSqlFirewallPolicy.");
     const operationName = "updateSqlFirewallPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallPolicy/UpdateSqlFirewallPolicy";
@@ -23309,6 +23704,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateSqlFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23364,7 +23760,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateTargetAlertPolicyAssociation(
     updateTargetAlertPolicyAssociationRequest: requests.UpdateTargetAlertPolicyAssociationRequest
   ): Promise<responses.UpdateTargetAlertPolicyAssociationResponse> {
-    logger.debug("Calling operation DataSafeClient#updateTargetAlertPolicyAssociation.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateTargetAlertPolicyAssociation.");
     const operationName = "updateTargetAlertPolicyAssociation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/UpdateTargetAlertPolicyAssociation";
@@ -23387,6 +23784,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateTargetAlertPolicyAssociationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23442,7 +23840,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateTargetDatabase(
     updateTargetDatabaseRequest: requests.UpdateTargetDatabaseRequest
   ): Promise<responses.UpdateTargetDatabaseResponse> {
-    logger.debug("Calling operation DataSafeClient#updateTargetDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateTargetDatabase.");
     const operationName = "updateTargetDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/UpdateTargetDatabase";
@@ -23465,6 +23863,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateTargetDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23521,7 +23920,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async updateUserAssessment(
     updateUserAssessmentRequest: requests.UpdateUserAssessmentRequest
   ): Promise<responses.UpdateUserAssessmentResponse> {
-    logger.debug("Calling operation DataSafeClient#updateUserAssessment.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateUserAssessment.");
     const operationName = "updateUserAssessment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/UpdateUserAssessment";
@@ -23543,6 +23942,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       updateUserAssessmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23603,7 +24003,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async uploadMaskingPolicy(
     uploadMaskingPolicyRequest: requests.UploadMaskingPolicyRequest
   ): Promise<responses.UploadMaskingPolicyResponse> {
-    logger.debug("Calling operation DataSafeClient#uploadMaskingPolicy.");
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#uploadMaskingPolicy.");
     const operationName = "uploadMaskingPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/UploadMaskingPolicy";
@@ -23624,6 +24024,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       uploadMaskingPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -23680,7 +24081,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   public async uploadSensitiveDataModel(
     uploadSensitiveDataModelRequest: requests.UploadSensitiveDataModelRequest
   ): Promise<responses.UploadSensitiveDataModelResponse> {
-    logger.debug("Calling operation DataSafeClient#uploadSensitiveDataModel.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#uploadSensitiveDataModel.");
     const operationName = "uploadSensitiveDataModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/UploadSensitiveDataModel";
@@ -23701,6 +24103,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       uploadSensitiveDataModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

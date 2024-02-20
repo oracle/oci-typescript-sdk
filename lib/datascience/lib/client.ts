@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum DataScienceApiKeys {}
 export class DataScienceClient {
   protected static serviceEndpointTemplate = "https://datascience.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DataScienceWaiter;
@@ -119,7 +118,11 @@ export class DataScienceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190101";
-    logger.info(`DataScienceClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DataScienceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class DataScienceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DataScienceClient.serviceEndpointTemplate,
@@ -223,7 +227,7 @@ export class DataScienceClient {
   public async activateModel(
     activateModelRequest: requests.ActivateModelRequest
   ): Promise<responses.ActivateModelResponse> {
-    logger.debug("Calling operation DataScienceClient#activateModel.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#activateModel.");
     const operationName = "activateModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/ActivateModel";
@@ -245,6 +249,7 @@ export class DataScienceClient {
       activateModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -299,7 +304,8 @@ export class DataScienceClient {
   public async activateModelDeployment(
     activateModelDeploymentRequest: requests.ActivateModelDeploymentRequest
   ): Promise<responses.ActivateModelDeploymentResponse> {
-    logger.debug("Calling operation DataScienceClient#activateModelDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#activateModelDeployment.");
     const operationName = "activateModelDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/ActivateModelDeployment";
@@ -321,6 +327,7 @@ export class DataScienceClient {
       activateModelDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -371,7 +378,8 @@ export class DataScienceClient {
   public async activateNotebookSession(
     activateNotebookSessionRequest: requests.ActivateNotebookSessionRequest
   ): Promise<responses.ActivateNotebookSessionResponse> {
-    logger.debug("Calling operation DataScienceClient#activateNotebookSession.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#activateNotebookSession.");
     const operationName = "activateNotebookSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/ActivateNotebookSession";
@@ -393,6 +401,7 @@ export class DataScienceClient {
       activateNotebookSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -443,7 +452,7 @@ export class DataScienceClient {
   public async cancelJobRun(
     cancelJobRunRequest: requests.CancelJobRunRequest
   ): Promise<responses.CancelJobRunResponse> {
-    logger.debug("Calling operation DataScienceClient#cancelJobRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#cancelJobRun.");
     const operationName = "cancelJobRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/CancelJobRun";
@@ -465,6 +474,7 @@ export class DataScienceClient {
       cancelJobRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -510,7 +520,7 @@ export class DataScienceClient {
   public async cancelPipelineRun(
     cancelPipelineRunRequest: requests.CancelPipelineRunRequest
   ): Promise<responses.CancelPipelineRunResponse> {
-    logger.debug("Calling operation DataScienceClient#cancelPipelineRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#cancelPipelineRun.");
     const operationName = "cancelPipelineRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/CancelPipelineRun";
@@ -533,6 +543,7 @@ export class DataScienceClient {
       cancelPipelineRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -578,7 +589,7 @@ export class DataScienceClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation DataScienceClient#cancelWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequest/CancelWorkRequest";
@@ -600,6 +611,7 @@ export class DataScienceClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -646,9 +658,10 @@ export class DataScienceClient {
   public async changeDataSciencePrivateEndpointCompartment(
     changeDataSciencePrivateEndpointCompartmentRequest: requests.ChangeDataSciencePrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeDataSciencePrivateEndpointCompartmentResponse> {
-    logger.debug(
-      "Calling operation DataScienceClient#changeDataSciencePrivateEndpointCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#changeDataSciencePrivateEndpointCompartment."
+      );
     const operationName = "changeDataSciencePrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/ChangeDataSciencePrivateEndpointCompartment";
@@ -672,6 +685,7 @@ export class DataScienceClient {
       changeDataSciencePrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -727,7 +741,7 @@ export class DataScienceClient {
   public async changeJobCompartment(
     changeJobCompartmentRequest: requests.ChangeJobCompartmentRequest
   ): Promise<responses.ChangeJobCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changeJobCompartment.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#changeJobCompartment.");
     const operationName = "changeJobCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/ChangeJobCompartment";
@@ -749,6 +763,7 @@ export class DataScienceClient {
       changeJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -799,7 +814,8 @@ export class DataScienceClient {
   public async changeJobRunCompartment(
     changeJobRunCompartmentRequest: requests.ChangeJobRunCompartmentRequest
   ): Promise<responses.ChangeJobRunCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changeJobRunCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeJobRunCompartment.");
     const operationName = "changeJobRunCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/ChangeJobRunCompartment";
@@ -821,6 +837,7 @@ export class DataScienceClient {
       changeJobRunCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -871,7 +888,8 @@ export class DataScienceClient {
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
   ): Promise<responses.ChangeModelCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changeModelCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeModelCompartment.");
     const operationName = "changeModelCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/ChangeModelCompartment";
@@ -894,6 +912,7 @@ export class DataScienceClient {
       changeModelCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -944,7 +963,8 @@ export class DataScienceClient {
   public async changeModelDeploymentCompartment(
     changeModelDeploymentCompartmentRequest: requests.ChangeModelDeploymentCompartmentRequest
   ): Promise<responses.ChangeModelDeploymentCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changeModelDeploymentCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeModelDeploymentCompartment.");
     const operationName = "changeModelDeploymentCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/ChangeModelDeploymentCompartment";
@@ -967,6 +987,7 @@ export class DataScienceClient {
       changeModelDeploymentCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1017,7 +1038,8 @@ export class DataScienceClient {
   public async changeModelVersionSetCompartment(
     changeModelVersionSetCompartmentRequest: requests.ChangeModelVersionSetCompartmentRequest
   ): Promise<responses.ChangeModelVersionSetCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changeModelVersionSetCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeModelVersionSetCompartment.");
     const operationName = "changeModelVersionSetCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelVersionSet/ChangeModelVersionSetCompartment";
@@ -1040,6 +1062,7 @@ export class DataScienceClient {
       changeModelVersionSetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1095,7 +1118,8 @@ export class DataScienceClient {
   public async changeNotebookSessionCompartment(
     changeNotebookSessionCompartmentRequest: requests.ChangeNotebookSessionCompartmentRequest
   ): Promise<responses.ChangeNotebookSessionCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changeNotebookSessionCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeNotebookSessionCompartment.");
     const operationName = "changeNotebookSessionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/ChangeNotebookSessionCompartment";
@@ -1118,6 +1142,7 @@ export class DataScienceClient {
       changeNotebookSessionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1168,7 +1193,8 @@ export class DataScienceClient {
   public async changePipelineCompartment(
     changePipelineCompartmentRequest: requests.ChangePipelineCompartmentRequest
   ): Promise<responses.ChangePipelineCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changePipelineCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changePipelineCompartment.");
     const operationName = "changePipelineCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/ChangePipelineCompartment";
@@ -1190,6 +1216,7 @@ export class DataScienceClient {
       changePipelineCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1240,7 +1267,8 @@ export class DataScienceClient {
   public async changePipelineRunCompartment(
     changePipelineRunCompartmentRequest: requests.ChangePipelineRunCompartmentRequest
   ): Promise<responses.ChangePipelineRunCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changePipelineRunCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changePipelineRunCompartment.");
     const operationName = "changePipelineRunCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/ChangePipelineRunCompartment";
@@ -1262,6 +1290,7 @@ export class DataScienceClient {
       changePipelineRunCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1312,7 +1341,8 @@ export class DataScienceClient {
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
   ): Promise<responses.ChangeProjectCompartmentResponse> {
-    logger.debug("Calling operation DataScienceClient#changeProjectCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeProjectCompartment.");
     const operationName = "changeProjectCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/ChangeProjectCompartment";
@@ -1335,6 +1365,7 @@ export class DataScienceClient {
       changeProjectCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1386,7 +1417,8 @@ export class DataScienceClient {
   public async createDataSciencePrivateEndpoint(
     createDataSciencePrivateEndpointRequest: requests.CreateDataSciencePrivateEndpointRequest
   ): Promise<responses.CreateDataSciencePrivateEndpointResponse> {
-    logger.debug("Calling operation DataScienceClient#createDataSciencePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createDataSciencePrivateEndpoint.");
     const operationName = "createDataSciencePrivateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1405,6 +1437,7 @@ export class DataScienceClient {
       createDataSciencePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1474,7 +1507,7 @@ export class DataScienceClient {
   public async createJob(
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
-    logger.debug("Calling operation DataScienceClient#createJob.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJob.");
     const operationName = "createJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/CreateJob";
@@ -1494,6 +1527,7 @@ export class DataScienceClient {
       createJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1553,7 +1587,7 @@ export class DataScienceClient {
   public async createJobArtifact(
     createJobArtifactRequest: requests.CreateJobArtifactRequest
   ): Promise<responses.CreateJobArtifactResponse> {
-    logger.debug("Calling operation DataScienceClient#createJobArtifact.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJobArtifact.");
     const operationName = "createJobArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/CreateJobArtifact";
@@ -1576,6 +1610,7 @@ export class DataScienceClient {
       createJobArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1629,7 +1664,7 @@ export class DataScienceClient {
   public async createJobRun(
     createJobRunRequest: requests.CreateJobRunRequest
   ): Promise<responses.CreateJobRunResponse> {
-    logger.debug("Calling operation DataScienceClient#createJobRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJobRun.");
     const operationName = "createJobRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/CreateJobRun";
@@ -1649,6 +1684,7 @@ export class DataScienceClient {
       createJobRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1708,7 +1744,7 @@ export class DataScienceClient {
   public async createModel(
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
-    logger.debug("Calling operation DataScienceClient#createModel.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createModel.");
     const operationName = "createModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/CreateModel";
@@ -1728,6 +1764,7 @@ export class DataScienceClient {
       createModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1787,7 +1824,7 @@ export class DataScienceClient {
   public async createModelArtifact(
     createModelArtifactRequest: requests.CreateModelArtifactRequest
   ): Promise<responses.CreateModelArtifactResponse> {
-    logger.debug("Calling operation DataScienceClient#createModelArtifact.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createModelArtifact.");
     const operationName = "createModelArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/CreateModelArtifact";
@@ -1811,6 +1848,7 @@ export class DataScienceClient {
       createModelArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1864,7 +1902,8 @@ export class DataScienceClient {
   public async createModelDeployment(
     createModelDeploymentRequest: requests.CreateModelDeploymentRequest
   ): Promise<responses.CreateModelDeploymentResponse> {
-    logger.debug("Calling operation DataScienceClient#createModelDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelDeployment.");
     const operationName = "createModelDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/CreateModelDeployment";
@@ -1884,6 +1923,7 @@ export class DataScienceClient {
       createModelDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1953,7 +1993,8 @@ export class DataScienceClient {
   public async createModelProvenance(
     createModelProvenanceRequest: requests.CreateModelProvenanceRequest
   ): Promise<responses.CreateModelProvenanceResponse> {
-    logger.debug("Calling operation DataScienceClient#createModelProvenance.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelProvenance.");
     const operationName = "createModelProvenance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/CreateModelProvenance";
@@ -1975,6 +2016,7 @@ export class DataScienceClient {
       createModelProvenanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2034,7 +2076,8 @@ export class DataScienceClient {
   public async createModelVersionSet(
     createModelVersionSetRequest: requests.CreateModelVersionSetRequest
   ): Promise<responses.CreateModelVersionSetResponse> {
-    logger.debug("Calling operation DataScienceClient#createModelVersionSet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelVersionSet.");
     const operationName = "createModelVersionSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelVersionSet/CreateModelVersionSet";
@@ -2054,6 +2097,7 @@ export class DataScienceClient {
       createModelVersionSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2113,7 +2157,8 @@ export class DataScienceClient {
   public async createNotebookSession(
     createNotebookSessionRequest: requests.CreateNotebookSessionRequest
   ): Promise<responses.CreateNotebookSessionResponse> {
-    logger.debug("Calling operation DataScienceClient#createNotebookSession.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createNotebookSession.");
     const operationName = "createNotebookSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/CreateNotebookSession";
@@ -2133,6 +2178,7 @@ export class DataScienceClient {
       createNotebookSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2203,7 +2249,7 @@ export class DataScienceClient {
   public async createPipeline(
     createPipelineRequest: requests.CreatePipelineRequest
   ): Promise<responses.CreatePipelineResponse> {
-    logger.debug("Calling operation DataScienceClient#createPipeline.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createPipeline.");
     const operationName = "createPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/CreatePipeline";
@@ -2223,6 +2269,7 @@ export class DataScienceClient {
       createPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2283,7 +2330,7 @@ export class DataScienceClient {
   public async createPipelineRun(
     createPipelineRunRequest: requests.CreatePipelineRunRequest
   ): Promise<responses.CreatePipelineRunResponse> {
-    logger.debug("Calling operation DataScienceClient#createPipelineRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createPipelineRun.");
     const operationName = "createPipelineRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/CreatePipelineRun";
@@ -2303,6 +2350,7 @@ export class DataScienceClient {
       createPipelineRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2367,7 +2415,7 @@ export class DataScienceClient {
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
-    logger.debug("Calling operation DataScienceClient#createProject.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createProject.");
     const operationName = "createProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/CreateProject";
@@ -2387,6 +2435,7 @@ export class DataScienceClient {
       createProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2446,7 +2495,7 @@ export class DataScienceClient {
   public async createStepArtifact(
     createStepArtifactRequest: requests.CreateStepArtifactRequest
   ): Promise<responses.CreateStepArtifactResponse> {
-    logger.debug("Calling operation DataScienceClient#createStepArtifact.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createStepArtifact.");
     const operationName = "createStepArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/CreateStepArtifact";
@@ -2470,6 +2519,7 @@ export class DataScienceClient {
       createStepArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2518,7 +2568,7 @@ export class DataScienceClient {
   public async deactivateModel(
     deactivateModelRequest: requests.DeactivateModelRequest
   ): Promise<responses.DeactivateModelResponse> {
-    logger.debug("Calling operation DataScienceClient#deactivateModel.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deactivateModel.");
     const operationName = "deactivateModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/DeactivateModel";
@@ -2540,6 +2590,7 @@ export class DataScienceClient {
       deactivateModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2594,7 +2645,8 @@ export class DataScienceClient {
   public async deactivateModelDeployment(
     deactivateModelDeploymentRequest: requests.DeactivateModelDeploymentRequest
   ): Promise<responses.DeactivateModelDeploymentResponse> {
-    logger.debug("Calling operation DataScienceClient#deactivateModelDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deactivateModelDeployment.");
     const operationName = "deactivateModelDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/DeactivateModelDeployment";
@@ -2616,6 +2668,7 @@ export class DataScienceClient {
       deactivateModelDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2666,7 +2719,8 @@ export class DataScienceClient {
   public async deactivateNotebookSession(
     deactivateNotebookSessionRequest: requests.DeactivateNotebookSessionRequest
   ): Promise<responses.DeactivateNotebookSessionResponse> {
-    logger.debug("Calling operation DataScienceClient#deactivateNotebookSession.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deactivateNotebookSession.");
     const operationName = "deactivateNotebookSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/DeactivateNotebookSession";
@@ -2688,6 +2742,7 @@ export class DataScienceClient {
       deactivateNotebookSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2739,7 +2794,8 @@ export class DataScienceClient {
   public async deleteDataSciencePrivateEndpoint(
     deleteDataSciencePrivateEndpointRequest: requests.DeleteDataSciencePrivateEndpointRequest
   ): Promise<responses.DeleteDataSciencePrivateEndpointResponse> {
-    logger.debug("Calling operation DataScienceClient#deleteDataSciencePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteDataSciencePrivateEndpoint.");
     const operationName = "deleteDataSciencePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/DeleteDataSciencePrivateEndpoint";
@@ -2762,6 +2818,7 @@ export class DataScienceClient {
       deleteDataSciencePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2812,7 +2869,7 @@ export class DataScienceClient {
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
-    logger.debug("Calling operation DataScienceClient#deleteJob.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteJob.");
     const operationName = "deleteJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/DeleteJob";
@@ -2836,6 +2893,7 @@ export class DataScienceClient {
       deleteJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2886,7 +2944,7 @@ export class DataScienceClient {
   public async deleteJobRun(
     deleteJobRunRequest: requests.DeleteJobRunRequest
   ): Promise<responses.DeleteJobRunResponse> {
-    logger.debug("Calling operation DataScienceClient#deleteJobRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteJobRun.");
     const operationName = "deleteJobRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/DeleteJobRun";
@@ -2908,6 +2966,7 @@ export class DataScienceClient {
       deleteJobRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2953,7 +3012,7 @@ export class DataScienceClient {
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
-    logger.debug("Calling operation DataScienceClient#deleteModel.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteModel.");
     const operationName = "deleteModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/DeleteModel";
@@ -2975,6 +3034,7 @@ export class DataScienceClient {
       deleteModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3020,7 +3080,8 @@ export class DataScienceClient {
   public async deleteModelDeployment(
     deleteModelDeploymentRequest: requests.DeleteModelDeploymentRequest
   ): Promise<responses.DeleteModelDeploymentResponse> {
-    logger.debug("Calling operation DataScienceClient#deleteModelDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteModelDeployment.");
     const operationName = "deleteModelDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/DeleteModelDeployment";
@@ -3042,6 +3103,7 @@ export class DataScienceClient {
       deleteModelDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3092,7 +3154,8 @@ export class DataScienceClient {
   public async deleteModelVersionSet(
     deleteModelVersionSetRequest: requests.DeleteModelVersionSetRequest
   ): Promise<responses.DeleteModelVersionSetResponse> {
-    logger.debug("Calling operation DataScienceClient#deleteModelVersionSet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteModelVersionSet.");
     const operationName = "deleteModelVersionSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelVersionSet/DeleteModelVersionSet";
@@ -3116,6 +3179,7 @@ export class DataScienceClient {
       deleteModelVersionSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3166,7 +3230,8 @@ export class DataScienceClient {
   public async deleteNotebookSession(
     deleteNotebookSessionRequest: requests.DeleteNotebookSessionRequest
   ): Promise<responses.DeleteNotebookSessionResponse> {
-    logger.debug("Calling operation DataScienceClient#deleteNotebookSession.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteNotebookSession.");
     const operationName = "deleteNotebookSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/DeleteNotebookSession";
@@ -3188,6 +3253,7 @@ export class DataScienceClient {
       deleteNotebookSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3238,7 +3304,7 @@ export class DataScienceClient {
   public async deletePipeline(
     deletePipelineRequest: requests.DeletePipelineRequest
   ): Promise<responses.DeletePipelineResponse> {
-    logger.debug("Calling operation DataScienceClient#deletePipeline.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deletePipeline.");
     const operationName = "deletePipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/DeletePipeline";
@@ -3263,6 +3329,7 @@ export class DataScienceClient {
       deletePipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3313,7 +3380,7 @@ export class DataScienceClient {
   public async deletePipelineRun(
     deletePipelineRunRequest: requests.DeletePipelineRunRequest
   ): Promise<responses.DeletePipelineRunResponse> {
-    logger.debug("Calling operation DataScienceClient#deletePipelineRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deletePipelineRun.");
     const operationName = "deletePipelineRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/DeletePipelineRun";
@@ -3337,6 +3404,7 @@ export class DataScienceClient {
       deletePipelineRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3382,7 +3450,7 @@ export class DataScienceClient {
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
-    logger.debug("Calling operation DataScienceClient#deleteProject.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteProject.");
     const operationName = "deleteProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/DeleteProject";
@@ -3404,6 +3472,7 @@ export class DataScienceClient {
       deleteProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3454,7 +3523,7 @@ export class DataScienceClient {
   public async exportModelArtifact(
     exportModelArtifactRequest: requests.ExportModelArtifactRequest
   ): Promise<responses.ExportModelArtifactResponse> {
-    logger.debug("Calling operation DataScienceClient#exportModelArtifact.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#exportModelArtifact.");
     const operationName = "exportModelArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/ExportModelArtifact";
@@ -3477,6 +3546,7 @@ export class DataScienceClient {
       exportModelArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3533,7 +3603,8 @@ export class DataScienceClient {
   public async getDataSciencePrivateEndpoint(
     getDataSciencePrivateEndpointRequest: requests.GetDataSciencePrivateEndpointRequest
   ): Promise<responses.GetDataSciencePrivateEndpointResponse> {
-    logger.debug("Calling operation DataScienceClient#getDataSciencePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getDataSciencePrivateEndpoint.");
     const operationName = "getDataSciencePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/GetDataSciencePrivateEndpoint";
@@ -3555,6 +3626,7 @@ export class DataScienceClient {
       getDataSciencePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3607,7 +3679,7 @@ export class DataScienceClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
-    logger.debug("Calling operation DataScienceClient#getJob.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getJob.");
     const operationName = "getJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/GetJob";
@@ -3628,6 +3700,7 @@ export class DataScienceClient {
       getJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3682,7 +3755,8 @@ export class DataScienceClient {
   public async getJobArtifactContent(
     getJobArtifactContentRequest: requests.GetJobArtifactContentRequest
   ): Promise<responses.GetJobArtifactContentResponse> {
-    logger.debug("Calling operation DataScienceClient#getJobArtifactContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getJobArtifactContent.");
     const operationName = "getJobArtifactContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/GetJobArtifactContent";
@@ -3704,6 +3778,7 @@ export class DataScienceClient {
       getJobArtifactContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3778,7 +3853,7 @@ export class DataScienceClient {
   public async getJobRun(
     getJobRunRequest: requests.GetJobRunRequest
   ): Promise<responses.GetJobRunResponse> {
-    logger.debug("Calling operation DataScienceClient#getJobRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getJobRun.");
     const operationName = "getJobRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/GetJobRun";
@@ -3799,6 +3874,7 @@ export class DataScienceClient {
       getJobRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3853,7 +3929,7 @@ export class DataScienceClient {
   public async getModel(
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
-    logger.debug("Calling operation DataScienceClient#getModel.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModel.");
     const operationName = "getModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/GetModel";
@@ -3874,6 +3950,7 @@ export class DataScienceClient {
       getModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3928,7 +4005,8 @@ export class DataScienceClient {
   public async getModelArtifactContent(
     getModelArtifactContentRequest: requests.GetModelArtifactContentRequest
   ): Promise<responses.GetModelArtifactContentResponse> {
-    logger.debug("Calling operation DataScienceClient#getModelArtifactContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getModelArtifactContent.");
     const operationName = "getModelArtifactContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/GetModelArtifactContent";
@@ -3950,6 +4028,7 @@ export class DataScienceClient {
       getModelArtifactContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4024,7 +4103,7 @@ export class DataScienceClient {
   public async getModelDeployment(
     getModelDeploymentRequest: requests.GetModelDeploymentRequest
   ): Promise<responses.GetModelDeploymentResponse> {
-    logger.debug("Calling operation DataScienceClient#getModelDeployment.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModelDeployment.");
     const operationName = "getModelDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/GetModelDeployment";
@@ -4045,6 +4124,7 @@ export class DataScienceClient {
       getModelDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4099,7 +4179,7 @@ export class DataScienceClient {
   public async getModelProvenance(
     getModelProvenanceRequest: requests.GetModelProvenanceRequest
   ): Promise<responses.GetModelProvenanceResponse> {
-    logger.debug("Calling operation DataScienceClient#getModelProvenance.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModelProvenance.");
     const operationName = "getModelProvenance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/GetModelProvenance";
@@ -4120,6 +4200,7 @@ export class DataScienceClient {
       getModelProvenanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4174,7 +4255,7 @@ export class DataScienceClient {
   public async getModelVersionSet(
     getModelVersionSetRequest: requests.GetModelVersionSetRequest
   ): Promise<responses.GetModelVersionSetResponse> {
-    logger.debug("Calling operation DataScienceClient#getModelVersionSet.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModelVersionSet.");
     const operationName = "getModelVersionSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelVersionSet/GetModelVersionSet";
@@ -4195,6 +4276,7 @@ export class DataScienceClient {
       getModelVersionSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4249,7 +4331,7 @@ export class DataScienceClient {
   public async getNotebookSession(
     getNotebookSessionRequest: requests.GetNotebookSessionRequest
   ): Promise<responses.GetNotebookSessionResponse> {
-    logger.debug("Calling operation DataScienceClient#getNotebookSession.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getNotebookSession.");
     const operationName = "getNotebookSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/GetNotebookSession";
@@ -4270,6 +4352,7 @@ export class DataScienceClient {
       getNotebookSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4324,7 +4407,7 @@ export class DataScienceClient {
   public async getPipeline(
     getPipelineRequest: requests.GetPipelineRequest
   ): Promise<responses.GetPipelineResponse> {
-    logger.debug("Calling operation DataScienceClient#getPipeline.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getPipeline.");
     const operationName = "getPipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/GetPipeline";
@@ -4345,6 +4428,7 @@ export class DataScienceClient {
       getPipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4399,7 +4483,7 @@ export class DataScienceClient {
   public async getPipelineRun(
     getPipelineRunRequest: requests.GetPipelineRunRequest
   ): Promise<responses.GetPipelineRunResponse> {
-    logger.debug("Calling operation DataScienceClient#getPipelineRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getPipelineRun.");
     const operationName = "getPipelineRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/GetPipelineRun";
@@ -4420,6 +4504,7 @@ export class DataScienceClient {
       getPipelineRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4474,7 +4559,7 @@ export class DataScienceClient {
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
-    logger.debug("Calling operation DataScienceClient#getProject.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getProject.");
     const operationName = "getProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/GetProject";
@@ -4495,6 +4580,7 @@ export class DataScienceClient {
       getProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4549,7 +4635,8 @@ export class DataScienceClient {
   public async getStepArtifactContent(
     getStepArtifactContentRequest: requests.GetStepArtifactContentRequest
   ): Promise<responses.GetStepArtifactContentResponse> {
-    logger.debug("Calling operation DataScienceClient#getStepArtifactContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getStepArtifactContent.");
     const operationName = "getStepArtifactContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/GetStepArtifactContent";
@@ -4572,6 +4659,7 @@ export class DataScienceClient {
       getStepArtifactContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4647,7 +4735,7 @@ export class DataScienceClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation DataScienceClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequest/GetWorkRequest";
@@ -4668,6 +4756,7 @@ export class DataScienceClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4727,7 +4816,7 @@ export class DataScienceClient {
   public async headJobArtifact(
     headJobArtifactRequest: requests.HeadJobArtifactRequest
   ): Promise<responses.HeadJobArtifactResponse> {
-    logger.debug("Calling operation DataScienceClient#headJobArtifact.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#headJobArtifact.");
     const operationName = "headJobArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/HeadJobArtifact";
@@ -4748,6 +4837,7 @@ export class DataScienceClient {
       headJobArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4818,7 +4908,7 @@ export class DataScienceClient {
   public async headModelArtifact(
     headModelArtifactRequest: requests.HeadModelArtifactRequest
   ): Promise<responses.HeadModelArtifactResponse> {
-    logger.debug("Calling operation DataScienceClient#headModelArtifact.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#headModelArtifact.");
     const operationName = "headModelArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/HeadModelArtifact";
@@ -4839,6 +4929,7 @@ export class DataScienceClient {
       headModelArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4909,7 +5000,7 @@ export class DataScienceClient {
   public async headStepArtifact(
     headStepArtifactRequest: requests.HeadStepArtifactRequest
   ): Promise<responses.HeadStepArtifactResponse> {
-    logger.debug("Calling operation DataScienceClient#headStepArtifact.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#headStepArtifact.");
     const operationName = "headStepArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/HeadStepArtifact";
@@ -4931,6 +5022,7 @@ export class DataScienceClient {
       headStepArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5001,7 +5093,7 @@ export class DataScienceClient {
   public async importModelArtifact(
     importModelArtifactRequest: requests.ImportModelArtifactRequest
   ): Promise<responses.ImportModelArtifactResponse> {
-    logger.debug("Calling operation DataScienceClient#importModelArtifact.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#importModelArtifact.");
     const operationName = "importModelArtifact";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/ImportModelArtifact";
@@ -5023,6 +5115,7 @@ export class DataScienceClient {
       importModelArtifactRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5079,7 +5172,8 @@ export class DataScienceClient {
   public async listDataSciencePrivateEndpoints(
     listDataSciencePrivateEndpointsRequest: requests.ListDataSciencePrivateEndpointsRequest
   ): Promise<responses.ListDataSciencePrivateEndpointsResponse> {
-    logger.debug("Calling operation DataScienceClient#listDataSciencePrivateEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listDataSciencePrivateEndpoints.");
     const operationName = "listDataSciencePrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/ListDataSciencePrivateEndpoints";
@@ -5108,6 +5202,7 @@ export class DataScienceClient {
       listDataSciencePrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5219,7 +5314,8 @@ export class DataScienceClient {
   public async listFastLaunchJobConfigs(
     listFastLaunchJobConfigsRequest: requests.ListFastLaunchJobConfigsRequest
   ): Promise<responses.ListFastLaunchJobConfigsResponse> {
-    logger.debug("Calling operation DataScienceClient#listFastLaunchJobConfigs.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listFastLaunchJobConfigs.");
     const operationName = "listFastLaunchJobConfigs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/FastLaunchJobConfigSummary/ListFastLaunchJobConfigs";
@@ -5242,6 +5338,7 @@ export class DataScienceClient {
       listFastLaunchJobConfigsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5353,7 +5450,7 @@ export class DataScienceClient {
   public async listJobRuns(
     listJobRunsRequest: requests.ListJobRunsRequest
   ): Promise<responses.ListJobRunsResponse> {
-    logger.debug("Calling operation DataScienceClient#listJobRuns.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobRuns.");
     const operationName = "listJobRuns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRunSummary/ListJobRuns";
@@ -5383,6 +5480,7 @@ export class DataScienceClient {
       listJobRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5494,7 +5592,7 @@ export class DataScienceClient {
   public async listJobShapes(
     listJobShapesRequest: requests.ListJobShapesRequest
   ): Promise<responses.ListJobShapesResponse> {
-    logger.debug("Calling operation DataScienceClient#listJobShapes.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobShapes.");
     const operationName = "listJobShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobShapeSummary/ListJobShapes";
@@ -5517,6 +5615,7 @@ export class DataScienceClient {
       listJobShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5628,7 +5727,7 @@ export class DataScienceClient {
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
-    logger.debug("Calling operation DataScienceClient#listJobs.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobs.");
     const operationName = "listJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobSummary/ListJobs";
@@ -5658,6 +5757,7 @@ export class DataScienceClient {
       listJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5767,7 +5867,8 @@ export class DataScienceClient {
   public async listModelDeploymentShapes(
     listModelDeploymentShapesRequest: requests.ListModelDeploymentShapesRequest
   ): Promise<responses.ListModelDeploymentShapesResponse> {
-    logger.debug("Calling operation DataScienceClient#listModelDeploymentShapes.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listModelDeploymentShapes.");
     const operationName = "listModelDeploymentShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeploymentShapeSummary/ListModelDeploymentShapes";
@@ -5790,6 +5891,7 @@ export class DataScienceClient {
       listModelDeploymentShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5902,7 +6004,7 @@ export class DataScienceClient {
   public async listModelDeployments(
     listModelDeploymentsRequest: requests.ListModelDeploymentsRequest
   ): Promise<responses.ListModelDeploymentsResponse> {
-    logger.debug("Calling operation DataScienceClient#listModelDeployments.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModelDeployments.");
     const operationName = "listModelDeployments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeploymentSummary/ListModelDeployments";
@@ -5932,6 +6034,7 @@ export class DataScienceClient {
       listModelDeploymentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6043,7 +6146,7 @@ export class DataScienceClient {
   public async listModelVersionSets(
     listModelVersionSetsRequest: requests.ListModelVersionSetsRequest
   ): Promise<responses.ListModelVersionSetsResponse> {
-    logger.debug("Calling operation DataScienceClient#listModelVersionSets.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModelVersionSets.");
     const operationName = "listModelVersionSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelVersionSetSummary/ListModelVersionSets";
@@ -6073,6 +6176,7 @@ export class DataScienceClient {
       listModelVersionSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6184,7 +6288,7 @@ export class DataScienceClient {
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
-    logger.debug("Calling operation DataScienceClient#listModels.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModels.");
     const operationName = "listModels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelSummary/ListModels";
@@ -6216,6 +6320,7 @@ export class DataScienceClient {
       listModelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6327,7 +6432,8 @@ export class DataScienceClient {
   public async listNotebookSessionShapes(
     listNotebookSessionShapesRequest: requests.ListNotebookSessionShapesRequest
   ): Promise<responses.ListNotebookSessionShapesResponse> {
-    logger.debug("Calling operation DataScienceClient#listNotebookSessionShapes.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listNotebookSessionShapes.");
     const operationName = "listNotebookSessionShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSessionShapeSummary/ListNotebookSessionShapes";
@@ -6350,6 +6456,7 @@ export class DataScienceClient {
       listNotebookSessionShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6461,7 +6568,7 @@ export class DataScienceClient {
   public async listNotebookSessions(
     listNotebookSessionsRequest: requests.ListNotebookSessionsRequest
   ): Promise<responses.ListNotebookSessionsResponse> {
-    logger.debug("Calling operation DataScienceClient#listNotebookSessions.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listNotebookSessions.");
     const operationName = "listNotebookSessions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSessionSummary/ListNotebookSessions";
@@ -6491,6 +6598,7 @@ export class DataScienceClient {
       listNotebookSessionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6602,7 +6710,7 @@ export class DataScienceClient {
   public async listPipelineRuns(
     listPipelineRunsRequest: requests.ListPipelineRunsRequest
   ): Promise<responses.ListPipelineRunsResponse> {
-    logger.debug("Calling operation DataScienceClient#listPipelineRuns.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listPipelineRuns.");
     const operationName = "listPipelineRuns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/ListPipelineRuns";
@@ -6632,6 +6740,7 @@ export class DataScienceClient {
       listPipelineRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6743,7 +6852,7 @@ export class DataScienceClient {
   public async listPipelines(
     listPipelinesRequest: requests.ListPipelinesRequest
   ): Promise<responses.ListPipelinesResponse> {
-    logger.debug("Calling operation DataScienceClient#listPipelines.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listPipelines.");
     const operationName = "listPipelines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/ListPipelines";
@@ -6773,6 +6882,7 @@ export class DataScienceClient {
       listPipelinesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6884,7 +6994,7 @@ export class DataScienceClient {
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
-    logger.debug("Calling operation DataScienceClient#listProjects.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listProjects.");
     const operationName = "listProjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ProjectSummary/ListProjects";
@@ -6913,6 +7023,7 @@ export class DataScienceClient {
       listProjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7024,7 +7135,8 @@ export class DataScienceClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation DataScienceClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequest/ListWorkRequestErrors";
@@ -7048,6 +7160,7 @@ export class DataScienceClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7159,7 +7272,7 @@ export class DataScienceClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation DataScienceClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequest/ListWorkRequestLogs";
@@ -7183,6 +7296,7 @@ export class DataScienceClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7294,7 +7408,7 @@ export class DataScienceClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation DataScienceClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequestSummary/ListWorkRequests";
@@ -7322,6 +7436,7 @@ export class DataScienceClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7436,7 +7551,8 @@ export class DataScienceClient {
   public async updateDataSciencePrivateEndpoint(
     updateDataSciencePrivateEndpointRequest: requests.UpdateDataSciencePrivateEndpointRequest
   ): Promise<responses.UpdateDataSciencePrivateEndpointResponse> {
-    logger.debug("Calling operation DataScienceClient#updateDataSciencePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateDataSciencePrivateEndpoint.");
     const operationName = "updateDataSciencePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/UpdateDataSciencePrivateEndpoint";
@@ -7459,6 +7575,7 @@ export class DataScienceClient {
       updateDataSciencePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7523,7 +7640,7 @@ export class DataScienceClient {
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
-    logger.debug("Calling operation DataScienceClient#updateJob.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateJob.");
     const operationName = "updateJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/UpdateJob";
@@ -7545,6 +7662,7 @@ export class DataScienceClient {
       updateJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7604,7 +7722,7 @@ export class DataScienceClient {
   public async updateJobRun(
     updateJobRunRequest: requests.UpdateJobRunRequest
   ): Promise<responses.UpdateJobRunResponse> {
-    logger.debug("Calling operation DataScienceClient#updateJobRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateJobRun.");
     const operationName = "updateJobRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/UpdateJobRun";
@@ -7626,6 +7744,7 @@ export class DataScienceClient {
       updateJobRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7685,7 +7804,7 @@ export class DataScienceClient {
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
-    logger.debug("Calling operation DataScienceClient#updateModel.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateModel.");
     const operationName = "updateModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/UpdateModel";
@@ -7707,6 +7826,7 @@ export class DataScienceClient {
       updateModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7770,7 +7890,8 @@ export class DataScienceClient {
   public async updateModelDeployment(
     updateModelDeploymentRequest: requests.UpdateModelDeploymentRequest
   ): Promise<responses.UpdateModelDeploymentResponse> {
-    logger.debug("Calling operation DataScienceClient#updateModelDeployment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelDeployment.");
     const operationName = "updateModelDeployment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/UpdateModelDeployment";
@@ -7792,6 +7913,7 @@ export class DataScienceClient {
       updateModelDeploymentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7847,7 +7969,8 @@ export class DataScienceClient {
   public async updateModelProvenance(
     updateModelProvenanceRequest: requests.UpdateModelProvenanceRequest
   ): Promise<responses.UpdateModelProvenanceResponse> {
-    logger.debug("Calling operation DataScienceClient#updateModelProvenance.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelProvenance.");
     const operationName = "updateModelProvenance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/UpdateModelProvenance";
@@ -7869,6 +7992,7 @@ export class DataScienceClient {
       updateModelProvenanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7928,7 +8052,8 @@ export class DataScienceClient {
   public async updateModelVersionSet(
     updateModelVersionSetRequest: requests.UpdateModelVersionSetRequest
   ): Promise<responses.UpdateModelVersionSetResponse> {
-    logger.debug("Calling operation DataScienceClient#updateModelVersionSet.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelVersionSet.");
     const operationName = "updateModelVersionSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelVersionSet/UpdateModelVersionSet";
@@ -7950,6 +8075,7 @@ export class DataScienceClient {
       updateModelVersionSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8012,7 +8138,8 @@ export class DataScienceClient {
   public async updateNotebookSession(
     updateNotebookSessionRequest: requests.UpdateNotebookSessionRequest
   ): Promise<responses.UpdateNotebookSessionResponse> {
-    logger.debug("Calling operation DataScienceClient#updateNotebookSession.");
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateNotebookSession.");
     const operationName = "updateNotebookSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/UpdateNotebookSession";
@@ -8034,6 +8161,7 @@ export class DataScienceClient {
       updateNotebookSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8093,7 +8221,7 @@ export class DataScienceClient {
   public async updatePipeline(
     updatePipelineRequest: requests.UpdatePipelineRequest
   ): Promise<responses.UpdatePipelineResponse> {
-    logger.debug("Calling operation DataScienceClient#updatePipeline.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updatePipeline.");
     const operationName = "updatePipeline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/UpdatePipeline";
@@ -8115,6 +8243,7 @@ export class DataScienceClient {
       updatePipelineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8174,7 +8303,7 @@ export class DataScienceClient {
   public async updatePipelineRun(
     updatePipelineRunRequest: requests.UpdatePipelineRunRequest
   ): Promise<responses.UpdatePipelineRunResponse> {
-    logger.debug("Calling operation DataScienceClient#updatePipelineRun.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updatePipelineRun.");
     const operationName = "updatePipelineRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/UpdatePipelineRun";
@@ -8196,6 +8325,7 @@ export class DataScienceClient {
       updatePipelineRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8255,7 +8385,7 @@ export class DataScienceClient {
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
-    logger.debug("Calling operation DataScienceClient#updateProject.");
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateProject.");
     const operationName = "updateProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/UpdateProject";
@@ -8277,6 +8407,7 @@ export class DataScienceClient {
       updateProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

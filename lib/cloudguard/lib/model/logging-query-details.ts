@@ -36,7 +36,8 @@ export namespace LoggingQueryDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.loggingQueryType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.loggingQueryType}`);
       }
     }
     return jsonObj;
@@ -52,7 +53,8 @@ export namespace LoggingQueryDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.loggingQueryType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.loggingQueryType}`);
       }
     }
     return jsonObj;

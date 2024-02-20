@@ -45,7 +45,7 @@ export namespace InstanceAgentCommandOutputDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.outputType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.outputType}`);
       }
     }
     return jsonObj;
@@ -71,7 +71,7 @@ export namespace InstanceAgentCommandOutputDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.outputType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.outputType}`);
       }
     }
     return jsonObj;

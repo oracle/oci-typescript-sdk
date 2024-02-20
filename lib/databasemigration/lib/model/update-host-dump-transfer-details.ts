@@ -45,7 +45,7 @@ export namespace UpdateHostDumpTransferDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.kind}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.kind}`);
       }
     }
     return jsonObj;
@@ -66,7 +66,7 @@ export namespace UpdateHostDumpTransferDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.kind}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.kind}`);
       }
     }
     return jsonObj;

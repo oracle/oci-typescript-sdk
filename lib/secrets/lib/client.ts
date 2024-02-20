@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class SecretsClient {
   protected static serviceEndpointTemplate =
     "https://secrets.vaults.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -117,7 +116,11 @@ export class SecretsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190301";
-    logger.info(`SecretsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`SecretsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class SecretsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SecretsClient.serviceEndpointTemplate,
@@ -200,7 +204,7 @@ export class SecretsClient {
   public async getSecretBundle(
     getSecretBundleRequest: requests.GetSecretBundleRequest
   ): Promise<responses.GetSecretBundleResponse> {
-    logger.debug("Calling operation SecretsClient#getSecretBundle.");
+    if (this.logger) this.logger.debug("Calling operation SecretsClient#getSecretBundle.");
     const operationName = "getSecretBundle";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretretrieval/20190301/SecretBundle/GetSecretBundle";
@@ -225,6 +229,7 @@ export class SecretsClient {
       getSecretBundleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -281,7 +286,7 @@ export class SecretsClient {
   public async getSecretBundleByName(
     getSecretBundleByNameRequest: requests.GetSecretBundleByNameRequest
   ): Promise<responses.GetSecretBundleByNameResponse> {
-    logger.debug("Calling operation SecretsClient#getSecretBundleByName.");
+    if (this.logger) this.logger.debug("Calling operation SecretsClient#getSecretBundleByName.");
     const operationName = "getSecretBundleByName";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretretrieval/20190301/SecretBundle/GetSecretBundleByName";
@@ -306,6 +311,7 @@ export class SecretsClient {
       getSecretBundleByNameRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -355,7 +361,7 @@ export class SecretsClient {
   public async listSecretBundleVersions(
     listSecretBundleVersionsRequest: requests.ListSecretBundleVersionsRequest
   ): Promise<responses.ListSecretBundleVersionsResponse> {
-    logger.debug("Calling operation SecretsClient#listSecretBundleVersions.");
+    if (this.logger) this.logger.debug("Calling operation SecretsClient#listSecretBundleVersions.");
     const operationName = "listSecretBundleVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/secretretrieval/20190301/SecretBundleVersionSummary/ListSecretBundleVersions";
@@ -381,6 +387,7 @@ export class SecretsClient {
       listSecretBundleVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

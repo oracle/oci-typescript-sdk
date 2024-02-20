@@ -24,8 +24,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -40,7 +39,7 @@ export enum WaaApiKeys {}
 export class WaaClient {
   protected static serviceEndpointTemplate = "https://waa.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WaaWaiter;
@@ -121,7 +120,11 @@ export class WaaClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20211230";
-    logger.info(`WaaClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`WaaClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -131,9 +134,10 @@ export class WaaClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WaaClient.serviceEndpointTemplate,
@@ -227,7 +231,8 @@ export class WaaClient {
   public async changeWebAppAccelerationCompartment(
     changeWebAppAccelerationCompartmentRequest: requests.ChangeWebAppAccelerationCompartmentRequest
   ): Promise<responses.ChangeWebAppAccelerationCompartmentResponse> {
-    logger.debug("Calling operation WaaClient#changeWebAppAccelerationCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation WaaClient#changeWebAppAccelerationCompartment.");
     const operationName = "changeWebAppAccelerationCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -248,6 +253,7 @@ export class WaaClient {
       changeWebAppAccelerationCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,7 +311,8 @@ export class WaaClient {
   public async changeWebAppAccelerationPolicyCompartment(
     changeWebAppAccelerationPolicyCompartmentRequest: requests.ChangeWebAppAccelerationPolicyCompartmentRequest
   ): Promise<responses.ChangeWebAppAccelerationPolicyCompartmentResponse> {
-    logger.debug("Calling operation WaaClient#changeWebAppAccelerationPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation WaaClient#changeWebAppAccelerationPolicyCompartment.");
     const operationName = "changeWebAppAccelerationPolicyCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -327,6 +334,7 @@ export class WaaClient {
       changeWebAppAccelerationPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -383,7 +391,7 @@ export class WaaClient {
   public async createWebAppAcceleration(
     createWebAppAccelerationRequest: requests.CreateWebAppAccelerationRequest
   ): Promise<responses.CreateWebAppAccelerationResponse> {
-    logger.debug("Calling operation WaaClient#createWebAppAcceleration.");
+    if (this.logger) this.logger.debug("Calling operation WaaClient#createWebAppAcceleration.");
     const operationName = "createWebAppAcceleration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -402,6 +410,7 @@ export class WaaClient {
       createWebAppAccelerationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -477,7 +486,8 @@ export class WaaClient {
   public async createWebAppAccelerationPolicy(
     createWebAppAccelerationPolicyRequest: requests.CreateWebAppAccelerationPolicyRequest
   ): Promise<responses.CreateWebAppAccelerationPolicyResponse> {
-    logger.debug("Calling operation WaaClient#createWebAppAccelerationPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation WaaClient#createWebAppAccelerationPolicy.");
     const operationName = "createWebAppAccelerationPolicy";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -496,6 +506,7 @@ export class WaaClient {
       createWebAppAccelerationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -570,7 +581,7 @@ export class WaaClient {
   public async deleteWebAppAcceleration(
     deleteWebAppAccelerationRequest: requests.DeleteWebAppAccelerationRequest
   ): Promise<responses.DeleteWebAppAccelerationResponse> {
-    logger.debug("Calling operation WaaClient#deleteWebAppAcceleration.");
+    if (this.logger) this.logger.debug("Calling operation WaaClient#deleteWebAppAcceleration.");
     const operationName = "deleteWebAppAcceleration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -591,6 +602,7 @@ export class WaaClient {
       deleteWebAppAccelerationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -641,7 +653,8 @@ export class WaaClient {
   public async deleteWebAppAccelerationPolicy(
     deleteWebAppAccelerationPolicyRequest: requests.DeleteWebAppAccelerationPolicyRequest
   ): Promise<responses.DeleteWebAppAccelerationPolicyResponse> {
-    logger.debug("Calling operation WaaClient#deleteWebAppAccelerationPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation WaaClient#deleteWebAppAccelerationPolicy.");
     const operationName = "deleteWebAppAccelerationPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -663,6 +676,7 @@ export class WaaClient {
       deleteWebAppAccelerationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -713,7 +727,7 @@ export class WaaClient {
   public async getWebAppAcceleration(
     getWebAppAccelerationRequest: requests.GetWebAppAccelerationRequest
   ): Promise<responses.GetWebAppAccelerationResponse> {
-    logger.debug("Calling operation WaaClient#getWebAppAcceleration.");
+    if (this.logger) this.logger.debug("Calling operation WaaClient#getWebAppAcceleration.");
     const operationName = "getWebAppAcceleration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -733,6 +747,7 @@ export class WaaClient {
       getWebAppAccelerationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -787,7 +802,7 @@ export class WaaClient {
   public async getWebAppAccelerationPolicy(
     getWebAppAccelerationPolicyRequest: requests.GetWebAppAccelerationPolicyRequest
   ): Promise<responses.GetWebAppAccelerationPolicyResponse> {
-    logger.debug("Calling operation WaaClient#getWebAppAccelerationPolicy.");
+    if (this.logger) this.logger.debug("Calling operation WaaClient#getWebAppAccelerationPolicy.");
     const operationName = "getWebAppAccelerationPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -807,6 +822,7 @@ export class WaaClient {
       getWebAppAccelerationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -862,7 +878,8 @@ export class WaaClient {
   public async listWebAppAccelerationPolicies(
     listWebAppAccelerationPoliciesRequest: requests.ListWebAppAccelerationPoliciesRequest
   ): Promise<responses.ListWebAppAccelerationPoliciesResponse> {
-    logger.debug("Calling operation WaaClient#listWebAppAccelerationPolicies.");
+    if (this.logger)
+      this.logger.debug("Calling operation WaaClient#listWebAppAccelerationPolicies.");
     const operationName = "listWebAppAccelerationPolicies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -889,6 +906,7 @@ export class WaaClient {
       listWebAppAccelerationPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -944,7 +962,7 @@ export class WaaClient {
   public async listWebAppAccelerations(
     listWebAppAccelerationsRequest: requests.ListWebAppAccelerationsRequest
   ): Promise<responses.ListWebAppAccelerationsResponse> {
-    logger.debug("Calling operation WaaClient#listWebAppAccelerations.");
+    if (this.logger) this.logger.debug("Calling operation WaaClient#listWebAppAccelerations.");
     const operationName = "listWebAppAccelerations";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -972,6 +990,7 @@ export class WaaClient {
       listWebAppAccelerationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1028,7 +1047,7 @@ export class WaaClient {
   public async purgeWebAppAccelerationCache(
     purgeWebAppAccelerationCacheRequest: requests.PurgeWebAppAccelerationCacheRequest
   ): Promise<responses.PurgeWebAppAccelerationCacheResponse> {
-    logger.debug("Calling operation WaaClient#purgeWebAppAccelerationCache.");
+    if (this.logger) this.logger.debug("Calling operation WaaClient#purgeWebAppAccelerationCache.");
     const operationName = "purgeWebAppAccelerationCache";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1048,6 +1067,7 @@ export class WaaClient {
       purgeWebAppAccelerationCacheRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1103,7 +1123,7 @@ export class WaaClient {
   public async updateWebAppAcceleration(
     updateWebAppAccelerationRequest: requests.UpdateWebAppAccelerationRequest
   ): Promise<responses.UpdateWebAppAccelerationResponse> {
-    logger.debug("Calling operation WaaClient#updateWebAppAcceleration.");
+    if (this.logger) this.logger.debug("Calling operation WaaClient#updateWebAppAcceleration.");
     const operationName = "updateWebAppAcceleration";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1124,6 +1144,7 @@ export class WaaClient {
       updateWebAppAccelerationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1179,7 +1200,8 @@ export class WaaClient {
   public async updateWebAppAccelerationPolicy(
     updateWebAppAccelerationPolicyRequest: requests.UpdateWebAppAccelerationPolicyRequest
   ): Promise<responses.UpdateWebAppAccelerationPolicyResponse> {
-    logger.debug("Calling operation WaaClient#updateWebAppAccelerationPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation WaaClient#updateWebAppAccelerationPolicy.");
     const operationName = "updateWebAppAccelerationPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1201,6 +1223,7 @@ export class WaaClient {
       updateWebAppAccelerationPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1252,7 +1275,7 @@ export enum WorkRequestApiKeys {}
 export class WorkRequestClient {
   protected static serviceEndpointTemplate = "https://waa.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestWaiter;
@@ -1333,7 +1356,11 @@ export class WorkRequestClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20211230";
-    logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`WorkRequestClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1343,9 +1370,10 @@ export class WorkRequestClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WorkRequestClient.serviceEndpointTemplate,
@@ -1437,7 +1465,7 @@ export class WorkRequestClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1457,6 +1485,7 @@ export class WorkRequestClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1512,7 +1541,8 @@ export class WorkRequestClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1535,6 +1565,7 @@ export class WorkRequestClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1590,7 +1621,7 @@ export class WorkRequestClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1613,6 +1644,7 @@ export class WorkRequestClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1668,7 +1700,7 @@ export class WorkRequestClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1691,6 +1723,7 @@ export class WorkRequestClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

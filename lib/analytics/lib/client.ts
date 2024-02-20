@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum AnalyticsApiKeys {}
 export class AnalyticsClient {
   protected static serviceEndpointTemplate = "https://analytics.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AnalyticsWaiter;
@@ -119,7 +118,11 @@ export class AnalyticsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190331";
-    logger.info(`AnalyticsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AnalyticsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class AnalyticsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AnalyticsClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class AnalyticsClient {
   public async changeAnalyticsInstanceCompartment(
     changeAnalyticsInstanceCompartmentRequest: requests.ChangeAnalyticsInstanceCompartmentRequest
   ): Promise<responses.ChangeAnalyticsInstanceCompartmentResponse> {
-    logger.debug("Calling operation AnalyticsClient#changeAnalyticsInstanceCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#changeAnalyticsInstanceCompartment.");
     const operationName = "changeAnalyticsInstanceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/ChangeAnalyticsInstanceCompartment";
@@ -248,6 +253,7 @@ export class AnalyticsClient {
       changeAnalyticsInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -305,7 +311,10 @@ export class AnalyticsClient {
   public async changeAnalyticsInstanceNetworkEndpoint(
     changeAnalyticsInstanceNetworkEndpointRequest: requests.ChangeAnalyticsInstanceNetworkEndpointRequest
   ): Promise<responses.ChangeAnalyticsInstanceNetworkEndpointResponse> {
-    logger.debug("Calling operation AnalyticsClient#changeAnalyticsInstanceNetworkEndpoint.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnalyticsClient#changeAnalyticsInstanceNetworkEndpoint."
+      );
     const operationName = "changeAnalyticsInstanceNetworkEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/ChangeAnalyticsInstanceNetworkEndpoint";
@@ -328,6 +337,7 @@ export class AnalyticsClient {
       changeAnalyticsInstanceNetworkEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,7 +395,8 @@ export class AnalyticsClient {
   public async createAnalyticsInstance(
     createAnalyticsInstanceRequest: requests.CreateAnalyticsInstanceRequest
   ): Promise<responses.CreateAnalyticsInstanceResponse> {
-    logger.debug("Calling operation AnalyticsClient#createAnalyticsInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#createAnalyticsInstance.");
     const operationName = "createAnalyticsInstance";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -404,6 +415,7 @@ export class AnalyticsClient {
       createAnalyticsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -475,7 +487,8 @@ export class AnalyticsClient {
   public async createPrivateAccessChannel(
     createPrivateAccessChannelRequest: requests.CreatePrivateAccessChannelRequest
   ): Promise<responses.CreatePrivateAccessChannelResponse> {
-    logger.debug("Calling operation AnalyticsClient#createPrivateAccessChannel.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#createPrivateAccessChannel.");
     const operationName = "createPrivateAccessChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/CreatePrivateAccessChannel";
@@ -497,6 +510,7 @@ export class AnalyticsClient {
       createPrivateAccessChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -554,7 +568,7 @@ export class AnalyticsClient {
   public async createVanityUrl(
     createVanityUrlRequest: requests.CreateVanityUrlRequest
   ): Promise<responses.CreateVanityUrlResponse> {
-    logger.debug("Calling operation AnalyticsClient#createVanityUrl.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#createVanityUrl.");
     const operationName = "createVanityUrl";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/CreateVanityUrl";
@@ -576,6 +590,7 @@ export class AnalyticsClient {
       createVanityUrlRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -633,7 +648,8 @@ export class AnalyticsClient {
   public async deleteAnalyticsInstance(
     deleteAnalyticsInstanceRequest: requests.DeleteAnalyticsInstanceRequest
   ): Promise<responses.DeleteAnalyticsInstanceResponse> {
-    logger.debug("Calling operation AnalyticsClient#deleteAnalyticsInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#deleteAnalyticsInstance.");
     const operationName = "deleteAnalyticsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/DeleteAnalyticsInstance";
@@ -656,6 +672,7 @@ export class AnalyticsClient {
       deleteAnalyticsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -707,7 +724,8 @@ export class AnalyticsClient {
   public async deletePrivateAccessChannel(
     deletePrivateAccessChannelRequest: requests.DeletePrivateAccessChannelRequest
   ): Promise<responses.DeletePrivateAccessChannelResponse> {
-    logger.debug("Calling operation AnalyticsClient#deletePrivateAccessChannel.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#deletePrivateAccessChannel.");
     const operationName = "deletePrivateAccessChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/DeletePrivateAccessChannel";
@@ -731,6 +749,7 @@ export class AnalyticsClient {
       deletePrivateAccessChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -783,7 +802,7 @@ export class AnalyticsClient {
   public async deleteVanityUrl(
     deleteVanityUrlRequest: requests.DeleteVanityUrlRequest
   ): Promise<responses.DeleteVanityUrlResponse> {
-    logger.debug("Calling operation AnalyticsClient#deleteVanityUrl.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#deleteVanityUrl.");
     const operationName = "deleteVanityUrl";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/DeleteVanityUrl";
@@ -807,6 +826,7 @@ export class AnalyticsClient {
       deleteVanityUrlRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -858,7 +878,7 @@ export class AnalyticsClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
-    logger.debug("Calling operation AnalyticsClient#deleteWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#deleteWorkRequest.");
     const operationName = "deleteWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequest/DeleteWorkRequest";
@@ -880,6 +900,7 @@ export class AnalyticsClient {
       deleteWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -926,7 +947,7 @@ export class AnalyticsClient {
   public async getAnalyticsInstance(
     getAnalyticsInstanceRequest: requests.GetAnalyticsInstanceRequest
   ): Promise<responses.GetAnalyticsInstanceResponse> {
-    logger.debug("Calling operation AnalyticsClient#getAnalyticsInstance.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#getAnalyticsInstance.");
     const operationName = "getAnalyticsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/GetAnalyticsInstance";
@@ -947,6 +968,7 @@ export class AnalyticsClient {
       getAnalyticsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1002,7 +1024,8 @@ export class AnalyticsClient {
   public async getPrivateAccessChannel(
     getPrivateAccessChannelRequest: requests.GetPrivateAccessChannelRequest
   ): Promise<responses.GetPrivateAccessChannelResponse> {
-    logger.debug("Calling operation AnalyticsClient#getPrivateAccessChannel.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#getPrivateAccessChannel.");
     const operationName = "getPrivateAccessChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/GetPrivateAccessChannel";
@@ -1024,6 +1047,7 @@ export class AnalyticsClient {
       getPrivateAccessChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1080,7 +1104,7 @@ export class AnalyticsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation AnalyticsClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequest/GetWorkRequest";
@@ -1101,6 +1125,7 @@ export class AnalyticsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1161,7 +1186,7 @@ export class AnalyticsClient {
   public async listAnalyticsInstances(
     listAnalyticsInstancesRequest: requests.ListAnalyticsInstancesRequest
   ): Promise<responses.ListAnalyticsInstancesResponse> {
-    logger.debug("Calling operation AnalyticsClient#listAnalyticsInstances.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listAnalyticsInstances.");
     const operationName = "listAnalyticsInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstanceSummary/ListAnalyticsInstances";
@@ -1190,6 +1215,7 @@ export class AnalyticsClient {
       listAnalyticsInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1297,7 +1323,7 @@ export class AnalyticsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation AnalyticsClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequestError/ListWorkRequestErrors";
@@ -1321,6 +1347,7 @@ export class AnalyticsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1428,7 +1455,7 @@ export class AnalyticsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation AnalyticsClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequestLog/ListWorkRequestLogs";
@@ -1452,6 +1479,7 @@ export class AnalyticsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1559,7 +1587,7 @@ export class AnalyticsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation AnalyticsClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequestSummary/ListWorkRequests";
@@ -1587,6 +1615,7 @@ export class AnalyticsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1695,7 +1724,7 @@ export class AnalyticsClient {
   public async scaleAnalyticsInstance(
     scaleAnalyticsInstanceRequest: requests.ScaleAnalyticsInstanceRequest
   ): Promise<responses.ScaleAnalyticsInstanceResponse> {
-    logger.debug("Calling operation AnalyticsClient#scaleAnalyticsInstance.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#scaleAnalyticsInstance.");
     const operationName = "scaleAnalyticsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/ScaleAnalyticsInstance";
@@ -1718,6 +1747,7 @@ export class AnalyticsClient {
       scaleAnalyticsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1774,7 +1804,7 @@ export class AnalyticsClient {
   public async setKmsKey(
     setKmsKeyRequest: requests.SetKmsKeyRequest
   ): Promise<responses.SetKmsKeyResponse> {
-    logger.debug("Calling operation AnalyticsClient#setKmsKey.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#setKmsKey.");
     const operationName = "setKmsKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/SetKmsKey";
@@ -1797,6 +1827,7 @@ export class AnalyticsClient {
       setKmsKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1854,7 +1885,7 @@ export class AnalyticsClient {
   public async startAnalyticsInstance(
     startAnalyticsInstanceRequest: requests.StartAnalyticsInstanceRequest
   ): Promise<responses.StartAnalyticsInstanceResponse> {
-    logger.debug("Calling operation AnalyticsClient#startAnalyticsInstance.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#startAnalyticsInstance.");
     const operationName = "startAnalyticsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/StartAnalyticsInstance";
@@ -1877,6 +1908,7 @@ export class AnalyticsClient {
       startAnalyticsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1929,7 +1961,7 @@ export class AnalyticsClient {
   public async stopAnalyticsInstance(
     stopAnalyticsInstanceRequest: requests.StopAnalyticsInstanceRequest
   ): Promise<responses.StopAnalyticsInstanceResponse> {
-    logger.debug("Calling operation AnalyticsClient#stopAnalyticsInstance.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#stopAnalyticsInstance.");
     const operationName = "stopAnalyticsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/StopAnalyticsInstance";
@@ -1952,6 +1984,7 @@ export class AnalyticsClient {
       stopAnalyticsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2004,7 +2037,8 @@ export class AnalyticsClient {
   public async updateAnalyticsInstance(
     updateAnalyticsInstanceRequest: requests.UpdateAnalyticsInstanceRequest
   ): Promise<responses.UpdateAnalyticsInstanceResponse> {
-    logger.debug("Calling operation AnalyticsClient#updateAnalyticsInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#updateAnalyticsInstance.");
     const operationName = "updateAnalyticsInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/UpdateAnalyticsInstance";
@@ -2026,6 +2060,7 @@ export class AnalyticsClient {
       updateAnalyticsInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2086,7 +2121,8 @@ export class AnalyticsClient {
   public async updatePrivateAccessChannel(
     updatePrivateAccessChannelRequest: requests.UpdatePrivateAccessChannelRequest
   ): Promise<responses.UpdatePrivateAccessChannelResponse> {
-    logger.debug("Calling operation AnalyticsClient#updatePrivateAccessChannel.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnalyticsClient#updatePrivateAccessChannel.");
     const operationName = "updatePrivateAccessChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/UpdatePrivateAccessChannel";
@@ -2110,6 +2146,7 @@ export class AnalyticsClient {
       updatePrivateAccessChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2167,7 +2204,7 @@ export class AnalyticsClient {
   public async updateVanityUrl(
     updateVanityUrlRequest: requests.UpdateVanityUrlRequest
   ): Promise<responses.UpdateVanityUrlResponse> {
-    logger.debug("Calling operation AnalyticsClient#updateVanityUrl.");
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#updateVanityUrl.");
     const operationName = "updateVanityUrl";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/UpdateVanityUrl";
@@ -2191,6 +2228,7 @@ export class AnalyticsClient {
       updateVanityUrlRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

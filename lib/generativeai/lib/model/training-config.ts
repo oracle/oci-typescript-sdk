@@ -74,7 +74,8 @@ export namespace TrainingConfig {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.trainingConfigType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.trainingConfigType}`);
       }
     }
     return jsonObj;
@@ -95,7 +96,8 @@ export namespace TrainingConfig {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.trainingConfigType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.trainingConfigType}`);
       }
     }
     return jsonObj;

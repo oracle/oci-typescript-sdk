@@ -24,8 +24,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -41,7 +40,7 @@ export class ContainerEngineClient {
   protected static serviceEndpointTemplate =
     "https://containerengine.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ContainerEngineWaiter;
@@ -122,7 +121,11 @@ export class ContainerEngineClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180222";
-    logger.info(`ContainerEngineClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ContainerEngineClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -132,9 +135,10 @@ export class ContainerEngineClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ContainerEngineClient.serviceEndpointTemplate,
@@ -226,7 +230,8 @@ export class ContainerEngineClient {
   public async clusterMigrateToNativeVcn(
     clusterMigrateToNativeVcnRequest: requests.ClusterMigrateToNativeVcnRequest
   ): Promise<responses.ClusterMigrateToNativeVcnResponse> {
-    logger.debug("Calling operation ContainerEngineClient#clusterMigrateToNativeVcn.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#clusterMigrateToNativeVcn.");
     const operationName = "clusterMigrateToNativeVcn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/ClusterMigrateToNativeVcn";
@@ -248,6 +253,7 @@ export class ContainerEngineClient {
       clusterMigrateToNativeVcnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -303,7 +309,8 @@ export class ContainerEngineClient {
   public async completeCredentialRotation(
     completeCredentialRotationRequest: requests.CompleteCredentialRotationRequest
   ): Promise<responses.CompleteCredentialRotationResponse> {
-    logger.debug("Calling operation ContainerEngineClient#completeCredentialRotation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#completeCredentialRotation.");
     const operationName = "completeCredentialRotation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CompleteCredentialRotation";
@@ -326,6 +333,7 @@ export class ContainerEngineClient {
       completeCredentialRotationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -376,7 +384,7 @@ export class ContainerEngineClient {
   public async createCluster(
     createClusterRequest: requests.CreateClusterRequest
   ): Promise<responses.CreateClusterResponse> {
-    logger.debug("Calling operation ContainerEngineClient#createCluster.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createCluster.");
     const operationName = "createCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CreateCluster";
@@ -396,6 +404,7 @@ export class ContainerEngineClient {
       createClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -451,7 +460,7 @@ export class ContainerEngineClient {
   public async createKubeconfig(
     createKubeconfigRequest: requests.CreateKubeconfigRequest
   ): Promise<responses.CreateKubeconfigResponse> {
-    logger.debug("Calling operation ContainerEngineClient#createKubeconfig.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createKubeconfig.");
     const operationName = "createKubeconfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CreateKubeconfig";
@@ -472,6 +481,7 @@ export class ContainerEngineClient {
       createKubeconfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -526,7 +536,7 @@ export class ContainerEngineClient {
   public async createNodePool(
     createNodePoolRequest: requests.CreateNodePoolRequest
   ): Promise<responses.CreateNodePoolResponse> {
-    logger.debug("Calling operation ContainerEngineClient#createNodePool.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createNodePool.");
     const operationName = "createNodePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/CreateNodePool";
@@ -546,6 +556,7 @@ export class ContainerEngineClient {
       createNodePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -601,7 +612,8 @@ export class ContainerEngineClient {
   public async createVirtualNodePool(
     createVirtualNodePoolRequest: requests.CreateVirtualNodePoolRequest
   ): Promise<responses.CreateVirtualNodePoolResponse> {
-    logger.debug("Calling operation ContainerEngineClient#createVirtualNodePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#createVirtualNodePool.");
     const operationName = "createVirtualNodePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/CreateVirtualNodePool";
@@ -621,6 +633,7 @@ export class ContainerEngineClient {
       createVirtualNodePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -676,7 +689,8 @@ export class ContainerEngineClient {
   public async createWorkloadMapping(
     createWorkloadMappingRequest: requests.CreateWorkloadMappingRequest
   ): Promise<responses.CreateWorkloadMappingResponse> {
-    logger.debug("Calling operation ContainerEngineClient#createWorkloadMapping.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#createWorkloadMapping.");
     const operationName = "createWorkloadMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/CreateWorkloadMapping";
@@ -698,6 +712,7 @@ export class ContainerEngineClient {
       createWorkloadMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -757,7 +772,7 @@ export class ContainerEngineClient {
   public async deleteCluster(
     deleteClusterRequest: requests.DeleteClusterRequest
   ): Promise<responses.DeleteClusterResponse> {
-    logger.debug("Calling operation ContainerEngineClient#deleteCluster.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteCluster.");
     const operationName = "deleteCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/DeleteCluster";
@@ -779,6 +794,7 @@ export class ContainerEngineClient {
       deleteClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -829,7 +845,7 @@ export class ContainerEngineClient {
   public async deleteNode(
     deleteNodeRequest: requests.DeleteNodeRequest
   ): Promise<responses.DeleteNodeResponse> {
-    logger.debug("Calling operation ContainerEngineClient#deleteNode.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteNode.");
     const operationName = "deleteNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/DeleteNode";
@@ -857,6 +873,7 @@ export class ContainerEngineClient {
       deleteNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -907,7 +924,7 @@ export class ContainerEngineClient {
   public async deleteNodePool(
     deleteNodePoolRequest: requests.DeleteNodePoolRequest
   ): Promise<responses.DeleteNodePoolResponse> {
-    logger.debug("Calling operation ContainerEngineClient#deleteNodePool.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteNodePool.");
     const operationName = "deleteNodePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/DeleteNodePool";
@@ -933,6 +950,7 @@ export class ContainerEngineClient {
       deleteNodePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -983,7 +1001,8 @@ export class ContainerEngineClient {
   public async deleteVirtualNodePool(
     deleteVirtualNodePoolRequest: requests.DeleteVirtualNodePoolRequest
   ): Promise<responses.DeleteVirtualNodePoolResponse> {
-    logger.debug("Calling operation ContainerEngineClient#deleteVirtualNodePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#deleteVirtualNodePool.");
     const operationName = "deleteVirtualNodePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/DeleteVirtualNodePool";
@@ -1010,6 +1029,7 @@ export class ContainerEngineClient {
       deleteVirtualNodePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1060,7 +1080,8 @@ export class ContainerEngineClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
-    logger.debug("Calling operation ContainerEngineClient#deleteWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#deleteWorkRequest.");
     const operationName = "deleteWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequest/DeleteWorkRequest";
@@ -1082,6 +1103,7 @@ export class ContainerEngineClient {
       deleteWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1127,7 +1149,8 @@ export class ContainerEngineClient {
   public async deleteWorkloadMapping(
     deleteWorkloadMappingRequest: requests.DeleteWorkloadMappingRequest
   ): Promise<responses.DeleteWorkloadMappingResponse> {
-    logger.debug("Calling operation ContainerEngineClient#deleteWorkloadMapping.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#deleteWorkloadMapping.");
     const operationName = "deleteWorkloadMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/DeleteWorkloadMapping";
@@ -1150,6 +1173,7 @@ export class ContainerEngineClient {
       deleteWorkloadMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1195,7 +1219,7 @@ export class ContainerEngineClient {
   public async disableAddon(
     disableAddonRequest: requests.DisableAddonRequest
   ): Promise<responses.DisableAddonResponse> {
-    logger.debug("Calling operation ContainerEngineClient#disableAddon.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#disableAddon.");
     const operationName = "disableAddon";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/DisableAddon";
@@ -1220,6 +1244,7 @@ export class ContainerEngineClient {
       disableAddonRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1270,7 +1295,7 @@ export class ContainerEngineClient {
   public async getAddon(
     getAddonRequest: requests.GetAddonRequest
   ): Promise<responses.GetAddonResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getAddon.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getAddon.");
     const operationName = "getAddon";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/GetAddon";
@@ -1292,6 +1317,7 @@ export class ContainerEngineClient {
       getAddonRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1346,7 +1372,7 @@ export class ContainerEngineClient {
   public async getCluster(
     getClusterRequest: requests.GetClusterRequest
   ): Promise<responses.GetClusterResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getCluster.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getCluster.");
     const operationName = "getCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/GetCluster";
@@ -1367,6 +1393,7 @@ export class ContainerEngineClient {
       getClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1421,7 +1448,10 @@ export class ContainerEngineClient {
   public async getClusterMigrateToNativeVcnStatus(
     getClusterMigrateToNativeVcnStatusRequest: requests.GetClusterMigrateToNativeVcnStatusRequest
   ): Promise<responses.GetClusterMigrateToNativeVcnStatusResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getClusterMigrateToNativeVcnStatus.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ContainerEngineClient#getClusterMigrateToNativeVcnStatus."
+      );
     const operationName = "getClusterMigrateToNativeVcnStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterMigrateToNativeVcnStatus/GetClusterMigrateToNativeVcnStatus";
@@ -1442,6 +1472,7 @@ export class ContainerEngineClient {
       getClusterMigrateToNativeVcnStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1496,7 +1527,8 @@ export class ContainerEngineClient {
   public async getClusterOptions(
     getClusterOptionsRequest: requests.GetClusterOptionsRequest
   ): Promise<responses.GetClusterOptionsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getClusterOptions.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getClusterOptions.");
     const operationName = "getClusterOptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterOptions/GetClusterOptions";
@@ -1519,6 +1551,7 @@ export class ContainerEngineClient {
       getClusterOptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1568,7 +1601,8 @@ export class ContainerEngineClient {
   public async getCredentialRotationStatus(
     getCredentialRotationStatusRequest: requests.GetCredentialRotationStatusRequest
   ): Promise<responses.GetCredentialRotationStatusResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getCredentialRotationStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getCredentialRotationStatus.");
     const operationName = "getCredentialRotationStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/CredentialRotationStatus/GetCredentialRotationStatus";
@@ -1589,6 +1623,7 @@ export class ContainerEngineClient {
       getCredentialRotationStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1643,7 +1678,7 @@ export class ContainerEngineClient {
   public async getNodePool(
     getNodePoolRequest: requests.GetNodePoolRequest
   ): Promise<responses.GetNodePoolResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getNodePool.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getNodePool.");
     const operationName = "getNodePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/GetNodePool";
@@ -1664,6 +1699,7 @@ export class ContainerEngineClient {
       getNodePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1718,7 +1754,8 @@ export class ContainerEngineClient {
   public async getNodePoolOptions(
     getNodePoolOptionsRequest: requests.GetNodePoolOptionsRequest
   ): Promise<responses.GetNodePoolOptionsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getNodePoolOptions.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getNodePoolOptions.");
     const operationName = "getNodePoolOptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePoolOptions/GetNodePoolOptions";
@@ -1741,6 +1778,7 @@ export class ContainerEngineClient {
       getNodePoolOptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1790,7 +1828,7 @@ export class ContainerEngineClient {
   public async getVirtualNode(
     getVirtualNodeRequest: requests.GetVirtualNodeRequest
   ): Promise<responses.GetVirtualNodeResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getVirtualNode.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getVirtualNode.");
     const operationName = "getVirtualNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/GetVirtualNode";
@@ -1812,6 +1850,7 @@ export class ContainerEngineClient {
       getVirtualNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1866,7 +1905,8 @@ export class ContainerEngineClient {
   public async getVirtualNodePool(
     getVirtualNodePoolRequest: requests.GetVirtualNodePoolRequest
   ): Promise<responses.GetVirtualNodePoolResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getVirtualNodePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getVirtualNodePool.");
     const operationName = "getVirtualNodePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/GetVirtualNodePool";
@@ -1887,6 +1927,7 @@ export class ContainerEngineClient {
       getVirtualNodePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1941,7 +1982,7 @@ export class ContainerEngineClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequest/GetWorkRequest";
@@ -1962,6 +2003,7 @@ export class ContainerEngineClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2021,7 +2063,8 @@ export class ContainerEngineClient {
   public async getWorkloadMapping(
     getWorkloadMappingRequest: requests.GetWorkloadMappingRequest
   ): Promise<responses.GetWorkloadMappingResponse> {
-    logger.debug("Calling operation ContainerEngineClient#getWorkloadMapping.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getWorkloadMapping.");
     const operationName = "getWorkloadMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/GetWorkloadMapping";
@@ -2043,6 +2086,7 @@ export class ContainerEngineClient {
       getWorkloadMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2097,7 +2141,7 @@ export class ContainerEngineClient {
   public async installAddon(
     installAddonRequest: requests.InstallAddonRequest
   ): Promise<responses.InstallAddonResponse> {
-    logger.debug("Calling operation ContainerEngineClient#installAddon.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#installAddon.");
     const operationName = "installAddon";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/InstallAddon";
@@ -2120,6 +2164,7 @@ export class ContainerEngineClient {
       installAddonRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2175,7 +2220,7 @@ export class ContainerEngineClient {
   public async listAddonOptions(
     listAddonOptionsRequest: requests.ListAddonOptionsRequest
   ): Promise<responses.ListAddonOptionsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listAddonOptions.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listAddonOptions.");
     const operationName = "listAddonOptions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/AddonOptionSummary/ListAddonOptions";
@@ -2201,6 +2246,7 @@ export class ContainerEngineClient {
       listAddonOptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2307,7 +2353,7 @@ export class ContainerEngineClient {
   public async listAddons(
     listAddonsRequest: requests.ListAddonsRequest
   ): Promise<responses.ListAddonsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listAddons.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listAddons.");
     const operationName = "listAddons";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/ListAddons";
@@ -2333,6 +2379,7 @@ export class ContainerEngineClient {
       listAddonsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2439,7 +2486,7 @@ export class ContainerEngineClient {
   public async listClusters(
     listClustersRequest: requests.ListClustersRequest
   ): Promise<responses.ListClustersResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listClusters.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listClusters.");
     const operationName = "listClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterSummary/ListClusters";
@@ -2466,6 +2513,7 @@ export class ContainerEngineClient {
       listClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2572,7 +2620,7 @@ export class ContainerEngineClient {
   public async listNodePools(
     listNodePoolsRequest: requests.ListNodePoolsRequest
   ): Promise<responses.ListNodePoolsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listNodePools.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listNodePools.");
     const operationName = "listNodePools";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePoolSummary/ListNodePools";
@@ -2600,6 +2648,7 @@ export class ContainerEngineClient {
       listNodePoolsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2706,7 +2755,7 @@ export class ContainerEngineClient {
   public async listPodShapes(
     listPodShapesRequest: requests.ListPodShapesRequest
   ): Promise<responses.ListPodShapesResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listPodShapes.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listPodShapes.");
     const operationName = "listPodShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/PodShapeSummary/ListPodShapes";
@@ -2733,6 +2782,7 @@ export class ContainerEngineClient {
       listPodShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2839,7 +2889,8 @@ export class ContainerEngineClient {
   public async listVirtualNodePools(
     listVirtualNodePoolsRequest: requests.ListVirtualNodePoolsRequest
   ): Promise<responses.ListVirtualNodePoolsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listVirtualNodePools.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#listVirtualNodePools.");
     const operationName = "listVirtualNodePools";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePoolSummary/ListVirtualNodePools";
@@ -2867,6 +2918,7 @@ export class ContainerEngineClient {
       listVirtualNodePoolsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2973,7 +3025,7 @@ export class ContainerEngineClient {
   public async listVirtualNodes(
     listVirtualNodesRequest: requests.ListVirtualNodesRequest
   ): Promise<responses.ListVirtualNodesResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listVirtualNodes.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listVirtualNodes.");
     const operationName = "listVirtualNodes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/ListVirtualNodes";
@@ -3000,6 +3052,7 @@ export class ContainerEngineClient {
       listVirtualNodesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3106,7 +3159,8 @@ export class ContainerEngineClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestError/ListWorkRequestErrors";
@@ -3129,6 +3183,7 @@ export class ContainerEngineClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3178,7 +3233,8 @@ export class ContainerEngineClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -3201,6 +3257,7 @@ export class ContainerEngineClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3250,7 +3307,7 @@ export class ContainerEngineClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestSummary/ListWorkRequests";
@@ -3279,6 +3336,7 @@ export class ContainerEngineClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3385,7 +3443,8 @@ export class ContainerEngineClient {
   public async listWorkloadMappings(
     listWorkloadMappingsRequest: requests.ListWorkloadMappingsRequest
   ): Promise<responses.ListWorkloadMappingsResponse> {
-    logger.debug("Calling operation ContainerEngineClient#listWorkloadMappings.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#listWorkloadMappings.");
     const operationName = "listWorkloadMappings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMappingSummary/ListWorkloadMappings";
@@ -3411,6 +3470,7 @@ export class ContainerEngineClient {
       listWorkloadMappingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3517,7 +3577,8 @@ export class ContainerEngineClient {
   public async startCredentialRotation(
     startCredentialRotationRequest: requests.StartCredentialRotationRequest
   ): Promise<responses.StartCredentialRotationResponse> {
-    logger.debug("Calling operation ContainerEngineClient#startCredentialRotation.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#startCredentialRotation.");
     const operationName = "startCredentialRotation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/StartCredentialRotation";
@@ -3540,6 +3601,7 @@ export class ContainerEngineClient {
       startCredentialRotationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3595,7 +3657,7 @@ export class ContainerEngineClient {
   public async updateAddon(
     updateAddonRequest: requests.UpdateAddonRequest
   ): Promise<responses.UpdateAddonResponse> {
-    logger.debug("Calling operation ContainerEngineClient#updateAddon.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateAddon.");
     const operationName = "updateAddon";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateAddon";
@@ -3618,6 +3680,7 @@ export class ContainerEngineClient {
       updateAddonRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3673,7 +3736,7 @@ export class ContainerEngineClient {
   public async updateCluster(
     updateClusterRequest: requests.UpdateClusterRequest
   ): Promise<responses.UpdateClusterResponse> {
-    logger.debug("Calling operation ContainerEngineClient#updateCluster.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateCluster.");
     const operationName = "updateCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateCluster";
@@ -3695,6 +3758,7 @@ export class ContainerEngineClient {
       updateClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3750,7 +3814,8 @@ export class ContainerEngineClient {
   public async updateClusterEndpointConfig(
     updateClusterEndpointConfigRequest: requests.UpdateClusterEndpointConfigRequest
   ): Promise<responses.UpdateClusterEndpointConfigResponse> {
-    logger.debug("Calling operation ContainerEngineClient#updateClusterEndpointConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#updateClusterEndpointConfig.");
     const operationName = "updateClusterEndpointConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateClusterEndpointConfig";
@@ -3772,6 +3837,7 @@ export class ContainerEngineClient {
       updateClusterEndpointConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3827,7 +3893,7 @@ export class ContainerEngineClient {
   public async updateNodePool(
     updateNodePoolRequest: requests.UpdateNodePoolRequest
   ): Promise<responses.UpdateNodePoolResponse> {
-    logger.debug("Calling operation ContainerEngineClient#updateNodePool.");
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateNodePool.");
     const operationName = "updateNodePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/UpdateNodePool";
@@ -3853,6 +3919,7 @@ export class ContainerEngineClient {
       updateNodePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3908,7 +3975,8 @@ export class ContainerEngineClient {
   public async updateVirtualNodePool(
     updateVirtualNodePoolRequest: requests.UpdateVirtualNodePoolRequest
   ): Promise<responses.UpdateVirtualNodePoolResponse> {
-    logger.debug("Calling operation ContainerEngineClient#updateVirtualNodePool.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#updateVirtualNodePool.");
     const operationName = "updateVirtualNodePool";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/UpdateVirtualNodePool";
@@ -3930,6 +3998,7 @@ export class ContainerEngineClient {
       updateVirtualNodePoolRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3985,7 +4054,8 @@ export class ContainerEngineClient {
   public async updateWorkloadMapping(
     updateWorkloadMappingRequest: requests.UpdateWorkloadMappingRequest
   ): Promise<responses.UpdateWorkloadMappingResponse> {
-    logger.debug("Calling operation ContainerEngineClient#updateWorkloadMapping.");
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#updateWorkloadMapping.");
     const operationName = "updateWorkloadMapping";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/UpdateWorkloadMapping";
@@ -4008,6 +4078,7 @@ export class ContainerEngineClient {
       updateWorkloadMappingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

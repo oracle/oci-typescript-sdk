@@ -145,7 +145,8 @@ export namespace SoftwareSource {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.softwareSourceType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.softwareSourceType}`);
       }
     }
     return jsonObj;
@@ -171,7 +172,8 @@ export namespace SoftwareSource {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.softwareSourceType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.softwareSourceType}`);
       }
     }
     return jsonObj;

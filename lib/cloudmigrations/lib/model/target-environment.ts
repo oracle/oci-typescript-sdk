@@ -38,7 +38,8 @@ export namespace TargetEnvironment {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.targetEnvironmentType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.targetEnvironmentType}`);
       }
     }
     return jsonObj;
@@ -54,7 +55,8 @@ export namespace TargetEnvironment {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.targetEnvironmentType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.targetEnvironmentType}`);
       }
     }
     return jsonObj;

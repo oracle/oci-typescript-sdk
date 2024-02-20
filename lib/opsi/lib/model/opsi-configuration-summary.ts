@@ -88,7 +88,7 @@ export namespace OpsiConfigurationSummary {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.opsiConfigType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.opsiConfigType}`);
       }
     }
     return jsonObj;
@@ -104,7 +104,7 @@ export namespace OpsiConfigurationSummary {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.opsiConfigType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.opsiConfigType}`);
       }
     }
     return jsonObj;

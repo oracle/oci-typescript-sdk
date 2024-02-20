@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export enum BastionApiKeys {}
 export class BastionClient {
   protected static serviceEndpointTemplate = "https://bastion.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": BastionWaiter;
@@ -118,7 +117,11 @@ export class BastionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210331";
-    logger.info(`BastionClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`BastionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class BastionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         BastionClient.serviceEndpointTemplate,
@@ -222,7 +226,7 @@ export class BastionClient {
   public async changeBastionCompartment(
     changeBastionCompartmentRequest: requests.ChangeBastionCompartmentRequest
   ): Promise<responses.ChangeBastionCompartmentResponse> {
-    logger.debug("Calling operation BastionClient#changeBastionCompartment.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#changeBastionCompartment.");
     const operationName = "changeBastionCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/ChangeBastionCompartment";
@@ -244,6 +248,7 @@ export class BastionClient {
       changeBastionCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -295,7 +300,7 @@ export class BastionClient {
   public async createBastion(
     createBastionRequest: requests.CreateBastionRequest
   ): Promise<responses.CreateBastionResponse> {
-    logger.debug("Calling operation BastionClient#createBastion.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#createBastion.");
     const operationName = "createBastion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/CreateBastion";
@@ -315,6 +320,7 @@ export class BastionClient {
       createBastionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -385,7 +391,7 @@ export class BastionClient {
   public async createSession(
     createSessionRequest: requests.CreateSessionRequest
   ): Promise<responses.CreateSessionResponse> {
-    logger.debug("Calling operation BastionClient#createSession.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#createSession.");
     const operationName = "createSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/CreateSession";
@@ -405,6 +411,7 @@ export class BastionClient {
       createSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -474,7 +481,7 @@ export class BastionClient {
   public async deleteBastion(
     deleteBastionRequest: requests.DeleteBastionRequest
   ): Promise<responses.DeleteBastionResponse> {
-    logger.debug("Calling operation BastionClient#deleteBastion.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#deleteBastion.");
     const operationName = "deleteBastion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/DeleteBastion";
@@ -496,6 +503,7 @@ export class BastionClient {
       deleteBastionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -546,7 +554,7 @@ export class BastionClient {
   public async deleteSession(
     deleteSessionRequest: requests.DeleteSessionRequest
   ): Promise<responses.DeleteSessionResponse> {
-    logger.debug("Calling operation BastionClient#deleteSession.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#deleteSession.");
     const operationName = "deleteSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/DeleteSession";
@@ -568,6 +576,7 @@ export class BastionClient {
       deleteSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -618,7 +627,7 @@ export class BastionClient {
   public async getBastion(
     getBastionRequest: requests.GetBastionRequest
   ): Promise<responses.GetBastionResponse> {
-    logger.debug("Calling operation BastionClient#getBastion.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#getBastion.");
     const operationName = "getBastion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/GetBastion";
@@ -639,6 +648,7 @@ export class BastionClient {
       getBastionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -693,7 +703,7 @@ export class BastionClient {
   public async getSession(
     getSessionRequest: requests.GetSessionRequest
   ): Promise<responses.GetSessionResponse> {
-    logger.debug("Calling operation BastionClient#getSession.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#getSession.");
     const operationName = "getSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/GetSession";
@@ -714,6 +724,7 @@ export class BastionClient {
       getSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -768,7 +779,7 @@ export class BastionClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation BastionClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/WorkRequest/GetWorkRequest";
@@ -789,6 +800,7 @@ export class BastionClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -844,7 +856,7 @@ export class BastionClient {
   public async listBastions(
     listBastionsRequest: requests.ListBastionsRequest
   ): Promise<responses.ListBastionsResponse> {
-    logger.debug("Calling operation BastionClient#listBastions.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#listBastions.");
     const operationName = "listBastions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/ListBastions";
@@ -872,6 +884,7 @@ export class BastionClient {
       listBastionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -979,7 +992,7 @@ export class BastionClient {
   public async listSessions(
     listSessionsRequest: requests.ListSessionsRequest
   ): Promise<responses.ListSessionsResponse> {
-    logger.debug("Calling operation BastionClient#listSessions.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#listSessions.");
     const operationName = "listSessions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/ListSessions";
@@ -1007,6 +1020,7 @@ export class BastionClient {
       listSessionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1114,7 +1128,7 @@ export class BastionClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation BastionClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/WorkRequestError/ListWorkRequestErrors";
@@ -1138,6 +1152,7 @@ export class BastionClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1245,7 +1260,7 @@ export class BastionClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation BastionClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1269,6 +1284,7 @@ export class BastionClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1376,7 +1392,7 @@ export class BastionClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation BastionClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/WorkRequest/ListWorkRequests";
@@ -1399,6 +1415,7 @@ export class BastionClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1505,7 +1522,7 @@ export class BastionClient {
   public async updateBastion(
     updateBastionRequest: requests.UpdateBastionRequest
   ): Promise<responses.UpdateBastionResponse> {
-    logger.debug("Calling operation BastionClient#updateBastion.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#updateBastion.");
     const operationName = "updateBastion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/UpdateBastion";
@@ -1527,6 +1544,7 @@ export class BastionClient {
       updateBastionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1582,7 +1600,7 @@ export class BastionClient {
   public async updateSession(
     updateSessionRequest: requests.UpdateSessionRequest
   ): Promise<responses.UpdateSessionResponse> {
-    logger.debug("Calling operation BastionClient#updateSession.");
+    if (this.logger) this.logger.debug("Calling operation BastionClient#updateSession.");
     const operationName = "updateSession";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/UpdateSession";
@@ -1604,6 +1622,7 @@ export class BastionClient {
       updateSessionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

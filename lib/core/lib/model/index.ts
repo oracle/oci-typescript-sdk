@@ -864,6 +864,8 @@ import * as UpdateInstanceConsoleConnectionDetails from "./update-instance-conso
 export import UpdateInstanceConsoleConnectionDetails = UpdateInstanceConsoleConnectionDetails.UpdateInstanceConsoleConnectionDetails;
 import * as UpdateInstanceDetails from "./update-instance-details";
 export import UpdateInstanceDetails = UpdateInstanceDetails.UpdateInstanceDetails;
+import * as UpdateInstancePlatformConfig from "./update-instance-platform-config";
+export import UpdateInstancePlatformConfig = UpdateInstancePlatformConfig.UpdateInstancePlatformConfig;
 import * as UpdateInstancePoolDetails from "./update-instance-pool-details";
 export import UpdateInstancePoolDetails = UpdateInstancePoolDetails.UpdateInstancePoolDetails;
 import * as UpdateInstancePoolPlacementConfigurationDetails from "./update-instance-pool-placement-configuration-details";
@@ -1009,6 +1011,8 @@ import * as AmdVmLaunchInstancePlatformConfig from "./amd-vm-launch-instance-pla
 export import AmdVmLaunchInstancePlatformConfig = AmdVmLaunchInstancePlatformConfig.AmdVmLaunchInstancePlatformConfig;
 import * as AmdVmPlatformConfig from "./amd-vm-platform-config";
 export import AmdVmPlatformConfig = AmdVmPlatformConfig.AmdVmPlatformConfig;
+import * as AmdVmUpdateInstancePlatformConfig from "./amd-vm-update-instance-platform-config";
+export import AmdVmUpdateInstancePlatformConfig = AmdVmUpdateInstancePlatformConfig.AmdVmUpdateInstancePlatformConfig;
 import * as AttachEmulatedVolumeDetails from "./attach-emulated-volume-details";
 export import AttachEmulatedVolumeDetails = AttachEmulatedVolumeDetails.AttachEmulatedVolumeDetails;
 import * as AttachIScsiVolumeDetails from "./attach-iscsi-volume-details";
@@ -1119,6 +1123,8 @@ import * as IntelVmLaunchInstancePlatformConfig from "./intel-vm-launch-instance
 export import IntelVmLaunchInstancePlatformConfig = IntelVmLaunchInstancePlatformConfig.IntelVmLaunchInstancePlatformConfig;
 import * as IntelVmPlatformConfig from "./intel-vm-platform-config";
 export import IntelVmPlatformConfig = IntelVmPlatformConfig.IntelVmPlatformConfig;
+import * as IntelVmUpdateInstancePlatformConfig from "./intel-vm-update-instance-platform-config";
+export import IntelVmUpdateInstancePlatformConfig = IntelVmUpdateInstancePlatformConfig.IntelVmUpdateInstancePlatformConfig;
 import * as IpsecTunnelDrgAttachmentNetworkDetails from "./ipsec-tunnel-drg-attachment-network-details";
 export import IpsecTunnelDrgAttachmentNetworkDetails = IpsecTunnelDrgAttachmentNetworkDetails.IpsecTunnelDrgAttachmentNetworkDetails;
 import * as LoopBackDrgAttachmentNetworkDetails from "./loop-back-drg-attachment-network-details";

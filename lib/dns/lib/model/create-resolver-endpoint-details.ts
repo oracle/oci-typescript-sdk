@@ -66,7 +66,7 @@ export namespace CreateResolverEndpointDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.endpointType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.endpointType}`);
       }
     }
     return jsonObj;
@@ -82,7 +82,7 @@ export namespace CreateResolverEndpointDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.endpointType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.endpointType}`);
       }
     }
     return jsonObj;

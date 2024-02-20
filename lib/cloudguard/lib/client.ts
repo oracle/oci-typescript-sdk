@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -40,7 +39,7 @@ export class CloudGuardClient {
   protected static serviceEndpointTemplate =
     "https://cloudguard-cp-api.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": CloudGuardWaiter;
@@ -121,7 +120,11 @@ export class CloudGuardClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200131";
-    logger.info(`CloudGuardClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`CloudGuardClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -131,9 +134,10 @@ export class CloudGuardClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         CloudGuardClient.serviceEndpointTemplate,
@@ -225,7 +229,7 @@ export class CloudGuardClient {
   public async addCompartment(
     addCompartmentRequest: requests.AddCompartmentRequest
   ): Promise<responses.AddCompartmentResponse> {
-    logger.debug("Calling operation CloudGuardClient#addCompartment.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#addCompartment.");
     const operationName = "addCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/AddCompartment";
@@ -248,6 +252,7 @@ export class CloudGuardClient {
       addCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -307,7 +312,7 @@ export class CloudGuardClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation CloudGuardClient#cancelWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequest/CancelWorkRequest";
@@ -329,6 +334,7 @@ export class CloudGuardClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -374,7 +380,8 @@ export class CloudGuardClient {
   public async changeDataSourceCompartment(
     changeDataSourceCompartmentRequest: requests.ChangeDataSourceCompartmentRequest
   ): Promise<responses.ChangeDataSourceCompartmentResponse> {
-    logger.debug("Calling operation CloudGuardClient#changeDataSourceCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeDataSourceCompartment.");
     const operationName = "changeDataSourceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/ChangeDataSourceCompartment";
@@ -397,6 +404,7 @@ export class CloudGuardClient {
       changeDataSourceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -452,7 +460,8 @@ export class CloudGuardClient {
   public async changeDetectorRecipeCompartment(
     changeDetectorRecipeCompartmentRequest: requests.ChangeDetectorRecipeCompartmentRequest
   ): Promise<responses.ChangeDetectorRecipeCompartmentResponse> {
-    logger.debug("Calling operation CloudGuardClient#changeDetectorRecipeCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeDetectorRecipeCompartment.");
     const operationName = "changeDetectorRecipeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/ChangeDetectorRecipeCompartment";
@@ -475,6 +484,7 @@ export class CloudGuardClient {
       changeDetectorRecipeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -525,7 +535,8 @@ export class CloudGuardClient {
   public async changeManagedListCompartment(
     changeManagedListCompartmentRequest: requests.ChangeManagedListCompartmentRequest
   ): Promise<responses.ChangeManagedListCompartmentResponse> {
-    logger.debug("Calling operation CloudGuardClient#changeManagedListCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeManagedListCompartment.");
     const operationName = "changeManagedListCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/ChangeManagedListCompartment";
@@ -548,6 +559,7 @@ export class CloudGuardClient {
       changeManagedListCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -598,7 +610,8 @@ export class CloudGuardClient {
   public async changeResponderRecipeCompartment(
     changeResponderRecipeCompartmentRequest: requests.ChangeResponderRecipeCompartmentRequest
   ): Promise<responses.ChangeResponderRecipeCompartmentResponse> {
-    logger.debug("Calling operation CloudGuardClient#changeResponderRecipeCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeResponderRecipeCompartment.");
     const operationName = "changeResponderRecipeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/ChangeResponderRecipeCompartment";
@@ -621,6 +634,7 @@ export class CloudGuardClient {
       changeResponderRecipeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -671,7 +685,8 @@ export class CloudGuardClient {
   public async changeSecurityRecipeCompartment(
     changeSecurityRecipeCompartmentRequest: requests.ChangeSecurityRecipeCompartmentRequest
   ): Promise<responses.ChangeSecurityRecipeCompartmentResponse> {
-    logger.debug("Calling operation CloudGuardClient#changeSecurityRecipeCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeSecurityRecipeCompartment.");
     const operationName = "changeSecurityRecipeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/ChangeSecurityRecipeCompartment";
@@ -694,6 +709,7 @@ export class CloudGuardClient {
       changeSecurityRecipeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -744,7 +760,8 @@ export class CloudGuardClient {
   public async changeSecurityZoneCompartment(
     changeSecurityZoneCompartmentRequest: requests.ChangeSecurityZoneCompartmentRequest
   ): Promise<responses.ChangeSecurityZoneCompartmentResponse> {
-    logger.debug("Calling operation CloudGuardClient#changeSecurityZoneCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeSecurityZoneCompartment.");
     const operationName = "changeSecurityZoneCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/ChangeSecurityZoneCompartment";
@@ -767,6 +784,7 @@ export class CloudGuardClient {
       changeSecurityZoneCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -818,7 +836,7 @@ export class CloudGuardClient {
   public async createDataMaskRule(
     createDataMaskRuleRequest: requests.CreateDataMaskRuleRequest
   ): Promise<responses.CreateDataMaskRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#createDataMaskRule.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createDataMaskRule.");
     const operationName = "createDataMaskRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/CreateDataMaskRule";
@@ -838,6 +856,7 @@ export class CloudGuardClient {
       createDataMaskRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -898,7 +917,7 @@ export class CloudGuardClient {
   public async createDataSource(
     createDataSourceRequest: requests.CreateDataSourceRequest
   ): Promise<responses.CreateDataSourceResponse> {
-    logger.debug("Calling operation CloudGuardClient#createDataSource.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createDataSource.");
     const operationName = "createDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/CreateDataSource";
@@ -918,6 +937,7 @@ export class CloudGuardClient {
       createDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -974,7 +994,7 @@ export class CloudGuardClient {
   public async createDetectorRecipe(
     createDetectorRecipeRequest: requests.CreateDetectorRecipeRequest
   ): Promise<responses.CreateDetectorRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#createDetectorRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createDetectorRecipe.");
     const operationName = "createDetectorRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/CreateDetectorRecipe";
@@ -994,6 +1014,7 @@ export class CloudGuardClient {
       createDetectorRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1053,7 +1074,8 @@ export class CloudGuardClient {
   public async createDetectorRecipeDetectorRule(
     createDetectorRecipeDetectorRuleRequest: requests.CreateDetectorRecipeDetectorRuleRequest
   ): Promise<responses.CreateDetectorRecipeDetectorRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#createDetectorRecipeDetectorRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#createDetectorRecipeDetectorRule.");
     const operationName = "createDetectorRecipeDetectorRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/CreateDetectorRecipeDetectorRule";
@@ -1075,6 +1097,7 @@ export class CloudGuardClient {
       createDetectorRecipeDetectorRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1135,7 +1158,7 @@ export class CloudGuardClient {
   public async createManagedList(
     createManagedListRequest: requests.CreateManagedListRequest
   ): Promise<responses.CreateManagedListResponse> {
-    logger.debug("Calling operation CloudGuardClient#createManagedList.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createManagedList.");
     const operationName = "createManagedList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/CreateManagedList";
@@ -1155,6 +1178,7 @@ export class CloudGuardClient {
       createManagedListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1215,7 +1239,7 @@ export class CloudGuardClient {
   public async createResponderRecipe(
     createResponderRecipeRequest: requests.CreateResponderRecipeRequest
   ): Promise<responses.CreateResponderRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#createResponderRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createResponderRecipe.");
     const operationName = "createResponderRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/CreateResponderRecipe";
@@ -1235,6 +1259,7 @@ export class CloudGuardClient {
       createResponderRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1295,7 +1320,7 @@ export class CloudGuardClient {
   public async createSecurityRecipe(
     createSecurityRecipeRequest: requests.CreateSecurityRecipeRequest
   ): Promise<responses.CreateSecurityRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#createSecurityRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createSecurityRecipe.");
     const operationName = "createSecurityRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/CreateSecurityRecipe";
@@ -1315,6 +1340,7 @@ export class CloudGuardClient {
       createSecurityRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1375,7 +1401,7 @@ export class CloudGuardClient {
   public async createSecurityZone(
     createSecurityZoneRequest: requests.CreateSecurityZoneRequest
   ): Promise<responses.CreateSecurityZoneResponse> {
-    logger.debug("Calling operation CloudGuardClient#createSecurityZone.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createSecurityZone.");
     const operationName = "createSecurityZone";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/CreateSecurityZone";
@@ -1395,6 +1421,7 @@ export class CloudGuardClient {
       createSecurityZoneRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1455,7 +1482,7 @@ export class CloudGuardClient {
   public async createTarget(
     createTargetRequest: requests.CreateTargetRequest
   ): Promise<responses.CreateTargetResponse> {
-    logger.debug("Calling operation CloudGuardClient#createTarget.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createTarget.");
     const operationName = "createTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/CreateTarget";
@@ -1475,6 +1502,7 @@ export class CloudGuardClient {
       createTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1535,7 +1563,8 @@ export class CloudGuardClient {
   public async createTargetDetectorRecipe(
     createTargetDetectorRecipeRequest: requests.CreateTargetDetectorRecipeRequest
   ): Promise<responses.CreateTargetDetectorRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#createTargetDetectorRecipe.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#createTargetDetectorRecipe.");
     const operationName = "createTargetDetectorRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/CreateTargetDetectorRecipe";
@@ -1557,6 +1586,7 @@ export class CloudGuardClient {
       createTargetDetectorRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1617,7 +1647,8 @@ export class CloudGuardClient {
   public async createTargetResponderRecipe(
     createTargetResponderRecipeRequest: requests.CreateTargetResponderRecipeRequest
   ): Promise<responses.CreateTargetResponderRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#createTargetResponderRecipe.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#createTargetResponderRecipe.");
     const operationName = "createTargetResponderRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/CreateTargetResponderRecipe";
@@ -1639,6 +1670,7 @@ export class CloudGuardClient {
       createTargetResponderRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1698,7 +1730,7 @@ export class CloudGuardClient {
   public async deleteDataMaskRule(
     deleteDataMaskRuleRequest: requests.DeleteDataMaskRuleRequest
   ): Promise<responses.DeleteDataMaskRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteDataMaskRule.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteDataMaskRule.");
     const operationName = "deleteDataMaskRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/DeleteDataMaskRule";
@@ -1720,6 +1752,7 @@ export class CloudGuardClient {
       deleteDataMaskRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1765,7 +1798,7 @@ export class CloudGuardClient {
   public async deleteDataSource(
     deleteDataSourceRequest: requests.DeleteDataSourceRequest
   ): Promise<responses.DeleteDataSourceResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteDataSource.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteDataSource.");
     const operationName = "deleteDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/DeleteDataSource";
@@ -1788,6 +1821,7 @@ export class CloudGuardClient {
       deleteDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1838,7 +1872,7 @@ export class CloudGuardClient {
   public async deleteDetectorRecipe(
     deleteDetectorRecipeRequest: requests.DeleteDetectorRecipeRequest
   ): Promise<responses.DeleteDetectorRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteDetectorRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteDetectorRecipe.");
     const operationName = "deleteDetectorRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/DeleteDetectorRecipe";
@@ -1861,6 +1895,7 @@ export class CloudGuardClient {
       deleteDetectorRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1906,7 +1941,8 @@ export class CloudGuardClient {
   public async deleteDetectorRecipeDetectorRule(
     deleteDetectorRecipeDetectorRuleRequest: requests.DeleteDetectorRecipeDetectorRuleRequest
   ): Promise<responses.DeleteDetectorRecipeDetectorRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteDetectorRecipeDetectorRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#deleteDetectorRecipeDetectorRule.");
     const operationName = "deleteDetectorRecipeDetectorRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/DeleteDetectorRecipeDetectorRule";
@@ -1929,6 +1965,7 @@ export class CloudGuardClient {
       deleteDetectorRecipeDetectorRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1974,7 +2011,10 @@ export class CloudGuardClient {
   public async deleteDetectorRecipeDetectorRuleDataSource(
     deleteDetectorRecipeDetectorRuleDataSourceRequest: requests.DeleteDetectorRecipeDetectorRuleDataSourceRequest
   ): Promise<responses.DeleteDetectorRecipeDetectorRuleDataSourceResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteDetectorRecipeDetectorRuleDataSource.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#deleteDetectorRecipeDetectorRuleDataSource."
+      );
     const operationName = "deleteDetectorRecipeDetectorRuleDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/DeleteDetectorRecipeDetectorRuleDataSource";
@@ -1998,6 +2038,7 @@ export class CloudGuardClient {
       deleteDetectorRecipeDetectorRuleDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2044,7 +2085,7 @@ export class CloudGuardClient {
   public async deleteManagedList(
     deleteManagedListRequest: requests.DeleteManagedListRequest
   ): Promise<responses.DeleteManagedListResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteManagedList.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteManagedList.");
     const operationName = "deleteManagedList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/DeleteManagedList";
@@ -2067,6 +2108,7 @@ export class CloudGuardClient {
       deleteManagedListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2112,7 +2154,7 @@ export class CloudGuardClient {
   public async deleteResponderRecipe(
     deleteResponderRecipeRequest: requests.DeleteResponderRecipeRequest
   ): Promise<responses.DeleteResponderRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteResponderRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteResponderRecipe.");
     const operationName = "deleteResponderRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/DeleteResponderRecipe";
@@ -2134,6 +2176,7 @@ export class CloudGuardClient {
       deleteResponderRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2179,7 +2222,7 @@ export class CloudGuardClient {
   public async deleteSecurityRecipe(
     deleteSecurityRecipeRequest: requests.DeleteSecurityRecipeRequest
   ): Promise<responses.DeleteSecurityRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteSecurityRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteSecurityRecipe.");
     const operationName = "deleteSecurityRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/DeleteSecurityRecipe";
@@ -2201,6 +2244,7 @@ export class CloudGuardClient {
       deleteSecurityRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2246,7 +2290,7 @@ export class CloudGuardClient {
   public async deleteSecurityZone(
     deleteSecurityZoneRequest: requests.DeleteSecurityZoneRequest
   ): Promise<responses.DeleteSecurityZoneResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteSecurityZone.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteSecurityZone.");
     const operationName = "deleteSecurityZone";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/DeleteSecurityZone";
@@ -2268,6 +2312,7 @@ export class CloudGuardClient {
       deleteSecurityZoneRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2313,7 +2358,7 @@ export class CloudGuardClient {
   public async deleteTarget(
     deleteTargetRequest: requests.DeleteTargetRequest
   ): Promise<responses.DeleteTargetResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteTarget.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteTarget.");
     const operationName = "deleteTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/DeleteTarget";
@@ -2335,6 +2380,7 @@ export class CloudGuardClient {
       deleteTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2380,7 +2426,8 @@ export class CloudGuardClient {
   public async deleteTargetDetectorRecipe(
     deleteTargetDetectorRecipeRequest: requests.DeleteTargetDetectorRecipeRequest
   ): Promise<responses.DeleteTargetDetectorRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteTargetDetectorRecipe.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#deleteTargetDetectorRecipe.");
     const operationName = "deleteTargetDetectorRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/DeleteTargetDetectorRecipe";
@@ -2403,6 +2450,7 @@ export class CloudGuardClient {
       deleteTargetDetectorRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2448,7 +2496,8 @@ export class CloudGuardClient {
   public async deleteTargetResponderRecipe(
     deleteTargetResponderRecipeRequest: requests.DeleteTargetResponderRecipeRequest
   ): Promise<responses.DeleteTargetResponderRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#deleteTargetResponderRecipe.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#deleteTargetResponderRecipe.");
     const operationName = "deleteTargetResponderRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/DeleteTargetResponderRecipe";
@@ -2471,6 +2520,7 @@ export class CloudGuardClient {
       deleteTargetResponderRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2516,7 +2566,8 @@ export class CloudGuardClient {
   public async executeResponderExecution(
     executeResponderExecutionRequest: requests.ExecuteResponderExecutionRequest
   ): Promise<responses.ExecuteResponderExecutionResponse> {
-    logger.debug("Calling operation CloudGuardClient#executeResponderExecution.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#executeResponderExecution.");
     const operationName = "executeResponderExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecution/ExecuteResponderExecution";
@@ -2541,6 +2592,7 @@ export class CloudGuardClient {
       executeResponderExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2592,7 +2644,8 @@ export class CloudGuardClient {
   public async getConditionMetadataType(
     getConditionMetadataTypeRequest: requests.GetConditionMetadataTypeRequest
   ): Promise<responses.GetConditionMetadataTypeResponse> {
-    logger.debug("Calling operation CloudGuardClient#getConditionMetadataType.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#getConditionMetadataType.");
     const operationName = "getConditionMetadataType";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ConditionMetadataType/GetConditionMetadataType";
@@ -2616,6 +2669,7 @@ export class CloudGuardClient {
       getConditionMetadataTypeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2670,7 +2724,7 @@ export class CloudGuardClient {
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
-    logger.debug("Calling operation CloudGuardClient#getConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getConfiguration.");
     const operationName = "getConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Configuration/GetConfiguration";
@@ -2691,6 +2745,7 @@ export class CloudGuardClient {
       getConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2750,7 +2805,7 @@ export class CloudGuardClient {
   public async getDataMaskRule(
     getDataMaskRuleRequest: requests.GetDataMaskRuleRequest
   ): Promise<responses.GetDataMaskRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#getDataMaskRule.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDataMaskRule.");
     const operationName = "getDataMaskRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/GetDataMaskRule";
@@ -2771,6 +2826,7 @@ export class CloudGuardClient {
       getDataMaskRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2825,7 +2881,7 @@ export class CloudGuardClient {
   public async getDataSource(
     getDataSourceRequest: requests.GetDataSourceRequest
   ): Promise<responses.GetDataSourceResponse> {
-    logger.debug("Calling operation CloudGuardClient#getDataSource.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDataSource.");
     const operationName = "getDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/GetDataSource";
@@ -2846,6 +2902,7 @@ export class CloudGuardClient {
       getDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2901,7 +2958,7 @@ export class CloudGuardClient {
   public async getDetector(
     getDetectorRequest: requests.GetDetectorRequest
   ): Promise<responses.GetDetectorResponse> {
-    logger.debug("Calling operation CloudGuardClient#getDetector.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDetector.");
     const operationName = "getDetector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Detector/GetDetector";
@@ -2922,6 +2979,7 @@ export class CloudGuardClient {
       getDetectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2976,7 +3034,7 @@ export class CloudGuardClient {
   public async getDetectorRecipe(
     getDetectorRecipeRequest: requests.GetDetectorRecipeRequest
   ): Promise<responses.GetDetectorRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#getDetectorRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDetectorRecipe.");
     const operationName = "getDetectorRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/GetDetectorRecipe";
@@ -2997,6 +3055,7 @@ export class CloudGuardClient {
       getDetectorRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3051,7 +3110,8 @@ export class CloudGuardClient {
   public async getDetectorRecipeDetectorRule(
     getDetectorRecipeDetectorRuleRequest: requests.GetDetectorRecipeDetectorRuleRequest
   ): Promise<responses.GetDetectorRecipeDetectorRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#getDetectorRecipeDetectorRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#getDetectorRecipeDetectorRule.");
     const operationName = "getDetectorRecipeDetectorRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/GetDetectorRecipeDetectorRule";
@@ -3073,6 +3133,7 @@ export class CloudGuardClient {
       getDetectorRecipeDetectorRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3128,7 +3189,7 @@ export class CloudGuardClient {
   public async getDetectorRule(
     getDetectorRuleRequest: requests.GetDetectorRuleRequest
   ): Promise<responses.GetDetectorRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#getDetectorRule.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDetectorRule.");
     const operationName = "getDetectorRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRule/GetDetectorRule";
@@ -3150,6 +3211,7 @@ export class CloudGuardClient {
       getDetectorRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3209,7 +3271,7 @@ export class CloudGuardClient {
   public async getManagedList(
     getManagedListRequest: requests.GetManagedListRequest
   ): Promise<responses.GetManagedListResponse> {
-    logger.debug("Calling operation CloudGuardClient#getManagedList.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getManagedList.");
     const operationName = "getManagedList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/GetManagedList";
@@ -3230,6 +3292,7 @@ export class CloudGuardClient {
       getManagedListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3284,7 +3347,7 @@ export class CloudGuardClient {
   public async getProblem(
     getProblemRequest: requests.GetProblemRequest
   ): Promise<responses.GetProblemResponse> {
-    logger.debug("Calling operation CloudGuardClient#getProblem.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getProblem.");
     const operationName = "getProblem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/GetProblem";
@@ -3305,6 +3368,7 @@ export class CloudGuardClient {
       getProblemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3359,7 +3423,7 @@ export class CloudGuardClient {
   public async getResourceProfile(
     getResourceProfileRequest: requests.GetResourceProfileRequest
   ): Promise<responses.GetResourceProfileResponse> {
-    logger.debug("Calling operation CloudGuardClient#getResourceProfile.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResourceProfile.");
     const operationName = "getResourceProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfile/GetResourceProfile";
@@ -3380,6 +3444,7 @@ export class CloudGuardClient {
       getResourceProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3435,7 +3500,7 @@ export class CloudGuardClient {
   public async getResponderExecution(
     getResponderExecutionRequest: requests.GetResponderExecutionRequest
   ): Promise<responses.GetResponderExecutionResponse> {
-    logger.debug("Calling operation CloudGuardClient#getResponderExecution.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResponderExecution.");
     const operationName = "getResponderExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecution/GetResponderExecution";
@@ -3456,6 +3521,7 @@ export class CloudGuardClient {
       getResponderExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3510,7 +3576,7 @@ export class CloudGuardClient {
   public async getResponderRecipe(
     getResponderRecipeRequest: requests.GetResponderRecipeRequest
   ): Promise<responses.GetResponderRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#getResponderRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResponderRecipe.");
     const operationName = "getResponderRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/GetResponderRecipe";
@@ -3531,6 +3597,7 @@ export class CloudGuardClient {
       getResponderRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3585,7 +3652,8 @@ export class CloudGuardClient {
   public async getResponderRecipeResponderRule(
     getResponderRecipeResponderRuleRequest: requests.GetResponderRecipeResponderRuleRequest
   ): Promise<responses.GetResponderRecipeResponderRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#getResponderRecipeResponderRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#getResponderRecipeResponderRule.");
     const operationName = "getResponderRecipeResponderRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipeResponderRule/GetResponderRecipeResponderRule";
@@ -3607,6 +3675,7 @@ export class CloudGuardClient {
       getResponderRecipeResponderRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3661,7 +3730,7 @@ export class CloudGuardClient {
   public async getResponderRule(
     getResponderRuleRequest: requests.GetResponderRuleRequest
   ): Promise<responses.GetResponderRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#getResponderRule.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResponderRule.");
     const operationName = "getResponderRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRule/GetResponderRule";
@@ -3682,6 +3751,7 @@ export class CloudGuardClient {
       getResponderRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3736,7 +3806,7 @@ export class CloudGuardClient {
   public async getSecurityPolicy(
     getSecurityPolicyRequest: requests.GetSecurityPolicyRequest
   ): Promise<responses.GetSecurityPolicyResponse> {
-    logger.debug("Calling operation CloudGuardClient#getSecurityPolicy.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityPolicy.");
     const operationName = "getSecurityPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityPolicy/GetSecurityPolicy";
@@ -3757,6 +3827,7 @@ export class CloudGuardClient {
       getSecurityPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3811,7 +3882,7 @@ export class CloudGuardClient {
   public async getSecurityRecipe(
     getSecurityRecipeRequest: requests.GetSecurityRecipeRequest
   ): Promise<responses.GetSecurityRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#getSecurityRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityRecipe.");
     const operationName = "getSecurityRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/GetSecurityRecipe";
@@ -3832,6 +3903,7 @@ export class CloudGuardClient {
       getSecurityRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3886,7 +3958,7 @@ export class CloudGuardClient {
   public async getSecurityZone(
     getSecurityZoneRequest: requests.GetSecurityZoneRequest
   ): Promise<responses.GetSecurityZoneResponse> {
-    logger.debug("Calling operation CloudGuardClient#getSecurityZone.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityZone.");
     const operationName = "getSecurityZone";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/GetSecurityZone";
@@ -3907,6 +3979,7 @@ export class CloudGuardClient {
       getSecurityZoneRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3961,7 +4034,7 @@ export class CloudGuardClient {
   public async getSighting(
     getSightingRequest: requests.GetSightingRequest
   ): Promise<responses.GetSightingResponse> {
-    logger.debug("Calling operation CloudGuardClient#getSighting.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSighting.");
     const operationName = "getSighting";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Sighting/GetSighting";
@@ -3982,6 +4055,7 @@ export class CloudGuardClient {
       getSightingRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4036,7 +4110,7 @@ export class CloudGuardClient {
   public async getTarget(
     getTargetRequest: requests.GetTargetRequest
   ): Promise<responses.GetTargetResponse> {
-    logger.debug("Calling operation CloudGuardClient#getTarget.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getTarget.");
     const operationName = "getTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/GetTarget";
@@ -4057,6 +4131,7 @@ export class CloudGuardClient {
       getTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4111,7 +4186,8 @@ export class CloudGuardClient {
   public async getTargetDetectorRecipe(
     getTargetDetectorRecipeRequest: requests.GetTargetDetectorRecipeRequest
   ): Promise<responses.GetTargetDetectorRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#getTargetDetectorRecipe.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#getTargetDetectorRecipe.");
     const operationName = "getTargetDetectorRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/GetTargetDetectorRecipe";
@@ -4133,6 +4209,7 @@ export class CloudGuardClient {
       getTargetDetectorRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4187,7 +4264,8 @@ export class CloudGuardClient {
   public async getTargetDetectorRecipeDetectorRule(
     getTargetDetectorRecipeDetectorRuleRequest: requests.GetTargetDetectorRecipeDetectorRuleRequest
   ): Promise<responses.GetTargetDetectorRecipeDetectorRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#getTargetDetectorRecipeDetectorRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#getTargetDetectorRecipeDetectorRule.");
     const operationName = "getTargetDetectorRecipeDetectorRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipeDetectorRule/GetTargetDetectorRecipeDetectorRule";
@@ -4210,6 +4288,7 @@ export class CloudGuardClient {
       getTargetDetectorRecipeDetectorRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4265,7 +4344,8 @@ export class CloudGuardClient {
   public async getTargetResponderRecipe(
     getTargetResponderRecipeRequest: requests.GetTargetResponderRecipeRequest
   ): Promise<responses.GetTargetResponderRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#getTargetResponderRecipe.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#getTargetResponderRecipe.");
     const operationName = "getTargetResponderRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/GetTargetResponderRecipe";
@@ -4287,6 +4367,7 @@ export class CloudGuardClient {
       getTargetResponderRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4341,7 +4422,10 @@ export class CloudGuardClient {
   public async getTargetResponderRecipeResponderRule(
     getTargetResponderRecipeResponderRuleRequest: requests.GetTargetResponderRecipeResponderRuleRequest
   ): Promise<responses.GetTargetResponderRecipeResponderRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#getTargetResponderRecipeResponderRule.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#getTargetResponderRecipeResponderRule."
+      );
     const operationName = "getTargetResponderRecipeResponderRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipeResponderRule/GetTargetResponderRecipeResponderRule";
@@ -4365,6 +4449,7 @@ export class CloudGuardClient {
       getTargetResponderRecipeResponderRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4420,7 +4505,7 @@ export class CloudGuardClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation CloudGuardClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequest/GetWorkRequest";
@@ -4441,6 +4526,7 @@ export class CloudGuardClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4501,7 +4587,8 @@ export class CloudGuardClient {
   public async listConditionMetadataTypes(
     listConditionMetadataTypesRequest: requests.ListConditionMetadataTypesRequest
   ): Promise<responses.ListConditionMetadataTypesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listConditionMetadataTypes.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listConditionMetadataTypes.");
     const operationName = "listConditionMetadataTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ConditionMetadataType/ListConditionMetadataTypes";
@@ -4527,6 +4614,7 @@ export class CloudGuardClient {
       listConditionMetadataTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4582,7 +4670,7 @@ export class CloudGuardClient {
   public async listDataMaskRules(
     listDataMaskRulesRequest: requests.ListDataMaskRulesRequest
   ): Promise<responses.ListDataMaskRulesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listDataMaskRules.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDataMaskRules.");
     const operationName = "listDataMaskRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/ListDataMaskRules";
@@ -4614,6 +4702,7 @@ export class CloudGuardClient {
       listDataMaskRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4669,7 +4758,7 @@ export class CloudGuardClient {
   public async listDataSourceEvents(
     listDataSourceEventsRequest: requests.ListDataSourceEventsRequest
   ): Promise<responses.ListDataSourceEventsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listDataSourceEvents.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDataSourceEvents.");
     const operationName = "listDataSourceEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/ListDataSourceEvents";
@@ -4696,6 +4785,7 @@ export class CloudGuardClient {
       listDataSourceEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4765,7 +4855,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListdataSources 
   public async listDataSources(
     listDataSourcesRequest: requests.ListDataSourcesRequest
   ): Promise<responses.ListDataSourcesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listDataSources.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDataSources.");
     const operationName = "listDataSources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/ListDataSources";
@@ -4796,6 +4886,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListdataSources 
       listDataSourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4851,7 +4942,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListdataSources 
   public async listDetectorRecipeDetectorRules(
     listDetectorRecipeDetectorRulesRequest: requests.ListDetectorRecipeDetectorRulesRequest
   ): Promise<responses.ListDetectorRecipeDetectorRulesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listDetectorRecipeDetectorRules.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listDetectorRecipeDetectorRules.");
     const operationName = "listDetectorRecipeDetectorRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/ListDetectorRecipeDetectorRules";
@@ -4880,6 +4972,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListdataSources 
       listDetectorRecipeDetectorRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4949,7 +5042,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   public async listDetectorRecipes(
     listDetectorRecipesRequest: requests.ListDetectorRecipesRequest
   ): Promise<responses.ListDetectorRecipesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listDetectorRecipes.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDetectorRecipes.");
     const operationName = "listDetectorRecipes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/ListDetectorRecipes";
@@ -4979,6 +5072,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       listDetectorRecipesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5034,7 +5128,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   public async listDetectorRules(
     listDetectorRulesRequest: requests.ListDetectorRulesRequest
   ): Promise<responses.ListDetectorRulesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listDetectorRules.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDetectorRules.");
     const operationName = "listDetectorRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRule/ListDetectorRules";
@@ -5063,6 +5157,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       listDetectorRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5118,7 +5213,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   public async listDetectors(
     listDetectorsRequest: requests.ListDetectorsRequest
   ): Promise<responses.ListDetectorsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listDetectors.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDetectors.");
     const operationName = "listDetectors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Detector/ListDetectors";
@@ -5144,6 +5239,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       listDetectorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5199,7 +5295,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   public async listImpactedResources(
     listImpactedResourcesRequest: requests.ListImpactedResourcesRequest
   ): Promise<responses.ListImpactedResourcesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listImpactedResources.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listImpactedResources.");
     const operationName = "listImpactedResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ImpactedResourceSummary/ListImpactedResources";
@@ -5225,6 +5321,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       listImpactedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5279,7 +5376,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   public async listManagedListTypes(
     listManagedListTypesRequest: requests.ListManagedListTypesRequest
   ): Promise<responses.ListManagedListTypesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listManagedListTypes.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listManagedListTypes.");
     const operationName = "listManagedListTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedListTypeSummary/ListManagedListTypes";
@@ -5305,6 +5402,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       listManagedListTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5373,7 +5471,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   public async listManagedLists(
     listManagedListsRequest: requests.ListManagedListsRequest
   ): Promise<responses.ListManagedListsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listManagedLists.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listManagedLists.");
     const operationName = "listManagedLists";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/ListManagedLists";
@@ -5404,6 +5502,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       listManagedListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5459,7 +5558,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listPolicies.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listPolicies.");
     const operationName = "listPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/PolicySummary/ListPolicies";
@@ -5484,6 +5583,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       listPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5539,7 +5639,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   public async listProblemEndpoints(
     listProblemEndpointsRequest: requests.ListProblemEndpointsRequest
   ): Promise<responses.ListProblemEndpointsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listProblemEndpoints.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listProblemEndpoints.");
     const operationName = "listProblemEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ProblemEndpointSummary/ListProblemEndpoints";
@@ -5565,6 +5665,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       listProblemEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5620,7 +5721,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   public async listProblemEntities(
     listProblemEntitiesRequest: requests.ListProblemEntitiesRequest
   ): Promise<responses.ListProblemEntitiesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listProblemEntities.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listProblemEntities.");
     const operationName = "listProblemEntities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/ListProblemEntities";
@@ -5646,6 +5747,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       listProblemEntitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5701,7 +5803,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   public async listProblemHistories(
     listProblemHistoriesRequest: requests.ListProblemHistoriesRequest
   ): Promise<responses.ListProblemHistoriesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listProblemHistories.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listProblemHistories.");
     const operationName = "listProblemHistories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/ListProblemHistories";
@@ -5728,6 +5830,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       listProblemHistoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5797,7 +5900,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   public async listProblems(
     listProblemsRequest: requests.ListProblemsRequest
   ): Promise<responses.ListProblemsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listProblems.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listProblems.");
     const operationName = "listProblems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/ListProblems";
@@ -5844,6 +5947,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       listProblemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5899,7 +6003,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   public async listRecommendations(
     listRecommendationsRequest: requests.ListRecommendationsRequest
   ): Promise<responses.ListRecommendationsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listRecommendations.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listRecommendations.");
     const operationName = "listRecommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/RecommendationSummary/ListRecommendations";
@@ -5929,6 +6033,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       listRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5983,7 +6088,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   public async listResourceProfileEndpoints(
     listResourceProfileEndpointsRequest: requests.ListResourceProfileEndpointsRequest
   ): Promise<responses.ListResourceProfileEndpointsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResourceProfileEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listResourceProfileEndpoints.");
     const operationName = "listResourceProfileEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfileEndpointSummary/ListResourceProfileEndpoints";
@@ -6009,6 +6115,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       listResourceProfileEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6063,7 +6170,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   public async listResourceProfileImpactedResources(
     listResourceProfileImpactedResourcesRequest: requests.ListResourceProfileImpactedResourcesRequest
   ): Promise<responses.ListResourceProfileImpactedResourcesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResourceProfileImpactedResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listResourceProfileImpactedResources.");
     const operationName = "listResourceProfileImpactedResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfileImpactedResourceSummary/ListResourceProfileImpactedResources";
@@ -6089,6 +6197,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       listResourceProfileImpactedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6157,7 +6266,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   public async listResourceProfiles(
     listResourceProfilesRequest: requests.ListResourceProfilesRequest
   ): Promise<responses.ListResourceProfilesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResourceProfiles.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResourceProfiles.");
     const operationName = "listResourceProfiles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfileSummary/ListResourceProfiles";
@@ -6197,6 +6306,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       listResourceProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6252,7 +6362,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   public async listResourceTypes(
     listResourceTypesRequest: requests.ListResourceTypesRequest
   ): Promise<responses.ListResourceTypesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResourceTypes.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResourceTypes.");
     const operationName = "listResourceTypes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceTypeSummary/ListResourceTypes";
@@ -6279,6 +6389,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       listResourceTypesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6334,7 +6445,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   public async listResponderActivities(
     listResponderActivitiesRequest: requests.ListResponderActivitiesRequest
   ): Promise<responses.ListResponderActivitiesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResponderActivities.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listResponderActivities.");
     const operationName = "listResponderActivities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderActivitySummary/ListResponderActivities";
@@ -6360,6 +6472,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       listResponderActivitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6415,7 +6528,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   public async listResponderExecutions(
     listResponderExecutionsRequest: requests.ListResponderExecutionsRequest
   ): Promise<responses.ListResponderExecutionsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResponderExecutions.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listResponderExecutions.");
     const operationName = "listResponderExecutions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecutionSummary/ListResponderExecutions";
@@ -6455,6 +6569,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       listResponderExecutionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6510,7 +6625,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   public async listResponderRecipeResponderRules(
     listResponderRecipeResponderRulesRequest: requests.ListResponderRecipeResponderRulesRequest
   ): Promise<responses.ListResponderRecipeResponderRulesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResponderRecipeResponderRules.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listResponderRecipeResponderRules.");
     const operationName = "listResponderRecipeResponderRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipeResponderRule/ListResponderRecipeResponderRules";
@@ -6539,6 +6655,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       listResponderRecipeResponderRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6607,7 +6724,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   public async listResponderRecipes(
     listResponderRecipesRequest: requests.ListResponderRecipesRequest
   ): Promise<responses.ListResponderRecipesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResponderRecipes.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResponderRecipes.");
     const operationName = "listResponderRecipes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/ListResponderRecipes";
@@ -6637,6 +6754,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       listResponderRecipesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6692,7 +6810,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   public async listResponderRules(
     listResponderRulesRequest: requests.ListResponderRulesRequest
   ): Promise<responses.ListResponderRulesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listResponderRules.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResponderRules.");
     const operationName = "listResponderRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRule/ListResponderRules";
@@ -6719,6 +6837,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       listResponderRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6774,7 +6893,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   public async listSecurityPolicies(
     listSecurityPoliciesRequest: requests.ListSecurityPoliciesRequest
   ): Promise<responses.ListSecurityPoliciesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listSecurityPolicies.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityPolicies.");
     const operationName = "listSecurityPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityPolicyCollection/ListSecurityPolicies";
@@ -6802,6 +6921,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       listSecurityPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6857,7 +6977,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   public async listSecurityRecipes(
     listSecurityRecipesRequest: requests.ListSecurityRecipesRequest
   ): Promise<responses.ListSecurityRecipesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listSecurityRecipes.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityRecipes.");
     const operationName = "listSecurityRecipes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipeCollection/ListSecurityRecipes";
@@ -6885,6 +7005,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       listSecurityRecipesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6940,7 +7061,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   public async listSecurityZones(
     listSecurityZonesRequest: requests.ListSecurityZonesRequest
   ): Promise<responses.ListSecurityZonesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listSecurityZones.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityZones.");
     const operationName = "listSecurityZones";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZoneCollection/ListSecurityZones";
@@ -6970,6 +7091,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       listSecurityZonesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7024,7 +7146,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   public async listSightingEndpoints(
     listSightingEndpointsRequest: requests.ListSightingEndpointsRequest
   ): Promise<responses.ListSightingEndpointsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listSightingEndpoints.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSightingEndpoints.");
     const operationName = "listSightingEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SightingEndpointSummary/ListSightingEndpoints";
@@ -7050,6 +7172,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       listSightingEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7104,7 +7227,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   public async listSightingImpactedResources(
     listSightingImpactedResourcesRequest: requests.ListSightingImpactedResourcesRequest
   ): Promise<responses.ListSightingImpactedResourcesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listSightingImpactedResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listSightingImpactedResources.");
     const operationName = "listSightingImpactedResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SightingImpactedResourceSummary/ListSightingImpactedResources";
@@ -7130,6 +7254,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       listSightingImpactedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7197,7 +7322,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   public async listSightings(
     listSightingsRequest: requests.ListSightingsRequest
   ): Promise<responses.ListSightingsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listSightings.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSightings.");
     const operationName = "listSightings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SightingSummary/ListSightings";
@@ -7229,6 +7354,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       listSightingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7284,7 +7410,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   public async listTactics(
     listTacticsRequest: requests.ListTacticsRequest
   ): Promise<responses.ListTacticsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listTactics.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listTactics.");
     const operationName = "listTactics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TacticSummary/ListTactics";
@@ -7310,6 +7436,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       listTacticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7365,7 +7492,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   public async listTargetDetectorRecipeDetectorRules(
     listTargetDetectorRecipeDetectorRulesRequest: requests.ListTargetDetectorRecipeDetectorRulesRequest
   ): Promise<responses.ListTargetDetectorRecipeDetectorRulesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listTargetDetectorRecipeDetectorRules.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#listTargetDetectorRecipeDetectorRules."
+      );
     const operationName = "listTargetDetectorRecipeDetectorRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipeDetectorRule/ListTargetDetectorRecipeDetectorRules";
@@ -7396,6 +7526,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       listTargetDetectorRecipeDetectorRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7450,7 +7581,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   public async listTargetDetectorRecipes(
     listTargetDetectorRecipesRequest: requests.ListTargetDetectorRecipesRequest
   ): Promise<responses.ListTargetDetectorRecipesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listTargetDetectorRecipes.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listTargetDetectorRecipes.");
     const operationName = "listTargetDetectorRecipes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/ListTargetDetectorRecipes";
@@ -7479,6 +7611,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       listTargetDetectorRecipesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7534,7 +7667,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   public async listTargetResponderRecipeResponderRules(
     listTargetResponderRecipeResponderRulesRequest: requests.ListTargetResponderRecipeResponderRulesRequest
   ): Promise<responses.ListTargetResponderRecipeResponderRulesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listTargetResponderRecipeResponderRules.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#listTargetResponderRecipeResponderRules."
+      );
     const operationName = "listTargetResponderRecipeResponderRules";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipeResponderRule/ListTargetResponderRecipeResponderRules";
@@ -7565,6 +7701,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       listTargetResponderRecipeResponderRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7619,7 +7756,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   public async listTargetResponderRecipes(
     listTargetResponderRecipesRequest: requests.ListTargetResponderRecipesRequest
   ): Promise<responses.ListTargetResponderRecipesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listTargetResponderRecipes.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listTargetResponderRecipes.");
     const operationName = "listTargetResponderRecipes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/ListTargetResponderRecipes";
@@ -7648,6 +7786,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       listTargetResponderRecipesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7716,7 +7855,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async listTargets(
     listTargetsRequest: requests.ListTargetsRequest
   ): Promise<responses.ListTargetsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listTargets.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listTargets.");
     const operationName = "listTargets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/ListTargets";
@@ -7746,6 +7885,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       listTargetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7801,7 +7941,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async listTechniques(
     listTechniquesRequest: requests.ListTechniquesRequest
   ): Promise<responses.ListTechniquesResponse> {
-    logger.debug("Calling operation CloudGuardClient#listTechniques.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listTechniques.");
     const operationName = "listTechniques";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TechniqueSummary/ListTechniques";
@@ -7828,6 +7968,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       listTechniquesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7882,7 +8023,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequestError/ListWorkRequestErrors";
@@ -7908,6 +8049,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7962,7 +8104,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -7988,6 +8130,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8042,7 +8185,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation CloudGuardClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequest/ListWorkRequests";
@@ -8069,6 +8212,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8123,7 +8267,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async removeCompartment(
     removeCompartmentRequest: requests.RemoveCompartmentRequest
   ): Promise<responses.RemoveCompartmentResponse> {
-    logger.debug("Calling operation CloudGuardClient#removeCompartment.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#removeCompartment.");
     const operationName = "removeCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/RemoveCompartment";
@@ -8146,6 +8290,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       removeCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8206,7 +8351,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async requestRiskScores(
     requestRiskScoresRequest: requests.RequestRiskScoresRequest
   ): Promise<responses.RequestRiskScoresResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestRiskScores.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#requestRiskScores.");
     const operationName = "requestRiskScores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/RiskScoreAggregation/RequestRiskScores";
@@ -8229,6 +8374,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       requestRiskScoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8285,7 +8431,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async requestSecurityScoreSummarizedTrend(
     requestSecurityScoreSummarizedTrendRequest: requests.RequestSecurityScoreSummarizedTrendRequest
   ): Promise<responses.RequestSecurityScoreSummarizedTrendResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSecurityScoreSummarizedTrend.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#requestSecurityScoreSummarizedTrend.");
     const operationName = "requestSecurityScoreSummarizedTrend";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityScoreTrendAggregation/RequestSecurityScoreSummarizedTrend";
@@ -8312,6 +8459,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       requestSecurityScoreSummarizedTrendRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8367,7 +8515,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   public async requestSecurityScores(
     requestSecurityScoresRequest: requests.RequestSecurityScoresRequest
   ): Promise<responses.RequestSecurityScoresResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSecurityScores.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#requestSecurityScores.");
     const operationName = "requestSecurityScores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityScoreAggregation/RequestSecurityScores";
@@ -8390,6 +8538,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       requestSecurityScoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8459,7 +8608,8 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
   public async requestSummarizedActivityProblems(
     requestSummarizedActivityProblemsRequest: requests.RequestSummarizedActivityProblemsRequest
   ): Promise<responses.RequestSummarizedActivityProblemsResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedActivityProblems.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#requestSummarizedActivityProblems.");
     const operationName = "requestSummarizedActivityProblems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ActivityProblemAggregation/RequestSummarizedActivityProblems";
@@ -8485,6 +8635,7 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
       requestSummarizedActivityProblemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8551,7 +8702,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedProblems(
     requestSummarizedProblemsRequest: requests.RequestSummarizedProblemsRequest
   ): Promise<responses.RequestSummarizedProblemsResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedProblems.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#requestSummarizedProblems.");
     const operationName = "requestSummarizedProblems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ProblemAggregation/RequestSummarizedProblems";
@@ -8577,6 +8729,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedProblemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8643,7 +8796,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedResponderExecutions(
     requestSummarizedResponderExecutionsRequest: requests.RequestSummarizedResponderExecutionsRequest
   ): Promise<responses.RequestSummarizedResponderExecutionsResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedResponderExecutions.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#requestSummarizedResponderExecutions.");
     const operationName = "requestSummarizedResponderExecutions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecutionAggregation/RequestSummarizedResponderExecutions";
@@ -8673,6 +8827,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedResponderExecutionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8728,7 +8883,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedRiskScores(
     requestSummarizedRiskScoresRequest: requests.RequestSummarizedRiskScoresRequest
   ): Promise<responses.RequestSummarizedRiskScoresResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedRiskScores.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#requestSummarizedRiskScores.");
     const operationName = "requestSummarizedRiskScores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/RiskScoreAggregation/RequestSummarizedRiskScores";
@@ -8751,6 +8907,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedRiskScoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8806,7 +8963,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedSecurityScores(
     requestSummarizedSecurityScoresRequest: requests.RequestSummarizedSecurityScoresRequest
   ): Promise<responses.RequestSummarizedSecurityScoresResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedSecurityScores.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#requestSummarizedSecurityScores.");
     const operationName = "requestSummarizedSecurityScores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityScoreAggregation/RequestSummarizedSecurityScores";
@@ -8829,6 +8987,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedSecurityScoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8883,9 +9042,10 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedTopTrendResourceProfileRiskScores(
     requestSummarizedTopTrendResourceProfileRiskScoresRequest: requests.RequestSummarizedTopTrendResourceProfileRiskScoresRequest
   ): Promise<responses.RequestSummarizedTopTrendResourceProfileRiskScoresResponse> {
-    logger.debug(
-      "Calling operation CloudGuardClient#requestSummarizedTopTrendResourceProfileRiskScores."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#requestSummarizedTopTrendResourceProfileRiskScores."
+      );
     const operationName = "requestSummarizedTopTrendResourceProfileRiskScores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfileRiskScoreAggregationSummary/RequestSummarizedTopTrendResourceProfileRiskScores";
@@ -8917,6 +9077,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedTopTrendResourceProfileRiskScoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8983,7 +9144,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedTrendProblems(
     requestSummarizedTrendProblemsRequest: requests.RequestSummarizedTrendProblemsRequest
   ): Promise<responses.RequestSummarizedTrendProblemsResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedTrendProblems.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#requestSummarizedTrendProblems.");
     const operationName = "requestSummarizedTrendProblems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ProblemTrendAggregation/RequestSummarizedTrendProblems";
@@ -9012,6 +9174,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedTrendProblemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9066,7 +9229,10 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedTrendResourceRiskScores(
     requestSummarizedTrendResourceRiskScoresRequest: requests.RequestSummarizedTrendResourceRiskScoresRequest
   ): Promise<responses.RequestSummarizedTrendResourceRiskScoresResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedTrendResourceRiskScores.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#requestSummarizedTrendResourceRiskScores."
+      );
     const operationName = "requestSummarizedTrendResourceRiskScores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceRiskScoreAggregation/RequestSummarizedTrendResourceRiskScores";
@@ -9096,6 +9262,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedTrendResourceRiskScoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9167,7 +9334,10 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedTrendResponderExecutions(
     requestSummarizedTrendResponderExecutionsRequest: requests.RequestSummarizedTrendResponderExecutionsRequest
   ): Promise<responses.RequestSummarizedTrendResponderExecutionsResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedTrendResponderExecutions.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#requestSummarizedTrendResponderExecutions."
+      );
     const operationName = "requestSummarizedTrendResponderExecutions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecutionTrendAggregation/RequestSummarizedTrendResponderExecutions";
@@ -9197,6 +9367,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedTrendResponderExecutionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9252,7 +9423,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async requestSummarizedTrendSecurityScores(
     requestSummarizedTrendSecurityScoresRequest: requests.RequestSummarizedTrendSecurityScoresRequest
   ): Promise<responses.RequestSummarizedTrendSecurityScoresResponse> {
-    logger.debug("Calling operation CloudGuardClient#requestSummarizedTrendSecurityScores.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#requestSummarizedTrendSecurityScores.");
     const operationName = "requestSummarizedTrendSecurityScores";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityScoreTrendAggregation/RequestSummarizedTrendSecurityScores";
@@ -9279,6 +9451,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       requestSummarizedTrendSecurityScoresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9335,7 +9508,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async skipBulkResponderExecution(
     skipBulkResponderExecutionRequest: requests.SkipBulkResponderExecutionRequest
   ): Promise<responses.SkipBulkResponderExecutionResponse> {
-    logger.debug("Calling operation CloudGuardClient#skipBulkResponderExecution.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#skipBulkResponderExecution.");
     const operationName = "skipBulkResponderExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecution/SkipBulkResponderExecution";
@@ -9354,6 +9528,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       skipBulkResponderExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9404,7 +9579,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async skipResponderExecution(
     skipResponderExecutionRequest: requests.SkipResponderExecutionRequest
   ): Promise<responses.SkipResponderExecutionResponse> {
-    logger.debug("Calling operation CloudGuardClient#skipResponderExecution.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#skipResponderExecution.");
     const operationName = "skipResponderExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecution/SkipResponderExecution";
@@ -9429,6 +9605,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       skipResponderExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9475,7 +9652,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async triggerResponder(
     triggerResponderRequest: requests.TriggerResponderRequest
   ): Promise<responses.TriggerResponderResponse> {
-    logger.debug("Calling operation CloudGuardClient#triggerResponder.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#triggerResponder.");
     const operationName = "triggerResponder";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/TriggerResponder";
@@ -9498,6 +9675,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       triggerResponderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9550,7 +9728,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateBulkProblemStatus(
     updateBulkProblemStatusRequest: requests.UpdateBulkProblemStatusRequest
   ): Promise<responses.UpdateBulkProblemStatusResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateBulkProblemStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#updateBulkProblemStatus.");
     const operationName = "updateBulkProblemStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/UpdateBulkProblemStatus";
@@ -9569,6 +9748,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateBulkProblemStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9620,7 +9800,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateConfiguration.");
     const operationName = "updateConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Configuration/UpdateConfiguration";
@@ -9643,6 +9823,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9702,7 +9883,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateDataMaskRule(
     updateDataMaskRuleRequest: requests.UpdateDataMaskRuleRequest
   ): Promise<responses.UpdateDataMaskRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateDataMaskRule.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateDataMaskRule.");
     const operationName = "updateDataMaskRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/UpdateDataMaskRule";
@@ -9724,6 +9905,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateDataMaskRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9783,7 +9965,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateDataSource(
     updateDataSourceRequest: requests.UpdateDataSourceRequest
   ): Promise<responses.UpdateDataSourceResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateDataSource.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateDataSource.");
     const operationName = "updateDataSource";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/UpdateDataSource";
@@ -9806,6 +9988,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateDataSourceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9861,7 +10044,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateDetectorRecipe(
     updateDetectorRecipeRequest: requests.UpdateDetectorRecipeRequest
   ): Promise<responses.UpdateDetectorRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateDetectorRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateDetectorRecipe.");
     const operationName = "updateDetectorRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/UpdateDetectorRecipe";
@@ -9884,6 +10067,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateDetectorRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9943,7 +10127,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateDetectorRecipeDetectorRule(
     updateDetectorRecipeDetectorRuleRequest: requests.UpdateDetectorRecipeDetectorRuleRequest
   ): Promise<responses.UpdateDetectorRecipeDetectorRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateDetectorRecipeDetectorRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#updateDetectorRecipeDetectorRule.");
     const operationName = "updateDetectorRecipeDetectorRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/UpdateDetectorRecipeDetectorRule";
@@ -9966,6 +10151,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateDetectorRecipeDetectorRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10025,7 +10211,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateManagedList(
     updateManagedListRequest: requests.UpdateManagedListRequest
   ): Promise<responses.UpdateManagedListResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateManagedList.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateManagedList.");
     const operationName = "updateManagedList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/UpdateManagedList";
@@ -10048,6 +10234,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateManagedListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10108,7 +10295,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateProblemStatus(
     updateProblemStatusRequest: requests.UpdateProblemStatusRequest
   ): Promise<responses.UpdateProblemStatusResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateProblemStatus.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateProblemStatus.");
     const operationName = "updateProblemStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/UpdateProblemStatus";
@@ -10131,6 +10318,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateProblemStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10190,7 +10378,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateResponderRecipe(
     updateResponderRecipeRequest: requests.UpdateResponderRecipeRequest
   ): Promise<responses.UpdateResponderRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateResponderRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateResponderRecipe.");
     const operationName = "updateResponderRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/UpdateResponderRecipe";
@@ -10212,6 +10400,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateResponderRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10271,7 +10460,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateResponderRecipeResponderRule(
     updateResponderRecipeResponderRuleRequest: requests.UpdateResponderRecipeResponderRuleRequest
   ): Promise<responses.UpdateResponderRecipeResponderRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateResponderRecipeResponderRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#updateResponderRecipeResponderRule.");
     const operationName = "updateResponderRecipeResponderRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipeResponderRule/UpdateResponderRecipeResponderRule";
@@ -10294,6 +10484,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateResponderRecipeResponderRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10353,7 +10544,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateSecurityRecipe(
     updateSecurityRecipeRequest: requests.UpdateSecurityRecipeRequest
   ): Promise<responses.UpdateSecurityRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateSecurityRecipe.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateSecurityRecipe.");
     const operationName = "updateSecurityRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/UpdateSecurityRecipe";
@@ -10375,6 +10566,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateSecurityRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10434,7 +10626,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateSecurityZone(
     updateSecurityZoneRequest: requests.UpdateSecurityZoneRequest
   ): Promise<responses.UpdateSecurityZoneResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateSecurityZone.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateSecurityZone.");
     const operationName = "updateSecurityZone";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/UpdateSecurityZone";
@@ -10456,6 +10648,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateSecurityZoneRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10515,7 +10708,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateTarget(
     updateTargetRequest: requests.UpdateTargetRequest
   ): Promise<responses.UpdateTargetResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateTarget.");
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateTarget.");
     const operationName = "updateTarget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/UpdateTarget";
@@ -10537,6 +10730,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateTargetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10596,7 +10790,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateTargetDetectorRecipe(
     updateTargetDetectorRecipeRequest: requests.UpdateTargetDetectorRecipeRequest
   ): Promise<responses.UpdateTargetDetectorRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateTargetDetectorRecipe.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#updateTargetDetectorRecipe.");
     const operationName = "updateTargetDetectorRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/UpdateTargetDetectorRecipe";
@@ -10619,6 +10814,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateTargetDetectorRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10678,7 +10874,10 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateTargetDetectorRecipeDetectorRule(
     updateTargetDetectorRecipeDetectorRuleRequest: requests.UpdateTargetDetectorRecipeDetectorRuleRequest
   ): Promise<responses.UpdateTargetDetectorRecipeDetectorRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateTargetDetectorRecipeDetectorRule.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#updateTargetDetectorRecipeDetectorRule."
+      );
     const operationName = "updateTargetDetectorRecipeDetectorRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipeDetectorRule/UpdateTargetDetectorRecipeDetectorRule";
@@ -10703,6 +10902,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateTargetDetectorRecipeDetectorRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10763,7 +10963,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateTargetResponderRecipe(
     updateTargetResponderRecipeRequest: requests.UpdateTargetResponderRecipeRequest
   ): Promise<responses.UpdateTargetResponderRecipeResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateTargetResponderRecipe.");
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#updateTargetResponderRecipe.");
     const operationName = "updateTargetResponderRecipe";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/UpdateTargetResponderRecipe";
@@ -10786,6 +10987,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateTargetResponderRecipeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10845,7 +11047,10 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   public async updateTargetResponderRecipeResponderRule(
     updateTargetResponderRecipeResponderRuleRequest: requests.UpdateTargetResponderRecipeResponderRuleRequest
   ): Promise<responses.UpdateTargetResponderRecipeResponderRuleResponse> {
-    logger.debug("Calling operation CloudGuardClient#updateTargetResponderRecipeResponderRule.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#updateTargetResponderRecipeResponderRule."
+      );
     const operationName = "updateTargetResponderRecipeResponderRule";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipeResponderRule/UpdateTargetResponderRecipeResponderRule";
@@ -10870,6 +11075,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       updateTargetResponderRecipeResponderRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

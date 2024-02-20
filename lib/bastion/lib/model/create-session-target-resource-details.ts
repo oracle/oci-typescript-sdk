@@ -43,7 +43,7 @@ export namespace CreateSessionTargetResourceDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.sessionType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sessionType}`);
       }
     }
     return jsonObj;
@@ -69,7 +69,7 @@ export namespace CreateSessionTargetResourceDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.sessionType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sessionType}`);
       }
     }
     return jsonObj;

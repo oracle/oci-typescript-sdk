@@ -40,6 +40,7 @@ export interface CreateJobDetails {
   "jobInfrastructureConfigurationDetails":
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
+  "jobEnvironmentConfigurationDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
   "jobLogConfigurationDetails"?: model.JobLogConfigurationDetails;
   /**
    * Collection of JobStorageMountConfigurationDetails.
@@ -72,6 +73,11 @@ export namespace CreateJobDetails {
               obj.jobInfrastructureConfigurationDetails
             )
           : undefined,
+        "jobEnvironmentConfigurationDetails": obj.jobEnvironmentConfigurationDetails
+          ? model.JobEnvironmentConfigurationDetails.getJsonObj(
+              obj.jobEnvironmentConfigurationDetails
+            )
+          : undefined,
         "jobLogConfigurationDetails": obj.jobLogConfigurationDetails
           ? model.JobLogConfigurationDetails.getJsonObj(obj.jobLogConfigurationDetails)
           : undefined,
@@ -95,6 +101,11 @@ export namespace CreateJobDetails {
         "jobInfrastructureConfigurationDetails": obj.jobInfrastructureConfigurationDetails
           ? model.JobInfrastructureConfigurationDetails.getDeserializedJsonObj(
               obj.jobInfrastructureConfigurationDetails
+            )
+          : undefined,
+        "jobEnvironmentConfigurationDetails": obj.jobEnvironmentConfigurationDetails
+          ? model.JobEnvironmentConfigurationDetails.getDeserializedJsonObj(
+              obj.jobEnvironmentConfigurationDetails
             )
           : undefined,
         "jobLogConfigurationDetails": obj.jobLogConfigurationDetails

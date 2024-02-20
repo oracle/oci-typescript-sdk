@@ -24,13 +24,7 @@ export enum AssetSourceLifecycleState {
   Deleted = "DELETED",
   Failed = "FAILED",
   Updating = "UPDATING",
-  NeedsAttention = "NEEDS_ATTENTION",
-
-  /**
-   * This value is used if a service returns a value for this enum that is not recognized by this
-   * version of the SDK.
-   */
-  UnknownValue = "UNKNOWN_VALUE"
+  NeedsAttention = "NEEDS_ATTENTION"
 }
 
 export namespace AssetSourceLifecycleState {

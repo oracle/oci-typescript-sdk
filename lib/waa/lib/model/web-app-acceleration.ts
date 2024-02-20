@@ -103,7 +103,7 @@ export namespace WebAppAcceleration {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.backendType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.backendType}`);
       }
     }
     return jsonObj;
@@ -119,7 +119,7 @@ export namespace WebAppAcceleration {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.backendType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.backendType}`);
       }
     }
     return jsonObj;

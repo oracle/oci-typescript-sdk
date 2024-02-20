@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export class DashxApisClient {
   protected static serviceEndpointTemplate =
     "https://managementdashboard.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DashxApisWaiter;
@@ -120,7 +119,11 @@ export class DashxApisClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200901";
-    logger.info(`DashxApisClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DashxApisClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class DashxApisClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DashxApisClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class DashxApisClient {
   public async changeManagementDashboardsCompartment(
     changeManagementDashboardsCompartmentRequest: requests.ChangeManagementDashboardsCompartmentRequest
   ): Promise<responses.ChangeManagementDashboardsCompartmentResponse> {
-    logger.debug("Calling operation DashxApisClient#changeManagementDashboardsCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#changeManagementDashboardsCompartment.");
     const operationName = "changeManagementDashboardsCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/ChangeManagementDashboardsCompartment";
@@ -248,6 +253,7 @@ export class DashxApisClient {
       changeManagementDashboardsCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -313,7 +319,10 @@ export class DashxApisClient {
   public async changeManagementSavedSearchesCompartment(
     changeManagementSavedSearchesCompartmentRequest: requests.ChangeManagementSavedSearchesCompartmentRequest
   ): Promise<responses.ChangeManagementSavedSearchesCompartmentResponse> {
-    logger.debug("Calling operation DashxApisClient#changeManagementSavedSearchesCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DashxApisClient#changeManagementSavedSearchesCompartment."
+      );
     const operationName = "changeManagementSavedSearchesCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/ChangeManagementSavedSearchesCompartment";
@@ -337,6 +346,7 @@ export class DashxApisClient {
       changeManagementSavedSearchesCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -405,7 +415,8 @@ export class DashxApisClient {
   public async createManagementDashboard(
     createManagementDashboardRequest: requests.CreateManagementDashboardRequest
   ): Promise<responses.CreateManagementDashboardResponse> {
-    logger.debug("Calling operation DashxApisClient#createManagementDashboard.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#createManagementDashboard.");
     const operationName = "createManagementDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/CreateManagementDashboard";
@@ -425,6 +436,7 @@ export class DashxApisClient {
       createManagementDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -493,7 +505,8 @@ export class DashxApisClient {
   public async createManagementSavedSearch(
     createManagementSavedSearchRequest: requests.CreateManagementSavedSearchRequest
   ): Promise<responses.CreateManagementSavedSearchResponse> {
-    logger.debug("Calling operation DashxApisClient#createManagementSavedSearch.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#createManagementSavedSearch.");
     const operationName = "createManagementSavedSearch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/CreateManagementSavedSearch";
@@ -513,6 +526,7 @@ export class DashxApisClient {
       createManagementSavedSearchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -577,7 +591,8 @@ export class DashxApisClient {
   public async deleteManagementDashboard(
     deleteManagementDashboardRequest: requests.DeleteManagementDashboardRequest
   ): Promise<responses.DeleteManagementDashboardResponse> {
-    logger.debug("Calling operation DashxApisClient#deleteManagementDashboard.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#deleteManagementDashboard.");
     const operationName = "deleteManagementDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/DeleteManagementDashboard";
@@ -599,6 +614,7 @@ export class DashxApisClient {
       deleteManagementDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -649,7 +665,8 @@ export class DashxApisClient {
   public async deleteManagementSavedSearch(
     deleteManagementSavedSearchRequest: requests.DeleteManagementSavedSearchRequest
   ): Promise<responses.DeleteManagementSavedSearchResponse> {
-    logger.debug("Calling operation DashxApisClient#deleteManagementSavedSearch.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#deleteManagementSavedSearch.");
     const operationName = "deleteManagementSavedSearch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/DeleteManagementSavedSearch";
@@ -671,6 +688,7 @@ export class DashxApisClient {
       deleteManagementSavedSearchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -724,7 +742,7 @@ export class DashxApisClient {
   public async exportDashboard(
     exportDashboardRequest: requests.ExportDashboardRequest
   ): Promise<responses.ExportDashboardResponse> {
-    logger.debug("Calling operation DashxApisClient#exportDashboard.");
+    if (this.logger) this.logger.debug("Calling operation DashxApisClient#exportDashboard.");
     const operationName = "exportDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboardImportDetails/ExportDashboard";
@@ -746,6 +764,7 @@ export class DashxApisClient {
       exportDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -800,7 +819,7 @@ export class DashxApisClient {
   public async getManagementDashboard(
     getManagementDashboardRequest: requests.GetManagementDashboardRequest
   ): Promise<responses.GetManagementDashboardResponse> {
-    logger.debug("Calling operation DashxApisClient#getManagementDashboard.");
+    if (this.logger) this.logger.debug("Calling operation DashxApisClient#getManagementDashboard.");
     const operationName = "getManagementDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/GetManagementDashboard";
@@ -822,6 +841,7 @@ export class DashxApisClient {
       getManagementDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -881,7 +901,8 @@ export class DashxApisClient {
   public async getManagementSavedSearch(
     getManagementSavedSearchRequest: requests.GetManagementSavedSearchRequest
   ): Promise<responses.GetManagementSavedSearchResponse> {
-    logger.debug("Calling operation DashxApisClient#getManagementSavedSearch.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#getManagementSavedSearch.");
     const operationName = "getManagementSavedSearch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/GetManagementSavedSearch";
@@ -903,6 +924,7 @@ export class DashxApisClient {
       getManagementSavedSearchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -968,7 +990,7 @@ export class DashxApisClient {
   public async importDashboard(
     importDashboardRequest: requests.ImportDashboardRequest
   ): Promise<responses.ImportDashboardResponse> {
-    logger.debug("Calling operation DashxApisClient#importDashboard.");
+    if (this.logger) this.logger.debug("Calling operation DashxApisClient#importDashboard.");
     const operationName = "importDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboardImportDetails/ImportDashboard";
@@ -989,6 +1011,7 @@ export class DashxApisClient {
       importDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1044,7 +1067,8 @@ export class DashxApisClient {
   public async listManagementDashboards(
     listManagementDashboardsRequest: requests.ListManagementDashboardsRequest
   ): Promise<responses.ListManagementDashboardsResponse> {
-    logger.debug("Calling operation DashxApisClient#listManagementDashboards.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#listManagementDashboards.");
     const operationName = "listManagementDashboards";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/ListManagementDashboards";
@@ -1070,6 +1094,7 @@ export class DashxApisClient {
       listManagementDashboardsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1124,7 +1149,8 @@ export class DashxApisClient {
   public async listManagementSavedSearches(
     listManagementSavedSearchesRequest: requests.ListManagementSavedSearchesRequest
   ): Promise<responses.ListManagementSavedSearchesResponse> {
-    logger.debug("Calling operation DashxApisClient#listManagementSavedSearches.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#listManagementSavedSearches.");
     const operationName = "listManagementSavedSearches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/ListManagementSavedSearches";
@@ -1150,6 +1176,7 @@ export class DashxApisClient {
       listManagementSavedSearchesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1205,7 +1232,8 @@ export class DashxApisClient {
   public async updateManagementDashboard(
     updateManagementDashboardRequest: requests.UpdateManagementDashboardRequest
   ): Promise<responses.UpdateManagementDashboardResponse> {
-    logger.debug("Calling operation DashxApisClient#updateManagementDashboard.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#updateManagementDashboard.");
     const operationName = "updateManagementDashboard";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/UpdateManagementDashboard";
@@ -1228,6 +1256,7 @@ export class DashxApisClient {
       updateManagementDashboardRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1293,7 +1322,8 @@ export class DashxApisClient {
   public async updateManagementSavedSearch(
     updateManagementSavedSearchRequest: requests.UpdateManagementSavedSearchRequest
   ): Promise<responses.UpdateManagementSavedSearchResponse> {
-    logger.debug("Calling operation DashxApisClient#updateManagementSavedSearch.");
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#updateManagementSavedSearch.");
     const operationName = "updateManagementSavedSearch";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/UpdateManagementSavedSearch";
@@ -1316,6 +1346,7 @@ export class DashxApisClient {
       updateManagementSavedSearchRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

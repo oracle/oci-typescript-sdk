@@ -46,7 +46,7 @@ export namespace CreateContainerVolumeDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.volumeType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.volumeType}`);
       }
     }
     return jsonObj;
@@ -67,7 +67,7 @@ export namespace CreateContainerVolumeDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.volumeType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.volumeType}`);
       }
     }
     return jsonObj;

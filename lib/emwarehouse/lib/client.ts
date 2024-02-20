@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class EmWarehouseClient {
   protected static serviceEndpointTemplate =
     "https://operationsinsights.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": EmWarehouseWaiter;
@@ -118,7 +117,11 @@ export class EmWarehouseClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180828";
-    logger.info(`EmWarehouseClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`EmWarehouseClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class EmWarehouseClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         EmWarehouseClient.serviceEndpointTemplate,
@@ -222,7 +226,7 @@ export class EmWarehouseClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation EmWarehouseClient#cancelWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -243,6 +247,7 @@ export class EmWarehouseClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -288,7 +293,8 @@ export class EmWarehouseClient {
   public async changeEmWarehouseCompartment(
     changeEmWarehouseCompartmentRequest: requests.ChangeEmWarehouseCompartmentRequest
   ): Promise<responses.ChangeEmWarehouseCompartmentResponse> {
-    logger.debug("Calling operation EmWarehouseClient#changeEmWarehouseCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation EmWarehouseClient#changeEmWarehouseCompartment.");
     const operationName = "changeEmWarehouseCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -310,6 +316,7 @@ export class EmWarehouseClient {
       changeEmWarehouseCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -366,7 +373,7 @@ export class EmWarehouseClient {
   public async createEmWarehouse(
     createEmWarehouseRequest: requests.CreateEmWarehouseRequest
   ): Promise<responses.CreateEmWarehouseResponse> {
-    logger.debug("Calling operation EmWarehouseClient#createEmWarehouse.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#createEmWarehouse.");
     const operationName = "createEmWarehouse";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -385,6 +392,7 @@ export class EmWarehouseClient {
       createEmWarehouseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -440,7 +448,7 @@ export class EmWarehouseClient {
   public async deleteEmWarehouse(
     deleteEmWarehouseRequest: requests.DeleteEmWarehouseRequest
   ): Promise<responses.DeleteEmWarehouseResponse> {
-    logger.debug("Calling operation EmWarehouseClient#deleteEmWarehouse.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#deleteEmWarehouse.");
     const operationName = "deleteEmWarehouse";
     const apiReferenceLink = "";
     const pathParams = {
@@ -461,6 +469,7 @@ export class EmWarehouseClient {
       deleteEmWarehouseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -511,7 +520,7 @@ export class EmWarehouseClient {
   public async getEmWarehouse(
     getEmWarehouseRequest: requests.GetEmWarehouseRequest
   ): Promise<responses.GetEmWarehouseResponse> {
-    logger.debug("Calling operation EmWarehouseClient#getEmWarehouse.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#getEmWarehouse.");
     const operationName = "getEmWarehouse";
     const apiReferenceLink = "";
     const pathParams = {
@@ -531,6 +540,7 @@ export class EmWarehouseClient {
       getEmWarehouseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -585,7 +595,8 @@ export class EmWarehouseClient {
   public async getEmWarehouseResourceUsage(
     getEmWarehouseResourceUsageRequest: requests.GetEmWarehouseResourceUsageRequest
   ): Promise<responses.GetEmWarehouseResourceUsageResponse> {
-    logger.debug("Calling operation EmWarehouseClient#getEmWarehouseResourceUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation EmWarehouseClient#getEmWarehouseResourceUsage.");
     const operationName = "getEmWarehouseResourceUsage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -605,6 +616,7 @@ export class EmWarehouseClient {
       getEmWarehouseResourceUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -659,7 +671,7 @@ export class EmWarehouseClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation EmWarehouseClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -679,6 +691,7 @@ export class EmWarehouseClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -739,7 +752,7 @@ export class EmWarehouseClient {
   public async listEmWarehouses(
     listEmWarehousesRequest: requests.ListEmWarehousesRequest
   ): Promise<responses.ListEmWarehousesResponse> {
-    logger.debug("Calling operation EmWarehouseClient#listEmWarehouses.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#listEmWarehouses.");
     const operationName = "listEmWarehouses";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -767,6 +780,7 @@ export class EmWarehouseClient {
       listEmWarehousesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -821,7 +835,7 @@ export class EmWarehouseClient {
   public async listEtlRuns(
     listEtlRunsRequest: requests.ListEtlRunsRequest
   ): Promise<responses.ListEtlRunsResponse> {
-    logger.debug("Calling operation EmWarehouseClient#listEtlRuns.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#listEtlRuns.");
     const operationName = "listEtlRuns";
     const apiReferenceLink = "";
     const pathParams = {
@@ -848,6 +862,7 @@ export class EmWarehouseClient {
       listEtlRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -903,7 +918,8 @@ export class EmWarehouseClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation EmWarehouseClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation EmWarehouseClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -928,6 +944,7 @@ export class EmWarehouseClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -983,7 +1000,7 @@ export class EmWarehouseClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation EmWarehouseClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1008,6 +1025,7 @@ export class EmWarehouseClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1063,7 +1081,7 @@ export class EmWarehouseClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation EmWarehouseClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1090,6 +1108,7 @@ export class EmWarehouseClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1144,7 +1163,7 @@ export class EmWarehouseClient {
   public async updateEmWarehouse(
     updateEmWarehouseRequest: requests.UpdateEmWarehouseRequest
   ): Promise<responses.UpdateEmWarehouseResponse> {
-    logger.debug("Calling operation EmWarehouseClient#updateEmWarehouse.");
+    if (this.logger) this.logger.debug("Calling operation EmWarehouseClient#updateEmWarehouse.");
     const operationName = "updateEmWarehouse";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1165,6 +1184,7 @@ export class EmWarehouseClient {
       updateEmWarehouseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

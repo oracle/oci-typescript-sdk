@@ -56,7 +56,7 @@ export namespace UpdateCertificateAuthorityConfigDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.configType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configType}`);
       }
     }
     return jsonObj;
@@ -77,7 +77,7 @@ export namespace UpdateCertificateAuthorityConfigDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.configType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configType}`);
       }
     }
     return jsonObj;

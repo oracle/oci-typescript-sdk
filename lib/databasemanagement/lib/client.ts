@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export enum DbManagementApiKeys {}
 export class DbManagementClient {
   protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DbManagementWaiter;
@@ -120,7 +119,11 @@ export class DbManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201101";
-    logger.info(`DbManagementClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DbManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class DbManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DbManagementClient.serviceEndpointTemplate,
@@ -225,7 +229,7 @@ export class DbManagementClient {
   public async addDataFiles(
     addDataFilesRequest: requests.AddDataFilesRequest
   ): Promise<responses.AddDataFilesResponse> {
-    logger.debug("Calling operation DbManagementClient#addDataFiles.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#addDataFiles.");
     const operationName = "addDataFiles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/AddDataFiles";
@@ -248,6 +252,7 @@ export class DbManagementClient {
       addDataFilesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -306,7 +311,10 @@ export class DbManagementClient {
   public async addManagedDatabaseToManagedDatabaseGroup(
     addManagedDatabaseToManagedDatabaseGroupRequest: requests.AddManagedDatabaseToManagedDatabaseGroupRequest
   ): Promise<responses.AddManagedDatabaseToManagedDatabaseGroupResponse> {
-    logger.debug("Calling operation DbManagementClient#addManagedDatabaseToManagedDatabaseGroup.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#addManagedDatabaseToManagedDatabaseGroup."
+      );
     const operationName = "addManagedDatabaseToManagedDatabaseGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/AddManagedDatabaseToManagedDatabaseGroup";
@@ -329,6 +337,7 @@ export class DbManagementClient {
       addManagedDatabaseToManagedDatabaseGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -381,7 +390,7 @@ export class DbManagementClient {
   public async addmTasks(
     addmTasksRequest: requests.AddmTasksRequest
   ): Promise<responses.AddmTasksResponse> {
-    logger.debug("Calling operation DbManagementClient#addmTasks.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#addmTasks.");
     const operationName = "addmTasks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/AddmTasksCollection/AddmTasks";
@@ -410,6 +419,7 @@ export class DbManagementClient {
       addmTasksRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -477,7 +487,8 @@ export class DbManagementClient {
   public async changeDatabaseParameters(
     changeDatabaseParametersRequest: requests.ChangeDatabaseParametersRequest
   ): Promise<responses.ChangeDatabaseParametersResponse> {
-    logger.debug("Calling operation DbManagementClient#changeDatabaseParameters.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeDatabaseParameters.");
     const operationName = "changeDatabaseParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ChangeDatabaseParameters";
@@ -499,6 +510,7 @@ export class DbManagementClient {
       changeDatabaseParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -553,9 +565,10 @@ export class DbManagementClient {
   public async changeDbManagementPrivateEndpointCompartment(
     changeDbManagementPrivateEndpointCompartmentRequest: requests.ChangeDbManagementPrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeDbManagementPrivateEndpointCompartmentResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#changeDbManagementPrivateEndpointCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#changeDbManagementPrivateEndpointCompartment."
+      );
     const operationName = "changeDbManagementPrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/ChangeDbManagementPrivateEndpointCompartment";
@@ -579,6 +592,7 @@ export class DbManagementClient {
       changeDbManagementPrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -631,7 +645,8 @@ export class DbManagementClient {
   public async changeExternalDbSystemCompartment(
     changeExternalDbSystemCompartmentRequest: requests.ChangeExternalDbSystemCompartmentRequest
   ): Promise<responses.ChangeExternalDbSystemCompartmentResponse> {
-    logger.debug("Calling operation DbManagementClient#changeExternalDbSystemCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeExternalDbSystemCompartment.");
     const operationName = "changeExternalDbSystemCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/ChangeExternalDbSystemCompartment";
@@ -654,6 +669,7 @@ export class DbManagementClient {
       changeExternalDbSystemCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -710,9 +726,10 @@ export class DbManagementClient {
   public async changeExternalExadataInfrastructureCompartment(
     changeExternalExadataInfrastructureCompartmentRequest: requests.ChangeExternalExadataInfrastructureCompartmentRequest
   ): Promise<responses.ChangeExternalExadataInfrastructureCompartmentResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#changeExternalExadataInfrastructureCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#changeExternalExadataInfrastructureCompartment."
+      );
     const operationName = "changeExternalExadataInfrastructureCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/ChangeExternalExadataInfrastructureCompartment";
@@ -736,6 +753,7 @@ export class DbManagementClient {
       changeExternalExadataInfrastructureCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -793,7 +811,8 @@ export class DbManagementClient {
   public async changeJobCompartment(
     changeJobCompartmentRequest: requests.ChangeJobCompartmentRequest
   ): Promise<responses.ChangeJobCompartmentResponse> {
-    logger.debug("Calling operation DbManagementClient#changeJobCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeJobCompartment.");
     const operationName = "changeJobCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/ChangeJobCompartment";
@@ -816,6 +835,7 @@ export class DbManagementClient {
       changeJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -869,7 +889,10 @@ export class DbManagementClient {
   public async changeManagedDatabaseGroupCompartment(
     changeManagedDatabaseGroupCompartmentRequest: requests.ChangeManagedDatabaseGroupCompartmentRequest
   ): Promise<responses.ChangeManagedDatabaseGroupCompartmentResponse> {
-    logger.debug("Calling operation DbManagementClient#changeManagedDatabaseGroupCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#changeManagedDatabaseGroupCompartment."
+      );
     const operationName = "changeManagedDatabaseGroupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/ChangeManagedDatabaseGroupCompartment";
@@ -893,6 +916,7 @@ export class DbManagementClient {
       changeManagedDatabaseGroupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -946,7 +970,8 @@ export class DbManagementClient {
   public async changeNamedCredentialCompartment(
     changeNamedCredentialCompartmentRequest: requests.ChangeNamedCredentialCompartmentRequest
   ): Promise<responses.ChangeNamedCredentialCompartmentResponse> {
-    logger.debug("Calling operation DbManagementClient#changeNamedCredentialCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeNamedCredentialCompartment.");
     const operationName = "changeNamedCredentialCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/ChangeNamedCredentialCompartment";
@@ -969,6 +994,7 @@ export class DbManagementClient {
       changeNamedCredentialCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1024,7 +1050,7 @@ The database purges plans that have not been used for longer than
   public async changePlanRetention(
     changePlanRetentionRequest: requests.ChangePlanRetentionRequest
   ): Promise<responses.ChangePlanRetentionResponse> {
-    logger.debug("Calling operation DbManagementClient#changePlanRetention.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#changePlanRetention.");
     const operationName = "changePlanRetention";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ChangePlanRetention";
@@ -1045,6 +1071,7 @@ The database purges plans that have not been used for longer than
       changePlanRetentionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1097,7 +1124,7 @@ The database purges plans that have not been used for longer than
   public async changeSpaceBudget(
     changeSpaceBudgetRequest: requests.ChangeSpaceBudgetRequest
   ): Promise<responses.ChangeSpaceBudgetResponse> {
-    logger.debug("Calling operation DbManagementClient#changeSpaceBudget.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#changeSpaceBudget.");
     const operationName = "changeSpaceBudget";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ChangeSpaceBudget";
@@ -1118,6 +1145,7 @@ The database purges plans that have not been used for longer than
       changeSpaceBudgetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1169,7 +1197,8 @@ The database purges plans that have not been used for longer than
   public async changeSqlPlanBaselinesAttributes(
     changeSqlPlanBaselinesAttributesRequest: requests.ChangeSqlPlanBaselinesAttributesRequest
   ): Promise<responses.ChangeSqlPlanBaselinesAttributesResponse> {
-    logger.debug("Calling operation DbManagementClient#changeSqlPlanBaselinesAttributes.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeSqlPlanBaselinesAttributes.");
     const operationName = "changeSqlPlanBaselinesAttributes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ChangeSqlPlanBaselinesAttributes";
@@ -1190,6 +1219,7 @@ The database purges plans that have not been used for longer than
       changeSqlPlanBaselinesAttributesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1243,9 +1273,10 @@ The database purges plans that have not been used for longer than
   public async checkExternalDbSystemConnectorConnectionStatus(
     checkExternalDbSystemConnectorConnectionStatusRequest: requests.CheckExternalDbSystemConnectorConnectionStatusRequest
   ): Promise<responses.CheckExternalDbSystemConnectorConnectionStatusResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#checkExternalDbSystemConnectorConnectionStatus."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#checkExternalDbSystemConnectorConnectionStatus."
+      );
     const operationName = "checkExternalDbSystemConnectorConnectionStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/CheckExternalDbSystemConnectorConnectionStatus";
@@ -1269,6 +1300,7 @@ The database purges plans that have not been used for longer than
       checkExternalDbSystemConnectorConnectionStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1325,7 +1357,10 @@ The database purges plans that have not been used for longer than
   public async checkExternalExadataStorageConnector(
     checkExternalExadataStorageConnectorRequest: requests.CheckExternalExadataStorageConnectorRequest
   ): Promise<responses.CheckExternalExadataStorageConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#checkExternalExadataStorageConnector.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#checkExternalExadataStorageConnector."
+      );
     const operationName = "checkExternalExadataStorageConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageConnector/CheckExternalExadataStorageConnector";
@@ -1349,6 +1384,7 @@ The database purges plans that have not been used for longer than
       checkExternalExadataStorageConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1406,7 +1442,8 @@ The database purges plans that have not been used for longer than
   public async configureAutomaticCaptureFilters(
     configureAutomaticCaptureFiltersRequest: requests.ConfigureAutomaticCaptureFiltersRequest
   ): Promise<responses.ConfigureAutomaticCaptureFiltersResponse> {
-    logger.debug("Calling operation DbManagementClient#configureAutomaticCaptureFilters.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#configureAutomaticCaptureFilters.");
     const operationName = "configureAutomaticCaptureFilters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ConfigureAutomaticCaptureFilters";
@@ -1427,6 +1464,7 @@ The database purges plans that have not been used for longer than
       configureAutomaticCaptureFiltersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1481,7 +1519,10 @@ The database purges plans that have not been used for longer than
   public async configureAutomaticSpmEvolveAdvisorTask(
     configureAutomaticSpmEvolveAdvisorTaskRequest: requests.ConfigureAutomaticSpmEvolveAdvisorTaskRequest
   ): Promise<responses.ConfigureAutomaticSpmEvolveAdvisorTaskResponse> {
-    logger.debug("Calling operation DbManagementClient#configureAutomaticSpmEvolveAdvisorTask.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#configureAutomaticSpmEvolveAdvisorTask."
+      );
     const operationName = "configureAutomaticSpmEvolveAdvisorTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ConfigureAutomaticSpmEvolveAdvisorTask";
@@ -1502,6 +1543,7 @@ The database purges plans that have not been used for longer than
       configureAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1554,7 +1596,8 @@ The database purges plans that have not been used for longer than
   public async createDbManagementPrivateEndpoint(
     createDbManagementPrivateEndpointRequest: requests.CreateDbManagementPrivateEndpointRequest
   ): Promise<responses.CreateDbManagementPrivateEndpointResponse> {
-    logger.debug("Calling operation DbManagementClient#createDbManagementPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createDbManagementPrivateEndpoint.");
     const operationName = "createDbManagementPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/CreateDbManagementPrivateEndpoint";
@@ -1574,6 +1617,7 @@ The database purges plans that have not been used for longer than
       createDbManagementPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1644,7 +1688,8 @@ The database purges plans that have not been used for longer than
   public async createExternalDbSystem(
     createExternalDbSystemRequest: requests.CreateExternalDbSystemRequest
   ): Promise<responses.CreateExternalDbSystemResponse> {
-    logger.debug("Calling operation DbManagementClient#createExternalDbSystem.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createExternalDbSystem.");
     const operationName = "createExternalDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/CreateExternalDbSystem";
@@ -1664,6 +1709,7 @@ The database purges plans that have not been used for longer than
       createExternalDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1738,7 +1784,8 @@ The database purges plans that have not been used for longer than
   public async createExternalDbSystemConnector(
     createExternalDbSystemConnectorRequest: requests.CreateExternalDbSystemConnectorRequest
   ): Promise<responses.CreateExternalDbSystemConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#createExternalDbSystemConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createExternalDbSystemConnector.");
     const operationName = "createExternalDbSystemConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/CreateExternalDbSystemConnector";
@@ -1758,6 +1805,7 @@ The database purges plans that have not been used for longer than
       createExternalDbSystemConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1818,7 +1866,8 @@ The database purges plans that have not been used for longer than
   public async createExternalDbSystemDiscovery(
     createExternalDbSystemDiscoveryRequest: requests.CreateExternalDbSystemDiscoveryRequest
   ): Promise<responses.CreateExternalDbSystemDiscoveryResponse> {
-    logger.debug("Calling operation DbManagementClient#createExternalDbSystemDiscovery.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createExternalDbSystemDiscovery.");
     const operationName = "createExternalDbSystemDiscovery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/CreateExternalDbSystemDiscovery";
@@ -1838,6 +1887,7 @@ The database purges plans that have not been used for longer than
       createExternalDbSystemDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1918,7 +1968,10 @@ The database purges plans that have not been used for longer than
   public async createExternalExadataInfrastructure(
     createExternalExadataInfrastructureRequest: requests.CreateExternalExadataInfrastructureRequest
   ): Promise<responses.CreateExternalExadataInfrastructureResponse> {
-    logger.debug("Calling operation DbManagementClient#createExternalExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#createExternalExadataInfrastructure."
+      );
     const operationName = "createExternalExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/CreateExternalExadataInfrastructure";
@@ -1938,6 +1991,7 @@ The database purges plans that have not been used for longer than
       createExternalExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1998,7 +2052,10 @@ The database purges plans that have not been used for longer than
   public async createExternalExadataStorageConnector(
     createExternalExadataStorageConnectorRequest: requests.CreateExternalExadataStorageConnectorRequest
   ): Promise<responses.CreateExternalExadataStorageConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#createExternalExadataStorageConnector.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#createExternalExadataStorageConnector."
+      );
     const operationName = "createExternalExadataStorageConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageConnector/CreateExternalExadataStorageConnector";
@@ -2018,6 +2075,7 @@ The database purges plans that have not been used for longer than
       createExternalExadataStorageConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2080,7 +2138,7 @@ The database purges plans that have not been used for longer than
   public async createJob(
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
-    logger.debug("Calling operation DbManagementClient#createJob.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#createJob.");
     const operationName = "createJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/CreateJob";
@@ -2100,6 +2158,7 @@ The database purges plans that have not been used for longer than
       createJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2166,7 +2225,8 @@ The database purges plans that have not been used for longer than
   public async createManagedDatabaseGroup(
     createManagedDatabaseGroupRequest: requests.CreateManagedDatabaseGroupRequest
   ): Promise<responses.CreateManagedDatabaseGroupResponse> {
-    logger.debug("Calling operation DbManagementClient#createManagedDatabaseGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createManagedDatabaseGroup.");
     const operationName = "createManagedDatabaseGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/CreateManagedDatabaseGroup";
@@ -2186,6 +2246,7 @@ The database purges plans that have not been used for longer than
       createManagedDatabaseGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2251,7 +2312,8 @@ The database purges plans that have not been used for longer than
   public async createNamedCredential(
     createNamedCredentialRequest: requests.CreateNamedCredentialRequest
   ): Promise<responses.CreateNamedCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#createNamedCredential.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createNamedCredential.");
     const operationName = "createNamedCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/CreateNamedCredential";
@@ -2271,6 +2333,7 @@ The database purges plans that have not been used for longer than
       createNamedCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2336,7 +2399,7 @@ The database purges plans that have not been used for longer than
   public async createTablespace(
     createTablespaceRequest: requests.CreateTablespaceRequest
   ): Promise<responses.CreateTablespaceResponse> {
-    logger.debug("Calling operation DbManagementClient#createTablespace.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#createTablespace.");
     const operationName = "createTablespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/CreateTablespace";
@@ -2358,6 +2421,7 @@ The database purges plans that have not been used for longer than
       createTablespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2412,7 +2476,8 @@ The database purges plans that have not been used for longer than
   public async deleteDbManagementPrivateEndpoint(
     deleteDbManagementPrivateEndpointRequest: requests.DeleteDbManagementPrivateEndpointRequest
   ): Promise<responses.DeleteDbManagementPrivateEndpointResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteDbManagementPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteDbManagementPrivateEndpoint.");
     const operationName = "deleteDbManagementPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/DeleteDbManagementPrivateEndpoint";
@@ -2435,6 +2500,7 @@ The database purges plans that have not been used for longer than
       deleteDbManagementPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2486,7 +2552,8 @@ The database purges plans that have not been used for longer than
   public async deleteExternalDbSystem(
     deleteExternalDbSystemRequest: requests.DeleteExternalDbSystemRequest
   ): Promise<responses.DeleteExternalDbSystemResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteExternalDbSystem.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteExternalDbSystem.");
     const operationName = "deleteExternalDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/DeleteExternalDbSystem";
@@ -2508,6 +2575,7 @@ The database purges plans that have not been used for longer than
       deleteExternalDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2559,7 +2627,8 @@ The database purges plans that have not been used for longer than
   public async deleteExternalDbSystemConnector(
     deleteExternalDbSystemConnectorRequest: requests.DeleteExternalDbSystemConnectorRequest
   ): Promise<responses.DeleteExternalDbSystemConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteExternalDbSystemConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteExternalDbSystemConnector.");
     const operationName = "deleteExternalDbSystemConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/DeleteExternalDbSystemConnector";
@@ -2582,6 +2651,7 @@ The database purges plans that have not been used for longer than
       deleteExternalDbSystemConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2628,7 +2698,8 @@ The database purges plans that have not been used for longer than
   public async deleteExternalDbSystemDiscovery(
     deleteExternalDbSystemDiscoveryRequest: requests.DeleteExternalDbSystemDiscoveryRequest
   ): Promise<responses.DeleteExternalDbSystemDiscoveryResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteExternalDbSystemDiscovery.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteExternalDbSystemDiscovery.");
     const operationName = "deleteExternalDbSystemDiscovery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/DeleteExternalDbSystemDiscovery";
@@ -2651,6 +2722,7 @@ The database purges plans that have not been used for longer than
       deleteExternalDbSystemDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2697,7 +2769,10 @@ The database purges plans that have not been used for longer than
   public async deleteExternalExadataInfrastructure(
     deleteExternalExadataInfrastructureRequest: requests.DeleteExternalExadataInfrastructureRequest
   ): Promise<responses.DeleteExternalExadataInfrastructureResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteExternalExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#deleteExternalExadataInfrastructure."
+      );
     const operationName = "deleteExternalExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/DeleteExternalExadataInfrastructure";
@@ -2720,6 +2795,7 @@ The database purges plans that have not been used for longer than
       deleteExternalExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2771,7 +2847,10 @@ The database purges plans that have not been used for longer than
   public async deleteExternalExadataStorageConnector(
     deleteExternalExadataStorageConnectorRequest: requests.DeleteExternalExadataStorageConnectorRequest
   ): Promise<responses.DeleteExternalExadataStorageConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteExternalExadataStorageConnector.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#deleteExternalExadataStorageConnector."
+      );
     const operationName = "deleteExternalExadataStorageConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageConnector/DeleteExternalExadataStorageConnector";
@@ -2794,6 +2873,7 @@ The database purges plans that have not been used for longer than
       deleteExternalExadataStorageConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2839,7 +2919,7 @@ The database purges plans that have not been used for longer than
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteJob.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#deleteJob.");
     const operationName = "deleteJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/DeleteJob";
@@ -2861,6 +2941,7 @@ The database purges plans that have not been used for longer than
       deleteJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2908,7 +2989,8 @@ The database purges plans that have not been used for longer than
   public async deleteManagedDatabaseGroup(
     deleteManagedDatabaseGroupRequest: requests.DeleteManagedDatabaseGroupRequest
   ): Promise<responses.DeleteManagedDatabaseGroupResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteManagedDatabaseGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteManagedDatabaseGroup.");
     const operationName = "deleteManagedDatabaseGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/DeleteManagedDatabaseGroup";
@@ -2930,6 +3012,7 @@ The database purges plans that have not been used for longer than
       deleteManagedDatabaseGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2976,7 +3059,8 @@ The database purges plans that have not been used for longer than
   public async deleteNamedCredential(
     deleteNamedCredentialRequest: requests.DeleteNamedCredentialRequest
   ): Promise<responses.DeleteNamedCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#deleteNamedCredential.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteNamedCredential.");
     const operationName = "deleteNamedCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/DeleteNamedCredential";
@@ -2998,6 +3082,7 @@ The database purges plans that have not been used for longer than
       deleteNamedCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3044,7 +3129,8 @@ The database purges plans that have not been used for longer than
   public async deletePreferredCredential(
     deletePreferredCredentialRequest: requests.DeletePreferredCredentialRequest
   ): Promise<responses.DeletePreferredCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#deletePreferredCredential.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deletePreferredCredential.");
     const operationName = "deletePreferredCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/DeletePreferredCredential";
@@ -3066,6 +3152,7 @@ The database purges plans that have not been used for longer than
       deletePreferredCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3112,7 +3199,8 @@ The database purges plans that have not been used for longer than
   public async disableAutomaticInitialPlanCapture(
     disableAutomaticInitialPlanCaptureRequest: requests.DisableAutomaticInitialPlanCaptureRequest
   ): Promise<responses.DisableAutomaticInitialPlanCaptureResponse> {
-    logger.debug("Calling operation DbManagementClient#disableAutomaticInitialPlanCapture.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#disableAutomaticInitialPlanCapture.");
     const operationName = "disableAutomaticInitialPlanCapture";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableAutomaticInitialPlanCapture";
@@ -3133,6 +3221,7 @@ The database purges plans that have not been used for longer than
       disableAutomaticInitialPlanCaptureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3188,7 +3277,10 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   public async disableAutomaticSpmEvolveAdvisorTask(
     disableAutomaticSpmEvolveAdvisorTaskRequest: requests.DisableAutomaticSpmEvolveAdvisorTaskRequest
   ): Promise<responses.DisableAutomaticSpmEvolveAdvisorTaskResponse> {
-    logger.debug("Calling operation DbManagementClient#disableAutomaticSpmEvolveAdvisorTask.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableAutomaticSpmEvolveAdvisorTask."
+      );
     const operationName = "disableAutomaticSpmEvolveAdvisorTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableAutomaticSpmEvolveAdvisorTask";
@@ -3209,6 +3301,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       disableAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3262,7 +3355,10 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   public async disableExternalDbSystemDatabaseManagement(
     disableExternalDbSystemDatabaseManagementRequest: requests.DisableExternalDbSystemDatabaseManagementRequest
   ): Promise<responses.DisableExternalDbSystemDatabaseManagementResponse> {
-    logger.debug("Calling operation DbManagementClient#disableExternalDbSystemDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalDbSystemDatabaseManagement."
+      );
     const operationName = "disableExternalDbSystemDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/DisableExternalDbSystemDatabaseManagement";
@@ -3285,6 +3381,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       disableExternalDbSystemDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3337,7 +3434,10 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   public async disableExternalDbSystemStackMonitoring(
     disableExternalDbSystemStackMonitoringRequest: requests.DisableExternalDbSystemStackMonitoringRequest
   ): Promise<responses.DisableExternalDbSystemStackMonitoringResponse> {
-    logger.debug("Calling operation DbManagementClient#disableExternalDbSystemStackMonitoring.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalDbSystemStackMonitoring."
+      );
     const operationName = "disableExternalDbSystemStackMonitoring";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/DisableExternalDbSystemStackMonitoring";
@@ -3360,6 +3460,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       disableExternalDbSystemStackMonitoringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3418,9 +3519,10 @@ Note that Database Management will not be disabled for the DB systems within the
   public async disableExternalExadataInfrastructureManagement(
     disableExternalExadataInfrastructureManagementRequest: requests.DisableExternalExadataInfrastructureManagementRequest
   ): Promise<responses.DisableExternalExadataInfrastructureManagementResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#disableExternalExadataInfrastructureManagement."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalExadataInfrastructureManagement."
+      );
     const operationName = "disableExternalExadataInfrastructureManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/DisableExternalExadataInfrastructureManagement";
@@ -3444,6 +3546,7 @@ Note that Database Management will not be disabled for the DB systems within the
       disableExternalExadataInfrastructureManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3499,9 +3602,10 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
   public async disableHighFrequencyAutomaticSpmEvolveAdvisorTask(
     disableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest: requests.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
   ): Promise<responses.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#disableHighFrequencyAutomaticSpmEvolveAdvisorTask."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableHighFrequencyAutomaticSpmEvolveAdvisorTask."
+      );
     const operationName = "disableHighFrequencyAutomaticSpmEvolveAdvisorTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableHighFrequencyAutomaticSpmEvolveAdvisorTask";
@@ -3523,6 +3627,7 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
       disableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3577,7 +3682,8 @@ When disabled, the optimizer does not use any SQL plan baselines.
   public async disableSqlPlanBaselinesUsage(
     disableSqlPlanBaselinesUsageRequest: requests.DisableSqlPlanBaselinesUsageRequest
   ): Promise<responses.DisableSqlPlanBaselinesUsageResponse> {
-    logger.debug("Calling operation DbManagementClient#disableSqlPlanBaselinesUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#disableSqlPlanBaselinesUsage.");
     const operationName = "disableSqlPlanBaselinesUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableSqlPlanBaselinesUsage";
@@ -3598,6 +3704,7 @@ When disabled, the optimizer does not use any SQL plan baselines.
       disableSqlPlanBaselinesUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3668,7 +3775,10 @@ The same API covers both new discovery and rediscovery cases.
   public async discoverExternalExadataInfrastructure(
     discoverExternalExadataInfrastructureRequest: requests.DiscoverExternalExadataInfrastructureRequest
   ): Promise<responses.DiscoverExternalExadataInfrastructureResponse> {
-    logger.debug("Calling operation DbManagementClient#discoverExternalExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#discoverExternalExadataInfrastructure."
+      );
     const operationName = "discoverExternalExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/DiscoverExternalExadataInfrastructure";
@@ -3689,6 +3799,7 @@ The same API covers both new discovery and rediscovery cases.
       discoverExternalExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3749,7 +3860,8 @@ The same API covers both new discovery and rediscovery cases.
   public async dropSqlPlanBaselines(
     dropSqlPlanBaselinesRequest: requests.DropSqlPlanBaselinesRequest
   ): Promise<responses.DropSqlPlanBaselinesResponse> {
-    logger.debug("Calling operation DbManagementClient#dropSqlPlanBaselines.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#dropSqlPlanBaselines.");
     const operationName = "dropSqlPlanBaselines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DropSqlPlanBaselines";
@@ -3770,6 +3882,7 @@ The same API covers both new discovery and rediscovery cases.
       dropSqlPlanBaselinesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3821,7 +3934,7 @@ The same API covers both new discovery and rediscovery cases.
   public async dropTablespace(
     dropTablespaceRequest: requests.DropTablespaceRequest
   ): Promise<responses.DropTablespaceResponse> {
-    logger.debug("Calling operation DbManagementClient#dropTablespace.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#dropTablespace.");
     const operationName = "dropTablespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/DropTablespace";
@@ -3844,6 +3957,7 @@ The same API covers both new discovery and rediscovery cases.
       dropTablespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3907,7 +4021,8 @@ By default, the database creates a SQL plan baseline for every eligible repeatab
   public async enableAutomaticInitialPlanCapture(
     enableAutomaticInitialPlanCaptureRequest: requests.EnableAutomaticInitialPlanCaptureRequest
   ): Promise<responses.EnableAutomaticInitialPlanCaptureResponse> {
-    logger.debug("Calling operation DbManagementClient#enableAutomaticInitialPlanCapture.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#enableAutomaticInitialPlanCapture.");
     const operationName = "enableAutomaticInitialPlanCapture";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableAutomaticInitialPlanCapture";
@@ -3928,6 +4043,7 @@ By default, the database creates a SQL plan baseline for every eligible repeatab
       enableAutomaticInitialPlanCaptureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3992,7 +4108,10 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   public async enableAutomaticSpmEvolveAdvisorTask(
     enableAutomaticSpmEvolveAdvisorTaskRequest: requests.EnableAutomaticSpmEvolveAdvisorTaskRequest
   ): Promise<responses.EnableAutomaticSpmEvolveAdvisorTaskResponse> {
-    logger.debug("Calling operation DbManagementClient#enableAutomaticSpmEvolveAdvisorTask.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableAutomaticSpmEvolveAdvisorTask."
+      );
     const operationName = "enableAutomaticSpmEvolveAdvisorTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableAutomaticSpmEvolveAdvisorTask";
@@ -4013,6 +4132,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       enableAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4066,7 +4186,10 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   public async enableExternalDbSystemDatabaseManagement(
     enableExternalDbSystemDatabaseManagementRequest: requests.EnableExternalDbSystemDatabaseManagementRequest
   ): Promise<responses.EnableExternalDbSystemDatabaseManagementResponse> {
-    logger.debug("Calling operation DbManagementClient#enableExternalDbSystemDatabaseManagement.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalDbSystemDatabaseManagement."
+      );
     const operationName = "enableExternalDbSystemDatabaseManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/EnableExternalDbSystemDatabaseManagement";
@@ -4089,6 +4212,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       enableExternalDbSystemDatabaseManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4146,7 +4270,10 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   public async enableExternalDbSystemStackMonitoring(
     enableExternalDbSystemStackMonitoringRequest: requests.EnableExternalDbSystemStackMonitoringRequest
   ): Promise<responses.EnableExternalDbSystemStackMonitoringResponse> {
-    logger.debug("Calling operation DbManagementClient#enableExternalDbSystemStackMonitoring.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalDbSystemStackMonitoring."
+      );
     const operationName = "enableExternalDbSystemStackMonitoring";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/EnableExternalDbSystemStackMonitoring";
@@ -4169,6 +4296,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       enableExternalDbSystemStackMonitoringRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4230,9 +4358,10 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   public async enableExternalExadataInfrastructureManagement(
     enableExternalExadataInfrastructureManagementRequest: requests.EnableExternalExadataInfrastructureManagementRequest
   ): Promise<responses.EnableExternalExadataInfrastructureManagementResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#enableExternalExadataInfrastructureManagement."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalExadataInfrastructureManagement."
+      );
     const operationName = "enableExternalExadataInfrastructureManagement";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/EnableExternalExadataInfrastructureManagement";
@@ -4256,6 +4385,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       enableExternalExadataInfrastructureManagementRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4321,9 +4451,10 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
   public async enableHighFrequencyAutomaticSpmEvolveAdvisorTask(
     enableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest: requests.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
   ): Promise<responses.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#enableHighFrequencyAutomaticSpmEvolveAdvisorTask."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableHighFrequencyAutomaticSpmEvolveAdvisorTask."
+      );
     const operationName = "enableHighFrequencyAutomaticSpmEvolveAdvisorTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableHighFrequencyAutomaticSpmEvolveAdvisorTask";
@@ -4345,6 +4476,7 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
       enableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4400,7 +4532,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async enableSqlPlanBaselinesUsage(
     enableSqlPlanBaselinesUsageRequest: requests.EnableSqlPlanBaselinesUsageRequest
   ): Promise<responses.EnableSqlPlanBaselinesUsageResponse> {
-    logger.debug("Calling operation DbManagementClient#enableSqlPlanBaselinesUsage.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#enableSqlPlanBaselinesUsage.");
     const operationName = "enableSqlPlanBaselinesUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableSqlPlanBaselinesUsage";
@@ -4421,6 +4554,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       enableSqlPlanBaselinesUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4473,7 +4607,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async generateAwrSnapshot(
     generateAwrSnapshotRequest: requests.GenerateAwrSnapshotRequest
   ): Promise<responses.GenerateAwrSnapshotResponse> {
-    logger.debug("Calling operation DbManagementClient#generateAwrSnapshot.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#generateAwrSnapshot.");
     const operationName = "generateAwrSnapshot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SnapshotDetails/GenerateAwrSnapshot";
@@ -4496,6 +4630,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       generateAwrSnapshotRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4546,7 +4681,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getAwrDbReport(
     getAwrDbReportRequest: requests.GetAwrDbReportRequest
   ): Promise<responses.GetAwrDbReportResponse> {
-    logger.debug("Calling operation DbManagementClient#getAwrDbReport.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getAwrDbReport.");
     const operationName = "getAwrDbReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetAwrDbReport";
@@ -4579,6 +4714,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getAwrDbReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4629,7 +4765,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getAwrDbSqlReport(
     getAwrDbSqlReportRequest: requests.GetAwrDbSqlReportRequest
   ): Promise<responses.GetAwrDbSqlReportResponse> {
-    logger.debug("Calling operation DbManagementClient#getAwrDbSqlReport.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getAwrDbSqlReport.");
     const operationName = "getAwrDbSqlReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetAwrDbSqlReport";
@@ -4662,6 +4798,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getAwrDbSqlReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4714,7 +4851,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getClusterCacheMetric(
     getClusterCacheMetricRequest: requests.GetClusterCacheMetricRequest
   ): Promise<responses.GetClusterCacheMetricResponse> {
-    logger.debug("Calling operation DbManagementClient#getClusterCacheMetric.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getClusterCacheMetric.");
     const operationName = "getClusterCacheMetric";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ClusterCacheMetric/GetClusterCacheMetric";
@@ -4738,6 +4876,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getClusterCacheMetricRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4789,7 +4928,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getDatabaseFleetHealthMetrics(
     getDatabaseFleetHealthMetricsRequest: requests.GetDatabaseFleetHealthMetricsRequest
   ): Promise<responses.GetDatabaseFleetHealthMetricsResponse> {
-    logger.debug("Calling operation DbManagementClient#getDatabaseFleetHealthMetrics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDatabaseFleetHealthMetrics.");
     const operationName = "getDatabaseFleetHealthMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DatabaseFleetHealthMetrics/GetDatabaseFleetHealthMetrics";
@@ -4820,6 +4960,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getDatabaseFleetHealthMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4869,7 +5010,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getDatabaseHomeMetrics(
     getDatabaseHomeMetricsRequest: requests.GetDatabaseHomeMetricsRequest
   ): Promise<responses.GetDatabaseHomeMetricsResponse> {
-    logger.debug("Calling operation DbManagementClient#getDatabaseHomeMetrics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDatabaseHomeMetrics.");
     const operationName = "getDatabaseHomeMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DatabaseHomeMetrics/GetDatabaseHomeMetrics";
@@ -4892,6 +5034,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getDatabaseHomeMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4941,7 +5084,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getDbManagementPrivateEndpoint(
     getDbManagementPrivateEndpointRequest: requests.GetDbManagementPrivateEndpointRequest
   ): Promise<responses.GetDbManagementPrivateEndpointResponse> {
-    logger.debug("Calling operation DbManagementClient#getDbManagementPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDbManagementPrivateEndpoint.");
     const operationName = "getDbManagementPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/GetDbManagementPrivateEndpoint";
@@ -4963,6 +5107,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getDbManagementPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5018,7 +5163,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalAsm(
     getExternalAsmRequest: requests.GetExternalAsmRequest
   ): Promise<responses.GetExternalAsmResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalAsm.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalAsm.");
     const operationName = "getExternalAsm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/GetExternalAsm";
@@ -5039,6 +5184,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalAsmRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5094,7 +5240,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalAsmConfiguration(
     getExternalAsmConfigurationRequest: requests.GetExternalAsmConfigurationRequest
   ): Promise<responses.GetExternalAsmConfigurationResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalAsmConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalAsmConfiguration.");
     const operationName = "getExternalAsmConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/GetExternalAsmConfiguration";
@@ -5116,6 +5263,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalAsmConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5166,7 +5314,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalAsmInstance(
     getExternalAsmInstanceRequest: requests.GetExternalAsmInstanceRequest
   ): Promise<responses.GetExternalAsmInstanceResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalAsmInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalAsmInstance.");
     const operationName = "getExternalAsmInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsmInstance/GetExternalAsmInstance";
@@ -5187,6 +5336,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalAsmInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5237,7 +5387,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalCluster(
     getExternalClusterRequest: requests.GetExternalClusterRequest
   ): Promise<responses.GetExternalClusterResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalCluster.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalCluster.");
     const operationName = "getExternalCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalCluster/GetExternalCluster";
@@ -5258,6 +5408,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5313,7 +5464,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalClusterInstance(
     getExternalClusterInstanceRequest: requests.GetExternalClusterInstanceRequest
   ): Promise<responses.GetExternalClusterInstanceResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalClusterInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalClusterInstance.");
     const operationName = "getExternalClusterInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalClusterInstance/GetExternalClusterInstance";
@@ -5334,6 +5486,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalClusterInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5389,7 +5542,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalDbHome(
     getExternalDbHomeRequest: requests.GetExternalDbHomeRequest
   ): Promise<responses.GetExternalDbHomeResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalDbHome.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalDbHome.");
     const operationName = "getExternalDbHome";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbHome/GetExternalDbHome";
@@ -5410,6 +5563,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalDbHomeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5460,7 +5614,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalDbNode(
     getExternalDbNodeRequest: requests.GetExternalDbNodeRequest
   ): Promise<responses.GetExternalDbNodeResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalDbNode.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalDbNode.");
     const operationName = "getExternalDbNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbNode/GetExternalDbNode";
@@ -5481,6 +5635,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalDbNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5536,7 +5691,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalDbSystem(
     getExternalDbSystemRequest: requests.GetExternalDbSystemRequest
   ): Promise<responses.GetExternalDbSystemResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalDbSystem.");
     const operationName = "getExternalDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/GetExternalDbSystem";
@@ -5557,6 +5712,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5612,7 +5768,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalDbSystemConnector(
     getExternalDbSystemConnectorRequest: requests.GetExternalDbSystemConnectorRequest
   ): Promise<responses.GetExternalDbSystemConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalDbSystemConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalDbSystemConnector.");
     const operationName = "getExternalDbSystemConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/GetExternalDbSystemConnector";
@@ -5634,6 +5791,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalDbSystemConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5689,7 +5847,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalDbSystemDiscovery(
     getExternalDbSystemDiscoveryRequest: requests.GetExternalDbSystemDiscoveryRequest
   ): Promise<responses.GetExternalDbSystemDiscoveryResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalDbSystemDiscovery.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalDbSystemDiscovery.");
     const operationName = "getExternalDbSystemDiscovery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/GetExternalDbSystemDiscovery";
@@ -5711,6 +5870,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalDbSystemDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5767,7 +5927,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalExadataInfrastructure(
     getExternalExadataInfrastructureRequest: requests.GetExternalExadataInfrastructureRequest
   ): Promise<responses.GetExternalExadataInfrastructureResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalExadataInfrastructure.");
     const operationName = "getExternalExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/GetExternalExadataInfrastructure";
@@ -5789,6 +5950,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5844,7 +6006,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalExadataStorageConnector(
     getExternalExadataStorageConnectorRequest: requests.GetExternalExadataStorageConnectorRequest
   ): Promise<responses.GetExternalExadataStorageConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalExadataStorageConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalExadataStorageConnector.");
     const operationName = "getExternalExadataStorageConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageConnector/GetExternalExadataStorageConnector";
@@ -5866,6 +6029,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalExadataStorageConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5921,7 +6085,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalExadataStorageGrid(
     getExternalExadataStorageGridRequest: requests.GetExternalExadataStorageGridRequest
   ): Promise<responses.GetExternalExadataStorageGridResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalExadataStorageGrid.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalExadataStorageGrid.");
     const operationName = "getExternalExadataStorageGrid";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageGrid/GetExternalExadataStorageGrid";
@@ -5943,6 +6108,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalExadataStorageGridRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5998,7 +6164,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalExadataStorageServer(
     getExternalExadataStorageServerRequest: requests.GetExternalExadataStorageServerRequest
   ): Promise<responses.GetExternalExadataStorageServerResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalExadataStorageServer.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalExadataStorageServer.");
     const operationName = "getExternalExadataStorageServer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageServer/GetExternalExadataStorageServer";
@@ -6020,6 +6187,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalExadataStorageServerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6075,7 +6243,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getExternalListener(
     getExternalListenerRequest: requests.GetExternalListenerRequest
   ): Promise<responses.GetExternalListenerResponse> {
-    logger.debug("Calling operation DbManagementClient#getExternalListener.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalListener.");
     const operationName = "getExternalListener";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/GetExternalListener";
@@ -6096,6 +6264,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getExternalListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6151,7 +6320,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getIormPlan(
     getIormPlanRequest: requests.GetIormPlanRequest
   ): Promise<responses.GetIormPlanResponse> {
-    logger.debug("Calling operation DbManagementClient#getIormPlan.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getIormPlan.");
     const operationName = "getIormPlan";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageServer/GetIormPlan";
@@ -6172,6 +6341,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getIormPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6220,7 +6390,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
-    logger.debug("Calling operation DbManagementClient#getJob.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getJob.");
     const operationName = "getJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/GetJob";
@@ -6241,6 +6411,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6301,7 +6472,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getJobExecution(
     getJobExecutionRequest: requests.GetJobExecutionRequest
   ): Promise<responses.GetJobExecutionResponse> {
-    logger.debug("Calling operation DbManagementClient#getJobExecution.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getJobExecution.");
     const operationName = "getJobExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobExecution/GetJobExecution";
@@ -6322,6 +6493,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getJobExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6372,7 +6544,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getJobRun(
     getJobRunRequest: requests.GetJobRunRequest
   ): Promise<responses.GetJobRunResponse> {
-    logger.debug("Calling operation DbManagementClient#getJobRun.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getJobRun.");
     const operationName = "getJobRun";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobRun/GetJobRun";
@@ -6393,6 +6565,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getJobRunRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6443,7 +6616,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getManagedDatabase(
     getManagedDatabaseRequest: requests.GetManagedDatabaseRequest
   ): Promise<responses.GetManagedDatabaseResponse> {
-    logger.debug("Calling operation DbManagementClient#getManagedDatabase.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getManagedDatabase.");
     const operationName = "getManagedDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetManagedDatabase";
@@ -6464,6 +6637,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getManagedDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6514,7 +6688,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getManagedDatabaseGroup(
     getManagedDatabaseGroupRequest: requests.GetManagedDatabaseGroupRequest
   ): Promise<responses.GetManagedDatabaseGroupResponse> {
-    logger.debug("Calling operation DbManagementClient#getManagedDatabaseGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getManagedDatabaseGroup.");
     const operationName = "getManagedDatabaseGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/GetManagedDatabaseGroup";
@@ -6535,6 +6710,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getManagedDatabaseGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6590,7 +6766,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getNamedCredential(
     getNamedCredentialRequest: requests.GetNamedCredentialRequest
   ): Promise<responses.GetNamedCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#getNamedCredential.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getNamedCredential.");
     const operationName = "getNamedCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/GetNamedCredential";
@@ -6611,6 +6787,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getNamedCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6666,7 +6843,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getOpenAlertHistory(
     getOpenAlertHistoryRequest: requests.GetOpenAlertHistoryRequest
   ): Promise<responses.GetOpenAlertHistoryResponse> {
-    logger.debug("Calling operation DbManagementClient#getOpenAlertHistory.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getOpenAlertHistory.");
     const operationName = "getOpenAlertHistory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageServer/GetOpenAlertHistory";
@@ -6687,6 +6864,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getOpenAlertHistoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6738,7 +6916,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getOptimizerStatisticsAdvisorExecution(
     getOptimizerStatisticsAdvisorExecutionRequest: requests.GetOptimizerStatisticsAdvisorExecutionRequest
   ): Promise<responses.GetOptimizerStatisticsAdvisorExecutionResponse> {
-    logger.debug("Calling operation DbManagementClient#getOptimizerStatisticsAdvisorExecution.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#getOptimizerStatisticsAdvisorExecution."
+      );
     const operationName = "getOptimizerStatisticsAdvisorExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetOptimizerStatisticsAdvisorExecution";
@@ -6763,6 +6944,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getOptimizerStatisticsAdvisorExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6813,9 +6995,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getOptimizerStatisticsAdvisorExecutionScript(
     getOptimizerStatisticsAdvisorExecutionScriptRequest: requests.GetOptimizerStatisticsAdvisorExecutionScriptRequest
   ): Promise<responses.GetOptimizerStatisticsAdvisorExecutionScriptResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#getOptimizerStatisticsAdvisorExecutionScript."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#getOptimizerStatisticsAdvisorExecutionScript."
+      );
     const operationName = "getOptimizerStatisticsAdvisorExecutionScript";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetOptimizerStatisticsAdvisorExecutionScript";
@@ -6841,6 +7024,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getOptimizerStatisticsAdvisorExecutionScriptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6891,7 +7075,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getOptimizerStatisticsCollectionOperation(
     getOptimizerStatisticsCollectionOperationRequest: requests.GetOptimizerStatisticsCollectionOperationRequest
   ): Promise<responses.GetOptimizerStatisticsCollectionOperationResponse> {
-    logger.debug("Calling operation DbManagementClient#getOptimizerStatisticsCollectionOperation.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#getOptimizerStatisticsCollectionOperation."
+      );
     const operationName = "getOptimizerStatisticsCollectionOperation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetOptimizerStatisticsCollectionOperation";
@@ -6916,6 +7103,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getOptimizerStatisticsCollectionOperationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6970,7 +7158,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getPdbMetrics(
     getPdbMetricsRequest: requests.GetPdbMetricsRequest
   ): Promise<responses.GetPdbMetricsResponse> {
-    logger.debug("Calling operation DbManagementClient#getPdbMetrics.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getPdbMetrics.");
     const operationName = "getPdbMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PdbMetrics/GetPdbMetrics";
@@ -6997,6 +7185,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getPdbMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7047,7 +7236,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getPreferredCredential(
     getPreferredCredentialRequest: requests.GetPreferredCredentialRequest
   ): Promise<responses.GetPreferredCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#getPreferredCredential.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getPreferredCredential.");
     const operationName = "getPreferredCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/GetPreferredCredential";
@@ -7069,6 +7259,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getPreferredCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7124,7 +7315,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getSqlPlanBaseline(
     getSqlPlanBaselineRequest: requests.GetSqlPlanBaselineRequest
   ): Promise<responses.GetSqlPlanBaselineResponse> {
-    logger.debug("Calling operation DbManagementClient#getSqlPlanBaseline.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getSqlPlanBaseline.");
     const operationName = "getSqlPlanBaseline";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetSqlPlanBaseline";
@@ -7147,6 +7338,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getSqlPlanBaselineRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7199,7 +7391,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getSqlPlanBaselineConfiguration(
     getSqlPlanBaselineConfigurationRequest: requests.GetSqlPlanBaselineConfigurationRequest
   ): Promise<responses.GetSqlPlanBaselineConfigurationResponse> {
-    logger.debug("Calling operation DbManagementClient#getSqlPlanBaselineConfiguration.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getSqlPlanBaselineConfiguration.");
     const operationName = "getSqlPlanBaselineConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetSqlPlanBaselineConfiguration";
@@ -7221,6 +7414,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getSqlPlanBaselineConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7271,7 +7465,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getTablespace(
     getTablespaceRequest: requests.GetTablespaceRequest
   ): Promise<responses.GetTablespaceResponse> {
-    logger.debug("Calling operation DbManagementClient#getTablespace.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getTablespace.");
     const operationName = "getTablespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/GetTablespace";
@@ -7294,6 +7488,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getTablespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7344,7 +7539,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getTopSqlCpuActivity(
     getTopSqlCpuActivityRequest: requests.GetTopSqlCpuActivityRequest
   ): Promise<responses.GetTopSqlCpuActivityResponse> {
-    logger.debug("Calling operation DbManagementClient#getTopSqlCpuActivity.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getTopSqlCpuActivity.");
     const operationName = "getTopSqlCpuActivity";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageServer/GetTopSqlCpuActivity";
@@ -7365,6 +7561,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getTopSqlCpuActivityRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7415,7 +7612,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getUser(
     getUserRequest: requests.GetUserRequest
   ): Promise<responses.GetUserResponse> {
-    logger.debug("Calling operation DbManagementClient#getUser.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getUser.");
     const operationName = "getUser";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetUser";
@@ -7438,6 +7635,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getUserRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7487,7 +7685,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation DbManagementClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/WorkRequest/GetWorkRequest";
@@ -7508,6 +7706,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7562,9 +7761,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async implementOptimizerStatisticsAdvisorRecommendations(
     implementOptimizerStatisticsAdvisorRecommendationsRequest: requests.ImplementOptimizerStatisticsAdvisorRecommendationsRequest
   ): Promise<responses.ImplementOptimizerStatisticsAdvisorRecommendationsResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#implementOptimizerStatisticsAdvisorRecommendations."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#implementOptimizerStatisticsAdvisorRecommendations."
+      );
     const operationName = "implementOptimizerStatisticsAdvisorRecommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ImplementOptimizerStatisticsAdvisorRecommendations";
@@ -7587,6 +7787,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       implementOptimizerStatisticsAdvisorRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7642,7 +7843,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listAsmProperties(
     listAsmPropertiesRequest: requests.ListAsmPropertiesRequest
   ): Promise<responses.ListAsmPropertiesResponse> {
-    logger.debug("Calling operation DbManagementClient#listAsmProperties.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAsmProperties.");
     const operationName = "listAsmProperties";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAsmProperties";
@@ -7669,6 +7870,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listAsmPropertiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7723,7 +7925,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listAssociatedDatabases(
     listAssociatedDatabasesRequest: requests.ListAssociatedDatabasesRequest
   ): Promise<responses.ListAssociatedDatabasesResponse> {
-    logger.debug("Calling operation DbManagementClient#listAssociatedDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listAssociatedDatabases.");
     const operationName = "listAssociatedDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/AssociatedDatabaseSummary/ListAssociatedDatabases";
@@ -7751,6 +7954,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listAssociatedDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7806,7 +8010,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listAwrDbSnapshots(
     listAwrDbSnapshotsRequest: requests.ListAwrDbSnapshotsRequest
   ): Promise<responses.ListAwrDbSnapshotsResponse> {
-    logger.debug("Calling operation DbManagementClient#listAwrDbSnapshots.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAwrDbSnapshots.");
     const operationName = "listAwrDbSnapshots";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAwrDbSnapshots";
@@ -7841,6 +8045,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listAwrDbSnapshotsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7896,7 +8101,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listAwrDbs(
     listAwrDbsRequest: requests.ListAwrDbsRequest
   ): Promise<responses.ListAwrDbsResponse> {
-    logger.debug("Calling operation DbManagementClient#listAwrDbs.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAwrDbs.");
     const operationName = "listAwrDbs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAwrDbs";
@@ -7927,6 +8132,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listAwrDbsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7981,7 +8187,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listConsumerGroupPrivileges(
     listConsumerGroupPrivilegesRequest: requests.ListConsumerGroupPrivilegesRequest
   ): Promise<responses.ListConsumerGroupPrivilegesResponse> {
-    logger.debug("Calling operation DbManagementClient#listConsumerGroupPrivileges.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listConsumerGroupPrivileges.");
     const operationName = "listConsumerGroupPrivileges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListConsumerGroupPrivileges";
@@ -8010,6 +8217,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listConsumerGroupPrivilegesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8065,7 +8273,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listCursorCacheStatements(
     listCursorCacheStatementsRequest: requests.ListCursorCacheStatementsRequest
   ): Promise<responses.ListCursorCacheStatementsResponse> {
-    logger.debug("Calling operation DbManagementClient#listCursorCacheStatements.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCursorCacheStatements.");
     const operationName = "listCursorCacheStatements";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListCursorCacheStatements";
@@ -8093,6 +8302,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listCursorCacheStatementsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8147,7 +8357,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listDataAccessContainers(
     listDataAccessContainersRequest: requests.ListDataAccessContainersRequest
   ): Promise<responses.ListDataAccessContainersResponse> {
-    logger.debug("Calling operation DbManagementClient#listDataAccessContainers.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listDataAccessContainers.");
     const operationName = "listDataAccessContainers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListDataAccessContainers";
@@ -8176,6 +8387,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listDataAccessContainersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8231,7 +8443,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listDatabaseParameters(
     listDatabaseParametersRequest: requests.ListDatabaseParametersRequest
   ): Promise<responses.ListDatabaseParametersResponse> {
-    logger.debug("Calling operation DbManagementClient#listDatabaseParameters.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listDatabaseParameters.");
     const operationName = "listDatabaseParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListDatabaseParameters";
@@ -8259,6 +8472,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listDatabaseParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8309,7 +8523,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listDbManagementPrivateEndpoints(
     listDbManagementPrivateEndpointsRequest: requests.ListDbManagementPrivateEndpointsRequest
   ): Promise<responses.ListDbManagementPrivateEndpointsResponse> {
-    logger.debug("Calling operation DbManagementClient#listDbManagementPrivateEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listDbManagementPrivateEndpoints.");
     const operationName = "listDbManagementPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/ListDbManagementPrivateEndpoints";
@@ -8338,6 +8553,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listDbManagementPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8393,7 +8609,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalAsmDiskGroups(
     listExternalAsmDiskGroupsRequest: requests.ListExternalAsmDiskGroupsRequest
   ): Promise<responses.ListExternalAsmDiskGroupsResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalAsmDiskGroups.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalAsmDiskGroups.");
     const operationName = "listExternalAsmDiskGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/ListExternalAsmDiskGroups";
@@ -8420,6 +8637,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalAsmDiskGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8474,7 +8692,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalAsmInstances(
     listExternalAsmInstancesRequest: requests.ListExternalAsmInstancesRequest
   ): Promise<responses.ListExternalAsmInstancesResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalAsmInstances.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalAsmInstances.");
     const operationName = "listExternalAsmInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsmInstance/ListExternalAsmInstances";
@@ -8501,6 +8720,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalAsmInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8556,7 +8776,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalAsmUsers(
     listExternalAsmUsersRequest: requests.ListExternalAsmUsersRequest
   ): Promise<responses.ListExternalAsmUsersResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalAsmUsers.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalAsmUsers.");
     const operationName = "listExternalAsmUsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/ListExternalAsmUsers";
@@ -8583,6 +8804,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalAsmUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8637,7 +8859,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalAsms(
     listExternalAsmsRequest: requests.ListExternalAsmsRequest
   ): Promise<responses.ListExternalAsmsResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalAsms.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listExternalAsms.");
     const operationName = "listExternalAsms";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/ListExternalAsms";
@@ -8664,6 +8886,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalAsmsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8718,7 +8941,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalClusterInstances(
     listExternalClusterInstancesRequest: requests.ListExternalClusterInstancesRequest
   ): Promise<responses.ListExternalClusterInstancesResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalClusterInstances.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalClusterInstances.");
     const operationName = "listExternalClusterInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalClusterInstance/ListExternalClusterInstances";
@@ -8745,6 +8969,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalClusterInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8799,7 +9024,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalClusters(
     listExternalClustersRequest: requests.ListExternalClustersRequest
   ): Promise<responses.ListExternalClustersResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalClusters.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalClusters.");
     const operationName = "listExternalClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalCluster/ListExternalClusters";
@@ -8826,6 +9052,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8880,7 +9107,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalDatabases(
     listExternalDatabasesRequest: requests.ListExternalDatabasesRequest
   ): Promise<responses.ListExternalDatabasesResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalDatabases.");
     const operationName = "listExternalDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDatabaseCollection/ListExternalDatabases";
@@ -8907,6 +9135,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -8961,7 +9190,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalDbHomes(
     listExternalDbHomesRequest: requests.ListExternalDbHomesRequest
   ): Promise<responses.ListExternalDbHomesResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalDbHomes.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listExternalDbHomes.");
     const operationName = "listExternalDbHomes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbHome/ListExternalDbHomes";
@@ -8988,6 +9217,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalDbHomesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9042,7 +9272,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalDbNodes(
     listExternalDbNodesRequest: requests.ListExternalDbNodesRequest
   ): Promise<responses.ListExternalDbNodesResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalDbNodes.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listExternalDbNodes.");
     const operationName = "listExternalDbNodes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbNode/ListExternalDbNodes";
@@ -9069,6 +9299,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalDbNodesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9123,7 +9354,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalDbSystemConnectors(
     listExternalDbSystemConnectorsRequest: requests.ListExternalDbSystemConnectorsRequest
   ): Promise<responses.ListExternalDbSystemConnectorsResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalDbSystemConnectors.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalDbSystemConnectors.");
     const operationName = "listExternalDbSystemConnectors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/ListExternalDbSystemConnectors";
@@ -9150,6 +9382,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalDbSystemConnectorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9204,7 +9437,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalDbSystemDiscoveries(
     listExternalDbSystemDiscoveriesRequest: requests.ListExternalDbSystemDiscoveriesRequest
   ): Promise<responses.ListExternalDbSystemDiscoveriesResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalDbSystemDiscoveries.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalDbSystemDiscoveries.");
     const operationName = "listExternalDbSystemDiscoveries";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/ListExternalDbSystemDiscoveries";
@@ -9230,6 +9464,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalDbSystemDiscoveriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9284,7 +9519,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalDbSystems(
     listExternalDbSystemsRequest: requests.ListExternalDbSystemsRequest
   ): Promise<responses.ListExternalDbSystemsResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalDbSystems.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalDbSystems.");
     const operationName = "listExternalDbSystems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/ListExternalDbSystems";
@@ -9310,6 +9546,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalDbSystemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9365,7 +9602,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalExadataInfrastructures(
     listExternalExadataInfrastructuresRequest: requests.ListExternalExadataInfrastructuresRequest
   ): Promise<responses.ListExternalExadataInfrastructuresResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalExadataInfrastructures.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalExadataInfrastructures.");
     const operationName = "listExternalExadataInfrastructures";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/ListExternalExadataInfrastructures";
@@ -9391,6 +9629,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalExadataInfrastructuresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9446,7 +9685,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalExadataStorageConnectors(
     listExternalExadataStorageConnectorsRequest: requests.ListExternalExadataStorageConnectorsRequest
   ): Promise<responses.ListExternalExadataStorageConnectorsResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalExadataStorageConnectors.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#listExternalExadataStorageConnectors."
+      );
     const operationName = "listExternalExadataStorageConnectors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageConnector/ListExternalExadataStorageConnectors";
@@ -9474,6 +9716,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalExadataStorageConnectorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9529,7 +9772,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalExadataStorageServers(
     listExternalExadataStorageServersRequest: requests.ListExternalExadataStorageServersRequest
   ): Promise<responses.ListExternalExadataStorageServersResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalExadataStorageServers.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalExadataStorageServers.");
     const operationName = "listExternalExadataStorageServers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageServer/ListExternalExadataStorageServers";
@@ -9557,6 +9801,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalExadataStorageServersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9613,7 +9858,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalListenerServices(
     listExternalListenerServicesRequest: requests.ListExternalListenerServicesRequest
   ): Promise<responses.ListExternalListenerServicesResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalListenerServices.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalListenerServices.");
     const operationName = "listExternalListenerServices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/ListExternalListenerServices";
@@ -9641,6 +9887,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalListenerServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9695,7 +9942,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listExternalListeners(
     listExternalListenersRequest: requests.ListExternalListenersRequest
   ): Promise<responses.ListExternalListenersResponse> {
-    logger.debug("Calling operation DbManagementClient#listExternalListeners.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalListeners.");
     const operationName = "listExternalListeners";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/ListExternalListeners";
@@ -9722,6 +9970,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listExternalListenersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9780,7 +10029,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listJobExecutions(
     listJobExecutionsRequest: requests.ListJobExecutionsRequest
   ): Promise<responses.ListJobExecutionsResponse> {
-    logger.debug("Calling operation DbManagementClient#listJobExecutions.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listJobExecutions.");
     const operationName = "listJobExecutions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobExecution/ListJobExecutions";
@@ -9812,6 +10061,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listJobExecutionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9870,7 +10120,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listJobRuns(
     listJobRunsRequest: requests.ListJobRunsRequest
   ): Promise<responses.ListJobRunsResponse> {
-    logger.debug("Calling operation DbManagementClient#listJobRuns.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listJobRuns.");
     const operationName = "listJobRuns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobRun/ListJobRuns";
@@ -9901,6 +10151,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listJobRunsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -9959,7 +10210,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
-    logger.debug("Calling operation DbManagementClient#listJobs.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listJobs.");
     const operationName = "listJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/ListJobs";
@@ -9989,6 +10240,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10047,7 +10299,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listManagedDatabaseGroups(
     listManagedDatabaseGroupsRequest: requests.ListManagedDatabaseGroupsRequest
   ): Promise<responses.ListManagedDatabaseGroupsResponse> {
-    logger.debug("Calling operation DbManagementClient#listManagedDatabaseGroups.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listManagedDatabaseGroups.");
     const operationName = "listManagedDatabaseGroups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/ListManagedDatabaseGroups";
@@ -10075,6 +10328,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listManagedDatabaseGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10135,7 +10389,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listManagedDatabases(
     listManagedDatabasesRequest: requests.ListManagedDatabasesRequest
   ): Promise<responses.ListManagedDatabasesResponse> {
-    logger.debug("Calling operation DbManagementClient#listManagedDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listManagedDatabases.");
     const operationName = "listManagedDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListManagedDatabases";
@@ -10166,6 +10421,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listManagedDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10221,7 +10477,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listNamedCredentials(
     listNamedCredentialsRequest: requests.ListNamedCredentialsRequest
   ): Promise<responses.ListNamedCredentialsResponse> {
-    logger.debug("Calling operation DbManagementClient#listNamedCredentials.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listNamedCredentials.");
     const operationName = "listNamedCredentials";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/ListNamedCredentials";
@@ -10250,6 +10507,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listNamedCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10304,7 +10562,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listObjectPrivileges(
     listObjectPrivilegesRequest: requests.ListObjectPrivilegesRequest
   ): Promise<responses.ListObjectPrivilegesResponse> {
-    logger.debug("Calling operation DbManagementClient#listObjectPrivileges.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listObjectPrivileges.");
     const operationName = "listObjectPrivileges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListObjectPrivileges";
@@ -10333,6 +10592,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listObjectPrivilegesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10390,7 +10650,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listOptimizerStatisticsAdvisorExecutions(
     listOptimizerStatisticsAdvisorExecutionsRequest: requests.ListOptimizerStatisticsAdvisorExecutionsRequest
   ): Promise<responses.ListOptimizerStatisticsAdvisorExecutionsResponse> {
-    logger.debug("Calling operation DbManagementClient#listOptimizerStatisticsAdvisorExecutions.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#listOptimizerStatisticsAdvisorExecutions."
+      );
     const operationName = "listOptimizerStatisticsAdvisorExecutions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListOptimizerStatisticsAdvisorExecutions";
@@ -10418,6 +10681,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listOptimizerStatisticsAdvisorExecutionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10473,9 +10737,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listOptimizerStatisticsCollectionAggregations(
     listOptimizerStatisticsCollectionAggregationsRequest: requests.ListOptimizerStatisticsCollectionAggregationsRequest
   ): Promise<responses.ListOptimizerStatisticsCollectionAggregationsResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#listOptimizerStatisticsCollectionAggregations."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#listOptimizerStatisticsCollectionAggregations."
+      );
     const operationName = "listOptimizerStatisticsCollectionAggregations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListOptimizerStatisticsCollectionAggregations";
@@ -10507,6 +10772,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listOptimizerStatisticsCollectionAggregationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10568,9 +10834,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listOptimizerStatisticsCollectionOperations(
     listOptimizerStatisticsCollectionOperationsRequest: requests.ListOptimizerStatisticsCollectionOperationsRequest
   ): Promise<responses.ListOptimizerStatisticsCollectionOperationsResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#listOptimizerStatisticsCollectionOperations."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#listOptimizerStatisticsCollectionOperations."
+      );
     const operationName = "listOptimizerStatisticsCollectionOperations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListOptimizerStatisticsCollectionOperations";
@@ -10604,6 +10871,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listOptimizerStatisticsCollectionOperationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10659,7 +10927,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listPreferredCredentials(
     listPreferredCredentialsRequest: requests.ListPreferredCredentialsRequest
   ): Promise<responses.ListPreferredCredentialsResponse> {
-    logger.debug("Calling operation DbManagementClient#listPreferredCredentials.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listPreferredCredentials.");
     const operationName = "listPreferredCredentials";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/ListPreferredCredentials";
@@ -10680,6 +10949,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listPreferredCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10734,7 +11004,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listProxiedForUsers(
     listProxiedForUsersRequest: requests.ListProxiedForUsersRequest
   ): Promise<responses.ListProxiedForUsersResponse> {
-    logger.debug("Calling operation DbManagementClient#listProxiedForUsers.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listProxiedForUsers.");
     const operationName = "listProxiedForUsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListProxiedForUsers";
@@ -10763,6 +11033,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listProxiedForUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10817,7 +11088,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listProxyUsers(
     listProxyUsersRequest: requests.ListProxyUsersRequest
   ): Promise<responses.ListProxyUsersResponse> {
-    logger.debug("Calling operation DbManagementClient#listProxyUsers.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listProxyUsers.");
     const operationName = "listProxyUsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListProxyUsers";
@@ -10846,6 +11117,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listProxyUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10900,7 +11172,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listRoles(
     listRolesRequest: requests.ListRolesRequest
   ): Promise<responses.ListRolesResponse> {
-    logger.debug("Calling operation DbManagementClient#listRoles.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listRoles.");
     const operationName = "listRoles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListRoles";
@@ -10929,6 +11201,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listRolesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -10984,7 +11257,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listSqlPlanBaselineJobs(
     listSqlPlanBaselineJobsRequest: requests.ListSqlPlanBaselineJobsRequest
   ): Promise<responses.ListSqlPlanBaselineJobsResponse> {
-    logger.debug("Calling operation DbManagementClient#listSqlPlanBaselineJobs.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listSqlPlanBaselineJobs.");
     const operationName = "listSqlPlanBaselineJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlPlanBaselineJobs";
@@ -11012,6 +11286,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listSqlPlanBaselineJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11067,7 +11342,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listSqlPlanBaselines(
     listSqlPlanBaselinesRequest: requests.ListSqlPlanBaselinesRequest
   ): Promise<responses.ListSqlPlanBaselinesResponse> {
-    logger.debug("Calling operation DbManagementClient#listSqlPlanBaselines.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listSqlPlanBaselines.");
     const operationName = "listSqlPlanBaselines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlPlanBaselines";
@@ -11107,6 +11383,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listSqlPlanBaselinesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11161,7 +11438,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listSystemPrivileges(
     listSystemPrivilegesRequest: requests.ListSystemPrivilegesRequest
   ): Promise<responses.ListSystemPrivilegesResponse> {
-    logger.debug("Calling operation DbManagementClient#listSystemPrivileges.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listSystemPrivileges.");
     const operationName = "listSystemPrivileges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSystemPrivileges";
@@ -11190,6 +11468,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listSystemPrivilegesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11246,7 +11525,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listTableStatistics(
     listTableStatisticsRequest: requests.ListTableStatisticsRequest
   ): Promise<responses.ListTableStatisticsResponse> {
-    logger.debug("Calling operation DbManagementClient#listTableStatistics.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listTableStatistics.");
     const operationName = "listTableStatistics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListTableStatistics";
@@ -11268,6 +11547,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listTableStatisticsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11317,7 +11597,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listTablespaces(
     listTablespacesRequest: requests.ListTablespacesRequest
   ): Promise<responses.ListTablespacesResponse> {
-    logger.debug("Calling operation DbManagementClient#listTablespaces.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listTablespaces.");
     const operationName = "listTablespaces";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/ListTablespaces";
@@ -11345,6 +11625,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listTablespacesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11399,7 +11680,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
   ): Promise<responses.ListUsersResponse> {
-    logger.debug("Calling operation DbManagementClient#listUsers.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listUsers.");
     const operationName = "listUsers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListUsers";
@@ -11427,6 +11708,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listUsersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11482,7 +11764,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation DbManagementClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/WorkRequestError/ListWorkRequestErrors";
@@ -11508,6 +11791,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11563,7 +11847,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation DbManagementClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -11589,6 +11873,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11644,7 +11929,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation DbManagementClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/WorkRequest/ListWorkRequests";
@@ -11672,6 +11957,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11731,7 +12017,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async loadSqlPlanBaselinesFromAwr(
     loadSqlPlanBaselinesFromAwrRequest: requests.LoadSqlPlanBaselinesFromAwrRequest
   ): Promise<responses.LoadSqlPlanBaselinesFromAwrResponse> {
-    logger.debug("Calling operation DbManagementClient#loadSqlPlanBaselinesFromAwr.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#loadSqlPlanBaselinesFromAwr.");
     const operationName = "loadSqlPlanBaselinesFromAwr";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/LoadSqlPlanBaselinesFromAwr";
@@ -11752,6 +12039,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       loadSqlPlanBaselinesFromAwrRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11810,7 +12098,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async loadSqlPlanBaselinesFromCursorCache(
     loadSqlPlanBaselinesFromCursorCacheRequest: requests.LoadSqlPlanBaselinesFromCursorCacheRequest
   ): Promise<responses.LoadSqlPlanBaselinesFromCursorCacheResponse> {
-    logger.debug("Calling operation DbManagementClient#loadSqlPlanBaselinesFromCursorCache.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#loadSqlPlanBaselinesFromCursorCache."
+      );
     const operationName = "loadSqlPlanBaselinesFromCursorCache";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/LoadSqlPlanBaselinesFromCursorCache";
@@ -11831,6 +12122,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       loadSqlPlanBaselinesFromCursorCacheRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11887,7 +12179,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async patchExternalDbSystemDiscovery(
     patchExternalDbSystemDiscoveryRequest: requests.PatchExternalDbSystemDiscoveryRequest
   ): Promise<responses.PatchExternalDbSystemDiscoveryResponse> {
-    logger.debug("Calling operation DbManagementClient#patchExternalDbSystemDiscovery.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#patchExternalDbSystemDiscovery.");
     const operationName = "patchExternalDbSystemDiscovery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/PatchExternalDbSystemDiscovery";
@@ -11910,6 +12203,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       patchExternalDbSystemDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -11970,7 +12264,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async removeDataFile(
     removeDataFileRequest: requests.RemoveDataFileRequest
   ): Promise<responses.RemoveDataFileResponse> {
-    logger.debug("Calling operation DbManagementClient#removeDataFile.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#removeDataFile.");
     const operationName = "removeDataFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/RemoveDataFile";
@@ -11993,6 +12287,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       removeDataFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12052,9 +12347,10 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async removeManagedDatabaseFromManagedDatabaseGroup(
     removeManagedDatabaseFromManagedDatabaseGroupRequest: requests.RemoveManagedDatabaseFromManagedDatabaseGroupRequest
   ): Promise<responses.RemoveManagedDatabaseFromManagedDatabaseGroupResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#removeManagedDatabaseFromManagedDatabaseGroup."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#removeManagedDatabaseFromManagedDatabaseGroup."
+      );
     const operationName = "removeManagedDatabaseFromManagedDatabaseGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/RemoveManagedDatabaseFromManagedDatabaseGroup";
@@ -12077,6 +12373,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       removeManagedDatabaseFromManagedDatabaseGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12128,7 +12425,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async resetDatabaseParameters(
     resetDatabaseParametersRequest: requests.ResetDatabaseParametersRequest
   ): Promise<responses.ResetDatabaseParametersResponse> {
-    logger.debug("Calling operation DbManagementClient#resetDatabaseParameters.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#resetDatabaseParameters.");
     const operationName = "resetDatabaseParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ResetDatabaseParameters";
@@ -12150,6 +12448,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       resetDatabaseParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12205,7 +12504,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async resizeDataFile(
     resizeDataFileRequest: requests.ResizeDataFileRequest
   ): Promise<responses.ResizeDataFileResponse> {
-    logger.debug("Calling operation DbManagementClient#resizeDataFile.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#resizeDataFile.");
     const operationName = "resizeDataFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/ResizeDataFile";
@@ -12228,6 +12527,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       resizeDataFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12285,7 +12585,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async runHistoricAddm(
     runHistoricAddmRequest: requests.RunHistoricAddmRequest
   ): Promise<responses.RunHistoricAddmResponse> {
-    logger.debug("Calling operation DbManagementClient#runHistoricAddm.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#runHistoricAddm.");
     const operationName = "runHistoricAddm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/HistoricAddmResult/RunHistoricAddm";
@@ -12308,6 +12608,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       runHistoricAddmRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12363,7 +12664,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async summarizeAwrDbCpuUsages(
     summarizeAwrDbCpuUsagesRequest: requests.SummarizeAwrDbCpuUsagesRequest
   ): Promise<responses.SummarizeAwrDbCpuUsagesResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbCpuUsages.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbCpuUsages.");
     const operationName = "summarizeAwrDbCpuUsages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbCpuUsages";
@@ -12399,6 +12701,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       summarizeAwrDbCpuUsagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12454,7 +12757,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async summarizeAwrDbMetrics(
     summarizeAwrDbMetricsRequest: requests.SummarizeAwrDbMetricsRequest
   ): Promise<responses.SummarizeAwrDbMetricsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbMetrics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbMetrics.");
     const operationName = "summarizeAwrDbMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbMetrics";
@@ -12490,6 +12794,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       summarizeAwrDbMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12549,7 +12854,8 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   public async summarizeAwrDbParameterChanges(
     summarizeAwrDbParameterChangesRequest: requests.SummarizeAwrDbParameterChangesRequest
   ): Promise<responses.SummarizeAwrDbParameterChangesResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbParameterChanges.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbParameterChanges.");
     const operationName = "summarizeAwrDbParameterChanges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbParameterChanges";
@@ -12586,6 +12892,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       summarizeAwrDbParameterChangesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12651,7 +12958,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDbParameters(
     summarizeAwrDbParametersRequest: requests.SummarizeAwrDbParametersRequest
   ): Promise<responses.SummarizeAwrDbParametersResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbParameters.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbParameters.");
     const operationName = "summarizeAwrDbParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbParameters";
@@ -12692,6 +13000,7 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDbParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12747,7 +13056,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDbSnapshotRanges(
     summarizeAwrDbSnapshotRangesRequest: requests.SummarizeAwrDbSnapshotRangesRequest
   ): Promise<responses.SummarizeAwrDbSnapshotRangesResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbSnapshotRanges.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbSnapshotRanges.");
     const operationName = "summarizeAwrDbSnapshotRanges";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbSnapshotRanges";
@@ -12778,6 +13088,7 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDbSnapshotRangesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12833,7 +13144,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDbSysstats(
     summarizeAwrDbSysstatsRequest: requests.SummarizeAwrDbSysstatsRequest
   ): Promise<responses.SummarizeAwrDbSysstatsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbSysstats.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbSysstats.");
     const operationName = "summarizeAwrDbSysstats";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbSysstats";
@@ -12869,6 +13181,7 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDbSysstatsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -12924,7 +13237,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDbTopWaitEvents(
     summarizeAwrDbTopWaitEventsRequest: requests.SummarizeAwrDbTopWaitEventsRequest
   ): Promise<responses.SummarizeAwrDbTopWaitEventsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbTopWaitEvents.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbTopWaitEvents.");
     const operationName = "summarizeAwrDbTopWaitEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbTopWaitEvents";
@@ -12960,6 +13274,7 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDbTopWaitEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13015,7 +13330,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDbWaitEventBuckets(
     summarizeAwrDbWaitEventBucketsRequest: requests.SummarizeAwrDbWaitEventBucketsRequest
   ): Promise<responses.SummarizeAwrDbWaitEventBucketsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbWaitEventBuckets.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbWaitEventBuckets.");
     const operationName = "summarizeAwrDbWaitEventBuckets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbWaitEventBuckets";
@@ -13055,6 +13371,7 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDbWaitEventBucketsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13110,7 +13427,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeAwrDbWaitEvents(
     summarizeAwrDbWaitEventsRequest: requests.SummarizeAwrDbWaitEventsRequest
   ): Promise<responses.SummarizeAwrDbWaitEventsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeAwrDbWaitEvents.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbWaitEvents.");
     const operationName = "summarizeAwrDbWaitEvents";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbWaitEvents";
@@ -13148,6 +13466,7 @@ Note that this API does not return information on the number of times each datab
       summarizeAwrDbWaitEventsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13203,7 +13522,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExternalAsmMetrics(
     summarizeExternalAsmMetricsRequest: requests.SummarizeExternalAsmMetricsRequest
   ): Promise<responses.SummarizeExternalAsmMetricsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeExternalAsmMetrics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeExternalAsmMetrics.");
     const operationName = "summarizeExternalAsmMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/SummarizeExternalAsmMetrics";
@@ -13230,6 +13550,7 @@ Note that this API does not return information on the number of times each datab
       summarizeExternalAsmMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13285,7 +13606,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExternalClusterMetrics(
     summarizeExternalClusterMetricsRequest: requests.SummarizeExternalClusterMetricsRequest
   ): Promise<responses.SummarizeExternalClusterMetricsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeExternalClusterMetrics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeExternalClusterMetrics.");
     const operationName = "summarizeExternalClusterMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalCluster/SummarizeExternalClusterMetrics";
@@ -13312,6 +13634,7 @@ Note that this API does not return information on the number of times each datab
       summarizeExternalClusterMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13367,7 +13690,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExternalDbNodeMetrics(
     summarizeExternalDbNodeMetricsRequest: requests.SummarizeExternalDbNodeMetricsRequest
   ): Promise<responses.SummarizeExternalDbNodeMetricsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeExternalDbNodeMetrics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeExternalDbNodeMetrics.");
     const operationName = "summarizeExternalDbNodeMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbNode/SummarizeExternalDbNodeMetrics";
@@ -13394,6 +13718,7 @@ Note that this API does not return information on the number of times each datab
       summarizeExternalDbNodeMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13449,9 +13774,10 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExternalDbSystemAvailabilityMetrics(
     summarizeExternalDbSystemAvailabilityMetricsRequest: requests.SummarizeExternalDbSystemAvailabilityMetricsRequest
   ): Promise<responses.SummarizeExternalDbSystemAvailabilityMetricsResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#summarizeExternalDbSystemAvailabilityMetrics."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#summarizeExternalDbSystemAvailabilityMetrics."
+      );
     const operationName = "summarizeExternalDbSystemAvailabilityMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/SummarizeExternalDbSystemAvailabilityMetrics";
@@ -13479,6 +13805,7 @@ Note that this API does not return information on the number of times each datab
       summarizeExternalDbSystemAvailabilityMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13534,7 +13861,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeExternalListenerMetrics(
     summarizeExternalListenerMetricsRequest: requests.SummarizeExternalListenerMetricsRequest
   ): Promise<responses.SummarizeExternalListenerMetricsResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeExternalListenerMetrics.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeExternalListenerMetrics.");
     const operationName = "summarizeExternalListenerMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/SummarizeExternalListenerMetrics";
@@ -13561,6 +13889,7 @@ Note that this API does not return information on the number of times each datab
       summarizeExternalListenerMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13615,7 +13944,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeJobExecutionsStatuses(
     summarizeJobExecutionsStatusesRequest: requests.SummarizeJobExecutionsStatusesRequest
   ): Promise<responses.SummarizeJobExecutionsStatusesResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeJobExecutionsStatuses.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeJobExecutionsStatuses.");
     const operationName = "summarizeJobExecutionsStatuses";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobExecutionsStatusSummaryCollection/SummarizeJobExecutionsStatuses";
@@ -13644,6 +13974,7 @@ Note that this API does not return information on the number of times each datab
       summarizeJobExecutionsStatusesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13695,9 +14026,10 @@ Note that this API does not return information on the number of times each datab
   public async summarizeManagedDatabaseAvailabilityMetrics(
     summarizeManagedDatabaseAvailabilityMetricsRequest: requests.SummarizeManagedDatabaseAvailabilityMetricsRequest
   ): Promise<responses.SummarizeManagedDatabaseAvailabilityMetricsResponse> {
-    logger.debug(
-      "Calling operation DbManagementClient#summarizeManagedDatabaseAvailabilityMetrics."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#summarizeManagedDatabaseAvailabilityMetrics."
+      );
     const operationName = "summarizeManagedDatabaseAvailabilityMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeManagedDatabaseAvailabilityMetrics";
@@ -13723,6 +14055,7 @@ Note that this API does not return information on the number of times each datab
       summarizeManagedDatabaseAvailabilityMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13778,7 +14111,8 @@ Note that this API does not return information on the number of times each datab
   public async summarizeSqlPlanBaselines(
     summarizeSqlPlanBaselinesRequest: requests.SummarizeSqlPlanBaselinesRequest
   ): Promise<responses.SummarizeSqlPlanBaselinesResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeSqlPlanBaselines.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeSqlPlanBaselines.");
     const operationName = "summarizeSqlPlanBaselines";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeSqlPlanBaselines";
@@ -13802,6 +14136,7 @@ Note that this API does not return information on the number of times each datab
       summarizeSqlPlanBaselinesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13857,7 +14192,10 @@ Note that this API does not return information on the number of times each datab
   public async summarizeSqlPlanBaselinesByLastExecution(
     summarizeSqlPlanBaselinesByLastExecutionRequest: requests.SummarizeSqlPlanBaselinesByLastExecutionRequest
   ): Promise<responses.SummarizeSqlPlanBaselinesByLastExecutionResponse> {
-    logger.debug("Calling operation DbManagementClient#summarizeSqlPlanBaselinesByLastExecution.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#summarizeSqlPlanBaselinesByLastExecution."
+      );
     const operationName = "summarizeSqlPlanBaselinesByLastExecution";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeSqlPlanBaselinesByLastExecution";
@@ -13882,6 +14220,7 @@ Note that this API does not return information on the number of times each datab
       summarizeSqlPlanBaselinesByLastExecutionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -13937,7 +14276,7 @@ Note that this API does not return information on the number of times each datab
   public async testNamedCredential(
     testNamedCredentialRequest: requests.TestNamedCredentialRequest
   ): Promise<responses.TestNamedCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#testNamedCredential.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#testNamedCredential.");
     const operationName = "testNamedCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/TestNamedCredential";
@@ -13958,6 +14297,7 @@ Note that this API does not return information on the number of times each datab
       testNamedCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14013,7 +14353,8 @@ Note that this API does not return information on the number of times each datab
   public async testPreferredCredential(
     testPreferredCredentialRequest: requests.TestPreferredCredentialRequest
   ): Promise<responses.TestPreferredCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#testPreferredCredential.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#testPreferredCredential.");
     const operationName = "testPreferredCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/TestPreferredCredential";
@@ -14035,6 +14376,7 @@ Note that this API does not return information on the number of times each datab
       testPreferredCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14090,7 +14432,8 @@ Note that this API does not return information on the number of times each datab
   public async updateDbManagementPrivateEndpoint(
     updateDbManagementPrivateEndpointRequest: requests.UpdateDbManagementPrivateEndpointRequest
   ): Promise<responses.UpdateDbManagementPrivateEndpointResponse> {
-    logger.debug("Calling operation DbManagementClient#updateDbManagementPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateDbManagementPrivateEndpoint.");
     const operationName = "updateDbManagementPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/UpdateDbManagementPrivateEndpoint";
@@ -14113,6 +14456,7 @@ Note that this API does not return information on the number of times each datab
       updateDbManagementPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14173,7 +14517,7 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalAsm(
     updateExternalAsmRequest: requests.UpdateExternalAsmRequest
   ): Promise<responses.UpdateExternalAsmResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalAsm.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateExternalAsm.");
     const operationName = "updateExternalAsm";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/UpdateExternalAsm";
@@ -14195,6 +14539,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalAsmRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14251,7 +14596,8 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalCluster(
     updateExternalClusterRequest: requests.UpdateExternalClusterRequest
   ): Promise<responses.UpdateExternalClusterResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalCluster.");
     const operationName = "updateExternalCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalCluster/UpdateExternalCluster";
@@ -14273,6 +14619,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14329,7 +14676,8 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalClusterInstance(
     updateExternalClusterInstanceRequest: requests.UpdateExternalClusterInstanceRequest
   ): Promise<responses.UpdateExternalClusterInstanceResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalClusterInstance.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalClusterInstance.");
     const operationName = "updateExternalClusterInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalClusterInstance/UpdateExternalClusterInstance";
@@ -14351,6 +14699,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalClusterInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14407,7 +14756,8 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalDbNode(
     updateExternalDbNodeRequest: requests.UpdateExternalDbNodeRequest
   ): Promise<responses.UpdateExternalDbNodeResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalDbNode.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbNode.");
     const operationName = "updateExternalDbNode";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbNode/UpdateExternalDbNode";
@@ -14429,6 +14779,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalDbNodeRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14485,7 +14836,8 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalDbSystem(
     updateExternalDbSystemRequest: requests.UpdateExternalDbSystemRequest
   ): Promise<responses.UpdateExternalDbSystemResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalDbSystem.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbSystem.");
     const operationName = "updateExternalDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/UpdateExternalDbSystem";
@@ -14507,6 +14859,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14566,7 +14919,8 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalDbSystemConnector(
     updateExternalDbSystemConnectorRequest: requests.UpdateExternalDbSystemConnectorRequest
   ): Promise<responses.UpdateExternalDbSystemConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalDbSystemConnector.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbSystemConnector.");
     const operationName = "updateExternalDbSystemConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/UpdateExternalDbSystemConnector";
@@ -14589,6 +14943,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalDbSystemConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14645,7 +15000,8 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalDbSystemDiscovery(
     updateExternalDbSystemDiscoveryRequest: requests.UpdateExternalDbSystemDiscoveryRequest
   ): Promise<responses.UpdateExternalDbSystemDiscoveryResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalDbSystemDiscovery.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbSystemDiscovery.");
     const operationName = "updateExternalDbSystemDiscovery";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/UpdateExternalDbSystemDiscovery";
@@ -14668,6 +15024,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalDbSystemDiscoveryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14728,7 +15085,10 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalExadataInfrastructure(
     updateExternalExadataInfrastructureRequest: requests.UpdateExternalExadataInfrastructureRequest
   ): Promise<responses.UpdateExternalExadataInfrastructureResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalExadataInfrastructure.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#updateExternalExadataInfrastructure."
+      );
     const operationName = "updateExternalExadataInfrastructure";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataInfrastructure/UpdateExternalExadataInfrastructure";
@@ -14752,6 +15112,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalExadataInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14812,7 +15173,10 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalExadataStorageConnector(
     updateExternalExadataStorageConnectorRequest: requests.UpdateExternalExadataStorageConnectorRequest
   ): Promise<responses.UpdateExternalExadataStorageConnectorResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalExadataStorageConnector.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#updateExternalExadataStorageConnector."
+      );
     const operationName = "updateExternalExadataStorageConnector";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageConnector/UpdateExternalExadataStorageConnector";
@@ -14835,6 +15199,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalExadataStorageConnectorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14895,7 +15260,8 @@ Note that this API does not return information on the number of times each datab
   public async updateExternalListener(
     updateExternalListenerRequest: requests.UpdateExternalListenerRequest
   ): Promise<responses.UpdateExternalListenerResponse> {
-    logger.debug("Calling operation DbManagementClient#updateExternalListener.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalListener.");
     const operationName = "updateExternalListener";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/UpdateExternalListener";
@@ -14917,6 +15283,7 @@ Note that this API does not return information on the number of times each datab
       updateExternalListenerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -14973,7 +15340,7 @@ Note that this API does not return information on the number of times each datab
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
-    logger.debug("Calling operation DbManagementClient#updateJob.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateJob.");
     const operationName = "updateJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/UpdateJob";
@@ -14995,6 +15362,7 @@ Note that this API does not return information on the number of times each datab
       updateJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15055,7 +15423,8 @@ Note that this API does not return information on the number of times each datab
   public async updateManagedDatabaseGroup(
     updateManagedDatabaseGroupRequest: requests.UpdateManagedDatabaseGroupRequest
   ): Promise<responses.UpdateManagedDatabaseGroupResponse> {
-    logger.debug("Calling operation DbManagementClient#updateManagedDatabaseGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateManagedDatabaseGroup.");
     const operationName = "updateManagedDatabaseGroup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/UpdateManagedDatabaseGroup";
@@ -15077,6 +15446,7 @@ Note that this API does not return information on the number of times each datab
       updateManagedDatabaseGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15137,7 +15507,8 @@ Note that this API does not return information on the number of times each datab
   public async updateNamedCredential(
     updateNamedCredentialRequest: requests.UpdateNamedCredentialRequest
   ): Promise<responses.UpdateNamedCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#updateNamedCredential.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateNamedCredential.");
     const operationName = "updateNamedCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/NamedCredential/UpdateNamedCredential";
@@ -15159,6 +15530,7 @@ Note that this API does not return information on the number of times each datab
       updateNamedCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15219,7 +15591,8 @@ Note that this API does not return information on the number of times each datab
   public async updatePreferredCredential(
     updatePreferredCredentialRequest: requests.UpdatePreferredCredentialRequest
   ): Promise<responses.UpdatePreferredCredentialResponse> {
-    logger.debug("Calling operation DbManagementClient#updatePreferredCredential.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updatePreferredCredential.");
     const operationName = "updatePreferredCredential";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/UpdatePreferredCredential";
@@ -15242,6 +15615,7 @@ Note that this API does not return information on the number of times each datab
       updatePreferredCredentialRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15302,7 +15676,7 @@ Note that this API does not return information on the number of times each datab
   public async updateTablespace(
     updateTablespaceRequest: requests.UpdateTablespaceRequest
   ): Promise<responses.UpdateTablespaceResponse> {
-    logger.debug("Calling operation DbManagementClient#updateTablespace.");
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateTablespace.");
     const operationName = "updateTablespace";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/UpdateTablespace";
@@ -15324,6 +15698,7 @@ Note that this API does not return information on the number of times each datab
       updateTablespaceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15374,7 +15749,7 @@ export enum DiagnosabilityApiKeys {}
 export class DiagnosabilityClient {
   protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -15454,7 +15829,11 @@ export class DiagnosabilityClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201101";
-    logger.info(`DiagnosabilityClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DiagnosabilityClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -15464,9 +15843,10 @@ export class DiagnosabilityClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DiagnosabilityClient.serviceEndpointTemplate,
@@ -15536,7 +15916,7 @@ export class DiagnosabilityClient {
   public async listAlertLogs(
     listAlertLogsRequest: requests.ListAlertLogsRequest
   ): Promise<responses.ListAlertLogsResponse> {
-    logger.debug("Calling operation DiagnosabilityClient#listAlertLogs.");
+    if (this.logger) this.logger.debug("Calling operation DiagnosabilityClient#listAlertLogs.");
     const operationName = "listAlertLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAlertLogs";
@@ -15569,6 +15949,7 @@ export class DiagnosabilityClient {
       listAlertLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15624,7 +16005,7 @@ export class DiagnosabilityClient {
   public async listAttentionLogs(
     listAttentionLogsRequest: requests.ListAttentionLogsRequest
   ): Promise<responses.ListAttentionLogsResponse> {
-    logger.debug("Calling operation DiagnosabilityClient#listAttentionLogs.");
+    if (this.logger) this.logger.debug("Calling operation DiagnosabilityClient#listAttentionLogs.");
     const operationName = "listAttentionLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAttentionLogs";
@@ -15657,6 +16038,7 @@ export class DiagnosabilityClient {
       listAttentionLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15712,7 +16094,8 @@ export class DiagnosabilityClient {
   public async summarizeAlertLogCounts(
     summarizeAlertLogCountsRequest: requests.SummarizeAlertLogCountsRequest
   ): Promise<responses.SummarizeAlertLogCountsResponse> {
-    logger.debug("Calling operation DiagnosabilityClient#summarizeAlertLogCounts.");
+    if (this.logger)
+      this.logger.debug("Calling operation DiagnosabilityClient#summarizeAlertLogCounts.");
     const operationName = "summarizeAlertLogCounts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAlertLogCounts";
@@ -15744,6 +16127,7 @@ export class DiagnosabilityClient {
       summarizeAlertLogCountsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15799,7 +16183,8 @@ export class DiagnosabilityClient {
   public async summarizeAttentionLogCounts(
     summarizeAttentionLogCountsRequest: requests.SummarizeAttentionLogCountsRequest
   ): Promise<responses.SummarizeAttentionLogCountsResponse> {
-    logger.debug("Calling operation DiagnosabilityClient#summarizeAttentionLogCounts.");
+    if (this.logger)
+      this.logger.debug("Calling operation DiagnosabilityClient#summarizeAttentionLogCounts.");
     const operationName = "summarizeAttentionLogCounts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAttentionLogCounts";
@@ -15831,6 +16216,7 @@ export class DiagnosabilityClient {
       summarizeAttentionLogCountsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -15881,7 +16267,7 @@ export enum ManagedMySqlDatabasesApiKeys {}
 export class ManagedMySqlDatabasesClient {
   protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -15961,7 +16347,12 @@ export class ManagedMySqlDatabasesClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201101";
-    logger.info(`ManagedMySqlDatabasesClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`ManagedMySqlDatabasesClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -15971,9 +16362,10 @@ export class ManagedMySqlDatabasesClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ManagedMySqlDatabasesClient.serviceEndpointTemplate,
@@ -16043,7 +16435,8 @@ export class ManagedMySqlDatabasesClient {
   public async getManagedMySqlDatabase(
     getManagedMySqlDatabaseRequest: requests.GetManagedMySqlDatabaseRequest
   ): Promise<responses.GetManagedMySqlDatabaseResponse> {
-    logger.debug("Calling operation ManagedMySqlDatabasesClient#getManagedMySqlDatabase.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#getManagedMySqlDatabase.");
     const operationName = "getManagedMySqlDatabase";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/GetManagedMySqlDatabase";
@@ -16064,6 +16457,7 @@ export class ManagedMySqlDatabasesClient {
       getManagedMySqlDatabaseRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16114,7 +16508,8 @@ export class ManagedMySqlDatabasesClient {
   public async getMySqlFleetMetric(
     getMySqlFleetMetricRequest: requests.GetMySqlFleetMetricRequest
   ): Promise<responses.GetMySqlFleetMetricResponse> {
-    logger.debug("Calling operation ManagedMySqlDatabasesClient#getMySqlFleetMetric.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#getMySqlFleetMetric.");
     const operationName = "getMySqlFleetMetric";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/MySqlFleetMetrics/GetMySqlFleetMetric";
@@ -16143,6 +16538,7 @@ export class ManagedMySqlDatabasesClient {
       getMySqlFleetMetricRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16193,9 +16589,10 @@ export class ManagedMySqlDatabasesClient {
   public async listManagedMySqlDatabaseConfigurationData(
     listManagedMySqlDatabaseConfigurationDataRequest: requests.ListManagedMySqlDatabaseConfigurationDataRequest
   ): Promise<responses.ListManagedMySqlDatabaseConfigurationDataResponse> {
-    logger.debug(
-      "Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabaseConfigurationData."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabaseConfigurationData."
+      );
     const operationName = "listManagedMySqlDatabaseConfigurationData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ListManagedMySqlDatabaseConfigurationData";
@@ -16222,6 +16619,7 @@ export class ManagedMySqlDatabasesClient {
       listManagedMySqlDatabaseConfigurationDataRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16277,7 +16675,10 @@ export class ManagedMySqlDatabasesClient {
   public async listManagedMySqlDatabaseSqlData(
     listManagedMySqlDatabaseSqlDataRequest: requests.ListManagedMySqlDatabaseSqlDataRequest
   ): Promise<responses.ListManagedMySqlDatabaseSqlDataResponse> {
-    logger.debug("Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabaseSqlData.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabaseSqlData."
+      );
     const operationName = "listManagedMySqlDatabaseSqlData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ListManagedMySqlDatabaseSqlData";
@@ -16306,6 +16707,7 @@ export class ManagedMySqlDatabasesClient {
       listManagedMySqlDatabaseSqlDataRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16361,7 +16763,8 @@ export class ManagedMySqlDatabasesClient {
   public async listManagedMySqlDatabases(
     listManagedMySqlDatabasesRequest: requests.ListManagedMySqlDatabasesRequest
   ): Promise<responses.ListManagedMySqlDatabasesResponse> {
-    logger.debug("Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabases.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#listManagedMySqlDatabases.");
     const operationName = "listManagedMySqlDatabases";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabaseCollection/ListManagedMySqlDatabases";
@@ -16386,6 +16789,7 @@ export class ManagedMySqlDatabasesClient {
       listManagedMySqlDatabasesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16441,9 +16845,10 @@ export class ManagedMySqlDatabasesClient {
   public async summarizeManagedMySqlDatabaseAvailabilityMetrics(
     summarizeManagedMySqlDatabaseAvailabilityMetricsRequest: requests.SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest
   ): Promise<responses.SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse> {
-    logger.debug(
-      "Calling operation ManagedMySqlDatabasesClient#summarizeManagedMySqlDatabaseAvailabilityMetrics."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#summarizeManagedMySqlDatabaseAvailabilityMetrics."
+      );
     const operationName = "summarizeManagedMySqlDatabaseAvailabilityMetrics";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/SummarizeManagedMySqlDatabaseAvailabilityMetrics";
@@ -16470,6 +16875,7 @@ export class ManagedMySqlDatabasesClient {
       summarizeManagedMySqlDatabaseAvailabilityMetricsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16520,7 +16926,7 @@ export enum PerfhubApiKeys {}
 export class PerfhubClient {
   protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -16600,7 +17006,11 @@ export class PerfhubClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201101";
-    logger.info(`PerfhubClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`PerfhubClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -16610,9 +17020,10 @@ export class PerfhubClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         PerfhubClient.serviceEndpointTemplate,
@@ -16682,7 +17093,7 @@ export class PerfhubClient {
   public async modifySnapshotSettings(
     modifySnapshotSettingsRequest: requests.ModifySnapshotSettingsRequest
   ): Promise<responses.ModifySnapshotSettingsResponse> {
-    logger.debug("Calling operation PerfhubClient#modifySnapshotSettings.");
+    if (this.logger) this.logger.debug("Calling operation PerfhubClient#modifySnapshotSettings.");
     const operationName = "modifySnapshotSettings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ModifySnapshotSettings";
@@ -16704,6 +17115,7 @@ export class PerfhubClient {
       modifySnapshotSettingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16750,7 +17162,7 @@ export enum SqlTuningApiKeys {}
 export class SqlTuningClient {
   protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -16830,7 +17242,11 @@ export class SqlTuningClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20201101";
-    logger.info(`SqlTuningClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`SqlTuningClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -16840,9 +17256,10 @@ export class SqlTuningClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SqlTuningClient.serviceEndpointTemplate,
@@ -16912,7 +17329,7 @@ export class SqlTuningClient {
   public async cloneSqlTuningTask(
     cloneSqlTuningTaskRequest: requests.CloneSqlTuningTaskRequest
   ): Promise<responses.CloneSqlTuningTaskResponse> {
-    logger.debug("Calling operation SqlTuningClient#cloneSqlTuningTask.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#cloneSqlTuningTask.");
     const operationName = "cloneSqlTuningTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/CloneSqlTuningTask";
@@ -16934,6 +17351,7 @@ export class SqlTuningClient {
       cloneSqlTuningTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -16989,7 +17407,7 @@ export class SqlTuningClient {
   public async createSqlTuningSet(
     createSqlTuningSetRequest: requests.CreateSqlTuningSetRequest
   ): Promise<responses.CreateSqlTuningSetResponse> {
-    logger.debug("Calling operation SqlTuningClient#createSqlTuningSet.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#createSqlTuningSet.");
     const operationName = "createSqlTuningSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/CreateSqlTuningSet";
@@ -17011,6 +17429,7 @@ export class SqlTuningClient {
       createSqlTuningSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17066,7 +17485,7 @@ export class SqlTuningClient {
   public async dropSqlTuningSet(
     dropSqlTuningSetRequest: requests.DropSqlTuningSetRequest
   ): Promise<responses.DropSqlTuningSetResponse> {
-    logger.debug("Calling operation SqlTuningClient#dropSqlTuningSet.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlTuningSet.");
     const operationName = "dropSqlTuningSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/DropSqlTuningSet";
@@ -17089,6 +17508,7 @@ export class SqlTuningClient {
       dropSqlTuningSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17145,7 +17565,7 @@ export class SqlTuningClient {
   public async dropSqlTuningTask(
     dropSqlTuningTaskRequest: requests.DropSqlTuningTaskRequest
   ): Promise<responses.DropSqlTuningTaskResponse> {
-    logger.debug("Calling operation SqlTuningClient#dropSqlTuningTask.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlTuningTask.");
     const operationName = "dropSqlTuningTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DropSqlTuningTask";
@@ -17167,6 +17587,7 @@ export class SqlTuningClient {
       dropSqlTuningTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17219,7 +17640,7 @@ export class SqlTuningClient {
   public async dropSqlsInSqlTuningSet(
     dropSqlsInSqlTuningSetRequest: requests.DropSqlsInSqlTuningSetRequest
   ): Promise<responses.DropSqlsInSqlTuningSetResponse> {
-    logger.debug("Calling operation SqlTuningClient#dropSqlsInSqlTuningSet.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlsInSqlTuningSet.");
     const operationName = "dropSqlsInSqlTuningSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/DropSqlsInSqlTuningSet";
@@ -17242,6 +17663,7 @@ export class SqlTuningClient {
       dropSqlsInSqlTuningSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17298,7 +17720,7 @@ export class SqlTuningClient {
   public async fetchSqlTuningSet(
     fetchSqlTuningSetRequest: requests.FetchSqlTuningSetRequest
   ): Promise<responses.FetchSqlTuningSetResponse> {
-    logger.debug("Calling operation SqlTuningClient#fetchSqlTuningSet.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#fetchSqlTuningSet.");
     const operationName = "fetchSqlTuningSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/FetchSqlTuningSet";
@@ -17321,6 +17743,7 @@ export class SqlTuningClient {
       fetchSqlTuningSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17378,7 +17801,8 @@ export class SqlTuningClient {
   public async getExecutionPlanStatsComparision(
     getExecutionPlanStatsComparisionRequest: requests.GetExecutionPlanStatsComparisionRequest
   ): Promise<responses.GetExecutionPlanStatsComparisionResponse> {
-    logger.debug("Calling operation SqlTuningClient#getExecutionPlanStatsComparision.");
+    if (this.logger)
+      this.logger.debug("Calling operation SqlTuningClient#getExecutionPlanStatsComparision.");
     const operationName = "getExecutionPlanStatsComparision";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetExecutionPlanStatsComparision";
@@ -17404,6 +17828,7 @@ export class SqlTuningClient {
       getExecutionPlanStatsComparisionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17455,7 +17880,7 @@ export class SqlTuningClient {
   public async getSqlExecutionPlan(
     getSqlExecutionPlanRequest: requests.GetSqlExecutionPlanRequest
   ): Promise<responses.GetSqlExecutionPlanResponse> {
-    logger.debug("Calling operation SqlTuningClient#getSqlExecutionPlan.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#getSqlExecutionPlan.");
     const operationName = "getSqlExecutionPlan";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetSqlExecutionPlan";
@@ -17481,6 +17906,7 @@ export class SqlTuningClient {
       getSqlExecutionPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17532,7 +17958,8 @@ export class SqlTuningClient {
   public async getSqlTuningAdvisorTaskSummaryReport(
     getSqlTuningAdvisorTaskSummaryReportRequest: requests.GetSqlTuningAdvisorTaskSummaryReportRequest
   ): Promise<responses.GetSqlTuningAdvisorTaskSummaryReportResponse> {
-    logger.debug("Calling operation SqlTuningClient#getSqlTuningAdvisorTaskSummaryReport.");
+    if (this.logger)
+      this.logger.debug("Calling operation SqlTuningClient#getSqlTuningAdvisorTaskSummaryReport.");
     const operationName = "getSqlTuningAdvisorTaskSummaryReport";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetSqlTuningAdvisorTaskSummaryReport";
@@ -17564,6 +17991,7 @@ export class SqlTuningClient {
       getSqlTuningAdvisorTaskSummaryReportRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17615,7 +18043,8 @@ export class SqlTuningClient {
   public async listSqlTuningAdvisorTaskFindings(
     listSqlTuningAdvisorTaskFindingsRequest: requests.ListSqlTuningAdvisorTaskFindingsRequest
   ): Promise<responses.ListSqlTuningAdvisorTaskFindingsResponse> {
-    logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTaskFindings.");
+    if (this.logger)
+      this.logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTaskFindings.");
     const operationName = "listSqlTuningAdvisorTaskFindings";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlTuningAdvisorTaskFindings";
@@ -17649,6 +18078,7 @@ export class SqlTuningClient {
       listSqlTuningAdvisorTaskFindingsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17706,7 +18136,10 @@ export class SqlTuningClient {
   public async listSqlTuningAdvisorTaskRecommendations(
     listSqlTuningAdvisorTaskRecommendationsRequest: requests.ListSqlTuningAdvisorTaskRecommendationsRequest
   ): Promise<responses.ListSqlTuningAdvisorTaskRecommendationsResponse> {
-    logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTaskRecommendations.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation SqlTuningClient#listSqlTuningAdvisorTaskRecommendations."
+      );
     const operationName = "listSqlTuningAdvisorTaskRecommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlTuningAdvisorTaskRecommendations";
@@ -17737,6 +18170,7 @@ export class SqlTuningClient {
       listSqlTuningAdvisorTaskRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17793,7 +18227,8 @@ export class SqlTuningClient {
   public async listSqlTuningAdvisorTasks(
     listSqlTuningAdvisorTasksRequest: requests.ListSqlTuningAdvisorTasksRequest
   ): Promise<responses.ListSqlTuningAdvisorTasksResponse> {
-    logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTasks.");
+    if (this.logger)
+      this.logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTasks.");
     const operationName = "listSqlTuningAdvisorTasks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlTuningAdvisorTasks";
@@ -17824,6 +18259,7 @@ export class SqlTuningClient {
       listSqlTuningAdvisorTasksRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17879,7 +18315,7 @@ export class SqlTuningClient {
   public async listSqlTuningSets(
     listSqlTuningSetsRequest: requests.ListSqlTuningSetsRequest
   ): Promise<responses.ListSqlTuningSetsResponse> {
-    logger.debug("Calling operation SqlTuningClient#listSqlTuningSets.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#listSqlTuningSets.");
     const operationName = "listSqlTuningSets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlTuningSets";
@@ -17908,6 +18344,7 @@ export class SqlTuningClient {
       listSqlTuningSetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -17963,7 +18400,7 @@ export class SqlTuningClient {
   public async loadSqlTuningSet(
     loadSqlTuningSetRequest: requests.LoadSqlTuningSetRequest
   ): Promise<responses.LoadSqlTuningSetResponse> {
-    logger.debug("Calling operation SqlTuningClient#loadSqlTuningSet.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#loadSqlTuningSet.");
     const operationName = "loadSqlTuningSet";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/LoadSqlTuningSet";
@@ -17986,6 +18423,7 @@ export class SqlTuningClient {
       loadSqlTuningSetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18042,7 +18480,7 @@ export class SqlTuningClient {
   public async saveSqlTuningSetAs(
     saveSqlTuningSetAsRequest: requests.SaveSqlTuningSetAsRequest
   ): Promise<responses.SaveSqlTuningSetAsResponse> {
-    logger.debug("Calling operation SqlTuningClient#saveSqlTuningSetAs.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#saveSqlTuningSetAs.");
     const operationName = "saveSqlTuningSetAs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/SaveSqlTuningSetAs";
@@ -18065,6 +18503,7 @@ export class SqlTuningClient {
       saveSqlTuningSetAsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18120,7 +18559,7 @@ export class SqlTuningClient {
   public async startSqlTuningTask(
     startSqlTuningTaskRequest: requests.StartSqlTuningTaskRequest
   ): Promise<responses.StartSqlTuningTaskResponse> {
-    logger.debug("Calling operation SqlTuningClient#startSqlTuningTask.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#startSqlTuningTask.");
     const operationName = "startSqlTuningTask";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/StartSqlTuningTask";
@@ -18142,6 +18581,7 @@ export class SqlTuningClient {
       startSqlTuningTaskRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -18197,7 +18637,7 @@ export class SqlTuningClient {
   public async validateBasicFilter(
     validateBasicFilterRequest: requests.ValidateBasicFilterRequest
   ): Promise<responses.ValidateBasicFilterResponse> {
-    logger.debug("Calling operation SqlTuningClient#validateBasicFilter.");
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#validateBasicFilter.");
     const operationName = "validateBasicFilter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/ValidateBasicFilter";
@@ -18220,6 +18660,7 @@ export class SqlTuningClient {
       validateBasicFilterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

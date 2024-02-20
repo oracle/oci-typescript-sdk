@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum ComputeCloudAtCustomerApiKeys {}
 export class ComputeCloudAtCustomerClient {
   protected static serviceEndpointTemplate = "https://ccc.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ComputeCloudAtCustomerWaiter;
@@ -119,7 +118,12 @@ export class ComputeCloudAtCustomerClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20221208";
-    logger.info(`ComputeCloudAtCustomerClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`ComputeCloudAtCustomerClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +133,10 @@ export class ComputeCloudAtCustomerClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ComputeCloudAtCustomerClient.serviceEndpointTemplate,
@@ -224,9 +229,10 @@ export class ComputeCloudAtCustomerClient {
   public async changeCccInfrastructureCompartment(
     changeCccInfrastructureCompartmentRequest: requests.ChangeCccInfrastructureCompartmentRequest
   ): Promise<responses.ChangeCccInfrastructureCompartmentResponse> {
-    logger.debug(
-      "Calling operation ComputeCloudAtCustomerClient#changeCccInfrastructureCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeCloudAtCustomerClient#changeCccInfrastructureCompartment."
+      );
     const operationName = "changeCccInfrastructureCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -248,6 +254,7 @@ export class ComputeCloudAtCustomerClient {
       changeCccInfrastructureCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -300,9 +307,10 @@ export class ComputeCloudAtCustomerClient {
   public async changeCccUpgradeScheduleCompartment(
     changeCccUpgradeScheduleCompartmentRequest: requests.ChangeCccUpgradeScheduleCompartmentRequest
   ): Promise<responses.ChangeCccUpgradeScheduleCompartmentResponse> {
-    logger.debug(
-      "Calling operation ComputeCloudAtCustomerClient#changeCccUpgradeScheduleCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeCloudAtCustomerClient#changeCccUpgradeScheduleCompartment."
+      );
     const operationName = "changeCccUpgradeScheduleCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -324,6 +332,7 @@ export class ComputeCloudAtCustomerClient {
       changeCccUpgradeScheduleCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -376,7 +385,8 @@ export class ComputeCloudAtCustomerClient {
   public async createCccInfrastructure(
     createCccInfrastructureRequest: requests.CreateCccInfrastructureRequest
   ): Promise<responses.CreateCccInfrastructureResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#createCccInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#createCccInfrastructure.");
     const operationName = "createCccInfrastructure";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -395,6 +405,7 @@ export class ComputeCloudAtCustomerClient {
       createCccInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -455,7 +466,8 @@ export class ComputeCloudAtCustomerClient {
   public async createCccUpgradeSchedule(
     createCccUpgradeScheduleRequest: requests.CreateCccUpgradeScheduleRequest
   ): Promise<responses.CreateCccUpgradeScheduleResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#createCccUpgradeSchedule.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#createCccUpgradeSchedule.");
     const operationName = "createCccUpgradeSchedule";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -474,6 +486,7 @@ export class ComputeCloudAtCustomerClient {
       createCccUpgradeScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -535,7 +548,8 @@ export class ComputeCloudAtCustomerClient {
   public async deleteCccInfrastructure(
     deleteCccInfrastructureRequest: requests.DeleteCccInfrastructureRequest
   ): Promise<responses.DeleteCccInfrastructureResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#deleteCccInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#deleteCccInfrastructure.");
     const operationName = "deleteCccInfrastructure";
     const apiReferenceLink = "";
     const pathParams = {
@@ -556,6 +570,7 @@ export class ComputeCloudAtCustomerClient {
       deleteCccInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -603,7 +618,8 @@ export class ComputeCloudAtCustomerClient {
   public async deleteCccUpgradeSchedule(
     deleteCccUpgradeScheduleRequest: requests.DeleteCccUpgradeScheduleRequest
   ): Promise<responses.DeleteCccUpgradeScheduleResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#deleteCccUpgradeSchedule.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#deleteCccUpgradeSchedule.");
     const operationName = "deleteCccUpgradeSchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -624,6 +640,7 @@ export class ComputeCloudAtCustomerClient {
       deleteCccUpgradeScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -671,7 +688,8 @@ export class ComputeCloudAtCustomerClient {
   public async getCccInfrastructure(
     getCccInfrastructureRequest: requests.GetCccInfrastructureRequest
   ): Promise<responses.GetCccInfrastructureResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#getCccInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#getCccInfrastructure.");
     const operationName = "getCccInfrastructure";
     const apiReferenceLink = "";
     const pathParams = {
@@ -691,6 +709,7 @@ export class ComputeCloudAtCustomerClient {
       getCccInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -747,7 +766,8 @@ export class ComputeCloudAtCustomerClient {
   public async getCccUpgradeSchedule(
     getCccUpgradeScheduleRequest: requests.GetCccUpgradeScheduleRequest
   ): Promise<responses.GetCccUpgradeScheduleResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#getCccUpgradeSchedule.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#getCccUpgradeSchedule.");
     const operationName = "getCccUpgradeSchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -767,6 +787,7 @@ export class ComputeCloudAtCustomerClient {
       getCccUpgradeScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -822,7 +843,8 @@ export class ComputeCloudAtCustomerClient {
   public async listCccInfrastructures(
     listCccInfrastructuresRequest: requests.ListCccInfrastructuresRequest
   ): Promise<responses.ListCccInfrastructuresResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#listCccInfrastructures.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#listCccInfrastructures.");
     const operationName = "listCccInfrastructures";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -852,6 +874,7 @@ export class ComputeCloudAtCustomerClient {
       listCccInfrastructuresRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -912,7 +935,8 @@ export class ComputeCloudAtCustomerClient {
   public async listCccUpgradeSchedules(
     listCccUpgradeSchedulesRequest: requests.ListCccUpgradeSchedulesRequest
   ): Promise<responses.ListCccUpgradeSchedulesResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#listCccUpgradeSchedules.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#listCccUpgradeSchedules.");
     const operationName = "listCccUpgradeSchedules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -942,6 +966,7 @@ export class ComputeCloudAtCustomerClient {
       listCccUpgradeSchedulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1001,7 +1026,8 @@ export class ComputeCloudAtCustomerClient {
   public async updateCccInfrastructure(
     updateCccInfrastructureRequest: requests.UpdateCccInfrastructureRequest
   ): Promise<responses.UpdateCccInfrastructureResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#updateCccInfrastructure.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#updateCccInfrastructure.");
     const operationName = "updateCccInfrastructure";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1022,6 +1048,7 @@ export class ComputeCloudAtCustomerClient {
       updateCccInfrastructureRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1081,7 +1108,8 @@ export class ComputeCloudAtCustomerClient {
   public async updateCccUpgradeSchedule(
     updateCccUpgradeScheduleRequest: requests.UpdateCccUpgradeScheduleRequest
   ): Promise<responses.UpdateCccUpgradeScheduleResponse> {
-    logger.debug("Calling operation ComputeCloudAtCustomerClient#updateCccUpgradeSchedule.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeCloudAtCustomerClient#updateCccUpgradeSchedule.");
     const operationName = "updateCccUpgradeSchedule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1102,6 +1130,7 @@ export class ComputeCloudAtCustomerClient {
       updateCccUpgradeScheduleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

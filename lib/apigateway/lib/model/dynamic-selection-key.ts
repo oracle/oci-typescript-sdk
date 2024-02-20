@@ -50,7 +50,7 @@ export namespace DynamicSelectionKey {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -71,7 +71,7 @@ export namespace DynamicSelectionKey {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

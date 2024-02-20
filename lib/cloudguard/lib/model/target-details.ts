@@ -36,7 +36,8 @@ export namespace TargetDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.targetResourceType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.targetResourceType}`);
       }
     }
     return jsonObj;
@@ -52,7 +53,8 @@ export namespace TargetDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.targetResourceType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.targetResourceType}`);
       }
     }
     return jsonObj;

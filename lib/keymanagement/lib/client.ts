@@ -25,8 +25,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -41,7 +40,7 @@ export enum EkmApiKeys {}
 export class EkmClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": EkmWaiter;
@@ -121,7 +120,11 @@ export class EkmClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    logger.info(`EkmClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`EkmClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -131,9 +134,10 @@ export class EkmClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         EkmClient.serviceEndpointTemplate,
@@ -225,7 +229,7 @@ export class EkmClient {
   public async createEkmsPrivateEndpoint(
     createEkmsPrivateEndpointRequest: requests.CreateEkmsPrivateEndpointRequest
   ): Promise<responses.CreateEkmsPrivateEndpointResponse> {
-    logger.debug("Calling operation EkmClient#createEkmsPrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation EkmClient#createEkmsPrivateEndpoint.");
     const operationName = "createEkmsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/EkmsPrivateEndpoint/CreateEkmsPrivateEndpoint";
@@ -245,6 +249,7 @@ export class EkmClient {
       createEkmsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -309,7 +314,7 @@ export class EkmClient {
   public async deleteEkmsPrivateEndpoint(
     deleteEkmsPrivateEndpointRequest: requests.DeleteEkmsPrivateEndpointRequest
   ): Promise<responses.DeleteEkmsPrivateEndpointResponse> {
-    logger.debug("Calling operation EkmClient#deleteEkmsPrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation EkmClient#deleteEkmsPrivateEndpoint.");
     const operationName = "deleteEkmsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/EkmsPrivateEndpoint/DeleteEkmsPrivateEndpoint";
@@ -331,6 +336,7 @@ export class EkmClient {
       deleteEkmsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -381,7 +387,7 @@ export class EkmClient {
   public async getEkmsPrivateEndpoint(
     getEkmsPrivateEndpointRequest: requests.GetEkmsPrivateEndpointRequest
   ): Promise<responses.GetEkmsPrivateEndpointResponse> {
-    logger.debug("Calling operation EkmClient#getEkmsPrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation EkmClient#getEkmsPrivateEndpoint.");
     const operationName = "getEkmsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/EkmsPrivateEndpoint/GetEkmsPrivateEndpoint";
@@ -402,6 +408,7 @@ export class EkmClient {
       getEkmsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -457,7 +464,7 @@ export class EkmClient {
   public async listEkmsPrivateEndpoints(
     listEkmsPrivateEndpointsRequest: requests.ListEkmsPrivateEndpointsRequest
   ): Promise<responses.ListEkmsPrivateEndpointsResponse> {
-    logger.debug("Calling operation EkmClient#listEkmsPrivateEndpoints.");
+    if (this.logger) this.logger.debug("Calling operation EkmClient#listEkmsPrivateEndpoints.");
     const operationName = "listEkmsPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/EkmsPrivateEndpointSummary/ListEkmsPrivateEndpoints";
@@ -482,6 +489,7 @@ export class EkmClient {
       listEkmsPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -588,7 +596,7 @@ export class EkmClient {
   public async updateEkmsPrivateEndpoint(
     updateEkmsPrivateEndpointRequest: requests.UpdateEkmsPrivateEndpointRequest
   ): Promise<responses.UpdateEkmsPrivateEndpointResponse> {
-    logger.debug("Calling operation EkmClient#updateEkmsPrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation EkmClient#updateEkmsPrivateEndpoint.");
     const operationName = "updateEkmsPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/EkmsPrivateEndpoint/UpdateEkmsPrivateEndpoint";
@@ -610,6 +618,7 @@ export class EkmClient {
       updateEkmsPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -665,7 +674,7 @@ export enum KmsCryptoApiKeys {}
 export class KmsCryptoClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -731,7 +740,11 @@ export class KmsCryptoClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    logger.info(`KmsCryptoClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`KmsCryptoClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -741,9 +754,10 @@ export class KmsCryptoClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
   }
 
   /**
@@ -767,7 +781,7 @@ export class KmsCryptoClient {
   public async decrypt(
     decryptRequest: requests.DecryptRequest
   ): Promise<responses.DecryptResponse> {
-    logger.debug("Calling operation KmsCryptoClient#decrypt.");
+    if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#decrypt.");
     const operationName = "decrypt";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/DecryptedData/Decrypt";
@@ -786,6 +800,7 @@ export class KmsCryptoClient {
       decryptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -842,7 +857,7 @@ export class KmsCryptoClient {
   public async encrypt(
     encryptRequest: requests.EncryptRequest
   ): Promise<responses.EncryptResponse> {
-    logger.debug("Calling operation KmsCryptoClient#encrypt.");
+    if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#encrypt.");
     const operationName = "encrypt";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/EncryptedData/Encrypt";
@@ -861,6 +876,7 @@ export class KmsCryptoClient {
       encryptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -919,7 +935,7 @@ export class KmsCryptoClient {
   public async exportKey(
     exportKeyRequest: requests.ExportKeyRequest
   ): Promise<responses.ExportKeyResponse> {
-    logger.debug("Calling operation KmsCryptoClient#exportKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#exportKey.");
     const operationName = "exportKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/ExportedKeyData/ExportKey";
@@ -937,6 +953,7 @@ export class KmsCryptoClient {
       exportKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -992,7 +1009,8 @@ export class KmsCryptoClient {
   public async generateDataEncryptionKey(
     generateDataEncryptionKeyRequest: requests.GenerateDataEncryptionKeyRequest
   ): Promise<responses.GenerateDataEncryptionKeyResponse> {
-    logger.debug("Calling operation KmsCryptoClient#generateDataEncryptionKey.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsCryptoClient#generateDataEncryptionKey.");
     const operationName = "generateDataEncryptionKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/GeneratedKey/GenerateDataEncryptionKey";
@@ -1011,6 +1029,7 @@ export class KmsCryptoClient {
       generateDataEncryptionKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1067,7 +1086,7 @@ export class KmsCryptoClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Sign.ts.html |here} to see how to use Sign API.
    */
   public async sign(signRequest: requests.SignRequest): Promise<responses.SignResponse> {
-    logger.debug("Calling operation KmsCryptoClient#sign.");
+    if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#sign.");
     const operationName = "sign";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/SignedData/Sign";
     const pathParams = {};
@@ -1085,6 +1104,7 @@ export class KmsCryptoClient {
       signRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1141,7 +1161,7 @@ export class KmsCryptoClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Verify.ts.html |here} to see how to use Verify API.
    */
   public async verify(verifyRequest: requests.VerifyRequest): Promise<responses.VerifyResponse> {
-    logger.debug("Calling operation KmsCryptoClient#verify.");
+    if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#verify.");
     const operationName = "verify";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/VerifiedData/Verify";
@@ -1160,6 +1180,7 @@ export class KmsCryptoClient {
       verifyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1210,7 +1231,7 @@ export enum KmsHsmClusterApiKeys {}
 export class KmsHsmClusterClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": KmsHsmClusterWaiter;
@@ -1290,7 +1311,11 @@ export class KmsHsmClusterClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    logger.info(`KmsHsmClusterClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`KmsHsmClusterClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1300,9 +1325,10 @@ export class KmsHsmClusterClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         KmsHsmClusterClient.serviceEndpointTemplate,
@@ -1394,7 +1420,8 @@ export class KmsHsmClusterClient {
   public async cancelHsmClusterDeletion(
     cancelHsmClusterDeletionRequest: requests.CancelHsmClusterDeletionRequest
   ): Promise<responses.CancelHsmClusterDeletionResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#cancelHsmClusterDeletion.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#cancelHsmClusterDeletion.");
     const operationName = "cancelHsmClusterDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/CancelHsmClusterDeletion";
@@ -1417,6 +1444,7 @@ export class KmsHsmClusterClient {
       cancelHsmClusterDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1472,7 +1500,8 @@ export class KmsHsmClusterClient {
   public async changeHsmClusterCompartment(
     changeHsmClusterCompartmentRequest: requests.ChangeHsmClusterCompartmentRequest
   ): Promise<responses.ChangeHsmClusterCompartmentResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#changeHsmClusterCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#changeHsmClusterCompartment.");
     const operationName = "changeHsmClusterCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/ChangeHsmClusterCompartment";
@@ -1495,6 +1524,7 @@ export class KmsHsmClusterClient {
       changeHsmClusterCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1551,7 +1581,7 @@ export class KmsHsmClusterClient {
   public async createHsmCluster(
     createHsmClusterRequest: requests.CreateHsmClusterRequest
   ): Promise<responses.CreateHsmClusterResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#createHsmCluster.");
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#createHsmCluster.");
     const operationName = "createHsmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/CreateHsmCluster";
@@ -1571,6 +1601,7 @@ export class KmsHsmClusterClient {
       createHsmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1631,7 +1662,8 @@ export class KmsHsmClusterClient {
   public async downloadCertificateSigningRequest(
     downloadCertificateSigningRequestRequest: requests.DownloadCertificateSigningRequestRequest
   ): Promise<responses.DownloadCertificateSigningRequestResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#downloadCertificateSigningRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#downloadCertificateSigningRequest.");
     const operationName = "downloadCertificateSigningRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/DownloadCertificateSigningRequest";
@@ -1654,6 +1686,7 @@ export class KmsHsmClusterClient {
       downloadCertificateSigningRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1714,7 +1747,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async getHsmCluster(
     getHsmClusterRequest: requests.GetHsmClusterRequest
   ): Promise<responses.GetHsmClusterResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#getHsmCluster.");
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#getHsmCluster.");
     const operationName = "getHsmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/GetHsmCluster";
@@ -1735,6 +1768,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       getHsmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1790,7 +1824,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async getHsmPartition(
     getHsmPartitionRequest: requests.GetHsmPartitionRequest
   ): Promise<responses.GetHsmPartitionResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#getHsmPartition.");
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#getHsmPartition.");
     const operationName = "getHsmPartition";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmPartition/GetHsmPartition";
@@ -1813,6 +1847,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       getHsmPartitionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1868,7 +1903,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async getPreCoUserCredentials(
     getPreCoUserCredentialsRequest: requests.GetPreCoUserCredentialsRequest
   ): Promise<responses.GetPreCoUserCredentialsResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#getPreCoUserCredentials.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#getPreCoUserCredentials.");
     const operationName = "getPreCoUserCredentials";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/GetPreCoUserCredentials";
@@ -1890,6 +1926,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       getPreCoUserCredentialsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1950,7 +1987,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async listHsmClusters(
     listHsmClustersRequest: requests.ListHsmClustersRequest
   ): Promise<responses.ListHsmClustersResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#listHsmClusters.");
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#listHsmClusters.");
     const operationName = "listHsmClusters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/ListHsmClusters";
@@ -1975,6 +2012,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       listHsmClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2030,7 +2068,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async listHsmPartitions(
     listHsmPartitionsRequest: requests.ListHsmPartitionsRequest
   ): Promise<responses.ListHsmPartitionsResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#listHsmPartitions.");
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#listHsmPartitions.");
     const operationName = "listHsmPartitions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmPartition/ListHsmPartitions";
@@ -2057,6 +2095,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       listHsmPartitionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2113,7 +2152,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async scheduleHsmClusterDeletion(
     scheduleHsmClusterDeletionRequest: requests.ScheduleHsmClusterDeletionRequest
   ): Promise<responses.ScheduleHsmClusterDeletionResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#scheduleHsmClusterDeletion.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#scheduleHsmClusterDeletion.");
     const operationName = "scheduleHsmClusterDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/ScheduleHsmClusterDeletion";
@@ -2136,6 +2176,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       scheduleHsmClusterDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2201,7 +2242,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async updateHsmCluster(
     updateHsmClusterRequest: requests.UpdateHsmClusterRequest
   ): Promise<responses.UpdateHsmClusterResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#updateHsmCluster.");
+    if (this.logger) this.logger.debug("Calling operation KmsHsmClusterClient#updateHsmCluster.");
     const operationName = "updateHsmCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/UpdateHsmCluster";
@@ -2223,6 +2264,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       updateHsmClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2283,7 +2325,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async uploadPartitionCertificates(
     uploadPartitionCertificatesRequest: requests.UploadPartitionCertificatesRequest
   ): Promise<responses.UploadPartitionCertificatesResponse> {
-    logger.debug("Calling operation KmsHsmClusterClient#uploadPartitionCertificates.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#uploadPartitionCertificates.");
     const operationName = "uploadPartitionCertificates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/UploadPartitionCertificates";
@@ -2306,6 +2349,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       uploadPartitionCertificatesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2357,7 +2401,7 @@ export enum KmsManagementApiKeys {}
 export class KmsManagementClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": KmsManagementWaiter;
@@ -2424,7 +2468,11 @@ export class KmsManagementClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    logger.info(`KmsManagementClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`KmsManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -2434,9 +2482,10 @@ export class KmsManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
   }
 
   /**
@@ -2484,7 +2533,7 @@ export class KmsManagementClient {
   public async backupKey(
     backupKeyRequest: requests.BackupKeyRequest
   ): Promise<responses.BackupKeyResponse> {
-    logger.debug("Calling operation KmsManagementClient#backupKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#backupKey.");
     const operationName = "backupKey";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Key/BackupKey";
     const pathParams = {
@@ -2506,6 +2555,7 @@ export class KmsManagementClient {
       backupKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2578,7 +2628,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async cancelKeyDeletion(
     cancelKeyDeletionRequest: requests.CancelKeyDeletionRequest
   ): Promise<responses.CancelKeyDeletionResponse> {
-    logger.debug("Calling operation KmsManagementClient#cancelKeyDeletion.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#cancelKeyDeletion.");
     const operationName = "cancelKeyDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Key/CancelKeyDeletion";
@@ -2601,6 +2651,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       cancelKeyDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2663,7 +2714,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async cancelKeyVersionDeletion(
     cancelKeyVersionDeletionRequest: requests.CancelKeyVersionDeletionRequest
   ): Promise<responses.CancelKeyVersionDeletionResponse> {
-    logger.debug("Calling operation KmsManagementClient#cancelKeyVersionDeletion.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#cancelKeyVersionDeletion.");
     const operationName = "cancelKeyVersionDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/KeyVersion/CancelKeyVersionDeletion";
@@ -2687,6 +2739,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       cancelKeyVersionDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2750,7 +2803,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async changeKeyCompartment(
     changeKeyCompartmentRequest: requests.ChangeKeyCompartmentRequest
   ): Promise<responses.ChangeKeyCompartmentResponse> {
-    logger.debug("Calling operation KmsManagementClient#changeKeyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#changeKeyCompartment.");
     const operationName = "changeKeyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Key/ChangeKeyCompartment";
@@ -2773,6 +2827,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       changeKeyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2834,7 +2889,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async createKey(
     createKeyRequest: requests.CreateKeyRequest
   ): Promise<responses.CreateKeyResponse> {
-    logger.debug("Calling operation KmsManagementClient#createKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#createKey.");
     const operationName = "createKey";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Key/CreateKey";
     const pathParams = {};
@@ -2853,6 +2908,7 @@ As a management operation, this call is subject to a Key Management limit that a
       createKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2919,7 +2975,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async createKeyVersion(
     createKeyVersionRequest: requests.CreateKeyVersionRequest
   ): Promise<responses.CreateKeyVersionResponse> {
-    logger.debug("Calling operation KmsManagementClient#createKeyVersion.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#createKeyVersion.");
     const operationName = "createKeyVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/KeyVersion/CreateKeyVersion";
@@ -2941,6 +2997,7 @@ As a management operation, this call is subject to a Key Management limit that a
       createKeyVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3007,7 +3064,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async disableKey(
     disableKeyRequest: requests.DisableKeyRequest
   ): Promise<responses.DisableKeyResponse> {
-    logger.debug("Calling operation KmsManagementClient#disableKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#disableKey.");
     const operationName = "disableKey";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Key/DisableKey";
     const pathParams = {
@@ -3029,6 +3086,7 @@ As a management operation, this call is subject to a Key Management limit that a
       disableKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3090,7 +3148,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async enableKey(
     enableKeyRequest: requests.EnableKeyRequest
   ): Promise<responses.EnableKeyResponse> {
-    logger.debug("Calling operation KmsManagementClient#enableKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#enableKey.");
     const operationName = "enableKey";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Key/EnableKey";
     const pathParams = {
@@ -3112,6 +3170,7 @@ As a management operation, this call is subject to a Key Management limit that a
       enableKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3170,7 +3229,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetKey.ts.html |here} to see how to use GetKey API.
      */
   public async getKey(getKeyRequest: requests.GetKeyRequest): Promise<responses.GetKeyResponse> {
-    logger.debug("Calling operation KmsManagementClient#getKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getKey.");
     const operationName = "getKey";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Key/GetKey";
     const pathParams = {
@@ -3190,6 +3249,7 @@ As a management operation, this call is subject to a Key Management limit that a
       getKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3250,7 +3310,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async getKeyVersion(
     getKeyVersionRequest: requests.GetKeyVersionRequest
   ): Promise<responses.GetKeyVersionResponse> {
-    logger.debug("Calling operation KmsManagementClient#getKeyVersion.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getKeyVersion.");
     const operationName = "getKeyVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/KeyVersion/GetKeyVersion";
@@ -3272,6 +3332,7 @@ As a management operation, this call is subject to a Key Management limit that a
       getKeyVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3330,7 +3391,8 @@ As a management operation, this call is subject to a Key Management limit that a
   public async getReplicationStatus(
     getReplicationStatusRequest: requests.GetReplicationStatusRequest
   ): Promise<responses.GetReplicationStatusResponse> {
-    logger.debug("Calling operation KmsManagementClient#getReplicationStatus.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#getReplicationStatus.");
     const operationName = "getReplicationStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/ReplicationStatusDetails/GetReplicationStatus";
@@ -3351,6 +3413,7 @@ As a management operation, this call is subject to a Key Management limit that a
       getReplicationStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3407,7 +3470,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async getWrappingKey(
     getWrappingKeyRequest: requests.GetWrappingKeyRequest
   ): Promise<responses.GetWrappingKeyResponse> {
-    logger.debug("Calling operation KmsManagementClient#getWrappingKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getWrappingKey.");
     const operationName = "getWrappingKey";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/WrappingKey/GetWrappingKey";
@@ -3426,6 +3489,7 @@ As a management operation, this call is subject to a Key Management limit that a
       getWrappingKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3486,7 +3550,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async importKey(
     importKeyRequest: requests.ImportKeyRequest
   ): Promise<responses.ImportKeyResponse> {
-    logger.debug("Calling operation KmsManagementClient#importKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#importKey.");
     const operationName = "importKey";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Key/ImportKey";
     const pathParams = {};
@@ -3505,6 +3569,7 @@ As a management operation, this call is subject to a Key Management limit that a
       importKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3570,7 +3635,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async importKeyVersion(
     importKeyVersionRequest: requests.ImportKeyVersionRequest
   ): Promise<responses.ImportKeyVersionResponse> {
-    logger.debug("Calling operation KmsManagementClient#importKeyVersion.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#importKeyVersion.");
     const operationName = "importKeyVersion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/KeyVersion/ImportKeyVersion";
@@ -3592,6 +3657,7 @@ As a management operation, this call is subject to a Key Management limit that a
       importKeyVersionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3658,7 +3724,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async listKeyVersions(
     listKeyVersionsRequest: requests.ListKeyVersionsRequest
   ): Promise<responses.ListKeyVersionsResponse> {
-    logger.debug("Calling operation KmsManagementClient#listKeyVersions.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#listKeyVersions.");
     const operationName = "listKeyVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/KeyVersionSummary/ListKeyVersions";
@@ -3684,6 +3750,7 @@ As a management operation, this call is subject to a Key Management limit that a
       listKeyVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3796,7 +3863,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async listKeys(
     listKeysRequest: requests.ListKeysRequest
   ): Promise<responses.ListKeysResponse> {
-    logger.debug("Calling operation KmsManagementClient#listKeys.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#listKeys.");
     const operationName = "listKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/KeySummary/ListKeys";
@@ -3825,6 +3892,7 @@ As a management operation, this call is subject to a Key Management limit that a
       listKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3932,7 +4000,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async restoreKeyFromFile(
     restoreKeyFromFileRequest: requests.RestoreKeyFromFileRequest
   ): Promise<responses.RestoreKeyFromFileResponse> {
-    logger.debug("Calling operation KmsManagementClient#restoreKeyFromFile.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#restoreKeyFromFile.");
     const operationName = "restoreKeyFromFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Key/RestoreKeyFromFile";
@@ -3954,6 +4022,7 @@ As a management operation, this call is subject to a Key Management limit that a
       restoreKeyFromFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4023,7 +4092,8 @@ As a management operation, this call is subject to a Key Management limit that a
   public async restoreKeyFromObjectStore(
     restoreKeyFromObjectStoreRequest: requests.RestoreKeyFromObjectStoreRequest
   ): Promise<responses.RestoreKeyFromObjectStoreResponse> {
-    logger.debug("Calling operation KmsManagementClient#restoreKeyFromObjectStore.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#restoreKeyFromObjectStore.");
     const operationName = "restoreKeyFromObjectStore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Key/RestoreKeyFromObjectStore";
@@ -4044,6 +4114,7 @@ As a management operation, this call is subject to a Key Management limit that a
       restoreKeyFromObjectStoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4115,7 +4186,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async scheduleKeyDeletion(
     scheduleKeyDeletionRequest: requests.ScheduleKeyDeletionRequest
   ): Promise<responses.ScheduleKeyDeletionResponse> {
-    logger.debug("Calling operation KmsManagementClient#scheduleKeyDeletion.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#scheduleKeyDeletion.");
     const operationName = "scheduleKeyDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Key/ScheduleKeyDeletion";
@@ -4138,6 +4210,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       scheduleKeyDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4204,7 +4277,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async scheduleKeyVersionDeletion(
     scheduleKeyVersionDeletionRequest: requests.ScheduleKeyVersionDeletionRequest
   ): Promise<responses.ScheduleKeyVersionDeletionResponse> {
-    logger.debug("Calling operation KmsManagementClient#scheduleKeyVersionDeletion.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsManagementClient#scheduleKeyVersionDeletion.");
     const operationName = "scheduleKeyVersionDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/KeyVersion/ScheduleKeyVersionDeletion";
@@ -4228,6 +4302,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       scheduleKeyVersionDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4295,7 +4370,7 @@ As a management operation, this call is subject to a Key Management limit that a
   public async updateKey(
     updateKeyRequest: requests.UpdateKeyRequest
   ): Promise<responses.UpdateKeyResponse> {
-    logger.debug("Calling operation KmsManagementClient#updateKey.");
+    if (this.logger) this.logger.debug("Calling operation KmsManagementClient#updateKey.");
     const operationName = "updateKey";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Key/UpdateKey";
     const pathParams = {
@@ -4316,6 +4391,7 @@ As a management operation, this call is subject to a Key Management limit that a
       updateKeyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4371,7 +4447,7 @@ export enum KmsVaultApiKeys {}
 export class KmsVaultClient {
   protected static serviceEndpointTemplate = "https://kms.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": KmsVaultWaiter;
@@ -4451,7 +4527,11 @@ export class KmsVaultClient {
    */
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
-    logger.info(`KmsVaultClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`KmsVaultClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -4461,9 +4541,10 @@ export class KmsVaultClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         KmsVaultClient.serviceEndpointTemplate,
@@ -4558,7 +4639,7 @@ export class KmsVaultClient {
   public async backupVault(
     backupVaultRequest: requests.BackupVaultRequest
   ): Promise<responses.BackupVaultResponse> {
-    logger.debug("Calling operation KmsVaultClient#backupVault.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#backupVault.");
     const operationName = "backupVault";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/BackupVault";
     const pathParams = {
@@ -4580,6 +4661,7 @@ export class KmsVaultClient {
       backupVaultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4653,7 +4735,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async cancelVaultDeletion(
     cancelVaultDeletionRequest: requests.CancelVaultDeletionRequest
   ): Promise<responses.CancelVaultDeletionResponse> {
-    logger.debug("Calling operation KmsVaultClient#cancelVaultDeletion.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#cancelVaultDeletion.");
     const operationName = "cancelVaultDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/CancelVaultDeletion";
@@ -4676,6 +4758,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       cancelVaultDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4739,7 +4822,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async changeVaultCompartment(
     changeVaultCompartmentRequest: requests.ChangeVaultCompartmentRequest
   ): Promise<responses.ChangeVaultCompartmentResponse> {
-    logger.debug("Calling operation KmsVaultClient#changeVaultCompartment.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#changeVaultCompartment.");
     const operationName = "changeVaultCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/ChangeVaultCompartment";
@@ -4762,6 +4845,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       changeVaultCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4826,7 +4910,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async createVault(
     createVaultRequest: requests.CreateVaultRequest
   ): Promise<responses.CreateVaultResponse> {
-    logger.debug("Calling operation KmsVaultClient#createVault.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#createVault.");
     const operationName = "createVault";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/CreateVault";
     const pathParams = {};
@@ -4845,6 +4929,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       createVaultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4914,7 +4999,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async createVaultReplica(
     createVaultReplicaRequest: requests.CreateVaultReplicaRequest
   ): Promise<responses.CreateVaultReplicaResponse> {
-    logger.debug("Calling operation KmsVaultClient#createVaultReplica.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#createVaultReplica.");
     const operationName = "createVaultReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/CreateVaultReplica";
@@ -4937,6 +5022,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       createVaultReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4998,7 +5084,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async deleteVaultReplica(
     deleteVaultReplicaRequest: requests.DeleteVaultReplicaRequest
   ): Promise<responses.DeleteVaultReplicaResponse> {
-    logger.debug("Calling operation KmsVaultClient#deleteVaultReplica.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#deleteVaultReplica.");
     const operationName = "deleteVaultReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/DeleteVaultReplica";
@@ -5021,6 +5107,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       deleteVaultReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5082,7 +5169,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async getVault(
     getVaultRequest: requests.GetVaultRequest
   ): Promise<responses.GetVaultResponse> {
-    logger.debug("Calling operation KmsVaultClient#getVault.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#getVault.");
     const operationName = "getVault";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/GetVault";
     const pathParams = {
@@ -5102,6 +5189,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       getVaultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5157,7 +5245,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async getVaultUsage(
     getVaultUsageRequest: requests.GetVaultUsageRequest
   ): Promise<responses.GetVaultUsageResponse> {
-    logger.debug("Calling operation KmsVaultClient#getVaultUsage.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#getVaultUsage.");
     const operationName = "getVaultUsage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/VaultUsage/GetVaultUsage";
@@ -5178,6 +5266,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       getVaultUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5233,7 +5322,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async listVaultReplicas(
     listVaultReplicasRequest: requests.ListVaultReplicasRequest
   ): Promise<responses.ListVaultReplicasResponse> {
-    logger.debug("Calling operation KmsVaultClient#listVaultReplicas.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#listVaultReplicas.");
     const operationName = "listVaultReplicas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/ListVaultReplicas";
@@ -5261,6 +5350,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       listVaultReplicasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5378,7 +5468,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async listVaults(
     listVaultsRequest: requests.ListVaultsRequest
   ): Promise<responses.ListVaultsResponse> {
-    logger.debug("Calling operation KmsVaultClient#listVaults.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#listVaults.");
     const operationName = "listVaults";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/VaultSummary/ListVaults";
@@ -5403,6 +5493,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       listVaultsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5512,7 +5603,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async restoreVaultFromFile(
     restoreVaultFromFileRequest: requests.RestoreVaultFromFileRequest
   ): Promise<responses.RestoreVaultFromFileResponse> {
-    logger.debug("Calling operation KmsVaultClient#restoreVaultFromFile.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#restoreVaultFromFile.");
     const operationName = "restoreVaultFromFile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/RestoreVaultFromFile";
@@ -5536,6 +5627,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       restoreVaultFromFileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5605,7 +5697,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async restoreVaultFromObjectStore(
     restoreVaultFromObjectStoreRequest: requests.RestoreVaultFromObjectStoreRequest
   ): Promise<responses.RestoreVaultFromObjectStoreResponse> {
-    logger.debug("Calling operation KmsVaultClient#restoreVaultFromObjectStore.");
+    if (this.logger)
+      this.logger.debug("Calling operation KmsVaultClient#restoreVaultFromObjectStore.");
     const operationName = "restoreVaultFromObjectStore";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/RestoreVaultFromObjectStore";
@@ -5628,6 +5721,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       restoreVaultFromObjectStoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5702,7 +5796,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async scheduleVaultDeletion(
     scheduleVaultDeletionRequest: requests.ScheduleVaultDeletionRequest
   ): Promise<responses.ScheduleVaultDeletionResponse> {
-    logger.debug("Calling operation KmsVaultClient#scheduleVaultDeletion.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#scheduleVaultDeletion.");
     const operationName = "scheduleVaultDeletion";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/ScheduleVaultDeletion";
@@ -5725,6 +5819,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       scheduleVaultDeletionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5792,7 +5887,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
   public async updateVault(
     updateVaultRequest: requests.UpdateVaultRequest
   ): Promise<responses.UpdateVaultResponse> {
-    logger.debug("Calling operation KmsVaultClient#updateVault.");
+    if (this.logger) this.logger.debug("Calling operation KmsVaultClient#updateVault.");
     const operationName = "updateVault";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/key/release/Vault/UpdateVault";
     const pathParams = {
@@ -5813,6 +5908,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
       updateVaultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

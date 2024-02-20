@@ -13,6 +13,7 @@ export import DefaultRequestSigner = common.DefaultRequestSigner;
 export import OciError = common.OciError;
 export import HandleErrorResponse = common.handleErrorResponse;
 export import ConvertStringToType = common.convertStringToType;
+export import LOG = common.LOG;
 export import ConfigFileAuthenticationDetailsProvider = common.ConfigFileAuthenticationDetailsProvider;
 // Analytics Service
 export import analytics = require("oci-analytics");
@@ -221,3 +222,4 @@ export import generativeai = require("oci-generativeai");
 export import generativeaiinference = require("oci-generativeaiinference");
 export import capacitymanagement = require("oci-capacitymanagement");
 export import globallydistributeddatabase = require("oci-globallydistributeddatabase");
+export import desktops = require("oci-desktops");

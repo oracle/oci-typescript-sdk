@@ -231,8 +231,6 @@ import * as PreTrainedLanguageDetectionModelDetails from "./pre-trained-language
 export import PreTrainedLanguageDetectionModelDetails = PreTrainedLanguageDetectionModelDetails.PreTrainedLanguageDetectionModelDetails;
 import * as PreTrainedNamedEntityRecognitionModelDetails from "./pre-trained-named-entity-recognition-model-details";
 export import PreTrainedNamedEntityRecognitionModelDetails = PreTrainedNamedEntityRecognitionModelDetails.PreTrainedNamedEntityRecognitionModelDetails;
-import * as PreTrainedPhiModelDetails from "./pre-trained-phi-model-details";
-export import PreTrainedPhiModelDetails = PreTrainedPhiModelDetails.PreTrainedPhiModelDetails;
 import * as PreTrainedPiiModelDetails from "./pre-trained-pii-model-details";
 export import PreTrainedPiiModelDetails = PreTrainedPiiModelDetails.PreTrainedPiiModelDetails;
 import * as PreTrainedSentimentAnalysisModelDetails from "./pre-trained-sentiment-analysis-model-details";

@@ -33,7 +33,8 @@ export namespace CreateSecurityContextDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.securityContextType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.securityContextType}`);
       }
     }
     return jsonObj;
@@ -49,7 +50,8 @@ export namespace CreateSecurityContextDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.securityContextType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.securityContextType}`);
       }
     }
     return jsonObj;

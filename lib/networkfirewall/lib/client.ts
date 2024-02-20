@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export class NetworkFirewallClient {
   protected static serviceEndpointTemplate =
     "https://network-firewall.{region}.ocs.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": NetworkFirewallWaiter;
@@ -118,7 +117,11 @@ export class NetworkFirewallClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20230501";
-    logger.info(`NetworkFirewallClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`NetworkFirewallClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -128,9 +131,10 @@ export class NetworkFirewallClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         NetworkFirewallClient.serviceEndpointTemplate,
@@ -222,7 +226,8 @@ export class NetworkFirewallClient {
   public async applyNetworkFirewallPolicy(
     applyNetworkFirewallPolicyRequest: requests.ApplyNetworkFirewallPolicyRequest
   ): Promise<responses.ApplyNetworkFirewallPolicyResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#applyNetworkFirewallPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#applyNetworkFirewallPolicy.");
     const operationName = "applyNetworkFirewallPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -244,6 +249,7 @@ export class NetworkFirewallClient {
       applyNetworkFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -309,7 +315,8 @@ export class NetworkFirewallClient {
   public async bulkUploadAddressLists(
     bulkUploadAddressListsRequest: requests.BulkUploadAddressListsRequest
   ): Promise<responses.BulkUploadAddressListsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadAddressLists.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadAddressLists.");
     const operationName = "bulkUploadAddressLists";
     const apiReferenceLink = "";
     const pathParams = {
@@ -330,6 +337,7 @@ export class NetworkFirewallClient {
       bulkUploadAddressListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -383,7 +391,8 @@ export class NetworkFirewallClient {
   public async bulkUploadApplicationGroups(
     bulkUploadApplicationGroupsRequest: requests.BulkUploadApplicationGroupsRequest
   ): Promise<responses.BulkUploadApplicationGroupsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadApplicationGroups.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadApplicationGroups.");
     const operationName = "bulkUploadApplicationGroups";
     const apiReferenceLink = "";
     const pathParams = {
@@ -404,6 +413,7 @@ export class NetworkFirewallClient {
       bulkUploadApplicationGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -458,7 +468,8 @@ export class NetworkFirewallClient {
   public async bulkUploadApplications(
     bulkUploadApplicationsRequest: requests.BulkUploadApplicationsRequest
   ): Promise<responses.BulkUploadApplicationsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadApplications.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadApplications.");
     const operationName = "bulkUploadApplications";
     const apiReferenceLink = "";
     const pathParams = {
@@ -479,6 +490,7 @@ export class NetworkFirewallClient {
       bulkUploadApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -532,7 +544,8 @@ export class NetworkFirewallClient {
   public async bulkUploadDecryptionProfiles(
     bulkUploadDecryptionProfilesRequest: requests.BulkUploadDecryptionProfilesRequest
   ): Promise<responses.BulkUploadDecryptionProfilesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadDecryptionProfiles.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadDecryptionProfiles.");
     const operationName = "bulkUploadDecryptionProfiles";
     const apiReferenceLink = "";
     const pathParams = {
@@ -553,6 +566,7 @@ export class NetworkFirewallClient {
       bulkUploadDecryptionProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -607,7 +621,8 @@ export class NetworkFirewallClient {
   public async bulkUploadDecryptionRules(
     bulkUploadDecryptionRulesRequest: requests.BulkUploadDecryptionRulesRequest
   ): Promise<responses.BulkUploadDecryptionRulesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadDecryptionRules.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadDecryptionRules.");
     const operationName = "bulkUploadDecryptionRules";
     const apiReferenceLink = "";
     const pathParams = {
@@ -628,6 +643,7 @@ export class NetworkFirewallClient {
       bulkUploadDecryptionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -681,7 +697,8 @@ export class NetworkFirewallClient {
   public async bulkUploadMappedSecrets(
     bulkUploadMappedSecretsRequest: requests.BulkUploadMappedSecretsRequest
   ): Promise<responses.BulkUploadMappedSecretsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadMappedSecrets.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadMappedSecrets.");
     const operationName = "bulkUploadMappedSecrets";
     const apiReferenceLink = "";
     const pathParams = {
@@ -702,6 +719,7 @@ export class NetworkFirewallClient {
       bulkUploadMappedSecretsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -755,7 +773,8 @@ export class NetworkFirewallClient {
   public async bulkUploadSecurityRules(
     bulkUploadSecurityRulesRequest: requests.BulkUploadSecurityRulesRequest
   ): Promise<responses.BulkUploadSecurityRulesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadSecurityRules.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadSecurityRules.");
     const operationName = "bulkUploadSecurityRules";
     const apiReferenceLink = "";
     const pathParams = {
@@ -776,6 +795,7 @@ export class NetworkFirewallClient {
       bulkUploadSecurityRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -829,7 +849,8 @@ export class NetworkFirewallClient {
   public async bulkUploadServiceLists(
     bulkUploadServiceListsRequest: requests.BulkUploadServiceListsRequest
   ): Promise<responses.BulkUploadServiceListsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadServiceLists.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadServiceLists.");
     const operationName = "bulkUploadServiceLists";
     const apiReferenceLink = "";
     const pathParams = {
@@ -850,6 +871,7 @@ export class NetworkFirewallClient {
       bulkUploadServiceListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -903,7 +925,8 @@ export class NetworkFirewallClient {
   public async bulkUploadServices(
     bulkUploadServicesRequest: requests.BulkUploadServicesRequest
   ): Promise<responses.BulkUploadServicesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadServices.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadServices.");
     const operationName = "bulkUploadServices";
     const apiReferenceLink = "";
     const pathParams = {
@@ -924,6 +947,7 @@ export class NetworkFirewallClient {
       bulkUploadServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -977,7 +1001,8 @@ export class NetworkFirewallClient {
   public async bulkUploadUrlLists(
     bulkUploadUrlListsRequest: requests.BulkUploadUrlListsRequest
   ): Promise<responses.BulkUploadUrlListsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#bulkUploadUrlLists.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadUrlLists.");
     const operationName = "bulkUploadUrlLists";
     const apiReferenceLink = "";
     const pathParams = {
@@ -998,6 +1023,7 @@ export class NetworkFirewallClient {
       bulkUploadUrlListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1050,7 +1076,8 @@ export class NetworkFirewallClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#cancelWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1071,6 +1098,7 @@ export class NetworkFirewallClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1116,7 +1144,10 @@ export class NetworkFirewallClient {
   public async changeNetworkFirewallCompartment(
     changeNetworkFirewallCompartmentRequest: requests.ChangeNetworkFirewallCompartmentRequest
   ): Promise<responses.ChangeNetworkFirewallCompartmentResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#changeNetworkFirewallCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation NetworkFirewallClient#changeNetworkFirewallCompartment."
+      );
     const operationName = "changeNetworkFirewallCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1138,6 +1169,7 @@ export class NetworkFirewallClient {
       changeNetworkFirewallCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1193,7 +1225,10 @@ export class NetworkFirewallClient {
   public async changeNetworkFirewallPolicyCompartment(
     changeNetworkFirewallPolicyCompartmentRequest: requests.ChangeNetworkFirewallPolicyCompartmentRequest
   ): Promise<responses.ChangeNetworkFirewallPolicyCompartmentResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#changeNetworkFirewallPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation NetworkFirewallClient#changeNetworkFirewallPolicyCompartment."
+      );
     const operationName = "changeNetworkFirewallPolicyCompartment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1216,6 +1251,7 @@ export class NetworkFirewallClient {
       changeNetworkFirewallPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1266,7 +1302,8 @@ export class NetworkFirewallClient {
   public async cloneNetworkFirewallPolicy(
     cloneNetworkFirewallPolicyRequest: requests.CloneNetworkFirewallPolicyRequest
   ): Promise<responses.CloneNetworkFirewallPolicyResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#cloneNetworkFirewallPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#cloneNetworkFirewallPolicy.");
     const operationName = "cloneNetworkFirewallPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1288,6 +1325,7 @@ export class NetworkFirewallClient {
       cloneNetworkFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1353,7 +1391,8 @@ export class NetworkFirewallClient {
   public async createAddressList(
     createAddressListRequest: requests.CreateAddressListRequest
   ): Promise<responses.CreateAddressListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createAddressList.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createAddressList.");
     const operationName = "createAddressList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1374,6 +1413,7 @@ export class NetworkFirewallClient {
       createAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1434,7 +1474,8 @@ export class NetworkFirewallClient {
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
   ): Promise<responses.CreateApplicationResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createApplication.");
     const operationName = "createApplication";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1455,6 +1496,7 @@ export class NetworkFirewallClient {
       createApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1515,7 +1557,8 @@ export class NetworkFirewallClient {
   public async createApplicationGroup(
     createApplicationGroupRequest: requests.CreateApplicationGroupRequest
   ): Promise<responses.CreateApplicationGroupResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createApplicationGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createApplicationGroup.");
     const operationName = "createApplicationGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1536,6 +1579,7 @@ export class NetworkFirewallClient {
       createApplicationGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1596,7 +1640,8 @@ export class NetworkFirewallClient {
   public async createDecryptionProfile(
     createDecryptionProfileRequest: requests.CreateDecryptionProfileRequest
   ): Promise<responses.CreateDecryptionProfileResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createDecryptionProfile.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createDecryptionProfile.");
     const operationName = "createDecryptionProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1617,6 +1662,7 @@ export class NetworkFirewallClient {
       createDecryptionProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1677,7 +1723,8 @@ export class NetworkFirewallClient {
   public async createDecryptionRule(
     createDecryptionRuleRequest: requests.CreateDecryptionRuleRequest
   ): Promise<responses.CreateDecryptionRuleResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createDecryptionRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createDecryptionRule.");
     const operationName = "createDecryptionRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1698,6 +1745,7 @@ export class NetworkFirewallClient {
       createDecryptionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1758,7 +1806,8 @@ export class NetworkFirewallClient {
   public async createMappedSecret(
     createMappedSecretRequest: requests.CreateMappedSecretRequest
   ): Promise<responses.CreateMappedSecretResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createMappedSecret.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createMappedSecret.");
     const operationName = "createMappedSecret";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1779,6 +1828,7 @@ export class NetworkFirewallClient {
       createMappedSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1839,7 +1889,8 @@ export class NetworkFirewallClient {
   public async createNetworkFirewall(
     createNetworkFirewallRequest: requests.CreateNetworkFirewallRequest
   ): Promise<responses.CreateNetworkFirewallResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createNetworkFirewall.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createNetworkFirewall.");
     const operationName = "createNetworkFirewall";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1858,6 +1909,7 @@ export class NetworkFirewallClient {
       createNetworkFirewallRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1923,7 +1975,8 @@ export class NetworkFirewallClient {
   public async createNetworkFirewallPolicy(
     createNetworkFirewallPolicyRequest: requests.CreateNetworkFirewallPolicyRequest
   ): Promise<responses.CreateNetworkFirewallPolicyResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createNetworkFirewallPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createNetworkFirewallPolicy.");
     const operationName = "createNetworkFirewallPolicy";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1942,6 +1995,7 @@ export class NetworkFirewallClient {
       createNetworkFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2007,7 +2061,8 @@ export class NetworkFirewallClient {
   public async createSecurityRule(
     createSecurityRuleRequest: requests.CreateSecurityRuleRequest
   ): Promise<responses.CreateSecurityRuleResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createSecurityRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createSecurityRule.");
     const operationName = "createSecurityRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2028,6 +2083,7 @@ export class NetworkFirewallClient {
       createSecurityRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2088,7 +2144,7 @@ export class NetworkFirewallClient {
   public async createService(
     createServiceRequest: requests.CreateServiceRequest
   ): Promise<responses.CreateServiceResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createService.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#createService.");
     const operationName = "createService";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2109,6 +2165,7 @@ export class NetworkFirewallClient {
       createServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2169,7 +2226,8 @@ export class NetworkFirewallClient {
   public async createServiceList(
     createServiceListRequest: requests.CreateServiceListRequest
   ): Promise<responses.CreateServiceListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createServiceList.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createServiceList.");
     const operationName = "createServiceList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2190,6 +2248,7 @@ export class NetworkFirewallClient {
       createServiceListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2250,7 +2309,7 @@ export class NetworkFirewallClient {
   public async createUrlList(
     createUrlListRequest: requests.CreateUrlListRequest
   ): Promise<responses.CreateUrlListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#createUrlList.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#createUrlList.");
     const operationName = "createUrlList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2271,6 +2330,7 @@ export class NetworkFirewallClient {
       createUrlListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2330,7 +2390,8 @@ export class NetworkFirewallClient {
   public async deleteAddressList(
     deleteAddressListRequest: requests.DeleteAddressListRequest
   ): Promise<responses.DeleteAddressListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteAddressList.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteAddressList.");
     const operationName = "deleteAddressList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2352,6 +2413,7 @@ export class NetworkFirewallClient {
       deleteAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2397,7 +2459,8 @@ export class NetworkFirewallClient {
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
   ): Promise<responses.DeleteApplicationResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteApplication.");
     const operationName = "deleteApplication";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2419,6 +2482,7 @@ export class NetworkFirewallClient {
       deleteApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2464,7 +2528,8 @@ export class NetworkFirewallClient {
   public async deleteApplicationGroup(
     deleteApplicationGroupRequest: requests.DeleteApplicationGroupRequest
   ): Promise<responses.DeleteApplicationGroupResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteApplicationGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteApplicationGroup.");
     const operationName = "deleteApplicationGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2486,6 +2551,7 @@ export class NetworkFirewallClient {
       deleteApplicationGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2532,7 +2598,8 @@ export class NetworkFirewallClient {
   public async deleteDecryptionProfile(
     deleteDecryptionProfileRequest: requests.DeleteDecryptionProfileRequest
   ): Promise<responses.DeleteDecryptionProfileResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteDecryptionProfile.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteDecryptionProfile.");
     const operationName = "deleteDecryptionProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2554,6 +2621,7 @@ export class NetworkFirewallClient {
       deleteDecryptionProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2600,7 +2668,8 @@ export class NetworkFirewallClient {
   public async deleteDecryptionRule(
     deleteDecryptionRuleRequest: requests.DeleteDecryptionRuleRequest
   ): Promise<responses.DeleteDecryptionRuleResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteDecryptionRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteDecryptionRule.");
     const operationName = "deleteDecryptionRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2622,6 +2691,7 @@ export class NetworkFirewallClient {
       deleteDecryptionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2668,7 +2738,8 @@ export class NetworkFirewallClient {
   public async deleteMappedSecret(
     deleteMappedSecretRequest: requests.DeleteMappedSecretRequest
   ): Promise<responses.DeleteMappedSecretResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteMappedSecret.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteMappedSecret.");
     const operationName = "deleteMappedSecret";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2690,6 +2761,7 @@ export class NetworkFirewallClient {
       deleteMappedSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2735,7 +2807,8 @@ export class NetworkFirewallClient {
   public async deleteNetworkFirewall(
     deleteNetworkFirewallRequest: requests.DeleteNetworkFirewallRequest
   ): Promise<responses.DeleteNetworkFirewallResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteNetworkFirewall.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteNetworkFirewall.");
     const operationName = "deleteNetworkFirewall";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2756,6 +2829,7 @@ export class NetworkFirewallClient {
       deleteNetworkFirewallRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2806,7 +2880,8 @@ export class NetworkFirewallClient {
   public async deleteNetworkFirewallPolicy(
     deleteNetworkFirewallPolicyRequest: requests.DeleteNetworkFirewallPolicyRequest
   ): Promise<responses.DeleteNetworkFirewallPolicyResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteNetworkFirewallPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteNetworkFirewallPolicy.");
     const operationName = "deleteNetworkFirewallPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2827,6 +2902,7 @@ export class NetworkFirewallClient {
       deleteNetworkFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2877,7 +2953,8 @@ export class NetworkFirewallClient {
   public async deleteSecurityRule(
     deleteSecurityRuleRequest: requests.DeleteSecurityRuleRequest
   ): Promise<responses.DeleteSecurityRuleResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteSecurityRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteSecurityRule.");
     const operationName = "deleteSecurityRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2899,6 +2976,7 @@ export class NetworkFirewallClient {
       deleteSecurityRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2944,7 +3022,7 @@ export class NetworkFirewallClient {
   public async deleteService(
     deleteServiceRequest: requests.DeleteServiceRequest
   ): Promise<responses.DeleteServiceResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteService.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#deleteService.");
     const operationName = "deleteService";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2966,6 +3044,7 @@ export class NetworkFirewallClient {
       deleteServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3011,7 +3090,8 @@ export class NetworkFirewallClient {
   public async deleteServiceList(
     deleteServiceListRequest: requests.DeleteServiceListRequest
   ): Promise<responses.DeleteServiceListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteServiceList.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteServiceList.");
     const operationName = "deleteServiceList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3033,6 +3113,7 @@ export class NetworkFirewallClient {
       deleteServiceListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3078,7 +3159,7 @@ export class NetworkFirewallClient {
   public async deleteUrlList(
     deleteUrlListRequest: requests.DeleteUrlListRequest
   ): Promise<responses.DeleteUrlListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#deleteUrlList.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#deleteUrlList.");
     const operationName = "deleteUrlList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3100,6 +3181,7 @@ export class NetworkFirewallClient {
       deleteUrlListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3145,7 +3227,7 @@ export class NetworkFirewallClient {
   public async getAddressList(
     getAddressListRequest: requests.GetAddressListRequest
   ): Promise<responses.GetAddressListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getAddressList.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getAddressList.");
     const operationName = "getAddressList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3166,6 +3248,7 @@ export class NetworkFirewallClient {
       getAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3220,7 +3303,7 @@ export class NetworkFirewallClient {
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
   ): Promise<responses.GetApplicationResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getApplication.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getApplication.");
     const operationName = "getApplication";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3244,6 +3327,7 @@ export class NetworkFirewallClient {
       getApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3298,7 +3382,8 @@ export class NetworkFirewallClient {
   public async getApplicationGroup(
     getApplicationGroupRequest: requests.GetApplicationGroupRequest
   ): Promise<responses.GetApplicationGroupResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getApplicationGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#getApplicationGroup.");
     const operationName = "getApplicationGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3319,6 +3404,7 @@ export class NetworkFirewallClient {
       getApplicationGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3374,7 +3460,8 @@ export class NetworkFirewallClient {
   public async getDecryptionProfile(
     getDecryptionProfileRequest: requests.GetDecryptionProfileRequest
   ): Promise<responses.GetDecryptionProfileResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getDecryptionProfile.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#getDecryptionProfile.");
     const operationName = "getDecryptionProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3395,6 +3482,7 @@ export class NetworkFirewallClient {
       getDecryptionProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3450,7 +3538,8 @@ export class NetworkFirewallClient {
   public async getDecryptionRule(
     getDecryptionRuleRequest: requests.GetDecryptionRuleRequest
   ): Promise<responses.GetDecryptionRuleResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getDecryptionRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#getDecryptionRule.");
     const operationName = "getDecryptionRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3474,6 +3563,7 @@ export class NetworkFirewallClient {
       getDecryptionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3529,7 +3619,7 @@ export class NetworkFirewallClient {
   public async getMappedSecret(
     getMappedSecretRequest: requests.GetMappedSecretRequest
   ): Promise<responses.GetMappedSecretResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getMappedSecret.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getMappedSecret.");
     const operationName = "getMappedSecret";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3553,6 +3643,7 @@ export class NetworkFirewallClient {
       getMappedSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3607,7 +3698,8 @@ export class NetworkFirewallClient {
   public async getNetworkFirewall(
     getNetworkFirewallRequest: requests.GetNetworkFirewallRequest
   ): Promise<responses.GetNetworkFirewallResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getNetworkFirewall.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#getNetworkFirewall.");
     const operationName = "getNetworkFirewall";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3627,6 +3719,7 @@ export class NetworkFirewallClient {
       getNetworkFirewallRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3681,7 +3774,8 @@ export class NetworkFirewallClient {
   public async getNetworkFirewallPolicy(
     getNetworkFirewallPolicyRequest: requests.GetNetworkFirewallPolicyRequest
   ): Promise<responses.GetNetworkFirewallPolicyResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getNetworkFirewallPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#getNetworkFirewallPolicy.");
     const operationName = "getNetworkFirewallPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3701,6 +3795,7 @@ export class NetworkFirewallClient {
       getNetworkFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3755,7 +3850,7 @@ export class NetworkFirewallClient {
   public async getSecurityRule(
     getSecurityRuleRequest: requests.GetSecurityRuleRequest
   ): Promise<responses.GetSecurityRuleResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getSecurityRule.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getSecurityRule.");
     const operationName = "getSecurityRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3776,6 +3871,7 @@ export class NetworkFirewallClient {
       getSecurityRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3830,7 +3926,7 @@ export class NetworkFirewallClient {
   public async getService(
     getServiceRequest: requests.GetServiceRequest
   ): Promise<responses.GetServiceResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getService.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getService.");
     const operationName = "getService";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3854,6 +3950,7 @@ export class NetworkFirewallClient {
       getServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3908,7 +4005,7 @@ export class NetworkFirewallClient {
   public async getServiceList(
     getServiceListRequest: requests.GetServiceListRequest
   ): Promise<responses.GetServiceListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getServiceList.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getServiceList.");
     const operationName = "getServiceList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -3929,6 +4026,7 @@ export class NetworkFirewallClient {
       getServiceListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3983,7 +4081,7 @@ export class NetworkFirewallClient {
   public async getUrlList(
     getUrlListRequest: requests.GetUrlListRequest
   ): Promise<responses.GetUrlListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getUrlList.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getUrlList.");
     const operationName = "getUrlList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4004,6 +4102,7 @@ export class NetworkFirewallClient {
       getUrlListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4058,7 +4157,7 @@ export class NetworkFirewallClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4078,6 +4177,7 @@ export class NetworkFirewallClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4138,7 +4238,7 @@ export class NetworkFirewallClient {
   public async listAddressLists(
     listAddressListsRequest: requests.ListAddressListsRequest
   ): Promise<responses.ListAddressListsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listAddressLists.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#listAddressLists.");
     const operationName = "listAddressLists";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4164,6 +4264,7 @@ export class NetworkFirewallClient {
       listAddressListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4234,7 +4335,8 @@ export class NetworkFirewallClient {
   public async listApplicationGroups(
     listApplicationGroupsRequest: requests.ListApplicationGroupsRequest
   ): Promise<responses.ListApplicationGroupsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listApplicationGroups.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listApplicationGroups.");
     const operationName = "listApplicationGroups";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4260,6 +4362,7 @@ export class NetworkFirewallClient {
       listApplicationGroupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4330,7 +4433,7 @@ export class NetworkFirewallClient {
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listApplications.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#listApplications.");
     const operationName = "listApplications";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4356,6 +4459,7 @@ export class NetworkFirewallClient {
       listApplicationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4426,7 +4530,8 @@ export class NetworkFirewallClient {
   public async listDecryptionProfiles(
     listDecryptionProfilesRequest: requests.ListDecryptionProfilesRequest
   ): Promise<responses.ListDecryptionProfilesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listDecryptionProfiles.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listDecryptionProfiles.");
     const operationName = "listDecryptionProfiles";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4452,6 +4557,7 @@ export class NetworkFirewallClient {
       listDecryptionProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4522,7 +4628,8 @@ export class NetworkFirewallClient {
   public async listDecryptionRules(
     listDecryptionRulesRequest: requests.ListDecryptionRulesRequest
   ): Promise<responses.ListDecryptionRulesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listDecryptionRules.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listDecryptionRules.");
     const operationName = "listDecryptionRules";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4549,6 +4656,7 @@ export class NetworkFirewallClient {
       listDecryptionRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4619,7 +4727,8 @@ export class NetworkFirewallClient {
   public async listMappedSecrets(
     listMappedSecretsRequest: requests.ListMappedSecretsRequest
   ): Promise<responses.ListMappedSecretsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listMappedSecrets.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listMappedSecrets.");
     const operationName = "listMappedSecrets";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4645,6 +4754,7 @@ export class NetworkFirewallClient {
       listMappedSecretsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4715,7 +4825,8 @@ export class NetworkFirewallClient {
   public async listNetworkFirewallPolicies(
     listNetworkFirewallPoliciesRequest: requests.ListNetworkFirewallPoliciesRequest
   ): Promise<responses.ListNetworkFirewallPoliciesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listNetworkFirewallPolicies.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listNetworkFirewallPolicies.");
     const operationName = "listNetworkFirewallPolicies";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4742,6 +4853,7 @@ export class NetworkFirewallClient {
       listNetworkFirewallPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4812,7 +4924,8 @@ export class NetworkFirewallClient {
   public async listNetworkFirewalls(
     listNetworkFirewallsRequest: requests.ListNetworkFirewallsRequest
   ): Promise<responses.ListNetworkFirewallsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listNetworkFirewalls.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listNetworkFirewalls.");
     const operationName = "listNetworkFirewalls";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4841,6 +4954,7 @@ export class NetworkFirewallClient {
       listNetworkFirewallsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4911,7 +5025,8 @@ export class NetworkFirewallClient {
   public async listSecurityRules(
     listSecurityRulesRequest: requests.ListSecurityRulesRequest
   ): Promise<responses.ListSecurityRulesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listSecurityRules.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listSecurityRules.");
     const operationName = "listSecurityRules";
     const apiReferenceLink = "";
     const pathParams = {
@@ -4938,6 +5053,7 @@ export class NetworkFirewallClient {
       listSecurityRulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5008,7 +5124,7 @@ export class NetworkFirewallClient {
   public async listServiceLists(
     listServiceListsRequest: requests.ListServiceListsRequest
   ): Promise<responses.ListServiceListsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listServiceLists.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#listServiceLists.");
     const operationName = "listServiceLists";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5034,6 +5150,7 @@ export class NetworkFirewallClient {
       listServiceListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5104,7 +5221,7 @@ export class NetworkFirewallClient {
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listServices.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#listServices.");
     const operationName = "listServices";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5130,6 +5247,7 @@ export class NetworkFirewallClient {
       listServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5200,7 +5318,7 @@ export class NetworkFirewallClient {
   public async listUrlLists(
     listUrlListsRequest: requests.ListUrlListsRequest
   ): Promise<responses.ListUrlListsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listUrlLists.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#listUrlLists.");
     const operationName = "listUrlLists";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5226,6 +5344,7 @@ export class NetworkFirewallClient {
       listUrlListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5296,7 +5415,8 @@ export class NetworkFirewallClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5321,6 +5441,7 @@ export class NetworkFirewallClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5381,7 +5502,8 @@ export class NetworkFirewallClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5406,6 +5528,7 @@ export class NetworkFirewallClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5466,7 +5589,7 @@ export class NetworkFirewallClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -5493,6 +5616,7 @@ export class NetworkFirewallClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5552,7 +5676,8 @@ export class NetworkFirewallClient {
   public async migrateNetworkFirewallPolicy(
     migrateNetworkFirewallPolicyRequest: requests.MigrateNetworkFirewallPolicyRequest
   ): Promise<responses.MigrateNetworkFirewallPolicyResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#migrateNetworkFirewallPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#migrateNetworkFirewallPolicy.");
     const operationName = "migrateNetworkFirewallPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5574,6 +5699,7 @@ export class NetworkFirewallClient {
       migrateNetworkFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5624,7 +5750,8 @@ export class NetworkFirewallClient {
   public async updateAddressList(
     updateAddressListRequest: requests.UpdateAddressListRequest
   ): Promise<responses.UpdateAddressListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateAddressList.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateAddressList.");
     const operationName = "updateAddressList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5646,6 +5773,7 @@ export class NetworkFirewallClient {
       updateAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5715,7 +5843,8 @@ export class NetworkFirewallClient {
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
   ): Promise<responses.UpdateApplicationResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateApplication.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateApplication.");
     const operationName = "updateApplication";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5737,6 +5866,7 @@ export class NetworkFirewallClient {
       updateApplicationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5806,7 +5936,8 @@ export class NetworkFirewallClient {
   public async updateApplicationGroup(
     updateApplicationGroupRequest: requests.UpdateApplicationGroupRequest
   ): Promise<responses.UpdateApplicationGroupResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateApplicationGroup.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateApplicationGroup.");
     const operationName = "updateApplicationGroup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5828,6 +5959,7 @@ export class NetworkFirewallClient {
       updateApplicationGroupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5898,7 +6030,8 @@ export class NetworkFirewallClient {
   public async updateDecryptionProfile(
     updateDecryptionProfileRequest: requests.UpdateDecryptionProfileRequest
   ): Promise<responses.UpdateDecryptionProfileResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateDecryptionProfile.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateDecryptionProfile.");
     const operationName = "updateDecryptionProfile";
     const apiReferenceLink = "";
     const pathParams = {
@@ -5920,6 +6053,7 @@ export class NetworkFirewallClient {
       updateDecryptionProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5980,7 +6114,8 @@ export class NetworkFirewallClient {
   public async updateDecryptionRule(
     updateDecryptionRuleRequest: requests.UpdateDecryptionRuleRequest
   ): Promise<responses.UpdateDecryptionRuleResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateDecryptionRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateDecryptionRule.");
     const operationName = "updateDecryptionRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6002,6 +6137,7 @@ export class NetworkFirewallClient {
       updateDecryptionRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6062,7 +6198,8 @@ export class NetworkFirewallClient {
   public async updateMappedSecret(
     updateMappedSecretRequest: requests.UpdateMappedSecretRequest
   ): Promise<responses.UpdateMappedSecretResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateMappedSecret.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateMappedSecret.");
     const operationName = "updateMappedSecret";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6084,6 +6221,7 @@ export class NetworkFirewallClient {
       updateMappedSecretRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6153,7 +6291,8 @@ export class NetworkFirewallClient {
   public async updateNetworkFirewall(
     updateNetworkFirewallRequest: requests.UpdateNetworkFirewallRequest
   ): Promise<responses.UpdateNetworkFirewallResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateNetworkFirewall.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateNetworkFirewall.");
     const operationName = "updateNetworkFirewall";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6174,6 +6313,7 @@ export class NetworkFirewallClient {
       updateNetworkFirewallRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6229,7 +6369,8 @@ export class NetworkFirewallClient {
   public async updateNetworkFirewallPolicy(
     updateNetworkFirewallPolicyRequest: requests.UpdateNetworkFirewallPolicyRequest
   ): Promise<responses.UpdateNetworkFirewallPolicyResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateNetworkFirewallPolicy.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateNetworkFirewallPolicy.");
     const operationName = "updateNetworkFirewallPolicy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6250,6 +6391,7 @@ export class NetworkFirewallClient {
       updateNetworkFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6305,7 +6447,8 @@ export class NetworkFirewallClient {
   public async updateSecurityRule(
     updateSecurityRuleRequest: requests.UpdateSecurityRuleRequest
   ): Promise<responses.UpdateSecurityRuleResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateSecurityRule.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateSecurityRule.");
     const operationName = "updateSecurityRule";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6327,6 +6470,7 @@ export class NetworkFirewallClient {
       updateSecurityRuleRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6386,7 +6530,7 @@ export class NetworkFirewallClient {
   public async updateService(
     updateServiceRequest: requests.UpdateServiceRequest
   ): Promise<responses.UpdateServiceResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateService.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#updateService.");
     const operationName = "updateService";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6408,6 +6552,7 @@ export class NetworkFirewallClient {
       updateServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6477,7 +6622,8 @@ export class NetworkFirewallClient {
   public async updateServiceList(
     updateServiceListRequest: requests.UpdateServiceListRequest
   ): Promise<responses.UpdateServiceListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateServiceList.");
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateServiceList.");
     const operationName = "updateServiceList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6499,6 +6645,7 @@ export class NetworkFirewallClient {
       updateServiceListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6558,7 +6705,7 @@ export class NetworkFirewallClient {
   public async updateUrlList(
     updateUrlListRequest: requests.UpdateUrlListRequest
   ): Promise<responses.UpdateUrlListResponse> {
-    logger.debug("Calling operation NetworkFirewallClient#updateUrlList.");
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#updateUrlList.");
     const operationName = "updateUrlList";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6580,6 +6727,7 @@ export class NetworkFirewallClient {
       updateUrlListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

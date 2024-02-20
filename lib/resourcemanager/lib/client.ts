@@ -25,8 +25,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -41,7 +40,7 @@ export enum ResourceManagerApiKeys {}
 export class ResourceManagerClient {
   protected static serviceEndpointTemplate = "https://resourcemanager.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ResourceManagerWaiter;
@@ -122,7 +121,11 @@ export class ResourceManagerClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180917";
-    logger.info(`ResourceManagerClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ResourceManagerClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -132,9 +135,10 @@ export class ResourceManagerClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ResourceManagerClient.serviceEndpointTemplate,
@@ -232,7 +236,7 @@ export class ResourceManagerClient {
   public async cancelJob(
     cancelJobRequest: requests.CancelJobRequest
   ): Promise<responses.CancelJobResponse> {
-    logger.debug("Calling operation ResourceManagerClient#cancelJob.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#cancelJob.");
     const operationName = "cancelJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/CancelJob";
@@ -256,6 +260,7 @@ export class ResourceManagerClient {
       cancelJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -304,9 +309,10 @@ export class ResourceManagerClient {
   public async changeConfigurationSourceProviderCompartment(
     changeConfigurationSourceProviderCompartmentRequest: requests.ChangeConfigurationSourceProviderCompartmentRequest
   ): Promise<responses.ChangeConfigurationSourceProviderCompartmentResponse> {
-    logger.debug(
-      "Calling operation ResourceManagerClient#changeConfigurationSourceProviderCompartment."
-    );
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ResourceManagerClient#changeConfigurationSourceProviderCompartment."
+      );
     const operationName = "changeConfigurationSourceProviderCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/ChangeConfigurationSourceProviderCompartment";
@@ -330,6 +336,7 @@ export class ResourceManagerClient {
       changeConfigurationSourceProviderCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -384,7 +391,10 @@ export class ResourceManagerClient {
   public async changePrivateEndpointCompartment(
     changePrivateEndpointCompartmentRequest: requests.ChangePrivateEndpointCompartmentRequest
   ): Promise<responses.ChangePrivateEndpointCompartmentResponse> {
-    logger.debug("Calling operation ResourceManagerClient#changePrivateEndpointCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ResourceManagerClient#changePrivateEndpointCompartment."
+      );
     const operationName = "changePrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/ChangePrivateEndpointCompartment";
@@ -407,6 +417,7 @@ export class ResourceManagerClient {
       changePrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -460,7 +471,8 @@ export class ResourceManagerClient {
   public async changeStackCompartment(
     changeStackCompartmentRequest: requests.ChangeStackCompartmentRequest
   ): Promise<responses.ChangeStackCompartmentResponse> {
-    logger.debug("Calling operation ResourceManagerClient#changeStackCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#changeStackCompartment.");
     const operationName = "changeStackCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/ChangeStackCompartment";
@@ -483,6 +495,7 @@ export class ResourceManagerClient {
       changeStackCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -541,7 +554,8 @@ export class ResourceManagerClient {
   public async changeTemplateCompartment(
     changeTemplateCompartmentRequest: requests.ChangeTemplateCompartmentRequest
   ): Promise<responses.ChangeTemplateCompartmentResponse> {
-    logger.debug("Calling operation ResourceManagerClient#changeTemplateCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#changeTemplateCompartment.");
     const operationName = "changeTemplateCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/ChangeTemplateCompartment";
@@ -564,6 +578,7 @@ export class ResourceManagerClient {
       changeTemplateCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -617,7 +632,10 @@ export class ResourceManagerClient {
   public async createConfigurationSourceProvider(
     createConfigurationSourceProviderRequest: requests.CreateConfigurationSourceProviderRequest
   ): Promise<responses.CreateConfigurationSourceProviderResponse> {
-    logger.debug("Calling operation ResourceManagerClient#createConfigurationSourceProvider.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ResourceManagerClient#createConfigurationSourceProvider."
+      );
     const operationName = "createConfigurationSourceProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/CreateConfigurationSourceProvider";
@@ -637,6 +655,7 @@ export class ResourceManagerClient {
       createConfigurationSourceProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -696,7 +715,7 @@ export class ResourceManagerClient {
   public async createJob(
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
-    logger.debug("Calling operation ResourceManagerClient#createJob.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createJob.");
     const operationName = "createJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/CreateJob";
@@ -716,6 +735,7 @@ export class ResourceManagerClient {
       createJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -776,7 +796,8 @@ export class ResourceManagerClient {
   public async createPrivateEndpoint(
     createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
   ): Promise<responses.CreatePrivateEndpointResponse> {
-    logger.debug("Calling operation ResourceManagerClient#createPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#createPrivateEndpoint.");
     const operationName = "createPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/CreatePrivateEndpoint";
@@ -796,6 +817,7 @@ export class ResourceManagerClient {
       createPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -862,7 +884,7 @@ export class ResourceManagerClient {
   public async createStack(
     createStackRequest: requests.CreateStackRequest
   ): Promise<responses.CreateStackResponse> {
-    logger.debug("Calling operation ResourceManagerClient#createStack.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createStack.");
     const operationName = "createStack";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/CreateStack";
@@ -882,6 +904,7 @@ export class ResourceManagerClient {
       createStackRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -947,7 +970,7 @@ export class ResourceManagerClient {
   public async createTemplate(
     createTemplateRequest: requests.CreateTemplateRequest
   ): Promise<responses.CreateTemplateResponse> {
-    logger.debug("Calling operation ResourceManagerClient#createTemplate.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createTemplate.");
     const operationName = "createTemplate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/CreateTemplate";
@@ -967,6 +990,7 @@ export class ResourceManagerClient {
       createTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1026,7 +1050,10 @@ export class ResourceManagerClient {
   public async deleteConfigurationSourceProvider(
     deleteConfigurationSourceProviderRequest: requests.DeleteConfigurationSourceProviderRequest
   ): Promise<responses.DeleteConfigurationSourceProviderResponse> {
-    logger.debug("Calling operation ResourceManagerClient#deleteConfigurationSourceProvider.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ResourceManagerClient#deleteConfigurationSourceProvider."
+      );
     const operationName = "deleteConfigurationSourceProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/DeleteConfigurationSourceProvider";
@@ -1049,6 +1076,7 @@ export class ResourceManagerClient {
       deleteConfigurationSourceProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1094,7 +1122,8 @@ export class ResourceManagerClient {
   public async deletePrivateEndpoint(
     deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
   ): Promise<responses.DeletePrivateEndpointResponse> {
-    logger.debug("Calling operation ResourceManagerClient#deletePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#deletePrivateEndpoint.");
     const operationName = "deletePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/DeletePrivateEndpoint";
@@ -1116,6 +1145,7 @@ export class ResourceManagerClient {
       deletePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1161,7 +1191,7 @@ export class ResourceManagerClient {
   public async deleteStack(
     deleteStackRequest: requests.DeleteStackRequest
   ): Promise<responses.DeleteStackResponse> {
-    logger.debug("Calling operation ResourceManagerClient#deleteStack.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#deleteStack.");
     const operationName = "deleteStack";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/DeleteStack";
@@ -1183,6 +1213,7 @@ export class ResourceManagerClient {
       deleteStackRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1228,7 +1259,7 @@ export class ResourceManagerClient {
   public async deleteTemplate(
     deleteTemplateRequest: requests.DeleteTemplateRequest
   ): Promise<responses.DeleteTemplateResponse> {
-    logger.debug("Calling operation ResourceManagerClient#deleteTemplate.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#deleteTemplate.");
     const operationName = "deleteTemplate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/DeleteTemplate";
@@ -1250,6 +1281,7 @@ export class ResourceManagerClient {
       deleteTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1295,7 +1327,7 @@ export class ResourceManagerClient {
   public async detectStackDrift(
     detectStackDriftRequest: requests.DetectStackDriftRequest
   ): Promise<responses.DetectStackDriftResponse> {
-    logger.debug("Calling operation ResourceManagerClient#detectStackDrift.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#detectStackDrift.");
     const operationName = "detectStackDrift";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/DetectStackDrift";
@@ -1318,6 +1350,7 @@ export class ResourceManagerClient {
       detectStackDriftRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1373,7 +1406,8 @@ export class ResourceManagerClient {
   public async getConfigurationSourceProvider(
     getConfigurationSourceProviderRequest: requests.GetConfigurationSourceProviderRequest
   ): Promise<responses.GetConfigurationSourceProviderResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getConfigurationSourceProvider.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getConfigurationSourceProvider.");
     const operationName = "getConfigurationSourceProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/GetConfigurationSourceProvider";
@@ -1395,6 +1429,7 @@ export class ResourceManagerClient {
       getConfigurationSourceProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1447,7 +1482,7 @@ export class ResourceManagerClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getJob.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJob.");
     const operationName = "getJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJob";
@@ -1468,6 +1503,7 @@ export class ResourceManagerClient {
       getJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1523,7 +1559,8 @@ export class ResourceManagerClient {
   public async getJobDetailedLogContent(
     getJobDetailedLogContentRequest: requests.GetJobDetailedLogContentRequest
   ): Promise<responses.GetJobDetailedLogContentResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getJobDetailedLogContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getJobDetailedLogContent.");
     const operationName = "getJobDetailedLogContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobDetailedLogContent";
@@ -1544,6 +1581,7 @@ export class ResourceManagerClient {
       getJobDetailedLogContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1594,7 +1632,7 @@ export class ResourceManagerClient {
   public async getJobLogs(
     getJobLogsRequest: requests.GetJobLogsRequest
   ): Promise<responses.GetJobLogsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getJobLogs.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobLogs.");
     const operationName = "getJobLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobLogs";
@@ -1623,6 +1661,7 @@ export class ResourceManagerClient {
       getJobLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1729,7 +1768,8 @@ export class ResourceManagerClient {
   public async getJobLogsContent(
     getJobLogsContentRequest: requests.GetJobLogsContentRequest
   ): Promise<responses.GetJobLogsContentResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getJobLogsContent.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getJobLogsContent.");
     const operationName = "getJobLogsContent";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobLogsContent";
@@ -1750,6 +1790,7 @@ export class ResourceManagerClient {
       getJobLogsContentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1801,7 +1842,7 @@ export class ResourceManagerClient {
   public async getJobTfConfig(
     getJobTfConfigRequest: requests.GetJobTfConfigRequest
   ): Promise<responses.GetJobTfConfigResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getJobTfConfig.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobTfConfig.");
     const operationName = "getJobTfConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobTfConfig";
@@ -1822,6 +1863,7 @@ export class ResourceManagerClient {
       getJobTfConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1874,7 +1916,7 @@ export class ResourceManagerClient {
   public async getJobTfPlan(
     getJobTfPlanRequest: requests.GetJobTfPlanRequest
   ): Promise<responses.GetJobTfPlanResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getJobTfPlan.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobTfPlan.");
     const operationName = "getJobTfPlan";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobTfPlan";
@@ -1897,6 +1939,7 @@ export class ResourceManagerClient {
       getJobTfPlanRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1946,7 +1989,7 @@ export class ResourceManagerClient {
   public async getJobTfState(
     getJobTfStateRequest: requests.GetJobTfStateRequest
   ): Promise<responses.GetJobTfStateResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getJobTfState.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobTfState.");
     const operationName = "getJobTfState";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobTfState";
@@ -1967,6 +2010,7 @@ export class ResourceManagerClient {
       getJobTfStateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2016,7 +2060,8 @@ export class ResourceManagerClient {
   public async getPrivateEndpoint(
     getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
   ): Promise<responses.GetPrivateEndpointResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getPrivateEndpoint.");
     const operationName = "getPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/GetPrivateEndpoint";
@@ -2037,6 +2082,7 @@ export class ResourceManagerClient {
       getPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2093,7 +2139,7 @@ export class ResourceManagerClient {
   public async getReachableIp(
     getReachableIpRequest: requests.GetReachableIpRequest
   ): Promise<responses.GetReachableIpResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getReachableIp.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getReachableIp.");
     const operationName = "getReachableIp";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ReachableIp/GetReachableIp";
@@ -2117,6 +2163,7 @@ export class ResourceManagerClient {
       getReachableIpRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2166,7 +2213,7 @@ export class ResourceManagerClient {
   public async getStack(
     getStackRequest: requests.GetStackRequest
   ): Promise<responses.GetStackResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getStack.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStack.");
     const operationName = "getStack";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/GetStack";
@@ -2187,6 +2234,7 @@ export class ResourceManagerClient {
       getStackRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2243,7 +2291,7 @@ export class ResourceManagerClient {
   public async getStackTfConfig(
     getStackTfConfigRequest: requests.GetStackTfConfigRequest
   ): Promise<responses.GetStackTfConfigResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getStackTfConfig.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStackTfConfig.");
     const operationName = "getStackTfConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/GetStackTfConfig";
@@ -2264,6 +2312,7 @@ export class ResourceManagerClient {
       getStackTfConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2313,7 +2362,7 @@ export class ResourceManagerClient {
   public async getStackTfState(
     getStackTfStateRequest: requests.GetStackTfStateRequest
   ): Promise<responses.GetStackTfStateResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getStackTfState.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStackTfState.");
     const operationName = "getStackTfState";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/GetStackTfState";
@@ -2334,6 +2383,7 @@ export class ResourceManagerClient {
       getStackTfStateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2383,7 +2433,7 @@ export class ResourceManagerClient {
   public async getTemplate(
     getTemplateRequest: requests.GetTemplateRequest
   ): Promise<responses.GetTemplateResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getTemplate.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getTemplate.");
     const operationName = "getTemplate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/GetTemplate";
@@ -2404,6 +2454,7 @@ export class ResourceManagerClient {
       getTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2460,7 +2511,7 @@ export class ResourceManagerClient {
   public async getTemplateLogo(
     getTemplateLogoRequest: requests.GetTemplateLogoRequest
   ): Promise<responses.GetTemplateLogoResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getTemplateLogo.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getTemplateLogo.");
     const operationName = "getTemplateLogo";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/GetTemplateLogo";
@@ -2481,6 +2532,7 @@ export class ResourceManagerClient {
       getTemplateLogoRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2532,7 +2584,8 @@ export class ResourceManagerClient {
   public async getTemplateTfConfig(
     getTemplateTfConfigRequest: requests.GetTemplateTfConfigRequest
   ): Promise<responses.GetTemplateTfConfigResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getTemplateTfConfig.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getTemplateTfConfig.");
     const operationName = "getTemplateTfConfig";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/GetTemplateTfConfig";
@@ -2553,6 +2606,7 @@ export class ResourceManagerClient {
       getTemplateTfConfigRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2602,7 +2656,7 @@ export class ResourceManagerClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation ResourceManagerClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/GetWorkRequest";
@@ -2623,6 +2677,7 @@ export class ResourceManagerClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2675,7 +2730,10 @@ export class ResourceManagerClient {
   public async listConfigurationSourceProviders(
     listConfigurationSourceProvidersRequest: requests.ListConfigurationSourceProvidersRequest
   ): Promise<responses.ListConfigurationSourceProvidersResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listConfigurationSourceProviders.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ResourceManagerClient#listConfigurationSourceProviders."
+      );
     const operationName = "listConfigurationSourceProviders";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProviderSummary/ListConfigurationSourceProviders";
@@ -2704,6 +2762,7 @@ export class ResourceManagerClient {
       listConfigurationSourceProvidersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2758,7 +2817,8 @@ export class ResourceManagerClient {
   public async listJobAssociatedResources(
     listJobAssociatedResourcesRequest: requests.ListJobAssociatedResourcesRequest
   ): Promise<responses.ListJobAssociatedResourcesResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listJobAssociatedResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listJobAssociatedResources.");
     const operationName = "listJobAssociatedResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/AssociatedResourceSummary/ListJobAssociatedResources";
@@ -2784,6 +2844,7 @@ export class ResourceManagerClient {
       listJobAssociatedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2838,7 +2899,7 @@ export class ResourceManagerClient {
   public async listJobOutputs(
     listJobOutputsRequest: requests.ListJobOutputsRequest
   ): Promise<responses.ListJobOutputsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listJobOutputs.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listJobOutputs.");
     const operationName = "listJobOutputs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/JobOutputSummary/ListJobOutputs";
@@ -2863,6 +2924,7 @@ export class ResourceManagerClient {
       listJobOutputsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2922,7 +2984,7 @@ export class ResourceManagerClient {
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listJobs.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listJobs.");
     const operationName = "listJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/JobSummary/ListJobs";
@@ -2951,6 +3013,7 @@ export class ResourceManagerClient {
       listJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3058,7 +3121,8 @@ export class ResourceManagerClient {
   public async listPrivateEndpoints(
     listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
   ): Promise<responses.ListPrivateEndpointsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listPrivateEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listPrivateEndpoints.");
     const operationName = "listPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpointSummary/ListPrivateEndpoints";
@@ -3086,6 +3150,7 @@ export class ResourceManagerClient {
       listPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3142,7 +3207,8 @@ export class ResourceManagerClient {
   public async listResourceDiscoveryServices(
     listResourceDiscoveryServicesRequest: requests.ListResourceDiscoveryServicesRequest
   ): Promise<responses.ListResourceDiscoveryServicesResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listResourceDiscoveryServices.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listResourceDiscoveryServices.");
     const operationName = "listResourceDiscoveryServices";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/ListResourceDiscoveryServices";
@@ -3163,6 +3229,7 @@ export class ResourceManagerClient {
       listResourceDiscoveryServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3212,7 +3279,8 @@ export class ResourceManagerClient {
   public async listStackAssociatedResources(
     listStackAssociatedResourcesRequest: requests.ListStackAssociatedResourcesRequest
   ): Promise<responses.ListStackAssociatedResourcesResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listStackAssociatedResources.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listStackAssociatedResources.");
     const operationName = "listStackAssociatedResources";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/AssociatedResourceSummary/ListStackAssociatedResources";
@@ -3238,6 +3306,7 @@ export class ResourceManagerClient {
       listStackAssociatedResourcesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3297,7 +3366,8 @@ export class ResourceManagerClient {
   public async listStackResourceDriftDetails(
     listStackResourceDriftDetailsRequest: requests.ListStackResourceDriftDetailsRequest
   ): Promise<responses.ListStackResourceDriftDetailsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listStackResourceDriftDetails.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listStackResourceDriftDetails.");
     const operationName = "listStackResourceDriftDetails";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/StackResourceDriftSummary/ListStackResourceDriftDetails";
@@ -3323,6 +3393,7 @@ export class ResourceManagerClient {
       listStackResourceDriftDetailsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3380,7 +3451,7 @@ export class ResourceManagerClient {
   public async listStacks(
     listStacksRequest: requests.ListStacksRequest
   ): Promise<responses.ListStacksResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listStacks.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listStacks.");
     const operationName = "listStacks";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/StackSummary/ListStacks";
@@ -3408,6 +3479,7 @@ export class ResourceManagerClient {
       listStacksRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3515,7 +3587,8 @@ export class ResourceManagerClient {
   public async listTemplateCategories(
     listTemplateCategoriesRequest: requests.ListTemplateCategoriesRequest
   ): Promise<responses.ListTemplateCategoriesResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listTemplateCategories.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listTemplateCategories.");
     const operationName = "listTemplateCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/TemplateCategorySummary/ListTemplateCategories";
@@ -3534,6 +3607,7 @@ export class ResourceManagerClient {
       listTemplateCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3585,7 +3659,7 @@ export class ResourceManagerClient {
   public async listTemplates(
     listTemplatesRequest: requests.ListTemplatesRequest
   ): Promise<responses.ListTemplatesResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listTemplates.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listTemplates.");
     const operationName = "listTemplates";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/ListTemplates";
@@ -3613,6 +3687,7 @@ export class ResourceManagerClient {
       listTemplatesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3668,7 +3743,8 @@ export class ResourceManagerClient {
   public async listTerraformVersions(
     listTerraformVersionsRequest: requests.ListTerraformVersionsRequest
   ): Promise<responses.ListTerraformVersionsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listTerraformVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listTerraformVersions.");
     const operationName = "listTerraformVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/ListTerraformVersions";
@@ -3689,6 +3765,7 @@ export class ResourceManagerClient {
       listTerraformVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3739,7 +3816,8 @@ export class ResourceManagerClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/ListWorkRequestErrors";
@@ -3765,6 +3843,7 @@ export class ResourceManagerClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3872,7 +3951,8 @@ export class ResourceManagerClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/ListWorkRequestLogs";
@@ -3898,6 +3978,7 @@ export class ResourceManagerClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4005,7 +4086,7 @@ export class ResourceManagerClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation ResourceManagerClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/ListWorkRequests";
@@ -4029,6 +4110,7 @@ export class ResourceManagerClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4138,7 +4220,10 @@ export class ResourceManagerClient {
   public async updateConfigurationSourceProvider(
     updateConfigurationSourceProviderRequest: requests.UpdateConfigurationSourceProviderRequest
   ): Promise<responses.UpdateConfigurationSourceProviderResponse> {
-    logger.debug("Calling operation ResourceManagerClient#updateConfigurationSourceProvider.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ResourceManagerClient#updateConfigurationSourceProvider."
+      );
     const operationName = "updateConfigurationSourceProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/UpdateConfigurationSourceProvider";
@@ -4161,6 +4246,7 @@ export class ResourceManagerClient {
       updateConfigurationSourceProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4220,7 +4306,7 @@ export class ResourceManagerClient {
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
-    logger.debug("Calling operation ResourceManagerClient#updateJob.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateJob.");
     const operationName = "updateJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/UpdateJob";
@@ -4242,6 +4328,7 @@ export class ResourceManagerClient {
       updateJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4301,7 +4388,8 @@ export class ResourceManagerClient {
   public async updatePrivateEndpoint(
     updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
   ): Promise<responses.UpdatePrivateEndpointResponse> {
-    logger.debug("Calling operation ResourceManagerClient#updatePrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#updatePrivateEndpoint.");
     const operationName = "updatePrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/UpdatePrivateEndpoint";
@@ -4323,6 +4411,7 @@ export class ResourceManagerClient {
       updatePrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4387,7 +4476,7 @@ export class ResourceManagerClient {
   public async updateStack(
     updateStackRequest: requests.UpdateStackRequest
   ): Promise<responses.UpdateStackResponse> {
-    logger.debug("Calling operation ResourceManagerClient#updateStack.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateStack.");
     const operationName = "updateStack";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/UpdateStack";
@@ -4409,6 +4498,7 @@ export class ResourceManagerClient {
       updateStackRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4469,7 +4559,7 @@ export class ResourceManagerClient {
   public async updateTemplate(
     updateTemplateRequest: requests.UpdateTemplateRequest
   ): Promise<responses.UpdateTemplateResponse> {
-    logger.debug("Calling operation ResourceManagerClient#updateTemplate.");
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateTemplate.");
     const operationName = "updateTemplate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/UpdateTemplate";
@@ -4491,6 +4581,7 @@ export class ResourceManagerClient {
       updateTemplateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

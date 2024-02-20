@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export class ManagementClient {
   protected static serviceEndpointTemplate =
     "https://digitalassistant-api.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ManagementWaiter;
@@ -120,7 +119,11 @@ export class ManagementClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190506";
-    logger.info(`ManagementClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ManagementClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class ManagementClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ManagementClient.serviceEndpointTemplate,
@@ -229,7 +233,8 @@ To monitor the status of the job, take the `opc-work-request-id` response header
   public async changeOdaPrivateEndpointCompartment(
     changeOdaPrivateEndpointCompartmentRequest: requests.ChangeOdaPrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeOdaPrivateEndpointCompartmentResponse> {
-    logger.debug("Calling operation ManagementClient#changeOdaPrivateEndpointCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#changeOdaPrivateEndpointCompartment.");
     const operationName = "changeOdaPrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/ChangeOdaPrivateEndpointCompartment";
@@ -252,6 +257,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
       changeOdaPrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -308,7 +314,8 @@ To monitor the status of the job, take the `opc-work-request-id` response header
   public async configureDigitalAssistantParameters(
     configureDigitalAssistantParametersRequest: requests.ConfigureDigitalAssistantParametersRequest
   ): Promise<responses.ConfigureDigitalAssistantParametersResponse> {
-    logger.debug("Calling operation ManagementClient#configureDigitalAssistantParameters.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#configureDigitalAssistantParameters.");
     const operationName = "configureDigitalAssistantParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistantParameter/ConfigureDigitalAssistantParameters";
@@ -329,6 +336,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
       configureDigitalAssistantParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -380,7 +388,8 @@ To monitor the status of the job, take the `opc-work-request-id` response header
   public async createAuthenticationProvider(
     createAuthenticationProviderRequest: requests.CreateAuthenticationProviderRequest
   ): Promise<responses.CreateAuthenticationProviderResponse> {
-    logger.debug("Calling operation ManagementClient#createAuthenticationProvider.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#createAuthenticationProvider.");
     const operationName = "createAuthenticationProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/AuthenticationProvider/CreateAuthenticationProvider";
@@ -402,6 +411,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
       createAuthenticationProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -467,7 +477,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
   public async createChannel(
     createChannelRequest: requests.CreateChannelRequest
   ): Promise<responses.CreateChannelResponse> {
-    logger.debug("Calling operation ManagementClient#createChannel.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#createChannel.");
     const operationName = "createChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Channel/CreateChannel";
@@ -489,6 +499,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
       createChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -554,7 +565,8 @@ To monitor the status of the job, take the `opc-work-request-id` response header
   public async createDigitalAssistant(
     createDigitalAssistantRequest: requests.CreateDigitalAssistantRequest
   ): Promise<responses.CreateDigitalAssistantResponse> {
-    logger.debug("Calling operation ManagementClient#createDigitalAssistant.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#createDigitalAssistant.");
     const operationName = "createDigitalAssistant";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistant/CreateDigitalAssistant";
@@ -576,6 +588,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
       createDigitalAssistantRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -635,7 +648,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createOdaPrivateEndpoint(
     createOdaPrivateEndpointRequest: requests.CreateOdaPrivateEndpointRequest
   ): Promise<responses.CreateOdaPrivateEndpointResponse> {
-    logger.debug("Calling operation ManagementClient#createOdaPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#createOdaPrivateEndpoint.");
     const operationName = "createOdaPrivateEndpoint";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -654,6 +668,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createOdaPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -727,7 +742,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createOdaPrivateEndpointAttachment(
     createOdaPrivateEndpointAttachmentRequest: requests.CreateOdaPrivateEndpointAttachmentRequest
   ): Promise<responses.CreateOdaPrivateEndpointAttachmentResponse> {
-    logger.debug("Calling operation ManagementClient#createOdaPrivateEndpointAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#createOdaPrivateEndpointAttachment.");
     const operationName = "createOdaPrivateEndpointAttachment";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -746,6 +762,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createOdaPrivateEndpointAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -819,7 +836,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createOdaPrivateEndpointScanProxy(
     createOdaPrivateEndpointScanProxyRequest: requests.CreateOdaPrivateEndpointScanProxyRequest
   ): Promise<responses.CreateOdaPrivateEndpointScanProxyResponse> {
-    logger.debug("Calling operation ManagementClient#createOdaPrivateEndpointScanProxy.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#createOdaPrivateEndpointScanProxy.");
     const operationName = "createOdaPrivateEndpointScanProxy";
     const apiReferenceLink = "";
     const pathParams = {
@@ -840,6 +858,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createOdaPrivateEndpointScanProxyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -910,7 +929,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createSkill(
     createSkillRequest: requests.CreateSkillRequest
   ): Promise<responses.CreateSkillResponse> {
-    logger.debug("Calling operation ManagementClient#createSkill.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#createSkill.");
     const operationName = "createSkill";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/CreateSkill";
@@ -932,6 +951,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createSkillRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -988,7 +1008,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createSkillParameter(
     createSkillParameterRequest: requests.CreateSkillParameterRequest
   ): Promise<responses.CreateSkillParameterResponse> {
-    logger.debug("Calling operation ManagementClient#createSkillParameter.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#createSkillParameter.");
     const operationName = "createSkillParameter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/SkillParameter/CreateSkillParameter";
@@ -1011,6 +1031,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createSkillParameterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1076,7 +1097,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createTranslator(
     createTranslatorRequest: requests.CreateTranslatorRequest
   ): Promise<responses.CreateTranslatorResponse> {
-    logger.debug("Calling operation ManagementClient#createTranslator.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#createTranslator.");
     const operationName = "createTranslator";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Translator/CreateTranslator";
@@ -1098,6 +1119,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createTranslatorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1162,7 +1184,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteAuthenticationProvider(
     deleteAuthenticationProviderRequest: requests.DeleteAuthenticationProviderRequest
   ): Promise<responses.DeleteAuthenticationProviderResponse> {
-    logger.debug("Calling operation ManagementClient#deleteAuthenticationProvider.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#deleteAuthenticationProvider.");
     const operationName = "deleteAuthenticationProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/AuthenticationProvider/DeleteAuthenticationProvider";
@@ -1185,6 +1208,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteAuthenticationProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1230,7 +1254,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteChannel(
     deleteChannelRequest: requests.DeleteChannelRequest
   ): Promise<responses.DeleteChannelResponse> {
-    logger.debug("Calling operation ManagementClient#deleteChannel.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#deleteChannel.");
     const operationName = "deleteChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Channel/DeleteChannel";
@@ -1253,6 +1277,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1299,7 +1324,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteDigitalAssistant(
     deleteDigitalAssistantRequest: requests.DeleteDigitalAssistantRequest
   ): Promise<responses.DeleteDigitalAssistantResponse> {
-    logger.debug("Calling operation ManagementClient#deleteDigitalAssistant.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#deleteDigitalAssistant.");
     const operationName = "deleteDigitalAssistant";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistant/DeleteDigitalAssistant";
@@ -1322,6 +1348,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteDigitalAssistantRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1368,7 +1395,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteOdaPrivateEndpoint(
     deleteOdaPrivateEndpointRequest: requests.DeleteOdaPrivateEndpointRequest
   ): Promise<responses.DeleteOdaPrivateEndpointResponse> {
-    logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpoint.");
     const operationName = "deleteOdaPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/DeleteOdaPrivateEndpoint";
@@ -1390,6 +1418,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteOdaPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1441,7 +1470,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteOdaPrivateEndpointAttachment(
     deleteOdaPrivateEndpointAttachmentRequest: requests.DeleteOdaPrivateEndpointAttachmentRequest
   ): Promise<responses.DeleteOdaPrivateEndpointAttachmentResponse> {
-    logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpointAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpointAttachment.");
     const operationName = "deleteOdaPrivateEndpointAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointAttachment/DeleteOdaPrivateEndpointAttachment";
@@ -1464,6 +1494,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteOdaPrivateEndpointAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1515,7 +1546,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteOdaPrivateEndpointScanProxy(
     deleteOdaPrivateEndpointScanProxyRequest: requests.DeleteOdaPrivateEndpointScanProxyRequest
   ): Promise<responses.DeleteOdaPrivateEndpointScanProxyResponse> {
-    logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpointScanProxy.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpointScanProxy.");
     const operationName = "deleteOdaPrivateEndpointScanProxy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointScanProxy/DeleteOdaPrivateEndpointScanProxy";
@@ -1539,6 +1571,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteOdaPrivateEndpointScanProxyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1591,7 +1624,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteSkill(
     deleteSkillRequest: requests.DeleteSkillRequest
   ): Promise<responses.DeleteSkillResponse> {
-    logger.debug("Calling operation ManagementClient#deleteSkill.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#deleteSkill.");
     const operationName = "deleteSkill";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/DeleteSkill";
@@ -1614,6 +1647,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteSkillRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1660,7 +1694,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteSkillParameter(
     deleteSkillParameterRequest: requests.DeleteSkillParameterRequest
   ): Promise<responses.DeleteSkillParameterResponse> {
-    logger.debug("Calling operation ManagementClient#deleteSkillParameter.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#deleteSkillParameter.");
     const operationName = "deleteSkillParameter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/SkillParameter/DeleteSkillParameter";
@@ -1684,6 +1718,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteSkillParameterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1729,7 +1764,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteTranslator(
     deleteTranslatorRequest: requests.DeleteTranslatorRequest
   ): Promise<responses.DeleteTranslatorResponse> {
-    logger.debug("Calling operation ManagementClient#deleteTranslator.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#deleteTranslator.");
     const operationName = "deleteTranslator";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Translator/DeleteTranslator";
@@ -1752,6 +1787,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteTranslatorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1797,7 +1833,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async exportDigitalAssistant(
     exportDigitalAssistantRequest: requests.ExportDigitalAssistantRequest
   ): Promise<responses.ExportDigitalAssistantResponse> {
-    logger.debug("Calling operation ManagementClient#exportDigitalAssistant.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#exportDigitalAssistant.");
     const operationName = "exportDigitalAssistant";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/ExportDigitalAssistant";
@@ -1819,6 +1856,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       exportDigitalAssistantRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1874,7 +1912,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async exportSkill(
     exportSkillRequest: requests.ExportSkillRequest
   ): Promise<responses.ExportSkillResponse> {
-    logger.debug("Calling operation ManagementClient#exportSkill.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#exportSkill.");
     const operationName = "exportSkill";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/ExportSkill";
@@ -1896,6 +1934,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       exportSkillRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1951,7 +1990,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getAuthenticationProvider(
     getAuthenticationProviderRequest: requests.GetAuthenticationProviderRequest
   ): Promise<responses.GetAuthenticationProviderResponse> {
-    logger.debug("Calling operation ManagementClient#getAuthenticationProvider.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#getAuthenticationProvider.");
     const operationName = "getAuthenticationProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/AuthenticationProvider/GetAuthenticationProvider";
@@ -1974,6 +2014,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getAuthenticationProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2028,7 +2069,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getChannel(
     getChannelRequest: requests.GetChannelRequest
   ): Promise<responses.GetChannelResponse> {
-    logger.debug("Calling operation ManagementClient#getChannel.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#getChannel.");
     const operationName = "getChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Channel/GetChannel";
@@ -2051,6 +2092,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2105,7 +2147,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getDigitalAssistant(
     getDigitalAssistantRequest: requests.GetDigitalAssistantRequest
   ): Promise<responses.GetDigitalAssistantResponse> {
-    logger.debug("Calling operation ManagementClient#getDigitalAssistant.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#getDigitalAssistant.");
     const operationName = "getDigitalAssistant";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistant/GetDigitalAssistant";
@@ -2128,6 +2170,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getDigitalAssistantRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2182,7 +2225,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getDigitalAssistantParameter(
     getDigitalAssistantParameterRequest: requests.GetDigitalAssistantParameterRequest
   ): Promise<responses.GetDigitalAssistantParameterResponse> {
-    logger.debug("Calling operation ManagementClient#getDigitalAssistantParameter.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#getDigitalAssistantParameter.");
     const operationName = "getDigitalAssistantParameter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistantParameter/GetDigitalAssistantParameter";
@@ -2206,6 +2250,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getDigitalAssistantParameterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2261,7 +2306,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getOdaPrivateEndpoint(
     getOdaPrivateEndpointRequest: requests.GetOdaPrivateEndpointRequest
   ): Promise<responses.GetOdaPrivateEndpointResponse> {
-    logger.debug("Calling operation ManagementClient#getOdaPrivateEndpoint.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#getOdaPrivateEndpoint.");
     const operationName = "getOdaPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/GetOdaPrivateEndpoint";
@@ -2282,6 +2327,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getOdaPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2336,7 +2382,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getOdaPrivateEndpointAttachment(
     getOdaPrivateEndpointAttachmentRequest: requests.GetOdaPrivateEndpointAttachmentRequest
   ): Promise<responses.GetOdaPrivateEndpointAttachmentResponse> {
-    logger.debug("Calling operation ManagementClient#getOdaPrivateEndpointAttachment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#getOdaPrivateEndpointAttachment.");
     const operationName = "getOdaPrivateEndpointAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointAttachment/GetOdaPrivateEndpointAttachment";
@@ -2358,6 +2405,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getOdaPrivateEndpointAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2412,7 +2460,8 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getOdaPrivateEndpointScanProxy(
     getOdaPrivateEndpointScanProxyRequest: requests.GetOdaPrivateEndpointScanProxyRequest
   ): Promise<responses.GetOdaPrivateEndpointScanProxyResponse> {
-    logger.debug("Calling operation ManagementClient#getOdaPrivateEndpointScanProxy.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#getOdaPrivateEndpointScanProxy.");
     const operationName = "getOdaPrivateEndpointScanProxy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointScanProxy/GetOdaPrivateEndpointScanProxy";
@@ -2435,6 +2484,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getOdaPrivateEndpointScanProxyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2490,7 +2540,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getSkill(
     getSkillRequest: requests.GetSkillRequest
   ): Promise<responses.GetSkillResponse> {
-    logger.debug("Calling operation ManagementClient#getSkill.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#getSkill.");
     const operationName = "getSkill";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/GetSkill";
@@ -2513,6 +2563,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getSkillRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2567,7 +2618,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getSkillParameter(
     getSkillParameterRequest: requests.GetSkillParameterRequest
   ): Promise<responses.GetSkillParameterResponse> {
-    logger.debug("Calling operation ManagementClient#getSkillParameter.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#getSkillParameter.");
     const operationName = "getSkillParameter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/SkillParameter/GetSkillParameter";
@@ -2591,6 +2642,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getSkillParameterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2645,7 +2697,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getTranslator(
     getTranslatorRequest: requests.GetTranslatorRequest
   ): Promise<responses.GetTranslatorResponse> {
-    logger.debug("Calling operation ManagementClient#getTranslator.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#getTranslator.");
     const operationName = "getTranslator";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Translator/GetTranslator";
@@ -2668,6 +2720,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getTranslatorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2722,7 +2775,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async importBot(
     importBotRequest: requests.ImportBotRequest
   ): Promise<responses.ImportBotResponse> {
-    logger.debug("Calling operation ManagementClient#importBot.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#importBot.");
     const operationName = "importBot";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Bot/ImportBot";
@@ -2744,6 +2797,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       importBotRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2804,7 +2858,8 @@ If the `opc-next-page` header appears in the response, then
   public async listAuthenticationProviders(
     listAuthenticationProvidersRequest: requests.ListAuthenticationProvidersRequest
   ): Promise<responses.ListAuthenticationProvidersResponse> {
-    logger.debug("Calling operation ManagementClient#listAuthenticationProviders.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#listAuthenticationProviders.");
     const operationName = "listAuthenticationProviders";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/AuthenticationProvider/ListAuthenticationProviders";
@@ -2834,6 +2889,7 @@ If the `opc-next-page` header appears in the response, then
       listAuthenticationProvidersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2898,7 +2954,7 @@ If the `opc-next-page` header appears in the response, then
   public async listChannels(
     listChannelsRequest: requests.ListChannelsRequest
   ): Promise<responses.ListChannelsResponse> {
-    logger.debug("Calling operation ManagementClient#listChannels.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#listChannels.");
     const operationName = "listChannels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Channel/ListChannels";
@@ -2929,6 +2985,7 @@ If the `opc-next-page` header appears in the response, then
       listChannelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2993,7 +3050,8 @@ If the `opc-next-page` header appears in the response, then
   public async listDigitalAssistantParameters(
     listDigitalAssistantParametersRequest: requests.ListDigitalAssistantParametersRequest
   ): Promise<responses.ListDigitalAssistantParametersResponse> {
-    logger.debug("Calling operation ManagementClient#listDigitalAssistantParameters.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#listDigitalAssistantParameters.");
     const operationName = "listDigitalAssistantParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistantParameter/ListDigitalAssistantParameters";
@@ -3022,6 +3080,7 @@ If the `opc-next-page` header appears in the response, then
       listDigitalAssistantParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3086,7 +3145,7 @@ If the `opc-next-page` header appears in the response, then
   public async listDigitalAssistants(
     listDigitalAssistantsRequest: requests.ListDigitalAssistantsRequest
   ): Promise<responses.ListDigitalAssistantsResponse> {
-    logger.debug("Calling operation ManagementClient#listDigitalAssistants.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#listDigitalAssistants.");
     const operationName = "listDigitalAssistants";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistant/ListDigitalAssistants";
@@ -3120,6 +3179,7 @@ If the `opc-next-page` header appears in the response, then
       listDigitalAssistantsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3184,7 +3244,8 @@ If the `opc-next-page` header appears in the response, then
   public async listOdaPrivateEndpointAttachments(
     listOdaPrivateEndpointAttachmentsRequest: requests.ListOdaPrivateEndpointAttachmentsRequest
   ): Promise<responses.ListOdaPrivateEndpointAttachmentsResponse> {
-    logger.debug("Calling operation ManagementClient#listOdaPrivateEndpointAttachments.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#listOdaPrivateEndpointAttachments.");
     const operationName = "listOdaPrivateEndpointAttachments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointAttachment/ListOdaPrivateEndpointAttachments";
@@ -3211,6 +3272,7 @@ If the `opc-next-page` header appears in the response, then
       listOdaPrivateEndpointAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3276,7 +3338,8 @@ If the `opc-next-page` header appears in the response, then
   public async listOdaPrivateEndpointScanProxies(
     listOdaPrivateEndpointScanProxiesRequest: requests.ListOdaPrivateEndpointScanProxiesRequest
   ): Promise<responses.ListOdaPrivateEndpointScanProxiesResponse> {
-    logger.debug("Calling operation ManagementClient#listOdaPrivateEndpointScanProxies.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#listOdaPrivateEndpointScanProxies.");
     const operationName = "listOdaPrivateEndpointScanProxies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointScanProxy/ListOdaPrivateEndpointScanProxies";
@@ -3303,6 +3366,7 @@ If the `opc-next-page` header appears in the response, then
       listOdaPrivateEndpointScanProxiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3368,7 +3432,8 @@ If the `opc-next-page` header appears in the response, then
   public async listOdaPrivateEndpoints(
     listOdaPrivateEndpointsRequest: requests.ListOdaPrivateEndpointsRequest
   ): Promise<responses.ListOdaPrivateEndpointsResponse> {
-    logger.debug("Calling operation ManagementClient#listOdaPrivateEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#listOdaPrivateEndpoints.");
     const operationName = "listOdaPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/ListOdaPrivateEndpoints";
@@ -3395,6 +3460,7 @@ If the `opc-next-page` header appears in the response, then
       listOdaPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3459,7 +3525,7 @@ If the `opc-next-page` header appears in the response, then
   public async listSkillParameters(
     listSkillParametersRequest: requests.ListSkillParametersRequest
   ): Promise<responses.ListSkillParametersResponse> {
-    logger.debug("Calling operation ManagementClient#listSkillParameters.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#listSkillParameters.");
     const operationName = "listSkillParameters";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/SkillParameter/ListSkillParameters";
@@ -3488,6 +3554,7 @@ If the `opc-next-page` header appears in the response, then
       listSkillParametersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3552,7 +3619,7 @@ If the `opc-next-page` header appears in the response, then
   public async listSkills(
     listSkillsRequest: requests.ListSkillsRequest
   ): Promise<responses.ListSkillsResponse> {
-    logger.debug("Calling operation ManagementClient#listSkills.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#listSkills.");
     const operationName = "listSkills";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/ListSkills";
@@ -3586,6 +3653,7 @@ If the `opc-next-page` header appears in the response, then
       listSkillsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3650,7 +3718,7 @@ If the `opc-next-page` header appears in the response, then
   public async listTranslators(
     listTranslatorsRequest: requests.ListTranslatorsRequest
   ): Promise<responses.ListTranslatorsResponse> {
-    logger.debug("Calling operation ManagementClient#listTranslators.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#listTranslators.");
     const operationName = "listTranslators";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Translator/ListTranslators";
@@ -3680,6 +3748,7 @@ If the `opc-next-page` header appears in the response, then
       listTranslatorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3741,7 +3810,8 @@ If the `opc-next-page` header appears in the response, then
   public async publishDigitalAssistant(
     publishDigitalAssistantRequest: requests.PublishDigitalAssistantRequest
   ): Promise<responses.PublishDigitalAssistantResponse> {
-    logger.debug("Calling operation ManagementClient#publishDigitalAssistant.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#publishDigitalAssistant.");
     const operationName = "publishDigitalAssistant";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistant/PublishDigitalAssistant";
@@ -3764,6 +3834,7 @@ If the `opc-next-page` header appears in the response, then
       publishDigitalAssistantRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3820,7 +3891,7 @@ If the `opc-next-page` header appears in the response, then
   public async publishSkill(
     publishSkillRequest: requests.PublishSkillRequest
   ): Promise<responses.PublishSkillResponse> {
-    logger.debug("Calling operation ManagementClient#publishSkill.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#publishSkill.");
     const operationName = "publishSkill";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/PublishSkill";
@@ -3843,6 +3914,7 @@ If the `opc-next-page` header appears in the response, then
       publishSkillRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3900,7 +3972,7 @@ If the `opc-next-page` header appears in the response, then
   public async rotateChannelKeys(
     rotateChannelKeysRequest: requests.RotateChannelKeysRequest
   ): Promise<responses.RotateChannelKeysResponse> {
-    logger.debug("Calling operation ManagementClient#rotateChannelKeys.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#rotateChannelKeys.");
     const operationName = "rotateChannelKeys";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Channel/RotateChannelKeys";
@@ -3923,6 +3995,7 @@ If the `opc-next-page` header appears in the response, then
       rotateChannelKeysRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3978,7 +4051,7 @@ If the `opc-next-page` header appears in the response, then
   public async startChannel(
     startChannelRequest: requests.StartChannelRequest
   ): Promise<responses.StartChannelResponse> {
-    logger.debug("Calling operation ManagementClient#startChannel.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#startChannel.");
     const operationName = "startChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Channel/StartChannel";
@@ -4001,6 +4074,7 @@ If the `opc-next-page` header appears in the response, then
       startChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4056,7 +4130,7 @@ If the `opc-next-page` header appears in the response, then
   public async stopChannel(
     stopChannelRequest: requests.StopChannelRequest
   ): Promise<responses.StopChannelResponse> {
-    logger.debug("Calling operation ManagementClient#stopChannel.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#stopChannel.");
     const operationName = "stopChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Channel/StopChannel";
@@ -4079,6 +4153,7 @@ If the `opc-next-page` header appears in the response, then
       stopChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4133,7 +4208,8 @@ If the `opc-next-page` header appears in the response, then
   public async updateAuthenticationProvider(
     updateAuthenticationProviderRequest: requests.UpdateAuthenticationProviderRequest
   ): Promise<responses.UpdateAuthenticationProviderResponse> {
-    logger.debug("Calling operation ManagementClient#updateAuthenticationProvider.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#updateAuthenticationProvider.");
     const operationName = "updateAuthenticationProvider";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/AuthenticationProvider/UpdateAuthenticationProvider";
@@ -4156,6 +4232,7 @@ If the `opc-next-page` header appears in the response, then
       updateAuthenticationProviderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4215,7 +4292,7 @@ If the `opc-next-page` header appears in the response, then
   public async updateChannel(
     updateChannelRequest: requests.UpdateChannelRequest
   ): Promise<responses.UpdateChannelResponse> {
-    logger.debug("Calling operation ManagementClient#updateChannel.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#updateChannel.");
     const operationName = "updateChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Channel/UpdateChannel";
@@ -4238,6 +4315,7 @@ If the `opc-next-page` header appears in the response, then
       updateChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4297,7 +4375,8 @@ If the `opc-next-page` header appears in the response, then
   public async updateDigitalAssistant(
     updateDigitalAssistantRequest: requests.UpdateDigitalAssistantRequest
   ): Promise<responses.UpdateDigitalAssistantResponse> {
-    logger.debug("Calling operation ManagementClient#updateDigitalAssistant.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#updateDigitalAssistant.");
     const operationName = "updateDigitalAssistant";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistant/UpdateDigitalAssistant";
@@ -4320,6 +4399,7 @@ If the `opc-next-page` header appears in the response, then
       updateDigitalAssistantRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4379,7 +4459,8 @@ If the `opc-next-page` header appears in the response, then
   public async updateDigitalAssistantParameter(
     updateDigitalAssistantParameterRequest: requests.UpdateDigitalAssistantParameterRequest
   ): Promise<responses.UpdateDigitalAssistantParameterResponse> {
-    logger.debug("Calling operation ManagementClient#updateDigitalAssistantParameter.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#updateDigitalAssistantParameter.");
     const operationName = "updateDigitalAssistantParameter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/DigitalAssistantParameter/UpdateDigitalAssistantParameter";
@@ -4403,6 +4484,7 @@ If the `opc-next-page` header appears in the response, then
       updateDigitalAssistantParameterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4463,7 +4545,8 @@ If the `opc-next-page` header appears in the response, then
   public async updateOdaPrivateEndpoint(
     updateOdaPrivateEndpointRequest: requests.UpdateOdaPrivateEndpointRequest
   ): Promise<responses.UpdateOdaPrivateEndpointResponse> {
-    logger.debug("Calling operation ManagementClient#updateOdaPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#updateOdaPrivateEndpoint.");
     const operationName = "updateOdaPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/UpdateOdaPrivateEndpoint";
@@ -4485,6 +4568,7 @@ If the `opc-next-page` header appears in the response, then
       updateOdaPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4540,7 +4624,7 @@ If the `opc-next-page` header appears in the response, then
   public async updateSkill(
     updateSkillRequest: requests.UpdateSkillRequest
   ): Promise<responses.UpdateSkillResponse> {
-    logger.debug("Calling operation ManagementClient#updateSkill.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#updateSkill.");
     const operationName = "updateSkill";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/UpdateSkill";
@@ -4563,6 +4647,7 @@ If the `opc-next-page` header appears in the response, then
       updateSkillRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4622,7 +4707,7 @@ If the `opc-next-page` header appears in the response, then
   public async updateSkillParameter(
     updateSkillParameterRequest: requests.UpdateSkillParameterRequest
   ): Promise<responses.UpdateSkillParameterResponse> {
-    logger.debug("Calling operation ManagementClient#updateSkillParameter.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#updateSkillParameter.");
     const operationName = "updateSkillParameter";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/SkillParameter/UpdateSkillParameter";
@@ -4646,6 +4731,7 @@ If the `opc-next-page` header appears in the response, then
       updateSkillParameterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4705,7 +4791,7 @@ If the `opc-next-page` header appears in the response, then
   public async updateTranslator(
     updateTranslatorRequest: requests.UpdateTranslatorRequest
   ): Promise<responses.UpdateTranslatorResponse> {
-    logger.debug("Calling operation ManagementClient#updateTranslator.");
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#updateTranslator.");
     const operationName = "updateTranslator";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Translator/UpdateTranslator";
@@ -4728,6 +4814,7 @@ If the `opc-next-page` header appears in the response, then
       updateTranslatorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4784,7 +4871,7 @@ export class OdaClient {
   protected static serviceEndpointTemplate =
     "https://digitalassistant-api.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OdaWaiter;
@@ -4865,7 +4952,11 @@ export class OdaClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190506";
-    logger.info(`OdaClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`OdaClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -4875,9 +4966,10 @@ export class OdaClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OdaClient.serviceEndpointTemplate,
@@ -4971,7 +5063,7 @@ export class OdaClient {
   public async changeOdaInstanceCompartment(
     changeOdaInstanceCompartmentRequest: requests.ChangeOdaInstanceCompartmentRequest
   ): Promise<responses.ChangeOdaInstanceCompartmentResponse> {
-    logger.debug("Calling operation OdaClient#changeOdaInstanceCompartment.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#changeOdaInstanceCompartment.");
     const operationName = "changeOdaInstanceCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstance/ChangeOdaInstanceCompartment";
@@ -4994,6 +5086,7 @@ export class OdaClient {
       changeOdaInstanceCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5053,7 +5146,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createOdaInstance(
     createOdaInstanceRequest: requests.CreateOdaInstanceRequest
   ): Promise<responses.CreateOdaInstanceResponse> {
-    logger.debug("Calling operation OdaClient#createOdaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#createOdaInstance.");
     const operationName = "createOdaInstance";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -5072,6 +5165,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createOdaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5145,7 +5239,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createOdaInstanceAttachment(
     createOdaInstanceAttachmentRequest: requests.CreateOdaInstanceAttachmentRequest
   ): Promise<responses.CreateOdaInstanceAttachmentResponse> {
-    logger.debug("Calling operation OdaClient#createOdaInstanceAttachment.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#createOdaInstanceAttachment.");
     const operationName = "createOdaInstanceAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstanceAttachment/CreateOdaInstanceAttachment";
@@ -5167,6 +5261,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createOdaInstanceAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5223,7 +5318,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteOdaInstance(
     deleteOdaInstanceRequest: requests.DeleteOdaInstanceRequest
   ): Promise<responses.DeleteOdaInstanceResponse> {
-    logger.debug("Calling operation OdaClient#deleteOdaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#deleteOdaInstance.");
     const operationName = "deleteOdaInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstance/DeleteOdaInstance";
@@ -5247,6 +5342,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteOdaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5297,7 +5393,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteOdaInstanceAttachment(
     deleteOdaInstanceAttachmentRequest: requests.DeleteOdaInstanceAttachmentRequest
   ): Promise<responses.DeleteOdaInstanceAttachmentResponse> {
-    logger.debug("Calling operation OdaClient#deleteOdaInstanceAttachment.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#deleteOdaInstanceAttachment.");
     const operationName = "deleteOdaInstanceAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstanceAttachment/DeleteOdaInstanceAttachment";
@@ -5320,6 +5416,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteOdaInstanceAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5370,7 +5467,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getOdaInstance(
     getOdaInstanceRequest: requests.GetOdaInstanceRequest
   ): Promise<responses.GetOdaInstanceResponse> {
-    logger.debug("Calling operation OdaClient#getOdaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#getOdaInstance.");
     const operationName = "getOdaInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstance/GetOdaInstance";
@@ -5391,6 +5488,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getOdaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5445,7 +5543,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getOdaInstanceAttachment(
     getOdaInstanceAttachmentRequest: requests.GetOdaInstanceAttachmentRequest
   ): Promise<responses.GetOdaInstanceAttachmentResponse> {
-    logger.debug("Calling operation OdaClient#getOdaInstanceAttachment.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#getOdaInstanceAttachment.");
     const operationName = "getOdaInstanceAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstanceAttachment/GetOdaInstanceAttachment";
@@ -5469,6 +5567,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getOdaInstanceAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5527,7 +5626,7 @@ You can use this operation to monitor the status of jobs that you
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation OdaClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/WorkRequest/GetWorkRequest";
@@ -5548,6 +5647,7 @@ You can use this operation to monitor the status of jobs that you
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5603,7 +5703,7 @@ You can use this operation to monitor the status of jobs that you
   public async listOdaInstanceAttachments(
     listOdaInstanceAttachmentsRequest: requests.ListOdaInstanceAttachmentsRequest
   ): Promise<responses.ListOdaInstanceAttachmentsResponse> {
-    logger.debug("Calling operation OdaClient#listOdaInstanceAttachments.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listOdaInstanceAttachments.");
     const operationName = "listOdaInstanceAttachments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstanceAttachmentCollection/ListOdaInstanceAttachments";
@@ -5631,6 +5731,7 @@ You can use this operation to monitor the status of jobs that you
       listOdaInstanceAttachmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5696,7 +5797,7 @@ If the `opc-next-page` header appears in the response, then
   public async listOdaInstances(
     listOdaInstancesRequest: requests.ListOdaInstancesRequest
   ): Promise<responses.ListOdaInstancesResponse> {
-    logger.debug("Calling operation OdaClient#listOdaInstances.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listOdaInstances.");
     const operationName = "listOdaInstances";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstanceSummary/ListOdaInstances";
@@ -5723,6 +5824,7 @@ If the `opc-next-page` header appears in the response, then
       listOdaInstancesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5839,7 +5941,7 @@ If the `opc-next-page` header appears in the response, then
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation OdaClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/WorkRequestError/ListWorkRequestErrors";
@@ -5865,6 +5967,7 @@ If the `opc-next-page` header appears in the response, then
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5981,7 +6084,7 @@ If the `opc-next-page` header appears in the response, then
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation OdaClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -6007,6 +6110,7 @@ If the `opc-next-page` header appears in the response, then
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6123,7 +6227,7 @@ If the `opc-next-page` header appears in the response, then
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation OdaClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/WorkRequest/ListWorkRequests";
@@ -6150,6 +6254,7 @@ If the `opc-next-page` header appears in the response, then
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6263,7 +6368,7 @@ If the `opc-next-page` header appears in the response, then
   public async startOdaInstance(
     startOdaInstanceRequest: requests.StartOdaInstanceRequest
   ): Promise<responses.StartOdaInstanceResponse> {
-    logger.debug("Calling operation OdaClient#startOdaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#startOdaInstance.");
     const operationName = "startOdaInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstance/StartOdaInstance";
@@ -6286,6 +6391,7 @@ If the `opc-next-page` header appears in the response, then
       startOdaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6339,7 +6445,7 @@ If the `opc-next-page` header appears in the response, then
   public async stopOdaInstance(
     stopOdaInstanceRequest: requests.StopOdaInstanceRequest
   ): Promise<responses.StopOdaInstanceResponse> {
-    logger.debug("Calling operation OdaClient#stopOdaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#stopOdaInstance.");
     const operationName = "stopOdaInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstance/StopOdaInstance";
@@ -6362,6 +6468,7 @@ If the `opc-next-page` header appears in the response, then
       stopOdaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6412,7 +6519,7 @@ If the `opc-next-page` header appears in the response, then
   public async updateOdaInstance(
     updateOdaInstanceRequest: requests.UpdateOdaInstanceRequest
   ): Promise<responses.UpdateOdaInstanceResponse> {
-    logger.debug("Calling operation OdaClient#updateOdaInstance.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#updateOdaInstance.");
     const operationName = "updateOdaInstance";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstance/UpdateOdaInstance";
@@ -6434,6 +6541,7 @@ If the `opc-next-page` header appears in the response, then
       updateOdaInstanceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6493,7 +6601,7 @@ If the `opc-next-page` header appears in the response, then
   public async updateOdaInstanceAttachment(
     updateOdaInstanceAttachmentRequest: requests.UpdateOdaInstanceAttachmentRequest
   ): Promise<responses.UpdateOdaInstanceAttachmentResponse> {
-    logger.debug("Calling operation OdaClient#updateOdaInstanceAttachment.");
+    if (this.logger) this.logger.debug("Calling operation OdaClient#updateOdaInstanceAttachment.");
     const operationName = "updateOdaInstanceAttachment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaInstanceAttachment/UpdateOdaInstanceAttachment";
@@ -6516,6 +6624,7 @@ If the `opc-next-page` header appears in the response, then
       updateOdaInstanceAttachmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6568,7 +6677,7 @@ export class OdapackageClient {
   protected static serviceEndpointTemplate =
     "https://digitalassistant-api.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -6648,7 +6757,11 @@ export class OdapackageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190506";
-    logger.info(`OdapackageClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`OdapackageClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -6658,9 +6771,10 @@ export class OdapackageClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OdapackageClient.serviceEndpointTemplate,
@@ -6733,7 +6847,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async createImportedPackage(
     createImportedPackageRequest: requests.CreateImportedPackageRequest
   ): Promise<responses.CreateImportedPackageResponse> {
-    logger.debug("Calling operation OdapackageClient#createImportedPackage.");
+    if (this.logger) this.logger.debug("Calling operation OdapackageClient#createImportedPackage.");
     const operationName = "createImportedPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -6754,6 +6868,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       createImportedPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6827,7 +6942,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async deleteImportedPackage(
     deleteImportedPackageRequest: requests.DeleteImportedPackageRequest
   ): Promise<responses.DeleteImportedPackageResponse> {
-    logger.debug("Calling operation OdapackageClient#deleteImportedPackage.");
+    if (this.logger) this.logger.debug("Calling operation OdapackageClient#deleteImportedPackage.");
     const operationName = "deleteImportedPackage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/ImportedPackage/DeleteImportedPackage";
@@ -6851,6 +6966,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       deleteImportedPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6902,7 +7018,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getImportedPackage(
     getImportedPackageRequest: requests.GetImportedPackageRequest
   ): Promise<responses.GetImportedPackageResponse> {
-    logger.debug("Calling operation OdapackageClient#getImportedPackage.");
+    if (this.logger) this.logger.debug("Calling operation OdapackageClient#getImportedPackage.");
     const operationName = "getImportedPackage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/ImportedPackage/GetImportedPackage";
@@ -6924,6 +7040,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getImportedPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -6979,7 +7096,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async getPackage(
     getPackageRequest: requests.GetPackageRequest
   ): Promise<responses.GetPackageResponse> {
-    logger.debug("Calling operation OdapackageClient#getPackage.");
+    if (this.logger) this.logger.debug("Calling operation OdapackageClient#getPackage.");
     const operationName = "getPackage";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Package/GetPackage";
@@ -7001,6 +7118,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       getPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7051,7 +7169,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async listImportedPackages(
     listImportedPackagesRequest: requests.ListImportedPackagesRequest
   ): Promise<responses.ListImportedPackagesResponse> {
-    logger.debug("Calling operation OdapackageClient#listImportedPackages.");
+    if (this.logger) this.logger.debug("Calling operation OdapackageClient#listImportedPackages.");
     const operationName = "listImportedPackages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/ImportedPackageSummary/ListImportedPackages";
@@ -7078,6 +7196,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       listImportedPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7198,7 +7317,7 @@ If the `opc-next-page` header appears in the response, then
   public async listPackages(
     listPackagesRequest: requests.ListPackagesRequest
   ): Promise<responses.ListPackagesResponse> {
-    logger.debug("Calling operation OdapackageClient#listPackages.");
+    if (this.logger) this.logger.debug("Calling operation OdapackageClient#listPackages.");
     const operationName = "listPackages";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/PackageSummary/ListPackages";
@@ -7228,6 +7347,7 @@ If the `opc-next-page` header appears in the response, then
       listPackagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -7343,7 +7463,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   public async updateImportedPackage(
     updateImportedPackageRequest: requests.UpdateImportedPackageRequest
   ): Promise<responses.UpdateImportedPackageResponse> {
-    logger.debug("Calling operation OdapackageClient#updateImportedPackage.");
+    if (this.logger) this.logger.debug("Calling operation OdapackageClient#updateImportedPackage.");
     const operationName = "updateImportedPackage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -7368,6 +7488,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       updateImportedPackageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

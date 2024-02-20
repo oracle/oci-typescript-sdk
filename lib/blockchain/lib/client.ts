@@ -20,8 +20,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export enum BlockchainPlatformApiKeys {}
 export class BlockchainPlatformClient {
   protected static serviceEndpointTemplate = "https://blockchain.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": BlockchainPlatformWaiter;
@@ -117,7 +116,11 @@ export class BlockchainPlatformClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20191010";
-    logger.info(`BlockchainPlatformClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`BlockchainPlatformClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class BlockchainPlatformClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         BlockchainPlatformClient.serviceEndpointTemplate,
@@ -221,7 +225,10 @@ export class BlockchainPlatformClient {
   public async changeBlockchainPlatformCompartment(
     changeBlockchainPlatformCompartmentRequest: requests.ChangeBlockchainPlatformCompartmentRequest
   ): Promise<responses.ChangeBlockchainPlatformCompartmentResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#changeBlockchainPlatformCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation BlockchainPlatformClient#changeBlockchainPlatformCompartment."
+      );
     const operationName = "changeBlockchainPlatformCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/ChangeBlockchainPlatformCompartment";
@@ -244,6 +251,7 @@ export class BlockchainPlatformClient {
       changeBlockchainPlatformCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -300,7 +308,8 @@ export class BlockchainPlatformClient {
   public async createBlockchainPlatform(
     createBlockchainPlatformRequest: requests.CreateBlockchainPlatformRequest
   ): Promise<responses.CreateBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#createBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#createBlockchainPlatform.");
     const operationName = "createBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/CreateBlockchainPlatform";
@@ -320,6 +329,7 @@ export class BlockchainPlatformClient {
       createBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -375,7 +385,7 @@ export class BlockchainPlatformClient {
   public async createOsn(
     createOsnRequest: requests.CreateOsnRequest
   ): Promise<responses.CreateOsnResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#createOsn.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#createOsn.");
     const operationName = "createOsn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/CreateOsn";
@@ -398,6 +408,7 @@ export class BlockchainPlatformClient {
       createOsnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -453,7 +464,7 @@ export class BlockchainPlatformClient {
   public async createPeer(
     createPeerRequest: requests.CreatePeerRequest
   ): Promise<responses.CreatePeerResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#createPeer.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#createPeer.");
     const operationName = "createPeer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/CreatePeer";
@@ -475,6 +486,7 @@ export class BlockchainPlatformClient {
       createPeerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -530,7 +542,8 @@ export class BlockchainPlatformClient {
   public async deleteBlockchainPlatform(
     deleteBlockchainPlatformRequest: requests.DeleteBlockchainPlatformRequest
   ): Promise<responses.DeleteBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#deleteBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#deleteBlockchainPlatform.");
     const operationName = "deleteBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/DeleteBlockchainPlatform";
@@ -553,6 +566,7 @@ export class BlockchainPlatformClient {
       deleteBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -603,7 +617,7 @@ export class BlockchainPlatformClient {
   public async deleteOsn(
     deleteOsnRequest: requests.DeleteOsnRequest
   ): Promise<responses.DeleteOsnResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#deleteOsn.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#deleteOsn.");
     const operationName = "deleteOsn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/DeleteOsn";
@@ -626,6 +640,7 @@ export class BlockchainPlatformClient {
       deleteOsnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -676,7 +691,7 @@ export class BlockchainPlatformClient {
   public async deletePeer(
     deletePeerRequest: requests.DeletePeerRequest
   ): Promise<responses.DeletePeerResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#deletePeer.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#deletePeer.");
     const operationName = "deletePeer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/DeletePeer";
@@ -700,6 +715,7 @@ export class BlockchainPlatformClient {
       deletePeerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -750,7 +766,8 @@ export class BlockchainPlatformClient {
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#deleteWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#deleteWorkRequest.");
     const operationName = "deleteWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequest/DeleteWorkRequest";
@@ -772,6 +789,7 @@ export class BlockchainPlatformClient {
       deleteWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -822,7 +840,8 @@ export class BlockchainPlatformClient {
   public async getBlockchainPlatform(
     getBlockchainPlatformRequest: requests.GetBlockchainPlatformRequest
   ): Promise<responses.GetBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#getBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#getBlockchainPlatform.");
     const operationName = "getBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/GetBlockchainPlatform";
@@ -843,6 +862,7 @@ export class BlockchainPlatformClient {
       getBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -895,7 +915,7 @@ export class BlockchainPlatformClient {
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetOsn.ts.html |here} to see how to use GetOsn API.
    */
   public async getOsn(getOsnRequest: requests.GetOsnRequest): Promise<responses.GetOsnResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#getOsn.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#getOsn.");
     const operationName = "getOsn";
     const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/Osn/GetOsn";
     const pathParams = {
@@ -916,6 +936,7 @@ export class BlockchainPlatformClient {
       getOsnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -970,7 +991,7 @@ export class BlockchainPlatformClient {
   public async getPeer(
     getPeerRequest: requests.GetPeerRequest
   ): Promise<responses.GetPeerResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#getPeer.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#getPeer.");
     const operationName = "getPeer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/Peer/GetPeer";
@@ -992,6 +1013,7 @@ export class BlockchainPlatformClient {
       getPeerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1046,7 +1068,8 @@ export class BlockchainPlatformClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#getWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequest/GetWorkRequest";
@@ -1067,6 +1090,7 @@ export class BlockchainPlatformClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1126,7 +1150,10 @@ export class BlockchainPlatformClient {
   public async listBlockchainPlatformPatches(
     listBlockchainPlatformPatchesRequest: requests.ListBlockchainPlatformPatchesRequest
   ): Promise<responses.ListBlockchainPlatformPatchesResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#listBlockchainPlatformPatches.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation BlockchainPlatformClient#listBlockchainPlatformPatches."
+      );
     const operationName = "listBlockchainPlatformPatches";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/ListBlockchainPlatformPatches";
@@ -1150,6 +1177,7 @@ export class BlockchainPlatformClient {
       listBlockchainPlatformPatchesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1204,7 +1232,8 @@ export class BlockchainPlatformClient {
   public async listBlockchainPlatforms(
     listBlockchainPlatformsRequest: requests.ListBlockchainPlatformsRequest
   ): Promise<responses.ListBlockchainPlatformsResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#listBlockchainPlatforms.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#listBlockchainPlatforms.");
     const operationName = "listBlockchainPlatforms";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/ListBlockchainPlatforms";
@@ -1231,6 +1260,7 @@ export class BlockchainPlatformClient {
       listBlockchainPlatformsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1285,7 +1315,7 @@ export class BlockchainPlatformClient {
   public async listOsns(
     listOsnsRequest: requests.ListOsnsRequest
   ): Promise<responses.ListOsnsResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#listOsns.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#listOsns.");
     const operationName = "listOsns";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/Osn/ListOsns";
@@ -1313,6 +1343,7 @@ export class BlockchainPlatformClient {
       listOsnsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1367,7 +1398,7 @@ export class BlockchainPlatformClient {
   public async listPeers(
     listPeersRequest: requests.ListPeersRequest
   ): Promise<responses.ListPeersResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#listPeers.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#listPeers.");
     const operationName = "listPeers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/Peer/ListPeers";
@@ -1395,6 +1426,7 @@ export class BlockchainPlatformClient {
       listPeersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1450,7 +1482,8 @@ export class BlockchainPlatformClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequestError/ListWorkRequestErrors";
@@ -1474,6 +1507,7 @@ export class BlockchainPlatformClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1529,7 +1563,8 @@ export class BlockchainPlatformClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1553,6 +1588,7 @@ export class BlockchainPlatformClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1608,7 +1644,8 @@ export class BlockchainPlatformClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequest/ListWorkRequests";
@@ -1634,6 +1671,7 @@ export class BlockchainPlatformClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1688,7 +1726,10 @@ export class BlockchainPlatformClient {
   public async previewScaleBlockchainPlatform(
     previewScaleBlockchainPlatformRequest: requests.PreviewScaleBlockchainPlatformRequest
   ): Promise<responses.PreviewScaleBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#previewScaleBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation BlockchainPlatformClient#previewScaleBlockchainPlatform."
+      );
     const operationName = "previewScaleBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/PreviewScaleBlockchainPlatform";
@@ -1709,6 +1750,7 @@ export class BlockchainPlatformClient {
       previewScaleBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1768,7 +1810,8 @@ export class BlockchainPlatformClient {
   public async scaleBlockchainPlatform(
     scaleBlockchainPlatformRequest: requests.ScaleBlockchainPlatformRequest
   ): Promise<responses.ScaleBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#scaleBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#scaleBlockchainPlatform.");
     const operationName = "scaleBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/ScaleBlockchainPlatform";
@@ -1791,6 +1834,7 @@ export class BlockchainPlatformClient {
       scaleBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1846,7 +1890,8 @@ export class BlockchainPlatformClient {
   public async startBlockchainPlatform(
     startBlockchainPlatformRequest: requests.StartBlockchainPlatformRequest
   ): Promise<responses.StartBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#startBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#startBlockchainPlatform.");
     const operationName = "startBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/StartBlockchainPlatform";
@@ -1869,6 +1914,7 @@ export class BlockchainPlatformClient {
       startBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1919,7 +1965,8 @@ export class BlockchainPlatformClient {
   public async stopBlockchainPlatform(
     stopBlockchainPlatformRequest: requests.StopBlockchainPlatformRequest
   ): Promise<responses.StopBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#stopBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#stopBlockchainPlatform.");
     const operationName = "stopBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/StopBlockchainPlatform";
@@ -1942,6 +1989,7 @@ export class BlockchainPlatformClient {
       stopBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1992,7 +2040,8 @@ export class BlockchainPlatformClient {
   public async updateBlockchainPlatform(
     updateBlockchainPlatformRequest: requests.UpdateBlockchainPlatformRequest
   ): Promise<responses.UpdateBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#updateBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#updateBlockchainPlatform.");
     const operationName = "updateBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/UpdateBlockchainPlatform";
@@ -2015,6 +2064,7 @@ export class BlockchainPlatformClient {
       updateBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2070,7 +2120,7 @@ export class BlockchainPlatformClient {
   public async updateOsn(
     updateOsnRequest: requests.UpdateOsnRequest
   ): Promise<responses.UpdateOsnResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#updateOsn.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#updateOsn.");
     const operationName = "updateOsn";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/UpdateOsn";
@@ -2094,6 +2144,7 @@ export class BlockchainPlatformClient {
       updateOsnRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2149,7 +2200,7 @@ export class BlockchainPlatformClient {
   public async updatePeer(
     updatePeerRequest: requests.UpdatePeerRequest
   ): Promise<responses.UpdatePeerResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#updatePeer.");
+    if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#updatePeer.");
     const operationName = "updatePeer";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/UpdatePeer";
@@ -2173,6 +2224,7 @@ export class BlockchainPlatformClient {
       updatePeerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2228,7 +2280,8 @@ export class BlockchainPlatformClient {
   public async upgradeBlockchainPlatform(
     upgradeBlockchainPlatformRequest: requests.UpgradeBlockchainPlatformRequest
   ): Promise<responses.UpgradeBlockchainPlatformResponse> {
-    logger.debug("Calling operation BlockchainPlatformClient#upgradeBlockchainPlatform.");
+    if (this.logger)
+      this.logger.debug("Calling operation BlockchainPlatformClient#upgradeBlockchainPlatform.");
     const operationName = "upgradeBlockchainPlatform";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/UpgradeBlockchainPlatform";
@@ -2251,6 +2304,7 @@ export class BlockchainPlatformClient {
       upgradeBlockchainPlatformRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

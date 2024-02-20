@@ -143,7 +143,7 @@ export namespace Operator {
         case "MINUS_OPERATOR":
           return model.Minus.getJsonObj(<model.Minus>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -243,7 +243,7 @@ export namespace Operator {
         case "MINUS_OPERATOR":
           return model.Minus.getDeserializedJsonObj(<model.Minus>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

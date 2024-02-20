@@ -19,8 +19,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -36,7 +35,7 @@ export class ApmSyntheticClient {
   protected static serviceEndpointTemplate =
     "https://apm-synthetic.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -116,7 +115,11 @@ export class ApmSyntheticClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200630";
-    logger.info(`ApmSyntheticClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ApmSyntheticClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -126,9 +129,10 @@ export class ApmSyntheticClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ApmSyntheticClient.serviceEndpointTemplate,
@@ -198,7 +202,8 @@ export class ApmSyntheticClient {
   public async aggregateNetworkData(
     aggregateNetworkDataRequest: requests.AggregateNetworkDataRequest
   ): Promise<responses.AggregateNetworkDataResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#aggregateNetworkData.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#aggregateNetworkData.");
     const operationName = "aggregateNetworkData";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/AggregatedNetworkDataResult/AggregateNetworkData";
@@ -222,6 +227,7 @@ export class ApmSyntheticClient {
       aggregateNetworkDataRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -282,7 +288,8 @@ export class ApmSyntheticClient {
   public async createDedicatedVantagePoint(
     createDedicatedVantagePointRequest: requests.CreateDedicatedVantagePointRequest
   ): Promise<responses.CreateDedicatedVantagePointResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#createDedicatedVantagePoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#createDedicatedVantagePoint.");
     const operationName = "createDedicatedVantagePoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/CreateDedicatedVantagePoint";
@@ -304,6 +311,7 @@ export class ApmSyntheticClient {
       createDedicatedVantagePointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -364,7 +372,7 @@ export class ApmSyntheticClient {
   public async createMonitor(
     createMonitorRequest: requests.CreateMonitorRequest
   ): Promise<responses.CreateMonitorResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#createMonitor.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#createMonitor.");
     const operationName = "createMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/CreateMonitor";
@@ -386,6 +394,7 @@ export class ApmSyntheticClient {
       createMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -446,7 +455,8 @@ export class ApmSyntheticClient {
   public async createOnPremiseVantagePoint(
     createOnPremiseVantagePointRequest: requests.CreateOnPremiseVantagePointRequest
   ): Promise<responses.CreateOnPremiseVantagePointResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#createOnPremiseVantagePoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#createOnPremiseVantagePoint.");
     const operationName = "createOnPremiseVantagePoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePoint/CreateOnPremiseVantagePoint";
@@ -468,6 +478,7 @@ export class ApmSyntheticClient {
       createOnPremiseVantagePointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -528,7 +539,7 @@ export class ApmSyntheticClient {
   public async createScript(
     createScriptRequest: requests.CreateScriptRequest
   ): Promise<responses.CreateScriptResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#createScript.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#createScript.");
     const operationName = "createScript";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/CreateScript";
@@ -550,6 +561,7 @@ export class ApmSyntheticClient {
       createScriptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -610,7 +622,7 @@ export class ApmSyntheticClient {
   public async createWorker(
     createWorkerRequest: requests.CreateWorkerRequest
   ): Promise<responses.CreateWorkerResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#createWorker.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#createWorker.");
     const operationName = "createWorker";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Worker/CreateWorker";
@@ -634,6 +646,7 @@ export class ApmSyntheticClient {
       createWorkerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -693,7 +706,8 @@ export class ApmSyntheticClient {
   public async deleteDedicatedVantagePoint(
     deleteDedicatedVantagePointRequest: requests.DeleteDedicatedVantagePointRequest
   ): Promise<responses.DeleteDedicatedVantagePointResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#deleteDedicatedVantagePoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#deleteDedicatedVantagePoint.");
     const operationName = "deleteDedicatedVantagePoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/DeleteDedicatedVantagePoint";
@@ -717,6 +731,7 @@ export class ApmSyntheticClient {
       deleteDedicatedVantagePointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -762,7 +777,7 @@ export class ApmSyntheticClient {
   public async deleteMonitor(
     deleteMonitorRequest: requests.DeleteMonitorRequest
   ): Promise<responses.DeleteMonitorResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#deleteMonitor.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#deleteMonitor.");
     const operationName = "deleteMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/DeleteMonitor";
@@ -786,6 +801,7 @@ export class ApmSyntheticClient {
       deleteMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -831,7 +847,8 @@ export class ApmSyntheticClient {
   public async deleteOnPremiseVantagePoint(
     deleteOnPremiseVantagePointRequest: requests.DeleteOnPremiseVantagePointRequest
   ): Promise<responses.DeleteOnPremiseVantagePointResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#deleteOnPremiseVantagePoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#deleteOnPremiseVantagePoint.");
     const operationName = "deleteOnPremiseVantagePoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePoint/DeleteOnPremiseVantagePoint";
@@ -855,6 +872,7 @@ export class ApmSyntheticClient {
       deleteOnPremiseVantagePointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -900,7 +918,7 @@ export class ApmSyntheticClient {
   public async deleteScript(
     deleteScriptRequest: requests.DeleteScriptRequest
   ): Promise<responses.DeleteScriptResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#deleteScript.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#deleteScript.");
     const operationName = "deleteScript";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/DeleteScript";
@@ -924,6 +942,7 @@ export class ApmSyntheticClient {
       deleteScriptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -969,7 +988,7 @@ export class ApmSyntheticClient {
   public async deleteWorker(
     deleteWorkerRequest: requests.DeleteWorkerRequest
   ): Promise<responses.DeleteWorkerResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#deleteWorker.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#deleteWorker.");
     const operationName = "deleteWorker";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Worker/DeleteWorker";
@@ -994,6 +1013,7 @@ export class ApmSyntheticClient {
       deleteWorkerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1039,7 +1059,8 @@ export class ApmSyntheticClient {
   public async getDedicatedVantagePoint(
     getDedicatedVantagePointRequest: requests.GetDedicatedVantagePointRequest
   ): Promise<responses.GetDedicatedVantagePointResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#getDedicatedVantagePoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#getDedicatedVantagePoint.");
     const operationName = "getDedicatedVantagePoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/GetDedicatedVantagePoint";
@@ -1062,6 +1083,7 @@ export class ApmSyntheticClient {
       getDedicatedVantagePointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1116,7 +1138,7 @@ export class ApmSyntheticClient {
   public async getMonitor(
     getMonitorRequest: requests.GetMonitorRequest
   ): Promise<responses.GetMonitorResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#getMonitor.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getMonitor.");
     const operationName = "getMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/GetMonitor";
@@ -1139,6 +1161,7 @@ export class ApmSyntheticClient {
       getMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1194,7 +1217,7 @@ export class ApmSyntheticClient {
   public async getMonitorResult(
     getMonitorResultRequest: requests.GetMonitorResultRequest
   ): Promise<responses.GetMonitorResultResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#getMonitorResult.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getMonitorResult.");
     const operationName = "getMonitorResult";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/MonitorResult/GetMonitorResult";
@@ -1221,6 +1244,7 @@ export class ApmSyntheticClient {
       getMonitorResultRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1270,7 +1294,8 @@ export class ApmSyntheticClient {
   public async getOnPremiseVantagePoint(
     getOnPremiseVantagePointRequest: requests.GetOnPremiseVantagePointRequest
   ): Promise<responses.GetOnPremiseVantagePointResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#getOnPremiseVantagePoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#getOnPremiseVantagePoint.");
     const operationName = "getOnPremiseVantagePoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePoint/GetOnPremiseVantagePoint";
@@ -1293,6 +1318,7 @@ export class ApmSyntheticClient {
       getOnPremiseVantagePointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1347,7 +1373,7 @@ export class ApmSyntheticClient {
   public async getScript(
     getScriptRequest: requests.GetScriptRequest
   ): Promise<responses.GetScriptResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#getScript.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getScript.");
     const operationName = "getScript";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/GetScript";
@@ -1370,6 +1396,7 @@ export class ApmSyntheticClient {
       getScriptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1424,7 +1451,7 @@ export class ApmSyntheticClient {
   public async getWorker(
     getWorkerRequest: requests.GetWorkerRequest
   ): Promise<responses.GetWorkerResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#getWorker.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getWorker.");
     const operationName = "getWorker";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Worker/GetWorker";
@@ -1448,6 +1475,7 @@ export class ApmSyntheticClient {
       getWorkerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1503,7 +1531,8 @@ export class ApmSyntheticClient {
   public async listDedicatedVantagePoints(
     listDedicatedVantagePointsRequest: requests.ListDedicatedVantagePointsRequest
   ): Promise<responses.ListDedicatedVantagePointsResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#listDedicatedVantagePoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#listDedicatedVantagePoints.");
     const operationName = "listDedicatedVantagePoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePointCollection/ListDedicatedVantagePoints";
@@ -1531,6 +1560,7 @@ export class ApmSyntheticClient {
       listDedicatedVantagePointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1586,7 +1616,7 @@ export class ApmSyntheticClient {
   public async listMonitors(
     listMonitorsRequest: requests.ListMonitorsRequest
   ): Promise<responses.ListMonitorsResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#listMonitors.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#listMonitors.");
     const operationName = "listMonitors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/MonitorCollection/ListMonitors";
@@ -1618,6 +1648,7 @@ export class ApmSyntheticClient {
       listMonitorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1673,7 +1704,8 @@ export class ApmSyntheticClient {
   public async listOnPremiseVantagePoints(
     listOnPremiseVantagePointsRequest: requests.ListOnPremiseVantagePointsRequest
   ): Promise<responses.ListOnPremiseVantagePointsResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#listOnPremiseVantagePoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#listOnPremiseVantagePoints.");
     const operationName = "listOnPremiseVantagePoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePointCollection/ListOnPremiseVantagePoints";
@@ -1700,6 +1732,7 @@ export class ApmSyntheticClient {
       listOnPremiseVantagePointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1755,7 +1788,8 @@ export class ApmSyntheticClient {
   public async listPublicVantagePoints(
     listPublicVantagePointsRequest: requests.ListPublicVantagePointsRequest
   ): Promise<responses.ListPublicVantagePointsResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#listPublicVantagePoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#listPublicVantagePoints.");
     const operationName = "listPublicVantagePoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/PublicVantagePointCollection/ListPublicVantagePoints";
@@ -1782,6 +1816,7 @@ export class ApmSyntheticClient {
       listPublicVantagePointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1837,7 +1872,7 @@ export class ApmSyntheticClient {
   public async listScripts(
     listScriptsRequest: requests.ListScriptsRequest
   ): Promise<responses.ListScriptsResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#listScripts.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#listScripts.");
     const operationName = "listScripts";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/ScriptCollection/ListScripts";
@@ -1864,6 +1899,7 @@ export class ApmSyntheticClient {
       listScriptsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1919,7 +1955,7 @@ export class ApmSyntheticClient {
   public async listWorkers(
     listWorkersRequest: requests.ListWorkersRequest
   ): Promise<responses.ListWorkersResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#listWorkers.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#listWorkers.");
     const operationName = "listWorkers";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/WorkerCollection/ListWorkers";
@@ -1950,6 +1986,7 @@ export class ApmSyntheticClient {
       listWorkersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2004,7 +2041,8 @@ export class ApmSyntheticClient {
   public async updateDedicatedVantagePoint(
     updateDedicatedVantagePointRequest: requests.UpdateDedicatedVantagePointRequest
   ): Promise<responses.UpdateDedicatedVantagePointResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#updateDedicatedVantagePoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#updateDedicatedVantagePoint.");
     const operationName = "updateDedicatedVantagePoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/UpdateDedicatedVantagePoint";
@@ -2028,6 +2066,7 @@ export class ApmSyntheticClient {
       updateDedicatedVantagePointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2087,7 +2126,7 @@ export class ApmSyntheticClient {
   public async updateMonitor(
     updateMonitorRequest: requests.UpdateMonitorRequest
   ): Promise<responses.UpdateMonitorResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#updateMonitor.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#updateMonitor.");
     const operationName = "updateMonitor";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/UpdateMonitor";
@@ -2111,6 +2150,7 @@ export class ApmSyntheticClient {
       updateMonitorRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2170,7 +2210,8 @@ export class ApmSyntheticClient {
   public async updateOnPremiseVantagePoint(
     updateOnPremiseVantagePointRequest: requests.UpdateOnPremiseVantagePointRequest
   ): Promise<responses.UpdateOnPremiseVantagePointResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#updateOnPremiseVantagePoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#updateOnPremiseVantagePoint.");
     const operationName = "updateOnPremiseVantagePoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePoint/UpdateOnPremiseVantagePoint";
@@ -2194,6 +2235,7 @@ export class ApmSyntheticClient {
       updateOnPremiseVantagePointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2253,7 +2295,7 @@ export class ApmSyntheticClient {
   public async updateScript(
     updateScriptRequest: requests.UpdateScriptRequest
   ): Promise<responses.UpdateScriptResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#updateScript.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#updateScript.");
     const operationName = "updateScript";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/UpdateScript";
@@ -2277,6 +2319,7 @@ export class ApmSyntheticClient {
       updateScriptRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2336,7 +2379,7 @@ export class ApmSyntheticClient {
   public async updateWorker(
     updateWorkerRequest: requests.UpdateWorkerRequest
   ): Promise<responses.UpdateWorkerResponse> {
-    logger.debug("Calling operation ApmSyntheticClient#updateWorker.");
+    if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#updateWorker.");
     const operationName = "updateWorker";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Worker/UpdateWorker";
@@ -2361,6 +2404,7 @@ export class ApmSyntheticClient {
       updateWorkerRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

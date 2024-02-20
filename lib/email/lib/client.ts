@@ -27,8 +27,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -43,7 +42,7 @@ export enum EmailApiKeys {}
 export class EmailClient {
   protected static serviceEndpointTemplate = "https://ctrl.email.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": EmailWaiter;
@@ -124,7 +123,11 @@ export class EmailClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20170907";
-    logger.info(`EmailClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`EmailClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -134,9 +137,10 @@ export class EmailClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         EmailClient.serviceEndpointTemplate,
@@ -234,7 +238,8 @@ export class EmailClient {
   public async changeEmailDomainCompartment(
     changeEmailDomainCompartmentRequest: requests.ChangeEmailDomainCompartmentRequest
   ): Promise<responses.ChangeEmailDomainCompartmentResponse> {
-    logger.debug("Calling operation EmailClient#changeEmailDomainCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation EmailClient#changeEmailDomainCompartment.");
     const operationName = "changeEmailDomainCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/ChangeEmailDomainCompartment";
@@ -257,6 +262,7 @@ export class EmailClient {
       changeEmailDomainCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -312,7 +318,7 @@ export class EmailClient {
   public async changeSenderCompartment(
     changeSenderCompartmentRequest: requests.ChangeSenderCompartmentRequest
   ): Promise<responses.ChangeSenderCompartmentResponse> {
-    logger.debug("Calling operation EmailClient#changeSenderCompartment.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#changeSenderCompartment.");
     const operationName = "changeSenderCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/ChangeSenderCompartment";
@@ -334,6 +340,7 @@ export class EmailClient {
       changeSenderCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -389,7 +396,7 @@ export class EmailClient {
   public async createDkim(
     createDkimRequest: requests.CreateDkimRequest
   ): Promise<responses.CreateDkimResponse> {
-    logger.debug("Calling operation EmailClient#createDkim.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createDkim.");
     const operationName = "createDkim";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/CreateDkim";
@@ -409,6 +416,7 @@ export class EmailClient {
       createDkimRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -483,7 +491,7 @@ export class EmailClient {
   public async createEmailDomain(
     createEmailDomainRequest: requests.CreateEmailDomainRequest
   ): Promise<responses.CreateEmailDomainResponse> {
-    logger.debug("Calling operation EmailClient#createEmailDomain.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createEmailDomain.");
     const operationName = "createEmailDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/CreateEmailDomain";
@@ -503,6 +511,7 @@ export class EmailClient {
       createEmailDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -577,7 +586,7 @@ export class EmailClient {
   public async createSender(
     createSenderRequest: requests.CreateSenderRequest
   ): Promise<responses.CreateSenderResponse> {
-    logger.debug("Calling operation EmailClient#createSender.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createSender.");
     const operationName = "createSender";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/CreateSender";
@@ -596,6 +605,7 @@ export class EmailClient {
       createSenderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -659,7 +669,7 @@ export class EmailClient {
   public async createSuppression(
     createSuppressionRequest: requests.CreateSuppressionRequest
   ): Promise<responses.CreateSuppressionResponse> {
-    logger.debug("Calling operation EmailClient#createSuppression.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createSuppression.");
     const operationName = "createSuppression";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Suppression/CreateSuppression";
@@ -678,6 +688,7 @@ export class EmailClient {
       createSuppressionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -738,7 +749,7 @@ export class EmailClient {
   public async deleteDkim(
     deleteDkimRequest: requests.DeleteDkimRequest
   ): Promise<responses.DeleteDkimResponse> {
-    logger.debug("Calling operation EmailClient#deleteDkim.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteDkim.");
     const operationName = "deleteDkim";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/DeleteDkim";
@@ -760,6 +771,7 @@ export class EmailClient {
       deleteDkimRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -810,7 +822,7 @@ export class EmailClient {
   public async deleteEmailDomain(
     deleteEmailDomainRequest: requests.DeleteEmailDomainRequest
   ): Promise<responses.DeleteEmailDomainResponse> {
-    logger.debug("Calling operation EmailClient#deleteEmailDomain.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteEmailDomain.");
     const operationName = "deleteEmailDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/DeleteEmailDomain";
@@ -832,6 +844,7 @@ export class EmailClient {
       deleteEmailDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -884,7 +897,7 @@ export class EmailClient {
   public async deleteSender(
     deleteSenderRequest: requests.DeleteSenderRequest
   ): Promise<responses.DeleteSenderResponse> {
-    logger.debug("Calling operation EmailClient#deleteSender.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteSender.");
     const operationName = "deleteSender";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/DeleteSender";
@@ -906,6 +919,7 @@ export class EmailClient {
       deleteSenderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -953,7 +967,7 @@ export class EmailClient {
   public async deleteSuppression(
     deleteSuppressionRequest: requests.DeleteSuppressionRequest
   ): Promise<responses.DeleteSuppressionResponse> {
-    logger.debug("Calling operation EmailClient#deleteSuppression.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteSuppression.");
     const operationName = "deleteSuppression";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Suppression/DeleteSuppression";
@@ -974,6 +988,7 @@ export class EmailClient {
       deleteSuppressionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1019,7 +1034,7 @@ export class EmailClient {
   public async getDkim(
     getDkimRequest: requests.GetDkimRequest
   ): Promise<responses.GetDkimResponse> {
-    logger.debug("Calling operation EmailClient#getDkim.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getDkim.");
     const operationName = "getDkim";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/GetDkim";
@@ -1040,6 +1055,7 @@ export class EmailClient {
       getDkimRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1094,7 +1110,7 @@ export class EmailClient {
   public async getEmailDomain(
     getEmailDomainRequest: requests.GetEmailDomainRequest
   ): Promise<responses.GetEmailDomainResponse> {
-    logger.debug("Calling operation EmailClient#getEmailDomain.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getEmailDomain.");
     const operationName = "getEmailDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/GetEmailDomain";
@@ -1115,6 +1131,7 @@ export class EmailClient {
       getEmailDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1169,7 +1186,7 @@ export class EmailClient {
   public async getSender(
     getSenderRequest: requests.GetSenderRequest
   ): Promise<responses.GetSenderResponse> {
-    logger.debug("Calling operation EmailClient#getSender.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getSender.");
     const operationName = "getSender";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/GetSender";
@@ -1190,6 +1207,7 @@ export class EmailClient {
       getSenderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1246,7 +1264,7 @@ export class EmailClient {
   public async getSuppression(
     getSuppressionRequest: requests.GetSuppressionRequest
   ): Promise<responses.GetSuppressionResponse> {
-    logger.debug("Calling operation EmailClient#getSuppression.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getSuppression.");
     const operationName = "getSuppression";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Suppression/GetSuppression";
@@ -1267,6 +1285,7 @@ export class EmailClient {
       getSuppressionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1316,7 +1335,7 @@ export class EmailClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation EmailClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/WorkRequest/GetWorkRequest";
@@ -1337,6 +1356,7 @@ export class EmailClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1391,7 +1411,7 @@ export class EmailClient {
   public async listDkims(
     listDkimsRequest: requests.ListDkimsRequest
   ): Promise<responses.ListDkimsResponse> {
-    logger.debug("Calling operation EmailClient#listDkims.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listDkims.");
     const operationName = "listDkims";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/ListDkims";
@@ -1419,6 +1439,7 @@ export class EmailClient {
       listDkimsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1473,7 +1494,7 @@ export class EmailClient {
   public async listEmailDomains(
     listEmailDomainsRequest: requests.ListEmailDomainsRequest
   ): Promise<responses.ListEmailDomainsResponse> {
-    logger.debug("Calling operation EmailClient#listEmailDomains.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listEmailDomains.");
     const operationName = "listEmailDomains";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/ListEmailDomains";
@@ -1501,6 +1522,7 @@ export class EmailClient {
       listEmailDomainsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1556,7 +1578,7 @@ export class EmailClient {
   public async listSenders(
     listSendersRequest: requests.ListSendersRequest
   ): Promise<responses.ListSendersResponse> {
-    logger.debug("Calling operation EmailClient#listSenders.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listSenders.");
     const operationName = "listSenders";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/ListSenders";
@@ -1584,6 +1606,7 @@ export class EmailClient {
       listSendersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1703,7 +1726,7 @@ export class EmailClient {
   public async listSuppressions(
     listSuppressionsRequest: requests.ListSuppressionsRequest
   ): Promise<responses.ListSuppressionsResponse> {
-    logger.debug("Calling operation EmailClient#listSuppressions.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listSuppressions.");
     const operationName = "listSuppressions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Suppression/ListSuppressions";
@@ -1731,6 +1754,7 @@ export class EmailClient {
       listSuppressionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1843,7 +1867,7 @@ export class EmailClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation EmailClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/WorkRequestErrorCollection/ListWorkRequestErrors";
@@ -1867,6 +1891,7 @@ export class EmailClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1922,7 +1947,7 @@ export class EmailClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation EmailClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/WorkRequestLogEntryCollection/ListWorkRequestLogs";
@@ -1946,6 +1971,7 @@ export class EmailClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2001,7 +2027,7 @@ export class EmailClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation EmailClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/WorkRequestSummaryCollection/ListWorkRequests";
@@ -2025,6 +2051,7 @@ export class EmailClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2079,7 +2106,7 @@ export class EmailClient {
   public async updateDkim(
     updateDkimRequest: requests.UpdateDkimRequest
   ): Promise<responses.UpdateDkimResponse> {
-    logger.debug("Calling operation EmailClient#updateDkim.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#updateDkim.");
     const operationName = "updateDkim";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/UpdateDkim";
@@ -2101,6 +2128,7 @@ export class EmailClient {
       updateDkimRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2156,7 +2184,7 @@ export class EmailClient {
   public async updateEmailDomain(
     updateEmailDomainRequest: requests.UpdateEmailDomainRequest
   ): Promise<responses.UpdateEmailDomainResponse> {
-    logger.debug("Calling operation EmailClient#updateEmailDomain.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#updateEmailDomain.");
     const operationName = "updateEmailDomain";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/UpdateEmailDomain";
@@ -2178,6 +2206,7 @@ export class EmailClient {
       updateEmailDomainRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2237,7 +2266,7 @@ export class EmailClient {
   public async updateSender(
     updateSenderRequest: requests.UpdateSenderRequest
   ): Promise<responses.UpdateSenderResponse> {
-    logger.debug("Calling operation EmailClient#updateSender.");
+    if (this.logger) this.logger.debug("Calling operation EmailClient#updateSender.");
     const operationName = "updateSender";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/UpdateSender";
@@ -2259,6 +2288,7 @@ export class EmailClient {
       updateSenderRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

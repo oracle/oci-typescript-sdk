@@ -22,8 +22,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export enum WafApiKeys {}
 export class WafClient {
   protected static serviceEndpointTemplate = "https://waf.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WafWaiter;
@@ -119,7 +118,11 @@ export class WafClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210930";
-    logger.info(`WafClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`WafClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class WafClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WafClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class WafClient {
   public async changeNetworkAddressListCompartment(
     changeNetworkAddressListCompartmentRequest: requests.ChangeNetworkAddressListCompartmentRequest
   ): Promise<responses.ChangeNetworkAddressListCompartmentResponse> {
-    logger.debug("Calling operation WafClient#changeNetworkAddressListCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation WafClient#changeNetworkAddressListCompartment.");
     const operationName = "changeNetworkAddressListCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/ChangeNetworkAddressListCompartment";
@@ -247,6 +252,7 @@ export class WafClient {
       changeNetworkAddressListCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -304,7 +310,8 @@ export class WafClient {
   public async changeWebAppFirewallCompartment(
     changeWebAppFirewallCompartmentRequest: requests.ChangeWebAppFirewallCompartmentRequest
   ): Promise<responses.ChangeWebAppFirewallCompartmentResponse> {
-    logger.debug("Calling operation WafClient#changeWebAppFirewallCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation WafClient#changeWebAppFirewallCompartment.");
     const operationName = "changeWebAppFirewallCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/ChangeWebAppFirewallCompartment";
@@ -326,6 +333,7 @@ export class WafClient {
       changeWebAppFirewallCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -383,7 +391,8 @@ export class WafClient {
   public async changeWebAppFirewallPolicyCompartment(
     changeWebAppFirewallPolicyCompartmentRequest: requests.ChangeWebAppFirewallPolicyCompartmentRequest
   ): Promise<responses.ChangeWebAppFirewallPolicyCompartmentResponse> {
-    logger.debug("Calling operation WafClient#changeWebAppFirewallPolicyCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation WafClient#changeWebAppFirewallPolicyCompartment.");
     const operationName = "changeWebAppFirewallPolicyCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/ChangeWebAppFirewallPolicyCompartment";
@@ -406,6 +415,7 @@ export class WafClient {
       changeWebAppFirewallPolicyCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -462,7 +472,7 @@ export class WafClient {
   public async createNetworkAddressList(
     createNetworkAddressListRequest: requests.CreateNetworkAddressListRequest
   ): Promise<responses.CreateNetworkAddressListResponse> {
-    logger.debug("Calling operation WafClient#createNetworkAddressList.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#createNetworkAddressList.");
     const operationName = "createNetworkAddressList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/CreateNetworkAddressList";
@@ -482,6 +492,7 @@ export class WafClient {
       createNetworkAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -557,7 +568,7 @@ export class WafClient {
   public async createWebAppFirewall(
     createWebAppFirewallRequest: requests.CreateWebAppFirewallRequest
   ): Promise<responses.CreateWebAppFirewallResponse> {
-    logger.debug("Calling operation WafClient#createWebAppFirewall.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#createWebAppFirewall.");
     const operationName = "createWebAppFirewall";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/CreateWebAppFirewall";
@@ -577,6 +588,7 @@ export class WafClient {
       createWebAppFirewallRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -652,7 +664,7 @@ export class WafClient {
   public async createWebAppFirewallPolicy(
     createWebAppFirewallPolicyRequest: requests.CreateWebAppFirewallPolicyRequest
   ): Promise<responses.CreateWebAppFirewallPolicyResponse> {
-    logger.debug("Calling operation WafClient#createWebAppFirewallPolicy.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#createWebAppFirewallPolicy.");
     const operationName = "createWebAppFirewallPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/CreateWebAppFirewallPolicy";
@@ -672,6 +684,7 @@ export class WafClient {
       createWebAppFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -746,7 +759,7 @@ export class WafClient {
   public async deleteNetworkAddressList(
     deleteNetworkAddressListRequest: requests.DeleteNetworkAddressListRequest
   ): Promise<responses.DeleteNetworkAddressListResponse> {
-    logger.debug("Calling operation WafClient#deleteNetworkAddressList.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#deleteNetworkAddressList.");
     const operationName = "deleteNetworkAddressList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/DeleteNetworkAddressList";
@@ -768,6 +781,7 @@ export class WafClient {
       deleteNetworkAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -818,7 +832,7 @@ export class WafClient {
   public async deleteWebAppFirewall(
     deleteWebAppFirewallRequest: requests.DeleteWebAppFirewallRequest
   ): Promise<responses.DeleteWebAppFirewallResponse> {
-    logger.debug("Calling operation WafClient#deleteWebAppFirewall.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#deleteWebAppFirewall.");
     const operationName = "deleteWebAppFirewall";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/DeleteWebAppFirewall";
@@ -840,6 +854,7 @@ export class WafClient {
       deleteWebAppFirewallRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -890,7 +905,7 @@ export class WafClient {
   public async deleteWebAppFirewallPolicy(
     deleteWebAppFirewallPolicyRequest: requests.DeleteWebAppFirewallPolicyRequest
   ): Promise<responses.DeleteWebAppFirewallPolicyResponse> {
-    logger.debug("Calling operation WafClient#deleteWebAppFirewallPolicy.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#deleteWebAppFirewallPolicy.");
     const operationName = "deleteWebAppFirewallPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/DeleteWebAppFirewallPolicy";
@@ -912,6 +927,7 @@ export class WafClient {
       deleteWebAppFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -962,7 +978,7 @@ export class WafClient {
   public async getNetworkAddressList(
     getNetworkAddressListRequest: requests.GetNetworkAddressListRequest
   ): Promise<responses.GetNetworkAddressListResponse> {
-    logger.debug("Calling operation WafClient#getNetworkAddressList.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#getNetworkAddressList.");
     const operationName = "getNetworkAddressList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/GetNetworkAddressList";
@@ -983,6 +999,7 @@ export class WafClient {
       getNetworkAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1037,7 +1054,7 @@ export class WafClient {
   public async getWebAppFirewall(
     getWebAppFirewallRequest: requests.GetWebAppFirewallRequest
   ): Promise<responses.GetWebAppFirewallResponse> {
-    logger.debug("Calling operation WafClient#getWebAppFirewall.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#getWebAppFirewall.");
     const operationName = "getWebAppFirewall";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/GetWebAppFirewall";
@@ -1058,6 +1075,7 @@ export class WafClient {
       getWebAppFirewallRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1112,7 +1130,7 @@ export class WafClient {
   public async getWebAppFirewallPolicy(
     getWebAppFirewallPolicyRequest: requests.GetWebAppFirewallPolicyRequest
   ): Promise<responses.GetWebAppFirewallPolicyResponse> {
-    logger.debug("Calling operation WafClient#getWebAppFirewallPolicy.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#getWebAppFirewallPolicy.");
     const operationName = "getWebAppFirewallPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/GetWebAppFirewallPolicy";
@@ -1133,6 +1151,7 @@ export class WafClient {
       getWebAppFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1187,7 +1206,7 @@ export class WafClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation WafClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WorkRequest/GetWorkRequest";
@@ -1208,6 +1227,7 @@ export class WafClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1263,7 +1283,7 @@ export class WafClient {
   public async listNetworkAddressLists(
     listNetworkAddressListsRequest: requests.ListNetworkAddressListsRequest
   ): Promise<responses.ListNetworkAddressListsResponse> {
-    logger.debug("Calling operation WafClient#listNetworkAddressLists.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#listNetworkAddressLists.");
     const operationName = "listNetworkAddressLists";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/ListNetworkAddressLists";
@@ -1291,6 +1311,7 @@ export class WafClient {
       listNetworkAddressListsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1346,7 +1367,7 @@ export class WafClient {
   public async listProtectionCapabilities(
     listProtectionCapabilitiesRequest: requests.ListProtectionCapabilitiesRequest
   ): Promise<responses.ListProtectionCapabilitiesResponse> {
-    logger.debug("Calling operation WafClient#listProtectionCapabilities.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#listProtectionCapabilities.");
     const operationName = "listProtectionCapabilities";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/ProtectionCapability/ListProtectionCapabilities";
@@ -1376,6 +1397,7 @@ export class WafClient {
       listProtectionCapabilitiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1431,7 +1453,8 @@ export class WafClient {
   public async listProtectionCapabilityGroupTags(
     listProtectionCapabilityGroupTagsRequest: requests.ListProtectionCapabilityGroupTagsRequest
   ): Promise<responses.ListProtectionCapabilityGroupTagsResponse> {
-    logger.debug("Calling operation WafClient#listProtectionCapabilityGroupTags.");
+    if (this.logger)
+      this.logger.debug("Calling operation WafClient#listProtectionCapabilityGroupTags.");
     const operationName = "listProtectionCapabilityGroupTags";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/ProtectionCapability/ListProtectionCapabilityGroupTags";
@@ -1458,6 +1481,7 @@ export class WafClient {
       listProtectionCapabilityGroupTagsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1513,7 +1537,7 @@ export class WafClient {
   public async listWebAppFirewallPolicies(
     listWebAppFirewallPoliciesRequest: requests.ListWebAppFirewallPoliciesRequest
   ): Promise<responses.ListWebAppFirewallPoliciesResponse> {
-    logger.debug("Calling operation WafClient#listWebAppFirewallPolicies.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#listWebAppFirewallPolicies.");
     const operationName = "listWebAppFirewallPolicies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/ListWebAppFirewallPolicies";
@@ -1541,6 +1565,7 @@ export class WafClient {
       listWebAppFirewallPoliciesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1596,7 +1621,7 @@ export class WafClient {
   public async listWebAppFirewalls(
     listWebAppFirewallsRequest: requests.ListWebAppFirewallsRequest
   ): Promise<responses.ListWebAppFirewallsResponse> {
-    logger.debug("Calling operation WafClient#listWebAppFirewalls.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#listWebAppFirewalls.");
     const operationName = "listWebAppFirewalls";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/ListWebAppFirewalls";
@@ -1625,6 +1650,7 @@ export class WafClient {
       listWebAppFirewallsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1680,7 +1706,7 @@ export class WafClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation WafClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WorkRequestError/ListWorkRequestErrors";
@@ -1704,6 +1730,7 @@ export class WafClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1759,7 +1786,7 @@ export class WafClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation WafClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1783,6 +1810,7 @@ export class WafClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1838,7 +1866,7 @@ export class WafClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation WafClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WorkRequest/ListWorkRequests";
@@ -1862,6 +1890,7 @@ export class WafClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1916,7 +1945,7 @@ export class WafClient {
   public async updateNetworkAddressList(
     updateNetworkAddressListRequest: requests.UpdateNetworkAddressListRequest
   ): Promise<responses.UpdateNetworkAddressListResponse> {
-    logger.debug("Calling operation WafClient#updateNetworkAddressList.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#updateNetworkAddressList.");
     const operationName = "updateNetworkAddressList";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/UpdateNetworkAddressList";
@@ -1938,6 +1967,7 @@ export class WafClient {
       updateNetworkAddressListRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1993,7 +2023,7 @@ export class WafClient {
   public async updateWebAppFirewall(
     updateWebAppFirewallRequest: requests.UpdateWebAppFirewallRequest
   ): Promise<responses.UpdateWebAppFirewallResponse> {
-    logger.debug("Calling operation WafClient#updateWebAppFirewall.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#updateWebAppFirewall.");
     const operationName = "updateWebAppFirewall";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/UpdateWebAppFirewall";
@@ -2015,6 +2045,7 @@ export class WafClient {
       updateWebAppFirewallRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2070,7 +2101,7 @@ export class WafClient {
   public async updateWebAppFirewallPolicy(
     updateWebAppFirewallPolicyRequest: requests.UpdateWebAppFirewallPolicyRequest
   ): Promise<responses.UpdateWebAppFirewallPolicyResponse> {
-    logger.debug("Calling operation WafClient#updateWebAppFirewallPolicy.");
+    if (this.logger) this.logger.debug("Calling operation WafClient#updateWebAppFirewallPolicy.");
     const operationName = "updateWebAppFirewallPolicy";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/UpdateWebAppFirewallPolicy";
@@ -2092,6 +2123,7 @@ export class WafClient {
       updateWebAppFirewallPolicyRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

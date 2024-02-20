@@ -35,7 +35,7 @@ export namespace CaBundle {
         case "OCI_CERTIFICATES":
           return model.OciCaBundle.getJsonObj(<model.OciCaBundle>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -56,7 +56,7 @@ export namespace CaBundle {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

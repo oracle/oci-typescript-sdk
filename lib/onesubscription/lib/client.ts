@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export enum BillingScheduleApiKeys {}
 export class BillingScheduleClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -117,7 +116,11 @@ export class BillingScheduleClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    logger.info(`BillingScheduleClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`BillingScheduleClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +130,10 @@ export class BillingScheduleClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         BillingScheduleClient.serviceEndpointTemplate,
@@ -200,7 +204,8 @@ export class BillingScheduleClient {
   public async listBillingSchedules(
     listBillingSchedulesRequest: requests.ListBillingSchedulesRequest
   ): Promise<responses.ListBillingSchedulesResponse> {
-    logger.debug("Calling operation BillingScheduleClient#listBillingSchedules.");
+    if (this.logger)
+      this.logger.debug("Calling operation BillingScheduleClient#listBillingSchedules.");
     const operationName = "listBillingSchedules";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -226,6 +231,7 @@ export class BillingScheduleClient {
       listBillingSchedulesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -328,7 +334,7 @@ export enum CommitmentApiKeys {}
 export class CommitmentClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -408,7 +414,11 @@ export class CommitmentClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    logger.info(`CommitmentClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`CommitmentClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -418,9 +428,10 @@ export class CommitmentClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         CommitmentClient.serviceEndpointTemplate,
@@ -490,7 +501,7 @@ export class CommitmentClient {
   public async getCommitment(
     getCommitmentRequest: requests.GetCommitmentRequest
   ): Promise<responses.GetCommitmentResponse> {
-    logger.debug("Calling operation CommitmentClient#getCommitment.");
+    if (this.logger) this.logger.debug("Calling operation CommitmentClient#getCommitment.");
     const operationName = "getCommitment";
     const apiReferenceLink = "";
     const pathParams = {
@@ -510,6 +521,7 @@ export class CommitmentClient {
       getCommitmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -560,7 +572,7 @@ export class CommitmentClient {
   public async listCommitments(
     listCommitmentsRequest: requests.ListCommitmentsRequest
   ): Promise<responses.ListCommitmentsResponse> {
-    logger.debug("Calling operation CommitmentClient#listCommitments.");
+    if (this.logger) this.logger.debug("Calling operation CommitmentClient#listCommitments.");
     const operationName = "listCommitments";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -585,6 +597,7 @@ export class CommitmentClient {
       listCommitmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -687,7 +700,7 @@ export enum ComputedUsageApiKeys {}
 export class ComputedUsageClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -767,7 +780,11 @@ export class ComputedUsageClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    logger.info(`ComputedUsageClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ComputedUsageClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -777,9 +794,10 @@ export class ComputedUsageClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ComputedUsageClient.serviceEndpointTemplate,
@@ -849,7 +867,7 @@ export class ComputedUsageClient {
   public async getComputedUsage(
     getComputedUsageRequest: requests.GetComputedUsageRequest
   ): Promise<responses.GetComputedUsageResponse> {
-    logger.debug("Calling operation ComputedUsageClient#getComputedUsage.");
+    if (this.logger) this.logger.debug("Calling operation ComputedUsageClient#getComputedUsage.");
     const operationName = "getComputedUsage";
     const apiReferenceLink = "";
     const pathParams = {
@@ -872,6 +890,7 @@ export class ComputedUsageClient {
       getComputedUsageRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -922,7 +941,8 @@ export class ComputedUsageClient {
   public async listAggregatedComputedUsages(
     listAggregatedComputedUsagesRequest: requests.ListAggregatedComputedUsagesRequest
   ): Promise<responses.ListAggregatedComputedUsagesResponse> {
-    logger.debug("Calling operation ComputedUsageClient#listAggregatedComputedUsages.");
+    if (this.logger)
+      this.logger.debug("Calling operation ComputedUsageClient#listAggregatedComputedUsages.");
     const operationName = "listAggregatedComputedUsages";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -949,6 +969,7 @@ export class ComputedUsageClient {
       listAggregatedComputedUsagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1056,7 +1077,7 @@ export class ComputedUsageClient {
   public async listComputedUsages(
     listComputedUsagesRequest: requests.ListComputedUsagesRequest
   ): Promise<responses.ListComputedUsagesResponse> {
-    logger.debug("Calling operation ComputedUsageClient#listComputedUsages.");
+    if (this.logger) this.logger.debug("Calling operation ComputedUsageClient#listComputedUsages.");
     const operationName = "listComputedUsages";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1085,6 +1106,7 @@ export class ComputedUsageClient {
       listComputedUsagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1187,7 +1209,7 @@ export enum InvoiceSummaryApiKeys {}
 export class InvoiceSummaryClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -1267,7 +1289,11 @@ export class InvoiceSummaryClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    logger.info(`InvoiceSummaryClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`InvoiceSummaryClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1277,9 +1303,10 @@ export class InvoiceSummaryClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         InvoiceSummaryClient.serviceEndpointTemplate,
@@ -1349,7 +1376,8 @@ export class InvoiceSummaryClient {
   public async listInvoicelineComputedUsages(
     listInvoicelineComputedUsagesRequest: requests.ListInvoicelineComputedUsagesRequest
   ): Promise<responses.ListInvoicelineComputedUsagesResponse> {
-    logger.debug("Calling operation InvoiceSummaryClient#listInvoicelineComputedUsages.");
+    if (this.logger)
+      this.logger.debug("Calling operation InvoiceSummaryClient#listInvoicelineComputedUsages.");
     const operationName = "listInvoicelineComputedUsages";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1375,6 +1403,7 @@ export class InvoiceSummaryClient {
       listInvoicelineComputedUsagesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1482,7 +1511,7 @@ export class InvoiceSummaryClient {
   public async listInvoices(
     listInvoicesRequest: requests.ListInvoicesRequest
   ): Promise<responses.ListInvoicesResponse> {
-    logger.debug("Calling operation InvoiceSummaryClient#listInvoices.");
+    if (this.logger) this.logger.debug("Calling operation InvoiceSummaryClient#listInvoices.");
     const operationName = "listInvoices";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1510,6 +1539,7 @@ export class InvoiceSummaryClient {
       listInvoicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1612,7 +1642,7 @@ export enum OrganizationSubscriptionApiKeys {}
 export class OrganizationSubscriptionClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -1692,7 +1722,12 @@ export class OrganizationSubscriptionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    logger.info(`OrganizationSubscriptionClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`OrganizationSubscriptionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1702,9 +1737,10 @@ export class OrganizationSubscriptionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OrganizationSubscriptionClient.serviceEndpointTemplate,
@@ -1774,7 +1810,10 @@ export class OrganizationSubscriptionClient {
   public async listOrganizationSubscriptions(
     listOrganizationSubscriptionsRequest: requests.ListOrganizationSubscriptionsRequest
   ): Promise<responses.ListOrganizationSubscriptionsResponse> {
-    logger.debug("Calling operation OrganizationSubscriptionClient#listOrganizationSubscriptions.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OrganizationSubscriptionClient#listOrganizationSubscriptions."
+      );
     const operationName = "listOrganizationSubscriptions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1798,6 +1837,7 @@ export class OrganizationSubscriptionClient {
       listOrganizationSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1900,7 +1940,7 @@ export enum RatecardApiKeys {}
 export class RatecardClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -1980,7 +2020,11 @@ export class RatecardClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    logger.info(`RatecardClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`RatecardClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1990,9 +2034,10 @@ export class RatecardClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         RatecardClient.serviceEndpointTemplate,
@@ -2063,7 +2108,7 @@ export class RatecardClient {
   public async listRateCards(
     listRateCardsRequest: requests.ListRateCardsRequest
   ): Promise<responses.ListRateCardsResponse> {
-    logger.debug("Calling operation RatecardClient#listRateCards.");
+    if (this.logger) this.logger.debug("Calling operation RatecardClient#listRateCards.");
     const operationName = "listRateCards";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2091,6 +2136,7 @@ export class RatecardClient {
       listRateCardsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2193,7 +2239,7 @@ export enum SubscribedServiceApiKeys {}
 export class SubscribedServiceClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -2273,7 +2319,11 @@ export class SubscribedServiceClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    logger.info(`SubscribedServiceClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`SubscribedServiceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -2283,9 +2333,10 @@ export class SubscribedServiceClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SubscribedServiceClient.serviceEndpointTemplate,
@@ -2355,7 +2406,8 @@ export class SubscribedServiceClient {
   public async getSubscribedService(
     getSubscribedServiceRequest: requests.GetSubscribedServiceRequest
   ): Promise<responses.GetSubscribedServiceResponse> {
-    logger.debug("Calling operation SubscribedServiceClient#getSubscribedService.");
+    if (this.logger)
+      this.logger.debug("Calling operation SubscribedServiceClient#getSubscribedService.");
     const operationName = "getSubscribedService";
     const apiReferenceLink = "";
     const pathParams = {
@@ -2377,6 +2429,7 @@ export class SubscribedServiceClient {
       getSubscribedServiceRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2427,7 +2480,8 @@ export class SubscribedServiceClient {
   public async listSubscribedServices(
     listSubscribedServicesRequest: requests.ListSubscribedServicesRequest
   ): Promise<responses.ListSubscribedServicesResponse> {
-    logger.debug("Calling operation SubscribedServiceClient#listSubscribedServices.");
+    if (this.logger)
+      this.logger.debug("Calling operation SubscribedServiceClient#listSubscribedServices.");
     const operationName = "listSubscribedServices";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2454,6 +2508,7 @@ export class SubscribedServiceClient {
       listSubscribedServicesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2556,7 +2611,7 @@ export enum SubscriptionApiKeys {}
 export class SubscriptionClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -2636,7 +2691,11 @@ export class SubscriptionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190111";
-    logger.info(`SubscriptionClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`SubscriptionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -2646,9 +2705,10 @@ export class SubscriptionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         SubscriptionClient.serviceEndpointTemplate,
@@ -2721,7 +2781,7 @@ export class SubscriptionClient {
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
   ): Promise<responses.ListSubscriptionsResponse> {
-    logger.debug("Calling operation SubscriptionClient#listSubscriptions.");
+    if (this.logger) this.logger.debug("Calling operation SubscriptionClient#listSubscriptions.");
     const operationName = "listSubscriptions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -2749,6 +2809,7 @@ export class SubscriptionClient {
       listSubscriptionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -41,7 +41,8 @@ export namespace ContinuousQueryStartPolicy {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.startPolicyType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.startPolicyType}`);
       }
     }
     return jsonObj;
@@ -62,7 +63,8 @@ export namespace ContinuousQueryStartPolicy {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.startPolicyType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.startPolicyType}`);
       }
     }
     return jsonObj;

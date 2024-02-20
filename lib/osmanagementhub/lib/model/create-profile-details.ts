@@ -80,7 +80,7 @@ export namespace CreateProfileDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.profileType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.profileType}`);
       }
     }
     return jsonObj;
@@ -111,7 +111,7 @@ export namespace CreateProfileDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.profileType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.profileType}`);
       }
     }
     return jsonObj;

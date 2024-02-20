@@ -104,7 +104,7 @@ export namespace Asset {
         case "VM":
           return model.VmAsset.getJsonObj(<model.VmAsset>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.assetType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.assetType}`);
       }
     }
     return jsonObj;
@@ -122,7 +122,7 @@ export namespace Asset {
         case "VM":
           return model.VmAsset.getDeserializedJsonObj(<model.VmAsset>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.assetType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.assetType}`);
       }
     }
     return jsonObj;

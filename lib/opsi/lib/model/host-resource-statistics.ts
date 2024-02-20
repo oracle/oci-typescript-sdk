@@ -72,7 +72,7 @@ export namespace HostResourceStatistics {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.resourceName}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.resourceName}`);
       }
     }
     return jsonObj;
@@ -103,7 +103,7 @@ export namespace HostResourceStatistics {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.resourceName}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.resourceName}`);
       }
     }
     return jsonObj;

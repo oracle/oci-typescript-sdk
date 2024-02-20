@@ -47,7 +47,7 @@ export namespace CreateMappedSecretDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.source}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.source}`);
       }
     }
     return jsonObj;
@@ -63,7 +63,7 @@ export namespace CreateMappedSecretDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.source}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.source}`);
       }
     }
     return jsonObj;

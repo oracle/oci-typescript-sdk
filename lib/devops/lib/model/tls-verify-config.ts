@@ -30,7 +30,7 @@ export namespace TlsVerifyConfig {
         case "CA_CERTIFICATE_VERIFY":
           return model.CaCertVerify.getJsonObj(<model.CaCertVerify>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.tlsVerifyMode}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.tlsVerifyMode}`);
       }
     }
     return jsonObj;
@@ -46,7 +46,7 @@ export namespace TlsVerifyConfig {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.tlsVerifyMode}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.tlsVerifyMode}`);
       }
     }
     return jsonObj;

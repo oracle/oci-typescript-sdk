@@ -30,61 +30,11 @@ export interface TranslationDocumentResult {
    */
   "translatedText": string;
   /**
-   * Language code supported
-   * - auto : Automatically detect language
-   * - ar : Arabic
-   * - pt-BR : Brazilian Portuguese
-   * - cs : Czech
-   * - da : Danish
-   * - nl : Dutch
-   * - en : English
-   * - fi : Finnish
-   * - fr : French
-   * - fr-CA : Canadian French
-   * - de : German
-   * - it : Italian
-   * - ja : Japanese
-   * - ko : Korean
-   * - no : Norwegian
-   * - pl : Polish
-   * - ro : Romanian
-   * - zh-CN : Simplified Chinese
-   * - es : Spanish
-   * - sv : Swedish
-   * - zh-TW : Traditional Chinese
-   * - tr : Turkish
-   * - el : Greek
-   * - he : Hebrew
-   *
+   * Language code of the document. Please refer to respective model [API documentation](https://docs.cloud.oracle.com/iaas/language/using/overview.htm) for supported languages.
    */
   "sourceLanguageCode": string;
   /**
-   * Language code supported
-   * - auto : Automatically detect language
-   * - ar : Arabic
-   * - pt-BR : Brazilian Portuguese
-   * - cs : Czech
-   * - da : Danish
-   * - nl : Dutch
-   * - en : English
-   * - fi : Finnish
-   * - fr : French
-   * - fr-CA : Canadian French
-   * - de : German
-   * - it : Italian
-   * - ja : Japanese
-   * - ko : Korean
-   * - no : Norwegian
-   * - pl : Polish
-   * - ro : Romanian
-   * - zh-CN : Simplified Chinese
-   * - es : Spanish
-   * - sv : Swedish
-   * - zh-TW : Traditional Chinese
-   * - tr : Turkish
-   * - el : Greek
-   * - he : Hebrew
-   *
+   * Language code of the document. Please refer to respective model [API documentation](https://docs.cloud.oracle.com/iaas/language/using/overview.htm) for supported languages.
    */
   "targetLanguageCode": string;
 }

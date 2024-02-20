@@ -152,7 +152,7 @@ export namespace UnifiedAgentParser {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.parserType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.parserType}`);
       }
     }
     return jsonObj;
@@ -233,7 +233,7 @@ export namespace UnifiedAgentParser {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.parserType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.parserType}`);
       }
     }
     return jsonObj;

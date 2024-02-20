@@ -350,7 +350,7 @@ export namespace AbstractCommandDescriptor {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.name}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.name}`);
       }
     }
     return jsonObj;
@@ -650,7 +650,7 @@ export namespace AbstractCommandDescriptor {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.name}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.name}`);
       }
     }
     return jsonObj;

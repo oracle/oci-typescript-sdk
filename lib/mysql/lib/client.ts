@@ -26,8 +26,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -42,7 +41,7 @@ export enum ChannelsApiKeys {}
 export class ChannelsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ChannelsWaiter;
@@ -123,7 +122,11 @@ export class ChannelsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
-    logger.info(`ChannelsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ChannelsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -133,9 +136,10 @@ export class ChannelsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ChannelsClient.serviceEndpointTemplate,
@@ -228,7 +232,7 @@ export class ChannelsClient {
   public async createChannel(
     createChannelRequest: requests.CreateChannelRequest
   ): Promise<responses.CreateChannelResponse> {
-    logger.debug("Calling operation ChannelsClient#createChannel.");
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#createChannel.");
     const operationName = "createChannel";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -247,6 +251,7 @@ export class ChannelsClient {
       createChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -311,7 +316,7 @@ export class ChannelsClient {
   public async deleteChannel(
     deleteChannelRequest: requests.DeleteChannelRequest
   ): Promise<responses.DeleteChannelResponse> {
-    logger.debug("Calling operation ChannelsClient#deleteChannel.");
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#deleteChannel.");
     const operationName = "deleteChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/DeleteChannel";
@@ -333,6 +338,7 @@ export class ChannelsClient {
       deleteChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -386,7 +392,7 @@ export class ChannelsClient {
   public async getChannel(
     getChannelRequest: requests.GetChannelRequest
   ): Promise<responses.GetChannelResponse> {
-    logger.debug("Calling operation ChannelsClient#getChannel.");
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#getChannel.");
     const operationName = "getChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/GetChannel";
@@ -408,6 +414,7 @@ export class ChannelsClient {
       getChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -462,7 +469,7 @@ export class ChannelsClient {
   public async listChannels(
     listChannelsRequest: requests.ListChannelsRequest
   ): Promise<responses.ListChannelsResponse> {
-    logger.debug("Calling operation ChannelsClient#listChannels.");
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#listChannels.");
     const operationName = "listChannels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ChannelSummary/ListChannels";
@@ -492,6 +499,7 @@ export class ChannelsClient {
       listChannelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -600,7 +608,7 @@ export class ChannelsClient {
   public async resetChannel(
     resetChannelRequest: requests.ResetChannelRequest
   ): Promise<responses.ResetChannelResponse> {
-    logger.debug("Calling operation ChannelsClient#resetChannel.");
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#resetChannel.");
     const operationName = "resetChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/ResetChannel";
@@ -623,6 +631,7 @@ export class ChannelsClient {
       resetChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -676,7 +685,7 @@ export class ChannelsClient {
   public async resumeChannel(
     resumeChannelRequest: requests.ResumeChannelRequest
   ): Promise<responses.ResumeChannelResponse> {
-    logger.debug("Calling operation ChannelsClient#resumeChannel.");
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#resumeChannel.");
     const operationName = "resumeChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/ResumeChannel";
@@ -699,6 +708,7 @@ export class ChannelsClient {
       resumeChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -753,7 +763,7 @@ export class ChannelsClient {
   public async updateChannel(
     updateChannelRequest: requests.UpdateChannelRequest
   ): Promise<responses.UpdateChannelResponse> {
-    logger.debug("Calling operation ChannelsClient#updateChannel.");
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#updateChannel.");
     const operationName = "updateChannel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/UpdateChannel";
@@ -776,6 +786,7 @@ export class ChannelsClient {
       updateChannelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -827,7 +838,7 @@ export enum DbBackupsApiKeys {}
 export class DbBackupsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DbBackupsWaiter;
@@ -908,7 +919,11 @@ export class DbBackupsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
-    logger.info(`DbBackupsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DbBackupsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -918,9 +933,10 @@ export class DbBackupsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DbBackupsClient.serviceEndpointTemplate,
@@ -1014,7 +1030,8 @@ export class DbBackupsClient {
   public async changeBackupCompartment(
     changeBackupCompartmentRequest: requests.ChangeBackupCompartmentRequest
   ): Promise<responses.ChangeBackupCompartmentResponse> {
-    logger.debug("Calling operation DbBackupsClient#changeBackupCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbBackupsClient#changeBackupCompartment.");
     const operationName = "changeBackupCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/ChangeBackupCompartment";
@@ -1037,6 +1054,7 @@ export class DbBackupsClient {
       changeBackupCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1093,7 +1111,7 @@ export class DbBackupsClient {
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
   ): Promise<responses.CreateBackupResponse> {
-    logger.debug("Calling operation DbBackupsClient#createBackup.");
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#createBackup.");
     const operationName = "createBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/CreateBackup";
@@ -1113,6 +1131,7 @@ export class DbBackupsClient {
       createBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1178,7 +1197,7 @@ export class DbBackupsClient {
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
   ): Promise<responses.DeleteBackupResponse> {
-    logger.debug("Calling operation DbBackupsClient#deleteBackup.");
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#deleteBackup.");
     const operationName = "deleteBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/DeleteBackup";
@@ -1200,6 +1219,7 @@ export class DbBackupsClient {
       deleteBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1250,7 +1270,7 @@ export class DbBackupsClient {
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
   ): Promise<responses.GetBackupResponse> {
-    logger.debug("Calling operation DbBackupsClient#getBackup.");
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#getBackup.");
     const operationName = "getBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/GetBackup";
@@ -1272,6 +1292,7 @@ export class DbBackupsClient {
       getBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1327,7 +1348,7 @@ export class DbBackupsClient {
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
   ): Promise<responses.ListBackupsResponse> {
-    logger.debug("Calling operation DbBackupsClient#listBackups.");
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#listBackups.");
     const operationName = "listBackups";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/BackupSummary/ListBackups";
@@ -1357,6 +1378,7 @@ export class DbBackupsClient {
       listBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1463,7 +1485,7 @@ export class DbBackupsClient {
   public async updateBackup(
     updateBackupRequest: requests.UpdateBackupRequest
   ): Promise<responses.UpdateBackupResponse> {
-    logger.debug("Calling operation DbBackupsClient#updateBackup.");
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#updateBackup.");
     const operationName = "updateBackup";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/UpdateBackup";
@@ -1485,6 +1507,7 @@ export class DbBackupsClient {
       updateBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1540,7 +1563,7 @@ export enum DbSystemApiKeys {}
 export class DbSystemClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DbSystemWaiter;
@@ -1621,7 +1644,11 @@ export class DbSystemClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
-    logger.info(`DbSystemClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`DbSystemClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1631,9 +1658,10 @@ export class DbSystemClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         DbSystemClient.serviceEndpointTemplate,
@@ -1726,7 +1754,7 @@ export class DbSystemClient {
   public async addHeatWaveCluster(
     addHeatWaveClusterRequest: requests.AddHeatWaveClusterRequest
   ): Promise<responses.AddHeatWaveClusterResponse> {
-    logger.debug("Calling operation DbSystemClient#addHeatWaveCluster.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#addHeatWaveCluster.");
     const operationName = "addHeatWaveCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/AddHeatWaveCluster";
@@ -1749,6 +1777,7 @@ export class DbSystemClient {
       addHeatWaveClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1814,7 +1843,7 @@ export class DbSystemClient {
   public async createDbSystem(
     createDbSystemRequest: requests.CreateDbSystemRequest
   ): Promise<responses.CreateDbSystemResponse> {
-    logger.debug("Calling operation DbSystemClient#createDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#createDbSystem.");
     const operationName = "createDbSystem";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1833,6 +1862,7 @@ export class DbSystemClient {
       createDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1904,7 +1934,7 @@ export class DbSystemClient {
   public async deleteDbSystem(
     deleteDbSystemRequest: requests.DeleteDbSystemRequest
   ): Promise<responses.DeleteDbSystemResponse> {
-    logger.debug("Calling operation DbSystemClient#deleteDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteDbSystem.");
     const operationName = "deleteDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/DeleteDbSystem";
@@ -1926,6 +1956,7 @@ export class DbSystemClient {
       deleteDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1978,7 +2009,7 @@ export class DbSystemClient {
   public async deleteHeatWaveCluster(
     deleteHeatWaveClusterRequest: requests.DeleteHeatWaveClusterRequest
   ): Promise<responses.DeleteHeatWaveClusterResponse> {
-    logger.debug("Calling operation DbSystemClient#deleteHeatWaveCluster.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteHeatWaveCluster.");
     const operationName = "deleteHeatWaveCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/DeleteHeatWaveCluster";
@@ -2000,6 +2031,7 @@ export class DbSystemClient {
       deleteHeatWaveClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2051,7 +2083,8 @@ export class DbSystemClient {
   public async generateHeatWaveClusterMemoryEstimate(
     generateHeatWaveClusterMemoryEstimateRequest: requests.GenerateHeatWaveClusterMemoryEstimateRequest
   ): Promise<responses.GenerateHeatWaveClusterMemoryEstimateResponse> {
-    logger.debug("Calling operation DbSystemClient#generateHeatWaveClusterMemoryEstimate.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbSystemClient#generateHeatWaveClusterMemoryEstimate.");
     const operationName = "generateHeatWaveClusterMemoryEstimate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveClusterMemoryEstimate/GenerateHeatWaveClusterMemoryEstimate";
@@ -2073,6 +2106,7 @@ export class DbSystemClient {
       generateHeatWaveClusterMemoryEstimateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2127,7 +2161,7 @@ export class DbSystemClient {
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
   ): Promise<responses.GetDbSystemResponse> {
-    logger.debug("Calling operation DbSystemClient#getDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#getDbSystem.");
     const operationName = "getDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/GetDbSystem";
@@ -2149,6 +2183,7 @@ export class DbSystemClient {
       getDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2203,7 +2238,7 @@ export class DbSystemClient {
   public async getHeatWaveCluster(
     getHeatWaveClusterRequest: requests.GetHeatWaveClusterRequest
   ): Promise<responses.GetHeatWaveClusterResponse> {
-    logger.debug("Calling operation DbSystemClient#getHeatWaveCluster.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#getHeatWaveCluster.");
     const operationName = "getHeatWaveCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/GetHeatWaveCluster";
@@ -2225,6 +2260,7 @@ export class DbSystemClient {
       getHeatWaveClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2281,7 +2317,8 @@ export class DbSystemClient {
   public async getHeatWaveClusterMemoryEstimate(
     getHeatWaveClusterMemoryEstimateRequest: requests.GetHeatWaveClusterMemoryEstimateRequest
   ): Promise<responses.GetHeatWaveClusterMemoryEstimateResponse> {
-    logger.debug("Calling operation DbSystemClient#getHeatWaveClusterMemoryEstimate.");
+    if (this.logger)
+      this.logger.debug("Calling operation DbSystemClient#getHeatWaveClusterMemoryEstimate.");
     const operationName = "getHeatWaveClusterMemoryEstimate";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveClusterMemoryEstimate/GetHeatWaveClusterMemoryEstimate";
@@ -2302,6 +2339,7 @@ export class DbSystemClient {
       getHeatWaveClusterMemoryEstimateRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2353,7 +2391,7 @@ export class DbSystemClient {
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
   ): Promise<responses.ListDbSystemsResponse> {
-    logger.debug("Calling operation DbSystemClient#listDbSystems.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#listDbSystems.");
     const operationName = "listDbSystems";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystemSummary/ListDbSystems";
@@ -2385,6 +2423,7 @@ export class DbSystemClient {
       listDbSystemsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2491,7 +2530,7 @@ export class DbSystemClient {
   public async restartDbSystem(
     restartDbSystemRequest: requests.RestartDbSystemRequest
   ): Promise<responses.RestartDbSystemResponse> {
-    logger.debug("Calling operation DbSystemClient#restartDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartDbSystem.");
     const operationName = "restartDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/RestartDbSystem";
@@ -2514,6 +2553,7 @@ export class DbSystemClient {
       restartDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2569,7 +2609,7 @@ export class DbSystemClient {
   public async restartHeatWaveCluster(
     restartHeatWaveClusterRequest: requests.RestartHeatWaveClusterRequest
   ): Promise<responses.RestartHeatWaveClusterResponse> {
-    logger.debug("Calling operation DbSystemClient#restartHeatWaveCluster.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartHeatWaveCluster.");
     const operationName = "restartHeatWaveCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/RestartHeatWaveCluster";
@@ -2592,6 +2632,7 @@ export class DbSystemClient {
       restartHeatWaveClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2642,7 +2683,7 @@ export class DbSystemClient {
   public async startDbSystem(
     startDbSystemRequest: requests.StartDbSystemRequest
   ): Promise<responses.StartDbSystemResponse> {
-    logger.debug("Calling operation DbSystemClient#startDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#startDbSystem.");
     const operationName = "startDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/StartDbSystem";
@@ -2665,6 +2706,7 @@ export class DbSystemClient {
       startDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2715,7 +2757,7 @@ export class DbSystemClient {
   public async startHeatWaveCluster(
     startHeatWaveClusterRequest: requests.StartHeatWaveClusterRequest
   ): Promise<responses.StartHeatWaveClusterResponse> {
-    logger.debug("Calling operation DbSystemClient#startHeatWaveCluster.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#startHeatWaveCluster.");
     const operationName = "startHeatWaveCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/StartHeatWaveCluster";
@@ -2738,6 +2780,7 @@ export class DbSystemClient {
       startHeatWaveClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2791,7 +2834,7 @@ A stopped DB System is not billed.
   public async stopDbSystem(
     stopDbSystemRequest: requests.StopDbSystemRequest
   ): Promise<responses.StopDbSystemResponse> {
-    logger.debug("Calling operation DbSystemClient#stopDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopDbSystem.");
     const operationName = "stopDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/StopDbSystem";
@@ -2814,6 +2857,7 @@ A stopped DB System is not billed.
       stopDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2869,7 +2913,7 @@ A stopped DB System is not billed.
   public async stopHeatWaveCluster(
     stopHeatWaveClusterRequest: requests.StopHeatWaveClusterRequest
   ): Promise<responses.StopHeatWaveClusterResponse> {
-    logger.debug("Calling operation DbSystemClient#stopHeatWaveCluster.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopHeatWaveCluster.");
     const operationName = "stopHeatWaveCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/StopHeatWaveCluster";
@@ -2892,6 +2936,7 @@ A stopped DB System is not billed.
       stopHeatWaveClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2950,7 +2995,7 @@ Updating different fields in the DB System will have different results
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
   ): Promise<responses.UpdateDbSystemResponse> {
-    logger.debug("Calling operation DbSystemClient#updateDbSystem.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateDbSystem.");
     const operationName = "updateDbSystem";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/UpdateDbSystem";
@@ -2972,6 +3017,7 @@ Updating different fields in the DB System will have different results
       updateDbSystemRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3028,7 +3074,7 @@ Updating different fields in the DB System will have different results
   public async updateHeatWaveCluster(
     updateHeatWaveClusterRequest: requests.UpdateHeatWaveClusterRequest
   ): Promise<responses.UpdateHeatWaveClusterResponse> {
-    logger.debug("Calling operation DbSystemClient#updateHeatWaveCluster.");
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateHeatWaveCluster.");
     const operationName = "updateHeatWaveCluster";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/UpdateHeatWaveCluster";
@@ -3050,6 +3096,7 @@ Updating different fields in the DB System will have different results
       updateHeatWaveClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3101,7 +3148,7 @@ export enum MysqlaasApiKeys {}
 export class MysqlaasClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": MysqlaasWaiter;
@@ -3182,7 +3229,11 @@ export class MysqlaasClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
-    logger.info(`MysqlaasClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`MysqlaasClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -3192,9 +3243,10 @@ export class MysqlaasClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         MysqlaasClient.serviceEndpointTemplate,
@@ -3286,7 +3338,7 @@ export class MysqlaasClient {
   public async createConfiguration(
     createConfigurationRequest: requests.CreateConfigurationRequest
   ): Promise<responses.CreateConfigurationResponse> {
-    logger.debug("Calling operation MysqlaasClient#createConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#createConfiguration.");
     const operationName = "createConfiguration";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -3305,6 +3357,7 @@ export class MysqlaasClient {
       createConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3376,7 +3429,7 @@ export class MysqlaasClient {
   public async deleteConfiguration(
     deleteConfigurationRequest: requests.DeleteConfigurationRequest
   ): Promise<responses.DeleteConfigurationResponse> {
-    logger.debug("Calling operation MysqlaasClient#deleteConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#deleteConfiguration.");
     const operationName = "deleteConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Configuration/DeleteConfiguration";
@@ -3398,6 +3451,7 @@ export class MysqlaasClient {
       deleteConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3444,7 +3498,7 @@ export class MysqlaasClient {
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
-    logger.debug("Calling operation MysqlaasClient#getConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#getConfiguration.");
     const operationName = "getConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Configuration/GetConfiguration";
@@ -3466,6 +3520,7 @@ export class MysqlaasClient {
       getConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3528,7 +3583,7 @@ The default sort order is a multi-part sort by:
   public async listConfigurations(
     listConfigurationsRequest: requests.ListConfigurationsRequest
   ): Promise<responses.ListConfigurationsResponse> {
-    logger.debug("Calling operation MysqlaasClient#listConfigurations.");
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listConfigurations.");
     const operationName = "listConfigurations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ConfigurationSummary/ListConfigurations";
@@ -3558,6 +3613,7 @@ The default sort order is a multi-part sort by:
       listConfigurationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3668,7 +3724,7 @@ The default sort order is a multi-part sort by:
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
-    logger.debug("Calling operation MysqlaasClient#listShapes.");
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listShapes.");
     const operationName = "listShapes";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ShapeSummary/ListShapes";
@@ -3692,6 +3748,7 @@ The default sort order is a multi-part sort by:
       listShapesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3744,7 +3801,7 @@ The list is sorted by version family.
   public async listVersions(
     listVersionsRequest: requests.ListVersionsRequest
   ): Promise<responses.ListVersionsResponse> {
-    logger.debug("Calling operation MysqlaasClient#listVersions.");
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listVersions.");
     const operationName = "listVersions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/VersionSummary/ListVersions";
@@ -3765,6 +3822,7 @@ The list is sorted by version family.
       listVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3814,7 +3872,7 @@ The list is sorted by version family.
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
-    logger.debug("Calling operation MysqlaasClient#updateConfiguration.");
+    if (this.logger) this.logger.debug("Calling operation MysqlaasClient#updateConfiguration.");
     const operationName = "updateConfiguration";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Configuration/UpdateConfiguration";
@@ -3836,6 +3894,7 @@ The list is sorted by version family.
       updateConfigurationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -3891,7 +3950,7 @@ export enum ReplicasApiKeys {}
 export class ReplicasClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ReplicasWaiter;
@@ -3972,7 +4031,11 @@ export class ReplicasClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
-    logger.info(`ReplicasClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`ReplicasClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -3982,9 +4045,10 @@ export class ReplicasClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ReplicasClient.serviceEndpointTemplate,
@@ -4076,7 +4140,7 @@ export class ReplicasClient {
   public async createReplica(
     createReplicaRequest: requests.CreateReplicaRequest
   ): Promise<responses.CreateReplicaResponse> {
-    logger.debug("Calling operation ReplicasClient#createReplica.");
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#createReplica.");
     const operationName = "createReplica";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -4095,6 +4159,7 @@ export class ReplicasClient {
       createReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4164,7 +4229,7 @@ export class ReplicasClient {
   public async deleteReplica(
     deleteReplicaRequest: requests.DeleteReplicaRequest
   ): Promise<responses.DeleteReplicaResponse> {
-    logger.debug("Calling operation ReplicasClient#deleteReplica.");
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#deleteReplica.");
     const operationName = "deleteReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Replica/DeleteReplica";
@@ -4186,6 +4251,7 @@ export class ReplicasClient {
       deleteReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4236,7 +4302,7 @@ export class ReplicasClient {
   public async getReplica(
     getReplicaRequest: requests.GetReplicaRequest
   ): Promise<responses.GetReplicaResponse> {
-    logger.debug("Calling operation ReplicasClient#getReplica.");
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#getReplica.");
     const operationName = "getReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Replica/GetReplica";
@@ -4258,6 +4324,7 @@ export class ReplicasClient {
       getReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4312,7 +4379,7 @@ export class ReplicasClient {
   public async listReplicas(
     listReplicasRequest: requests.ListReplicasRequest
   ): Promise<responses.ListReplicasResponse> {
-    logger.debug("Calling operation ReplicasClient#listReplicas.");
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#listReplicas.");
     const operationName = "listReplicas";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ReplicaSummary/ListReplicas";
@@ -4343,6 +4410,7 @@ export class ReplicasClient {
       listReplicasRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4449,7 +4517,7 @@ export class ReplicasClient {
   public async updateReplica(
     updateReplicaRequest: requests.UpdateReplicaRequest
   ): Promise<responses.UpdateReplicaResponse> {
-    logger.debug("Calling operation ReplicasClient#updateReplica.");
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#updateReplica.");
     const operationName = "updateReplica";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Replica/UpdateReplica";
@@ -4471,6 +4539,7 @@ export class ReplicasClient {
       updateReplicaRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4522,7 +4591,7 @@ export enum WorkRequestsApiKeys {}
 export class WorkRequestsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestsWaiter;
@@ -4603,7 +4672,11 @@ export class WorkRequestsClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20190415";
-    logger.info(`WorkRequestsClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`WorkRequestsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -4613,9 +4686,10 @@ export class WorkRequestsClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         WorkRequestsClient.serviceEndpointTemplate,
@@ -4707,7 +4781,7 @@ export class WorkRequestsClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequest/GetWorkRequest";
@@ -4729,6 +4803,7 @@ export class WorkRequestsClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4789,7 +4864,8 @@ export class WorkRequestsClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequestError/ListWorkRequestErrors";
@@ -4813,6 +4889,7 @@ export class WorkRequestsClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -4920,7 +4997,7 @@ export class WorkRequestsClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -4944,6 +5021,7 @@ export class WorkRequestsClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -5051,7 +5129,7 @@ export class WorkRequestsClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequestSummary/ListWorkRequests";
@@ -5076,6 +5154,7 @@ export class WorkRequestsClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

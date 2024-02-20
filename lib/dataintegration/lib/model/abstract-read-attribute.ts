@@ -48,7 +48,7 @@ export namespace AbstractReadAttribute {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -79,7 +79,7 @@ export namespace AbstractReadAttribute {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.modelType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -39,7 +38,7 @@ export enum OptimizerApiKeys {}
 export class OptimizerClient {
   protected static serviceEndpointTemplate = "https://optimizer.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OptimizerWaiter;
@@ -120,7 +119,11 @@ export class OptimizerClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20200606";
-    logger.info(`OptimizerClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`OptimizerClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -130,9 +133,10 @@ export class OptimizerClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OptimizerClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class OptimizerClient {
   public async bulkApplyRecommendations(
     bulkApplyRecommendationsRequest: requests.BulkApplyRecommendationsRequest
   ): Promise<responses.BulkApplyRecommendationsResponse> {
-    logger.debug("Calling operation OptimizerClient#bulkApplyRecommendations.");
+    if (this.logger)
+      this.logger.debug("Calling operation OptimizerClient#bulkApplyRecommendations.");
     const operationName = "bulkApplyRecommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Recommendation/BulkApplyRecommendations";
@@ -247,6 +252,7 @@ export class OptimizerClient {
       bulkApplyRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -303,7 +309,7 @@ export class OptimizerClient {
   public async createProfile(
     createProfileRequest: requests.CreateProfileRequest
   ): Promise<responses.CreateProfileResponse> {
-    logger.debug("Calling operation OptimizerClient#createProfile.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#createProfile.");
     const operationName = "createProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Profile/CreateProfile";
@@ -323,6 +329,7 @@ export class OptimizerClient {
       createProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -383,7 +390,7 @@ export class OptimizerClient {
   public async deleteProfile(
     deleteProfileRequest: requests.DeleteProfileRequest
   ): Promise<responses.DeleteProfileResponse> {
-    logger.debug("Calling operation OptimizerClient#deleteProfile.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#deleteProfile.");
     const operationName = "deleteProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Profile/DeleteProfile";
@@ -405,6 +412,7 @@ export class OptimizerClient {
       deleteProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -451,7 +459,7 @@ export class OptimizerClient {
   public async filterResourceActions(
     filterResourceActionsRequest: requests.FilterResourceActionsRequest
   ): Promise<responses.FilterResourceActionsResponse> {
-    logger.debug("Calling operation OptimizerClient#filterResourceActions.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#filterResourceActions.");
     const operationName = "filterResourceActions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ResourceActionSummary/FilterResourceActions";
@@ -480,6 +488,7 @@ export class OptimizerClient {
       filterResourceActionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -545,7 +554,7 @@ export class OptimizerClient {
   public async getCategory(
     getCategoryRequest: requests.GetCategoryRequest
   ): Promise<responses.GetCategoryResponse> {
-    logger.debug("Calling operation OptimizerClient#getCategory.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#getCategory.");
     const operationName = "getCategory";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Category/GetCategory";
@@ -566,6 +575,7 @@ export class OptimizerClient {
       getCategoryRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -616,7 +626,7 @@ export class OptimizerClient {
   public async getEnrollmentStatus(
     getEnrollmentStatusRequest: requests.GetEnrollmentStatusRequest
   ): Promise<responses.GetEnrollmentStatusResponse> {
-    logger.debug("Calling operation OptimizerClient#getEnrollmentStatus.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#getEnrollmentStatus.");
     const operationName = "getEnrollmentStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/EnrollmentStatus/GetEnrollmentStatus";
@@ -637,6 +647,7 @@ export class OptimizerClient {
       getEnrollmentStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -692,7 +703,7 @@ export class OptimizerClient {
   public async getProfile(
     getProfileRequest: requests.GetProfileRequest
   ): Promise<responses.GetProfileResponse> {
-    logger.debug("Calling operation OptimizerClient#getProfile.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#getProfile.");
     const operationName = "getProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Profile/GetProfile";
@@ -713,6 +724,7 @@ export class OptimizerClient {
       getProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -768,7 +780,7 @@ export class OptimizerClient {
   public async getRecommendation(
     getRecommendationRequest: requests.GetRecommendationRequest
   ): Promise<responses.GetRecommendationResponse> {
-    logger.debug("Calling operation OptimizerClient#getRecommendation.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#getRecommendation.");
     const operationName = "getRecommendation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Recommendation/GetRecommendation";
@@ -789,6 +801,7 @@ export class OptimizerClient {
       getRecommendationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -844,7 +857,7 @@ export class OptimizerClient {
   public async getResourceAction(
     getResourceActionRequest: requests.GetResourceActionRequest
   ): Promise<responses.GetResourceActionResponse> {
-    logger.debug("Calling operation OptimizerClient#getResourceAction.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#getResourceAction.");
     const operationName = "getResourceAction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ResourceAction/GetResourceAction";
@@ -867,6 +880,7 @@ export class OptimizerClient {
       getResourceActionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -921,7 +935,7 @@ export class OptimizerClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation OptimizerClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/WorkRequest/GetWorkRequest";
@@ -942,6 +956,7 @@ export class OptimizerClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -997,7 +1012,7 @@ export class OptimizerClient {
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
   ): Promise<responses.ListCategoriesResponse> {
-    logger.debug("Calling operation OptimizerClient#listCategories.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listCategories.");
     const operationName = "listCategories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/CategorySummary/ListCategories";
@@ -1027,6 +1042,7 @@ export class OptimizerClient {
       listCategoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1087,7 +1103,7 @@ export class OptimizerClient {
   public async listEnrollmentStatuses(
     listEnrollmentStatusesRequest: requests.ListEnrollmentStatusesRequest
   ): Promise<responses.ListEnrollmentStatusesResponse> {
-    logger.debug("Calling operation OptimizerClient#listEnrollmentStatuses.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listEnrollmentStatuses.");
     const operationName = "listEnrollmentStatuses";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/EnrollmentStatusSummary/ListEnrollmentStatuses";
@@ -1114,6 +1130,7 @@ export class OptimizerClient {
       listEnrollmentStatusesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1175,7 +1192,7 @@ export class OptimizerClient {
   public async listHistories(
     listHistoriesRequest: requests.ListHistoriesRequest
   ): Promise<responses.ListHistoriesResponse> {
-    logger.debug("Calling operation OptimizerClient#listHistories.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listHistories.");
     const operationName = "listHistories";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/HistorySummary/ListHistories";
@@ -1208,6 +1225,7 @@ export class OptimizerClient {
       listHistoriesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1268,7 +1286,7 @@ export class OptimizerClient {
   public async listProfileLevels(
     listProfileLevelsRequest: requests.ListProfileLevelsRequest
   ): Promise<responses.ListProfileLevelsResponse> {
-    logger.debug("Calling operation OptimizerClient#listProfileLevels.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listProfileLevels.");
     const operationName = "listProfileLevels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ProfileLevelSummary/ListProfileLevels";
@@ -1296,6 +1314,7 @@ export class OptimizerClient {
       listProfileLevelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1356,7 +1375,7 @@ export class OptimizerClient {
   public async listProfiles(
     listProfilesRequest: requests.ListProfilesRequest
   ): Promise<responses.ListProfilesResponse> {
-    logger.debug("Calling operation OptimizerClient#listProfiles.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listProfiles.");
     const operationName = "listProfiles";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ProfileSummary/ListProfiles";
@@ -1383,6 +1402,7 @@ export class OptimizerClient {
       listProfilesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1443,7 +1463,8 @@ export class OptimizerClient {
   public async listRecommendationStrategies(
     listRecommendationStrategiesRequest: requests.ListRecommendationStrategiesRequest
   ): Promise<responses.ListRecommendationStrategiesResponse> {
-    logger.debug("Calling operation OptimizerClient#listRecommendationStrategies.");
+    if (this.logger)
+      this.logger.debug("Calling operation OptimizerClient#listRecommendationStrategies.");
     const operationName = "listRecommendationStrategies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/RecommendationStrategySummary/ListRecommendationStrategies";
@@ -1471,6 +1492,7 @@ export class OptimizerClient {
       listRecommendationStrategiesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1531,7 +1553,7 @@ export class OptimizerClient {
   public async listRecommendations(
     listRecommendationsRequest: requests.ListRecommendationsRequest
   ): Promise<responses.ListRecommendationsResponse> {
-    logger.debug("Calling operation OptimizerClient#listRecommendations.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listRecommendations.");
     const operationName = "listRecommendations";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/RecommendationSummary/ListRecommendations";
@@ -1564,6 +1586,7 @@ export class OptimizerClient {
       listRecommendationsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1624,7 +1647,8 @@ export class OptimizerClient {
   public async listResourceActionQueryableFields(
     listResourceActionQueryableFieldsRequest: requests.ListResourceActionQueryableFieldsRequest
   ): Promise<responses.ListResourceActionQueryableFieldsResponse> {
-    logger.debug("Calling operation OptimizerClient#listResourceActionQueryableFields.");
+    if (this.logger)
+      this.logger.debug("Calling operation OptimizerClient#listResourceActionQueryableFields.");
     const operationName = "listResourceActionQueryableFields";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/QueryableFieldSummary/ListResourceActionQueryableFields";
@@ -1648,6 +1672,7 @@ export class OptimizerClient {
       listResourceActionQueryableFieldsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1708,7 +1733,7 @@ export class OptimizerClient {
   public async listResourceActions(
     listResourceActionsRequest: requests.ListResourceActionsRequest
   ): Promise<responses.ListResourceActionsResponse> {
-    logger.debug("Calling operation OptimizerClient#listResourceActions.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listResourceActions.");
     const operationName = "listResourceActions";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ResourceActionSummary/ListResourceActions";
@@ -1743,6 +1768,7 @@ export class OptimizerClient {
       listResourceActionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1803,7 +1829,7 @@ export class OptimizerClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation OptimizerClient#listWorkRequestErrors.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/WorkRequestError/ListWorkRequestErrors";
@@ -1827,6 +1853,7 @@ export class OptimizerClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1882,7 +1909,7 @@ export class OptimizerClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation OptimizerClient#listWorkRequestLogs.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -1906,6 +1933,7 @@ export class OptimizerClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1961,7 +1989,7 @@ export class OptimizerClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation OptimizerClient#listWorkRequests.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/WorkRequest/ListWorkRequests";
@@ -1984,6 +2012,7 @@ export class OptimizerClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2039,7 +2068,7 @@ export class OptimizerClient {
   public async updateEnrollmentStatus(
     updateEnrollmentStatusRequest: requests.UpdateEnrollmentStatusRequest
   ): Promise<responses.UpdateEnrollmentStatusResponse> {
-    logger.debug("Calling operation OptimizerClient#updateEnrollmentStatus.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#updateEnrollmentStatus.");
     const operationName = "updateEnrollmentStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/EnrollmentStatus/UpdateEnrollmentStatus";
@@ -2061,6 +2090,7 @@ export class OptimizerClient {
       updateEnrollmentStatusRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2121,7 +2151,7 @@ export class OptimizerClient {
   public async updateProfile(
     updateProfileRequest: requests.UpdateProfileRequest
   ): Promise<responses.UpdateProfileResponse> {
-    logger.debug("Calling operation OptimizerClient#updateProfile.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#updateProfile.");
     const operationName = "updateProfile";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Profile/UpdateProfile";
@@ -2143,6 +2173,7 @@ export class OptimizerClient {
       updateProfileRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2208,7 +2239,7 @@ export class OptimizerClient {
   public async updateRecommendation(
     updateRecommendationRequest: requests.UpdateRecommendationRequest
   ): Promise<responses.UpdateRecommendationResponse> {
-    logger.debug("Calling operation OptimizerClient#updateRecommendation.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#updateRecommendation.");
     const operationName = "updateRecommendation";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Recommendation/UpdateRecommendation";
@@ -2230,6 +2261,7 @@ export class OptimizerClient {
       updateRecommendationRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2295,7 +2327,7 @@ export class OptimizerClient {
   public async updateResourceAction(
     updateResourceActionRequest: requests.UpdateResourceActionRequest
   ): Promise<responses.UpdateResourceActionResponse> {
-    logger.debug("Calling operation OptimizerClient#updateResourceAction.");
+    if (this.logger) this.logger.debug("Calling operation OptimizerClient#updateResourceAction.");
     const operationName = "updateResourceAction";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ResourceAction/UpdateResourceAction";
@@ -2317,6 +2349,7 @@ export class OptimizerClient {
       updateResourceActionRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

@@ -104,7 +104,7 @@ export namespace AwrQueryResult {
         case "AWRDB_SQL_REPORT":
           return model.AwrDbSqlReport.getJsonObj(<model.AwrDbSqlReport>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.awrResultType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.awrResultType}`);
       }
     }
     return jsonObj;
@@ -180,7 +180,7 @@ export namespace AwrQueryResult {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.awrResultType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.awrResultType}`);
       }
     }
     return jsonObj;

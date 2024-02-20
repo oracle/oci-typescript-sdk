@@ -51,7 +51,7 @@ export namespace StorageDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.systemType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.systemType}`);
       }
     }
     return jsonObj;
@@ -67,7 +67,7 @@ export namespace StorageDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.systemType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.systemType}`);
       }
     }
     return jsonObj;

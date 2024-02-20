@@ -77,7 +77,8 @@ export namespace ExportImageDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.destinationType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.destinationType}`);
       }
     }
     return jsonObj;
@@ -98,7 +99,8 @@ export namespace ExportImageDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.destinationType}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.destinationType}`);
       }
     }
     return jsonObj;

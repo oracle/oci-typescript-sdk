@@ -112,7 +112,7 @@ export namespace TargetAsset {
         case "INSTANCE":
           return model.VmTargetAsset.getJsonObj(<model.VmTargetAsset>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -144,7 +144,7 @@ export namespace TargetAsset {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

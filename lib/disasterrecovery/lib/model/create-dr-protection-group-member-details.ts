@@ -85,7 +85,7 @@ export namespace CreateDrProtectionGroupMemberDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.memberType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.memberType}`);
       }
     }
     return jsonObj;
@@ -141,7 +141,7 @@ export namespace CreateDrProtectionGroupMemberDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.memberType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.memberType}`);
       }
     }
     return jsonObj;

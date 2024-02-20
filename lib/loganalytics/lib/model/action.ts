@@ -33,7 +33,7 @@ export namespace Action {
         case "STREAM":
           return model.StreamAction.getJsonObj(<model.StreamAction>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -54,7 +54,7 @@ export namespace Action {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

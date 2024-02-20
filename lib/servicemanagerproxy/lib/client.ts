@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -37,7 +36,7 @@ export enum ServiceManagerProxyApiKeys {}
 export class ServiceManagerProxyClient {
   protected static serviceEndpointTemplate = "https://smproxy.{region}.ocs.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -117,7 +116,12 @@ export class ServiceManagerProxyClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210914";
-    logger.info(`ServiceManagerProxyClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`ServiceManagerProxyClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -127,9 +131,10 @@ export class ServiceManagerProxyClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ServiceManagerProxyClient.serviceEndpointTemplate,
@@ -199,7 +204,8 @@ export class ServiceManagerProxyClient {
   public async getServiceEnvironment(
     getServiceEnvironmentRequest: requests.GetServiceEnvironmentRequest
   ): Promise<responses.GetServiceEnvironmentResponse> {
-    logger.debug("Calling operation ServiceManagerProxyClient#getServiceEnvironment.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceManagerProxyClient#getServiceEnvironment.");
     const operationName = "getServiceEnvironment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/smp/20210914/ServiceEnvironment/GetServiceEnvironment";
@@ -222,6 +228,7 @@ export class ServiceManagerProxyClient {
       getServiceEnvironmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -278,7 +285,8 @@ export class ServiceManagerProxyClient {
   public async listServiceEnvironments(
     listServiceEnvironmentsRequest: requests.ListServiceEnvironmentsRequest
   ): Promise<responses.ListServiceEnvironmentsResponse> {
-    logger.debug("Calling operation ServiceManagerProxyClient#listServiceEnvironments.");
+    if (this.logger)
+      this.logger.debug("Calling operation ServiceManagerProxyClient#listServiceEnvironments.");
     const operationName = "listServiceEnvironments";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/smp/20210914/ServiceEnvironment/ListServiceEnvironments";
@@ -306,6 +314,7 @@ export class ServiceManagerProxyClient {
       listServiceEnvironmentsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

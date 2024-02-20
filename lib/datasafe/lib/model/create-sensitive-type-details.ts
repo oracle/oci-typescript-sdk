@@ -73,7 +73,7 @@ export namespace CreateSensitiveTypeDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.entityType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`);
       }
     }
     return jsonObj;
@@ -94,7 +94,7 @@ export namespace CreateSensitiveTypeDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.entityType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`);
       }
     }
     return jsonObj;

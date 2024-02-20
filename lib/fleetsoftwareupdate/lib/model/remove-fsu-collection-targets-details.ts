@@ -36,7 +36,8 @@ export namespace RemoveFsuCollectionTargetsDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.removalStrategy}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.removalStrategy}`);
       }
     }
     return jsonObj;
@@ -52,7 +53,8 @@ export namespace RemoveFsuCollectionTargetsDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.removalStrategy}`);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.removalStrategy}`);
       }
     }
     return jsonObj;

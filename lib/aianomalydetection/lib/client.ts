@@ -23,8 +23,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -40,7 +39,7 @@ export class AnomalyDetectionClient {
   protected static serviceEndpointTemplate =
     "https://anomalydetection.aiservice.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": AnomalyDetectionWaiter;
@@ -121,7 +120,11 @@ export class AnomalyDetectionClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20210101";
-    logger.info(`AnomalyDetectionClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`AnomalyDetectionClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -131,9 +134,10 @@ export class AnomalyDetectionClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         AnomalyDetectionClient.serviceEndpointTemplate,
@@ -225,7 +229,8 @@ export class AnomalyDetectionClient {
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#cancelWorkRequest.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequest/CancelWorkRequest";
@@ -247,6 +252,7 @@ export class AnomalyDetectionClient {
       cancelWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -292,7 +298,10 @@ export class AnomalyDetectionClient {
   public async changeAiPrivateEndpointCompartment(
     changeAiPrivateEndpointCompartmentRequest: requests.ChangeAiPrivateEndpointCompartmentRequest
   ): Promise<responses.ChangeAiPrivateEndpointCompartmentResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#changeAiPrivateEndpointCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnomalyDetectionClient#changeAiPrivateEndpointCompartment."
+      );
     const operationName = "changeAiPrivateEndpointCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/ChangeAiPrivateEndpointCompartment";
@@ -315,6 +324,7 @@ export class AnomalyDetectionClient {
       changeAiPrivateEndpointCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -370,7 +380,8 @@ export class AnomalyDetectionClient {
   public async changeDataAssetCompartment(
     changeDataAssetCompartmentRequest: requests.ChangeDataAssetCompartmentRequest
   ): Promise<responses.ChangeDataAssetCompartmentResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#changeDataAssetCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#changeDataAssetCompartment.");
     const operationName = "changeDataAssetCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/ChangeDataAssetCompartment";
@@ -393,6 +404,7 @@ export class AnomalyDetectionClient {
       changeDataAssetCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -452,7 +464,10 @@ export class AnomalyDetectionClient {
   public async changeDetectAnomalyJobCompartment(
     changeDetectAnomalyJobCompartmentRequest: requests.ChangeDetectAnomalyJobCompartmentRequest
   ): Promise<responses.ChangeDetectAnomalyJobCompartmentResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#changeDetectAnomalyJobCompartment.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnomalyDetectionClient#changeDetectAnomalyJobCompartment."
+      );
     const operationName = "changeDetectAnomalyJobCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/ChangeDetectAnomalyJobCompartment";
@@ -474,6 +489,7 @@ export class AnomalyDetectionClient {
       changeDetectAnomalyJobCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -524,7 +540,8 @@ export class AnomalyDetectionClient {
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
   ): Promise<responses.ChangeModelCompartmentResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#changeModelCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#changeModelCompartment.");
     const operationName = "changeModelCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/ChangeModelCompartment";
@@ -547,6 +564,7 @@ export class AnomalyDetectionClient {
       changeModelCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -597,7 +615,8 @@ export class AnomalyDetectionClient {
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
   ): Promise<responses.ChangeProjectCompartmentResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#changeProjectCompartment.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#changeProjectCompartment.");
     const operationName = "changeProjectCompartment";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/ChangeProjectCompartment";
@@ -620,6 +639,7 @@ export class AnomalyDetectionClient {
       changeProjectCompartmentRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -670,7 +690,8 @@ export class AnomalyDetectionClient {
   public async createAiPrivateEndpoint(
     createAiPrivateEndpointRequest: requests.CreateAiPrivateEndpointRequest
   ): Promise<responses.CreateAiPrivateEndpointResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#createAiPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#createAiPrivateEndpoint.");
     const operationName = "createAiPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/CreateAiPrivateEndpoint";
@@ -690,6 +711,7 @@ export class AnomalyDetectionClient {
       createAiPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -746,7 +768,7 @@ export class AnomalyDetectionClient {
   public async createDataAsset(
     createDataAssetRequest: requests.CreateDataAssetRequest
   ): Promise<responses.CreateDataAssetResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#createDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createDataAsset.");
     const operationName = "createDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/CreateDataAsset";
@@ -766,6 +788,7 @@ export class AnomalyDetectionClient {
       createDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -825,7 +848,8 @@ export class AnomalyDetectionClient {
   public async createDetectAnomalyJob(
     createDetectAnomalyJobRequest: requests.CreateDetectAnomalyJobRequest
   ): Promise<responses.CreateDetectAnomalyJobResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#createDetectAnomalyJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#createDetectAnomalyJob.");
     const operationName = "createDetectAnomalyJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/CreateDetectAnomalyJob";
@@ -845,6 +869,7 @@ export class AnomalyDetectionClient {
       createDetectAnomalyJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -905,7 +930,7 @@ export class AnomalyDetectionClient {
   public async createModel(
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#createModel.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createModel.");
     const operationName = "createModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/CreateModel";
@@ -925,6 +950,7 @@ export class AnomalyDetectionClient {
       createModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -995,7 +1021,7 @@ export class AnomalyDetectionClient {
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#createProject.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createProject.");
     const operationName = "createProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/CreateProject";
@@ -1015,6 +1041,7 @@ export class AnomalyDetectionClient {
       createProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1074,7 +1101,8 @@ export class AnomalyDetectionClient {
   public async deleteAiPrivateEndpoint(
     deleteAiPrivateEndpointRequest: requests.DeleteAiPrivateEndpointRequest
   ): Promise<responses.DeleteAiPrivateEndpointResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#deleteAiPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#deleteAiPrivateEndpoint.");
     const operationName = "deleteAiPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/DeleteAiPrivateEndpoint";
@@ -1096,6 +1124,7 @@ export class AnomalyDetectionClient {
       deleteAiPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1146,7 +1175,7 @@ export class AnomalyDetectionClient {
   public async deleteDataAsset(
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
   ): Promise<responses.DeleteDataAssetResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#deleteDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteDataAsset.");
     const operationName = "deleteDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/DeleteDataAsset";
@@ -1168,6 +1197,7 @@ export class AnomalyDetectionClient {
       deleteDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1213,7 +1243,8 @@ export class AnomalyDetectionClient {
   public async deleteDetectAnomalyJob(
     deleteDetectAnomalyJobRequest: requests.DeleteDetectAnomalyJobRequest
   ): Promise<responses.DeleteDetectAnomalyJobResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#deleteDetectAnomalyJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#deleteDetectAnomalyJob.");
     const operationName = "deleteDetectAnomalyJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/DeleteDetectAnomalyJob";
@@ -1235,6 +1266,7 @@ export class AnomalyDetectionClient {
       deleteDetectAnomalyJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1280,7 +1312,7 @@ export class AnomalyDetectionClient {
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#deleteModel.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteModel.");
     const operationName = "deleteModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/DeleteModel";
@@ -1302,6 +1334,7 @@ export class AnomalyDetectionClient {
       deleteModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1352,7 +1385,7 @@ export class AnomalyDetectionClient {
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#deleteProject.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteProject.");
     const operationName = "deleteProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/DeleteProject";
@@ -1374,6 +1407,7 @@ export class AnomalyDetectionClient {
       deleteProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1424,7 +1458,7 @@ export class AnomalyDetectionClient {
   public async detectAnomalies(
     detectAnomaliesRequest: requests.DetectAnomaliesRequest
   ): Promise<responses.DetectAnomaliesResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#detectAnomalies.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#detectAnomalies.");
     const operationName = "detectAnomalies";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/DetectAnomalies";
@@ -1445,6 +1479,7 @@ export class AnomalyDetectionClient {
       detectAnomaliesRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1499,7 +1534,8 @@ export class AnomalyDetectionClient {
   public async getAiPrivateEndpoint(
     getAiPrivateEndpointRequest: requests.GetAiPrivateEndpointRequest
   ): Promise<responses.GetAiPrivateEndpointResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#getAiPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#getAiPrivateEndpoint.");
     const operationName = "getAiPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/GetAiPrivateEndpoint";
@@ -1520,6 +1556,7 @@ export class AnomalyDetectionClient {
       getAiPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1574,7 +1611,7 @@ export class AnomalyDetectionClient {
   public async getDataAsset(
     getDataAssetRequest: requests.GetDataAssetRequest
   ): Promise<responses.GetDataAssetResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#getDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getDataAsset.");
     const operationName = "getDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/GetDataAsset";
@@ -1595,6 +1632,7 @@ export class AnomalyDetectionClient {
       getDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1649,7 +1687,8 @@ export class AnomalyDetectionClient {
   public async getDetectAnomalyJob(
     getDetectAnomalyJobRequest: requests.GetDetectAnomalyJobRequest
   ): Promise<responses.GetDetectAnomalyJobResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#getDetectAnomalyJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#getDetectAnomalyJob.");
     const operationName = "getDetectAnomalyJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/GetDetectAnomalyJob";
@@ -1670,6 +1709,7 @@ export class AnomalyDetectionClient {
       getDetectAnomalyJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1724,7 +1764,7 @@ export class AnomalyDetectionClient {
   public async getModel(
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#getModel.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getModel.");
     const operationName = "getModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/GetModel";
@@ -1745,6 +1785,7 @@ export class AnomalyDetectionClient {
       getModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1799,7 +1840,7 @@ export class AnomalyDetectionClient {
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#getProject.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getProject.");
     const operationName = "getProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/GetProject";
@@ -1820,6 +1861,7 @@ export class AnomalyDetectionClient {
       getProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1874,7 +1916,7 @@ export class AnomalyDetectionClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequest/GetWorkRequest";
@@ -1895,6 +1937,7 @@ export class AnomalyDetectionClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1955,7 +1998,8 @@ export class AnomalyDetectionClient {
   public async listAiPrivateEndpoints(
     listAiPrivateEndpointsRequest: requests.ListAiPrivateEndpointsRequest
   ): Promise<responses.ListAiPrivateEndpointsResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#listAiPrivateEndpoints.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#listAiPrivateEndpoints.");
     const operationName = "listAiPrivateEndpoints";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpointCollection/ListAiPrivateEndpoints";
@@ -1983,6 +2027,7 @@ export class AnomalyDetectionClient {
       listAiPrivateEndpointsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2038,7 +2083,7 @@ export class AnomalyDetectionClient {
   public async listDataAssets(
     listDataAssetsRequest: requests.ListDataAssetsRequest
   ): Promise<responses.ListDataAssetsResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#listDataAssets.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listDataAssets.");
     const operationName = "listDataAssets";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAssetCollection/ListDataAssets";
@@ -2066,6 +2111,7 @@ export class AnomalyDetectionClient {
       listDataAssetsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2121,7 +2167,8 @@ export class AnomalyDetectionClient {
   public async listDetectAnomalyJobs(
     listDetectAnomalyJobsRequest: requests.ListDetectAnomalyJobsRequest
   ): Promise<responses.ListDetectAnomalyJobsResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#listDetectAnomalyJobs.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#listDetectAnomalyJobs.");
     const operationName = "listDetectAnomalyJobs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJobCollection/ListDetectAnomalyJobs";
@@ -2151,6 +2198,7 @@ export class AnomalyDetectionClient {
       listDetectAnomalyJobsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2211,7 +2259,7 @@ export class AnomalyDetectionClient {
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#listModels.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listModels.");
     const operationName = "listModels";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/ListModels";
@@ -2239,6 +2287,7 @@ export class AnomalyDetectionClient {
       listModelsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2294,7 +2343,7 @@ export class AnomalyDetectionClient {
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#listProjects.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listProjects.");
     const operationName = "listProjects";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/ListProjects";
@@ -2321,6 +2370,7 @@ export class AnomalyDetectionClient {
       listProjectsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2376,7 +2426,8 @@ export class AnomalyDetectionClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequestError/ListWorkRequestErrors";
@@ -2400,6 +2451,7 @@ export class AnomalyDetectionClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2455,7 +2507,8 @@ export class AnomalyDetectionClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequestLogEntry/ListWorkRequestLogs";
@@ -2479,6 +2532,7 @@ export class AnomalyDetectionClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2534,7 +2588,8 @@ export class AnomalyDetectionClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequest/ListWorkRequests";
@@ -2558,6 +2613,7 @@ export class AnomalyDetectionClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2612,7 +2668,8 @@ export class AnomalyDetectionClient {
   public async updateAiPrivateEndpoint(
     updateAiPrivateEndpointRequest: requests.UpdateAiPrivateEndpointRequest
   ): Promise<responses.UpdateAiPrivateEndpointResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#updateAiPrivateEndpoint.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#updateAiPrivateEndpoint.");
     const operationName = "updateAiPrivateEndpoint";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/UpdateAiPrivateEndpoint";
@@ -2634,6 +2691,7 @@ export class AnomalyDetectionClient {
       updateAiPrivateEndpointRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2689,7 +2747,7 @@ export class AnomalyDetectionClient {
   public async updateDataAsset(
     updateDataAssetRequest: requests.UpdateDataAssetRequest
   ): Promise<responses.UpdateDataAssetResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#updateDataAsset.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateDataAsset.");
     const operationName = "updateDataAsset";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/UpdateDataAsset";
@@ -2711,6 +2769,7 @@ export class AnomalyDetectionClient {
       updateDataAssetRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2770,7 +2829,8 @@ export class AnomalyDetectionClient {
   public async updateDetectAnomalyJob(
     updateDetectAnomalyJobRequest: requests.UpdateDetectAnomalyJobRequest
   ): Promise<responses.UpdateDetectAnomalyJobResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#updateDetectAnomalyJob.");
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#updateDetectAnomalyJob.");
     const operationName = "updateDetectAnomalyJob";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/UpdateDetectAnomalyJob";
@@ -2792,6 +2852,7 @@ export class AnomalyDetectionClient {
       updateDetectAnomalyJobRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2851,7 +2912,7 @@ export class AnomalyDetectionClient {
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#updateModel.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateModel.");
     const operationName = "updateModel";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/UpdateModel";
@@ -2873,6 +2934,7 @@ export class AnomalyDetectionClient {
       updateModelRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -2928,7 +2990,7 @@ export class AnomalyDetectionClient {
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
-    logger.debug("Calling operation AnomalyDetectionClient#updateProject.");
+    if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateProject.");
     const operationName = "updateProject";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/UpdateProject";
@@ -2950,6 +3012,7 @@ export class AnomalyDetectionClient {
       updateProjectRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

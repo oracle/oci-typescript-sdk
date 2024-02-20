@@ -21,8 +21,7 @@ import {
   composeResponse,
   composeRequest,
   GenericRetrier,
-  developerToolConfiguration,
-  logger
+  developerToolConfiguration
 } from "oci-common";
 const Breaker = require("opossum");
 
@@ -38,7 +37,7 @@ export class OpensearchClusterClient {
   protected static serviceEndpointTemplate =
     "https://search-indexing.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OpensearchClusterWaiter;
@@ -119,7 +118,11 @@ export class OpensearchClusterClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180828";
-    logger.info(`OpensearchClusterClient endpoint set to ${this._endpoint}`);
+    if (this.logger) this.logger.info(`OpensearchClusterClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -129,9 +132,10 @@ export class OpensearchClusterClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OpensearchClusterClient.serviceEndpointTemplate,
@@ -223,7 +227,8 @@ export class OpensearchClusterClient {
   public async backupOpensearchCluster(
     backupOpensearchClusterRequest: requests.BackupOpensearchClusterRequest
   ): Promise<responses.BackupOpensearchClusterResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#backupOpensearchCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#backupOpensearchCluster.");
     const operationName = "backupOpensearchCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -245,6 +250,7 @@ export class OpensearchClusterClient {
       backupOpensearchClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -301,7 +307,8 @@ export class OpensearchClusterClient {
   public async createOpensearchCluster(
     createOpensearchClusterRequest: requests.CreateOpensearchClusterRequest
   ): Promise<responses.CreateOpensearchClusterResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#createOpensearchCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#createOpensearchCluster.");
     const operationName = "createOpensearchCluster";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -320,6 +327,7 @@ export class OpensearchClusterClient {
       createOpensearchClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -375,7 +383,8 @@ export class OpensearchClusterClient {
   public async deleteOpensearchCluster(
     deleteOpensearchClusterRequest: requests.DeleteOpensearchClusterRequest
   ): Promise<responses.DeleteOpensearchClusterResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#deleteOpensearchCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#deleteOpensearchCluster.");
     const operationName = "deleteOpensearchCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -396,6 +405,7 @@ export class OpensearchClusterClient {
       deleteOpensearchClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -446,7 +456,8 @@ export class OpensearchClusterClient {
   public async getOpensearchCluster(
     getOpensearchClusterRequest: requests.GetOpensearchClusterRequest
   ): Promise<responses.GetOpensearchClusterResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#getOpensearchCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#getOpensearchCluster.");
     const operationName = "getOpensearchCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -466,6 +477,7 @@ export class OpensearchClusterClient {
       getOpensearchClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -520,7 +532,7 @@ export class OpensearchClusterClient {
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#getWorkRequest.");
+    if (this.logger) this.logger.debug("Calling operation OpensearchClusterClient#getWorkRequest.");
     const operationName = "getWorkRequest";
     const apiReferenceLink = "";
     const pathParams = {
@@ -540,6 +552,7 @@ export class OpensearchClusterClient {
       getWorkRequestRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -595,7 +608,8 @@ export class OpensearchClusterClient {
   public async listOpensearchClusters(
     listOpensearchClustersRequest: requests.ListOpensearchClustersRequest
   ): Promise<responses.ListOpensearchClustersResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#listOpensearchClusters.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#listOpensearchClusters.");
     const operationName = "listOpensearchClusters";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -622,6 +636,7 @@ export class OpensearchClusterClient {
       listOpensearchClustersRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -677,7 +692,8 @@ export class OpensearchClusterClient {
   public async listOpensearchVersions(
     listOpensearchVersionsRequest: requests.ListOpensearchVersionsRequest
   ): Promise<responses.ListOpensearchVersionsResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#listOpensearchVersions.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#listOpensearchVersions.");
     const operationName = "listOpensearchVersions";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -698,6 +714,7 @@ export class OpensearchClusterClient {
       listOpensearchVersionsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -753,7 +770,8 @@ export class OpensearchClusterClient {
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#listWorkRequestErrors.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
     const apiReferenceLink = "";
     const pathParams = {
@@ -776,6 +794,7 @@ export class OpensearchClusterClient {
       listWorkRequestErrorsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -831,7 +850,8 @@ export class OpensearchClusterClient {
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#listWorkRequestLogs.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
     const apiReferenceLink = "";
     const pathParams = {
@@ -854,6 +874,7 @@ export class OpensearchClusterClient {
       listWorkRequestLogsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -909,7 +930,8 @@ export class OpensearchClusterClient {
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#listWorkRequests.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#listWorkRequests.");
     const operationName = "listWorkRequests";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -933,6 +955,7 @@ export class OpensearchClusterClient {
       listWorkRequestsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -987,7 +1010,8 @@ export class OpensearchClusterClient {
   public async opensearchClusterRestore(
     opensearchClusterRestoreRequest: requests.OpensearchClusterRestoreRequest
   ): Promise<responses.OpensearchClusterRestoreResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#opensearchClusterRestore.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#opensearchClusterRestore.");
     const operationName = "opensearchClusterRestore";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1009,6 +1033,7 @@ export class OpensearchClusterClient {
       opensearchClusterRestoreRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1064,7 +1089,10 @@ export class OpensearchClusterClient {
   public async resizeOpensearchClusterHorizontal(
     resizeOpensearchClusterHorizontalRequest: requests.ResizeOpensearchClusterHorizontalRequest
   ): Promise<responses.ResizeOpensearchClusterHorizontalResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#resizeOpensearchClusterHorizontal.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OpensearchClusterClient#resizeOpensearchClusterHorizontal."
+      );
     const operationName = "resizeOpensearchClusterHorizontal";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1086,6 +1114,7 @@ export class OpensearchClusterClient {
       resizeOpensearchClusterHorizontalRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1141,7 +1170,10 @@ export class OpensearchClusterClient {
   public async resizeOpensearchClusterVertical(
     resizeOpensearchClusterVerticalRequest: requests.ResizeOpensearchClusterVerticalRequest
   ): Promise<responses.ResizeOpensearchClusterVerticalResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#resizeOpensearchClusterVertical.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OpensearchClusterClient#resizeOpensearchClusterVertical."
+      );
     const operationName = "resizeOpensearchClusterVertical";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1163,6 +1195,7 @@ export class OpensearchClusterClient {
       resizeOpensearchClusterVerticalRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1218,7 +1251,8 @@ export class OpensearchClusterClient {
   public async updateOpensearchCluster(
     updateOpensearchClusterRequest: requests.UpdateOpensearchClusterRequest
   ): Promise<responses.UpdateOpensearchClusterResponse> {
-    logger.debug("Calling operation OpensearchClusterClient#updateOpensearchCluster.");
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#updateOpensearchCluster.");
     const operationName = "updateOpensearchCluster";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1239,6 +1273,7 @@ export class OpensearchClusterClient {
       updateOpensearchClusterRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1291,7 +1326,7 @@ export class OpensearchClusterBackupClient {
   protected static serviceEndpointTemplate =
     "https://search-indexing.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OpensearchClusterBackupWaiter;
@@ -1372,7 +1407,12 @@ export class OpensearchClusterBackupClient {
   public set endpoint(endpoint: string) {
     this._endpoint = endpoint;
     this._endpoint = this._endpoint + "/20180828";
-    logger.info(`OpensearchClusterBackupClient endpoint set to ${this._endpoint}`);
+    if (this.logger)
+      this.logger.info(`OpensearchClusterBackupClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
   }
 
   /**
@@ -1382,9 +1422,10 @@ export class OpensearchClusterBackupClient {
    */
   public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
     this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    logger.info(
-      `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-    );
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
     if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         OpensearchClusterBackupClient.serviceEndpointTemplate,
@@ -1476,7 +1517,10 @@ export class OpensearchClusterBackupClient {
   public async deleteOpensearchClusterBackup(
     deleteOpensearchClusterBackupRequest: requests.DeleteOpensearchClusterBackupRequest
   ): Promise<responses.DeleteOpensearchClusterBackupResponse> {
-    logger.debug("Calling operation OpensearchClusterBackupClient#deleteOpensearchClusterBackup.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OpensearchClusterBackupClient#deleteOpensearchClusterBackup."
+      );
     const operationName = "deleteOpensearchClusterBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1497,6 +1541,7 @@ export class OpensearchClusterBackupClient {
       deleteOpensearchClusterBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1547,7 +1592,10 @@ export class OpensearchClusterBackupClient {
   public async getOpensearchClusterBackup(
     getOpensearchClusterBackupRequest: requests.GetOpensearchClusterBackupRequest
   ): Promise<responses.GetOpensearchClusterBackupResponse> {
-    logger.debug("Calling operation OpensearchClusterBackupClient#getOpensearchClusterBackup.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OpensearchClusterBackupClient#getOpensearchClusterBackup."
+      );
     const operationName = "getOpensearchClusterBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1567,6 +1615,7 @@ export class OpensearchClusterBackupClient {
       getOpensearchClusterBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1622,7 +1671,10 @@ export class OpensearchClusterBackupClient {
   public async listOpensearchClusterBackups(
     listOpensearchClusterBackupsRequest: requests.ListOpensearchClusterBackupsRequest
   ): Promise<responses.ListOpensearchClusterBackupsResponse> {
-    logger.debug("Calling operation OpensearchClusterBackupClient#listOpensearchClusterBackups.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OpensearchClusterBackupClient#listOpensearchClusterBackups."
+      );
     const operationName = "listOpensearchClusterBackups";
     const apiReferenceLink = "";
     const pathParams = {};
@@ -1650,6 +1702,7 @@ export class OpensearchClusterBackupClient {
       listOpensearchClusterBackupsRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
@@ -1704,7 +1757,10 @@ export class OpensearchClusterBackupClient {
   public async updateOpensearchClusterBackup(
     updateOpensearchClusterBackupRequest: requests.UpdateOpensearchClusterBackupRequest
   ): Promise<responses.UpdateOpensearchClusterBackupResponse> {
-    logger.debug("Calling operation OpensearchClusterBackupClient#updateOpensearchClusterBackup.");
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OpensearchClusterBackupClient#updateOpensearchClusterBackup."
+      );
     const operationName = "updateOpensearchClusterBackup";
     const apiReferenceLink = "";
     const pathParams = {
@@ -1725,6 +1781,7 @@ export class OpensearchClusterBackupClient {
       updateOpensearchClusterBackupRequest.retryConfiguration,
       specRetryConfiguration
     );
+    if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,

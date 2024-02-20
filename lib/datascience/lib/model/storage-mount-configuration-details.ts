@@ -49,7 +49,7 @@ export namespace StorageMountConfigurationDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.storageType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.storageType}`);
       }
     }
     return jsonObj;
@@ -70,7 +70,7 @@ export namespace StorageMountConfigurationDetails {
             true
           );
         default:
-          common.logger.info(`Unknown value for: ${obj.storageType}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.storageType}`);
       }
     }
     return jsonObj;

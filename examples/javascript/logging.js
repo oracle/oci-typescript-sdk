@@ -9,10 +9,12 @@
 
 var identity = require("oci-identity");
 var common = require("oci-common");
+var bunyan = require("bunyan");
 
 // Integrate bunyan logger with the SDK. Make sure bunyan logger in installed.
 // You can integrate with log4js, winston or any other logger as well.
-process.env.USE_BUNYAN = "true";
+var bunLog = bunyan.createLogger({ name: "LoggingExample", level: "debug" });
+common.LOG.logger = bunLog;
 const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
 (async () => {

@@ -39,7 +39,7 @@ export namespace ResponseCacheDetails {
         case "NONE":
           return model.NoCache.getJsonObj(<model.NoCache>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -57,7 +57,7 @@ export namespace ResponseCacheDetails {
         case "NONE":
           return model.NoCache.getDeserializedJsonObj(<model.NoCache>(<object>jsonObj), true);
         default:
-          common.logger.info(`Unknown value for: ${obj.type}`);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
