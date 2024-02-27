@@ -19,7 +19,7 @@ import common = require("oci-common");
  * Existing named credential used to connect to the database.
  *
  */
-export interface DatabaseConnectionCredentailsByName extends model.DatabaseConnectionCredentials {
+export interface DatabaseConnectionCredentialsByName extends model.DatabaseConnectionCredentials {
   /**
     * The name of the credential information that used to connect to the database. The name should be in \"x.y\" format, where
 * the length of \"x\" has a maximum of 64 characters, and length of \"y\" has a maximum of 199 characters.
@@ -37,9 +37,9 @@ For example: inventorydb.abc112233445566778899
   "credentialType": string;
 }
 
-export namespace DatabaseConnectionCredentailsByName {
+export namespace DatabaseConnectionCredentialsByName {
   export function getJsonObj(
-    obj: DatabaseConnectionCredentailsByName,
+    obj: DatabaseConnectionCredentialsByName,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
@@ -47,7 +47,7 @@ export namespace DatabaseConnectionCredentailsByName {
         ? obj
         : (model.DatabaseConnectionCredentials.getJsonObj(
             obj
-          ) as DatabaseConnectionCredentailsByName)),
+          ) as DatabaseConnectionCredentialsByName)),
       ...{}
     };
 
@@ -55,7 +55,7 @@ export namespace DatabaseConnectionCredentailsByName {
   }
   export const credentialType = "NAME_REFERENCE";
   export function getDeserializedJsonObj(
-    obj: DatabaseConnectionCredentailsByName,
+    obj: DatabaseConnectionCredentialsByName,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
@@ -63,7 +63,7 @@ export namespace DatabaseConnectionCredentailsByName {
         ? obj
         : (model.DatabaseConnectionCredentials.getDeserializedJsonObj(
             obj
-          ) as DatabaseConnectionCredentailsByName)),
+          ) as DatabaseConnectionCredentialsByName)),
       ...{}
     };
 

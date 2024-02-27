@@ -40,15 +40,15 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The new scaled up/down value for autonomous data storage in TBs for Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The new value of autonomous data storage (in TBs) for the Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autonomousDataStorageSizeInTBs"?: number;
   /**
-   * The new scaled up/down value for cpus per Autonomous VM cluster per node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The new value of cpus per Autonomous VM cluster per node for the Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCountPerNode"?: number;
   /**
-   * The new scaled up/down value for maxACD count for Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The new value of maximum number of ACDs for the Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalContainerDatabases"?: number;
 }

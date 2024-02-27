@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ActivateServiceConnectorRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the service connector.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connector.
    *
    */
   "serviceConnectorId": string;

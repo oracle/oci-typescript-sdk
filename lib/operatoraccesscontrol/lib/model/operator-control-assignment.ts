@@ -119,6 +119,14 @@ export interface OperatorControlAssignment {
    */
   "remoteSyslogServerCACert"?: string;
   /**
+   * If set, then the hypervisor audit logs will be forwarded to the relevant remote syslog server
+   */
+  "isHypervisorLogForwarded"?: boolean;
+  /**
+   * Name of the operator control name associated.
+   */
+  "opControlName"?: string;
+  /**
    * The boolean if true would autoApprove during maintenance.
    */
   "isAutoApproveDuringMaintenance"?: boolean;

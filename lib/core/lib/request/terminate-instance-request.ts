@@ -35,4 +35,11 @@ export interface TerminateInstanceRequest extends common.BaseRequest {
    *
    */
   "preserveBootVolume"?: boolean;
+  /**
+   * Specifies whether to delete or preserve the data volumes created during launch when
+   * terminating an instance. When set to {@code true}, the data volumes are preserved. The
+   * default value is {@code true}.
+   *
+   */
+  "preserveDataVolumesCreatedAtLaunch"?: boolean;
 }

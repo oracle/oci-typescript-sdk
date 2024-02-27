@@ -29,14 +29,14 @@ export namespace DatabaseConnectionCredentials {
 
     if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
-        case "NAME_REFERENCE":
-          return model.DatabaseConnectionCredentailsByName.getJsonObj(
-            <model.DatabaseConnectionCredentailsByName>(<object>jsonObj),
-            true
-          );
         case "SSL_DETAILS":
           return model.DatabaseSslConnectionCredentials.getJsonObj(
             <model.DatabaseSslConnectionCredentials>(<object>jsonObj),
+            true
+          );
+        case "NAME_REFERENCE":
+          return model.DatabaseConnectionCredentialsByName.getJsonObj(
+            <model.DatabaseConnectionCredentialsByName>(<object>jsonObj),
             true
           );
         case "DETAILS":
@@ -55,14 +55,14 @@ export namespace DatabaseConnectionCredentials {
 
     if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
-        case "NAME_REFERENCE":
-          return model.DatabaseConnectionCredentailsByName.getDeserializedJsonObj(
-            <model.DatabaseConnectionCredentailsByName>(<object>jsonObj),
-            true
-          );
         case "SSL_DETAILS":
           return model.DatabaseSslConnectionCredentials.getDeserializedJsonObj(
             <model.DatabaseSslConnectionCredentials>(<object>jsonObj),
+            true
+          );
+        case "NAME_REFERENCE":
+          return model.DatabaseConnectionCredentialsByName.getDeserializedJsonObj(
+            <model.DatabaseConnectionCredentialsByName>(<object>jsonObj),
             true
           );
         case "DETAILS":

@@ -43,6 +43,10 @@ export interface OperatorControlSummary {
    */
   "resourceType"?: model.ResourceTypes;
   /**
+   * Number of approvers required to approve an access request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfApprovers"?: number;
+  /**
    * Time when the operator control was created, expressed in [RFC 3339] (https://tools.ietf.org/html/rfc3339) timestamp format. Example: '2020-05-22T21:10:29.600Z'
    *
    */

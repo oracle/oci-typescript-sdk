@@ -22,8 +22,8 @@ import common = require("oci-common");
 export interface ExternalMacsConnectorSummary extends model.ExternalDatabaseConnectorSummary {
   "connectionString": model.DatabaseConnectionString;
   "connectionCredentials":
-    | model.DatabaseConnectionCredentailsByName
     | model.DatabaseSslConnectionCredentials
+    | model.DatabaseConnectionCredentialsByName
     | model.DatabaseConnectionCredentialsByDetails;
   /**
    * The ID of the agent used for the

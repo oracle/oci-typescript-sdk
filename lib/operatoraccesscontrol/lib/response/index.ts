@@ -19,6 +19,8 @@ import * as ApproveAccessRequestResponse from "./approve-access-request-response
 export import ApproveAccessRequestResponse = ApproveAccessRequestResponse.ApproveAccessRequestResponse;
 import * as GetAccessRequestResponse from "./get-access-request-response";
 export import GetAccessRequestResponse = GetAccessRequestResponse.GetAccessRequestResponse;
+import * as GetAuditLogReportResponse from "./get-audit-log-report-response";
+export import GetAuditLogReportResponse = GetAuditLogReportResponse.GetAuditLogReportResponse;
 import * as InteractionRequestResponse from "./interaction-request-response";
 export import InteractionRequestResponse = InteractionRequestResponse.InteractionRequestResponse;
 import * as ListAccessRequestHistoriesResponse from "./list-access-request-histories-response";
@@ -55,9 +57,13 @@ import * as CreateOperatorControlAssignmentResponse from "./create-operator-cont
 export import CreateOperatorControlAssignmentResponse = CreateOperatorControlAssignmentResponse.CreateOperatorControlAssignmentResponse;
 import * as DeleteOperatorControlAssignmentResponse from "./delete-operator-control-assignment-response";
 export import DeleteOperatorControlAssignmentResponse = DeleteOperatorControlAssignmentResponse.DeleteOperatorControlAssignmentResponse;
+import * as GetAssignmentValidationStatusResponse from "./get-assignment-validation-status-response";
+export import GetAssignmentValidationStatusResponse = GetAssignmentValidationStatusResponse.GetAssignmentValidationStatusResponse;
 import * as GetOperatorControlAssignmentResponse from "./get-operator-control-assignment-response";
 export import GetOperatorControlAssignmentResponse = GetOperatorControlAssignmentResponse.GetOperatorControlAssignmentResponse;
 import * as ListOperatorControlAssignmentsResponse from "./list-operator-control-assignments-response";
 export import ListOperatorControlAssignmentsResponse = ListOperatorControlAssignmentsResponse.ListOperatorControlAssignmentsResponse;
 import * as UpdateOperatorControlAssignmentResponse from "./update-operator-control-assignment-response";
 export import UpdateOperatorControlAssignmentResponse = UpdateOperatorControlAssignmentResponse.UpdateOperatorControlAssignmentResponse;
+import * as ValidateOperatorAssignmentResponse from "./validate-operator-assignment-response";
+export import ValidateOperatorAssignmentResponse = ValidateOperatorAssignmentResponse.ValidateOperatorAssignmentResponse;

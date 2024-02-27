@@ -374,6 +374,79 @@ export class AccessRequestsClient {
   }
 
   /**
+   * Gets the Audit Log Report for the given access requestId.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAuditLogReportRequest
+   * @return GetAuditLogReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetAuditLogReport.ts.html |here} to see how to use GetAuditLogReport API.
+   */
+  public async getAuditLogReport(
+    getAuditLogReportRequest: requests.GetAuditLogReportRequest
+  ): Promise<responses.GetAuditLogReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#getAuditLogReport.");
+    const operationName = "getAuditLogReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AuditLogReport/GetAuditLogReport";
+    const pathParams = {
+      "{accessRequestId}": getAuditLogReportRequest.accessRequestId
+    };
+
+    const queryParams = {
+      "enableProcessTree": getAuditLogReportRequest.enableProcessTree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAuditLogReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAuditLogReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/accessRequests/{accessRequestId}/auditLogReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAuditLogReportResponse>{},
+        body: await response.json(),
+        bodyKey: "auditLogReport",
+        bodyModel: model.AuditLogReport,
+        type: "model.AuditLogReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Posts query for additional information for the given access request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2372,6 +2445,88 @@ export class OperatorControlAssignmentClient {
   }
 
   /**
+   * Returns the status of assignment validation associated with the assignmentId and the executionId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAssignmentValidationStatusRequest
+   * @return GetAssignmentValidationStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetAssignmentValidationStatus.ts.html |here} to see how to use GetAssignmentValidationStatus API.
+   */
+  public async getAssignmentValidationStatus(
+    getAssignmentValidationStatusRequest: requests.GetAssignmentValidationStatusRequest
+  ): Promise<responses.GetAssignmentValidationStatusResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperatorControlAssignmentClient#getAssignmentValidationStatus."
+      );
+    const operationName = "getAssignmentValidationStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/GetAssignmentValidationStatus";
+    const pathParams = {
+      "{operatorControlAssignmentId}":
+        getAssignmentValidationStatusRequest.operatorControlAssignmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAssignmentValidationStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAssignmentValidationStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/operatorControlAssignments/{operatorControlAssignmentId}/actions/getAssignmentValidationStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAssignmentValidationStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "assignmentValidationStatus",
+        bodyModel: model.AssignmentValidationStatus,
+        type: "model.AssignmentValidationStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of an Operator Control Assignment of the specified ID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOperatorControlAssignmentRequest
@@ -2609,6 +2764,89 @@ export class OperatorControlAssignmentClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validates the assignment for the specified Operator Control Assignment ID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateOperatorAssignmentRequest
+   * @return ValidateOperatorAssignmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ValidateOperatorAssignment.ts.html |here} to see how to use ValidateOperatorAssignment API.
+   */
+  public async validateOperatorAssignment(
+    validateOperatorAssignmentRequest: requests.ValidateOperatorAssignmentRequest
+  ): Promise<responses.ValidateOperatorAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperatorControlAssignmentClient#validateOperatorAssignment."
+      );
+    const operationName = "validateOperatorAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/ValidateOperatorAssignment";
+    const pathParams = {
+      "{operatorControlAssignmentId}": validateOperatorAssignmentRequest.operatorControlAssignmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": validateOperatorAssignmentRequest.opcRetryToken,
+      "if-match": validateOperatorAssignmentRequest.ifMatch,
+      "opc-request-id": validateOperatorAssignmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateOperatorAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/operatorControlAssignments/{operatorControlAssignmentId}/actions/validateAssignment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateOperatorAssignmentRequest.validateOperatorAssignmentDetails,
+        "ValidateOperatorAssignmentDetails",
+        model.ValidateOperatorAssignmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateOperatorAssignmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

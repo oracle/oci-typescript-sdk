@@ -15,6 +15,10 @@ For more information, see [Data Catalog](https://docs.oracle.com/iaas/data-catal
 
 import * as AddResourceLockDetails from "./add-resource-lock-details";
 export import AddResourceLockDetails = AddResourceLockDetails.AddResourceLockDetails;
+import * as AsynchronousExportDataAssetDetails from "./asynchronous-export-data-asset-details";
+export import AsynchronousExportDataAssetDetails = AsynchronousExportDataAssetDetails.AsynchronousExportDataAssetDetails;
+import * as AsynchronousExportDataAssetResult from "./asynchronous-export-data-asset-result";
+export import AsynchronousExportDataAssetResult = AsynchronousExportDataAssetResult.AsynchronousExportDataAssetResult;
 import * as AsynchronousExportGlossaryDetails from "./asynchronous-export-glossary-details";
 export import AsynchronousExportGlossaryDetails = AsynchronousExportGlossaryDetails.AsynchronousExportGlossaryDetails;
 import * as AsynchronousExportGlossaryResult from "./asynchronous-export-glossary-result";

@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ComputePerformanceSummary {
   /**
-   * The number of OCPU cores available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of CPU cores available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;
   /**

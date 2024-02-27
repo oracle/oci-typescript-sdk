@@ -43,6 +43,14 @@ export interface OperatorControlAssignmentSummary {
    */
   "resourceType"?: model.ResourceTypes;
   /**
+   * Name of the target resource.
+   */
+  "resourceName"?: string;
+  /**
+   * Name of the operator control name associated.
+   */
+  "opControlName"?: string;
+  /**
    * The time at which the target resource will be brought under the governance of the operator control in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format. Example: '2020-05-22T21:10:29.600Z'
    *
    */
@@ -81,6 +89,10 @@ export interface OperatorControlAssignmentSummary {
    * The listening port of the remote syslog server. The port range is 0 - 65535. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remoteSyslogServerPort"?: number;
+  /**
+   * If set, then the hypervisor audit logs will be forwarded to the relevant remote syslog server
+   */
+  "isHypervisorLogForwarded"?: boolean;
   /**
    * The current lifcycle state of the OperatorControl.
    */

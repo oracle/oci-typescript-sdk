@@ -1,8 +1,9 @@
 /**
- * Service Connector Hub API
- * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
-For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
+ * Connector Hub API
+ * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
+For more information about Connector Hub, see
+[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
  * 
@@ -18,14 +19,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details of the flow defined by the service connector.
- * For more information about flows defined by service connectors, see
- * [Service Connector Hub Overview](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/overview.htm).
+ * The configuration details of the flow defined by the connector.
+ * For more information about flows defined by connectors, see
+ * [Overview of Connector Hub](https://docs.cloud.oracle.com/iaas/Content/connector-hub/overview.htm).
  *
  */
 export interface ServiceConnector {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the service connector.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connector.
    *
    */
   "id": string;
@@ -41,26 +42,26 @@ export interface ServiceConnector {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the service connector.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the connector.
    *
    */
   "compartmentId": string;
   /**
-   * The date and time when the service connector was created.
+   * The date and time when the connector was created.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeCreated": Date;
   /**
-   * The date and time when the service connector was updated.
+   * The date and time when the connector was updated.
    * Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: {@code 2020-01-25T21:10:29.600Z}
    *
    */
   "timeUpdated": Date;
   /**
-   * The current state of the service connector.
+   * The current state of the connector.
    *
    */
   "lifecycleState": model.LifecycleState;
@@ -74,7 +75,8 @@ export interface ServiceConnector {
   "source"?:
     | model.LoggingSourceDetails
     | model.MonitoringSourceDetails
-    | model.StreamingSourceDetails;
+    | model.StreamingSourceDetails
+    | model.PluginSourceDetails;
   /**
    * The list of tasks.
    *

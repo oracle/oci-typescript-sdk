@@ -23,6 +23,8 @@ import * as AddMetastoreLockResponse from "./add-metastore-lock-response";
 export import AddMetastoreLockResponse = AddMetastoreLockResponse.AddMetastoreLockResponse;
 import * as AssociateCustomPropertyResponse from "./associate-custom-property-response";
 export import AssociateCustomPropertyResponse = AssociateCustomPropertyResponse.AssociateCustomPropertyResponse;
+import * as AsynchronousExportDataAssetResponse from "./asynchronous-export-data-asset-response";
+export import AsynchronousExportDataAssetResponse = AsynchronousExportDataAssetResponse.AsynchronousExportDataAssetResponse;
 import * as AsynchronousExportGlossaryResponse from "./asynchronous-export-glossary-response";
 export import AsynchronousExportGlossaryResponse = AsynchronousExportGlossaryResponse.AsynchronousExportGlossaryResponse;
 import * as AttachCatalogPrivateEndpointResponse from "./attach-catalog-private-endpoint-response";

@@ -31,6 +31,10 @@ export interface CreateSkillDetails {
    */
   "platformVersion"?: string;
   /**
+   * The resource's dialog version.
+   */
+  "dialogVersion"?: string;
+  /**
    * The multilingual mode for the resource.
    */
   "multilingualMode"?: model.BotMultilingualMode;

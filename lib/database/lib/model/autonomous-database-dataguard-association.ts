@@ -56,7 +56,7 @@ export interface AutonomousDatabaseDataguardAssociation {
    */
   "peerAutonomousDatabaseId"?: string;
   /**
-   * The current state of Autonomous Data Guard.
+   * The current state of the Autonomous Database.
    */
   "peerAutonomousDatabaseLifeCycleState"?: AutonomousDatabaseDataguardAssociation.PeerAutonomousDatabaseLifeCycleState;
   /**
@@ -154,12 +154,25 @@ export namespace AutonomousDatabaseDataguardAssociation {
   export enum PeerAutonomousDatabaseLifeCycleState {
     Provisioning = "PROVISIONING",
     Available = "AVAILABLE",
-    RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
+    Stopping = "STOPPING",
+    Stopped = "STOPPED",
+    Starting = "STARTING",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
-    Failed = "FAILED",
     Unavailable = "UNAVAILABLE",
+    RestoreInProgress = "RESTORE_IN_PROGRESS",
+    RestoreFailed = "RESTORE_FAILED",
+    BackupInProgress = "BACKUP_IN_PROGRESS",
+    ScaleInProgress = "SCALE_IN_PROGRESS",
+    AvailableNeedsAttention = "AVAILABLE_NEEDS_ATTENTION",
     Updating = "UPDATING",
+    MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    Restarting = "RESTARTING",
+    Recreating = "RECREATING",
+    RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
+    Upgrading = "UPGRADING",
+    Inaccessible = "INACCESSIBLE",
+    Standby = "STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

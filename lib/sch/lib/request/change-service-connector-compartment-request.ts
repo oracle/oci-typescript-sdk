@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface ChangeServiceConnectorCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the service connector.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connector.
    *
    */
   "serviceConnectorId": string;
   /**
-   * The configuration details for moving a service connector to a different compartment.
+   * The configuration details for moving a connector to a different compartment.
    *
    */
   "changeServiceConnectorCompartmentDetails": model.ChangeServiceConnectorCompartmentDetails;

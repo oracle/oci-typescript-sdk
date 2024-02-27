@@ -29,6 +29,10 @@ export interface CloudExadataInfrastructureSummary {
    */
   "compartmentId": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
    * The current lifecycle state of the cloud Exadata infrastructure resource.
    */
   "lifecycleState": CloudExadataInfrastructureSummary.LifecycleState;
@@ -133,6 +137,12 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
    * The list of customer email addresses that receive information from Oracle about the specified OCI Database service resource.
    * Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators.

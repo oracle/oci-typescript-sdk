@@ -44,7 +44,7 @@ export interface CreateSecretDetails {
    * The OCID of the master encryption key that is used to encrypt the secret. You must specify a symmetric key to encrypt the secret during import to the vault. You cannot encrypt secrets with asymmetric keys. Furthermore, the key must exist in the vault that you specify.
    *
    */
-  "keyId"?: string;
+  "keyId": string;
   /**
    * Additional metadata that you can use to provide context about how to use the secret during rotation or
    * other administrative tasks. For example, for a secret that you use to connect to a database, the additional
@@ -67,6 +67,15 @@ export interface CreateSecretDetails {
    * The OCID of the vault where you want to create the secret.
    */
   "vaultId": string;
+  "secretGenerationContext"?:
+    | model.PassphraseGenerationContext
+    | model.SshKeyGenerationContext
+    | model.BytesGenerationContext;
+  /**
+   * The value of this flag determines whether or not secret content will be generated automatically. If not set, it defaults to false.
+   *
+   */
+  "enableAutoGeneration"?: boolean;
 }
 
 export namespace CreateSecretDetails {
@@ -85,6 +94,10 @@ export namespace CreateSecretDetails {
           ? obj.secretRules.map(item => {
               return model.SecretRule.getJsonObj(item);
             })
+          : undefined,
+
+        "secretGenerationContext": obj.secretGenerationContext
+          ? model.SecretGenerationContext.getJsonObj(obj.secretGenerationContext)
           : undefined
       }
     };
@@ -106,6 +119,10 @@ export namespace CreateSecretDetails {
           ? obj.secretRules.map(item => {
               return model.SecretRule.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "secretGenerationContext": obj.secretGenerationContext
+          ? model.SecretGenerationContext.getDeserializedJsonObj(obj.secretGenerationContext)
           : undefined
       }
     };

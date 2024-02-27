@@ -33,7 +33,9 @@ export interface AttachVolumeDetails {
    */
   "displayName"?: string;
   /**
-   * The OCID of the instance.
+   * The OCID of the instance. For AttachVolume operation, this is a required field for the request,
+   * see {@link #attachVolume(AttachVolumeRequest) attachVolume}.
+   *
    */
   "instanceId": string;
   /**
@@ -49,7 +51,8 @@ export interface AttachVolumeDetails {
    */
   "isShareable"?: boolean;
   /**
-   * The OCID of the volume.
+   * The OCID of the volume. If CreateVolumeDetails is specified, this field must be omitted from the request.
+   *
    */
   "volumeId": string;
 

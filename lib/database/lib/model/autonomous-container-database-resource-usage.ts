@@ -28,11 +28,11 @@ export interface AutonomousContainerDatabaseResourceUsage {
    */
   "displayName": string;
   /**
-   * CPUs / cores reclaimable or released to cluster on Autonomous Container Database restart. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of CPUs that are reclaimable or released to the AVMC on Autonomous Container Database restart. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "reclaimableCpus"?: number;
   /**
-   * CPUs / cores available for ADB provisioning or scaling in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * CPUs available for provisioning or scaling an Autonomous Database in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCpus"?: number;
   /**
@@ -56,7 +56,7 @@ export interface AutonomousContainerDatabaseResourceUsage {
    */
   "usedCpus"?: number;
   /**
-   * Valid list of provisionable CPUs / cores for ADB creation.
+   * Valid list of provisionable CPUs for Autonomous Database.
    */
   "provisionableCpus"?: Array<number>;
   /**

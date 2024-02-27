@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateServiceConnectorRequest extends common.BaseRequest {
   /**
-   * Configuration details for the new service connector.
+   * Configuration details for the new connector.
    *
    */
   "createServiceConnectorDetails": model.CreateServiceConnectorDetails;

@@ -160,6 +160,35 @@ export interface AccessRequest {
    */
   "auditType"?: Array<string>;
   /**
+   * Number of approvers required to approve an access request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfApproversRequired"?: number;
+  /**
+   * Number of approvers who have authorized an access request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfApprovers"?: number;
+  /**
+   * Number of approvers who have authorized an access request for extension. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfExtensionApprovers"?: number;
+  /**
+   * Contains the user ids who have approved the accessRequest for extension.
+   */
+  "approverDetails"?: Array<model.ApproverDetail>;
+  /**
+   * Contains the user ids who have approved the accessRequest for extension.
+   */
+  "extensionApproverDetails"?: Array<model.ApproverDetail>;
+  /**
+   * Whether the access request was requested for Validate Assignment.
+   */
+  "isValidateAssignment"?: boolean;
+  /**
+   * Time in future when the user for the access request needs to be created in [RFC 3339](https://tools.ietf.org/html/rfc3339)timestamp format. Example: '2020-05-22T21:10:29.600Z'
+   *
+   */
+  "timeRequestedForFutureAccess"?: Date;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    *
    */
@@ -173,12 +202,40 @@ export interface AccessRequest {
 
 export namespace AccessRequest {
   export function getJsonObj(obj: AccessRequest): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "approverDetails": obj.approverDetails
+          ? obj.approverDetails.map(item => {
+              return model.ApproverDetail.getJsonObj(item);
+            })
+          : undefined,
+        "extensionApproverDetails": obj.extensionApproverDetails
+          ? obj.extensionApproverDetails.map(item => {
+              return model.ApproverDetail.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AccessRequest): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "approverDetails": obj.approverDetails
+          ? obj.approverDetails.map(item => {
+              return model.ApproverDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "extensionApproverDetails": obj.extensionApproverDetails
+          ? obj.extensionApproverDetails.map(item => {
+              return model.ApproverDetail.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

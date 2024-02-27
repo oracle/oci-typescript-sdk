@@ -56,6 +56,10 @@ export interface UpdateOperatorControlDetails {
    */
   "emailIdList"?: Array<string>;
   /**
+   * Number of approvers required to approve an access request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfApprovers"?: number;
+  /**
    * System message that would be displayed to the operator users on accessing the target resource under the governance of this operator control.
    */
   "systemMessage"?: string;

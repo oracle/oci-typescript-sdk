@@ -1,6 +1,6 @@
 {
   "name": "oci-database",
-  "version": "2.80.0",
+  "version": "2.81.0",
   "description": "OCI NodeJS client for Database",
   "repository": {
     "type": "git",

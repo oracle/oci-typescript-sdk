@@ -20,6 +20,11 @@ import common = require("oci-common");
  */
 export interface ImportKeyDetails {
   /**
+   * A parameter specifying whether the auto key rotation is enabled or not.
+   */
+  "isAutoRotationEnabled"?: boolean;
+  "autoKeyRotationDetails"?: model.AutoKeyRotationDetails;
+  /**
    * The OCID of the compartment that contains this key.
    */
   "compartmentId": string;
@@ -65,6 +70,10 @@ export namespace ImportKeyDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "autoKeyRotationDetails": obj.autoKeyRotationDetails
+          ? model.AutoKeyRotationDetails.getJsonObj(obj.autoKeyRotationDetails)
+          : undefined,
+
         "keyShape": obj.keyShape ? model.KeyShape.getJsonObj(obj.keyShape) : undefined,
         "wrappedImportKey": obj.wrappedImportKey
           ? model.WrappedImportKey.getJsonObj(obj.wrappedImportKey)
@@ -78,6 +87,10 @@ export namespace ImportKeyDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "autoKeyRotationDetails": obj.autoKeyRotationDetails
+          ? model.AutoKeyRotationDetails.getDeserializedJsonObj(obj.autoKeyRotationDetails)
+          : undefined,
+
         "keyShape": obj.keyShape ? model.KeyShape.getDeserializedJsonObj(obj.keyShape) : undefined,
         "wrappedImportKey": obj.wrappedImportKey
           ? model.WrappedImportKey.getDeserializedJsonObj(obj.wrappedImportKey)

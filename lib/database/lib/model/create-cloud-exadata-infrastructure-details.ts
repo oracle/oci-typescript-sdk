@@ -62,6 +62,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
    * Customer contacts.
    */
   "customerContacts"?: Array<model.CustomerContact>;

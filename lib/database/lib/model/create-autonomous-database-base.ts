@@ -19,7 +19,7 @@ import common = require("oci-common");
  * Details to create an Oracle Autonomous Database.
  * <p>
  **Notes:**
- * - To specify OCPU core count, you must use either {@code ocpuCount} or {@code cpuCoreCount}. You cannot use both parameters at the same time.
+ * - To specify OCPU core count, you must use either {@code ocpuCount} or {@code cpuCoreCount}. You cannot use both parameters at the same time. For Autonomous Database Serverless instances, {@code ocpuCount} is not used.
  * - To specify a storage allocation, you must use  either {@code dataStorageSizeInGBs} or {@code dataStorageSizeInTBs}.
  * - See the individual parameter discriptions for more information on the OCPU and storage value parameters.
  * <p>
@@ -48,11 +48,11 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "ncharacterSet"?: string;
   /**
-   * The database name. The name must begin with an alphabetic character and can contain a maximum of 14 alphanumeric characters. Special characters are not permitted. The database name must be unique in the tenancy. It is required in all cases except when creating a cross-region Autonomous Data Guard standby instance or a cross-region disaster recovery standby instance.
+   * The database name. The name must begin with an alphabetic character and can contain a maximum of 30 alphanumeric characters. Special characters are not permitted. The database name must be unique in the tenancy. It is required in all cases except when creating a cross-region Autonomous Data Guard standby instance or a cross-region disaster recovery standby instance.
    */
   "dbName"?: string;
   /**
-   * The number of OCPU cores to be made available to the database. For Autonomous Databases on dedicated Exadata infrastructure, the maximum number of cores is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/autonomous-database&id=ATPFG-GUID-B0F033C1-CC5A-42F0-B2E7-3CECFEDA1FD1) for shape details.
+   * The number of CPU cores to be made available to the database. For Autonomous Databases on dedicated Exadata infrastructure, the maximum number of cores is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/autonomous-database&id=ATPFG-GUID-B0F033C1-CC5A-42F0-B2E7-3CECFEDA1FD1) for shape details.
    * <p>
    **Note:** This parameter cannot be used with the {@code ocpuCount} parameter.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -63,11 +63,13 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "backupRetentionPeriodInDays"?: number;
   /**
-   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value.
+   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
    */
   "computeModel"?: CreateAutonomousDatabaseBase.ComputeModel;
   /**
-   * The compute amount available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure, the 'ECPU' compute model requires values in multiples of two. Required when using the {@code computeModel} parameter. When using {@code cpuCoreCount} parameter, it is an error to specify computeCount to a non-null value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.
+   * For an Autonomous Database Serverless instance, the 'ECPU' compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the {@code computeModel} parameter. When using {@code cpuCoreCount} parameter, it is an error to specify computeCount to a non-null value. Providing {@code computeModel} and {@code computeCount} is the preferred method for both OCPU and ECPU.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computeCount"?: number;
   /**
@@ -76,6 +78,7 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
 The following points apply:
 * - For Autonomous Databases on Dedicated Exadata infrastructure, to provision less than 1 core, enter a fractional value in an increment of 0.1. For example, you can provision 0.3 or 0.4 cores, but not 0.35 cores. (Note that fractional OCPU values are not supported for Autonomous Database Serverless instances.)
 * - To provision 1 or more cores, you must enter an integer between 1 and the maximum number of cores available for the infrastructure shape. For example, you can provision 2 cores or 3 cores, but not 2.5 cores. This applies to an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.
+* - For Autonomous Database Serverless instances, this parameter is not used.
 * <p>
 For Autonomous Databases on Dedicated Exadata infrastructure, the maximum number of cores is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/autonomous-database&id=ATPFG-GUID-B0F033C1-CC5A-42F0-B2E7-3CECFEDA1FD1) for shape details.
 * <p>
@@ -124,7 +127,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "kmsKeyId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts). This parameter and {@code secretId} are required for Customer Managed Keys.
    */
   "vaultId"?: string;
   /**
@@ -142,19 +145,19 @@ This cannot be used in conjunction with with OCI vault secrets (secretId).
     * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud.
 * License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service.
 * Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the
-* Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to {@code BRING_YOUR_OWN_LICENSE}.
+* Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to {@code BRING_YOUR_OWN_LICENSE}. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
 * <p>
-This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, maxCpuCoreCount, dataStorageSizeInTBs, adminPassword, isMTLSConnectionRequired, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
+This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, dataStorageSizeInTBs, adminPassword, isMTLSConnectionRequired, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 * 
     */
   "licenseModel"?: CreateAutonomousDatabaseBase.LicenseModel;
   /**
-   * If set to {@code TRUE}, indicates that an Autonomous Database preview version is being provisioned, and that the preview version's terms of service have been accepted. Note that preview version software is only available for Autonomous Database Serverless instances (https://docs.oracle.com/en/cloud/paas/autonomous-database/shared/index.html).
+   * If set to {@code TRUE}, indicates that an Autonomous Database preview version is being provisioned, and that the preview version's terms of service have been accepted. Note that preview version software is only available for Autonomous Database Serverless instances (https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/).
    *
    */
   "isPreviewVersionWithServiceTermsAccepted"?: boolean;
   /**
-   * Indicates if auto scaling is enabled for the Autonomous Database OCPU core count. The default value is {@code FALSE}.
+   * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is {@code TRUE}.
    *
    */
   "isAutoScalingEnabled"?: boolean;
@@ -164,11 +167,11 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "isDedicated"?: boolean;
   /**
-   * The Autonomous Container Database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Autonomous Container Database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Used only by Autonomous Database on Dedicated Exadata Infrastructure.
    */
   "autonomousContainerDatabaseId"?: string;
   /**
-   * The percentage of the System Global Area(SGA) assigned to In-Memory tables in Autonomous Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The percentage of the System Global Area(SGA) assigned to In-Memory tables in Autonomous Database. This property is applicable only to Autonomous Databases on the Exadata Cloud@Customer platform. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inMemoryPercentage"?: number;
   /**
@@ -178,16 +181,17 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
 *  if database-level access control is enabled and no rules are specified, the database will become inaccessible. The rules can be added later using the {@code UpdateAutonomousDatabase} API operation or edit option in console.
 * When creating a database clone, the desired access control setting should be specified. By default, database-level access control will be disabled for the clone.
 * <p>
-This property is applicable only to Autonomous Databases on the Exadata Cloud@Customer platform.
+This property is applicable only to Autonomous Databases on the Exadata Cloud@Customer platform. For Autonomous Database Serverless instances, {@code whitelistedIps} is used.
 * 
     */
   "isAccessControlEnabled"?: boolean;
   /**
     * The client IP access control list (ACL). This feature is available for [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer.
 * Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance.
+* If {@code arePrimaryWhitelistedIpsUsed} is 'TRUE' then Autonomous Database uses this primary's IP access control list (ACL) for the disaster recovery peer called {@code standbywhitelistedips}.
 * <p>
 For Autonomous Database Serverless, this is an array of CIDR (classless inter-domain routing) notations for a subnet or VCN OCID (virtual cloud network Oracle Cloud ID).
-* Use a semicolon (;) as a deliminator between the VCN-specific subnets or IPs.
+* Multiple IPs and VCN OCIDs should be separate strings separated by commas, but if it\u2019s other configurations that need multiple pieces of information then its each piece is connected with semicolon (;) as a delimiter.
 * Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"ocid1.vcn.oc1.sea.<unique_id>\",\"ocid1.vcn.oc1.sea.<unique_id1>;1.1.1.1\",\"ocid1.vcn.oc1.sea.<unique_id2>;1.1.0.0/16\"]}
 * For Exadata Cloud@Customer, this is an array of IP addresses or CIDR notations.
 * Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"1.1.2.25\"]}
@@ -208,9 +212,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
   /**
     * The client IP access control list (ACL). This feature is available for [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer.
 * Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance.
+* If {@code arePrimaryWhitelistedIpsUsed} is 'TRUE' then Autonomous Database uses this primary's IP access control list (ACL) for the disaster recovery peer called {@code standbywhitelistedips}.
 * <p>
 For Autonomous Database Serverless, this is an array of CIDR (classless inter-domain routing) notations for a subnet or VCN OCID (virtual cloud network Oracle Cloud ID).
-* Use a semicolon (;) as a deliminator between the VCN-specific subnets or IPs.
+* Multiple IPs and VCN OCIDs should be separate strings separated by commas, but if it\u2019s other configurations that need multiple pieces of information then its each piece is connected with semicolon (;) as a delimiter.
 * Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"ocid1.vcn.oc1.sea.<unique_id>\",\"ocid1.vcn.oc1.sea.<unique_id1>;1.1.1.1\",\"ocid1.vcn.oc1.sea.<unique_id2>;1.1.0.0/16\"]}
 * For Exadata Cloud@Customer, this is an array of IP addresses or CIDR notations.
 * Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"1.1.2.25\"]}
@@ -252,7 +257,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "nsgIds"?: Array<string>;
   /**
-    * The resource's private endpoint label. Setting this to an empty string, after the creation of the private endpoint database, changes the private endpoint database to a public endpoint database.
+    * The resource's private endpoint label.
+* - Setting the endpoint label to a non-empty string creates a private endpoint database.
+* - Resetting the endpoint label to an empty string, after the creation of the private endpoint database, changes the private endpoint database to a public endpoint database.
+* - Setting the endpoint label to a non-empty string value, updates to a new private endpoint database, when the database is disabled and re-enabled.
 * <p>
 This setting cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, dbWorkload, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 * 
@@ -287,7 +295,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   /**
     * Specifies if the Autonomous Database requires mTLS connections.
 * <p>
-This may not be updated in parallel with any of the following: licenseModel, databaseEdition, cpuCoreCount, computeCount, maxCpuCoreCount, dataStorageSizeInTBs, whitelistedIps, openMode, permissionLevel, db-workload, privateEndpointLabel, nsgIds, customerContacts, dbVersion, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
+This may not be updated in parallel with any of the following: licenseModel, databaseEdition, cpuCoreCount, computeCount, dataStorageSizeInTBs, whitelistedIps, openMode, permissionLevel, db-workload, privateEndpointLabel, nsgIds, customerContacts, dbVersion, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * <p>
 Service Change: The default value of the isMTLSConnectionRequired attribute will change from true to false on July 1, 2023 in the following APIs:
 * - CreateAutonomousDatabase
@@ -311,7 +319,7 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
    */
   "autonomousMaintenanceScheduleType"?: CreateAutonomousDatabaseBase.AutonomousMaintenanceScheduleType;
   /**
-    * The list of scheduled operations.
+    * The list of scheduled operations. Consists of values such as dayOfWeek, scheduledStartTime, scheduledStopTime.
 * <p>
 This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * 
@@ -322,11 +330,6 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    *
    */
   "isAutoScalingForStorageEnabled"?: boolean;
-  /**
-   * The number of Max OCPU cores to be made available to the autonomous database with auto scaling of cpu enabled.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "maxCpuCoreCount"?: number;
   /**
    * The Oracle Database Edition that applies to the Autonomous databases.
    *

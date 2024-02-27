@@ -1,8 +1,9 @@
 /**
- * Service Connector Hub API
- * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
-For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
+ * Connector Hub API
+ * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
+For more information about Connector Hub, see
+[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
  * 
@@ -18,12 +19,22 @@ import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
 import * as ChangeServiceConnectorCompartmentDetails from "./change-service-connector-compartment-details";
 export import ChangeServiceConnectorCompartmentDetails = ChangeServiceConnectorCompartmentDetails.ChangeServiceConnectorCompartmentDetails;
+import * as ConnectorPlugin from "./connector-plugin";
+export import ConnectorPlugin = ConnectorPlugin.ConnectorPlugin;
+import * as ConnectorPluginCollection from "./connector-plugin-collection";
+export import ConnectorPluginCollection = ConnectorPluginCollection.ConnectorPluginCollection;
+import * as ConnectorPluginLifecycleState from "./connector-plugin-lifecycle-state";
+export import ConnectorPluginLifecycleState = ConnectorPluginLifecycleState.ConnectorPluginLifecycleState;
+import * as ConnectorPluginSummary from "./connector-plugin-summary";
+export import ConnectorPluginSummary = ConnectorPluginSummary.ConnectorPluginSummary;
 import * as CreateServiceConnectorDetails from "./create-service-connector-details";
 export import CreateServiceConnectorDetails = CreateServiceConnectorDetails.CreateServiceConnectorDetails;
 import * as DimensionDetails from "./dimension-details";
 export import DimensionDetails = DimensionDetails.DimensionDetails;
 import * as DimensionValueDetails from "./dimension-value-details";
 export import DimensionValueDetails = DimensionValueDetails.DimensionValueDetails;
+import * as EstimatedThroughput from "./estimated-throughput";
+export import EstimatedThroughput = EstimatedThroughput.EstimatedThroughput;
 import * as LifecycleState from "./lifecycle-state";
 export import LifecycleState = LifecycleState.LifecycleState;
 import * as LogSource from "./log-source";
@@ -99,11 +110,21 @@ import * as NotificationsTargetDetails from "./notifications-target-details";
 export import NotificationsTargetDetails = NotificationsTargetDetails.NotificationsTargetDetails;
 import * as ObjectStorageTargetDetails from "./object-storage-target-details";
 export import ObjectStorageTargetDetails = ObjectStorageTargetDetails.ObjectStorageTargetDetails;
+import * as PluginSourceDetails from "./plugin-source-details";
+export import PluginSourceDetails = PluginSourceDetails.PluginSourceDetails;
+import * as SourceConnectorPlugin from "./source-connector-plugin";
+export import SourceConnectorPlugin = SourceConnectorPlugin.SourceConnectorPlugin;
+import * as SourceConnectorPluginSummary from "./source-connector-plugin-summary";
+export import SourceConnectorPluginSummary = SourceConnectorPluginSummary.SourceConnectorPluginSummary;
 import * as StaticDimensionValue from "./static-dimension-value";
 export import StaticDimensionValue = StaticDimensionValue.StaticDimensionValue;
 import * as StreamingSourceDetails from "./streaming-source-details";
 export import StreamingSourceDetails = StreamingSourceDetails.StreamingSourceDetails;
 import * as StreamingTargetDetails from "./streaming-target-details";
 export import StreamingTargetDetails = StreamingTargetDetails.StreamingTargetDetails;
+import * as TargetConnectorPlugin from "./target-connector-plugin";
+export import TargetConnectorPlugin = TargetConnectorPlugin.TargetConnectorPlugin;
+import * as TargetConnectorPluginSummary from "./target-connector-plugin-summary";
+export import TargetConnectorPluginSummary = TargetConnectorPluginSummary.TargetConnectorPluginSummary;
 import * as TrimHorizonStreamingCursor from "./trim-horizon-streaming-cursor";
 export import TrimHorizonStreamingCursor = TrimHorizonStreamingCursor.TrimHorizonStreamingCursor;

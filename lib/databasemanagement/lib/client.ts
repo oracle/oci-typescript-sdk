@@ -4944,9 +4944,17 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       "filterByMetricNames": getDatabaseFleetHealthMetricsRequest.filterByMetricNames,
       "filterByDatabaseType": getDatabaseFleetHealthMetricsRequest.filterByDatabaseType,
       "filterByDatabaseSubType": getDatabaseFleetHealthMetricsRequest.filterByDatabaseSubType,
+      "page": getDatabaseFleetHealthMetricsRequest.page,
+      "limit": getDatabaseFleetHealthMetricsRequest.limit,
+      "sortBy": getDatabaseFleetHealthMetricsRequest.sortBy,
+      "sortOrder": getDatabaseFleetHealthMetricsRequest.sortOrder,
       "filterByDatabaseDeploymentType":
         getDatabaseFleetHealthMetricsRequest.filterByDatabaseDeploymentType,
-      "filterByDatabaseVersion": getDatabaseFleetHealthMetricsRequest.filterByDatabaseVersion
+      "filterByDatabaseVersion": getDatabaseFleetHealthMetricsRequest.filterByDatabaseVersion,
+      "definedTagEquals": getDatabaseFleetHealthMetricsRequest.definedTagEquals,
+      "freeformTagEquals": getDatabaseFleetHealthMetricsRequest.freeformTagEquals,
+      "definedTagExists": getDatabaseFleetHealthMetricsRequest.definedTagExists,
+      "freeformTagExists": getDatabaseFleetHealthMetricsRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -4988,6 +4996,11 @@ When enabled, the optimizer uses SQL plan baselines to select plans
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -5362,6 +5375,11 @@ When enabled, the optimizer uses SQL plan baselines to select plans
         type: "model.ExternalAsmInstance",
         responseHeaders: [
           {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
@@ -5588,6 +5606,11 @@ When enabled, the optimizer uses SQL plan baselines to select plans
         bodyModel: model.ExternalDbHome,
         type: "model.ExternalDbHome",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -6665,6 +6688,11 @@ When enabled, the optimizer uses SQL plan baselines to select plans
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -14585,6 +14613,90 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Updates the external ASM instance specified by `externalAsmInstanceId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalAsmInstanceRequest
+   * @return UpdateExternalAsmInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalAsmInstance.ts.html |here} to see how to use UpdateExternalAsmInstance API.
+   */
+  public async updateExternalAsmInstance(
+    updateExternalAsmInstanceRequest: requests.UpdateExternalAsmInstanceRequest
+  ): Promise<responses.UpdateExternalAsmInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalAsmInstance.");
+    const operationName = "updateExternalAsmInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsmInstance/UpdateExternalAsmInstance";
+    const pathParams = {
+      "{externalAsmInstanceId}": updateExternalAsmInstanceRequest.externalAsmInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalAsmInstanceRequest.opcRequestId,
+      "if-match": updateExternalAsmInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalAsmInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsmInstances/{externalAsmInstanceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalAsmInstanceRequest.updateExternalAsmInstanceDetails,
+        "UpdateExternalAsmInstanceDetails",
+        model.UpdateExternalAsmInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalAsmInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "externalAsmInstance",
+        bodyModel: model.ExternalAsmInstance,
+        type: "model.ExternalAsmInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the external cluster specified by `externalClusterId`.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -14733,6 +14845,90 @@ Note that this API does not return information on the number of times each datab
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external DB home specified by `externalDbHomeId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalDbHomeRequest
+   * @return UpdateExternalDbHomeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbHome.ts.html |here} to see how to use UpdateExternalDbHome API.
+   */
+  public async updateExternalDbHome(
+    updateExternalDbHomeRequest: requests.UpdateExternalDbHomeRequest
+  ): Promise<responses.UpdateExternalDbHomeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbHome.");
+    const operationName = "updateExternalDbHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbHome/UpdateExternalDbHome";
+    const pathParams = {
+      "{externalDbHomeId}": updateExternalDbHomeRequest.externalDbHomeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalDbHomeRequest.opcRequestId,
+      "if-match": updateExternalDbHomeRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalDbHomeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbHomes/{externalDbHomeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalDbHomeRequest.updateExternalDbHomeDetails,
+        "UpdateExternalDbHomeDetails",
+        model.UpdateExternalDbHomeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalDbHomeResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbHome",
+        bodyModel: model.ExternalDbHome,
+        type: "model.ExternalDbHome",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -15249,6 +15445,176 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Updates the Exadata storage server grid specified by exadataStorageGridId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalExadataStorageGridRequest
+   * @return UpdateExternalExadataStorageGridResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageGrid.ts.html |here} to see how to use UpdateExternalExadataStorageGrid API.
+   */
+  public async updateExternalExadataStorageGrid(
+    updateExternalExadataStorageGridRequest: requests.UpdateExternalExadataStorageGridRequest
+  ): Promise<responses.UpdateExternalExadataStorageGridResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalExadataStorageGrid.");
+    const operationName = "updateExternalExadataStorageGrid";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageGrid/UpdateExternalExadataStorageGrid";
+    const pathParams = {
+      "{externalExadataStorageGridId}":
+        updateExternalExadataStorageGridRequest.externalExadataStorageGridId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalExadataStorageGridRequest.opcRequestId,
+      "if-match": updateExternalExadataStorageGridRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalExadataStorageGridRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalExadataStorageGrids/{externalExadataStorageGridId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalExadataStorageGridRequest.updateExternalExadataStorageGridDetails,
+        "UpdateExternalExadataStorageGridDetails",
+        model.UpdateExternalExadataStorageGridDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalExadataStorageGridResponse>{},
+        body: await response.json(),
+        bodyKey: "externalExadataStorageGrid",
+        bodyModel: model.ExternalExadataStorageGrid,
+        type: "model.ExternalExadataStorageGrid",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Exadata storage server specified by exadataStorageServerId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalExadataStorageServerRequest
+   * @return UpdateExternalExadataStorageServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageServer.ts.html |here} to see how to use UpdateExternalExadataStorageServer API.
+   */
+  public async updateExternalExadataStorageServer(
+    updateExternalExadataStorageServerRequest: requests.UpdateExternalExadataStorageServerRequest
+  ): Promise<responses.UpdateExternalExadataStorageServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalExadataStorageServer.");
+    const operationName = "updateExternalExadataStorageServer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalExadataStorageServer/UpdateExternalExadataStorageServer";
+    const pathParams = {
+      "{externalExadataStorageServerId}":
+        updateExternalExadataStorageServerRequest.externalExadataStorageServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalExadataStorageServerRequest.opcRequestId,
+      "if-match": updateExternalExadataStorageServerRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalExadataStorageServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalExadataStorageServers/{externalExadataStorageServerId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalExadataStorageServerRequest.updateExternalExadataStorageServerDetails,
+        "UpdateExternalExadataStorageServerDetails",
+        model.UpdateExternalExadataStorageServerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalExadataStorageServerResponse>{},
+        body: await response.json(),
+        bodyKey: "externalExadataStorageServer",
+        bodyModel: model.ExternalExadataStorageServer,
+        type: "model.ExternalExadataStorageServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the external listener specified by `externalListenerId`.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -15391,6 +15757,90 @@ Note that this API does not return information on the number of times each datab
         bodyKey: "job",
         bodyModel: model.Job,
         type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Managed Database specified by managedDatabaseId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateManagedDatabaseRequest
+   * @return UpdateManagedDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateManagedDatabase.ts.html |here} to see how to use UpdateManagedDatabase API.
+   */
+  public async updateManagedDatabase(
+    updateManagedDatabaseRequest: requests.UpdateManagedDatabaseRequest
+  ): Promise<responses.UpdateManagedDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateManagedDatabase.");
+    const operationName = "updateManagedDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/UpdateManagedDatabase";
+    const pathParams = {
+      "{managedDatabaseId}": updateManagedDatabaseRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateManagedDatabaseRequest.opcRequestId,
+      "if-match": updateManagedDatabaseRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateManagedDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateManagedDatabaseRequest.updateManagedDatabaseDetails,
+        "UpdateManagedDatabaseDetails",
+        model.UpdateManagedDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateManagedDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "managedDatabase",
+        bodyModel: model.ManagedDatabase,
+        type: "model.ManagedDatabase",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

@@ -1,8 +1,9 @@
 /**
- * Service Connector Hub API
- * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
-For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
+ * Connector Hub API
+ * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
+For more information about Connector Hub, see
+[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
  * 
@@ -14,6 +15,10 @@ For more information about Service Connector Hub, see
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as GetConnectorPluginRequest from "./get-connector-plugin-request";
+export import GetConnectorPluginRequest = GetConnectorPluginRequest.GetConnectorPluginRequest;
+import * as ListConnectorPluginsRequest from "./list-connector-plugins-request";
+export import ListConnectorPluginsRequest = ListConnectorPluginsRequest.ListConnectorPluginsRequest;
 import * as ActivateServiceConnectorRequest from "./activate-service-connector-request";
 export import ActivateServiceConnectorRequest = ActivateServiceConnectorRequest.ActivateServiceConnectorRequest;
 import * as ChangeServiceConnectorCompartmentRequest from "./change-service-connector-compartment-request";
