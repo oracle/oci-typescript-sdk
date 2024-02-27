@@ -56,6 +56,15 @@ export interface UpdateSecretDetails {
    * A list of rules to control how the secret is used and managed.
    */
   "secretRules"?: Array<model.SecretRule>;
+  "secretGenerationContext"?:
+    | model.PassphraseGenerationContext
+    | model.SshKeyGenerationContext
+    | model.BytesGenerationContext;
+  /**
+   * The value of this flag determines whether or not secret content will be generated automatically.
+   *
+   */
+  "enableAutoGeneration"?: boolean;
 }
 
 export namespace UpdateSecretDetails {
@@ -73,6 +82,9 @@ export namespace UpdateSecretDetails {
           ? obj.secretRules.map(item => {
               return model.SecretRule.getJsonObj(item);
             })
+          : undefined,
+        "secretGenerationContext": obj.secretGenerationContext
+          ? model.SecretGenerationContext.getJsonObj(obj.secretGenerationContext)
           : undefined
       }
     };
@@ -93,6 +105,9 @@ export namespace UpdateSecretDetails {
           ? obj.secretRules.map(item => {
               return model.SecretRule.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "secretGenerationContext": obj.secretGenerationContext
+          ? model.SecretGenerationContext.getDeserializedJsonObj(obj.secretGenerationContext)
           : undefined
       }
     };

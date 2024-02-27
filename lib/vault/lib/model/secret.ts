@@ -115,6 +115,15 @@ export interface Secret {
    * The OCID of the vault where the secret exists.
    */
   "vaultId": string;
+  "secretGenerationContext"?:
+    | model.PassphraseGenerationContext
+    | model.SshKeyGenerationContext
+    | model.BytesGenerationContext;
+  /**
+   * The value of this flag determines whether or not secret content will be generated automatically.
+   *
+   */
+  "isAutoGenerationEnabled"?: boolean;
 }
 
 export namespace Secret {
@@ -159,6 +168,10 @@ export namespace Secret {
           ? obj.secretRules.map(item => {
               return model.SecretRule.getJsonObj(item);
             })
+          : undefined,
+
+        "secretGenerationContext": obj.secretGenerationContext
+          ? model.SecretGenerationContext.getJsonObj(obj.secretGenerationContext)
           : undefined
       }
     };
@@ -177,6 +190,10 @@ export namespace Secret {
           ? obj.secretRules.map(item => {
               return model.SecretRule.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "secretGenerationContext": obj.secretGenerationContext
+          ? model.SecretGenerationContext.getDeserializedJsonObj(obj.secretGenerationContext)
           : undefined
       }
     };

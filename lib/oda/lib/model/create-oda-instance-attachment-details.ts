@@ -51,7 +51,8 @@ export interface CreateOdaInstanceAttachmentDetails {
 
 export namespace CreateOdaInstanceAttachmentDetails {
   export enum AttachmentType {
-    Fusion = "FUSION"
+    Fusion = "FUSION",
+    Max = "MAX"
   }
 
   export function getJsonObj(obj: CreateOdaInstanceAttachmentDetails): object {

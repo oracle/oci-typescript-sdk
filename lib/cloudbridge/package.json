@@ -1,6 +1,6 @@
 {
   "name": "oci-cloudbridge",
-  "version": "2.80.0",
+  "version": "2.81.0",
   "description": "OCI NodeJS client for Cloud Bridge Service",
   "repository": {
     "type": "git",

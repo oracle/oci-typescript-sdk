@@ -26,4 +26,10 @@ export interface RetrieveLogsRequest extends common.BaseRequest {
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
+  /**
+   * Returns the logs for the previous run of the container in a pod if the pod exists.
+   * If the container fails for some reason, this parameter is useful to determine the root cause of the failure.
+   *
+   */
+  "isPrevious"?: boolean;
 }

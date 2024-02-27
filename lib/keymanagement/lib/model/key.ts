@@ -100,6 +100,11 @@ Example: {@code 2018-04-03T21:10:29.600Z}
    * A Boolean value that indicates whether the Key belongs to primary Vault or replica vault.
    */
   "isPrimary"?: boolean;
+  /**
+   * A parameter specifying whether the auto key rotation is enabled or not.
+   */
+  "isAutoRotationEnabled"?: boolean;
+  "autoKeyRotationDetails"?: model.AutoKeyRotationDetails;
   "externalKeyReferenceDetails"?: model.ExternalKeyReferenceDetails;
 }
 
@@ -146,6 +151,9 @@ export namespace Key {
           ? model.KeyReplicaDetails.getJsonObj(obj.replicaDetails)
           : undefined,
 
+        "autoKeyRotationDetails": obj.autoKeyRotationDetails
+          ? model.AutoKeyRotationDetails.getJsonObj(obj.autoKeyRotationDetails)
+          : undefined,
         "externalKeyReferenceDetails": obj.externalKeyReferenceDetails
           ? model.ExternalKeyReferenceDetails.getJsonObj(obj.externalKeyReferenceDetails)
           : undefined
@@ -164,6 +172,9 @@ export namespace Key {
           ? model.KeyReplicaDetails.getDeserializedJsonObj(obj.replicaDetails)
           : undefined,
 
+        "autoKeyRotationDetails": obj.autoKeyRotationDetails
+          ? model.AutoKeyRotationDetails.getDeserializedJsonObj(obj.autoKeyRotationDetails)
+          : undefined,
         "externalKeyReferenceDetails": obj.externalKeyReferenceDetails
           ? model.ExternalKeyReferenceDetails.getDeserializedJsonObj(
               obj.externalKeyReferenceDetails

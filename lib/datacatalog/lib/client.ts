@@ -635,6 +635,87 @@ export class DataCatalogClient {
   }
 
   /**
+   * Export technical objects from a Data Asset in Excel format. Returns details about the job which actually performs the export.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AsynchronousExportDataAssetRequest
+   * @return AsynchronousExportDataAssetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AsynchronousExportDataAsset.ts.html |here} to see how to use AsynchronousExportDataAsset API.
+   */
+  public async asynchronousExportDataAsset(
+    asynchronousExportDataAssetRequest: requests.AsynchronousExportDataAssetRequest
+  ): Promise<responses.AsynchronousExportDataAssetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#asynchronousExportDataAsset.");
+    const operationName = "asynchronousExportDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/AsynchronousExportDataAsset";
+    const pathParams = {
+      "{catalogId}": asynchronousExportDataAssetRequest.catalogId,
+      "{dataAssetKey}": asynchronousExportDataAssetRequest.dataAssetKey
+    };
+
+    const queryParams = {
+      "exportType": asynchronousExportDataAssetRequest.exportType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": asynchronousExportDataAssetRequest.opcRequestId,
+      "opc-retry-token": asynchronousExportDataAssetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      asynchronousExportDataAssetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/dataAssets/{dataAssetKey}/actions/asynchronousExport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        asynchronousExportDataAssetRequest.asynchronousExportDataAssetDetails,
+        "AsynchronousExportDataAssetDetails",
+        model.AsynchronousExportDataAssetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AsynchronousExportDataAssetResponse>{},
+        body: await response.json(),
+        bodyKey: "asynchronousExportDataAssetResult",
+        bodyModel: model.AsynchronousExportDataAssetResult,
+        type: "model.AsynchronousExportDataAssetResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Exports the contents of a glossary in Excel format. Returns details about the job which actually performs the export.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

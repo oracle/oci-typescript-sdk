@@ -22,6 +22,11 @@ export interface GetManagedDatabaseResponse {
    */
   "opcRequestId": string;
   /**
+   * For optimistic concurrency control. See {@code if-match}.
+   *
+   */
+  "etag": string;
+  /**
    * The returned model.ManagedDatabase instance.
    */
   "managedDatabase": model.ManagedDatabase;

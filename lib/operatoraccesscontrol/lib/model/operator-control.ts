@@ -94,6 +94,10 @@ export interface OperatorControl {
    */
   "timeOfModification"?: Date;
   /**
+   * Number of approvers required to approve an access request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfApprovers"?: number;
+  /**
    * Whether the operator control is a default Operator Control.
    *
    */

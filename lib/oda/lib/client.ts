@@ -218,6 +218,164 @@ export class ManagementClient {
   }
 
   /**
+   * Bulk create composite and value list entities into a skill.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkCreateSkillEntitiesRequest
+   * @return BulkCreateSkillEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/BulkCreateSkillEntities.ts.html |here} to see how to use BulkCreateSkillEntities API.
+   */
+  public async bulkCreateSkillEntities(
+    bulkCreateSkillEntitiesRequest: requests.BulkCreateSkillEntitiesRequest
+  ): Promise<responses.BulkCreateSkillEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#bulkCreateSkillEntities.");
+    const operationName = "bulkCreateSkillEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/BulkCreateSkillEntities";
+    const pathParams = {
+      "{odaInstanceId}": bulkCreateSkillEntitiesRequest.odaInstanceId,
+      "{skillId}": bulkCreateSkillEntitiesRequest.skillId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": bulkCreateSkillEntitiesRequest.opcRequestId,
+      "opc-retry-token": bulkCreateSkillEntitiesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkCreateSkillEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaInstances/{odaInstanceId}/skills/{skillId}/actions/bulkCreateEntities",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkCreateSkillEntitiesRequest.bulkCreateSkillEntitiesDetails,
+        "BulkCreateSkillEntitiesDetails",
+        model.BulkCreateSkillEntitiesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkCreateSkillEntitiesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cascading delete of the custom entities in a skill.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CascadingDeleteSkillCustomEntitiesRequest
+   * @return CascadingDeleteSkillCustomEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CascadingDeleteSkillCustomEntities.ts.html |here} to see how to use CascadingDeleteSkillCustomEntities API.
+   */
+  public async cascadingDeleteSkillCustomEntities(
+    cascadingDeleteSkillCustomEntitiesRequest: requests.CascadingDeleteSkillCustomEntitiesRequest
+  ): Promise<responses.CascadingDeleteSkillCustomEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#cascadingDeleteSkillCustomEntities.");
+    const operationName = "cascadingDeleteSkillCustomEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/CascadingDeleteSkillCustomEntities";
+    const pathParams = {
+      "{odaInstanceId}": cascadingDeleteSkillCustomEntitiesRequest.odaInstanceId,
+      "{skillId}": cascadingDeleteSkillCustomEntitiesRequest.skillId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cascadingDeleteSkillCustomEntitiesRequest.ifMatch,
+      "opc-request-id": cascadingDeleteSkillCustomEntitiesRequest.opcRequestId,
+      "opc-retry-token": cascadingDeleteSkillCustomEntitiesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cascadingDeleteSkillCustomEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaInstances/{odaInstanceId}/skills/{skillId}/actions/cascadingDeleteCustomEntities",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CascadingDeleteSkillCustomEntitiesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Starts an asynchronous job to move the specified ODA Private Endpoint into a different compartment.
 * <p>
 To monitor the status of the job, take the `opc-work-request-id` response header
@@ -4186,6 +4344,86 @@ If the `opc-next-page` header appears in the response, then
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Train a skill.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TrainSkillRequest
+   * @return TrainSkillResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/TrainSkill.ts.html |here} to see how to use TrainSkill API.
+   */
+  public async trainSkill(
+    trainSkillRequest: requests.TrainSkillRequest
+  ): Promise<responses.TrainSkillResponse> {
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#trainSkill.");
+    const operationName = "trainSkill";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/Skill/TrainSkill";
+    const pathParams = {
+      "{odaInstanceId}": trainSkillRequest.odaInstanceId,
+      "{skillId}": trainSkillRequest.skillId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": trainSkillRequest.ifMatch,
+      "opc-request-id": trainSkillRequest.opcRequestId,
+      "opc-retry-token": trainSkillRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      trainSkillRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaInstances/{odaInstanceId}/skills/{skillId}/actions/train",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        trainSkillRequest.trainSkillDetails,
+        "TrainSkillDetails",
+        model.TrainSkillDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TrainSkillResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

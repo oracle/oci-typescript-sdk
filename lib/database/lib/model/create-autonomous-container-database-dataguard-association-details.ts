@@ -33,7 +33,16 @@ export interface CreateAutonomousContainerDatabaseDataguardAssociationDetails {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the peer cloud Autonomous Exadata VM Cluster.
    */
-  "peerCloudAutonomousVmClusterId": string;
+  "peerCloudAutonomousVmClusterId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the peer Autonomous Exadata VM Cluster.
+   */
+  "peerAutonomousVmClusterId"?: string;
+  /**
+   * Specifies the {@code DB_UNIQUE_NAME} of the peer database to be created.
+   *
+   */
+  "peerDbUniqueName"?: string;
   "peerAutonomousContainerDatabaseBackupConfig"?: model.PeerAutonomousContainerDatabaseBackupConfig;
   /**
    * Indicates whether Automatic Failover is enabled for Autonomous Container Database Dataguard Association

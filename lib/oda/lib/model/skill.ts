@@ -62,6 +62,10 @@ export interface Skill {
    */
   "platformVersion": string;
   /**
+   * The resource's dialog version.
+   */
+  "dialogVersion"?: string;
+  /**
    * The unique identifier for the base reource (when this resource extends another).
    */
   "baseId"?: string;

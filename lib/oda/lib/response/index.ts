@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as BulkCreateSkillEntitiesResponse from "./bulk-create-skill-entities-response";
+export import BulkCreateSkillEntitiesResponse = BulkCreateSkillEntitiesResponse.BulkCreateSkillEntitiesResponse;
+import * as CascadingDeleteSkillCustomEntitiesResponse from "./cascading-delete-skill-custom-entities-response";
+export import CascadingDeleteSkillCustomEntitiesResponse = CascadingDeleteSkillCustomEntitiesResponse.CascadingDeleteSkillCustomEntitiesResponse;
 import * as ChangeOdaPrivateEndpointCompartmentResponse from "./change-oda-private-endpoint-compartment-response";
 export import ChangeOdaPrivateEndpointCompartmentResponse = ChangeOdaPrivateEndpointCompartmentResponse.ChangeOdaPrivateEndpointCompartmentResponse;
 import * as ConfigureDigitalAssistantParametersResponse from "./configure-digital-assistant-parameters-response";
@@ -107,6 +111,8 @@ import * as StartChannelResponse from "./start-channel-response";
 export import StartChannelResponse = StartChannelResponse.StartChannelResponse;
 import * as StopChannelResponse from "./stop-channel-response";
 export import StopChannelResponse = StopChannelResponse.StopChannelResponse;
+import * as TrainSkillResponse from "./train-skill-response";
+export import TrainSkillResponse = TrainSkillResponse.TrainSkillResponse;
 import * as UpdateAuthenticationProviderResponse from "./update-authentication-provider-response";
 export import UpdateAuthenticationProviderResponse = UpdateAuthenticationProviderResponse.UpdateAuthenticationProviderResponse;
 import * as UpdateChannelResponse from "./update-channel-response";

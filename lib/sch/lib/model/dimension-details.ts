@@ -1,8 +1,9 @@
 /**
- * Service Connector Hub API
- * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
-For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
+ * Connector Hub API
+ * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
+For more information about Connector Hub, see
+[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
  * 
@@ -25,7 +26,7 @@ export interface DimensionDetails {
   /**
    * Dimension key. A valid dimension key includes only printable ASCII, excluding periods (.) and spaces.
    * Custom dimension keys are acceptable. Avoid entering confidential information.
-   * Due to use by Service Connector Hub, the following dimension names are reserved: {@code connectorId}, {@code connectorName}, {@code connectorSourceType}.
+   * Due to use by Connector Hub, the following dimension names are reserved: {@code connectorId}, {@code connectorName}, {@code connectorSourceType}.
    * For information on valid dimension keys and values, see {@link #metricDataDetails(MetricDataDetailsRequest) metricDataDetails}.
    * Example: {@code type}
    *

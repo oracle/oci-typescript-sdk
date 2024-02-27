@@ -60,6 +60,10 @@ Example: {@code 2018-04-03T21:10:29.600Z}
    */
   "vaultId": string;
   "externalKeyReferenceDetails"?: model.ExternalKeyReferenceDetails;
+  /**
+   * An optional property indicating whether this keyversion is generated from auto rotatation.
+   */
+  "isAutoRotated"?: boolean;
 }
 
 export namespace KeyVersionSummary {

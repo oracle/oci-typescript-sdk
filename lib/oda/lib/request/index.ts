@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as BulkCreateSkillEntitiesRequest from "./bulk-create-skill-entities-request";
+export import BulkCreateSkillEntitiesRequest = BulkCreateSkillEntitiesRequest.BulkCreateSkillEntitiesRequest;
+import * as CascadingDeleteSkillCustomEntitiesRequest from "./cascading-delete-skill-custom-entities-request";
+export import CascadingDeleteSkillCustomEntitiesRequest = CascadingDeleteSkillCustomEntitiesRequest.CascadingDeleteSkillCustomEntitiesRequest;
 import * as ChangeOdaPrivateEndpointCompartmentRequest from "./change-oda-private-endpoint-compartment-request";
 export import ChangeOdaPrivateEndpointCompartmentRequest = ChangeOdaPrivateEndpointCompartmentRequest.ChangeOdaPrivateEndpointCompartmentRequest;
 import * as ConfigureDigitalAssistantParametersRequest from "./configure-digital-assistant-parameters-request";
@@ -107,6 +111,8 @@ import * as StartChannelRequest from "./start-channel-request";
 export import StartChannelRequest = StartChannelRequest.StartChannelRequest;
 import * as StopChannelRequest from "./stop-channel-request";
 export import StopChannelRequest = StopChannelRequest.StopChannelRequest;
+import * as TrainSkillRequest from "./train-skill-request";
+export import TrainSkillRequest = TrainSkillRequest.TrainSkillRequest;
 import * as UpdateAuthenticationProviderRequest from "./update-authentication-provider-request";
 export import UpdateAuthenticationProviderRequest = UpdateAuthenticationProviderRequest.UpdateAuthenticationProviderRequest;
 import * as UpdateChannelRequest from "./update-channel-request";

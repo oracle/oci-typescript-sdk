@@ -45,6 +45,11 @@ export interface CreateKeyDetails {
   "freeformTags"?: { [key: string]: string };
   "keyShape": model.KeyShape;
   /**
+   * A parameter specifying whether the auto key rotation is enabled or not.
+   */
+  "isAutoRotationEnabled"?: boolean;
+  "autoKeyRotationDetails"?: model.AutoKeyRotationDetails;
+  /**
    * The key's protection mode indicates how the key persists and where cryptographic operations that use the key are performed.
    * A protection mode of {@code HSM} means that the key persists on a hardware security module (HSM) and all cryptographic operations are performed inside
    * the HSM. A protection mode of {@code SOFTWARE} means that the key persists on the server, protected by the vault's RSA wrapping key which persists
@@ -72,6 +77,10 @@ export namespace CreateKeyDetails {
       ...{
         "keyShape": obj.keyShape ? model.KeyShape.getJsonObj(obj.keyShape) : undefined,
 
+        "autoKeyRotationDetails": obj.autoKeyRotationDetails
+          ? model.AutoKeyRotationDetails.getJsonObj(obj.autoKeyRotationDetails)
+          : undefined,
+
         "externalKeyReference": obj.externalKeyReference
           ? model.ExternalKeyReference.getJsonObj(obj.externalKeyReference)
           : undefined
@@ -85,6 +94,10 @@ export namespace CreateKeyDetails {
       ...obj,
       ...{
         "keyShape": obj.keyShape ? model.KeyShape.getDeserializedJsonObj(obj.keyShape) : undefined,
+
+        "autoKeyRotationDetails": obj.autoKeyRotationDetails
+          ? model.AutoKeyRotationDetails.getDeserializedJsonObj(obj.autoKeyRotationDetails)
+          : undefined,
 
         "externalKeyReference": obj.externalKeyReference
           ? model.ExternalKeyReference.getDeserializedJsonObj(obj.externalKeyReference)

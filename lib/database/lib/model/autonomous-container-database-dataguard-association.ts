@@ -25,7 +25,7 @@ export interface AutonomousContainerDatabaseDataguardAssociation {
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Container Database that has a relationship with the peer Autonomous Container Database.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Container Database that has a relationship with the peer Autonomous Container Database. Used only by Autonomous Database on Dedicated Exadata Infrastructure.
    *
    */
   "autonomousContainerDatabaseId": string;
@@ -58,7 +58,7 @@ export interface AutonomousContainerDatabaseDataguardAssociation {
    */
   "peerRole": AutonomousContainerDatabaseDataguardAssociation.PeerRole;
   /**
-   * The current state of Autonomous Data Guard.
+   * The current state of the Autonomous Container Database.
    */
   "peerLifecycleState"?: AutonomousContainerDatabaseDataguardAssociation.PeerLifecycleState;
   /**
@@ -160,12 +160,18 @@ export namespace AutonomousContainerDatabaseDataguardAssociation {
   export enum PeerLifecycleState {
     Provisioning = "PROVISIONING",
     Available = "AVAILABLE",
-    RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
+    Updating = "UPDATING",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED",
+    BackupInProgress = "BACKUP_IN_PROGRESS",
+    Restoring = "RESTORING",
+    RestoreFailed = "RESTORE_FAILED",
+    Restarting = "RESTARTING",
+    MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
+    EnablingAutonomousDataGuard = "ENABLING_AUTONOMOUS_DATA_GUARD",
     Unavailable = "UNAVAILABLE",
-    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

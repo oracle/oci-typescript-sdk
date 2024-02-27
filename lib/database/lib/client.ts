@@ -5180,9 +5180,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 
   /**
    * Creates a maintenance run with one of the following:
-   * The latest available release update patch (RUP) for the Autonomous Container Database.
-   * The latest available RUP and DST time zone (TZ) file updates for the Autonomous Container Database.
-   * Creates a maintenance run to update the DST TZ file for the Autonomous Container Database.
+   * 1. The latest available release update patch (RUP) for the Autonomous Container Database.
+   * 2. The latest available RUP and DST time-zone (TZ) file updates for the Autonomous Container Database.
+   * 3. The DST TZ file updates for the Autonomous Container Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateMaintenanceRunRequest
@@ -9967,7 +9967,12 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Initiates a failover the specified Autonomous Database to a standby. To perform a failover to a standby located in a remote region, specify the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the remote standby using the `peerDbId` parameter.
+   * Initiates a failover of the specified Autonomous Database to the associated peer database. Applicable only to databases with Disaster Recovery enabled.
+   * This API should be called in the remote region where the peer database resides.
+   * Below parameter is optional:
+   *   - `peerDbId`
+   *     Use this parameter to specify the database OCID of the Disaster Recovery peer, which is located in a different (remote) region from the current peer database.
+   *     If this parameter is not provided, the failover will happen in the same region.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param FailOverAutonomousDatabaseRequest
@@ -18188,7 +18193,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "sortBy": listCloudExadataInfrastructuresRequest.sortBy,
       "sortOrder": listCloudExadataInfrastructuresRequest.sortOrder,
       "lifecycleState": listCloudExadataInfrastructuresRequest.lifecycleState,
-      "displayName": listCloudExadataInfrastructuresRequest.displayName
+      "displayName": listCloudExadataInfrastructuresRequest.displayName,
+      "clusterPlacementGroupId": listCloudExadataInfrastructuresRequest.clusterPlacementGroupId
     };
 
     let headerParams = {
@@ -26829,7 +26835,12 @@ A switchover incurs no data loss.
   }
 
   /**
-   * Initiates a switchover of the specified Autonomous Database to the associated standby database. Applicable only to databases with Autonomous Data Guard enabled. To perform a switchover to a standby located in a remote region, specify the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the remote standby using the `peerDbId` parameter.
+   * Initiates a switchover of the specified Autonomous Database to the associated peer database. Applicable only to databases with Disaster Recovery enabled.
+   * This API should be called in the remote region where the peer database resides.
+   * Below parameter is optional:
+   *   - `peerDbId`
+   *     Use this parameter to specify the database OCID of the Disaster Recovery peer, which is located in a different (remote) region from the current peer database.
+   *     If this parameter is not provided, the switchover will happen in the same region.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SwitchoverAutonomousDatabaseRequest

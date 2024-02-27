@@ -59,7 +59,7 @@ export interface CreateAutonomousVmClusterDetails {
    */
   "cpuCoreCountPerNode"?: number;
   /**
-   * The compute model of the Autonomous VM Cluster.
+   * The compute model of the Autonomous VM Cluster. ECPU compute model is the recommended model and OCPU compute model is legacy.
    *
    */
   "computeModel"?: CreateAutonomousVmClusterDetails.ComputeModel;

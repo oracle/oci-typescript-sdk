@@ -713,10 +713,10 @@ import * as CreateRecoveryApplianceBackupDestinationDetails from "./create-recov
 export import CreateRecoveryApplianceBackupDestinationDetails = CreateRecoveryApplianceBackupDestinationDetails.CreateRecoveryApplianceBackupDestinationDetails;
 import * as CreateRefreshableAutonomousDatabaseCloneDetails from "./create-refreshable-autonomous-database-clone-details";
 export import CreateRefreshableAutonomousDatabaseCloneDetails = CreateRefreshableAutonomousDatabaseCloneDetails.CreateRefreshableAutonomousDatabaseCloneDetails;
-import * as DatabaseConnectionCredentailsByName from "./database-connection-credentails-by-name";
-export import DatabaseConnectionCredentailsByName = DatabaseConnectionCredentailsByName.DatabaseConnectionCredentailsByName;
 import * as DatabaseConnectionCredentialsByDetails from "./database-connection-credentials-by-details";
 export import DatabaseConnectionCredentialsByDetails = DatabaseConnectionCredentialsByDetails.DatabaseConnectionCredentialsByDetails;
+import * as DatabaseConnectionCredentialsByName from "./database-connection-credentials-by-name";
+export import DatabaseConnectionCredentialsByName = DatabaseConnectionCredentialsByName.DatabaseConnectionCredentialsByName;
 import * as DatabaseSslConnectionCredentials from "./database-ssl-connection-credentials";
 export import DatabaseSslConnectionCredentials = DatabaseSslConnectionCredentials.DatabaseSslConnectionCredentials;
 import * as DatabaseUpgradeWithDatabaseSoftwareImageDetails from "./database-upgrade-with-database-software-image-details";

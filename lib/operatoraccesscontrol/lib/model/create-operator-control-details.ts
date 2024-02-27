@@ -60,6 +60,10 @@ export interface CreateOperatorControlDetails {
    */
   "resourceType": model.ResourceTypes;
   /**
+   * Number of approvers required to approve an access request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfApprovers"?: number;
+  /**
    * List of emailId.
    *
    */

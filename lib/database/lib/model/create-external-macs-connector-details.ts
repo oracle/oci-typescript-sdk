@@ -24,8 +24,8 @@ export interface CreateExternalMacsConnectorDetails
   extends model.CreateExternalDatabaseConnectorDetails {
   "connectionString": model.DatabaseConnectionString;
   "connectionCredentials":
-    | model.DatabaseConnectionCredentailsByName
     | model.DatabaseSslConnectionCredentials
+    | model.DatabaseConnectionCredentialsByName
     | model.DatabaseConnectionCredentialsByDetails;
   /**
    * The ID of the agent used for the

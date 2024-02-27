@@ -40,7 +40,7 @@ To get a list of all shapes, use the {@link #listDbSystemShapes(ListDbSystemShap
     */
   "shape"?: string;
   /**
-   * The number of OCPU cores available for AMD-based virtual machine DB systems. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of CPU cores available for AMD-based virtual machine DB systems. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
   /**
@@ -112,7 +112,7 @@ Example: {@code FAULT-DOMAIN-1}
    */
   "privateIp"?: string;
   /**
-   * The Oracle license model that applies to all the databases on the dataguard standby DB system. The default is LICENSE_INCLUDED.
+   * The Oracle license model that applies to all the databases on the dataguard standby DB system. The default is LICENSE_INCLUDED. Bring your own license (BYOL) allows you to select the DB edition using the optional parameter, for Autonomous Database Serverless.
    *
    */
   "licenseModel"?: CreateDataGuardAssociationWithNewDbSystemDetails.LicenseModel;

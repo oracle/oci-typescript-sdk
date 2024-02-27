@@ -66,7 +66,7 @@ export interface AutonomousVmClusterSummary {
    */
   "cpusEnabled"?: number;
   /**
-   * The compute model of the Autonomous VM Cluster.
+   * The compute model of the Autonomous VM Cluster. ECPU compute model is the recommended model and OCPU compute model is legacy. See [Compute Models in Autonomous Database on Dedicated Exadata #Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details.
    *
    */
   "computeModel"?: AutonomousVmClusterSummary.ComputeModel;
@@ -125,7 +125,8 @@ export interface AutonomousVmClusterSummary {
    */
   "reservedCpus"?: number;
   /**
-   * The number of provisionable Autonomous Container Databases in an Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * **Deprecated.** Use field totalContainerDatabases.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "provisionableAutonomousContainerDatabases"?: number;
   /**
@@ -186,9 +187,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "dbServers"?: Array<string>;
   /**
-   * For Autonomous Databases on Dedicated Exadata Infrastructure:
-   * - These are the CPUs that continue to be included in the count of CPUs available to the Autonomous Container Database even after one of its Autonomous Database is terminated or scaled down. You can release them to the available CPUs at its parent Autonomous VM Cluster level by restarting the Autonomous Container Database.
-   * - The CPU type (OCPUs or ECPUs) is determined by the parent Autonomous Exadata VM Cluster's compute model.
+   * CPUs that continue to be included in the count of CPUs available to the Autonomous Container Database even after one of its Autonomous Database is terminated or scaled down. You can release them to the available CPUs at its parent Autonomous VM Cluster level by restarting the Autonomous Container Database.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "reclaimableCpus"?: number;
@@ -221,7 +220,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "timeOrdsCertificateExpires"?: Date;
   /**
-   * The lowest value to which exadataStorage in TBs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The lowest value to which exadataStorage(in TBs) can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "exadataStorageInTBsLowestScaledValue"?: number;
   /**
@@ -229,7 +228,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "cpusLowestScaledValue"?: number;
   /**
-   * The lowest value to which ACDs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The lowest value to which maximum number of ACDs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAcdsLowestScaledValue"?: number;
 }

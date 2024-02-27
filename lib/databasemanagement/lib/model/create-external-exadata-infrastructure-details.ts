@@ -46,6 +46,20 @@ export interface CreateExternalExadataInfrastructureDetails {
    * The list of all the Exadata storage server names to be included for monitoring purposes. If not specified, all the Exadata storage servers associated with the DB systems are included.
    */
   "storageServerNames"?: Array<string>;
+  /**
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {\"Department\": \"Finance\"}}
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace CreateExternalExadataInfrastructureDetails {

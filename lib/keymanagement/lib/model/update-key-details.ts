@@ -20,6 +20,11 @@ import common = require("oci-common");
  */
 export interface UpdateKeyDetails {
   /**
+   * A parameter specifying whether the auto key rotation is enabled or not.
+   */
+  "isAutoRotationEnabled"?: boolean;
+  "autoKeyRotationDetails"?: model.AutoKeyRotationDetails;
+  /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
@@ -43,12 +48,26 @@ export interface UpdateKeyDetails {
 
 export namespace UpdateKeyDetails {
   export function getJsonObj(obj: UpdateKeyDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "autoKeyRotationDetails": obj.autoKeyRotationDetails
+          ? model.AutoKeyRotationDetails.getJsonObj(obj.autoKeyRotationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateKeyDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "autoKeyRotationDetails": obj.autoKeyRotationDetails
+          ? model.AutoKeyRotationDetails.getDeserializedJsonObj(obj.autoKeyRotationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

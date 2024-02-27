@@ -1,8 +1,9 @@
 /**
- * Service Connector Hub API
- * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
-For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
+ * Connector Hub API
+ * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
+For more information about Connector Hub, see
+[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
  * 
@@ -18,10 +19,13 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as connectorplugins_waiter from "./lib/connectorplugins-waiter";
 import * as serviceconnector_waiter from "./lib/serviceconnector-waiter";
 
 export { models };
 export { requests };
 export { responses };
+export import ConnectorPluginsClient = client.ConnectorPluginsClient;
+export import ConnectorPluginsWaiter = connectorplugins_waiter.ConnectorPluginsWaiter;
 export import ServiceConnectorClient = client.ServiceConnectorClient;
 export import ServiceConnectorWaiter = serviceconnector_waiter.ServiceConnectorWaiter;

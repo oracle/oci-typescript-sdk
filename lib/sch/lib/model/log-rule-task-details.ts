@@ -1,8 +1,9 @@
 /**
- * Service Connector Hub API
- * Use the Service Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
-For more information about Service Connector Hub, see
-[Service Connector Hub Overview](/iaas/Content/service-connector-hub/overview.htm).
+ * Connector Hub API
+ * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
+For more information about Connector Hub, see
+[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
  * 
@@ -18,14 +19,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The log rule task.
+ * The log filter task.
  * For configuration instructions, see
- * [To create a service connector](https://docs.cloud.oracle.com/iaas/Content/service-connector-hub/managingconnectors.htm#create).
+ * [Creating a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/create-service-connector.htm).
  *
  */
 export interface LogRuleTaskDetails extends model.TaskDetails {
   /**
-   * A filter or mask to limit the source used in the flow defined by the service connector.
+   * A filter or mask to limit the source used in the flow defined by the connector.
    *
    */
   "condition": string;

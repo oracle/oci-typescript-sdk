@@ -224,6 +224,12 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The FQDN of the DNS record for the SCAN IP addresses that are associated with the cloud VM cluster.
    *
    */

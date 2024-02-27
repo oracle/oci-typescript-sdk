@@ -72,6 +72,7 @@ export interface OdaInstanceAttachmentSummary {
 export namespace OdaInstanceAttachmentSummary {
   export enum AttachmentType {
     Fusion = "FUSION",
+    Max = "MAX",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

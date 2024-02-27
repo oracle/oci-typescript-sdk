@@ -23,6 +23,8 @@ import * as AddMetastoreLockRequest from "./add-metastore-lock-request";
 export import AddMetastoreLockRequest = AddMetastoreLockRequest.AddMetastoreLockRequest;
 import * as AssociateCustomPropertyRequest from "./associate-custom-property-request";
 export import AssociateCustomPropertyRequest = AssociateCustomPropertyRequest.AssociateCustomPropertyRequest;
+import * as AsynchronousExportDataAssetRequest from "./asynchronous-export-data-asset-request";
+export import AsynchronousExportDataAssetRequest = AsynchronousExportDataAssetRequest.AsynchronousExportDataAssetRequest;
 import * as AsynchronousExportGlossaryRequest from "./asynchronous-export-glossary-request";
 export import AsynchronousExportGlossaryRequest = AsynchronousExportGlossaryRequest.AsynchronousExportGlossaryRequest;
 import * as AttachCatalogPrivateEndpointRequest from "./attach-catalog-private-endpoint-request";

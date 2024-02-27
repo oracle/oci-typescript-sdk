@@ -1268,7 +1268,9 @@ export class ContainerInstanceClient {
       "{containerId}": retrieveLogsRequest.containerId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isPrevious": retrieveLogsRequest.isPrevious
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

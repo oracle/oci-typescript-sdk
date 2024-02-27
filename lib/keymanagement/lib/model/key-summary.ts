@@ -82,6 +82,10 @@ Example: {@code 2018-04-03T21:10:29.600Z}
    */
   "algorithm"?: KeySummary.Algorithm;
   "externalKeyReferenceDetails"?: model.ExternalKeyReferenceDetails;
+  /**
+   * A parameter specifying whether the auto key rotation is enabled or not.
+   */
+  "isAutoRotationEnabled"?: boolean;
 }
 
 export namespace KeySummary {
