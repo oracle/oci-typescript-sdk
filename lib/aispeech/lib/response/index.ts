@@ -19,6 +19,8 @@ import * as ChangeTranscriptionJobCompartmentResponse from "./change-transcripti
 export import ChangeTranscriptionJobCompartmentResponse = ChangeTranscriptionJobCompartmentResponse.ChangeTranscriptionJobCompartmentResponse;
 import * as CreateTranscriptionJobResponse from "./create-transcription-job-response";
 export import CreateTranscriptionJobResponse = CreateTranscriptionJobResponse.CreateTranscriptionJobResponse;
+import * as DeleteTranscriptionJobResponse from "./delete-transcription-job-response";
+export import DeleteTranscriptionJobResponse = DeleteTranscriptionJobResponse.DeleteTranscriptionJobResponse;
 import * as GetTranscriptionJobResponse from "./get-transcription-job-response";
 export import GetTranscriptionJobResponse = GetTranscriptionJobResponse.GetTranscriptionJobResponse;
 import * as GetTranscriptionTaskResponse from "./get-transcription-task-response";

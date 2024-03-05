@@ -517,6 +517,76 @@ export class AIServiceSpeechClient {
   }
 
   /**
+   * Delete API cleans job, tasks and the related metadata. However the generated transcriptions in customer tenancy will not be deleted.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteTranscriptionJobRequest
+   * @return DeleteTranscriptionJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/DeleteTranscriptionJob.ts.html |here} to see how to use DeleteTranscriptionJob API.
+   */
+  public async deleteTranscriptionJob(
+    deleteTranscriptionJobRequest: requests.DeleteTranscriptionJobRequest
+  ): Promise<responses.DeleteTranscriptionJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#deleteTranscriptionJob.");
+    const operationName = "deleteTranscriptionJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/DeleteTranscriptionJob";
+    const pathParams = {
+      "{transcriptionJobId}": deleteTranscriptionJobRequest.transcriptionJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteTranscriptionJobRequest.ifMatch,
+      "opc-request-id": deleteTranscriptionJobRequest.opcRequestId,
+      "opc-retry-token": deleteTranscriptionJobRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTranscriptionJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/transcriptionJobs/{transcriptionJobId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTranscriptionJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a Transcription Job by identifier
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTranscriptionJobRequest

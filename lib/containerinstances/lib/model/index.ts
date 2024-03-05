@@ -17,8 +17,12 @@ import * as ChangeContainerInstanceCompartmentDetails from "./change-container-i
 export import ChangeContainerInstanceCompartmentDetails = ChangeContainerInstanceCompartmentDetails.ChangeContainerInstanceCompartmentDetails;
 import * as Container from "./container";
 export import Container = Container.Container;
+import * as ContainerCapabilities from "./container-capabilities";
+export import ContainerCapabilities = ContainerCapabilities.ContainerCapabilities;
 import * as ContainerCapability from "./container-capability";
 export import ContainerCapability = ContainerCapability.ContainerCapability;
+import * as ContainerCapabilityType from "./container-capability-type";
+export import ContainerCapabilityType = ContainerCapabilityType.ContainerCapabilityType;
 import * as ContainerCollection from "./container-collection";
 export import ContainerCollection = ContainerCollection.ContainerCollection;
 import * as ContainerConfigFile from "./container-config-file";

@@ -19,23 +19,91 @@ import common = require("oci-common");
  */
 export interface TranscriptionModelDetails {
   /**
+   * Select a model to use for generating transcriptions. Currently supported models are:
+   * - ORACLE
+   * - WHISPER_MEDIUM
+   * - WHISPER_LARGE_V2 (upon service request)
+   *
+   */
+  "modelType"?: string;
+  /**
    * Domain for input files.
    */
   "domain"?: TranscriptionModelDetails.Domain;
   /**
-   * Locale value as per given in [https://datatracker.ietf.org/doc/html/rfc5646].
-   * - en-US: English - United States
-   * - es-ES: Spanish - Spain
-   * - pt-BR: Portuguese - Brazil
-   * - en-GB: English - Great Britain
-   * - en-AU: English - Australia
-   * - en-IN: English - India
-   * - hi-IN: Hindi - India
-   * - fr-FR: French - France
-   * - de-DE: German - Germany
-   * - it-IT: Italian - Italy
-   *
-   */
+    * 
+* Oracle supported language codes are (Oracle models are locale specific).
+* - en-US: English - United States (default)
+* - es-ES: Spanish - Spain
+* - pt-BR: Portuguese - Brazil
+* - en-GB: English - Great Britain
+* - en-AU: English - Australia
+* - en-IN: English - India
+* - hi-IN: Hindi - India
+* - fr-FR: French - France
+* - de-DE: German - Germany
+* - it-IT: Italian - Italy
+* <p>
+Whisper supported language codes are (Whisper models are locale agnostic).
+* - af: Afrikaans
+* - ar: Arabic
+* - az: Azerbaijani
+* - be: Belarusian
+* - bg: Bulgarian
+* - bs: Bosnian
+* - ca: Catalan
+* - cs: Czech
+* - cy: Welsh
+* - da: Danish
+* - de: German
+* - el: Greek
+* - en: English (default)
+* - es: Spanish
+* - et: Estonian
+* - fa: Persian
+* - fi: Finnish
+* - fr: French
+* - gl: Galician
+* - he: Hebrew
+* - hi: Hindi
+* - hr: Croatian
+* - hu: Hungarian
+* - hy: Armenian
+* - id: Indonesian
+* - is: Icelandic
+* - it: Italian
+* - ja: Japanese
+* - kk: Kazakh
+* - kn: Kannada
+* - ko: Korean
+* - lt: Lithuanian
+* - lv: Latvian
+* - mi: Maori
+* - mk: Macedonian
+* - mr: Marathi
+* - ms: Malay
+* - ne: Nepali
+* - nl: Dutch
+* - no: Norwegian
+* - pl: Polish
+* - pt: Portuguese
+* - ro: Romanian
+* - ru: Russian
+* - sk: Slovak
+* - sl: Slovenian
+* - sr: Serbian
+* - sv: Swedish
+* - sw: Swahili
+* - ta: Tamil
+* - th: Thai
+* - tl: Tagalog
+* - tr: Turkish
+* - uk: Ukrainian
+* - ur: Urdu
+* - vi: Vietnamese
+* - zh: Chinese
+* 
+    */
   "languageCode"?: TranscriptionModelDetails.LanguageCode;
   "transcriptionSettings"?: model.TranscriptionSettings;
 }
@@ -61,6 +129,63 @@ export namespace TranscriptionModelDetails {
     FrFr = "fr-FR",
     DeDe = "de-DE",
     ItIt = "it-IT",
+    Af = "af",
+    Ar = "ar",
+    Az = "az",
+    Be = "be",
+    Bg = "bg",
+    Bs = "bs",
+    Ca = "ca",
+    Cs = "cs",
+    Cy = "cy",
+    Da = "da",
+    De = "de",
+    El = "el",
+    En = "en",
+    Es = "es",
+    Et = "et",
+    Fa = "fa",
+    Fi = "fi",
+    Fr = "fr",
+    Gl = "gl",
+    He = "he",
+    Hi = "hi",
+    Hr = "hr",
+    Hu = "hu",
+    Hy = "hy",
+    Id = "id",
+    Is = "is",
+    It = "it",
+    Ja = "ja",
+    Kk = "kk",
+    Kn = "kn",
+    Ko = "ko",
+    Lt = "lt",
+    Lv = "lv",
+    Mi = "mi",
+    Mk = "mk",
+    Mr = "mr",
+    Ms = "ms",
+    Ne = "ne",
+    Nl = "nl",
+    No = "no",
+    Pl = "pl",
+    Pt = "pt",
+    Ro = "ro",
+    Ru = "ru",
+    Sk = "sk",
+    Sl = "sl",
+    Sr = "sr",
+    Sv = "sv",
+    Sw = "sw",
+    Ta = "ta",
+    Th = "th",
+    Tl = "tl",
+    Tr = "tr",
+    Uk = "uk",
+    Ur = "ur",
+    Vi = "vi",
+    Zh = "zh",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

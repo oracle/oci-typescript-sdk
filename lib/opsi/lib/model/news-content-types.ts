@@ -24,7 +24,31 @@ export interface NewsContentTypes {
   /**
    * Supported resources for capacity planning content type.
    */
-  "capacityPlanningResources": Array<model.NewsContentTypesResource>;
+  "capacityPlanningResources"?: Array<model.NewsContentTypesResource>;
+  /**
+   * Supported resources for SQL insights - fleet analysis content type.
+   */
+  "sqlInsightsFleetAnalysisResources"?: Array<model.NewsSqlInsightsContentTypesResource>;
+  /**
+   * Supported resources for SQL insights - plan changes content type.
+   */
+  "sqlInsightsPlanChangesResources"?: Array<model.NewsSqlInsightsContentTypesResource>;
+  /**
+   * Supported resources for SQL insights - top databases content type.
+   */
+  "sqlInsightsTopDatabasesResources"?: Array<model.NewsSqlInsightsContentTypesResource>;
+  /**
+   * Supported resources for SQL insights - top SQL by insights content type.
+   */
+  "sqlInsightsTopSqlByInsightsResources"?: Array<model.NewsSqlInsightsContentTypesResource>;
+  /**
+   * Supported resources for SQL insights - top SQL content type.
+   */
+  "sqlInsightsTopSqlResources"?: Array<model.NewsSqlInsightsContentTypesResource>;
+  /**
+   * Supported resources for SQL insights - performance degradation content type.
+   */
+  "sqlInsightsPerformanceDegradationResources"?: Array<model.NewsSqlInsightsContentTypesResource>;
 }
 
 export namespace NewsContentTypes {
@@ -35,6 +59,36 @@ export namespace NewsContentTypes {
         "capacityPlanningResources": obj.capacityPlanningResources
           ? obj.capacityPlanningResources.map(item => {
               return model.NewsContentTypesResource.getJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsFleetAnalysisResources": obj.sqlInsightsFleetAnalysisResources
+          ? obj.sqlInsightsFleetAnalysisResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsPlanChangesResources": obj.sqlInsightsPlanChangesResources
+          ? obj.sqlInsightsPlanChangesResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsTopDatabasesResources": obj.sqlInsightsTopDatabasesResources
+          ? obj.sqlInsightsTopDatabasesResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsTopSqlByInsightsResources": obj.sqlInsightsTopSqlByInsightsResources
+          ? obj.sqlInsightsTopSqlByInsightsResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsTopSqlResources": obj.sqlInsightsTopSqlResources
+          ? obj.sqlInsightsTopSqlResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsPerformanceDegradationResources": obj.sqlInsightsPerformanceDegradationResources
+          ? obj.sqlInsightsPerformanceDegradationResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +103,36 @@ export namespace NewsContentTypes {
         "capacityPlanningResources": obj.capacityPlanningResources
           ? obj.capacityPlanningResources.map(item => {
               return model.NewsContentTypesResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsFleetAnalysisResources": obj.sqlInsightsFleetAnalysisResources
+          ? obj.sqlInsightsFleetAnalysisResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsPlanChangesResources": obj.sqlInsightsPlanChangesResources
+          ? obj.sqlInsightsPlanChangesResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsTopDatabasesResources": obj.sqlInsightsTopDatabasesResources
+          ? obj.sqlInsightsTopDatabasesResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsTopSqlByInsightsResources": obj.sqlInsightsTopSqlByInsightsResources
+          ? obj.sqlInsightsTopSqlByInsightsResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsTopSqlResources": obj.sqlInsightsTopSqlResources
+          ? obj.sqlInsightsTopSqlResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "sqlInsightsPerformanceDegradationResources": obj.sqlInsightsPerformanceDegradationResources
+          ? obj.sqlInsightsPerformanceDegradationResources.map(item => {
+              return model.NewsSqlInsightsContentTypesResource.getDeserializedJsonObj(item);
             })
           : undefined
       }

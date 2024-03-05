@@ -63,6 +63,14 @@ export interface CreateNewsReportDetails {
    * Defines if the news report will be enabled or disabled.
    */
   "status"?: model.ResourceStatus;
+  /**
+   * Day of the week in which the news report will be sent if the frequency is set to WEEKLY.
+   */
+  "dayOfWeek"?: model.DayOfWeek;
+  /**
+   * A flag to consider the resources within a given compartment and all sub-compartments.
+   */
+  "areChildCompartmentsIncluded"?: boolean;
 }
 
 export namespace CreateNewsReportDetails {
