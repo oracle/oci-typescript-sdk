@@ -89,6 +89,14 @@ export interface NewsReportSummary {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Day of the week in which the news report will be sent if the frequency is set to WEEKLY.
+   */
+  "dayOfWeek"?: model.DayOfWeek;
+  /**
+   * A flag to consider the resources within a given compartment and all sub-compartments.
+   */
+  "areChildCompartmentsIncluded"?: boolean;
 }
 
 export namespace NewsReportSummary {

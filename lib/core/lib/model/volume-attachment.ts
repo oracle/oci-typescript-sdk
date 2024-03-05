@@ -105,6 +105,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "iscsiLoginState"?: VolumeAttachment.IscsiLoginState;
+  /**
+   * Flag indicating if this volume was created for the customer as part of a simplified launch.
+   * Used to determine whether the volume requires deletion on instance termination.
+   *
+   */
+  "isVolumeCreatedDuringLaunch"?: boolean;
 
   "attachmentType": string;
 }

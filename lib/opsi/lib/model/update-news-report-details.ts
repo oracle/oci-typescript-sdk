@@ -50,6 +50,23 @@ export interface UpdateNewsReportDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The news report name.
+   */
+  "name"?: string;
+  /**
+   * The description of the news report.
+   *
+   */
+  "description"?: string;
+  /**
+   * Day of the week in which the news report will be sent if the frequency is set to WEEKLY.
+   */
+  "dayOfWeek"?: model.DayOfWeek;
+  /**
+   * A flag to consider the resources within a given compartment and all sub-compartments.
+   */
+  "areChildCompartmentsIncluded"?: boolean;
 }
 
 export namespace UpdateNewsReportDetails {

@@ -36,6 +36,7 @@ export interface CreateLinuxSecurityContextDetails extends model.CreateSecurityC
    * Determines if the container will have a read-only root file system. Default value is false.
    */
   "isRootFileSystemReadonly"?: boolean;
+  "capabilities"?: model.ContainerCapabilities;
 
   "securityContextType": string;
 }
@@ -51,7 +52,11 @@ export namespace CreateLinuxSecurityContextDetails {
         : (model.CreateSecurityContextDetails.getJsonObj(
             obj
           ) as CreateLinuxSecurityContextDetails)),
-      ...{}
+      ...{
+        "capabilities": obj.capabilities
+          ? model.ContainerCapabilities.getJsonObj(obj.capabilities)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -67,7 +72,11 @@ export namespace CreateLinuxSecurityContextDetails {
         : (model.CreateSecurityContextDetails.getDeserializedJsonObj(
             obj
           ) as CreateLinuxSecurityContextDetails)),
-      ...{}
+      ...{
+        "capabilities": obj.capabilities
+          ? model.ContainerCapabilities.getDeserializedJsonObj(obj.capabilities)
+          : undefined
+      }
     };
 
     return jsonObj;

@@ -58,6 +58,11 @@ export namespace UpdateHostInsightDetails {
             <model.UpdateMacsManagedCloudHostInsightDetails>(<object>jsonObj),
             true
           );
+        case "PE_COMANAGED_HOST":
+          return model.UpdatePeComanagedHostInsightDetails.getJsonObj(
+            <model.UpdatePeComanagedHostInsightDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -82,6 +87,11 @@ export namespace UpdateHostInsightDetails {
         case "MACS_MANAGED_CLOUD_HOST":
           return model.UpdateMacsManagedCloudHostInsightDetails.getDeserializedJsonObj(
             <model.UpdateMacsManagedCloudHostInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_HOST":
+          return model.UpdatePeComanagedHostInsightDetails.getDeserializedJsonObj(
+            <model.UpdatePeComanagedHostInsightDetails>(<object>jsonObj),
             true
           );
         default:

@@ -36,6 +36,7 @@ export interface LinuxSecurityContext extends model.SecurityContext {
    * Determines if the container will have a read-only root file system. Default value is false.
    */
   "isRootFileSystemReadonly"?: boolean;
+  "capabilities"?: model.ContainerCapabilities;
 
   "securityContextType": string;
 }
@@ -44,7 +45,11 @@ export namespace LinuxSecurityContext {
   export function getJsonObj(obj: LinuxSecurityContext, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.SecurityContext.getJsonObj(obj) as LinuxSecurityContext)),
-      ...{}
+      ...{
+        "capabilities": obj.capabilities
+          ? model.ContainerCapabilities.getJsonObj(obj.capabilities)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -58,7 +63,11 @@ export namespace LinuxSecurityContext {
       ...(isParentJsonObj
         ? obj
         : (model.SecurityContext.getDeserializedJsonObj(obj) as LinuxSecurityContext)),
-      ...{}
+      ...{
+        "capabilities": obj.capabilities
+          ? model.ContainerCapabilities.getDeserializedJsonObj(obj.capabilities)
+          : undefined
+      }
     };
 
     return jsonObj;

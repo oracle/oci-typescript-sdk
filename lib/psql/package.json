@@ -1,6 +1,6 @@
 {
   "name": "oci-psql",
-  "version": "2.81.0",
+  "version": "2.82.0",
   "description": "OCI NodeJS client for Psql Service",
   "repository": {
     "type": "git",

@@ -27,8 +27,8 @@ export interface RetrieveLogsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Returns the logs for the previous run of the container in a pod if the pod exists.
-   * If the container fails for some reason, this parameter is useful to determine the root cause of the failure.
+   * Returns the logs for the previous run of the container in a pod.
+   * If the container fails, this parameter can help you to determine the root cause of the failure.
    *
    */
   "isPrevious"?: boolean;

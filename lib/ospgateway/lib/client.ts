@@ -32,7 +32,8 @@ export enum AddressRuleServiceApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class AddressRuleServiceClient {
-  protected static serviceEndpointTemplate = "https://ospap.oracle.com";
+  protected static serviceEndpointTemplate =
+    "https://osp-oci-integ.osp.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
@@ -268,7 +269,8 @@ export enum AddressServiceApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class AddressServiceClient {
-  protected static serviceEndpointTemplate = "https://ospap.oracle.com";
+  protected static serviceEndpointTemplate =
+    "https://osp-oci-integ.osp.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
@@ -586,7 +588,8 @@ export enum InvoiceServiceApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class InvoiceServiceClient {
-  protected static serviceEndpointTemplate = "https://ospap.oracle.com";
+  protected static serviceEndpointTemplate =
+    "https://osp-oci-integ.osp.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
@@ -1183,7 +1186,8 @@ export enum SubscriptionServiceApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class SubscriptionServiceClient {
-  protected static serviceEndpointTemplate = "https://ospap.oracle.com";
+  protected static serviceEndpointTemplate =
+    "https://osp-oci-integ.osp.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
