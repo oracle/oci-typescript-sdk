@@ -28,6 +28,11 @@ export namespace ScalingPolicy {
 
     if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
+        case "AUTOSCALING":
+          return model.AutoScalingPolicy.getJsonObj(
+            <model.AutoScalingPolicy>(<object>jsonObj),
+            true
+          );
         case "FIXED_SIZE":
           return model.FixedSizeScalingPolicy.getJsonObj(
             <model.FixedSizeScalingPolicy>(<object>jsonObj),
@@ -44,6 +49,11 @@ export namespace ScalingPolicy {
 
     if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
+        case "AUTOSCALING":
+          return model.AutoScalingPolicy.getDeserializedJsonObj(
+            <model.AutoScalingPolicy>(<object>jsonObj),
+            true
+          );
         case "FIXED_SIZE":
           return model.FixedSizeScalingPolicy.getDeserializedJsonObj(
             <model.FixedSizeScalingPolicy>(<object>jsonObj),

@@ -208,6 +208,22 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The timestamp of last successful backup. Here NULL value represents either there are no successful backups or backups are not configured for this Autonomous Container Database.
    */
   "timeOfLastBackup"?: Date;
+  /**
+   * The value above which an Autonomous Database will be split across multiple nodes. This value defaults to 16 when the \"CPU per VM\" value on the Autonomous VM Cluster is greater than 16. Otherwise, it defaults to the \"CPU per VM\" value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbSplitThreshold"?: number;
+  /**
+   * The percentage of CPUs to reserve for a single node Autonomous Database, in increments of 25. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "vmFailoverReservation"?: number;
+  /**
+   * This option determines whether to open an Autonomous Database across the maximum number of nodes or the least number of nodes. The default will be for the minimum number of VMs.
+   */
+  "distributionAffinity"?: AutonomousContainerDatabase.DistributionAffinity;
+  /**
+   * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
+   */
+  "netServicesArchitecture"?: AutonomousContainerDatabase.NetServicesArchitecture;
 }
 
 export namespace AutonomousContainerDatabase {
@@ -290,6 +306,26 @@ export namespace AutonomousContainerDatabase {
   export enum ComputeModel {
     Ecpu = "ECPU",
     Ocpu = "OCPU",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DistributionAffinity {
+    MinimumDistribution = "MINIMUM_DISTRIBUTION",
+    MaximumDistribution = "MAXIMUM_DISTRIBUTION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum NetServicesArchitecture {
+    Dedicated = "DEDICATED",
+    Shared = "SHARED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

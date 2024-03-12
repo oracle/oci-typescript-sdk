@@ -293,6 +293,11 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     */
   "dbWorkload"?: AutonomousDatabase.DbWorkload;
   /**
+   * This project introduces Autonomous Database for Developers (ADB-Dev), a free tier on dedicated infrastructure, and Cloud@Customer for database development purposes. ADB-Dev enables ExaDB customers to experiment with ADB for free and incentivizes enterprises to use ADB for new development projects.Note that ADB-Dev have 4 CPU and 20GB of memory. For ADB-Dev , memory and CPU cannot be scaled
+   *
+   */
+  "isDevTier"?: boolean;
+  /**
     * Indicates if the database-level access control is enabled.
 * If disabled, database access is defined by the network security rules.
 * If enabled, database access is restricted to the IP addresses defined by the rules specified with the {@code whitelistedIps} property. While specifying {@code whitelistedIps} rules is optional,
@@ -581,6 +586,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "timeDisasterRecoveryRoleChanged"?: Date;
   "remoteDisasterRecoveryConfiguration"?: model.DisasterRecoveryConfiguration;
+  /**
+   * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
+   */
+  "netServicesArchitecture"?: AutonomousDatabase.NetServicesArchitecture;
 }
 
 export namespace AutonomousDatabase {
@@ -782,6 +791,16 @@ export namespace AutonomousDatabase {
   export enum DisasterRecoveryRegionType {
     Primary = "PRIMARY",
     Remote = "REMOTE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum NetServicesArchitecture {
+    Dedicated = "DEDICATED",
+    Shared = "SHARED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
