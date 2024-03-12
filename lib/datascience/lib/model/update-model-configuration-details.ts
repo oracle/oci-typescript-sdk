@@ -24,11 +24,15 @@ export interface UpdateModelConfigurationDetails {
    */
   "modelId": string;
   "instanceConfiguration"?: model.InstanceConfiguration;
-  "scalingPolicy"?: model.FixedSizeScalingPolicy;
+  "scalingPolicy"?: model.AutoScalingPolicy | model.FixedSizeScalingPolicy;
   /**
    * The minimum network bandwidth for the model deployment. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bandwidthMbps"?: number;
+  /**
+   * The maximum network bandwidth for the model deployment. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maximumBandwidthMbps"?: number;
 }
 
 export namespace UpdateModelConfigurationDetails {

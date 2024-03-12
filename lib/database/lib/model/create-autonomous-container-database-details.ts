@@ -156,6 +156,22 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store of Oracle Vault.
    */
   "keyStoreId"?: string;
+  /**
+   * The value above which an Autonomous Database will be split across multiple nodes. This value defaults to 16 when the \"CPU per VM\" value on the Autonomous VM Cluster is greater than 16. Otherwise, it defaults to the \"CPU per VM\" value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbSplitThreshold"?: number;
+  /**
+   * The percentage of CPUs to reserve for a single node Autonomous Database, in increments of 25. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "vmFailoverReservation"?: number;
+  /**
+   * This option determines whether to open an Autonomous Database across the maximum number of nodes or the least number of nodes. The default will be for the minimum number of VMs.
+   */
+  "distributionAffinity"?: CreateAutonomousContainerDatabaseDetails.DistributionAffinity;
+  /**
+   * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
+   */
+  "netServicesArchitecture"?: CreateAutonomousContainerDatabaseDetails.NetServicesArchitecture;
 }
 
 export namespace CreateAutonomousContainerDatabaseDetails {
@@ -177,6 +193,16 @@ export namespace CreateAutonomousContainerDatabaseDetails {
   export enum VersionPreference {
     NextReleaseUpdate = "NEXT_RELEASE_UPDATE",
     LatestReleaseUpdate = "LATEST_RELEASE_UPDATE"
+  }
+
+  export enum DistributionAffinity {
+    MinimumDistribution = "MINIMUM_DISTRIBUTION",
+    MaximumDistribution = "MAXIMUM_DISTRIBUTION"
+  }
+
+  export enum NetServicesArchitecture {
+    Dedicated = "DEDICATED",
+    Shared = "SHARED"
   }
 
   export function getJsonObj(obj: CreateAutonomousContainerDatabaseDetails): object {

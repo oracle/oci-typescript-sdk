@@ -58,6 +58,7 @@ export interface ModelDeployment {
    * The URL to interact with the model deployment.
    */
   "modelDeploymentUrl": string;
+  "modelDeploymentSystemData"?: model.InstancePoolModelDeploymentSystemData;
   /**
    * The state of the model deployment.
    */
@@ -92,6 +93,10 @@ export namespace ModelDeployment {
           : undefined,
         "categoryLogDetails": obj.categoryLogDetails
           ? model.CategoryLogDetails.getJsonObj(obj.categoryLogDetails)
+          : undefined,
+
+        "modelDeploymentSystemData": obj.modelDeploymentSystemData
+          ? model.ModelDeploymentSystemData.getJsonObj(obj.modelDeploymentSystemData)
           : undefined
       }
     };
@@ -109,6 +114,10 @@ export namespace ModelDeployment {
           : undefined,
         "categoryLogDetails": obj.categoryLogDetails
           ? model.CategoryLogDetails.getDeserializedJsonObj(obj.categoryLogDetails)
+          : undefined,
+
+        "modelDeploymentSystemData": obj.modelDeploymentSystemData
+          ? model.ModelDeploymentSystemData.getDeserializedJsonObj(obj.modelDeploymentSystemData)
           : undefined
       }
     };

@@ -162,6 +162,11 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "isAutoScalingEnabled"?: boolean;
   /**
+   * This project introduces Autonomous Database for Developers (ADB-Dev), a free tier on dedicated infrastructure, and Cloud@Customer for database development purposes. ADB-Dev enables ExaDB customers to experiment with ADB for free and incentivizes enterprises to use ADB for new development projects.Note that ADB-Dev have 4 CPU and 20GB of memory. For ADB-Dev , memory and CPU cannot be scaled
+   *
+   */
+  "isDevTier"?: boolean;
+  /**
    * True if the database is on [dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html).
    *
    */
