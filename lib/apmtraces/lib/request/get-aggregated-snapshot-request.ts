@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetAggregatedSnapshotRequest extends common.BaseRequest {
   /**
-   * The APM Domain ID the request is intended for.
+   * The APM Domain ID for the intended request.
    *
    */
   "apmDomainId": string;
@@ -34,4 +34,24 @@ export interface GetAggregatedSnapshotRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Name associated with the service.
+   *
+   */
+  "serviceName"?: string;
+  /**
+   * Name of the server.
+   *
+   */
+  "serverName"?: string;
+  /**
+   * Unique Application Performance Monitoring span identifier (spanId).
+   *
+   */
+  "spanKey"?: string;
+  /**
+   * Name of the span associated with the trace.
+   *
+   */
+  "spanName"?: string;
 }

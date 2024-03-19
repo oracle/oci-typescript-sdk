@@ -43,6 +43,7 @@ export interface QueryResultMetadataSummary {
    *
    */
   "queryResultsOrderedBy"?: Array<model.QueryResultsOrderedBySummary>;
+  "queryResultsTopologyInfo"?: model.QueryResultsTopologyInfo;
   /**
    * Interval for the time series function in minutes.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -70,6 +71,9 @@ export namespace QueryResultMetadataSummary {
           ? obj.queryResultsOrderedBy.map(item => {
               return model.QueryResultsOrderedBySummary.getJsonObj(item);
             })
+          : undefined,
+        "queryResultsTopologyInfo": obj.queryResultsTopologyInfo
+          ? model.QueryResultsTopologyInfo.getJsonObj(obj.queryResultsTopologyInfo)
           : undefined
       }
     };
@@ -95,6 +99,9 @@ export namespace QueryResultMetadataSummary {
           ? obj.queryResultsOrderedBy.map(item => {
               return model.QueryResultsOrderedBySummary.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "queryResultsTopologyInfo": obj.queryResultsTopologyInfo
+          ? model.QueryResultsTopologyInfo.getDeserializedJsonObj(obj.queryResultsTopologyInfo)
           : undefined
       }
     };

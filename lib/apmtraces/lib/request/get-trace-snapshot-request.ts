@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetTraceSnapshotRequest extends common.BaseRequest {
   /**
-   * The APM Domain ID the request is intended for.
+   * The APM Domain ID for the intended request.
    *
    */
   "apmDomainId": string;
@@ -35,12 +35,12 @@ export interface GetTraceSnapshotRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * If enabled, then only span level details will be sent.
+   * If enabled, only span level details are sent.
    *
    */
   "isSummarized"?: boolean;
   /**
-   * Thread id for which snapshots needs to be retrieved. This is an identifier of a thread, and is a positive long number generated when when a thread is created.
+   * Thread ID for which snapshots need to be retrieved. This identifier of a thread is a long positive number generated when a thread is created.
    *
    */
   "threadId"?: string;

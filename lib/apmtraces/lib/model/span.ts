@@ -73,6 +73,11 @@ export interface Span {
    */
   "tags"?: Array<model.Tag>;
   /**
+   * Metadata about the tags in the span.
+   *
+   */
+  "tagsMetadata"?: { [key: string]: model.TagMetadata };
+  /**
    * List of logs associated with the span.
    *
    */
@@ -82,9 +87,24 @@ export interface Span {
    *
    */
   "isError": boolean;
+  /**
+   * Source of span (spans, syn_spans).
+   *
+   */
+  "sourceName"?: Span.SourceName;
 }
 
 export namespace Span {
+  export enum SourceName {
+    Spans = "SPANS",
+    SynSpans = "SYN_SPANS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Span): object {
     const jsonObj = {
       ...obj,
@@ -93,6 +113,9 @@ export namespace Span {
           ? obj.tags.map(item => {
               return model.Tag.getJsonObj(item);
             })
+          : undefined,
+        "tagsMetadata": obj.tagsMetadata
+          ? common.mapContainer(obj.tagsMetadata, model.TagMetadata.getJsonObj)
           : undefined,
         "logs": obj.logs
           ? obj.logs.map(item => {
@@ -112,6 +135,9 @@ export namespace Span {
           ? obj.tags.map(item => {
               return model.Tag.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "tagsMetadata": obj.tagsMetadata
+          ? common.mapContainer(obj.tagsMetadata, model.TagMetadata.getDeserializedJsonObj)
           : undefined,
         "logs": obj.logs
           ? obj.logs.map(item => {

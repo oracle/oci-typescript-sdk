@@ -111,6 +111,11 @@ export interface Trace {
    *
    */
   "serviceSummaries"?: Array<model.TraceServiceSummary>;
+  /**
+   * Source of trace (traces, syn_traces).
+   *
+   */
+  "sourceName"?: Trace.SourceName;
   "spanSummary"?: model.TraceSpanSummary;
   /**
    * An array of spans in the trace.
@@ -120,6 +125,16 @@ export interface Trace {
 }
 
 export namespace Trace {
+  export enum SourceName {
+    Traces = "TRACES",
+    SynTraces = "SYN_TRACES",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Trace): object {
     const jsonObj = {
       ...obj,
@@ -129,6 +144,7 @@ export namespace Trace {
               return model.TraceServiceSummary.getJsonObj(item);
             })
           : undefined,
+
         "spanSummary": obj.spanSummary
           ? model.TraceSpanSummary.getJsonObj(obj.spanSummary)
           : undefined,
@@ -151,6 +167,7 @@ export namespace Trace {
               return model.TraceServiceSummary.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "spanSummary": obj.spanSummary
           ? model.TraceSpanSummary.getDeserializedJsonObj(obj.spanSummary)
           : undefined,

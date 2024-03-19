@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface QueryRequest extends common.BaseRequest {
   /**
-   * The APM Domain ID the request is intended for.
+   * The APM Domain ID for the intended request.
    *
    */
   "apmDomainId": string;
@@ -51,7 +51,7 @@ export interface QueryRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The page token representing the page at which to start retrieving results.
+   * The page token representing the page where to start retrieving results.
    * This is usually retrieved from a previous response.
    *
    */
