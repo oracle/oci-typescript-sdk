@@ -719,7 +719,7 @@ When provided, If-Match is checked against ETag values of the resource.
       this.logger.debug("Calling operation StackMonitoringClient#createBaselineableMetric.");
     const operationName = "createBaselineableMetric";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/CreateBaselineableMetricDetails/CreateBaselineableMetric";
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetric/CreateBaselineableMetric";
     const pathParams = {};
 
     const queryParams = {};
@@ -2222,7 +2222,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       this.logger.debug("Calling operation StackMonitoringClient#evaluateBaselineableMetric.");
     const operationName = "evaluateBaselineableMetric";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/EvaluateBaselineableMetricResult/EvaluateBaselineableMetric";
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetric/EvaluateBaselineableMetric";
     const pathParams = {
       "{baselineableMetricId}": evaluateBaselineableMetricRequest.baselineableMetricId
     };
@@ -3083,7 +3083,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       this.logger.debug("Calling operation StackMonitoringClient#listBaselineableMetrics.");
     const operationName = "listBaselineableMetrics";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetricSummary/ListBaselineableMetrics";
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetric/ListBaselineableMetrics";
     const pathParams = {};
 
     const queryParams = {
@@ -4918,7 +4918,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       this.logger.debug("Calling operation StackMonitoringClient#updateBaselineableMetric.");
     const operationName = "updateBaselineableMetric";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/UpdateBaselineableMetricDetails/UpdateBaselineableMetric";
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/BaselineableMetric/UpdateBaselineableMetric";
     const pathParams = {
       "{baselineableMetricId}": updateBaselineableMetricRequest.baselineableMetricId
     };

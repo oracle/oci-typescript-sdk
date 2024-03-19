@@ -1,6 +1,6 @@
 {
   "name": "oci-servicemesh",
-  "version": "2.82.1",
+  "version": "2.82.2",
   "description": "OCI NodeJS client for Service Mesh Service",
   "repository": {
     "type": "git",

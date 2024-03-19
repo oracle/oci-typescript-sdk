@@ -103,6 +103,7 @@ export namespace DiscoveryJobSummary {
     ApacheHttpServer = "APACHE_HTTP_SERVER",
     OracleGoldengate = "ORACLE_GOLDENGATE",
     CustomResource = "CUSTOM_RESOURCE",
+    OracleHttpServer = "ORACLE_HTTP_SERVER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetSpanRequest extends common.BaseRequest {
   /**
-   * The APM Domain ID the request is intended for.
+   * The APM Domain ID for the intended request.
    *
    */
   "apmDomainId": string;
@@ -39,4 +39,26 @@ export interface GetSpanRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Include spans that have a {@code spanStartTime} equal to or greater than this value.
+   *
+   */
+  "timeSpanStartedGreaterThanOrEqualTo"?: Date;
+  /**
+   * Include spans that have a {@code spanStartTime}less than this value.
+   *
+   */
+  "timeSpanStartedLessThan"?: Date;
+  /**
+   * Name space from which the span details need to be retrieved.
+   *
+   */
+  "spanNamespace"?: GetSpanRequest.SpanNamespace;
+}
+
+export namespace GetSpanRequest {
+  export enum SpanNamespace {
+    Traces = "TRACES",
+    Synthetic = "SYNTHETIC"
+  }
 }

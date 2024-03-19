@@ -805,6 +805,75 @@ Limitations:
   }
 
   /**
+   * Canceling the job cancels all the tasks under it.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelJobRequest
+   * @return CancelJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CancelJob.ts.html |here} to see how to use CancelJob API.
+   */
+  public async cancelJob(
+    cancelJobRequest: requests.CancelJobRequest
+  ): Promise<responses.CancelJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#cancelJob.");
+    const operationName = "cancelJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20221001/Job/CancelJob";
+    const pathParams = {
+      "{jobId}": cancelJobRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelJobRequest.ifMatch,
+      "opc-request-id": cancelJobRequest.opcRequestId,
+      "opc-retry-token": cancelJobRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/actions/cancel",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a Endpoint into a different compartment. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeEndpointCompartmentRequest
@@ -864,6 +933,81 @@ Limitations:
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a Job into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeJobCompartmentRequest
+   * @return ChangeJobCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeJobCompartment.ts.html |here} to see how to use ChangeJobCompartment API.
+   */
+  public async changeJobCompartment(
+    changeJobCompartmentRequest: requests.ChangeJobCompartmentRequest
+  ): Promise<responses.ChangeJobCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceLanguageClient#changeJobCompartment.");
+    const operationName = "changeJobCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20221001/Job/ChangeJobCompartment";
+    const pathParams = {
+      "{jobId}": changeJobCompartmentRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeJobCompartmentRequest.opcRequestId,
+      "if-match": changeJobCompartmentRequest.ifMatch,
+      "opc-retry-token": changeJobCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeJobCompartmentRequest.changeJobCompartmentDetails,
+        "ChangeJobCompartmentDetails",
+        model.ChangeJobCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeJobCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1121,6 +1265,92 @@ Limitations:
   }
 
   /**
+   * Creates a new language service async job.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateJobRequest
+   * @return CreateJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateJob.ts.html |here} to see how to use CreateJob API.
+   */
+  public async createJob(
+    createJobRequest: requests.CreateJobRequest
+  ): Promise<responses.CreateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#createJob.");
+    const operationName = "createJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20221001/Job/CreateJob";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createJobRequest.opcRetryToken,
+      "opc-request-id": createJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createJobRequest.createJobDetails,
+        "CreateJobDetails",
+        model.CreateJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateJobResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new model for training and train the model with date provided.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1350,6 +1580,79 @@ Limitations:
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the language service async Job
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteJobRequest
+   * @return DeleteJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteJob.ts.html |here} to see how to use DeleteJob API.
+   */
+  public async deleteJob(
+    deleteJobRequest: requests.DeleteJobRequest
+  ): Promise<responses.DeleteJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#deleteJob.");
+    const operationName = "deleteJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20221001/Job/DeleteJob";
+    const pathParams = {
+      "{jobId}": deleteJobRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteJobRequest.ifMatch,
+      "opc-request-id": deleteJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteJobResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2042,6 +2345,79 @@ Limitations:
   }
 
   /**
+   * Gets a language service async job
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetJobRequest
+   * @return GetJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetJob.ts.html |here} to see how to use GetJob API.
+   */
+  public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#getJob.");
+    const operationName = "getJob";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/language/20221001/Job/GetJob";
+    const pathParams = {
+      "{jobId}": getJobRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJobResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a model by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetModelRequest
@@ -2486,6 +2862,89 @@ Limitations:
         bodyKey: "evaluationResultCollection",
         bodyModel: model.EvaluationResultCollection,
         type: "model.EvaluationResultCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of language service async Jobs.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListJobsRequest
+   * @return ListJobsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListJobs.ts.html |here} to see how to use ListJobs API.
+   */
+  public async listJobs(
+    listJobsRequest: requests.ListJobsRequest
+  ): Promise<responses.ListJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#listJobs.");
+    const operationName = "listJobs";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/language/20221001/Job/ListJobs";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listJobsRequest.compartmentId,
+      "lifecycleState": listJobsRequest.lifecycleState,
+      "displayName": listJobsRequest.displayName,
+      "id": listJobsRequest.id,
+      "limit": listJobsRequest.limit,
+      "page": listJobsRequest.page,
+      "sortOrder": listJobsRequest.sortOrder,
+      "sortBy": listJobsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJobsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJobsResponse>{},
+        body: await response.json(),
+        bodyKey: "jobCollection",
+        bodyModel: model.JobCollection,
+        type: "model.JobCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2992,6 +3451,88 @@ Limitations:
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the language service async Job
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateJobRequest
+   * @return UpdateJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateJob.ts.html |here} to see how to use UpdateJob API.
+   */
+  public async updateJob(
+    updateJobRequest: requests.UpdateJobRequest
+  ): Promise<responses.UpdateJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#updateJob.");
+    const operationName = "updateJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20221001/Job/UpdateJob";
+    const pathParams = {
+      "{jobId}": updateJobRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateJobRequest.ifMatch,
+      "opc-request-id": updateJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateJobRequest.updateJobDetails,
+        "UpdateJobDetails",
+        model.UpdateJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateJobResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

@@ -12,6 +12,22 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as BulkActivateAttributeRequest from "./bulk-activate-attribute-request";
+export import BulkActivateAttributeRequest = BulkActivateAttributeRequest.BulkActivateAttributeRequest;
+import * as BulkDeActivateAttributeRequest from "./bulk-de-activate-attribute-request";
+export import BulkDeActivateAttributeRequest = BulkDeActivateAttributeRequest.BulkDeActivateAttributeRequest;
+import * as BulkPinAttributeRequest from "./bulk-pin-attribute-request";
+export import BulkPinAttributeRequest = BulkPinAttributeRequest.BulkPinAttributeRequest;
+import * as BulkUnpinAttributeRequest from "./bulk-unpin-attribute-request";
+export import BulkUnpinAttributeRequest = BulkUnpinAttributeRequest.BulkUnpinAttributeRequest;
+import * as BulkUpdateAttributeRequest from "./bulk-update-attribute-request";
+export import BulkUpdateAttributeRequest = BulkUpdateAttributeRequest.BulkUpdateAttributeRequest;
+import * as BulkUpdateAttributeNotesRequest from "./bulk-update-attribute-notes-request";
+export import BulkUpdateAttributeNotesRequest = BulkUpdateAttributeNotesRequest.BulkUpdateAttributeNotesRequest;
+import * as GetStatusAutoActivateRequest from "./get-status-auto-activate-request";
+export import GetStatusAutoActivateRequest = GetStatusAutoActivateRequest.GetStatusAutoActivateRequest;
+import * as PutToggleAutoActivateRequest from "./put-toggle-auto-activate-request";
+export import PutToggleAutoActivateRequest = PutToggleAutoActivateRequest.PutToggleAutoActivateRequest;
 import * as ListQuickPicksRequest from "./list-quick-picks-request";
 export import ListQuickPicksRequest = ListQuickPicksRequest.ListQuickPicksRequest;
 import * as QueryRequest from "./query-request";

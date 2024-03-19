@@ -26,6 +26,11 @@ export interface SpanLogCollection {
    */
   "timeCreated"?: Date;
   /**
+   * Name of the event for which the log is created.
+   *
+   */
+  "eventName"?: string;
+  /**
    * List of logs associated with the span at the given timestamp.
    *
    */

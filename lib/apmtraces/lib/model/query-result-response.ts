@@ -30,6 +30,16 @@ export interface QueryResultResponse {
    *
    */
   "queryResultRows": Array<model.QueryResultRow>;
+  /**
+   * A map containing metadata or additional information.
+   *
+   */
+  "queryResultMetadata"?: { [key: string]: any };
+  /**
+   * A structure that provides warnings, if any, along with the query results.
+   *
+   */
+  "queryResultWarnings"?: Array<model.QueryResultWarning>;
 }
 
 export namespace QueryResultResponse {
@@ -43,6 +53,12 @@ export namespace QueryResultResponse {
         "queryResultRows": obj.queryResultRows
           ? obj.queryResultRows.map(item => {
               return model.QueryResultRow.getJsonObj(item);
+            })
+          : undefined,
+
+        "queryResultWarnings": obj.queryResultWarnings
+          ? obj.queryResultWarnings.map(item => {
+              return model.QueryResultWarning.getJsonObj(item);
             })
           : undefined
       }
@@ -60,6 +76,12 @@ export namespace QueryResultResponse {
         "queryResultRows": obj.queryResultRows
           ? obj.queryResultRows.map(item => {
               return model.QueryResultRow.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "queryResultWarnings": obj.queryResultWarnings
+          ? obj.queryResultWarnings.map(item => {
+              return model.QueryResultWarning.getDeserializedJsonObj(item);
             })
           : undefined
       }

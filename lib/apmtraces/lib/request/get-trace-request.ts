@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetTraceRequest extends common.BaseRequest {
   /**
-   * The APM Domain ID the request is intended for.
+   * The APM Domain ID for the intended request.
    *
    */
   "apmDomainId": string;
@@ -34,4 +34,26 @@ export interface GetTraceRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Include traces that have a {@code minTraceStartTime} equal to or greater than this value.
+   *
+   */
+  "timeTraceStartedGreaterThanOrEqualTo"?: Date;
+  /**
+   * Include traces that have a {@code minTraceStartTime} less than this value.
+   *
+   */
+  "timeTraceStartedLessThan"?: Date;
+  /**
+   * Name space from which the trace details need to be retrieved.
+   *
+   */
+  "traceNamespace"?: GetTraceRequest.TraceNamespace;
+}
+
+export namespace GetTraceRequest {
+  export enum TraceNamespace {
+    Traces = "TRACES",
+    Synthetic = "SYNTHETIC"
+  }
 }

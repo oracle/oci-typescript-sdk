@@ -20,5 +20,6 @@ import * as client from "./lib/client";
 export { models };
 export { requests };
 export { responses };
+export import AttributesClient = client.AttributesClient;
 export import QueryClient = client.QueryClient;
 export import TraceClient = client.TraceClient;

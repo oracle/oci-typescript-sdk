@@ -12,6 +12,22 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as BulkActivateAttributeResponse from "./bulk-activate-attribute-response";
+export import BulkActivateAttributeResponse = BulkActivateAttributeResponse.BulkActivateAttributeResponse;
+import * as BulkDeActivateAttributeResponse from "./bulk-de-activate-attribute-response";
+export import BulkDeActivateAttributeResponse = BulkDeActivateAttributeResponse.BulkDeActivateAttributeResponse;
+import * as BulkPinAttributeResponse from "./bulk-pin-attribute-response";
+export import BulkPinAttributeResponse = BulkPinAttributeResponse.BulkPinAttributeResponse;
+import * as BulkUnpinAttributeResponse from "./bulk-unpin-attribute-response";
+export import BulkUnpinAttributeResponse = BulkUnpinAttributeResponse.BulkUnpinAttributeResponse;
+import * as BulkUpdateAttributeResponse from "./bulk-update-attribute-response";
+export import BulkUpdateAttributeResponse = BulkUpdateAttributeResponse.BulkUpdateAttributeResponse;
+import * as BulkUpdateAttributeNotesResponse from "./bulk-update-attribute-notes-response";
+export import BulkUpdateAttributeNotesResponse = BulkUpdateAttributeNotesResponse.BulkUpdateAttributeNotesResponse;
+import * as GetStatusAutoActivateResponse from "./get-status-auto-activate-response";
+export import GetStatusAutoActivateResponse = GetStatusAutoActivateResponse.GetStatusAutoActivateResponse;
+import * as PutToggleAutoActivateResponse from "./put-toggle-auto-activate-response";
+export import PutToggleAutoActivateResponse = PutToggleAutoActivateResponse.PutToggleAutoActivateResponse;
 import * as ListQuickPicksResponse from "./list-quick-picks-response";
 export import ListQuickPicksResponse = ListQuickPicksResponse.ListQuickPicksResponse;
 import * as QueryResponse from "./query-response";
