@@ -23,6 +23,7 @@ import common = require("oci-common");
  **/
 export enum UnifiedAgentServiceConfigurationTypes {
   Logging = "LOGGING",
+  Monitoring = "MONITORING",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

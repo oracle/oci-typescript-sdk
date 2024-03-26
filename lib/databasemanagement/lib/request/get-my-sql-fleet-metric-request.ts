@@ -58,4 +58,8 @@ export interface GetMySqlFleetMetricRequest extends common.BaseRequest {
    * The parameter to filter by MySQL database version.
    */
   "filterByMySqlDatabaseVersion"?: string;
+  /**
+   * The parameter to filter based on whether HeatWave is enabled for the database.
+   */
+  "isHeatWaveEnabled"?: boolean;
 }

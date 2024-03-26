@@ -56,6 +56,18 @@ export interface MySqlDatabaseUsageMetrics {
    */
   "databaseStatus": model.MySqlDatabaseStatus;
   /**
+   * If HeatWave is enabled for this db system or not.
+   */
+  "isHeatWaveEnabled"?: boolean;
+  /**
+   * The name of the HeatWave cluster.
+   */
+  "heatWaveClusterDisplayName"?: string;
+  /**
+   * The number of nodes in the HeatWave cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "heatWaveNodeCount"?: number;
+  /**
    * A list of the database health metrics like CPU, Storage, and Memory.
    */
   "metrics": Array<model.MySqlFleetMetricDefinition>;

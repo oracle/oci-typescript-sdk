@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateRepositoryDetails {
   /**
-   * Unique name of a repository.
+   * Name of the repository. Should be unique within the project.
    */
   "name": string;
   /**

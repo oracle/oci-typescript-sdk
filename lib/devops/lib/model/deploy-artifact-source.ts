@@ -42,6 +42,11 @@ export namespace DeployArtifactSource {
             <model.OcirDeployArtifactSource>(<object>jsonObj),
             true
           );
+        case "HELM_COMMAND_SPEC":
+          return model.HelmCommandSpecArtifactSource.getJsonObj(
+            <model.HelmCommandSpecArtifactSource>(<object>jsonObj),
+            true
+          );
         case "INLINE":
           return model.InlineDeployArtifactSource.getJsonObj(
             <model.InlineDeployArtifactSource>(<object>jsonObj),
@@ -72,6 +77,11 @@ export namespace DeployArtifactSource {
         case "OCIR":
           return model.OcirDeployArtifactSource.getDeserializedJsonObj(
             <model.OcirDeployArtifactSource>(<object>jsonObj),
+            true
+          );
+        case "HELM_COMMAND_SPEC":
+          return model.HelmCommandSpecArtifactSource.getDeserializedJsonObj(
+            <model.HelmCommandSpecArtifactSource>(<object>jsonObj),
             true
           );
         case "INLINE":

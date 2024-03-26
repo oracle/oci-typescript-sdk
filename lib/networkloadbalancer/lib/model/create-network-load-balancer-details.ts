@@ -16,9 +16,9 @@ import common = require("oci-common");
 
 /**
 * The properties that define a network load balancer. For more information, see
-* [Managing a network load balancer](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingloadbalancer.htm).
+* [Managing a network load balancer](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/NetworkLoadBalancers/network-load-balancer-management.htm).
 * <p>
-To use any of the API operations, you must be authorized in an IAM policy. If you are not authorized, then  
+To use any of the API operations, you must be authorized in an IAM policy. If you are not authorized, then
 * contact an administrator. If you are an administrator who writes policies to give users access, then see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
 * <p>
@@ -43,6 +43,12 @@ export interface CreateNetworkLoadBalancerDetails {
    */
   "isPreserveSourceDestination"?: boolean;
   /**
+   * This can only be enabled when NLB is working in transparent mode with source destination header preservation enabled.
+   * This removes the additional dependency from NLB backends(like Firewalls) to perform SNAT.
+   *
+   */
+  "isSymmetricHashEnabled"?: boolean;
+  /**
    * An array of reserved Ips.
    *
    */
@@ -57,7 +63,7 @@ If \"false\", then the service assigns a public IP address to the network load b
 A public network load balancer is accessible from the internet, depending on the
 * [security list rules](https://docs.cloud.oracle.com/Content/network/Concepts/securitylists.htm) for your virtual cloud network. For more information about public and
 * private network load balancers,
-* see [How Network Load Balancing Works](https://docs.cloud.oracle.com/Content/Balance/Concepts/balanceoverview.htm#how-network-load-balancing-works).
+* see [How Network Load Balancing Works](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/overview.htm).
 * This value is true by default.
 * <p>
 Example: {@code true}

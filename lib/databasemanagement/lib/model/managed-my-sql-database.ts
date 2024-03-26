@@ -45,16 +45,66 @@ export interface ManagedMySqlDatabase {
    * The name of the Managed MySQL Database.
    */
   "name": string;
+  /**
+   * The name of the HeatWave cluster.
+   */
+  "heatWaveClusterDisplayName"?: string;
+  /**
+   * If HeatWave is enabled for this db system or not.
+   */
+  "isHeatWaveEnabled"?: boolean;
+  /**
+   * If HeatWave Lakehouse is enabled for the db system or not.
+   */
+  "isLakehouseEnabled"?: boolean;
+  /**
+   * Shape of the nodes in the HeatWave cluster.
+   */
+  "heatWaveNodeShape"?: string;
+  /**
+   * The total memory belonging to the HeatWave cluster in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "heatWaveMemorySize"?: number;
+  /**
+   * The information about an individual HeatWave nodes in the cluster.
+   */
+  "heatWaveNodes"?: Array<model.HeatWaveNode>;
+  /**
+   * If the HeatWave cluster is active or not.
+   */
+  "isHeatWaveActive"?: boolean;
+  /**
+   * The date and time the Managed MySQL Database was created.
+   */
+  "timeCreatedHeatWave"?: Date;
 }
 
 export namespace ManagedMySqlDatabase {
   export function getJsonObj(obj: ManagedMySqlDatabase): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "heatWaveNodes": obj.heatWaveNodes
+          ? obj.heatWaveNodes.map(item => {
+              return model.HeatWaveNode.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ManagedMySqlDatabase): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "heatWaveNodes": obj.heatWaveNodes
+          ? obj.heatWaveNodes.map(item => {
+              return model.HeatWaveNode.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

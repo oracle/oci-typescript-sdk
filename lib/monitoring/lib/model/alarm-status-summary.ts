@@ -54,6 +54,13 @@ Example: {@code CRITICAL}
     */
   "severity": AlarmStatusSummary.Severity;
   /**
+   * Identifier of the alarm's base values for alarm evaluation, for use when the alarm contains overrides.
+   * A valid ruleName value starts with an alphabetic character and includes only alphanumeric characters, underscores and square brackets.
+   * Minimum number of characters: 3. Default value is {@code BASE}. For information about alarm overrides, see {@link #alarmOverride(AlarmOverrideRequest) alarmOverride}.
+   *
+   */
+  "ruleName": string;
+  /**
     * Timestamp for the transition of the alarm state. For example, the time when the alarm transitioned from OK to Firing.
 * Note: A three-minute lag for this value accounts for any late-arriving metrics.
 * <p>

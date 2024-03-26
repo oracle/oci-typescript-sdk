@@ -35,6 +35,7 @@ export enum OperationType {
   ChangeCompartment = "CHANGE_COMPARTMENT",
   AttachNlbToPod = "ATTACH_NLB_TO_POD",
   DetachNlbFromPod = "DETACH_NLB_FROM_POD",
+  LiveMigration = "LIVE_MIGRATION",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -27,6 +27,10 @@ export interface UnifiedAgentLoggingConfiguration
    * Logging source object.
    */
   "sources": Array<model.UnifiedAgentLoggingSource>;
+  /**
+   * Logging filter object.
+   */
+  "filter"?: Array<model.UnifiedAgentLoggingFilter>;
   "destination": model.UnifiedAgentLoggingDestination;
 
   "configurationType": string;
@@ -47,6 +51,11 @@ export namespace UnifiedAgentLoggingConfiguration {
         "sources": obj.sources
           ? obj.sources.map(item => {
               return model.UnifiedAgentLoggingSource.getJsonObj(item);
+            })
+          : undefined,
+        "filter": obj.filter
+          ? obj.filter.map(item => {
+              return model.UnifiedAgentLoggingFilter.getJsonObj(item);
             })
           : undefined,
         "destination": obj.destination
@@ -72,6 +81,11 @@ export namespace UnifiedAgentLoggingConfiguration {
         "sources": obj.sources
           ? obj.sources.map(item => {
               return model.UnifiedAgentLoggingSource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "filter": obj.filter
+          ? obj.filter.map(item => {
+              return model.UnifiedAgentLoggingFilter.getDeserializedJsonObj(item);
             })
           : undefined,
         "destination": obj.destination

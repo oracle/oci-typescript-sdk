@@ -27,12 +27,14 @@ export interface CreateUnifiedAgentConfigurationDetails {
    * and it's changeable. Avoid entering confidential information.
    *
    */
-  "displayName"?: string;
+  "displayName": string;
   /**
    * Whether or not this resource is currently enabled.
    */
   "isEnabled": boolean;
-  "serviceConfiguration": model.UnifiedAgentLoggingConfiguration;
+  "serviceConfiguration":
+    | model.UnifiedAgentLoggingConfiguration
+    | model.UnifiedAgentMonitoringConfigurationDetails;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -55,7 +57,7 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
   /**
    * Description for this resource.
    */
-  "description"?: string;
+  "description": string;
   "groupAssociation"?: model.GroupAssociationDetails;
 }
 

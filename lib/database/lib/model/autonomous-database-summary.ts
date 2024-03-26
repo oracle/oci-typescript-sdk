@@ -474,6 +474,18 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "keyStoreWalletName"?: string;
   /**
+   * The frequency a refreshable clone is refreshed after auto-refresh is enabled. The minimum is 1 hour. The maximum is 7 days. The date and time that auto-refresh is enabled is controlled by the {@code timeOfAutoRefreshStart} parameter. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autoRefreshFrequencyInSeconds"?: number;
+  /**
+   * The time, in seconds, the data of the refreshable clone lags the primary database at the point of refresh. The minimum is 0 minutes (0 mins means refresh to the latest available timestamp). The maximum is 7 days. The lag time increases after refreshing until the next data refresh happens. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autoRefreshPointLagInSeconds"?: number;
+  /**
+   * The the date and time that auto-refreshing will begin for an Autonomous Database refreshable clone. This value controls only the start time for the first refresh operation. Subsequent (ongoing) refresh operations have start times controlled by the value of the {@code autoRefreshFrequencyInSeconds} parameter.
+   */
+  "timeOfAutoRefreshStart"?: Date;
+  /**
    * The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
    *
    */

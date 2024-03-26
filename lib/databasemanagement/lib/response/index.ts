@@ -410,6 +410,8 @@ import * as SummarizeAlertLogCountsResponse from "./summarize-alert-log-counts-r
 export import SummarizeAlertLogCountsResponse = SummarizeAlertLogCountsResponse.SummarizeAlertLogCountsResponse;
 import * as SummarizeAttentionLogCountsResponse from "./summarize-attention-log-counts-response";
 export import SummarizeAttentionLogCountsResponse = SummarizeAttentionLogCountsResponse.SummarizeAttentionLogCountsResponse;
+import * as GetHeatWaveFleetMetricResponse from "./get-heat-wave-fleet-metric-response";
+export import GetHeatWaveFleetMetricResponse = GetHeatWaveFleetMetricResponse.GetHeatWaveFleetMetricResponse;
 import * as GetManagedMySqlDatabaseResponse from "./get-managed-my-sql-database-response";
 export import GetManagedMySqlDatabaseResponse = GetManagedMySqlDatabaseResponse.GetManagedMySqlDatabaseResponse;
 import * as GetMySqlFleetMetricResponse from "./get-my-sql-fleet-metric-response";

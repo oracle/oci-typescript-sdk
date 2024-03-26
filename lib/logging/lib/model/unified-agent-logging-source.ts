@@ -36,6 +36,11 @@ export namespace UnifiedAgentLoggingSource {
 
     if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
+        case "CUSTOM_PLUGIN":
+          return model.UnifiedAgentCustomPluginLogSource.getJsonObj(
+            <model.UnifiedAgentCustomPluginLogSource>(<object>jsonObj),
+            true
+          );
         case "WINDOWS_EVENT_LOG":
           return model.UnifiedAgentWindowsEventSource.getJsonObj(
             <model.UnifiedAgentWindowsEventSource>(<object>jsonObj),
@@ -57,6 +62,11 @@ export namespace UnifiedAgentLoggingSource {
 
     if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
+        case "CUSTOM_PLUGIN":
+          return model.UnifiedAgentCustomPluginLogSource.getDeserializedJsonObj(
+            <model.UnifiedAgentCustomPluginLogSource>(<object>jsonObj),
+            true
+          );
         case "WINDOWS_EVENT_LOG":
           return model.UnifiedAgentWindowsEventSource.getDeserializedJsonObj(
             <model.UnifiedAgentWindowsEventSource>(<object>jsonObj),

@@ -149,6 +149,14 @@ export interface MySqlDataSummary {
    * The 99.9th percentile of the query latency. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "quantile999": number;
+  /**
+   * The number of query executions offloaded to HeatWave. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "heatWaveOffloaded"?: number;
+  /**
+   * The number of query executions with HeatWave out-of-memory errors. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "heatWaveOutOfMemory"?: number;
 }
 
 export namespace MySqlDataSummary {

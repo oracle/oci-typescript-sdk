@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DevopsCodeRepositoryFilterAttributes {
   /**
-   * Branch for push event.
+   * Branch for push event; source branch for pull requests
    */
   "headRef"?: string;
   "fileFilter"?: model.FileFilter;

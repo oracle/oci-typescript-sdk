@@ -75,7 +75,9 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    * State of unified agent service configuration.
    */
   "configurationState": model.UnifiedAgentServiceConfigurationStates;
-  "serviceConfiguration": model.UnifiedAgentLoggingConfiguration;
+  "serviceConfiguration":
+    | model.UnifiedAgentLoggingConfiguration
+    | model.UnifiedAgentMonitoringConfigurationDetails;
   "groupAssociation": model.GroupAssociationDetails;
 }
 

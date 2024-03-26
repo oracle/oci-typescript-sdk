@@ -30,6 +30,14 @@ export interface UnifiedJSONParser extends model.UnifiedAgentParser {
    * Process time value using the specified format.
    */
   "timeFormat"?: string;
+  /**
+   * If true, a separator parameter can be further defined.
+   */
+  "parseNested"?: boolean;
+  /**
+   * Keys of adjacent levels are joined by the separator.
+   */
+  "separator"?: string;
 
   "parserType": string;
 }

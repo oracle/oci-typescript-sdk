@@ -30,7 +30,7 @@ export interface OperationalMetricsSource {
    * List of unified monitoring agent operational metrics.
    */
   "metrics"?: Array<string>;
-  "recordInput"?: model.OperationalMetricsRecordInput;
+  "recordInput": model.OperationalMetricsRecordInput;
 }
 
 export namespace OperationalMetricsSource {

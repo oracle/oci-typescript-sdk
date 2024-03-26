@@ -76,7 +76,7 @@ If \"false\", then the service assigns a public IP address to the network load b
 A public network load balancer is accessible from the internet, depending the
 * [security list rules](https://docs.cloud.oracle.com/Content/network/Concepts/securitylists.htm) for your virtual cloudn network. For more information about public and
 * private network load balancers,
-* see [How Network Load Balancing Works](https://docs.cloud.oracle.com/Content/Balance/Concepts/balanceoverview.htm#how-network-load-balancing-works).
+* see [How Network Load Balancing Works](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/overview.htm).
 * This value is true by default.
 * <p>
 Example: {@code true}
@@ -89,6 +89,12 @@ Example: {@code true}
    *
    */
   "isPreserveSourceDestination"?: boolean;
+  /**
+   * This can only be enabled when NLB is working in transparent mode with source destination header preservation enabled.
+   * This removes the additional dependency from NLB backends(like Firewalls) to perform SNAT.
+   *
+   */
+  "isSymmetricHashEnabled"?: boolean;
   /**
    * The subnet in which the network load balancer is spawned [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).\"
    */

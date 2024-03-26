@@ -50,6 +50,7 @@ export interface DeployArtifact {
     | model.GenericDeployArtifactSource
     | model.HelmRepositoryDeployArtifactSource
     | model.OcirDeployArtifactSource
+    | model.HelmCommandSpecArtifactSource
     | model.InlineDeployArtifactSource;
   /**
    * Time the deployment artifact was created. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
@@ -89,6 +90,7 @@ export namespace DeployArtifact {
     GenericFile = "GENERIC_FILE",
     DockerImage = "DOCKER_IMAGE",
     HelmChart = "HELM_CHART",
+    HelmCommandSpec = "HELM_COMMAND_SPEC",
     CommandSpec = "COMMAND_SPEC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

@@ -35,6 +35,18 @@ export interface UpdateOkeHelmChartDeployStageDetails extends model.UpdateDeploy
    */
   "releaseName"?: string;
   /**
+   * Uninstall the Helm chart release on deleting the stage.
+   */
+  "isUninstallOnStageDelete"?: boolean;
+  /**
+   * List of Helm command artifact OCIDs.
+   */
+  "helmCommandArtifactIds"?: Array<string>;
+  /**
+   * The purpose of running this Helm stage
+   */
+  "purpose"?: UpdateOkeHelmChartDeployStageDetails.Purpose;
+  /**
    * Default namespace to be used for Kubernetes deployment when not specified in the manifest.
    */
   "namespace"?: string;
@@ -90,6 +102,11 @@ export interface UpdateOkeHelmChartDeployStageDetails extends model.UpdateDeploy
 }
 
 export namespace UpdateOkeHelmChartDeployStageDetails {
+  export enum Purpose {
+    ExecuteHelmUpgrade = "EXECUTE_HELM_UPGRADE",
+    ExecuteHelmCommand = "EXECUTE_HELM_COMMAND"
+  }
+
   export function getJsonObj(
     obj: UpdateOkeHelmChartDeployStageDetails,
     isParentJsonObj?: boolean

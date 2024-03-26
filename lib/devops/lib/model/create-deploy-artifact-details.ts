@@ -34,6 +34,7 @@ export interface CreateDeployArtifactDetails {
     | model.GenericDeployArtifactSource
     | model.HelmRepositoryDeployArtifactSource
     | model.OcirDeployArtifactSource
+    | model.HelmCommandSpecArtifactSource
     | model.InlineDeployArtifactSource;
   /**
    * Mode for artifact parameter substitution.
