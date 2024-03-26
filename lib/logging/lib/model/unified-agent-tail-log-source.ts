@@ -32,6 +32,7 @@ export interface UnifiedAgentTailLogSource extends model.UnifiedAgentLoggingSour
     | model.UnifiedAgentGrokParser
     | model.UnifiedAgentNoneParser
     | model.UnifiedAgentSyslogParser
+    | model.UnifiedAgentOpenmetricsParser
     | model.UnifiedAgentAuditdParser
     | model.UnifiedAgentApache2Parser
     | model.UnifiedAgentRegexParser
@@ -41,6 +42,7 @@ export interface UnifiedAgentTailLogSource extends model.UnifiedAgentLoggingSour
     | model.UnifiedAgentApacheErrorParser
     | model.UnifiedAgentMsgpackParser
     | model.UnifiedAgentCsvParser;
+  "advancedOptions"?: model.UnifiedAgentTailSourceAdvancedOptions;
 
   "sourceType": string;
 }
@@ -52,7 +54,10 @@ export namespace UnifiedAgentTailLogSource {
         ? obj
         : (model.UnifiedAgentLoggingSource.getJsonObj(obj) as UnifiedAgentTailLogSource)),
       ...{
-        "parser": obj.parser ? model.UnifiedAgentParser.getJsonObj(obj.parser) : undefined
+        "parser": obj.parser ? model.UnifiedAgentParser.getJsonObj(obj.parser) : undefined,
+        "advancedOptions": obj.advancedOptions
+          ? model.UnifiedAgentTailSourceAdvancedOptions.getJsonObj(obj.advancedOptions)
+          : undefined
       }
     };
 
@@ -72,6 +77,9 @@ export namespace UnifiedAgentTailLogSource {
       ...{
         "parser": obj.parser
           ? model.UnifiedAgentParser.getDeserializedJsonObj(obj.parser)
+          : undefined,
+        "advancedOptions": obj.advancedOptions
+          ? model.UnifiedAgentTailSourceAdvancedOptions.getDeserializedJsonObj(obj.advancedOptions)
           : undefined
       }
     };

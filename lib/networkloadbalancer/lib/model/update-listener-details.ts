@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * The configuration of the listener.
  * For more information about backend set configuration, see
- * [Managing Network Load Balancer Listeners](https://docs.cloud.oracle.com/Content/Balance/Tasks/managinglisteners.htm).
+ * [Managing Network Load Balancer Listeners](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/Listeners/listener-management.htm).
  *
  */
 export interface UpdateListenerDetails {
@@ -37,10 +37,9 @@ Example: {@code 80}
   "port"?: number;
   /**
     * The protocol on which the listener accepts connection requests.
-* For public network load balancers, ANY protocol refers to TCP/UDP.
+* For public network load balancers, ANY protocol refers to TCP/UDP with the wildcard port.
 * For private network load balancers, ANY protocol refers to TCP/UDP/ICMP (note that ICMP requires isPreserveSourceDestination to be set to true).
-* To get a list of valid protocols, use the {@link #listNetworkLoadBalancersProtocols(ListNetworkLoadBalancersProtocolsRequest) listNetworkLoadBalancersProtocols}
-* operation.
+* \"ListNetworkLoadBalancersProtocols\" API is deprecated and it will not return the updated values. Use the allowed values for the protocol instead.
 * <p>
 Example: {@code TCP}
 * 

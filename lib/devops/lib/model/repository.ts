@@ -23,7 +23,7 @@ export interface Repository {
    */
   "id": string;
   /**
-   * Unique name of a repository. This value is mutable.
+   * Name of the repository. Should be unique within the project. This value is mutable.
    */
   "name"?: string;
   /**
@@ -97,6 +97,8 @@ export interface Repository {
   /**
    * Trigger build events supported for this repository:
    * PUSH - Build is triggered when a push event occurs.
+   * PULL_REQUEST_CREATED - Build is triggered when a pull request is created in the repository.
+   * PULL_REQUEST_UPDATED - Build is triggered when a push is made to a branch with an open pull request.
    * COMMIT_UPDATES - Build is triggered when new commits are mirrored into a repository.
    *
    */
@@ -140,6 +142,8 @@ export namespace Repository {
 
   export enum TriggerBuildEvents {
     Push = "PUSH",
+    PullRequestCreated = "PULL_REQUEST_CREATED",
+    PullRequestUpdated = "PULL_REQUEST_UPDATED",
     CommitUpdates = "COMMIT_UPDATES",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

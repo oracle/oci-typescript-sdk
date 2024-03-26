@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * The configuration of a backend server that is a member of a network load balancer backend set.
- * For more information, see [Managing Backend Servers](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingbackendservers.htm).
+ * For more information, see [Managing Backend Servers](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/BackendServers/backend-server-management.htm).
  *
  */
 export interface BackendSummary {
@@ -51,14 +51,14 @@ Example: {@code 8080}
 * proportion of incoming traffic. For example, a server weighted '3' receives three times the number of new connections
 * as a server weighted '1'.
 * For more information about load balancing policies, see
-* [How Network Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
+* [How Network Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/introducton.htm#Policies).
 * <p>
 Example: {@code 3}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "weight"?: number;
   /**
-    * Whether the network load balancer should drain this server. Servers marked \"isDrain\" receive no 
+    * Whether the network load balancer should drain this server. Servers marked \"isDrain\" receive no
 * incoming traffic.
 * <p>
 Example: {@code false}

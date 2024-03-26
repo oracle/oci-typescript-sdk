@@ -106,6 +106,11 @@ export namespace UnifiedAgentParser {
             <model.UnifiedAgentSyslogParser>(<object>jsonObj),
             true
           );
+        case "OPENMETRICS":
+          return model.UnifiedAgentOpenmetricsParser.getJsonObj(
+            <model.UnifiedAgentOpenmetricsParser>(<object>jsonObj),
+            true
+          );
         case "AUDITD":
           return model.UnifiedAgentAuditdParser.getJsonObj(
             <model.UnifiedAgentAuditdParser>(<object>jsonObj),
@@ -185,6 +190,11 @@ export namespace UnifiedAgentParser {
         case "SYSLOG":
           return model.UnifiedAgentSyslogParser.getDeserializedJsonObj(
             <model.UnifiedAgentSyslogParser>(<object>jsonObj),
+            true
+          );
+        case "OPENMETRICS":
+          return model.UnifiedAgentOpenmetricsParser.getDeserializedJsonObj(
+            <model.UnifiedAgentOpenmetricsParser>(<object>jsonObj),
             true
           );
         case "AUDITD":

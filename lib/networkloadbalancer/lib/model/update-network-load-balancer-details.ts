@@ -36,6 +36,12 @@ Example: {@code example_network_load_balancer}
    */
   "isPreserveSourceDestination"?: boolean;
   /**
+   * This can only be enabled when NLB is working in transparent mode with source destination header preservation enabled.
+   * This removes the additional dependency from NLB backends(like Firewalls) to perform SNAT.
+   *
+   */
+  "isSymmetricHashEnabled"?: boolean;
+  /**
    * IP version associated with the NLB.
    */
   "nlbIpVersion"?: model.NlbIpVersion;

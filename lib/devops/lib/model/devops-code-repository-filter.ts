@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DevopsCodeRepositoryFilter extends model.Filter {
   /**
-   * The events only support PUSH.
+   * The events, for example, PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED.
    */
   "events"?: Array<DevopsCodeRepositoryFilter.Events>;
   "include"?: model.DevopsCodeRepositoryFilterAttributes;

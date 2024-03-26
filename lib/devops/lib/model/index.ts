@@ -680,6 +680,8 @@ import * as GitlabTriggerCreateResult from "./gitlab-trigger-create-result";
 export import GitlabTriggerCreateResult = GitlabTriggerCreateResult.GitlabTriggerCreateResult;
 import * as GitlabTriggerSummary from "./gitlab-trigger-summary";
 export import GitlabTriggerSummary = GitlabTriggerSummary.GitlabTriggerSummary;
+import * as HelmCommandSpecArtifactSource from "./helm-command-spec-artifact-source";
+export import HelmCommandSpecArtifactSource = HelmCommandSpecArtifactSource.HelmCommandSpecArtifactSource;
 import * as HelmRepositoryDeployArtifactSource from "./helm-repository-deploy-artifact-source";
 export import HelmRepositoryDeployArtifactSource = HelmRepositoryDeployArtifactSource.HelmRepositoryDeployArtifactSource;
 import * as InlineDeployArtifactSource from "./inline-deploy-artifact-source";

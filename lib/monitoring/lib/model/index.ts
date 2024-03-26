@@ -27,6 +27,8 @@ import * as AlarmHistoryCollection from "./alarm-history-collection";
 export import AlarmHistoryCollection = AlarmHistoryCollection.AlarmHistoryCollection;
 import * as AlarmHistoryEntry from "./alarm-history-entry";
 export import AlarmHistoryEntry = AlarmHistoryEntry.AlarmHistoryEntry;
+import * as AlarmOverride from "./alarm-override";
+export import AlarmOverride = AlarmOverride.AlarmOverride;
 import * as AlarmStatusSummary from "./alarm-status-summary";
 export import AlarmStatusSummary = AlarmStatusSummary.AlarmStatusSummary;
 import * as AlarmSummary from "./alarm-summary";

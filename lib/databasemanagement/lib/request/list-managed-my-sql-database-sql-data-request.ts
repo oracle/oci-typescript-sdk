@@ -36,6 +36,7 @@ export interface ListManagedMySqlDatabaseSqlDataRequest extends common.BaseReque
   "endTime": string;
   /**
    * The parameter to filter results by key criteria which include :
+   * - AVG_TIMER_WAIT
    * - SUM_TIMER_WAIT
    * - COUNT_STAR
    * - SUM_ERRORS
@@ -47,6 +48,8 @@ export interface ListManagedMySqlDatabaseSqlDataRequest extends common.BaseReque
    * - SUM_NO_GOOD_INDEX_USED
    * - FIRST_SEEN
    * - LAST_SEEN
+   * - HEATWAVE_OFFLOADED
+   * - HEATWAVE_OUT_OF_MEMORY
    *
    */
   "filterColumn"?: string;

@@ -23,4 +23,8 @@ export interface DeleteRefResponse {
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, provide the request ID.
    */
   "opcRequestId": string;
+  /**
+   * This API will be deprecated on Wed, 12 June 2024 01:00:00 GMT as it does not get recognized when refName has '/'. This will be replaced by \"/repositories/{repositoryId}/actions/deleteGitRef\".
+   */
+  "sunset": string;
 }

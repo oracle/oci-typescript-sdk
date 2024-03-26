@@ -36,6 +36,11 @@ export namespace UnifiedAgentServiceConfigurationDetails {
             <model.UnifiedAgentLoggingConfiguration>(<object>jsonObj),
             true
           );
+        case "MONITORING":
+          return model.UnifiedAgentMonitoringConfigurationDetails.getJsonObj(
+            <model.UnifiedAgentMonitoringConfigurationDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.configurationType}`);
@@ -51,6 +56,11 @@ export namespace UnifiedAgentServiceConfigurationDetails {
         case "LOGGING":
           return model.UnifiedAgentLoggingConfiguration.getDeserializedJsonObj(
             <model.UnifiedAgentLoggingConfiguration>(<object>jsonObj),
+            true
+          );
+        case "MONITORING":
+          return model.UnifiedAgentMonitoringConfigurationDetails.getDeserializedJsonObj(
+            <model.UnifiedAgentMonitoringConfigurationDetails>(<object>jsonObj),
             true
           );
         default:

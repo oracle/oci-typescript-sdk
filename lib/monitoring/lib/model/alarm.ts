@@ -217,6 +217,28 @@ Example: {@code true}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+    * A set of overrides that control evaluations of the alarm. 
+* <p>
+Each override can specify values for query, severity, body, and pending duration.
+* When an alarm contains overrides, the Monitoring service evaluates each override in order, beginning with the first override in the array (index position {@code 0}),
+* and then evaluates the alarm's base values ({@code ruleName} value of {@code BASE}).
+* 
+    */
+  "overrides"?: Array<model.AlarmOverride>;
+  /**
+   * Identifier of the alarm's base values for alarm evaluation, for use when the alarm contains overrides.
+   * A valid ruleName value starts with an alphabetic character and includes only alphanumeric characters, underscores and square brackets.
+   * Minimum number of characters: 3. Default value is {@code BASE}. For information about alarm overrides, see {@link #alarmOverride(AlarmOverrideRequest) alarmOverride}.
+   *
+   */
+  "ruleName"?: string;
+  /**
+   * The version of the alarm notification to be delivered. Allowed value: {@code 1.X}
+   * The value must start with a number (up to four digits), followed by a period and an uppercase X.
+   *
+   */
+  "notificationVersion"?: string;
+  /**
     * The current lifecycle state of the alarm.
 * <p>
 Example: {@code DELETED}
@@ -278,7 +300,13 @@ export namespace Alarm {
     const jsonObj = {
       ...obj,
       ...{
-        "suppression": obj.suppression ? model.Suppression.getJsonObj(obj.suppression) : undefined
+        "suppression": obj.suppression ? model.Suppression.getJsonObj(obj.suppression) : undefined,
+
+        "overrides": obj.overrides
+          ? obj.overrides.map(item => {
+              return model.AlarmOverride.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -290,6 +318,12 @@ export namespace Alarm {
       ...{
         "suppression": obj.suppression
           ? model.Suppression.getDeserializedJsonObj(obj.suppression)
+          : undefined,
+
+        "overrides": obj.overrides
+          ? obj.overrides.map(item => {
+              return model.AlarmOverride.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -50,7 +50,7 @@ Example: {@code 8080}
 * proportion of incoming traffic. For example, a server weighted '3' receives three times the number of new connections
 * as a server weighted '1'.
 * For more information about load balancing policies, see
-* [How Network Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
+* [How Network Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/introducton.htm#Policies).
 * <p>
 Example: {@code 3}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -65,7 +65,7 @@ Example: {@code false}
     */
   "isBackup"?: boolean;
   /**
-    * Whether the network load balancer should drain this server. Servers marked \"isDrain\" receive no 
+    * Whether the network load balancer should drain this server. Servers marked \"isDrain\" receive no
 * incoming traffic.
 * <p>
 Example: {@code false}

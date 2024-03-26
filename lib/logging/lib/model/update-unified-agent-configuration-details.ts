@@ -51,7 +51,9 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    * Description for this resource.
    */
   "description"?: string;
-  "serviceConfiguration": model.UnifiedAgentLoggingConfiguration;
+  "serviceConfiguration":
+    | model.UnifiedAgentLoggingConfiguration
+    | model.UnifiedAgentMonitoringConfigurationDetails;
   "groupAssociation"?: model.GroupAssociationDetails;
 }
 

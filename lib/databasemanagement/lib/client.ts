@@ -16874,6 +16874,85 @@ export class ManagedMySqlDatabasesClient {
   }
 
   /**
+   * Gets the health metrics for a fleet of HeatWave clusters in a compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetHeatWaveFleetMetricRequest
+   * @return GetHeatWaveFleetMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetHeatWaveFleetMetric.ts.html |here} to see how to use GetHeatWaveFleetMetric API.
+   */
+  public async getHeatWaveFleetMetric(
+    getHeatWaveFleetMetricRequest: requests.GetHeatWaveFleetMetricRequest
+  ): Promise<responses.GetHeatWaveFleetMetricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#getHeatWaveFleetMetric.");
+    const operationName = "getHeatWaveFleetMetric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/HeatWaveFleetMetrics/GetHeatWaveFleetMetric";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getHeatWaveFleetMetricRequest.compartmentId,
+      "filterByMetricNames": getHeatWaveFleetMetricRequest.filterByMetricNames,
+      "startTime": getHeatWaveFleetMetricRequest.startTime,
+      "endTime": getHeatWaveFleetMetricRequest.endTime,
+      "filterByHeatWaveStatus": getHeatWaveFleetMetricRequest.filterByHeatWaveStatus,
+      "filterByHeatWaveShape": getHeatWaveFleetMetricRequest.filterByHeatWaveShape,
+      "isHeatWaveLakehouseEnabled": getHeatWaveFleetMetricRequest.isHeatWaveLakehouseEnabled
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHeatWaveFleetMetricRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHeatWaveFleetMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/heatWaveFleetMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHeatWaveFleetMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "heatWaveFleetMetrics",
+        bodyModel: model.HeatWaveFleetMetrics,
+        type: "model.HeatWaveFleetMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves the general information for a specific MySQL Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -16974,7 +17053,8 @@ export class ManagedMySqlDatabasesClient {
         getMySqlFleetMetricRequest.filterByMySqlDeploymentTypeParam,
       "filterByMdsDeploymentType": getMySqlFleetMetricRequest.filterByMdsDeploymentType,
       "filterByMySqlStatus": getMySqlFleetMetricRequest.filterByMySqlStatus,
-      "filterByMySqlDatabaseVersion": getMySqlFleetMetricRequest.filterByMySqlDatabaseVersion
+      "filterByMySqlDatabaseVersion": getMySqlFleetMetricRequest.filterByMySqlDatabaseVersion,
+      "isHeatWaveEnabled": getMySqlFleetMetricRequest.isHeatWaveEnabled
     };
 
     let headerParams = {
