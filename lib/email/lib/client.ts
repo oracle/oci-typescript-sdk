@@ -1,11 +1,10 @@
 /**
  * Email Delivery API
- * API for the Email Delivery service. Use this API to send high-volume, application-generated
-emails. For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
+ * Use the Email Delivery API to do the necessary set up to send high-volume and application-generated emails through the OCI Email Delivery service.
+For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
 
-
-**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
-If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
+ **Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
+ If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
 
  * OpenAPI spec version: 20170907
  * Contact: email-dev_us_grp@oracle.com
@@ -222,12 +221,12 @@ export class EmailClient {
   }
 
   /**
-   * Moves a email domain into a different compartment.
+   * Moves an email domain into a different compartment.
    * When provided, If-Match is checked against ETag value of the resource.
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * <p>
-   **Note:** All Dkim objects associated with this email domain will also be moved into the provided compartment.
+   **Note:** All DKIM objects associated with this email domain will also be moved into the provided compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeEmailDomainCompartmentRequest
@@ -381,10 +380,10 @@ export class EmailClient {
   }
 
   /**
-   * Creates a new DKIM for a email domain.
-   * This DKIM will sign all approved senders in the tenancy that are in this email domain.
+   * Creates a new DKIM for an email domain.
+   * This DKIM signs all approved senders in the tenancy that are in this email domain.
    * Best security practices indicate to periodically rotate the DKIM that is doing the signing.
-   * When a second DKIM is applied, all senders will seamlessly pick up the new key
+   * When a second DKIM is applied, all senders seamlessly pick up the new key
    * without interruption in signing.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -738,7 +737,7 @@ export class EmailClient {
    * will stop signing the domain's outgoing mail.
    * DKIM keys are left in DELETING state for about a day to allow DKIM signatures on
    * in-transit mail to be validated.
-   * Consider instead of deletion creating a new DKIM for this domain so the signing can be rotated to it.
+   * Consider creating a new DKIM for this domain so the signing can be rotated to it instead of deletion.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDkimRequest
@@ -812,7 +811,7 @@ export class EmailClient {
   }
 
   /**
-   * Deletes a email domain.
+   * Deletes an email domain.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEmailDomainRequest
    * @return DeleteEmailDomainResponse
@@ -1085,6 +1084,78 @@ export class EmailClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns  email configuration associated with the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetEmailConfigurationRequest
+   * @return GetEmailConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailConfiguration.ts.html |here} to see how to use GetEmailConfiguration API.
+   */
+  public async getEmailConfiguration(
+    getEmailConfigurationRequest: requests.GetEmailConfigurationRequest
+  ): Promise<responses.GetEmailConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getEmailConfiguration.");
+    const operationName = "getEmailConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Configuration/GetEmailConfiguration";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getEmailConfigurationRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEmailConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEmailConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configuration",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEmailConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "configuration",
+        bodyModel: model.Configuration,
+        type: "model.Configuration",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1401,7 +1472,7 @@ export class EmailClient {
   }
 
   /**
-   * Lists DKIMs for a email domain.
+   * Lists DKIMs for an email domain.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDkimsRequest
    * @return ListDkimsResponse
@@ -2174,7 +2245,7 @@ export class EmailClient {
   }
 
   /**
-   * Modifies a email domain.
+   * Modifies an email domain.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEmailDomainRequest
    * @return UpdateEmailDomainResponse

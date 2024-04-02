@@ -4,7 +4,9 @@
  */
 
 const Constants = {
-  APPLICATION_JSON: "application/json"
+  APPLICATION_JSON: "application/json",
+  CONTENT_TYPE_HEADER: "content-type",
+  SERVER_SIDE_EVENT_TEXT_STREAM: "text/event-stream"
 };
 
 export enum BooleanString {

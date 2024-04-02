@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A cloud guard list containing one or more items of a list type
+ * A managed list is a reusable list of parameters that makes it easier to set the scope for detector and responder rules. A ManagedList object contains the reusable list of parameters, plus metadata for the list.
  */
 export interface ManagedList {
   /**

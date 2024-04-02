@@ -198,15 +198,7 @@ export class GenericRetrier {
           endpoint,
           apiReferenceLink
         );
-        if (
-          response.headers &&
-          response.headers.get(CONTENT_TYPE_HEADER) === SERVER_SIDE_EVENT_TEXT_STREAM
-        ) {
-          shouldBeRetried = false;
-          lastKnownError = new Error(
-            "streaming mode is currently not supported. Please use non-streaming mode for this API instead"
-          );
-        } else if (response.status && response.status >= 200 && response.status <= 299) {
+        if (response.status && response.status >= 200 && response.status <= 299) {
           const currentTime = new Date().getTime();
           const timeElapsed = currentTime - timestamp.getTime();
           if (this.logger) {

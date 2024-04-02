@@ -19,7 +19,8 @@ import common = require("oci-common");
  **/
 export enum HcsInfraIpVersion {
   Ipv4 = "IPV4",
-  Ipv4AndIpv6 = "IPV4_AND_IPV6"
+  Ipv4AndIpv6 = "IPV4_AND_IPV6",
+  Ipv6 = "IPV6"
 }
 
 export namespace HcsInfraIpVersion {

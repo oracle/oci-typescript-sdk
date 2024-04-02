@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of DataMaskRule.
+ * A data mask rule specifies the conditions in which the value for a sensitive data field in the UI is to be hidden or displayed when viewed by specified groups of users. The DataMaskRule object contains the parameters for a data mask rule.
  */
 export interface DataMaskRule {
   /**

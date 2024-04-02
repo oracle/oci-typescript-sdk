@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * condition type provided by cloud guard
+ * The metadata definition of the requested condition type.
  */
 export interface ConditionMetadataType {
   /**

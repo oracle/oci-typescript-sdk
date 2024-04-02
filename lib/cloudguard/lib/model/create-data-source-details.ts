@@ -26,6 +26,10 @@ export interface CreateDataSourceDetails {
    */
   "displayName": string;
   /**
+   * Status of DataSource. Default value is DISABLED.
+   */
+  "status"?: model.DataSourceStatus;
+  /**
    * CompartmentId of Data Source.
    */
   "compartmentId": string;

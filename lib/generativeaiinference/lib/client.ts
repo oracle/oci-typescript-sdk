@@ -291,7 +291,7 @@ An embedding is numeric representation of a piece of text. This text can be a ph
    */
   public async generateText(
     generateTextRequest: requests.GenerateTextRequest
-  ): Promise<responses.GenerateTextResponse> {
+  ): Promise<responses.GenerateTextResponse | string> {
     if (this.logger)
       this.logger.debug("Calling operation GenerativeAiInferenceClient#generateText.");
     const operationName = "generateText";
@@ -335,6 +335,13 @@ An embedding is numeric representation of a piece of text. This text can be a ph
         operationName,
         apiReferenceLink
       );
+      if (
+        response.headers &&
+        response.headers.get(common.Constants.CONTENT_TYPE_HEADER) ===
+          common.Constants.SERVER_SIDE_EVENT_TEXT_STREAM
+      ) {
+        return await response.text();
+      }
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateTextResponse>{},
         body: await response.json(),

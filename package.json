@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.83.0",
+  "version": "2.84.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -158,7 +158,8 @@
     "oci-generativeaiinference": "file:lib/generativeaiinference",
     "oci-capacitymanagement": "file:lib/capacitymanagement",
     "oci-globallydistributeddatabase": "file:lib/globallydistributeddatabase",
-    "oci-desktops": "file:lib/desktops"
+    "oci-desktops": "file:lib/desktops",
+    "oci-emaildataplane": "file:lib/emaildataplane"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
