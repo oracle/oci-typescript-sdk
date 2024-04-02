@@ -1,11 +1,10 @@
 /**
  * Email Delivery API
- * API for the Email Delivery service. Use this API to send high-volume, application-generated
-emails. For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
+ * Use the Email Delivery API to do the necessary set up to send high-volume and application-generated emails through the OCI Email Delivery service.
+For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
 
-
-**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
-If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
+ **Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
+ If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
 
  * OpenAPI spec version: 20170907
  * Contact: email-dev_us_grp@oracle.com
@@ -39,31 +38,17 @@ export interface SuppressionSummary {
   /**
    * The reason that the email address was suppressed.
    */
-  "reason"?: SuppressionSummary.Reason;
+  "reason"?: model.SuppressionReason;
   /**
    * The date and time a recipient's email address was added to the
    * suppression list, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
-   * defined by RFC 3339.
+   * defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
    *
    */
   "timeCreated"?: Date;
 }
 
 export namespace SuppressionSummary {
-  export enum Reason {
-    Unknown = "UNKNOWN",
-    Hardbounce = "HARDBOUNCE",
-    Complaint = "COMPLAINT",
-    Manual = "MANUAL",
-    Softbounce = "SOFTBOUNCE",
-    Unsubscribe = "UNSUBSCRIBE",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export function getJsonObj(obj: SuppressionSummary): object {
     const jsonObj = { ...obj, ...{} };
 

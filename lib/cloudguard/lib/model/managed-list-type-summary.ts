@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the ManagedListType.
+ * A managed list type summary (ManagedListTypeSummary object) contains summary information for a managed list type (ManagedListType object).
  */
 export interface ManagedListTypeSummary {
   /**

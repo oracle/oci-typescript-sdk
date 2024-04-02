@@ -450,7 +450,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Moves the DetectorRecipe from current compartment to another.
+   * Moves the detector recipe (DetectorRecipe object), identified by detectorRecipeId, from the current compartment to another compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDetectorRecipeCompartmentRequest
    * @return ChangeDetectorRecipeCompartmentResponse
@@ -525,7 +525,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Moves the ManagedList from current compartment to another.
+   * Moves the managed list (ManagedList object), identified by managedListId, from the current compartment to another compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeManagedListCompartmentRequest
    * @return ChangeManagedListCompartmentResponse
@@ -825,7 +825,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a new Data Mask Rule Definition
+   * Creates a new DataMaskRule object definition.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataMaskRuleRequest
@@ -983,7 +983,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a DetectorRecipe
+   * Creates a new DetectorRecipe object.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDetectorRecipeRequest
@@ -1147,7 +1147,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a new ManagedList.
+   * Creates a new ManagedList object.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateManagedListRequest
@@ -1720,7 +1720,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes a DataMaskRule identified by dataMaskRuleId
+   * Deletes a DataMaskRule object, identified by dataMaskRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataMaskRuleRequest
    * @return DeleteDataMaskRuleResponse
@@ -1862,7 +1862,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes a DetectorRecipe identified by detectorRecipeId
+   * Deletes a detector recipe (DetectorRecipe object) identified by detectorRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDetectorRecipeRequest
    * @return DeleteDetectorRecipeResponse
@@ -2075,7 +2075,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes a managed list identified by managedListId
+   * Deletes a managed list identified by managedListId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteManagedListRequest
    * @return DeleteManagedListResponse
@@ -2633,7 +2633,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns ConditionType with its details.
+   * Returns a ConditionMetatDataType object with its details.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConditionMetadataTypeRequest
@@ -2714,7 +2714,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * GET Cloud Guard Configuration Details for a Tenancy.
+   * Returns the configuration details for a Cloud Guard tenancy, identified by root compartment OCID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
@@ -2795,7 +2795,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a DataMaskRule identified by DataMaskRuleId
+   * Returns a DataMaskRule object, identified by DataMaskRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataMaskRuleRequest
    * @return GetDataMaskRuleResponse
@@ -2947,7 +2947,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a Detector identified by detectorId.
+   * Returns a Detector object, identified by detectorId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRequest
@@ -3024,7 +3024,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a DetectorRecipe identified by detectorRecipeId
+   * Returns a detector recipe (DetectorRecipe object) identified by detectorRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRecipeRequest
    * @return GetDetectorRecipeResponse
@@ -3100,7 +3100,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Get DetectorRule by identifier
+   * Returns a detector rule (DetectorRule object) identified by detectorRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRecipeDetectorRuleRequest
    * @return GetDetectorRecipeDetectorRuleResponse
@@ -3178,7 +3178,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a Detector Rule identified by detectorRuleId
+   * Returns a detector rule (DetectorRule object) identified by detectorRuleId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRuleRequest
@@ -3261,7 +3261,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a managed list identified by managedListId
+   * Returns a managed list identified by managedListId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedListRequest
    * @return GetManagedListResponse
@@ -3337,7 +3337,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a Problems response
+   * Returns the Problem object identified by a problemId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProblemRequest
    * @return GetProblemResponse
@@ -4576,7 +4576,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a list of condition types.
+   * Returns a list of ConditionMetadataType objects.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConditionMetadataTypesRequest
@@ -4659,7 +4659,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a list of all Data Mask Rules in the root 'compartmentId' passed.
+   * Returns a list of all DataMaskRule objects in the specified compartmentId (OCID) and its subcompartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataMaskRulesRequest
@@ -4931,7 +4931,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListdataSources 
   }
 
   /**
-   * Returns a list of DetectorRule associated with DetectorRecipe.
+   * Returns a list of detector rules (DetectorRule objects) for a detector recipe (DetectorRecipe object), identified by detectorRecipeId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorRecipeDetectorRulesRequest
@@ -5017,7 +5017,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListdataSources 
   }
 
   /**
-     * Returns a list of all Detector Recipes in a compartment
+     * Returns a list of all detector recipes (DetectorRecipe objects) in a compartment, identified by compartmentId.
 * <p>
 The ListDetectorRecipes operation returns only the detector recipes in `compartmentId` passed.
 * The list does not include any subcompartments of the compartmentId passed.
@@ -5117,7 +5117,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-   * Returns a list of detector rules for the detectorId passed.
+   * Returns a list of detector rules for the DetectorRecipe object identified by detectorId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorRulesRequest
@@ -5202,7 +5202,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-   * Returns detector catalog - list of detectors supported by Cloud Guard
+   * Returns a detector catalog (DetectorCollection object) with a list of DetectorSummary objects.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorsRequest
@@ -5284,7 +5284,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-   * Returns a list of Impacted Resources for a CloudGuard Problem
+   * Returns a list of impacted resources for a Cloud Guard problem with a specified problem ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListImpactedResourcesRequest
@@ -5366,7 +5366,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-   * Returns all ManagedList types supported by Cloud Guard
+   * Returns all managed list types (listType parameter) that Cloud Guard supports.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagedListTypesRequest
    * @return ListManagedListTypesResponse
@@ -5447,7 +5447,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-     * Returns a list of ListManagedLists.
+     * Returns a list of all ManagedList objects in a compartment, identified by compartmentId.
 * The ListManagedLists operation returns only the managed lists in `compartmentId` passed.
 * The list does not include any subcompartments of the compartmentId passed.
 * <p>
@@ -5547,7 +5547,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   }
 
   /**
-   * Returns the list of global policy statements needed by Cloud Guard when enabling
+   * Returns the list of global policy statements (policy attributes) needed to fully enable Cloud Guard.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPoliciesRequest
@@ -5628,7 +5628,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   }
 
   /**
-   * Returns a list of endpoints associated with a cloud guard problem
+   * Returns a list of endpoints associated with a problem, identified by problemId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProblemEndpointsRequest
@@ -5792,7 +5792,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   }
 
   /**
-   * Returns a list of Actions done on CloudGuard Problem
+   * Returns a list of actions taken on a Cloud Guard problem.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProblemHistoriesRequest
@@ -5875,7 +5875,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   }
 
   /**
-     * Returns a list of all Problems identified by the Cloud Guard
+     * Returns a list of all Problems identified by Cloud Guard which are currently in the database and meet the filtering criteria.
 * <p>
 The ListProblems operation returns only the problems in `compartmentId` passed.
 * The list does not include any subcompartments of the compartmentId passed.
@@ -8583,7 +8583,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
-     * Returns the summary of Activity type problems identified by cloud guard, for a given set of dimensions.
+     * Returns the summary of problems generated by OCI Activity Detector rules, identified by parameters specified.
 * <p>
 The parameter `accessLevel` specifies whether to return only those compartments for which the
 * requestor has INSPECT permissions on at least one resource directly
@@ -8680,7 +8680,7 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
   }
 
   /**
-     * Returns the number of problems identified by cloud guard, for a given set of dimensions.
+     * Returns the number of problems matching the key-value pairs in dimensionMap.
 * <p>
 The parameter `accessLevel` specifies whether to return only those compartments for which the
 * requestor has INSPECT permissions on at least one resource directly
@@ -9122,7 +9122,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-     * Returns the number of problems identified by cloud guard, for a given time period.
+     * Returns a ProblemTrendAggregationCollection resource for a compartment, identified by compartmentId, for the specified time period. The ProblemTrendAggregationCollection resource contains a list of ProblemTrendAggregation resources.
 * <p>
 The parameter `accessLevel` specifies whether to return only those compartments for which the
 * requestor has INSPECT permissions on at least one resource directly
@@ -9641,7 +9641,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * push the problem to responder
+   * Sends the problem identified by problemId to the responder engine, to be processed by rule that\u2019s identified by responderRuleId, in the TriggerResponderDetails resource that\u2019s passed.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TriggerResponderRequest
@@ -9716,8 +9716,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates the statuses in bulk for a list of problems
-   * The operation is atomic in nature
+   * Changes the status for all problems listed in the problemIds array, passed through the UpdateBulkProblemStatusDetails resource, from the current status to the status set in UpdateBulkProblemStatusDetails.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBulkProblemStatusRequest
@@ -9789,7 +9788,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Enable/Disable Cloud Guard. The reporting region cannot be updated once created.
+   * Update configuration details for a Cloud Guard tenancy, identified by root compartment OCID. The reporting region cannot be updated once created.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateConfigurationRequest
@@ -9873,7 +9872,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a DataMaskRule identified by dataMaskRuleId
+   * Updates a data mask rule (DataMaskRule object) identified by dataMaskRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataMaskRuleRequest
    * @return UpdateDataMaskRuleResponse
@@ -10034,7 +10033,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a detector recipe identified by detectorRecipeId
+   * Updates a detector recipe (DetectorRecipe object) identified by detectorRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDetectorRecipeRequest
    * @return UpdateDetectorRecipeResponse
@@ -10117,7 +10116,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Update the DetectorRule by identifier
+   * Updates a detector rule (DetectorRule object) identified by detectorRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDetectorRecipeDetectorRuleRequest
    * @return UpdateDetectorRecipeDetectorRuleResponse
@@ -10201,7 +10200,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a managed list identified by managedListId
+   * Updates a ManagedList object, identified by managedList.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagedListRequest
    * @return UpdateManagedListResponse
@@ -10284,7 +10283,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * updates the problem details
+   * Changes the current status of the problem, identified by problemId, to the status specified in the UpdateProblemStatusDetails resource that you pass.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateProblemStatusRequest

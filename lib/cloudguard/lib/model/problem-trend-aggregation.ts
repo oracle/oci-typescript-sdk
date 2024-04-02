@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the dimensions and their corresponding time and count.
+ * Provides aggregated information on trends for counts of problems by specified parameters.
  */
 export interface ProblemTrendAggregation {
   /**

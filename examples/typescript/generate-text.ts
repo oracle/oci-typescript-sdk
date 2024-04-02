@@ -4,11 +4,8 @@
  */
 
 /*
- * This example demostrates the usage of Instance Principal. In order to run this example, this code
- * must be in an Oracle Cloud instance. The Instance Principal will utiltize internal resources to
- * create an authentication provider. Refer to:
- * https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/callingservicesfrominstances.htm
- * for more details.
+ * This example demostrates the parsing of SSE response. In order to run this example, this code
+ * must be in an Oracle Cloud instance. Any API which return Content-Type as event-stream can be handled this way.
  */
 
 import * as genai from "oci-generativeaiinference";
@@ -16,7 +13,7 @@ import common = require("oci-common");
 
 (async () => {
   const region = "us-chicago-1";
-  const provider = new common.ConfigFileAuthenticationDetailsProvider();
+  const provider = new common.SessionAuthDetailProvider();
   provider.setRegion(region);
 
   const client = new genai.GenerativeAiInferenceClient({
@@ -60,19 +57,28 @@ import common = require("oci-common");
   const response = await client.generateText(req_body);
   console.log(
     "Response: " +
-      (response.generateTextResult.inferenceResponse as genai.models.CohereLlmInferenceResponse)
-        .generatedTexts[0].text
+      ((<genai.responses.GenerateTextResponse>response).generateTextResult
+        .inferenceResponse as genai.models.CohereLlmInferenceResponse).generatedTexts[0].text
   );
 
   // Attempt to generate text as SSE stream (throws error)
   try {
     inference_request.isStream = true;
     const responseStream = await client.generateText(req_body);
-    console.log(
-      "Response: " +
-        (responseStream.generateTextResult
-          .inferenceResponse as genai.models.CohereLlmInferenceResponse).generatedTexts[0].text
-    );
+
+    let streamData = "";
+    const lines = String(responseStream).split("\n");
+
+    lines.forEach(line => {
+      if (line.trim() === "") {
+      } else {
+        if (line.startsWith("data:")) {
+          const data = JSON.parse(line.substring(6).trim());
+          streamData += data.text;
+        }
+      }
+    });
+    console.log("Stream Response: ", streamData);
   } catch (e) {
     console.log(e);
   }

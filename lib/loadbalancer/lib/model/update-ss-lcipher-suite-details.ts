@@ -28,6 +28,14 @@ export interface UpdateSSLCipherSuiteDetails {
 * <p>
 The following ciphers are valid values for this property:
 * <p>
+*  __TLSv1.3 ciphers__
+* <p>
+        \"TLS-AES-128-GCM-SHA256\"
+*         \"TLS-AES-256-GCM-SHA384\"
+*         \"TLS-CHACHA20-POLY1305-SHA256\"
+*         \"TLS-AES-128-CCM-SHA256\"
+*         \"TLS-AES-128-CCM-8-SHA256\"
+* <p>
 *  __TLSv1.2 ciphers__
 * <p>
         \"AES128-GCM-SHA256\"

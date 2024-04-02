@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A single Detector
+ * Information for a single detector category. For example, IAAS_ACTIVITY_DETECTOR or IAAS_CONFIGURATION_DETECTOR.
  */
 export interface Detector {
   /**

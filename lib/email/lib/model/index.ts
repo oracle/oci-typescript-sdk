@@ -1,11 +1,10 @@
 /**
  * Email Delivery API
- * API for the Email Delivery service. Use this API to send high-volume, application-generated
-emails. For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
+ * Use the Email Delivery API to do the necessary set up to send high-volume and application-generated emails through the OCI Email Delivery service.
+For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
 
-
-**Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
-If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
+ **Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
+ If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
 
  * OpenAPI spec version: 20170907
  * Contact: email-dev_us_grp@oracle.com
@@ -23,6 +22,8 @@ import * as ChangeEmailDomainCompartmentDetails from "./change-email-domain-comp
 export import ChangeEmailDomainCompartmentDetails = ChangeEmailDomainCompartmentDetails.ChangeEmailDomainCompartmentDetails;
 import * as ChangeSenderCompartmentDetails from "./change-sender-compartment-details";
 export import ChangeSenderCompartmentDetails = ChangeSenderCompartmentDetails.ChangeSenderCompartmentDetails;
+import * as Configuration from "./configuration";
+export import Configuration = Configuration.Configuration;
 import * as CreateDkimDetails from "./create-dkim-details";
 export import CreateDkimDetails = CreateDkimDetails.CreateDkimDetails;
 import * as CreateEmailDomainDetails from "./create-email-domain-details";
@@ -55,6 +56,8 @@ import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as Suppression from "./suppression";
 export import Suppression = Suppression.Suppression;
+import * as SuppressionReason from "./suppression-reason";
+export import SuppressionReason = SuppressionReason.SuppressionReason;
 import * as SuppressionSummary from "./suppression-summary";
 export import SuppressionSummary = SuppressionSummary.SuppressionSummary;
 import * as UpdateDkimDetails from "./update-dkim-details";

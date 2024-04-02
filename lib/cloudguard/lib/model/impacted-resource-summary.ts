@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Impacted Resource summary Definition.
+ * A summary of detailed information on a resource that\u2019s been impacted by a detected problem.
  */
 export interface ImpactedResourceSummary {
   /**

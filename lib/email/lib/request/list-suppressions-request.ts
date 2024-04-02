@@ -36,7 +36,7 @@ export interface ListSuppressionsRequest extends common.BaseRequest {
    * returned list (inclusive). Specifying this parameter without the
    * corresponding {@code timeCreatedLessThan} parameter will retrieve suppressions created from the
    * given {@code timeCreatedGreaterThanOrEqualTo} to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
-   * Z offset, as defined by RFC 3339.
+   * Z offset, as defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
    * <p>
    **Example:** 2016-12-19T16:39:57.600Z
    *
@@ -48,7 +48,7 @@ export interface ListSuppressionsRequest extends common.BaseRequest {
    * list (exclusive). Specifying this parameter without the corresponding
    * {@code timeCreatedGreaterThanOrEqualTo} parameter will retrieve all suppressions created before the
    * specified end date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
-   * defined by RFC 3339.
+   * defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
    * <p>
    **Example:** 2016-12-19T16:39:57.600Z
    *

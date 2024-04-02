@@ -20,6 +20,7 @@ import common = require("oci-common");
 export enum NlbIpVersion {
   Ipv4 = "IPV4",
   Ipv4AndIpv6 = "IPV4_AND_IPV6",
+  Ipv6 = "IPV6",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

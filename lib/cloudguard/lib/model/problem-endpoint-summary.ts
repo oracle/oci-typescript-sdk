@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Problem endpoints summary.
+ * Summary information for endpoints associated with a problem (Problem object).
  */
 export interface ProblemEndpointSummary {
   /**

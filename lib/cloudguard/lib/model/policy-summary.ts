@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Global policy statement
+ * A policy summary (PolicySummary object) contains a list of all current global policy statements (policy attributes).
  */
 export interface PolicySummary {
   /**

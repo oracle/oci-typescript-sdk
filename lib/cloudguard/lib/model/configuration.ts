@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Cloud Guard configuration details of a tenancy.
+ * Specifies several key settings for a Cloud Guard tenancy, identified by tenancy root compartment OCID.
  */
 export interface Configuration {
   /**
