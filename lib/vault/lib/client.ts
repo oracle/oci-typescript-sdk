@@ -221,6 +221,13 @@ export class VaultsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Cancels the pending deletion of the specified secret. Canceling
    * a scheduled deletion restores the secret's lifecycle state to what
    * it was before you scheduled the secret for deletion.

@@ -127,6 +127,10 @@ const kmsCryptoClient = new kms.KmsCryptoClient({ authenticationDetailsProvider:
   } catch (error) {
     console.log("Error Running KMS example");
   }
+
+  kmsVaultClient.close();
+  kmsManagementClient.close();
+  kmsCryptoClient.close();
 })();
 
 async function createVaultTest(

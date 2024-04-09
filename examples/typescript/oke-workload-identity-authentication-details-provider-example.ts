@@ -17,4 +17,6 @@ var common = require("oci-common");
   const identityClient = new identity.IdentityClient({
     authenticationDetailsProvider: authProvider
   });
+
+  identityClient.close();
 })();

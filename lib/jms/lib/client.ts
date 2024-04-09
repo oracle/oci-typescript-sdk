@@ -217,6 +217,13 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Add Java installation sites in a Fleet.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddFleetInstallationSitesRequest

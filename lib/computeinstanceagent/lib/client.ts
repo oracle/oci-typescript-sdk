@@ -219,6 +219,13 @@ export class ComputeInstanceAgentClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
      * Cancels a command that is scheduled to run on a compute instance that is managed
 * by Oracle Cloud Agent.
 * <p>
@@ -974,6 +981,13 @@ export class PluginClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * The API to get information for a plugin.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceAgentPluginRequest
@@ -1343,6 +1357,13 @@ export class PluginconfigClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

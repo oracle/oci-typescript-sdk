@@ -63,4 +63,6 @@ client.useRealmSpecificEndpointTemplate = true;
   } catch (error) {
     console.log("Error executing example " + error);
   }
+
+  client.close();
 })();

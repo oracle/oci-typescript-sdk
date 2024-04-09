@@ -218,6 +218,13 @@ export class ManagementClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Bulk create composite and value list entities into a skill.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5289,6 +5296,13 @@ export class OdaClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves an Digital Assistant instance into a different compartment. When provided, If-Match is checked against
    * ETag values of the resource.
    *
@@ -7068,6 +7082,13 @@ export class OdapackageClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

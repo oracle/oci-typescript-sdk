@@ -194,6 +194,13 @@ export class EventClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Delete an event content ZIP archive from the service
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1015,6 +1022,13 @@ export class OsManagementClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

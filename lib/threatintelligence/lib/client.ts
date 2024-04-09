@@ -216,6 +216,13 @@ export class ThreatintelClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Get detailed information about a threat indicator with a given identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIndicatorRequest

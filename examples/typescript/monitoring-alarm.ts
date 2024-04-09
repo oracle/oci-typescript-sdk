@@ -146,4 +146,6 @@ let alarmId: any;
   } catch (error) {
     console.log(" Not able to run monitoring alarm example. Error: " + error);
   }
+
+  monitoringClient.close();
 })();

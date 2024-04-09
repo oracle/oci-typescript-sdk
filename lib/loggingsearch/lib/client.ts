@@ -190,6 +190,13 @@ export class LogSearchClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
      * Submit a query to search logs.
 * <p>
 See [Using the API](https://docs.cloud.oracle.com/Content/Logging/Concepts/using_the_api_searchlogs.htm) for SDK examples.

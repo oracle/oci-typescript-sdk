@@ -249,4 +249,7 @@ async function deleteSmtpCredential(
 
   // Delete SMTP credential
   await deleteSmtpCredential(smtpCredential);
+
+  emailClient.close();
+  identityClient.close();
 })();

@@ -192,6 +192,13 @@ export class SecretsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Gets a secret bundle that matches either the specified `stage`, `secretVersionName`, or `versionNumber` parameter.
    * If none of these parameters are provided, the bundle for the secret version marked as `CURRENT` will be returned.
    *

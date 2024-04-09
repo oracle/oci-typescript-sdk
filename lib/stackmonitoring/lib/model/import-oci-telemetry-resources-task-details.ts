@@ -38,6 +38,62 @@ export interface ImportOciTelemetryResourcesTaskDetails extends model.MonitoredR
    */
   "resourceGroup"?: string;
   /**
+   * Flag to indicate whether status is calculated using metrics or
+   * LifeCycleState attribute of the resource in OCI service.
+   *
+   */
+  "shouldUseMetricsFlowForStatus"?: boolean;
+  /**
+   * The base URL of the OCI service to which the resource belongs to.
+   * Also this property is applicable only when source is OCI_TELEMETRY_NATIVE.
+   *
+   */
+  "serviceBaseUrl"?: string;
+  /**
+   * The console path prefix to use for providing service home url page navigation.
+   * For example if the prefix provided is 'security/bastion/bastions', the URL used for navigation will be
+   * https://<cloudhostname>/security/bastion/bastions/<resourceOcid>. If not provided, service home page link
+   * will not be shown in the stack monitoring home page.
+   *
+   */
+  "consolePathPrefix"?: string;
+  /**
+   * Lifecycle states of the external resource which reflects the status of the resource being up.
+   *
+   */
+  "lifecycleStatusMappingsForUpStatus"?: Array<string>;
+  /**
+   * The resource name property in the metric dimensions.
+   * Resources imported will be using this property value for resource name.
+   *
+   */
+  "resourceNameMapping"?: string;
+  /**
+   * The external resource identifier property in the metric dimensions.
+   * Resources imported will be using this property value for external id.
+   *
+   */
+  "externalIdMapping"?: string;
+  /**
+   * The resource type property in the metric dimensions.
+   * Resources imported will be using this property value for resource type.
+   * If not specified, namespace will be used for resource type.
+   *
+   */
+  "resourceTypeMapping"?: string;
+  /**
+   * The resource name filter. Resources matching with the resource name filter will be imported.
+   * Regular expressions will be accepted.
+   *
+   */
+  "resourceNameFilter"?: string;
+  /**
+   * The resource type filter. Resources matching with the resource type filter will be imported.
+   * Regular expressions will be accepted.
+   *
+   */
+  "resourceTypeFilter"?: string;
+  /**
    * List of metrics to be used to calculate the availability of the resource.
    * Resource is considered to be up if at least one of the specified metrics is available for
    * the resource during the specified interval using the property

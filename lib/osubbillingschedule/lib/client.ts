@@ -192,6 +192,13 @@ export class BillingScheduleClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * This list API returns all billing schedules for given subscription id and
    * for a particular Subscribed Service if provided
    *

@@ -221,6 +221,13 @@ export class ConnectorPluginsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Gets the specified connector plugin configuration information.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -565,6 +572,13 @@ export class ServiceConnectorClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

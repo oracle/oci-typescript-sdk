@@ -22,6 +22,7 @@ identityClient.region = newRegion;
 (async () => {
   const response = await listUsers(compartmentId);
   console.log("List User response " + response);
+  identityClient.close();
 })();
 
 async function listUsers(compartmentId: string): Promise<identity.responses.ListUsersResponse> {

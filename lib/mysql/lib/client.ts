@@ -221,6 +221,13 @@ export class ChannelsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Creates a Channel to establish replication from a source to a target.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1018,6 +1025,13 @@ export class DbBackupsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a DB System Backup into a different compartment.
    * When provided, If-Match is checked against ETag values of the Backup.
    *
@@ -1740,6 +1754,13 @@ export class DbSystemClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -3328,6 +3349,13 @@ export class MysqlaasClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Creates a new Configuration.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateConfigurationRequest
@@ -4130,6 +4158,13 @@ export class ReplicasClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Creates a DB System read replica.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateReplicaRequest
@@ -4768,6 +4803,13 @@ export class WorkRequestsClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

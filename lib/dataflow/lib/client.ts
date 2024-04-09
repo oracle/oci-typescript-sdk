@@ -217,6 +217,13 @@ export class DataFlowClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves an application into a different compartment. When provided, If-Match is checked against ETag values of the resource.
    * Associated resources, like runs, will not be automatically moved.
    *
@@ -893,7 +900,8 @@ export class DataFlowClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createRunRequest.opcRetryToken,
-      "opc-request-id": createRunRequest.opcRequestId
+      "opc-request-id": createRunRequest.opcRequestId,
+      "opc-parent-rpt-url": createRunRequest.opcParentRptUrl
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;

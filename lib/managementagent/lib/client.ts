@@ -219,6 +219,13 @@ export class ManagementAgentClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Datasource creation request to given Management Agent.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

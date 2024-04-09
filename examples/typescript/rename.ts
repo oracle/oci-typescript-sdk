@@ -57,4 +57,6 @@ const client = new ObjectStorageClient({ authenticationDetailsProvider: provider
       `The object '${sourceName}' may not exist in bucket '${bucketName}' with namespace '${namespaceName}'`
     );
   }
+
+  client.close();
 })();

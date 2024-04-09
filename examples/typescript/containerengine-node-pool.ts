@@ -180,6 +180,11 @@ let nodePool: oke.models.NodePool;
   } catch (error) {
     throw "Error running Container Engine nodepool example";
   }
+
+  containerEngineClient.close();
+  vcnClient.close();
+  identityClient.close();
+  workRequestClient.close();
 })();
 
 async function getAvailabilityDomains(

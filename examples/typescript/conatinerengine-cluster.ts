@@ -126,6 +126,11 @@ async function main() {
   } catch (error) {
     throw "Error Executing container engine example";
   }
+
+  containerEngineClient.close();
+  vcnClient.close();
+  identityClient.close();
+  workRequestClient.close();
 }
 
 async function getAvailabilityDomains(

@@ -49,4 +49,6 @@ const client = new ObjectStorageClient({ authenticationDetailsProvider: provider
   } catch (ex) {
     console.error(`Failed due to ${ex}`);
   }
+
+  client.close();
 })();

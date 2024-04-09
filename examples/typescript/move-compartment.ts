@@ -60,4 +60,6 @@ const compartmentId = provider.getTenantId();
   const moveCompartmentResponse = await identityClient.moveCompartment(moveCompartmentRequest);
 
   console.log("Compartment moved successfully");
+
+  identityClient.close();
 })();

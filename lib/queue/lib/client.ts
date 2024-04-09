@@ -191,6 +191,13 @@ export class QueueClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Deletes the message represented by the receipt from the queue.
    * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to delete messages.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
@@ -996,6 +1003,13 @@ export class QueueAdminClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

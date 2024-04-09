@@ -85,4 +85,6 @@ monitoringClient.endpoint = "https://telemetry-ingestion.us-phoenix-1.oracleclou
   } catch (error) {
     console.log(" Not able to run post metric monitoring example. Error: " + error);
   }
+
+  monitoringClient.close();
 })();

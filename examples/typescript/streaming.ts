@@ -87,6 +87,9 @@ const waiters = adminClient.createWaiters();
   // Stream deletion is an asynchronous operation, give it some time to complete.
   const getStreamRequest: st.requests.GetStreamRequest = { streamId: streamId };
   await waiters.forStream(getStreamRequest, st.models.Stream.LifecycleState.Deleted);
+
+  adminClient.close();
+  client.close();
 })();
 
 async function getOrCreateStream(

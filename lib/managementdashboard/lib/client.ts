@@ -218,6 +218,13 @@ export class DashxApisClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves the dashboard from the existing compartment to a new compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

@@ -217,6 +217,13 @@ export class MarketplacePublisherClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Mark the Term Version identified by the id as active
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ActivateTermVersionRequest

@@ -217,6 +217,13 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a workspace to a specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

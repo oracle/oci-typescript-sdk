@@ -90,4 +90,6 @@ const tenancy = provider.getTenantId();
   };
   await identityClient.deleteGroup(deleteGroupReq);
   console.log("Finished cleaning all resources");
+
+  identityClient.close();
 })();

@@ -216,6 +216,13 @@ export class LicenseManagerClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Bulk upload the product licenses and license records for a given compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkUploadLicenseRecordsRequest

@@ -223,6 +223,13 @@ export class DomainClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Begins the registration process for claiming a domain.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDomainRequest
@@ -805,6 +812,13 @@ export class DomainGovernanceClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Adds domain governance to a claimed domain.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDomainGovernanceRequest
@@ -1364,6 +1378,13 @@ export class GovernanceClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Starts a work request to opt the tenancy in to governance rules.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddGovernanceRequest
@@ -1700,6 +1721,13 @@ export class LinkClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -2096,6 +2124,13 @@ export class OrdersClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Triggers an order activation workflow on behalf of the tenant, given by compartment ID in the body.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ActivateOrderRequest
@@ -2430,6 +2465,13 @@ export class OrganizationClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -3403,6 +3445,13 @@ export class RecipientInvitationClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Accepts a recipient invitation.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AcceptRecipientInvitationRequest
@@ -3983,6 +4032,13 @@ export class SenderInvitationClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -4577,6 +4633,13 @@ export class SubscriptionClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -5642,6 +5705,13 @@ export class WorkRequestClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

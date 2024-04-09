@@ -192,6 +192,13 @@ export class ComputedUsageClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * This is an API which returns Computed Usage corresponding to the id passed
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

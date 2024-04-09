@@ -220,6 +220,13 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Indicates the intention to cancel the specified job.
    * Cancellation of the job is not immediate, and may be delayed,
    * or may not happen at all.

@@ -215,6 +215,13 @@ export class VbsInstanceClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a VbsInstance resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVbsInstanceCompartmentRequest

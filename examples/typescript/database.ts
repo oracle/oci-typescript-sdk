@@ -230,5 +230,10 @@ async function terminateDbSystem() {
     await deleteVcn();
 
     console.debug("DONE");
+
+    virtualNetworkClient.close();
+    workRequestClient.close();
+    identityClient.close();
+    databaseClient.close();
   }
 })();

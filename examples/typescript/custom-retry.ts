@@ -51,4 +51,6 @@ async function getAvailabilityDomain(): Promise<identity.models.AvailabilityDoma
   } finally {
     console.debug("DONE");
   }
+
+  identityClient.close();
 })();

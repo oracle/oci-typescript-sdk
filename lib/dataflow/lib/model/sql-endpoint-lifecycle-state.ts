@@ -22,6 +22,8 @@ import common = require("oci-common");
  * DELETING        - The resource is being deleted, and might require a deep clean of any children.
  * DELETED         - The resource has been deleted, and isn't available.
  * FAILED          - The resource is in a failed state due to validation or other errors.
+ * UPDATING        - The resource is being updated and might not be usable until all changes are commited.
+ * NEEDS_ATTENTION - The resource needs customer/operator intervention.
  *
  **/
 export enum SqlEndpointLifecycleState {
@@ -30,6 +32,8 @@ export enum SqlEndpointLifecycleState {
   Deleting = "DELETING",
   Deleted = "DELETED",
   Failed = "FAILED",
+  Updating = "UPDATING",
+  NeedsAttention = "NEEDS_ATTENTION",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

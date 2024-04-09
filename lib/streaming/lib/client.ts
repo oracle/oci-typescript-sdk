@@ -133,6 +133,13 @@ export class StreamClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Provides a mechanism to manually commit offsets, if not using commit-on-get consumer semantics.
    * This commits offsets assicated with the provided cursor, extends the timeout on each of the affected partitions, and returns an updated cursor.
    *
@@ -933,6 +940,13 @@ export class StreamAdminClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

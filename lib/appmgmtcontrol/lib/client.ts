@@ -216,6 +216,13 @@ export class AppmgmtControlClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Activates Resource Plugin for compute instance identified by the instance ocid.
    * Stores monitored instances Id and its state. Tries to enable Resource Monitoring plugin by making
    * remote calls to Oracle Cloud Agent and Management Agent Cloud Service.

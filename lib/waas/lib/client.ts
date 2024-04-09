@@ -219,6 +219,13 @@ export class RedirectClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves HTTP Redirect into a different compartment. When provided, If-Match is checked against ETag values of the WAAS policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeHttpRedirectCompartmentRequest
@@ -921,6 +928,13 @@ export class WaasClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

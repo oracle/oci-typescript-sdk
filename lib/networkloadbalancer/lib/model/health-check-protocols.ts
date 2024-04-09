@@ -22,6 +22,7 @@ export enum HealthCheckProtocols {
   Https = "HTTPS",
   Tcp = "TCP",
   Udp = "UDP",
+  Dns = "DNS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

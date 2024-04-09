@@ -80,6 +80,16 @@ export interface MonitoredResourceSummary {
    */
   "license"?: model.LicenseType;
   /**
+   * Source type to indicate if the resource is stack monitoring discovered, OCI native resource, etc.
+   *
+   */
+  "sourceType"?: model.SourceType;
+  /**
+   * Resource Category to indicate the kind of resource type.
+   *
+   */
+  "resourceCategory"?: model.ResourceCategory;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

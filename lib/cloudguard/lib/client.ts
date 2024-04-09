@@ -219,6 +219,13 @@ export class CloudGuardClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Add an existing compartment to a security zone. If you previously removed a subcompartment from a security zone, you can add it back to the same security zone. The security zone ensures that resources in the subcompartment comply with the security zone's policies.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddCompartmentRequest

@@ -217,6 +217,13 @@ export class DataLabelingManagementClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Add Labels to the Dataset LabelSet until the maximum number of Labels has been reached.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

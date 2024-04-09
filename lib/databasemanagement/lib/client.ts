@@ -218,6 +218,13 @@ export class DbManagementClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Adds data files or temp files to the tablespace.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -16355,6 +16362,13 @@ export class DiagnosabilityClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Lists the alert logs for the specified Managed Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -16871,6 +16885,13 @@ export class ManagedMySqlDatabasesClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -17612,6 +17633,13 @@ export class PerfhubClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Modifies the snapshot settings for the specified Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -17845,6 +17873,13 @@ export class SqlTuningClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

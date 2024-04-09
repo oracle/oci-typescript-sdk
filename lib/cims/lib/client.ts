@@ -198,6 +198,13 @@ export class IncidentClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Operation to create a support ticket.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIncidentRequest

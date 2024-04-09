@@ -220,6 +220,13 @@ export class DisasterRecoveryClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Create an association between the DR protection group identified by *drProtectionGroupId* and
    * another DR protection group.
    *

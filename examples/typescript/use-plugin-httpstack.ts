@@ -51,4 +51,6 @@ const listUsersRequest: identity.requests.ListUsersRequest = {
   } catch (err) {
     console.log(err);
   }
+
+  identityClient.close();
 })();

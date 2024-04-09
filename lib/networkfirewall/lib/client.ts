@@ -216,6 +216,13 @@ export class NetworkFirewallClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Applies the candidate version of the NetworkFirewallPolicy resource. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ApplyNetworkFirewallPolicyRequest

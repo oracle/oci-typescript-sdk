@@ -222,6 +222,13 @@ export class ApplianceExportJobClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a ApplianceExportJob into a different compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeApplianceExportJobCompartmentRequest
@@ -900,6 +907,13 @@ export class ShippingVendorsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Lists available shipping vendors for Transfer Package delivery
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListShippingVendorsRequest
@@ -1152,6 +1166,13 @@ export class TransferApplianceClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -1966,6 +1987,13 @@ export class TransferApplianceEntitlementClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Create the Entitlement to use a Transfer Appliance. It requires some offline process of review and signatures before request is granted.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTransferApplianceEntitlementRequest
@@ -2381,6 +2409,13 @@ export class TransferDeviceClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -2947,6 +2982,13 @@ export class TransferJobClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -3646,6 +3688,13 @@ export class TransferPackageClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

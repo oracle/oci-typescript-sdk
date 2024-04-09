@@ -192,6 +192,13 @@ export class AttributesClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Activates a set of attributes for the given APM Domain.  The API is not case-sensitive.  Any duplicates present in the bulk activation
    * request are deduplicated and only unique attributes are activated.  A maximum number of 700 string attributes and 100 numeric attributes
    * can be activated in an APM Domain subject to the available string and numeric slots.  Once an attribute has been activated, it may take sometime
@@ -981,6 +988,13 @@ export class QueryClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Returns a list of predefined Quick Pick queries intended to assist the user
    * to choose a query to run.  There is no sorting applied on the results.
    *
@@ -1369,6 +1383,13 @@ export class TraceClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

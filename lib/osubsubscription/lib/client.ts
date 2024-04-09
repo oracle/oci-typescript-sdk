@@ -192,6 +192,13 @@ export class CommitmentClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * This API returns the commitment details corresponding to the id provided
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -562,6 +569,13 @@ export class RatecardClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * List API that returns all ratecards for given Subscription Id and Account ID (if provided) and
    * for a particular date range
    *
@@ -859,6 +873,13 @@ export class SubscriptionClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

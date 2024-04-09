@@ -193,6 +193,13 @@ export class OrganizationSubscriptionClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * API that returns data for the list of subscription ids returned from Organizations API
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

@@ -217,6 +217,13 @@ export class CertificatesManagementClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Cancels the scheduled deletion of the specified certificate authority (CA).
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelCertificateAuthorityDeletionRequest

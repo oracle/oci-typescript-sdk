@@ -223,6 +223,13 @@ export class ApiGatewayClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Changes the API compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeApiCompartmentRequest
@@ -2093,6 +2100,13 @@ export class DeploymentClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Changes the deployment compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDeploymentCompartmentRequest
@@ -2762,6 +2776,13 @@ export class GatewayClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -3436,6 +3457,13 @@ export class SubscribersClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Changes the subscriber compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSubscriberCompartmentRequest
@@ -4105,6 +4133,13 @@ export class UsagePlansClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Changes the usage plan compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeUsagePlanCompartmentRequest
@@ -4771,6 +4806,13 @@ export class WorkRequestsClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

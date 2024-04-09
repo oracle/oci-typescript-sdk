@@ -237,4 +237,7 @@ async function listAnnotation(id: string) {
     await deleteDataset();
   }
   console.debug("DONE");
+
+  dlsCPClient.close();
+  dlsDPClient.close();
 })();

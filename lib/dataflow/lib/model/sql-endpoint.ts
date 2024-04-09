@@ -124,6 +124,10 @@ export interface SqlEndpoint {
    *
    */
   "sparkAdvancedConfigurations"?: { [key: string]: string };
+  /**
+   * The SQL Endpoint message displayed as a banner to provide user with any action items required on the resource.
+   */
+  "bannerMessage"?: string;
   "networkConfiguration"?: model.SqlEndpointVcnConfig | model.SqlEndpointSecureAccessConfig;
 }
 

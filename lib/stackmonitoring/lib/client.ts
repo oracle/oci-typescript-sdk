@@ -216,6 +216,13 @@ export class StackMonitoringClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Create an association between two monitored resources. Associations can be created
    * between resources from different compartments as long they are in same tenancy.
    * User should have required access in both the compartments.
@@ -567,7 +574,7 @@ When provided, If-Match is checked against ETag values of the resource.
       );
     const operationName = "changeMonitoredResourceTaskCompartment";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/monitoredResourceTask/ChangeMonitoredResourceTaskCompartment";
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResourceTask/ChangeMonitoredResourceTaskCompartment";
     const pathParams = {
       "{monitoredResourceTaskId}":
         changeMonitoredResourceTaskCompartmentRequest.monitoredResourceTaskId
@@ -3703,6 +3710,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
       "compartmentId": listMonitoredResourcesRequest.compartmentId,
       "name": listMonitoredResourcesRequest.name,
       "workRequestId": listMonitoredResourcesRequest.workRequestId,
+      "status": listMonitoredResourcesRequest.status,
       "sortBy": listMonitoredResourcesRequest.sortBy,
       "sortOrder": listMonitoredResourcesRequest.sortOrder,
       "limit": listMonitoredResourcesRequest.limit,
