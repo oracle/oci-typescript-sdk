@@ -216,6 +216,13 @@ export class IdentityClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
      * (For tenancies that support identity domains) Activates a deactivated identity domain. You can only activate identity domains that your user account is not a part of.
 * <p>
 After you send the request, the `lifecycleDetails` of the identity domain is set to ACTIVATING. When the operation completes, the 

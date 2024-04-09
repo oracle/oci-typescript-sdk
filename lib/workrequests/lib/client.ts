@@ -222,6 +222,13 @@ export class WorkRequestClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Gets the details of a work request.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest

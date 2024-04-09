@@ -192,6 +192,13 @@ export class BillingScheduleClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * This list API returns all billing schedules for given subscription id and
    * for a particular Subscribed Service if provided
    *
@@ -487,6 +494,13 @@ export class CommitmentClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -853,6 +867,13 @@ export class ComputedUsageClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -1365,6 +1386,13 @@ export class InvoiceSummaryClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * This is a collection API which returns a list of Invoiced Computed Usages for given Invoiceline id.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1799,6 +1827,13 @@ export class OrganizationSubscriptionClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * API that returns data for the list of subscription ids returned from Organizations API
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2093,6 +2128,13 @@ export class RatecardClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -2392,6 +2434,13 @@ export class SubscribedServiceClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -2764,6 +2813,13 @@ export class SubscriptionClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

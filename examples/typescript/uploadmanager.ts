@@ -74,4 +74,6 @@ const uploadManager = new UploadManager(client, { enforceMD5: true });
       }
     });
   });
+
+  client.close();
 })();

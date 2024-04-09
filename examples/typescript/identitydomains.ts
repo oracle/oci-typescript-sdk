@@ -216,5 +216,7 @@ const provider: common.ConfigFileAuthenticationDetailsProvider = new common.Conf
   await identityDomainsClient.deleteDynamicResourceGroup(deleteDynamicResourceGroupsIdRequest);
   console.log(`Deleted dynamic group: ${createdDynamicGroup.displayName}`);
 
+  identityDomainsClient.close();
+
   //#endregion Manage Dynamic groups
 })();

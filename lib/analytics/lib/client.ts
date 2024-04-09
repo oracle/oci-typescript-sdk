@@ -217,6 +217,13 @@ export class AnalyticsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Change the compartment of an Analytics instance. The operation is long-running
    * and creates a new WorkRequest.
    *

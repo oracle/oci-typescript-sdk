@@ -200,4 +200,5 @@ const provider: common.ConfigFileAuthenticationDetailsProvider = new common.Conf
     updateTagNamespaceDetails: updateTagNamespaceDetails
   };
   identityClient.updateTagNamespace(updateTagNameSpaceReq);
+  identityClient.close();
 })();

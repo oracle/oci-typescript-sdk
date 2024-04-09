@@ -223,6 +223,13 @@ export class LifecycleEnvironmentClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Attach(add) managed instances to a lifecycle stage.
    * Once added operations can be applied to all managed instances in the lifecycle stage.
    *
@@ -1281,6 +1288,13 @@ export class ManagedInstanceClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -3400,6 +3414,13 @@ export class ManagedInstanceGroupClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Adds managed instances to the specified managed instance group. After the managed
    * instances have been added, then operations can be performed on the managed
    * instance group which will then apply to all managed instances in the
@@ -5510,6 +5531,13 @@ export class ManagementStationClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Creates a management station.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6337,6 +6365,13 @@ export class OnboardingClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Creates a registration profile.
    * A profile is a supplementary file for the OS Management Hub agentry
    * that dictates the content for a managed instance at registration time.
@@ -6894,6 +6929,13 @@ export class ReportingManagedInstanceClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Returns a CSV format report of managed instances matching the given filters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -7345,6 +7387,13 @@ export class ScheduledJobClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -8013,6 +8062,13 @@ export class SoftwareSourceClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
@@ -9978,6 +10034,13 @@ export class WorkRequestClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

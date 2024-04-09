@@ -52,6 +52,16 @@ export interface MonitoredResourceType {
    */
   "lifecycleState"?: model.ResourceTypeLifecycleState;
   /**
+   * Source type to indicate if the resource is stack monitoring discovered, OCI native resource, etc.
+   *
+   */
+  "sourceType"?: model.SourceType;
+  /**
+   * Resource Category to indicate the kind of resource type.
+   *
+   */
+  "resourceCategory"?: model.ResourceCategory;
+  /**
    * The date and time when the monitored resource type was created, expressed in
    * [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    *

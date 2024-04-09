@@ -31,6 +31,10 @@ export interface ListMonitoredResourcesRequest extends common.BaseRequest {
    */
   "workRequestId"?: string;
   /**
+   * A filter to return only resources with matching lifecycleState.
+   */
+  "status"?: model.ResourceLifecycleState;
+  /**
    * The field to sort by. Only one sort order may be provided.
    * Default order for timeCreated is descending. Default order for resources is ascending.
    *

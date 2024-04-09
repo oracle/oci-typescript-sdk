@@ -176,4 +176,6 @@ async function usersByFreeformTagAndValue(tag: string, value: string) {
 
   await userByFreeformTag("<your_tag_here>");
   await usersByFreeformTagAndValue("<your_tag_here>", "<your_value_here>");
+
+  searchClient.close();
 })();

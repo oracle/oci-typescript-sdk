@@ -195,6 +195,13 @@ export class HealthChecksClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a monitor into a different compartment. When provided, `If-Match` is checked
    * against ETag values of the resource.
    *

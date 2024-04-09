@@ -217,6 +217,13 @@ export class OpensearchClusterClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Backup the opensearch cluster details.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param BackupOpensearchClusterRequest
@@ -1504,6 +1511,13 @@ export class OpensearchClusterBackupClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

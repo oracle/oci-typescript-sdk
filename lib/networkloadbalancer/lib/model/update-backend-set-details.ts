@@ -39,6 +39,17 @@ Example: {@code FIVE_TUPLE}
    */
   "isPreserveSource"?: boolean;
   /**
+   * If enabled, the network load balancer will continue to distribute traffic in the configured distribution in the event all backends are unhealthy.
+   * The value is false by default.
+   *
+   */
+  "isFailOpen"?: boolean;
+  /**
+   * If enabled existing connections will be forwarded to an alternative healthy backend as soon as current backend becomes unhealthy.
+   *
+   */
+  "isInstantFailoverEnabled"?: boolean;
+  /**
    * The IP version associated with the backend set.
    */
   "ipVersion"?: model.IpVersion;

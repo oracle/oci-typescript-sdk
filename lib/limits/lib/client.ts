@@ -191,6 +191,13 @@ export class LimitsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * For a given compartmentId, resource limit name, and scope, returns the following:
    *   * The number of available resources associated with the given limit.
    *   * The usage in the selected compartment for the given limit.
@@ -860,6 +867,13 @@ export class QuotasClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

@@ -42,4 +42,6 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
   } catch (err) {
     console.log(err);
   }
+
+  client.close();
 })();

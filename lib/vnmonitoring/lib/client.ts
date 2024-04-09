@@ -217,6 +217,13 @@ export class VnMonitoringClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a `PathAnalyzerTest` resource from one compartment to another based on the identifier.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

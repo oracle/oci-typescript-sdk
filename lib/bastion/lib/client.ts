@@ -216,6 +216,13 @@ export class BastionClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a bastion into a different compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBastionCompartmentRequest

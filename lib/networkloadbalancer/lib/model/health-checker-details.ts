@@ -88,16 +88,27 @@ Example: {@code 200}
    * Base64 encoded pattern to be validated as UDP or TCP health check probe response.
    */
   "responseData"?: string;
+  "dns"?: model.DnsHealthCheckerDetails;
 }
 
 export namespace HealthCheckerDetails {
   export function getJsonObj(obj: HealthCheckerDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dns": obj.dns ? model.DnsHealthCheckerDetails.getJsonObj(obj.dns) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: HealthCheckerDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dns": obj.dns ? model.DnsHealthCheckerDetails.getDeserializedJsonObj(obj.dns) : undefined
+      }
+    };
 
     return jsonObj;
   }

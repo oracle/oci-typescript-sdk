@@ -217,6 +217,13 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Adds association between input source log analytics entity and one or more existing destination entities.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddEntityAssociationRequest

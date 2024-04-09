@@ -219,6 +219,13 @@ export class AIServiceLanguageClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
      * The API returns the detected language and a related confidence score (between 0 and 1).  It supports passing a batch of records.
 * <p>
 [List of supported languages.](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#lang-detect)

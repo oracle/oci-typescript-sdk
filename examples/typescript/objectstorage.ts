@@ -114,6 +114,8 @@ const client = new os.ObjectStorageClient({ authenticationDetailsProvider: provi
   } catch (error) {
     console.log("Error executing example " + error);
   }
+
+  client.close();
 })();
 
 function compareStreams(stream1: any, stream2: any): boolean {

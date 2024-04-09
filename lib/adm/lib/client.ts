@@ -216,6 +216,13 @@ export class ApplicationDependencyManagementClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Activates the specified Remediation Recipe.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ActivateRemediationRecipeRequest

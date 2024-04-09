@@ -137,4 +137,6 @@ const compartmentId = provider.getTenantId();
     });
   }
   console.log("Total Results: ", rawResponse);
+
+  identityClient.close();
 })();

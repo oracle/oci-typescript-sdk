@@ -224,6 +224,13 @@ export class DashboardClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a Dashboard resource from one dashboardGroup identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDashboardGroupRequest
@@ -881,6 +888,13 @@ export class DashboardGroupClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

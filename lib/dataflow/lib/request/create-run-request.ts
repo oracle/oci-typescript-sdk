@@ -37,4 +37,10 @@ export interface CreateRunRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * (Optional header param, required for Resource Principal version 3.0+)
+   * Parent resource control plane endpoint used to exchange for upper level resource principal token.
+   *
+   */
+  "opcParentRptUrl"?: string;
 }

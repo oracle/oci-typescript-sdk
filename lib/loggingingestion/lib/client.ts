@@ -191,6 +191,13 @@ export class LoggingClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * This API allows ingesting logs associated with a logId. A success
    * response implies the data has been accepted.
    *

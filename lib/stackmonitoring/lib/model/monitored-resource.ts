@@ -90,6 +90,16 @@ export interface MonitoredResource {
    */
   "license"?: model.LicenseType;
   /**
+   * Source type to indicate if the resource is stack monitoring discovered, OCI native resource, etc.
+   *
+   */
+  "sourceType"?: model.SourceType;
+  /**
+   * Resource Category to indicate the kind of resource type.
+   *
+   */
+  "resourceCategory"?: model.ResourceCategory;
+  /**
    * List of monitored resource properties.
    *
    */

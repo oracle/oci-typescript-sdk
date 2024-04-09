@@ -216,6 +216,13 @@ export class ServiceCatalogClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Replace all associations of a given service catalog in one bulk transaction.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param BulkReplaceServiceCatalogAssociationsRequest

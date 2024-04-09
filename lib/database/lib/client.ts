@@ -222,6 +222,13 @@ export class DatabaseClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Activates the specified Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

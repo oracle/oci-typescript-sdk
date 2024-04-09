@@ -272,4 +272,9 @@ async function terminateInstance() {
 
     console.debug("DONE");
   }
+
+  computeClient.close();
+  workRequestClient.close();
+  virtualNetworkClient.close();
+  identityClient.close();
 })();

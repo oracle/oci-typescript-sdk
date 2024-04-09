@@ -134,6 +134,13 @@ export class FunctionsInvokeClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Invokes a function
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InvokeFunctionRequest
@@ -392,6 +399,13 @@ export class FunctionsManagementClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

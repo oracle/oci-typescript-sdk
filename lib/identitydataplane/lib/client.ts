@@ -190,6 +190,13 @@ export class DataplaneClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Based on the calling Principal and the input payload, derive the claims, and generate a scoped-access token for specific resources. For example, set scope to urn:oracle:db::id::<compartment-id> for access to a database in a compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

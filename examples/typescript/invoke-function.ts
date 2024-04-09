@@ -104,6 +104,11 @@ const fnInvokeClient: fn.FunctionsInvokeClient = new fn.FunctionsInvokeClient({
   } catch (error) {
     console.log("Not able to run Invoke function example . Error" + error);
   }
+
+  identityClient.close();
+  fnManagementClient.close();
+  vcnClient.close();
+  fnInvokeClient.close();
 })();
 
 /**

@@ -222,6 +222,13 @@ export class ApplicationMigrationClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
      * Cancels the specified work request. When you cancel a work request, it causes the in-progress task to be canceled.
 * For example, if the create migration work request is in the accepted or in progress state for a long time, you can cancel the work request.
 * <p>

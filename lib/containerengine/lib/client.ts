@@ -220,6 +220,13 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Initiates cluster migration to use native VCN.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ClusterMigrateToNativeVcnRequest

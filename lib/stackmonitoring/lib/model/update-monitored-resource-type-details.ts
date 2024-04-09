@@ -30,6 +30,16 @@ export interface UpdateMonitoredResourceTypeDetails {
    * Metric namespace for resource type.
    */
   "metricNamespace"?: string;
+  /**
+   * Source type to indicate if the resource is stack monitoring discovered, OCI native resource, etc.
+   *
+   */
+  "sourceType"?: model.SourceType;
+  /**
+   * Resource Category to indicate the kind of resource type.
+   *
+   */
+  "resourceCategory"?: model.ResourceCategory;
   "metadata"?: model.SystemFormatResourceTypeMetadataDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.

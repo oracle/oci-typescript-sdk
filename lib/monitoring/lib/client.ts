@@ -220,6 +220,13 @@ export class MonitoringClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves an alarm into a different compartment within the same tenancy.
    * For more information, see
    * [Moving an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/change-compartment-alarm.htm).

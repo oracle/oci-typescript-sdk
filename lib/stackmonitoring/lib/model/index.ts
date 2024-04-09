@@ -193,6 +193,8 @@ import * as ProcessSetSummary from "./process-set-summary";
 export import ProcessSetSummary = ProcessSetSummary.ProcessSetSummary;
 import * as PropertyDetails from "./property-details";
 export import PropertyDetails = PropertyDetails.PropertyDetails;
+import * as ResourceCategory from "./resource-category";
+export import ResourceCategory = ResourceCategory.ResourceCategory;
 import * as ResourceLifecycleState from "./resource-lifecycle-state";
 export import ResourceLifecycleState = ResourceLifecycleState.ResourceLifecycleState;
 import * as ResourceTypeLifecycleState from "./resource-type-lifecycle-state";
@@ -211,6 +213,8 @@ import * as SearchMonitoredResourcesDetails from "./search-monitored-resources-d
 export import SearchMonitoredResourcesDetails = SearchMonitoredResourcesDetails.SearchMonitoredResourcesDetails;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
+import * as SourceType from "./source-type";
+export import SourceType = SourceType.SourceType;
 import * as SqlDetails from "./sql-details";
 export import SqlDetails = SqlDetails.SqlDetails;
 import * as SqlInParamDetails from "./sql-in-param-details";

@@ -7,14 +7,14 @@ import common = require("oci-common");
 import * as identity from "oci-identity";
 
 (async () => {
+  const identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
+
   try {
     const provider: common.SessionAuthDetailProvider = new common.SessionAuthDetailProvider(
       undefined,
       "profile_name_here"
     );
     const compartmentId = provider.getTenantId();
-    const identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
-
     const listUserReq = { compartmentId: compartmentId };
     let users = await identityClient.listUsers(listUserReq);
 
@@ -25,4 +25,6 @@ import * as identity from "oci-identity";
   } catch (e) {
     console.log("error: ", e);
   }
+
+  identityClient.close();
 })();

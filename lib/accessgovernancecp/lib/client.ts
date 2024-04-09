@@ -216,6 +216,13 @@ export class AccessGovernanceCPClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a GovernanceInstance resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeGovernanceInstanceCompartmentRequest

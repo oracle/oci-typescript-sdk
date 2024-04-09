@@ -215,6 +215,13 @@ export class BlockchainPlatformClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Change Blockchain Platform Compartment
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBlockchainPlatformCompartmentRequest

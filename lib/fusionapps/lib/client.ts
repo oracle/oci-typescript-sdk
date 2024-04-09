@@ -215,6 +215,13 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a FusionEnvironment into a different compartment. When provided, If-Match is checked against ETag
    * values of the resource.
    *

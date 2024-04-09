@@ -50,6 +50,16 @@ export interface MonitoredResourceTypeSummary {
    * Lifecycle state of the monitored resource type.
    */
   "lifecycleState"?: model.ResourceTypeLifecycleState;
+  /**
+   * Source type to indicate if the resource is stack monitoring discovered, OCI native resource, etc.
+   *
+   */
+  "sourceType"?: model.SourceType;
+  /**
+   * Resource Category to indicate the kind of resource type.
+   *
+   */
+  "resourceCategory"?: model.ResourceCategory;
   "metadata"?: model.SystemFormatResourceTypeMetadataDetails;
   /**
    * The date and time when the monitored resource type was created, expressed in

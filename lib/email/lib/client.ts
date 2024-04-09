@@ -221,6 +221,13 @@ export class EmailClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves an email domain into a different compartment.
    * When provided, If-Match is checked against ETag value of the resource.
    * For information about moving resources between compartments, see

@@ -27,4 +27,6 @@ const provider = new oci.common.ConfigFileAuthenticationDetailsProvider();
   for (let i = 0; i < regions.items.length; i++) {
     console.log(`Region fetched ${regions.items[i].regionName}`);
   }
+
+  identityClient.close();
 })();

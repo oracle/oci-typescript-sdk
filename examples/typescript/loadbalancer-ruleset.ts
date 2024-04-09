@@ -56,6 +56,7 @@ console.log("Creating new rule set " + ruleSetName + "...");
   } catch (error) {
     console.log(" Not able to run Loadbalancer Example " + error);
   }
+  lbClient.close();
 })();
 
 async function createRuleSetDetails(

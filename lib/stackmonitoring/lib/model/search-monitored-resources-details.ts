@@ -24,6 +24,24 @@ export interface SearchMonitoredResourcesDetails {
    */
   "compartmentId": string;
   /**
+   * Multiple compartment identifiers [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "compartmentIds"?: Array<string>;
+  /**
+   * Multiple lifecycle states filter.
+   *
+   */
+  "lifecycleStates"?: Array<model.ResourceLifecycleState>;
+  /**
+   * Source type filter.
+   */
+  "sourceType"?: model.SourceType;
+  /**
+   * Resource category filter.
+   */
+  "resourceCategory"?: model.ResourceCategory;
+  /**
    * A filter to return resources that match exact resource name.
    *
    */
@@ -145,12 +163,30 @@ export namespace SearchMonitoredResourcesDetails {
   }
 
   export function getJsonObj(obj: SearchMonitoredResourcesDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "lifecycleStates": obj.lifecycleStates
+          ? obj.lifecycleStates.map(item => {
+              return model.ResourceLifecycleState.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: SearchMonitoredResourcesDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "lifecycleStates": obj.lifecycleStates
+          ? obj.lifecycleStates.map(item => {
+              return model.ResourceLifecycleState.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

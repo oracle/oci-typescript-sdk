@@ -218,6 +218,13 @@ export class ApmDomainClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves an APM domain into a different compartment. When provided, If-Match is checked against ETag values of the APM domain.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeApmDomainCompartmentRequest

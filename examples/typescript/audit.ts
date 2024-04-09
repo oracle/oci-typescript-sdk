@@ -98,4 +98,7 @@ async function getAuditEvents(
     const auditEvents = await getAuditEvents(auditClient, compartments, startTime, endTime);
     console.log("auditEvent: ", auditEvents);
   }
+
+  identityClient.close();
+  auditClient.close();
 })();

@@ -59,6 +59,6 @@ const compartmentId = provider.getTenantId();
   }
 
   // Shut down circuit breakers used by clients if they are no longer needed
-  identityClient.shutdownCircuitBreaker();
-  auditClient.shutdownCircuitBreaker();
+  identityClient.close();
+  auditClient.close();
 })();

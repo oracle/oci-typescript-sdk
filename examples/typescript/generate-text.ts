@@ -82,4 +82,6 @@ import common = require("oci-common");
   } catch (e) {
     console.log(e);
   }
+
+  client.close();
 })();

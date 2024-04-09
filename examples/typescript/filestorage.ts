@@ -159,6 +159,11 @@ let exportModel: fs.models.Export;
   } catch (error) {
     throw " Not able to execut File Storage example. Error:" + error;
   }
+
+  fsClient.close();
+  vcnClient.close();
+  identityClient.close();
+  workRequestClient.close();
 })();
 
 /**

@@ -8,13 +8,16 @@ import common = require("oci-common");
 
 (async () => {
   const authenticationProvider = await common.ResourcePrincipalAuthenticationDetailsProvider.builder();
+  const identityClient = new identity.IdentityClient({
+    authenticationDetailsProvider: authenticationProvider
+  });
+
   try {
-    const identityClient = new identity.IdentityClient({
-      authenticationDetailsProvider: authenticationProvider
-    });
     const regions = await identityClient.listRegions({});
     console.log("Regions: ", JSON.stringify(regions));
   } catch (e) {
     throw Error(`Failed with error: ${e}`);
   }
+
+  identityClient.close();
 })();

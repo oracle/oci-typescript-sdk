@@ -219,6 +219,13 @@ export class WaaClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Moves a Web App Acceleration resource from one compartment to another.
    * When provided, If-Match is checked against ETag values of the resource.
    *
@@ -1452,6 +1459,13 @@ export class WorkRequestClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**

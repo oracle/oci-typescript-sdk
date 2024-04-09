@@ -217,6 +217,13 @@ export class GovernanceRuleClient {
   }
 
   /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+  }
+
+  /**
    * Create governance rule in the root compartment only. Either relatedResourceId or template must be supplied.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1604,6 +1611,13 @@ export class WorkRequestClient {
     if (this._circuitBreaker) {
       this._circuitBreaker.shutdown();
     }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
   }
 
   /**
