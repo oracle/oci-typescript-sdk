@@ -5,6 +5,7 @@
 
 import { handleErrorBody, handleErrorResponse } from "./helper";
 import { DefaultRetryCondition } from "./retrier";
+import { LOG } from "./log";
 
 const Breaker = require("opossum");
 
@@ -47,7 +48,7 @@ async function FetchWrapper(
 }
 
 function defaultErrorFilterFunction(e: any) {
-  console.log("error from defaultErrorFunction: ", e);
+  if (LOG.logger) LOG.logger.error("error from defaultErrorFunction: ", e);
   // Only consider client side errors or retry-able server errors
   if (e.code || (e.errorObject && DefaultRetryCondition.shouldBeRetried(e.errorObject))) {
     return false;
@@ -122,16 +123,16 @@ export default class CircuitBreaker {
 
     // Add emitters
     this.circuit.on("open", () => {
-      console.log("circuit breaker is now in OPEN state");
+      if (LOG.logger) LOG.logger.debug("circuit breaker is now in OPEN state");
     });
     this.circuit.on("halfOpen", () => {
-      console.log("circuit breaker is now in HALF OPEN state");
+      if (LOG.logger) LOG.logger.debug("circuit breaker is now in HALF OPEN state");
     });
     this.circuit.on("close", () => {
-      console.log("circuit breaker is now in CLOSE state");
+      if (LOG.logger) LOG.logger.debug("circuit breaker is now in CLOSE state");
     });
     this.circuit.on("shutdown", () => {
-      console.log("circuit breaker is now SHUTDOWN");
+      if (LOG.logger) LOG.logger.debug("circuit breaker is now SHUTDOWN");
     });
   }
 }

@@ -91,6 +91,7 @@ export interface Model {
    * Corresponds to the time when the custom model and its associated foundation model will be deprecated.
    */
   "timeDeprecated"?: Date;
+  "previousState"?: model.Model;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -122,6 +123,7 @@ export namespace Model {
     TextSummarization = "TEXT_SUMMARIZATION",
     TextEmbeddings = "TEXT_EMBEDDINGS",
     FineTune = "FINE_TUNE",
+    Chat = "CHAT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -161,7 +163,9 @@ export namespace Model {
           : undefined,
         "modelMetrics": obj.modelMetrics
           ? model.ModelMetrics.getJsonObj(obj.modelMetrics)
-          : undefined
+          : undefined,
+
+        "previousState": obj.previousState ? model.Model.getJsonObj(obj.previousState) : undefined
       }
     };
 
@@ -176,6 +180,10 @@ export namespace Model {
           : undefined,
         "modelMetrics": obj.modelMetrics
           ? model.ModelMetrics.getDeserializedJsonObj(obj.modelMetrics)
+          : undefined,
+
+        "previousState": obj.previousState
+          ? model.Model.getDeserializedJsonObj(obj.previousState)
           : undefined
       }
     };

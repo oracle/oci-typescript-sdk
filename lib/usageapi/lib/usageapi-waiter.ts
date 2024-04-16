@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -22,6 +22,24 @@ export class UsageapiWaiter {
     private client: UsageapiClient,
     private readonly config?: WaiterConfiguration
   ) {}
+
+  /**
+   * Waits forEmailRecipientsGroup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetEmailRecipientsGroupResponse
+   */
+  public async forEmailRecipientsGroup(
+    request: serviceRequests.GetEmailRecipientsGroupRequest,
+    ...targetStates: models.EmailRecipientsGroup.LifecycleState[]
+  ): Promise<serviceResponses.GetEmailRecipientsGroupResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getEmailRecipientsGroup(request),
+      response => targetStates.includes(response.emailRecipientsGroup.lifecycleState!)
+    );
+  }
 
   /**
    * Waits forSchedule till it reaches any of the provided states

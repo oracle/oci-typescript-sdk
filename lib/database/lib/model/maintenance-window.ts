@@ -70,6 +70,11 @@ export interface MaintenanceWindow {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "leadTimeInWeeks"?: number;
+  /**
+   * If true, skips the release update (RU) for the quarter. You cannot skip two consecutive quarters. An RU skip request will only be honoured if the current version of the Autonomous Container Database is supported for current quarter.
+   *
+   */
+  "skipRu"?: Array<boolean>;
 }
 
 export namespace MaintenanceWindow {

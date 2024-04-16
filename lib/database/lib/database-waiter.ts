@@ -298,6 +298,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeAutonomousDatabaseSoftwareImageCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeAutonomousDatabaseSoftwareImageCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeAutonomousDatabaseSoftwareImageCompartment(
+    request: serviceRequests.ChangeAutonomousDatabaseSoftwareImageCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeAutonomousDatabaseSoftwareImageCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeAutonomousDatabaseSoftwareImageCompartmentResponse = await this.client.changeAutonomousDatabaseSoftwareImageCompartment(
+      request
+    );
+    if (changeAutonomousDatabaseSoftwareImageCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeAutonomousDatabaseSoftwareImageCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeAutonomousDatabaseSoftwareImageCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeAutonomousDatabaseSoftwareImageCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeAutonomousExadataInfrastructureCompartment
    *
    * @param request the request to send
@@ -1142,6 +1173,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateAutonomousDatabaseSoftwareImage
+   *
+   * @param request the request to send
+   * @return response returns CreateAutonomousDatabaseSoftwareImageResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateAutonomousDatabaseSoftwareImage(
+    request: serviceRequests.CreateAutonomousDatabaseSoftwareImageRequest
+  ): Promise<{
+    response: serviceResponses.CreateAutonomousDatabaseSoftwareImageResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createAutonomousDatabaseSoftwareImageResponse = await this.client.createAutonomousDatabaseSoftwareImage(
+      request
+    );
+    if (createAutonomousDatabaseSoftwareImageResponse.opcWorkRequestId === undefined)
+      return {
+        response: createAutonomousDatabaseSoftwareImageResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createAutonomousDatabaseSoftwareImageResponse.opcWorkRequestId
+    );
+    return {
+      response: createAutonomousDatabaseSoftwareImageResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateAutonomousVmCluster
    *
    * @param request the request to send
@@ -1810,6 +1872,37 @@ export class DatabaseWaiter {
     );
     return {
       response: deleteAutonomousDatabaseBackupResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteAutonomousDatabaseSoftwareImage
+   *
+   * @param request the request to send
+   * @return response returns DeleteAutonomousDatabaseSoftwareImageResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteAutonomousDatabaseSoftwareImage(
+    request: serviceRequests.DeleteAutonomousDatabaseSoftwareImageRequest
+  ): Promise<{
+    response: serviceResponses.DeleteAutonomousDatabaseSoftwareImageResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteAutonomousDatabaseSoftwareImageResponse = await this.client.deleteAutonomousDatabaseSoftwareImage(
+      request
+    );
+    if (deleteAutonomousDatabaseSoftwareImageResponse.opcWorkRequestId === undefined)
+      return {
+        response: deleteAutonomousDatabaseSoftwareImageResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteAutonomousDatabaseSoftwareImageResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteAutonomousDatabaseSoftwareImageResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -3308,6 +3401,25 @@ export class DatabaseWaiter {
       response =>
         targetStates.includes(response.autonomousDatabaseDataguardAssociation.lifecycleState!),
       targetStates.includes(models.AutonomousDatabaseDataguardAssociation.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forAutonomousDatabaseSoftwareImage till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAutonomousDatabaseSoftwareImageResponse | null (null in case of 404 response)
+   */
+  public async forAutonomousDatabaseSoftwareImage(
+    request: serviceRequests.GetAutonomousDatabaseSoftwareImageRequest,
+    ...targetStates: models.AutonomousDatabaseSoftwareImage.LifecycleState[]
+  ): Promise<serviceResponses.GetAutonomousDatabaseSoftwareImageResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAutonomousDatabaseSoftwareImage(request),
+      response => targetStates.includes(response.autonomousDatabaseSoftwareImage.lifecycleState!),
+      targetStates.includes(models.AutonomousDatabaseSoftwareImage.LifecycleState.Terminated)
     );
   }
 

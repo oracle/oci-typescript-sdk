@@ -1019,6 +1019,96 @@ export class DatabaseClient {
   }
 
   /**
+   * Move the Autonomous Database Software Image and its dependent resources to the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeAutonomousDatabaseSoftwareImageCompartmentRequest
+   * @return ChangeAutonomousDatabaseSoftwareImageCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseSoftwareImageCompartment.ts.html |here} to see how to use ChangeAutonomousDatabaseSoftwareImageCompartment API.
+   */
+  public async changeAutonomousDatabaseSoftwareImageCompartment(
+    changeAutonomousDatabaseSoftwareImageCompartmentRequest: requests.ChangeAutonomousDatabaseSoftwareImageCompartmentRequest
+  ): Promise<responses.ChangeAutonomousDatabaseSoftwareImageCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeAutonomousDatabaseSoftwareImageCompartment."
+      );
+    const operationName = "changeAutonomousDatabaseSoftwareImageCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseSoftwareImage/ChangeAutonomousDatabaseSoftwareImageCompartment";
+    const pathParams = {
+      "{autonomousDatabaseSoftwareImageId}":
+        changeAutonomousDatabaseSoftwareImageCompartmentRequest.autonomousDatabaseSoftwareImageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeAutonomousDatabaseSoftwareImageCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeAutonomousDatabaseSoftwareImageCompartmentRequest.opcRequestId,
+      "if-match": changeAutonomousDatabaseSoftwareImageCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAutonomousDatabaseSoftwareImageCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousDatabaseSoftwareImages/{autonomousDatabaseSoftwareImageId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAutonomousDatabaseSoftwareImageCompartmentRequest.changeAutonomousDatabaseSoftwareImageCompartmentDetails,
+        "ChangeAutonomousDatabaseSoftwareImageCompartmentDetails",
+        model.ChangeAutonomousDatabaseSoftwareImageCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAutonomousDatabaseSoftwareImageCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * **Deprecated.** Use the {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation to move an Exadata infrastructure resource to a different compartment and  {@link #changeCloudAutonomousVmClusterCompartment(ChangeCloudAutonomousVmClusterCompartmentRequest) changeCloudAutonomousVmClusterCompartment} operation to move an Autonomous Exadata VM cluster to a different compartment.
    * For more information, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
@@ -3541,6 +3631,93 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * create Autonomous Database Software Image in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateAutonomousDatabaseSoftwareImageRequest
+   * @return CreateAutonomousDatabaseSoftwareImageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use CreateAutonomousDatabaseSoftwareImage API.
+   */
+  public async createAutonomousDatabaseSoftwareImage(
+    createAutonomousDatabaseSoftwareImageRequest: requests.CreateAutonomousDatabaseSoftwareImageRequest
+  ): Promise<responses.CreateAutonomousDatabaseSoftwareImageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAutonomousDatabaseSoftwareImage.");
+    const operationName = "createAutonomousDatabaseSoftwareImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseSoftwareImage/CreateAutonomousDatabaseSoftwareImage";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAutonomousDatabaseSoftwareImageRequest.opcRetryToken,
+      "opc-request-id": createAutonomousDatabaseSoftwareImageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutonomousDatabaseSoftwareImageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabaseSoftwareImages",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAutonomousDatabaseSoftwareImageRequest.createAutonomousDatabaseSoftwareImageDetails,
+        "CreateAutonomousDatabaseSoftwareImageDetails",
+        model.CreateAutonomousDatabaseSoftwareImageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAutonomousDatabaseSoftwareImageResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabaseSoftwareImage",
+        bodyModel: model.AutonomousDatabaseSoftwareImage,
+        type: "model.AutonomousDatabaseSoftwareImage",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates an Autonomous VM cluster for Exadata Cloud@Customer. To create an Autonomous VM Cluster in the Oracle cloud, see {@link #createCloudAutonomousVmCluster(CreateCloudAutonomousVmClusterRequest) createCloudAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5928,6 +6105,81 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete an Autonomous Database Software Image
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteAutonomousDatabaseSoftwareImageRequest
+   * @return DeleteAutonomousDatabaseSoftwareImageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use DeleteAutonomousDatabaseSoftwareImage API.
+   */
+  public async deleteAutonomousDatabaseSoftwareImage(
+    deleteAutonomousDatabaseSoftwareImageRequest: requests.DeleteAutonomousDatabaseSoftwareImageRequest
+  ): Promise<responses.DeleteAutonomousDatabaseSoftwareImageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousDatabaseSoftwareImage.");
+    const operationName = "deleteAutonomousDatabaseSoftwareImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseSoftwareImage/DeleteAutonomousDatabaseSoftwareImage";
+    const pathParams = {
+      "{autonomousDatabaseSoftwareImageId}":
+        deleteAutonomousDatabaseSoftwareImageRequest.autonomousDatabaseSoftwareImageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAutonomousDatabaseSoftwareImageRequest.ifMatch,
+      "opc-request-id": deleteAutonomousDatabaseSoftwareImageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAutonomousDatabaseSoftwareImageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabaseSoftwareImages/{autonomousDatabaseSoftwareImageId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAutonomousDatabaseSoftwareImageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -11044,6 +11296,84 @@ A failover might result in data loss depending on the protection mode in effect 
         bodyModel: model.AutonomousDatabaseWallet,
         type: "model.AutonomousDatabaseWallet",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Autonomous Database Software Image.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAutonomousDatabaseSoftwareImageRequest
+   * @return GetAutonomousDatabaseSoftwareImageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use GetAutonomousDatabaseSoftwareImage API.
+   */
+  public async getAutonomousDatabaseSoftwareImage(
+    getAutonomousDatabaseSoftwareImageRequest: requests.GetAutonomousDatabaseSoftwareImageRequest
+  ): Promise<responses.GetAutonomousDatabaseSoftwareImageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseSoftwareImage.");
+    const operationName = "getAutonomousDatabaseSoftwareImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseSoftwareImage/GetAutonomousDatabaseSoftwareImage";
+    const pathParams = {
+      "{autonomousDatabaseSoftwareImageId}":
+        getAutonomousDatabaseSoftwareImageRequest.autonomousDatabaseSoftwareImageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutonomousDatabaseSoftwareImageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousDatabaseSoftwareImageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabaseSoftwareImages/{autonomousDatabaseSoftwareImageId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousDatabaseSoftwareImageResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabaseSoftwareImage",
+        bodyModel: model.AutonomousDatabaseSoftwareImage,
+        type: "model.AutonomousDatabaseSoftwareImage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -16514,6 +16844,91 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         bodyKey: "refreshableCloneCollection",
         bodyModel: model.RefreshableCloneCollection,
         type: "model.RefreshableCloneCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of the Autonomous Database Software Images in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAutonomousDatabaseSoftwareImagesRequest
+   * @return ListAutonomousDatabaseSoftwareImagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseSoftwareImages.ts.html |here} to see how to use ListAutonomousDatabaseSoftwareImages API.
+   */
+  public async listAutonomousDatabaseSoftwareImages(
+    listAutonomousDatabaseSoftwareImagesRequest: requests.ListAutonomousDatabaseSoftwareImagesRequest
+  ): Promise<responses.ListAutonomousDatabaseSoftwareImagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseSoftwareImages.");
+    const operationName = "listAutonomousDatabaseSoftwareImages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseSoftwareImage/ListAutonomousDatabaseSoftwareImages";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAutonomousDatabaseSoftwareImagesRequest.compartmentId,
+      "limit": listAutonomousDatabaseSoftwareImagesRequest.limit,
+      "page": listAutonomousDatabaseSoftwareImagesRequest.page,
+      "sortOrder": listAutonomousDatabaseSoftwareImagesRequest.sortOrder,
+      "sortBy": listAutonomousDatabaseSoftwareImagesRequest.sortBy,
+      "lifecycleState": listAutonomousDatabaseSoftwareImagesRequest.lifecycleState,
+      "displayName": listAutonomousDatabaseSoftwareImagesRequest.displayName,
+      "imageShapeFamily": listAutonomousDatabaseSoftwareImagesRequest.imageShapeFamily
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutonomousDatabaseSoftwareImagesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDatabaseSoftwareImagesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabaseSoftwareImages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousDatabaseSoftwareImagesResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabaseSoftwareImageCollection",
+        bodyModel: model.AutonomousDatabaseSoftwareImageCollection,
+        type: "model.AutonomousDatabaseSoftwareImageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -27682,6 +28097,90 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of an Autonomous Database Software Image, like add tags
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAutonomousDatabaseSoftwareImageRequest
+   * @return UpdateAutonomousDatabaseSoftwareImageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use UpdateAutonomousDatabaseSoftwareImage API.
+   */
+  public async updateAutonomousDatabaseSoftwareImage(
+    updateAutonomousDatabaseSoftwareImageRequest: requests.UpdateAutonomousDatabaseSoftwareImageRequest
+  ): Promise<responses.UpdateAutonomousDatabaseSoftwareImageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseSoftwareImage.");
+    const operationName = "updateAutonomousDatabaseSoftwareImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseSoftwareImage/UpdateAutonomousDatabaseSoftwareImage";
+    const pathParams = {
+      "{autonomousDatabaseSoftwareImageId}":
+        updateAutonomousDatabaseSoftwareImageRequest.autonomousDatabaseSoftwareImageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAutonomousDatabaseSoftwareImageRequest.ifMatch,
+      "opc-request-id": updateAutonomousDatabaseSoftwareImageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousDatabaseSoftwareImageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabaseSoftwareImages/{autonomousDatabaseSoftwareImageId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAutonomousDatabaseSoftwareImageRequest.updateAutonomousDatabaseSoftwareImageDetails,
+        "UpdateAutonomousDatabaseSoftwareImageDetails",
+        model.UpdateAutonomousDatabaseSoftwareImageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAutonomousDatabaseSoftwareImageResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabaseSoftwareImage",
+        bodyModel: model.AutonomousDatabaseSoftwareImage,
+        type: "model.AutonomousDatabaseSoftwareImage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

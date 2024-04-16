@@ -158,13 +158,14 @@ export class UploadManager {
       };
     } catch (e) {
       if (this.numberOfSingleUploadRetry < 3) {
-        console.log(`putObject failed, will retry. Last known error: ${e}`);
+        if (this.logger) this.logger.error(`putObject failed, will retry. Last known error: ${e}`);
         this.numberOfSingleUploadRetry += 1;
         return await this.singleUpload(requestDetails, content);
       } else {
-        console.log(
-          `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`
-        );
+        if (this.logger)
+          this.logger.error(
+            `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`
+          );
         const error = {
           message: `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`,
           troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
@@ -232,7 +233,8 @@ export class UploadManager {
         ? (this.numberOfRetries[uploadId] += 1)
         : 1;
       if (this.numberOfRetries[uploadId] < 4) {
-        console.log(`Upload part failed, will retry. Last known error: ${ex}`);
+        if (this.logger)
+          this.logger.error(`Upload part failed, will retry. Last known error: ${ex}`);
         return await this.triggerUploadPart(
           content,
           requestDetails,

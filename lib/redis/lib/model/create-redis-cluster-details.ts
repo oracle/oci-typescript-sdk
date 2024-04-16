@@ -43,6 +43,10 @@ export interface CreateRedisClusterDetails {
    */
   "subnetId": string;
   /**
+   * OCIDs of the NSGs to control access in the customer network
+   */
+  "nsgIds"?: Array<string>;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

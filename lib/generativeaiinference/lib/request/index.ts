@@ -18,6 +18,8 @@ To learn more about the service, see the [Generative AI documentation](/iaas/Con
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChatRequest from "./chat-request";
+export import ChatRequest = ChatRequest.ChatRequest;
 import * as EmbedTextRequest from "./embed-text-request";
 export import EmbedTextRequest = EmbedTextRequest.EmbedTextRequest;
 import * as GenerateTextRequest from "./generate-text-request";

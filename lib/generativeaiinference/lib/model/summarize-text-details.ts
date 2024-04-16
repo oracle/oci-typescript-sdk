@@ -39,7 +39,7 @@ export interface SummarizeTextDetails {
    */
   "isEcho"?: boolean;
   /**
-    * A number that sets the randomness of the generated output. Lower temperatures mean less random generations. 
+    * A number that sets the randomness of the generated output. Lower temperatures mean less random generations.
 * <p>
 Use lower numbers for tasks with a correct answer such as question answering or summarizing. High temperatures can generate hallucinations or factually incorrect information. Start with temperatures lower than 1.0, and increase the temperature for more creative outputs, as you regenerate the prompts to refine the outputs.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

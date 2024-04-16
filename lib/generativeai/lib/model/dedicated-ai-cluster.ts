@@ -74,6 +74,7 @@ export interface DedicatedAiCluster {
    */
   "unitShape": DedicatedAiCluster.UnitShape;
   "capacity"?: model.DedicatedAiClusterHostingCapacity;
+  "previousState"?: model.DedicatedAiCluster;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -130,6 +131,7 @@ export namespace DedicatedAiCluster {
     SmallCohere = "SMALL_COHERE",
     EmbedCohere = "EMBED_COHERE",
     Llama270 = "LLAMA2_70",
+    LargeCohereV2 = "LARGE_COHERE_V2",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -143,6 +145,9 @@ export namespace DedicatedAiCluster {
       ...{
         "capacity": obj.capacity
           ? model.DedicatedAiClusterCapacity.getJsonObj(obj.capacity)
+          : undefined,
+        "previousState": obj.previousState
+          ? model.DedicatedAiCluster.getJsonObj(obj.previousState)
           : undefined
       }
     };
@@ -155,6 +160,9 @@ export namespace DedicatedAiCluster {
       ...{
         "capacity": obj.capacity
           ? model.DedicatedAiClusterCapacity.getDeserializedJsonObj(obj.capacity)
+          : undefined,
+        "previousState": obj.previousState
+          ? model.DedicatedAiCluster.getDeserializedJsonObj(obj.previousState)
           : undefined
       }
     };

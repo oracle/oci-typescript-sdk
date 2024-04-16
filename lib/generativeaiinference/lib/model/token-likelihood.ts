@@ -26,7 +26,7 @@ import common = require("oci-common");
  */
 export interface TokenLikelihood {
   /**
-    * A word, part of a word, or a punctuation. 
+    * A word, part of a word, or a punctuation.
 * <p>
 For example, apple is a token and friendship is made up of two tokens, friend and ship. When you run a model, you can set the maximum number of output tokens. Estimate three tokens per word.
 * 

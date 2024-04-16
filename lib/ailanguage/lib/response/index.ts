@@ -16,6 +16,8 @@ This allows enterprises to focus on business drivers and development work rather
 
 import * as BatchDetectDominantLanguageResponse from "./batch-detect-dominant-language-response";
 export import BatchDetectDominantLanguageResponse = BatchDetectDominantLanguageResponse.BatchDetectDominantLanguageResponse;
+import * as BatchDetectHealthEntityResponse from "./batch-detect-health-entity-response";
+export import BatchDetectHealthEntityResponse = BatchDetectHealthEntityResponse.BatchDetectHealthEntityResponse;
 import * as BatchDetectLanguageEntitiesResponse from "./batch-detect-language-entities-response";
 export import BatchDetectLanguageEntitiesResponse = BatchDetectLanguageEntitiesResponse.BatchDetectLanguageEntitiesResponse;
 import * as BatchDetectLanguageKeyPhrasesResponse from "./batch-detect-language-key-phrases-response";

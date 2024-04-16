@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetScheduledRunRequest extends common.BaseRequest {
   /**
-   * The scheduledRun unique OCID.
+   * The scheduledRun unique OCID
    */
   "scheduledRunId": string;
   /**

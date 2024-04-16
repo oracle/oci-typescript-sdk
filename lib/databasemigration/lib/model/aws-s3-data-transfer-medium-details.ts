@@ -44,6 +44,7 @@ export interface AwsS3DataTransferMediumDetails extends model.DataTransferMedium
    *
    */
   "secretAccessKey"?: string;
+  "objectStorageBucket"?: model.ObjectStoreBucket;
 
   "type": string;
 }
@@ -57,7 +58,11 @@ export namespace AwsS3DataTransferMediumDetails {
       ...(isParentJsonObj
         ? obj
         : (model.DataTransferMediumDetailsV2.getJsonObj(obj) as AwsS3DataTransferMediumDetails)),
-      ...{}
+      ...{
+        "objectStorageBucket": obj.objectStorageBucket
+          ? model.ObjectStoreBucket.getJsonObj(obj.objectStorageBucket)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -73,7 +78,11 @@ export namespace AwsS3DataTransferMediumDetails {
         : (model.DataTransferMediumDetailsV2.getDeserializedJsonObj(
             obj
           ) as AwsS3DataTransferMediumDetails)),
-      ...{}
+      ...{
+        "objectStorageBucket": obj.objectStorageBucket
+          ? model.ObjectStoreBucket.getDeserializedJsonObj(obj.objectStorageBucket)
+          : undefined
+      }
     };
 
     return jsonObj;

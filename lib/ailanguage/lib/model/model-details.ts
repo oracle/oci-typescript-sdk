@@ -55,6 +55,8 @@ export namespace ModelDetails {
             <model.NamedEntityRecognitionModelDetails>(<object>jsonObj),
             true
           );
+        case "PII":
+          return model.PiiModelDetails.getJsonObj(<model.PiiModelDetails>(<object>jsonObj), true);
         case "PRE_TRAINED_LANGUAGE_DETECTION":
           return model.PreTrainedLanguageDetectionModelDetails.getJsonObj(
             <model.PreTrainedLanguageDetectionModelDetails>(<object>jsonObj),
@@ -119,6 +121,11 @@ export namespace ModelDetails {
         case "NAMED_ENTITY_RECOGNITION":
           return model.NamedEntityRecognitionModelDetails.getDeserializedJsonObj(
             <model.NamedEntityRecognitionModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PII":
+          return model.PiiModelDetails.getDeserializedJsonObj(
+            <model.PiiModelDetails>(<object>jsonObj),
             true
           );
         case "PRE_TRAINED_LANGUAGE_DETECTION":

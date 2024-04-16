@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -282,6 +282,90 @@ export class UsageapiClient {
         bodyKey: "customTable",
         bodyModel: model.CustomTable,
         type: "model.CustomTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a list of email recipients that can receive usage statements for the subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateEmailRecipientsGroupRequest
+   * @return CreateEmailRecipientsGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateEmailRecipientsGroup.ts.html |here} to see how to use CreateEmailRecipientsGroup API.
+   */
+  public async createEmailRecipientsGroup(
+    createEmailRecipientsGroupRequest: requests.CreateEmailRecipientsGroupRequest
+  ): Promise<responses.CreateEmailRecipientsGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation UsageapiClient#createEmailRecipientsGroup.");
+    const operationName = "createEmailRecipientsGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/EmailRecipientsGroup/CreateEmailRecipientsGroup";
+    const pathParams = {
+      "{subscriptionId}": createEmailRecipientsGroupRequest.subscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createEmailRecipientsGroupRequest.opcRequestId,
+      "opc-retry-token": createEmailRecipientsGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEmailRecipientsGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/usageStatements/{subscriptionId}/emailRecipientsGroups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createEmailRecipientsGroupRequest.createEmailRecipientsGroupDetails,
+        "CreateEmailRecipientsGroupDetails",
+        model.CreateEmailRecipientsGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateEmailRecipientsGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "emailRecipientsGroup",
+        bodyModel: model.EmailRecipientsGroup,
+        type: "model.EmailRecipientsGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -616,6 +700,79 @@ export class UsageapiClient {
   }
 
   /**
+   * Delete the email recipients group for the usage statement subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteEmailRecipientsGroupRequest
+   * @return DeleteEmailRecipientsGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteEmailRecipientsGroup.ts.html |here} to see how to use DeleteEmailRecipientsGroup API.
+   */
+  public async deleteEmailRecipientsGroup(
+    deleteEmailRecipientsGroupRequest: requests.DeleteEmailRecipientsGroupRequest
+  ): Promise<responses.DeleteEmailRecipientsGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation UsageapiClient#deleteEmailRecipientsGroup.");
+    const operationName = "deleteEmailRecipientsGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/EmailRecipientsGroup/DeleteEmailRecipientsGroup";
+    const pathParams = {
+      "{emailRecipientsGroupId}": deleteEmailRecipientsGroupRequest.emailRecipientsGroupId,
+      "{subscriptionId}": deleteEmailRecipientsGroupRequest.subscriptionId
+    };
+
+    const queryParams = {
+      "compartmentId": deleteEmailRecipientsGroupRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteEmailRecipientsGroupRequest.opcRequestId,
+      "if-match": deleteEmailRecipientsGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEmailRecipientsGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/usageStatements/{subscriptionId}/emailRecipientsGroups/{emailRecipientsGroupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteEmailRecipientsGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a saved query by the OCID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -881,6 +1038,86 @@ export class UsageapiClient {
         bodyKey: "customTable",
         bodyModel: model.CustomTable,
         type: "model.CustomTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Return the saved usage statement email recipient group.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetEmailRecipientsGroupRequest
+   * @return GetEmailRecipientsGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetEmailRecipientsGroup.ts.html |here} to see how to use GetEmailRecipientsGroup API.
+   */
+  public async getEmailRecipientsGroup(
+    getEmailRecipientsGroupRequest: requests.GetEmailRecipientsGroupRequest
+  ): Promise<responses.GetEmailRecipientsGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsageapiClient#getEmailRecipientsGroup.");
+    const operationName = "getEmailRecipientsGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/EmailRecipientsGroup/GetEmailRecipientsGroup";
+    const pathParams = {
+      "{emailRecipientsGroupId}": getEmailRecipientsGroupRequest.emailRecipientsGroupId,
+      "{subscriptionId}": getEmailRecipientsGroupRequest.subscriptionId
+    };
+
+    const queryParams = {
+      "compartmentId": getEmailRecipientsGroupRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEmailRecipientsGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEmailRecipientsGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/usageStatements/{subscriptionId}/emailRecipientsGroups/{emailRecipientsGroupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEmailRecipientsGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "emailRecipientsGroup",
+        bodyModel: model.EmailRecipientsGroup,
+        type: "model.EmailRecipientsGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1272,6 +1509,91 @@ export class UsageapiClient {
         bodyKey: "customTableCollection",
         bodyModel: model.CustomTableCollection,
         type: "model.CustomTableCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Return the saved usage statement email recipient group.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListEmailRecipientsGroupsRequest
+   * @return ListEmailRecipientsGroupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListEmailRecipientsGroups.ts.html |here} to see how to use ListEmailRecipientsGroups API.
+   */
+  public async listEmailRecipientsGroups(
+    listEmailRecipientsGroupsRequest: requests.ListEmailRecipientsGroupsRequest
+  ): Promise<responses.ListEmailRecipientsGroupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation UsageapiClient#listEmailRecipientsGroups.");
+    const operationName = "listEmailRecipientsGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/EmailRecipientsGroup/ListEmailRecipientsGroups";
+    const pathParams = {
+      "{subscriptionId}": listEmailRecipientsGroupsRequest.subscriptionId
+    };
+
+    const queryParams = {
+      "limit": listEmailRecipientsGroupsRequest.limit,
+      "page": listEmailRecipientsGroupsRequest.page,
+      "compartmentId": listEmailRecipientsGroupsRequest.compartmentId,
+      "sortBy": listEmailRecipientsGroupsRequest.sortBy,
+      "sortOrder": listEmailRecipientsGroupsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEmailRecipientsGroupsRequest.opcRequestId,
+      "opc-retry-token": listEmailRecipientsGroupsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEmailRecipientsGroupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/usageStatements/{subscriptionId}/emailRecipientsGroups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEmailRecipientsGroupsResponse>{},
+        body: await response.json(),
+        bodyKey: "emailRecipientsGroupCollection",
+        bodyModel: model.EmailRecipientsGroupCollection,
+        type: "model.EmailRecipientsGroupCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2151,6 +2473,93 @@ export class UsageapiClient {
         bodyKey: "customTable",
         bodyModel: model.CustomTable,
         type: "model.CustomTable",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a saved email recipients group.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateEmailRecipientsGroupRequest
+   * @return UpdateEmailRecipientsGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateEmailRecipientsGroup.ts.html |here} to see how to use UpdateEmailRecipientsGroup API.
+   */
+  public async updateEmailRecipientsGroup(
+    updateEmailRecipientsGroupRequest: requests.UpdateEmailRecipientsGroupRequest
+  ): Promise<responses.UpdateEmailRecipientsGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation UsageapiClient#updateEmailRecipientsGroup.");
+    const operationName = "updateEmailRecipientsGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/EmailRecipientsGroup/UpdateEmailRecipientsGroup";
+    const pathParams = {
+      "{emailRecipientsGroupId}": updateEmailRecipientsGroupRequest.emailRecipientsGroupId,
+      "{subscriptionId}": updateEmailRecipientsGroupRequest.subscriptionId
+    };
+
+    const queryParams = {
+      "compartmentId": updateEmailRecipientsGroupRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateEmailRecipientsGroupRequest.opcRequestId,
+      "if-match": updateEmailRecipientsGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEmailRecipientsGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/usageStatements/{subscriptionId}/emailRecipientsGroups/{emailRecipientsGroupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateEmailRecipientsGroupRequest.updateEmailRecipientsGroupDetails,
+        "UpdateEmailRecipientsGroupDetails",
+        model.UpdateEmailRecipientsGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateEmailRecipientsGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "emailRecipientsGroup",
+        bodyModel: model.EmailRecipientsGroup,
+        type: "model.EmailRecipientsGroup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
