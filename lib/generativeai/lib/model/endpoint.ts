@@ -70,6 +70,7 @@ export interface Endpoint {
    */
   "lifecycleDetails"?: string;
   "contentModerationConfig"?: model.ContentModerationConfig;
+  "previousState"?: model.Endpoint;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -116,6 +117,9 @@ export namespace Endpoint {
       ...{
         "contentModerationConfig": obj.contentModerationConfig
           ? model.ContentModerationConfig.getJsonObj(obj.contentModerationConfig)
+          : undefined,
+        "previousState": obj.previousState
+          ? model.Endpoint.getJsonObj(obj.previousState)
           : undefined
       }
     };
@@ -128,6 +132,9 @@ export namespace Endpoint {
       ...{
         "contentModerationConfig": obj.contentModerationConfig
           ? model.ContentModerationConfig.getDeserializedJsonObj(obj.contentModerationConfig)
+          : undefined,
+        "previousState": obj.previousState
+          ? model.Endpoint.getDeserializedJsonObj(obj.previousState)
           : undefined
       }
     };

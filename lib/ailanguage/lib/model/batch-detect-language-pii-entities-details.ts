@@ -37,6 +37,7 @@ export interface BatchDetectLanguagePiiEntitiesDetails {
    * Mask recognized PII entities with different modes.
    */
   "masking"?: { [key: string]: model.PiiEntityMasking };
+  "profile"?: model.Profile;
 }
 
 export namespace BatchDetectLanguagePiiEntitiesDetails {
@@ -51,7 +52,8 @@ export namespace BatchDetectLanguagePiiEntitiesDetails {
           : undefined,
         "masking": obj.masking
           ? common.mapContainer(obj.masking, model.PiiEntityMasking.getJsonObj)
-          : undefined
+          : undefined,
+        "profile": obj.profile ? model.Profile.getJsonObj(obj.profile) : undefined
       }
     };
 
@@ -68,7 +70,8 @@ export namespace BatchDetectLanguagePiiEntitiesDetails {
           : undefined,
         "masking": obj.masking
           ? common.mapContainer(obj.masking, model.PiiEntityMasking.getDeserializedJsonObj)
-          : undefined
+          : undefined,
+        "profile": obj.profile ? model.Profile.getDeserializedJsonObj(obj.profile) : undefined
       }
     };
 

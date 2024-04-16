@@ -206,6 +206,91 @@ export class GenerativeAiInferenceClient {
   }
 
   /**
+   * Creates a response for the given conversation.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChatRequest
+   * @return ChatResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiinference/Chat.ts.html |here} to see how to use Chat API.
+   */
+  public async chat(chatRequest: requests.ChatRequest): Promise<responses.ChatResponse | string> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiInferenceClient#chat.");
+    const operationName = "chat";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": chatRequest.opcRetryToken,
+      "opc-request-id": chatRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      chatRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/chat",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        chatRequest.chatDetails,
+        "ChatDetails",
+        model.ChatDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      if (
+        response.headers &&
+        response.headers.get(common.Constants.CONTENT_TYPE_HEADER) ===
+          common.Constants.SERVER_SIDE_EVENT_TEXT_STREAM
+      ) {
+        return await response.text();
+      }
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChatResponse>{},
+        body: await response.json(),
+        bodyKey: "chatResult",
+        bodyModel: model.ChatResult,
+        type: "model.ChatResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Produces embeddings for the inputs.
 * <p>
 An embedding is numeric representation of a piece of text. This text can be a phrase, a sentence, or one or more paragraphs. The Generative AI embedding model transforms each phrase, sentence, or paragraph that you input, into an array with 1024 numbers. You can use these embeddings for finding similarity in your input text such as finding phrases that are similar in context or category. Embeddings are mostly used for semantic searches where the search function focuses on the meaning of the text that it's searching through rather than finding results based on keywords.

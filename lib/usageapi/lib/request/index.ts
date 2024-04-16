@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -13,6 +13,8 @@
 
 import * as CreateCustomTableRequest from "./create-custom-table-request";
 export import CreateCustomTableRequest = CreateCustomTableRequest.CreateCustomTableRequest;
+import * as CreateEmailRecipientsGroupRequest from "./create-email-recipients-group-request";
+export import CreateEmailRecipientsGroupRequest = CreateEmailRecipientsGroupRequest.CreateEmailRecipientsGroupRequest;
 import * as CreateQueryRequest from "./create-query-request";
 export import CreateQueryRequest = CreateQueryRequest.CreateQueryRequest;
 import * as CreateScheduleRequest from "./create-schedule-request";
@@ -21,6 +23,8 @@ import * as CreateUsageCarbonEmissionsQueryRequest from "./create-usage-carbon-e
 export import CreateUsageCarbonEmissionsQueryRequest = CreateUsageCarbonEmissionsQueryRequest.CreateUsageCarbonEmissionsQueryRequest;
 import * as DeleteCustomTableRequest from "./delete-custom-table-request";
 export import DeleteCustomTableRequest = DeleteCustomTableRequest.DeleteCustomTableRequest;
+import * as DeleteEmailRecipientsGroupRequest from "./delete-email-recipients-group-request";
+export import DeleteEmailRecipientsGroupRequest = DeleteEmailRecipientsGroupRequest.DeleteEmailRecipientsGroupRequest;
 import * as DeleteQueryRequest from "./delete-query-request";
 export import DeleteQueryRequest = DeleteQueryRequest.DeleteQueryRequest;
 import * as DeleteScheduleRequest from "./delete-schedule-request";
@@ -29,6 +33,8 @@ import * as DeleteUsageCarbonEmissionsQueryRequest from "./delete-usage-carbon-e
 export import DeleteUsageCarbonEmissionsQueryRequest = DeleteUsageCarbonEmissionsQueryRequest.DeleteUsageCarbonEmissionsQueryRequest;
 import * as GetCustomTableRequest from "./get-custom-table-request";
 export import GetCustomTableRequest = GetCustomTableRequest.GetCustomTableRequest;
+import * as GetEmailRecipientsGroupRequest from "./get-email-recipients-group-request";
+export import GetEmailRecipientsGroupRequest = GetEmailRecipientsGroupRequest.GetEmailRecipientsGroupRequest;
 import * as GetQueryRequest from "./get-query-request";
 export import GetQueryRequest = GetQueryRequest.GetQueryRequest;
 import * as GetScheduleRequest from "./get-schedule-request";
@@ -39,6 +45,8 @@ import * as GetUsageCarbonEmissionsQueryRequest from "./get-usage-carbon-emissio
 export import GetUsageCarbonEmissionsQueryRequest = GetUsageCarbonEmissionsQueryRequest.GetUsageCarbonEmissionsQueryRequest;
 import * as ListCustomTablesRequest from "./list-custom-tables-request";
 export import ListCustomTablesRequest = ListCustomTablesRequest.ListCustomTablesRequest;
+import * as ListEmailRecipientsGroupsRequest from "./list-email-recipients-groups-request";
+export import ListEmailRecipientsGroupsRequest = ListEmailRecipientsGroupsRequest.ListEmailRecipientsGroupsRequest;
 import * as ListQueriesRequest from "./list-queries-request";
 export import ListQueriesRequest = ListQueriesRequest.ListQueriesRequest;
 import * as ListScheduledRunsRequest from "./list-scheduled-runs-request";
@@ -61,6 +69,8 @@ import * as RequestUsageCarbonEmissionsRequest from "./request-usage-carbon-emis
 export import RequestUsageCarbonEmissionsRequest = RequestUsageCarbonEmissionsRequest.RequestUsageCarbonEmissionsRequest;
 import * as UpdateCustomTableRequest from "./update-custom-table-request";
 export import UpdateCustomTableRequest = UpdateCustomTableRequest.UpdateCustomTableRequest;
+import * as UpdateEmailRecipientsGroupRequest from "./update-email-recipients-group-request";
+export import UpdateEmailRecipientsGroupRequest = UpdateEmailRecipientsGroupRequest.UpdateEmailRecipientsGroupRequest;
 import * as UpdateQueryRequest from "./update-query-request";
 export import UpdateQueryRequest = UpdateQueryRequest.UpdateQueryRequest;
 import * as UpdateScheduleRequest from "./update-schedule-request";

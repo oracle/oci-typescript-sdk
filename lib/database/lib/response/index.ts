@@ -30,6 +30,8 @@ import * as ChangeAutonomousContainerDatabaseCompartmentResponse from "./change-
 export import ChangeAutonomousContainerDatabaseCompartmentResponse = ChangeAutonomousContainerDatabaseCompartmentResponse.ChangeAutonomousContainerDatabaseCompartmentResponse;
 import * as ChangeAutonomousDatabaseCompartmentResponse from "./change-autonomous-database-compartment-response";
 export import ChangeAutonomousDatabaseCompartmentResponse = ChangeAutonomousDatabaseCompartmentResponse.ChangeAutonomousDatabaseCompartmentResponse;
+import * as ChangeAutonomousDatabaseSoftwareImageCompartmentResponse from "./change-autonomous-database-software-image-compartment-response";
+export import ChangeAutonomousDatabaseSoftwareImageCompartmentResponse = ChangeAutonomousDatabaseSoftwareImageCompartmentResponse.ChangeAutonomousDatabaseSoftwareImageCompartmentResponse;
 import * as ChangeAutonomousExadataInfrastructureCompartmentResponse from "./change-autonomous-exadata-infrastructure-compartment-response";
 export import ChangeAutonomousExadataInfrastructureCompartmentResponse = ChangeAutonomousExadataInfrastructureCompartmentResponse.ChangeAutonomousExadataInfrastructureCompartmentResponse;
 import * as ChangeAutonomousVmClusterCompartmentResponse from "./change-autonomous-vm-cluster-compartment-response";
@@ -88,6 +90,8 @@ import * as CreateAutonomousDatabaseResponse from "./create-autonomous-database-
 export import CreateAutonomousDatabaseResponse = CreateAutonomousDatabaseResponse.CreateAutonomousDatabaseResponse;
 import * as CreateAutonomousDatabaseBackupResponse from "./create-autonomous-database-backup-response";
 export import CreateAutonomousDatabaseBackupResponse = CreateAutonomousDatabaseBackupResponse.CreateAutonomousDatabaseBackupResponse;
+import * as CreateAutonomousDatabaseSoftwareImageResponse from "./create-autonomous-database-software-image-response";
+export import CreateAutonomousDatabaseSoftwareImageResponse = CreateAutonomousDatabaseSoftwareImageResponse.CreateAutonomousDatabaseSoftwareImageResponse;
 import * as CreateAutonomousVmClusterResponse from "./create-autonomous-vm-cluster-response";
 export import CreateAutonomousVmClusterResponse = CreateAutonomousVmClusterResponse.CreateAutonomousVmClusterResponse;
 import * as CreateBackupResponse from "./create-backup-response";
@@ -144,6 +148,8 @@ import * as DeleteAutonomousDatabaseResponse from "./delete-autonomous-database-
 export import DeleteAutonomousDatabaseResponse = DeleteAutonomousDatabaseResponse.DeleteAutonomousDatabaseResponse;
 import * as DeleteAutonomousDatabaseBackupResponse from "./delete-autonomous-database-backup-response";
 export import DeleteAutonomousDatabaseBackupResponse = DeleteAutonomousDatabaseBackupResponse.DeleteAutonomousDatabaseBackupResponse;
+import * as DeleteAutonomousDatabaseSoftwareImageResponse from "./delete-autonomous-database-software-image-response";
+export import DeleteAutonomousDatabaseSoftwareImageResponse = DeleteAutonomousDatabaseSoftwareImageResponse.DeleteAutonomousDatabaseSoftwareImageResponse;
 import * as DeleteAutonomousVmClusterResponse from "./delete-autonomous-vm-cluster-response";
 export import DeleteAutonomousVmClusterResponse = DeleteAutonomousVmClusterResponse.DeleteAutonomousVmClusterResponse;
 import * as DeleteBackupResponse from "./delete-backup-response";
@@ -270,6 +276,8 @@ import * as GetAutonomousDatabaseDataguardAssociationResponse from "./get-autono
 export import GetAutonomousDatabaseDataguardAssociationResponse = GetAutonomousDatabaseDataguardAssociationResponse.GetAutonomousDatabaseDataguardAssociationResponse;
 import * as GetAutonomousDatabaseRegionalWalletResponse from "./get-autonomous-database-regional-wallet-response";
 export import GetAutonomousDatabaseRegionalWalletResponse = GetAutonomousDatabaseRegionalWalletResponse.GetAutonomousDatabaseRegionalWalletResponse;
+import * as GetAutonomousDatabaseSoftwareImageResponse from "./get-autonomous-database-software-image-response";
+export import GetAutonomousDatabaseSoftwareImageResponse = GetAutonomousDatabaseSoftwareImageResponse.GetAutonomousDatabaseSoftwareImageResponse;
 import * as GetAutonomousDatabaseWalletResponse from "./get-autonomous-database-wallet-response";
 export import GetAutonomousDatabaseWalletResponse = GetAutonomousDatabaseWalletResponse.GetAutonomousDatabaseWalletResponse;
 import * as GetAutonomousExadataInfrastructureResponse from "./get-autonomous-exadata-infrastructure-response";
@@ -400,6 +408,8 @@ import * as ListAutonomousDatabaseDataguardAssociationsResponse from "./list-aut
 export import ListAutonomousDatabaseDataguardAssociationsResponse = ListAutonomousDatabaseDataguardAssociationsResponse.ListAutonomousDatabaseDataguardAssociationsResponse;
 import * as ListAutonomousDatabaseRefreshableClonesResponse from "./list-autonomous-database-refreshable-clones-response";
 export import ListAutonomousDatabaseRefreshableClonesResponse = ListAutonomousDatabaseRefreshableClonesResponse.ListAutonomousDatabaseRefreshableClonesResponse;
+import * as ListAutonomousDatabaseSoftwareImagesResponse from "./list-autonomous-database-software-images-response";
+export import ListAutonomousDatabaseSoftwareImagesResponse = ListAutonomousDatabaseSoftwareImagesResponse.ListAutonomousDatabaseSoftwareImagesResponse;
 import * as ListAutonomousDatabasesResponse from "./list-autonomous-databases-response";
 export import ListAutonomousDatabasesResponse = ListAutonomousDatabasesResponse.ListAutonomousDatabasesResponse;
 import * as ListAutonomousDbPreviewVersionsResponse from "./list-autonomous-db-preview-versions-response";
@@ -604,6 +614,8 @@ import * as UpdateAutonomousDatabaseBackupResponse from "./update-autonomous-dat
 export import UpdateAutonomousDatabaseBackupResponse = UpdateAutonomousDatabaseBackupResponse.UpdateAutonomousDatabaseBackupResponse;
 import * as UpdateAutonomousDatabaseRegionalWalletResponse from "./update-autonomous-database-regional-wallet-response";
 export import UpdateAutonomousDatabaseRegionalWalletResponse = UpdateAutonomousDatabaseRegionalWalletResponse.UpdateAutonomousDatabaseRegionalWalletResponse;
+import * as UpdateAutonomousDatabaseSoftwareImageResponse from "./update-autonomous-database-software-image-response";
+export import UpdateAutonomousDatabaseSoftwareImageResponse = UpdateAutonomousDatabaseSoftwareImageResponse.UpdateAutonomousDatabaseSoftwareImageResponse;
 import * as UpdateAutonomousDatabaseWalletResponse from "./update-autonomous-database-wallet-response";
 export import UpdateAutonomousDatabaseWalletResponse = UpdateAutonomousDatabaseWalletResponse.UpdateAutonomousDatabaseWalletResponse;
 import * as UpdateAutonomousExadataInfrastructureResponse from "./update-autonomous-exadata-infrastructure-response";

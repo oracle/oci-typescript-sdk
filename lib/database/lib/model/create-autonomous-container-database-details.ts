@@ -47,6 +47,10 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "dbVersion"?: string;
   /**
+   * The Autonomous Database Software Image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "databaseSoftwareImageId"?: string;
+  /**
    * *No longer used.* This parameter is no longer used for Autonomous Database on dedicated Exadata infrasture. Specify a {@code peerCloudAutonomousVmClusterId} instead. Using this parameter will cause the operation to fail.
    *
    */

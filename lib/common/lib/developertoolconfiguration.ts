@@ -10,6 +10,7 @@ import fs from "fs";
 import { DeveloperToolConfigurationFileSchema } from "./developer-tool-configuration-file-schema";
 import { Realm } from "./realm";
 import { ConfigFileReader } from "./config-file-reader";
+import { LOG } from "./log";
 
 const OCI_DEVELOPER_TOOL_CONFIGURATION_FILE_PATH: string =
   "OCI_DEVELOPER_TOOL_CONFIGURATION_FILE_PATH";
@@ -52,12 +53,13 @@ function initializedeveloperToolConfiguration() {
     try {
       developerToolConfig = JSON.parse(content) as DeveloperToolConfigurationFileSchema;
     } catch (error) {
-      console.log(
-        "Failure while parsing DeveloperToolConfiguration config file: " +
-          configFilePath +
-          " ex:" +
-          error
-      );
+      if (LOG.logger)
+        LOG.logger.error(
+          "Failure while parsing DeveloperToolConfiguration config file: " +
+            configFilePath +
+            " ex:" +
+            error
+        );
     }
     if (developerToolConfig !== undefined) {
       // Add configured services to OciEnabledServiceSet
@@ -84,19 +86,21 @@ function initializedeveloperToolConfiguration() {
     }
   } catch (error) {
     if (error.code === "ENOENT") {
-      console.log(
-        "DeveloperToolConfiguration config file not found at " +
-          configFilePath +
-          ", enabling all OCI services as default"
-      );
+      if (LOG.logger)
+        LOG.logger.error(
+          "DeveloperToolConfiguration config file not found at " +
+            configFilePath +
+            ", enabling all OCI services as default"
+        );
       return;
     } else {
-      console.log(
-        "Enabling all OCI services as failsafe. There was an exception while trying to read or de-serialize the DeveloperToolConfiguration config file at: " +
-          configFilePath +
-          " ex:" +
-          error
-      );
+      if (LOG.logger)
+        LOG.logger.error(
+          "Enabling all OCI services as failsafe. There was an exception while trying to read or de-serialize the DeveloperToolConfiguration config file at: " +
+            configFilePath +
+            " ex:" +
+            error
+        );
     }
   }
 }
@@ -113,7 +117,8 @@ export function isServiceEnabled(service: string): boolean {
   }
   // If OciEnabledServiceSet is empty then we enable all services.
   if (ociEnabledServiceSet.size == 0) {
-    console.log("The OciEnabledServiceSet is empty, all OCI services are enabled");
+    if (LOG.logger)
+      LOG.logger.debug("The OciEnabledServiceSet is empty, all OCI services are enabled");
     return true;
   }
   return ociEnabledServiceSet.has(service);

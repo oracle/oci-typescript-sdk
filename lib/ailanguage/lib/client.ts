@@ -309,6 +309,87 @@ Limitations:
   }
 
   /**
+     * The API extracts health entities in text records. For each entity, its type and confidence score (between 0 and 1) is returned.  It supports passing a batch of records.
+* <p>
+Limitations:
+* - A batch may have up to 100 records.
+* - A record may be up to 5000 characters long.
+* - The total of characters to process in a request can be up to 20,000 characters.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param BatchDetectHealthEntityRequest
+     * @return BatchDetectHealthEntityResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectHealthEntity.ts.html |here} to see how to use BatchDetectHealthEntity API.
+     */
+  public async batchDetectHealthEntity(
+    batchDetectHealthEntityRequest: requests.BatchDetectHealthEntityRequest
+  ): Promise<responses.BatchDetectHealthEntityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectHealthEntity.");
+    const operationName = "batchDetectHealthEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectHealthEntityDetails/BatchDetectHealthEntity";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": batchDetectHealthEntityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      batchDetectHealthEntityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/batchDetectHealthEntities",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        batchDetectHealthEntityRequest.batchDetectHealthEntityDetails,
+        "BatchDetectHealthEntityDetails",
+        model.BatchDetectHealthEntityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BatchDetectHealthEntityResponse>{},
+        body: await response.json(),
+        bodyKey: "batchDetectHealthEntityResult",
+        bodyModel: model.BatchDetectHealthEntityResult,
+        type: "model.BatchDetectHealthEntityResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * The API extracts entities in text records. For each entity, its type/subtype and confidence score (between 0 and 1) is returned.  It supports passing a batch of records.
 * <p>
 [List of supported entities.](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#ner__sup-ner-entity)

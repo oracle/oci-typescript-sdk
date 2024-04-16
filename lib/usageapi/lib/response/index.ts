@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -13,6 +13,8 @@
 
 import * as CreateCustomTableResponse from "./create-custom-table-response";
 export import CreateCustomTableResponse = CreateCustomTableResponse.CreateCustomTableResponse;
+import * as CreateEmailRecipientsGroupResponse from "./create-email-recipients-group-response";
+export import CreateEmailRecipientsGroupResponse = CreateEmailRecipientsGroupResponse.CreateEmailRecipientsGroupResponse;
 import * as CreateQueryResponse from "./create-query-response";
 export import CreateQueryResponse = CreateQueryResponse.CreateQueryResponse;
 import * as CreateScheduleResponse from "./create-schedule-response";
@@ -21,6 +23,8 @@ import * as CreateUsageCarbonEmissionsQueryResponse from "./create-usage-carbon-
 export import CreateUsageCarbonEmissionsQueryResponse = CreateUsageCarbonEmissionsQueryResponse.CreateUsageCarbonEmissionsQueryResponse;
 import * as DeleteCustomTableResponse from "./delete-custom-table-response";
 export import DeleteCustomTableResponse = DeleteCustomTableResponse.DeleteCustomTableResponse;
+import * as DeleteEmailRecipientsGroupResponse from "./delete-email-recipients-group-response";
+export import DeleteEmailRecipientsGroupResponse = DeleteEmailRecipientsGroupResponse.DeleteEmailRecipientsGroupResponse;
 import * as DeleteQueryResponse from "./delete-query-response";
 export import DeleteQueryResponse = DeleteQueryResponse.DeleteQueryResponse;
 import * as DeleteScheduleResponse from "./delete-schedule-response";
@@ -29,6 +33,8 @@ import * as DeleteUsageCarbonEmissionsQueryResponse from "./delete-usage-carbon-
 export import DeleteUsageCarbonEmissionsQueryResponse = DeleteUsageCarbonEmissionsQueryResponse.DeleteUsageCarbonEmissionsQueryResponse;
 import * as GetCustomTableResponse from "./get-custom-table-response";
 export import GetCustomTableResponse = GetCustomTableResponse.GetCustomTableResponse;
+import * as GetEmailRecipientsGroupResponse from "./get-email-recipients-group-response";
+export import GetEmailRecipientsGroupResponse = GetEmailRecipientsGroupResponse.GetEmailRecipientsGroupResponse;
 import * as GetQueryResponse from "./get-query-response";
 export import GetQueryResponse = GetQueryResponse.GetQueryResponse;
 import * as GetScheduleResponse from "./get-schedule-response";
@@ -39,6 +45,8 @@ import * as GetUsageCarbonEmissionsQueryResponse from "./get-usage-carbon-emissi
 export import GetUsageCarbonEmissionsQueryResponse = GetUsageCarbonEmissionsQueryResponse.GetUsageCarbonEmissionsQueryResponse;
 import * as ListCustomTablesResponse from "./list-custom-tables-response";
 export import ListCustomTablesResponse = ListCustomTablesResponse.ListCustomTablesResponse;
+import * as ListEmailRecipientsGroupsResponse from "./list-email-recipients-groups-response";
+export import ListEmailRecipientsGroupsResponse = ListEmailRecipientsGroupsResponse.ListEmailRecipientsGroupsResponse;
 import * as ListQueriesResponse from "./list-queries-response";
 export import ListQueriesResponse = ListQueriesResponse.ListQueriesResponse;
 import * as ListScheduledRunsResponse from "./list-scheduled-runs-response";
@@ -61,6 +69,8 @@ import * as RequestUsageCarbonEmissionsResponse from "./request-usage-carbon-emi
 export import RequestUsageCarbonEmissionsResponse = RequestUsageCarbonEmissionsResponse.RequestUsageCarbonEmissionsResponse;
 import * as UpdateCustomTableResponse from "./update-custom-table-response";
 export import UpdateCustomTableResponse = UpdateCustomTableResponse.UpdateCustomTableResponse;
+import * as UpdateEmailRecipientsGroupResponse from "./update-email-recipients-group-response";
+export import UpdateEmailRecipientsGroupResponse = UpdateEmailRecipientsGroupResponse.UpdateEmailRecipientsGroupResponse;
 import * as UpdateQueryResponse from "./update-query-response";
 export import UpdateQueryResponse = UpdateQueryResponse.UpdateQueryResponse;
 import * as UpdateScheduleResponse from "./update-schedule-response";

@@ -30,6 +30,8 @@ import * as ChangeAutonomousContainerDatabaseCompartmentRequest from "./change-a
 export import ChangeAutonomousContainerDatabaseCompartmentRequest = ChangeAutonomousContainerDatabaseCompartmentRequest.ChangeAutonomousContainerDatabaseCompartmentRequest;
 import * as ChangeAutonomousDatabaseCompartmentRequest from "./change-autonomous-database-compartment-request";
 export import ChangeAutonomousDatabaseCompartmentRequest = ChangeAutonomousDatabaseCompartmentRequest.ChangeAutonomousDatabaseCompartmentRequest;
+import * as ChangeAutonomousDatabaseSoftwareImageCompartmentRequest from "./change-autonomous-database-software-image-compartment-request";
+export import ChangeAutonomousDatabaseSoftwareImageCompartmentRequest = ChangeAutonomousDatabaseSoftwareImageCompartmentRequest.ChangeAutonomousDatabaseSoftwareImageCompartmentRequest;
 import * as ChangeAutonomousExadataInfrastructureCompartmentRequest from "./change-autonomous-exadata-infrastructure-compartment-request";
 export import ChangeAutonomousExadataInfrastructureCompartmentRequest = ChangeAutonomousExadataInfrastructureCompartmentRequest.ChangeAutonomousExadataInfrastructureCompartmentRequest;
 import * as ChangeAutonomousVmClusterCompartmentRequest from "./change-autonomous-vm-cluster-compartment-request";
@@ -88,6 +90,8 @@ import * as CreateAutonomousDatabaseRequest from "./create-autonomous-database-r
 export import CreateAutonomousDatabaseRequest = CreateAutonomousDatabaseRequest.CreateAutonomousDatabaseRequest;
 import * as CreateAutonomousDatabaseBackupRequest from "./create-autonomous-database-backup-request";
 export import CreateAutonomousDatabaseBackupRequest = CreateAutonomousDatabaseBackupRequest.CreateAutonomousDatabaseBackupRequest;
+import * as CreateAutonomousDatabaseSoftwareImageRequest from "./create-autonomous-database-software-image-request";
+export import CreateAutonomousDatabaseSoftwareImageRequest = CreateAutonomousDatabaseSoftwareImageRequest.CreateAutonomousDatabaseSoftwareImageRequest;
 import * as CreateAutonomousVmClusterRequest from "./create-autonomous-vm-cluster-request";
 export import CreateAutonomousVmClusterRequest = CreateAutonomousVmClusterRequest.CreateAutonomousVmClusterRequest;
 import * as CreateBackupRequest from "./create-backup-request";
@@ -144,6 +148,8 @@ import * as DeleteAutonomousDatabaseRequest from "./delete-autonomous-database-r
 export import DeleteAutonomousDatabaseRequest = DeleteAutonomousDatabaseRequest.DeleteAutonomousDatabaseRequest;
 import * as DeleteAutonomousDatabaseBackupRequest from "./delete-autonomous-database-backup-request";
 export import DeleteAutonomousDatabaseBackupRequest = DeleteAutonomousDatabaseBackupRequest.DeleteAutonomousDatabaseBackupRequest;
+import * as DeleteAutonomousDatabaseSoftwareImageRequest from "./delete-autonomous-database-software-image-request";
+export import DeleteAutonomousDatabaseSoftwareImageRequest = DeleteAutonomousDatabaseSoftwareImageRequest.DeleteAutonomousDatabaseSoftwareImageRequest;
 import * as DeleteAutonomousVmClusterRequest from "./delete-autonomous-vm-cluster-request";
 export import DeleteAutonomousVmClusterRequest = DeleteAutonomousVmClusterRequest.DeleteAutonomousVmClusterRequest;
 import * as DeleteBackupRequest from "./delete-backup-request";
@@ -270,6 +276,8 @@ import * as GetAutonomousDatabaseDataguardAssociationRequest from "./get-autonom
 export import GetAutonomousDatabaseDataguardAssociationRequest = GetAutonomousDatabaseDataguardAssociationRequest.GetAutonomousDatabaseDataguardAssociationRequest;
 import * as GetAutonomousDatabaseRegionalWalletRequest from "./get-autonomous-database-regional-wallet-request";
 export import GetAutonomousDatabaseRegionalWalletRequest = GetAutonomousDatabaseRegionalWalletRequest.GetAutonomousDatabaseRegionalWalletRequest;
+import * as GetAutonomousDatabaseSoftwareImageRequest from "./get-autonomous-database-software-image-request";
+export import GetAutonomousDatabaseSoftwareImageRequest = GetAutonomousDatabaseSoftwareImageRequest.GetAutonomousDatabaseSoftwareImageRequest;
 import * as GetAutonomousDatabaseWalletRequest from "./get-autonomous-database-wallet-request";
 export import GetAutonomousDatabaseWalletRequest = GetAutonomousDatabaseWalletRequest.GetAutonomousDatabaseWalletRequest;
 import * as GetAutonomousExadataInfrastructureRequest from "./get-autonomous-exadata-infrastructure-request";
@@ -400,6 +408,8 @@ import * as ListAutonomousDatabaseDataguardAssociationsRequest from "./list-auto
 export import ListAutonomousDatabaseDataguardAssociationsRequest = ListAutonomousDatabaseDataguardAssociationsRequest.ListAutonomousDatabaseDataguardAssociationsRequest;
 import * as ListAutonomousDatabaseRefreshableClonesRequest from "./list-autonomous-database-refreshable-clones-request";
 export import ListAutonomousDatabaseRefreshableClonesRequest = ListAutonomousDatabaseRefreshableClonesRequest.ListAutonomousDatabaseRefreshableClonesRequest;
+import * as ListAutonomousDatabaseSoftwareImagesRequest from "./list-autonomous-database-software-images-request";
+export import ListAutonomousDatabaseSoftwareImagesRequest = ListAutonomousDatabaseSoftwareImagesRequest.ListAutonomousDatabaseSoftwareImagesRequest;
 import * as ListAutonomousDatabasesRequest from "./list-autonomous-databases-request";
 export import ListAutonomousDatabasesRequest = ListAutonomousDatabasesRequest.ListAutonomousDatabasesRequest;
 import * as ListAutonomousDbPreviewVersionsRequest from "./list-autonomous-db-preview-versions-request";
@@ -604,6 +614,8 @@ import * as UpdateAutonomousDatabaseBackupRequest from "./update-autonomous-data
 export import UpdateAutonomousDatabaseBackupRequest = UpdateAutonomousDatabaseBackupRequest.UpdateAutonomousDatabaseBackupRequest;
 import * as UpdateAutonomousDatabaseRegionalWalletRequest from "./update-autonomous-database-regional-wallet-request";
 export import UpdateAutonomousDatabaseRegionalWalletRequest = UpdateAutonomousDatabaseRegionalWalletRequest.UpdateAutonomousDatabaseRegionalWalletRequest;
+import * as UpdateAutonomousDatabaseSoftwareImageRequest from "./update-autonomous-database-software-image-request";
+export import UpdateAutonomousDatabaseSoftwareImageRequest = UpdateAutonomousDatabaseSoftwareImageRequest.UpdateAutonomousDatabaseSoftwareImageRequest;
 import * as UpdateAutonomousDatabaseWalletRequest from "./update-autonomous-database-wallet-request";
 export import UpdateAutonomousDatabaseWalletRequest = UpdateAutonomousDatabaseWalletRequest.UpdateAutonomousDatabaseWalletRequest;
 import * as UpdateAutonomousExadataInfrastructureRequest from "./update-autonomous-exadata-infrastructure-request";

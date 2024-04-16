@@ -24,9 +24,6 @@ export import announcementsservice = require("oci-announcementsservice");
 // API Gateway Service
 export import apigateway = require("oci-apigateway");
 
-// Application Migration Service
-export import applicationmigration = require("oci-applicationmigration");
-
 // Audit Service
 export import audit = require("oci-audit");
 

@@ -25,6 +25,7 @@ import {
   ResourceDetails
 } from "./url-based-x509-certificate-supplier";
 import CircuitBreaker from "../circuit-breaker";
+import { LOG } from "../log";
 
 const INSTANCE_PRINCIPAL_GENERIC_ERROR =
   "Instance principals authentication can only be used on OCI compute instances. Please confirm this code is running on an OCI compute instance. See https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/callingservicesfrominstances.htm for more info.";
@@ -214,7 +215,8 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
         // Try to get region off regionId
         this.region = Region.fromRegionId(regionId);
       } catch (e) {
-        console.log(`
+        if (LOG.logger)
+          LOG.logger.error(`
           failed reason: ${e},
           Region not supported by this version of the SDK, registering region ${regionId} under OC1
         `);

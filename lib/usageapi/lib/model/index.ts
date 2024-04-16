@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the dimension of your choosing. The Usage API is used by the Cost Analysis tool in the Console. Also see [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -23,6 +23,8 @@ import * as CostAnalysisUI from "./cost-analysis-ui";
 export import CostAnalysisUI = CostAnalysisUI.CostAnalysisUI;
 import * as CreateCustomTableDetails from "./create-custom-table-details";
 export import CreateCustomTableDetails = CreateCustomTableDetails.CreateCustomTableDetails;
+import * as CreateEmailRecipientsGroupDetails from "./create-email-recipients-group-details";
+export import CreateEmailRecipientsGroupDetails = CreateEmailRecipientsGroupDetails.CreateEmailRecipientsGroupDetails;
 import * as CreateQueryDetails from "./create-query-details";
 export import CreateQueryDetails = CreateQueryDetails.CreateQueryDetails;
 import * as CreateScheduleDetails from "./create-schedule-details";
@@ -39,6 +41,14 @@ import * as DateRange from "./date-range";
 export import DateRange = DateRange.DateRange;
 import * as Dimension from "./dimension";
 export import Dimension = Dimension.Dimension;
+import * as EmailRecipient from "./email-recipient";
+export import EmailRecipient = EmailRecipient.EmailRecipient;
+import * as EmailRecipientsGroup from "./email-recipients-group";
+export import EmailRecipientsGroup = EmailRecipientsGroup.EmailRecipientsGroup;
+import * as EmailRecipientsGroupCollection from "./email-recipients-group-collection";
+export import EmailRecipientsGroupCollection = EmailRecipientsGroupCollection.EmailRecipientsGroupCollection;
+import * as EmailRecipientsGroupSummary from "./email-recipients-group-summary";
+export import EmailRecipientsGroupSummary = EmailRecipientsGroupSummary.EmailRecipientsGroupSummary;
 import * as Filter from "./filter";
 export import Filter = Filter.Filter;
 import * as Forecast from "./forecast";
@@ -79,6 +89,8 @@ import * as Tag from "./tag";
 export import Tag = Tag.Tag;
 import * as UpdateCustomTableDetails from "./update-custom-table-details";
 export import UpdateCustomTableDetails = UpdateCustomTableDetails.UpdateCustomTableDetails;
+import * as UpdateEmailRecipientsGroupDetails from "./update-email-recipients-group-details";
+export import UpdateEmailRecipientsGroupDetails = UpdateEmailRecipientsGroupDetails.UpdateEmailRecipientsGroupDetails;
 import * as UpdateQueryDetails from "./update-query-details";
 export import UpdateQueryDetails = UpdateQueryDetails.UpdateQueryDetails;
 import * as UpdateScheduleDetails from "./update-schedule-details";

@@ -9,6 +9,7 @@ import { readFileSync } from "fs";
 import { RegionMetadataSchema } from "./region-metadata-schema";
 import { FetchHttpClient } from "./http";
 import  * as developerToolConfiguration from "./developertoolconfiguration";
+import { LOG } from "./log";
 
 export class Region {
     /**
@@ -172,7 +173,7 @@ export class Region {
    */
     public static values(): Region[] {
         if (!Region.hasCalledForImds && !Region.hasWarnedAboutValuesWithoutInstanceMetadataService) {
-            console.log("Call to Regions.values() without having contacted IMDS (Instance Metadata Service, only available on OCI instances); if you do need the region from IMDS, call Region.enableInstanceMetadata() before calling Region.values()");
+          if (LOG.logger) LOG.logger.info("Call to Regions.values() without having contacted IMDS (Instance Metadata Service, only available on OCI instances); if you do need the region from IMDS, call Region.enableInstanceMetadata() before calling Region.values()");
             Region.hasWarnedAboutValuesWithoutInstanceMetadataService = true;
         }
         Region.registerAllRegions();
@@ -258,7 +259,7 @@ export class Region {
                         });
                     }
                 } catch (error) {
-                    console.log("error reading or parsing region developertoolConfiguration file");
+                  if (LOG.logger) LOG.logger.error("error reading or parsing region developertoolConfiguration file");
                 }
             }
         }
@@ -290,7 +291,7 @@ export class Region {
                         });
                     }
                 } catch (error) {
-                    console.log("error reading or parsing region config file");
+                  if (LOG.logger) LOG.logger.error("error reading or parsing region config file");
                 }
             }
         }
@@ -312,7 +313,7 @@ export class Region {
                         );
                     }
                 } catch (error) {
-                    console.log("error reading or parsing region metadata env var config file");
+                  if (LOG.logger) LOG.logger.error("error reading or parsing region metadata env var config file");
                 }
             }
         }
@@ -355,7 +356,7 @@ export class Region {
                     Region.imdsRegionMetadata = regionMetadata;
                 }
             } catch (error) {
-                console.log(
+              if (LOG.logger) LOG.logger.error(
                     "Unable to retrieve region metadata from instance metadata service, reason :" + error
                 );
             }

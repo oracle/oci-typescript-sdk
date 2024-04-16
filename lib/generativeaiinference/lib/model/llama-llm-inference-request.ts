@@ -85,7 +85,7 @@ For example, if the log probability is 5, the API returns a list of the 5 most l
     */
   "logProbs"?: number;
   /**
-   * The maximum number of tokens to predict for each response. Includes input plus output tokens. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum number of tokens that can be generated per output sequence. The token count of your prompt plus max_tokens cannot exceed the model's context length. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTokens"?: number;
 

@@ -24,6 +24,8 @@ export enum OperationType {
   MoveOpaInstance = "MOVE_OPA_INSTANCE",
   CreateOpaInstanceAttachment = "CREATE_OPA_INSTANCE_ATTACHMENT",
   DeleteOpaInstanceAttachment = "DELETE_OPA_INSTANCE_ATTACHMENT",
+  StartOpaInstance = "START_OPA_INSTANCE",
+  StopOpaInstance = "STOP_OPA_INSTANCE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

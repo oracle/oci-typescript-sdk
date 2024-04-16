@@ -31,5 +31,9 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as StartOpaInstanceResponse from "./start-opa-instance-response";
+export import StartOpaInstanceResponse = StartOpaInstanceResponse.StartOpaInstanceResponse;
+import * as StopOpaInstanceResponse from "./stop-opa-instance-response";
+export import StopOpaInstanceResponse = StopOpaInstanceResponse.StopOpaInstanceResponse;
 import * as UpdateOpaInstanceResponse from "./update-opa-instance-response";
 export import UpdateOpaInstanceResponse = UpdateOpaInstanceResponse.UpdateOpaInstanceResponse;

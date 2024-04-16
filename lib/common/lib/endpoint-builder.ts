@@ -5,6 +5,7 @@
 
 import { Region } from "./region";
 import { Realm } from "./realm";
+import { LOG } from "./log";
 
 export class EndpointBuilder {
   public static createEndpointFromRegion(
@@ -69,15 +70,17 @@ export class EndpointBuilder {
     const realmId = realm.realmId.toLowerCase();
     if (serviceEndpointTemplatePerRealm) {
       if (serviceEndpointTemplatePerRealm[realmId]) {
-        console.log(
-          `Using ${serviceEndpointTemplatePerRealm[realmId]} as the realm specific endpoint template`
-        );
+        if (LOG.logger)
+          LOG.logger.info(
+            `Using ${serviceEndpointTemplatePerRealm[realmId]} as the realm specific endpoint template`
+          );
         return serviceEndpointTemplatePerRealm[realmId];
       }
     }
-    console.log(
-      `Realm specific endpoint template for realm ${realmId} does not exist. Falling back to endpoint template : ${defaultTemplate}`
-    );
+    if (LOG.logger)
+      LOG.logger.info(
+        `Realm specific endpoint template for realm ${realmId} does not exist. Falling back to endpoint template : ${defaultTemplate}`
+      );
     return defaultTemplate;
   }
 
@@ -121,9 +124,10 @@ export class EndpointBuilder {
       ? fallbackSecondLevelDomain
       : Realm.OC1.secondLevelDomain;
 
-    console.log(
-      `Unknown regionId [${regionId}], falling back to using ${secondLevelDomain} as the second level domain.`
-    );
+    if (LOG.logger)
+      LOG.logger.info(
+        `Unknown regionId [${regionId}], falling back to using ${secondLevelDomain} as the second level domain.`
+      );
     return EndpointBuilder.createEndpointFromRegionIdAndSecondLevelDomain(
       templateToUse,
       regionId,

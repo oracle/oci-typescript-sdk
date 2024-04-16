@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Optional additional properties for dump transfer in source or target host. Default kind is CURL
+ * Optional additional properties for dump transfer in source or target host.
  *
  */
 export interface DataTransferMediumDetailsV2 {

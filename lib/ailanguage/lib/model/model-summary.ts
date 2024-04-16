@@ -42,6 +42,7 @@ export interface ModelSummary {
     | model.PreTrainedHealthNluModelDetails
     | model.PreTrainedUniversalModel
     | model.NamedEntityRecognitionModelDetails
+    | model.PiiModelDetails
     | model.PreTrainedLanguageDetectionModelDetails
     | model.PreTrainedNamedEntityRecognitionModelDetails
     | model.PreTrainedSentimentAnalysisModelDetails

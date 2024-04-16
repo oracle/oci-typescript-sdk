@@ -41,7 +41,7 @@ When a large language model generates a new token for the output text, a likelih
     */
   "likelihood": number;
   /**
-    * The reason why the model stopped generating tokens. 
+    * The reason why the model stopped generating tokens.
 * <p>
 A model stops generating tokens if the model hits a natural stop point or reaches a provided stop sequence.
 * 

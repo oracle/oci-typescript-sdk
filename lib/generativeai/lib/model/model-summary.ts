@@ -124,6 +124,7 @@ export namespace ModelSummary {
     TextSummarization = "TEXT_SUMMARIZATION",
     TextEmbeddings = "TEXT_EMBEDDINGS",
     FineTune = "FINE_TUNE",
+    Chat = "CHAT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

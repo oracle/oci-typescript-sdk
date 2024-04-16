@@ -22,25 +22,70 @@ import common = require("oci-common");
  */
 export interface PiiEntity {
   /**
+   * Unique id of the entity.
+   */
+  "id"?: string;
+  /**
    * The number of Unicode code points preceding this entity in the submitted text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "offset"?: number;
+  "offset": number;
   /**
    * Length of PII entity text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "length"?: number;
+  "length": number;
   /**
    * Entity text like name of person, Organization and so on.
    */
-  "text"?: string;
+  "text": string;
   /**
-   * Type of PII entity text like PER, LOC.
+   * Entity type supported
+   * PERSON
+   * ADDRESS
+   * AGE
+   * DATE_TIME
+   * SSN_OR_TAXPAYER
+   * EMAIL
+   * PASSPORT_NUMBER_US
+   * TELEPHONE_NUMBER
+   * DRIVER_ID_US
+   * BANK_ACCOUNT_NUMBER
+   * BANK_SWIFT
+   * BANK_ROUTING
+   * CREDIT_DEBIT_NUMBER
+   * IP_ADDRESS
+   * MAC_ADDRESS
+   * COOKIE
+   * XSRF_TOKEN
+   * AUTH_BASIC
+   * AUTH_BEARER
+   * JSON_WEB_TOKEN
+   * PRIVATE_KEY
+   * PUBLIC_KEY
+   * OCI_OCID_USER
+   * OCI_OCID_TENANCY
+   * OCI_SMTP_USERNAME
+   * OCI_OCID_REFERENCE
+   * OCI_FINGERPRINT
+   * OCI_CREDENTIAL
+   * OCI_PRE_AUTH_REQUEST
+   * OCI_STORAGE_SIGNED_URL
+   * OCI_CUSTOMER_SECRET_KEY
+   * OCI_ACCESS_KEy
+   * MEDICAL_RECORD_NUMBER
+   * HEALTH_PLAN_ID
+   * URL
+   * CERTIFICATE_NUMBER
+   * FIN
+   * GUIDs
+   * VEHICLE_LICENSE_PLATE_US
+   * VEHICLE_IDENTIFIER_US
+   *
    */
-  "type"?: string;
+  "type": string;
   /**
    * Score or confidence for detected PII entity. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "score"?: number;
+  "score": number;
 }
 
 export namespace PiiEntity {

@@ -19,6 +19,8 @@ import common = require("oci-common");
  *
  */
 export interface NfsDataTransferMediumDetails extends model.DataTransferMediumDetailsV2 {
+  "objectStorageBucket"?: model.ObjectStoreBucket;
+
   "type": string;
 }
 
@@ -28,7 +30,11 @@ export namespace NfsDataTransferMediumDetails {
       ...(isParentJsonObj
         ? obj
         : (model.DataTransferMediumDetailsV2.getJsonObj(obj) as NfsDataTransferMediumDetails)),
-      ...{}
+      ...{
+        "objectStorageBucket": obj.objectStorageBucket
+          ? model.ObjectStoreBucket.getJsonObj(obj.objectStorageBucket)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -44,7 +50,11 @@ export namespace NfsDataTransferMediumDetails {
         : (model.DataTransferMediumDetailsV2.getDeserializedJsonObj(
             obj
           ) as NfsDataTransferMediumDetails)),
-      ...{}
+      ...{
+        "objectStorageBucket": obj.objectStorageBucket
+          ? model.ObjectStoreBucket.getDeserializedJsonObj(obj.objectStorageBucket)
+          : undefined
+      }
     };
 
     return jsonObj;

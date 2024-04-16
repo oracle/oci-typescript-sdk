@@ -999,6 +999,150 @@ export class OpaInstanceClient {
   }
 
   /**
+   * Start an OPA instance that was previously in an INACTIVE state
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartOpaInstanceRequest
+   * @return StartOpaInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/StartOpaInstance.ts.html |here} to see how to use StartOpaInstance API.
+   */
+  public async startOpaInstance(
+    startOpaInstanceRequest: requests.StartOpaInstanceRequest
+  ): Promise<responses.StartOpaInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#startOpaInstance.");
+    const operationName = "startOpaInstance";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{opaInstanceId}": startOpaInstanceRequest.opaInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startOpaInstanceRequest.ifMatch,
+      "opc-request-id": startOpaInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startOpaInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opaInstances/{opaInstanceId}/actions/start",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartOpaInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Stop an OPA instance that was previously in an ACTIVE state
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StopOpaInstanceRequest
+   * @return StopOpaInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/StopOpaInstance.ts.html |here} to see how to use StopOpaInstance API.
+   */
+  public async stopOpaInstance(
+    stopOpaInstanceRequest: requests.StopOpaInstanceRequest
+  ): Promise<responses.StopOpaInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation OpaInstanceClient#stopOpaInstance.");
+    const operationName = "stopOpaInstance";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{opaInstanceId}": stopOpaInstanceRequest.opaInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopOpaInstanceRequest.ifMatch,
+      "opc-request-id": stopOpaInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopOpaInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opaInstances/{opaInstanceId}/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopOpaInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the OpaInstance
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOpaInstanceRequest
