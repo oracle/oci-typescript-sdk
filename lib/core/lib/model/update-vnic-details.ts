@@ -51,7 +51,7 @@ Example: {@code {\"Department\": \"Finance\"}}
 * Must be unique across all VNICs in the subnet and comply with
 * [RFC 952](https://tools.ietf.org/html/rfc952) and
 * [RFC 1123](https://tools.ietf.org/html/rfc1123).
-* The value appears in the {@link Vnic} object and also the
+* The value appears in the {@code {@link Vnic}} object and also the
 * {@link PrivateIp} object returned by
 * {@link #listPrivateIps(ListPrivateIpsRequest) listPrivateIps} and
 * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp}.

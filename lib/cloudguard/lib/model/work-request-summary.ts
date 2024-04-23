@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of the status of a work request.
+ * Summary information about a work request.
  */
 export interface WorkRequestSummary {
   /**
@@ -26,27 +26,27 @@ export interface WorkRequestSummary {
    */
   "operationType": model.OperationType;
   /**
-   * Status of current work request.
+   * Status of current work request
    */
   "status": model.OperationStatus;
   /**
-   * The id of the work request.
+   * Unique identifier of the work request
    */
   "id": string;
   /**
-   * The ocid of the compartment that contains the work request. Work requests should be scoped to
+   * The OCID of the compartment that contains the work request. Work requests should be scoped to
    * the same compartment as the resource the work request affects. If the work request affects multiple resources,
    * and those resources are not in the same compartment, it is up to the service team to pick the primary
-   * resource whose compartment should be used
+   * resource whose compartment should be used.
    *
    */
   "compartmentId": string;
   /**
-   * The resources affected by this work request.
+   * List of resources affected by this work request
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * Percentage of the request completed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Percentage of work request completed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete": number;
   /**
@@ -58,7 +58,7 @@ export interface WorkRequestSummary {
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the object was finished
+   * The date and time the request was finished
    */
   "timeFinished"?: Date;
 }

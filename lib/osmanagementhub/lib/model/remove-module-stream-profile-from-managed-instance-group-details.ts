@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,13 +17,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The work request details for the module stream profile operation on the managed instance group.
+ * Provides the details for removing a module stream profile from a managed instance group.
  */
 export interface RemoveModuleStreamProfileFromManagedInstanceGroupDetails {
   /**
-   * The name of a module.
+   * The name of the module.
    */
-  "moduleName"?: string;
+  "moduleName": string;
   /**
    * The name of a stream of the specified module.
    */
@@ -31,6 +32,10 @@ export interface RemoveModuleStreamProfileFromManagedInstanceGroupDetails {
    * The name of a profile of the specified module stream.
    */
   "profileName"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source that provides the module stream
+   */
+  "softwareSourceId"?: string;
   "workRequestDetails"?: model.WorkRequestDetails;
 }
 

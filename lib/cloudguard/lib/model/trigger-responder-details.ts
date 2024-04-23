@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Responder details to be pushed to responder
+ * The responder triggering details to be pushed to responder rules.
  */
 export interface TriggerResponderDetails {
   /**
-   * ResponderRule ID
+   * Unique identifier for the responder rule
    */
   "responderRuleId": string;
   /**
-   * ResponderRule configurations
+   * List of responder rule configurations
    */
   "configurations"?: Array<model.ResponderConfiguration>;
 }

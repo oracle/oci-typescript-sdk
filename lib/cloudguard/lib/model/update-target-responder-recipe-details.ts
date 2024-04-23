@@ -18,11 +18,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated in ResponderRecipe.
+ * Parameters to update a responder recipe attached to a target.
+ * UpdateTargetResponderRecipe contains the responder rules to be updated
+ * that are associated with a responder recipe in a target. whereas
+ * UpdateTargetResponderRecipeDetails refers to the information to be updated
+ * in ResponderRecipe.
+ *
  */
 export interface UpdateTargetResponderRecipeDetails {
   /**
-   * Update responder rules associated with responder recipe in a target.
+   * List of responder rules to be updated in a target responder recipe.
    */
   "responderRules": Array<model.UpdateTargetRecipeResponderRuleDetails>;
 }

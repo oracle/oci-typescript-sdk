@@ -18,16 +18,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of ResponderRule.
+ * Parameters to update details for a responder rule for a target responder recipe.
+ * TargetResponderRuleDetails contains all configurations associated with the
+ * ResponderRule, whereas UpdateTargetResponderRecipeResponderRuleDetails
+ * refers to the details that are to be updated for ResponderRule.
+ *
  */
 export interface UpdateTargetResponderRuleDetails {
   "condition"?: model.SimpleCondition | model.CompositeCondition;
   /**
-   * Configurations associated with the ResponderRule
+   * List of responder rule configurations
    */
   "configurations"?: Array<model.ResponderConfiguration>;
   /**
-   * Execution Mode for ResponderRule
+   * Execution mode for the responder rule
    */
   "mode"?: model.ResponderModeTypes;
 }

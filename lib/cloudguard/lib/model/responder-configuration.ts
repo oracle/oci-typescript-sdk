@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A single configuration applied to a responder
+ * Details for a configuration to be applied to a responder.
  */
 export interface ResponderConfiguration {
   /**
-   * Unique name of the configuration
+   * Unique identifier of the configuration
    */
   "configKey": string;
   /**
-   * configuration name
+   * Configuration name
    */
   "name": string;
   /**
-   * configuration value
+   * Configuration value
    */
   "value": string;
 }

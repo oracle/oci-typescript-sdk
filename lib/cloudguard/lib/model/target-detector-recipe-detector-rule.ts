@@ -18,40 +18,63 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Detector Recipe Rule
- */
+* A TargetDetectorRecipeDetectorRule resource contains a specific instance of a
+* single detector rule in one of the supported detector types (for example,
+* activity, configuration, or threat).
+* <p>
+A TargetDetectorRecipeDetectorRule resource:
+* * Is effectively a copy of a DetectorRecipeRule resource (made when
+* a detector recipe is attached to a target) in which users can make
+* certain changes if it\u2019s Oracle-managed, and other changes if it\u2019s user-managed.
+* * Is visible on the Cloud Guard Targets, Target Details page.
+* * Is effectively located in a specific OCI compartment, through the
+* ThreatDetectorRecipe resource to which it belongs.
+* * Can be modified by users, programmatically or through the UI.
+* * Changes that can be made here apply locally, to resources in OCI compartments
+* mapped to the target that attaches the associated detector recipe
+* (in a TargetDetectorRecipe resource), and override any changes made in rules
+* associated with the corresponding DetectorRecipe resource.
+* 
+*/
 export interface TargetDetectorRecipeDetectorRule {
   /**
-   * The unique identifier of the detector rule.
+   * The unique identifier of the detector rule
    */
   "detectorRuleId": string;
   /**
-   * Display name for TargetDetectorRecipeDetectorRule. information.
+   * Display name for TargetDetectorRecipeDetectorRule resource
    */
   "displayName"?: string;
   /**
-   * Description for TargetDetectorRecipeDetectorRule. information.
+   * Description for TargetDetectorRecipeDetectorRule resource
    */
   "description"?: string;
   /**
-   * Recommendation for TargetDetectorRecipeDetectorRule
+   * Recommendation for TargetDetectorRecipeDetectorRule resource
    */
   "recommendation"?: string;
   /**
-   * detector for the rule
+   * Detector type for the rule
    */
   "detector": model.DetectorEnum;
   /**
-   * service type of the configuration to which the rule is applied
+   * Service type of the configuration to which the rule is applied
    */
   "serviceType": string;
   /**
-   * resource type of the configuration to which the rule is applied
-   */
+    * The type of resource which is monitored by the detector rule.
+* For example, Instance, Database, VCN, Policy. To find the resource type for a
+* particular rule, see [Detector Recipe Reference]
+* (/iaas/cloud-guard/using/detect-recipes.htm#detect-recipes-reference).
+* <p>
+Or try [Detector Recipe Reference]
+* (/cloud-guard/using/detect-recipes.htm#detect-recipes-reference).
+* 
+    */
   "resourceType": string;
   "details"?: model.TargetDetectorDetails;
   /**
-   * List of cloudguard managed list types related to this rule
+   * List of managed list types related to this rule
    */
   "managedListTypes"?: Array<TargetDetectorRecipeDetectorRule.ManagedListTypes>;
   /**
@@ -59,11 +82,11 @@ export interface TargetDetectorRecipeDetectorRule {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the target detector recipe rule was updated. Format defined by RFC3339.
+   * The date and time the target detector recipe rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the DetectorRule.
+   * The current lifecycle state of the detector rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -71,13 +94,17 @@ export interface TargetDetectorRecipeDetectorRule {
    */
   "lifecycleDetails"?: string;
   /**
-   * The id of the attached DataSource.
+   * The ID of the attached data source
    */
   "dataSourceId"?: string;
   /**
-   * Data Source entities mapping for a Detector Rule
+   * Data source entities mapping for a detector rule
    */
   "entitiesMappings"?: Array<model.EntitiesMapping>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace TargetDetectorRecipeDetectorRule {
@@ -113,6 +140,11 @@ export namespace TargetDetectorRecipeDetectorRule {
           ? obj.entitiesMappings.map(item => {
               return model.EntitiesMapping.getJsonObj(item);
             })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -130,6 +162,11 @@ export namespace TargetDetectorRecipeDetectorRule {
         "entitiesMappings": obj.entitiesMappings
           ? obj.entitiesMappings.map(item => {
               return model.EntitiesMapping.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

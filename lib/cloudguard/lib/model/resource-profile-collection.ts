@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of resource profile summary.
+ * Collection of resource profile summaries.
  */
 export interface ResourceProfileCollection {
   /**
-   * List of resource profiles
+   * List of ResourceProfileSummary resources
    */
   "items": Array<model.ResourceProfileSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResourceProfileCollection {
@@ -35,6 +39,11 @@ export namespace ResourceProfileCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ResourceProfileSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace ResourceProfileCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ResourceProfileSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

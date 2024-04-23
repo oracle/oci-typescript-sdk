@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDetectorRecipesRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -28,17 +28,17 @@ export interface ListDetectorRecipesRequest extends common.BaseRequest {
   "displayName"?: string;
   /**
    * Default is false.
-   * When set to true, the list of all Oracle Managed Resources
-   * Metadata supported by Cloud Guard are returned.
+   * When set to true, the list of all Oracle-managed resources
+   * metadata supported by Cloud Guard is returned.
    *
    */
   "resourceMetadataOnly"?: boolean;
   /**
-   * The field life cycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
+   * The field lifecycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -49,7 +49,7 @@ export interface ListDetectorRecipesRequest extends common.BaseRequest {
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -63,7 +63,7 @@ export interface ListDetectorRecipesRequest extends common.BaseRequest {
    */
   "accessLevel"?: ListDetectorRecipesRequest.AccessLevel;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

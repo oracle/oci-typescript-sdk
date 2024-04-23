@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the summary of responder activities and their corresponding count value.
+ * Provides a summary of responder activities and their corresponding count values.
  */
 export interface ResponderActivityCollection {
   /**
-   * List of ResponderActivitySummary
+   * List of ResponderActivitySummary resources
    */
   "items": Array<model.ResponderActivitySummary>;
 }

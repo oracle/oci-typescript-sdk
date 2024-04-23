@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface DetachManagedInstancesFromLifecycleStageRequest extends common.BaseRequest {
   /**
-   * The OCID of the lifecycle stage.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage.
    */
   "lifecycleStageId": string;
   /**
-   * Details for managed instances to detach from the lifecycle stage.
+   * Details for the managed instance to detach from the lifecycle stage.
    */
   "detachManagedInstancesFromLifecycleStageDetails": model.DetachManagedInstancesFromLifecycleStageDetails;
   /**

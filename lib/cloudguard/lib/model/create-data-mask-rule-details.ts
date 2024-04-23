@@ -18,27 +18,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Data Mask Rule.
+ * Parameters to us to create a new data mask rule.
  */
 export interface CreateDataMaskRuleDetails {
   /**
-    * Data mask rule name.
+    * Data mask rule display name
 * <p>
 Avoid entering confidential information.
 * 
     */
   "displayName": string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * The data mask rule description.
+   * The data mask rule description
    * Avoid entering confidential information.
    */
   "description"?: string;
   /**
-   * IAM Group id associated with the data mask rule
+   * IAM group ID associated with the data mask rule
    */
   "iamGroupId": string;
   "targetSelected":
@@ -46,15 +46,15 @@ Avoid entering confidential information.
     | model.TargetResourceTypesSelected
     | model.TargetIdsSelected;
   /**
-   * Data Mask Categories
+   * Data mask rule categories
    */
   "dataMaskCategories": Array<CreateDataMaskRuleDetails.DataMaskCategories>;
   /**
-   * The status of the dataMaskRule.
+   * The current status of the data mask rule
    */
   "dataMaskRuleStatus"?: model.DataMaskRuleStatus;
   /**
-   * The current state of the DataMaskRule.
+   * The current lifecycle state of the data mask rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**

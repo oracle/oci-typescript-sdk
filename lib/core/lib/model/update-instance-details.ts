@@ -108,6 +108,9 @@ Example: {@code VM.Standard2.1}
     */
   "shape"?: string;
   "shapeConfig"?: model.UpdateInstanceShapeConfigDetails;
+  "sourceDetails"?:
+    | model.UpdateInstanceSourceViaBootVolumeDetails
+    | model.UpdateInstanceSourceViaImageDetails;
   /**
    * The parameter acts as a fail-safe to prevent unwanted downtime when updating a running instance.
    * The default is ALLOW_DOWNTIME.
@@ -187,6 +190,9 @@ export namespace UpdateInstanceDetails {
         "shapeConfig": obj.shapeConfig
           ? model.UpdateInstanceShapeConfigDetails.getJsonObj(obj.shapeConfig)
           : undefined,
+        "sourceDetails": obj.sourceDetails
+          ? model.UpdateInstanceSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
 
         "instanceOptions": obj.instanceOptions
           ? model.InstanceOptions.getJsonObj(obj.instanceOptions)
@@ -217,6 +223,9 @@ export namespace UpdateInstanceDetails {
 
         "shapeConfig": obj.shapeConfig
           ? model.UpdateInstanceShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined,
+        "sourceDetails": obj.sourceDetails
+          ? model.UpdateInstanceSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
           : undefined,
 
         "instanceOptions": obj.instanceOptions

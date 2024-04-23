@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * resource type provided by cloud guard
+ * Collection of supported resource types.
  */
 export interface ResourceTypeCollection {
   /**
-   * collection of resource types
+   * List of ResourceTypeSummary resources
    */
   "items": Array<model.ResourceTypeSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResourceTypeCollection {
@@ -35,6 +39,11 @@ export namespace ResourceTypeCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ResourceTypeSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace ResourceTypeCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ResourceTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDataMaskRulesRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -27,7 +27,7 @@ export interface ListDataMaskRulesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The field life cycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
+   * The field lifecycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -40,7 +40,7 @@ export interface ListDataMaskRulesRequest extends common.BaseRequest {
    */
   "accessLevel"?: ListDataMaskRulesRequest.AccessLevel;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -48,7 +48,7 @@ export interface ListDataMaskRulesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**
@@ -61,15 +61,15 @@ export interface ListDataMaskRulesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The status of the dataMaskRule.
+   * The status of the data mask rule
    */
   "dataMaskRuleStatus"?: model.DataMaskRuleStatus;
   /**
-   * OCID of target
+   * OCID of the target
    */
   "targetId"?: string;
   /**
-   * OCID of iamGroup
+   * OCID of the IAM group
    */
   "iamGroupId"?: string;
   /**

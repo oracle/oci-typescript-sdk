@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Resource Profile Endpoints summary.
+ * Summary information for resource profile endpoints.
  */
 export interface ResourceProfileEndpointSummary {
   /**
@@ -26,59 +26,59 @@ export interface ResourceProfileEndpointSummary {
    */
   "id": string;
   /**
-   * Resource profile Id associated with the imacted resource
+   * Resource profile ID associated with the impacted resource
    */
   "resourceProfileId": string;
   /**
-   * Problem Id for sighting endpoints
+   * Problem ID for sighting endpoints
    */
   "problemId"?: string;
   /**
-   * Identifier for the sighting type
+   * Type of sighting for sighting endpoints
    */
   "sightingType": string;
   /**
-   * Name of the sighting type
+   * Display name of the sighting type
    */
   "sightingTypeDisplayName": string;
   /**
-   * IP Address
+   * IP address for sighting
    */
   "ipAddress": string;
   /**
-   * IP Address type
+   * Type of IP address for sighting
    */
   "ipAddressType": string;
   /**
-   * IP Address classification type
+   * IP address classification type
    */
   "ipClassificationType"?: string;
   /**
-   * Country
+   * Country of sighting
    */
   "country"?: string;
   /**
-   * Latitude Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Latitude of sighting Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "latitude"?: number;
   /**
-   * Longitude Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Longitude of sighting Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "longitude"?: number;
   /**
-   * ASN number
+   * ASN number of sighting
    */
   "asnNumber"?: string;
   /**
-   * Regions where activities were performed from this IP
+   * Regions where activities were performed from this IP address
    */
   "regions"?: Array<string>;
   /**
-   * Services where activities were performed from this IP
+   * List of services where activities were performed from this IP address
    */
   "services"?: Array<string>;
   /**
-   * Time when activities were created
+   * Date and time when activities were created
    */
   "timeLastDetected": Date;
 }

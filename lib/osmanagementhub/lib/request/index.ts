@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -12,8 +13,26 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeEventCompartmentRequest from "./change-event-compartment-request";
+export import ChangeEventCompartmentRequest = ChangeEventCompartmentRequest.ChangeEventCompartmentRequest;
+import * as DeleteEventRequest from "./delete-event-request";
+export import DeleteEventRequest = DeleteEventRequest.DeleteEventRequest;
+import * as DeleteEventContentRequest from "./delete-event-content-request";
+export import DeleteEventContentRequest = DeleteEventContentRequest.DeleteEventContentRequest;
+import * as GetEventRequest from "./get-event-request";
+export import GetEventRequest = GetEventRequest.GetEventRequest;
+import * as GetEventContentRequest from "./get-event-content-request";
+export import GetEventContentRequest = GetEventContentRequest.GetEventContentRequest;
+import * as ImportEventContentRequest from "./import-event-content-request";
+export import ImportEventContentRequest = ImportEventContentRequest.ImportEventContentRequest;
+import * as ListEventsRequest from "./list-events-request";
+export import ListEventsRequest = ListEventsRequest.ListEventsRequest;
+import * as UpdateEventRequest from "./update-event-request";
+export import UpdateEventRequest = UpdateEventRequest.UpdateEventRequest;
 import * as AttachManagedInstancesToLifecycleStageRequest from "./attach-managed-instances-to-lifecycle-stage-request";
 export import AttachManagedInstancesToLifecycleStageRequest = AttachManagedInstancesToLifecycleStageRequest.AttachManagedInstancesToLifecycleStageRequest;
+import * as ChangeLifecycleEnvironmentCompartmentRequest from "./change-lifecycle-environment-compartment-request";
+export import ChangeLifecycleEnvironmentCompartmentRequest = ChangeLifecycleEnvironmentCompartmentRequest.ChangeLifecycleEnvironmentCompartmentRequest;
 import * as CreateLifecycleEnvironmentRequest from "./create-lifecycle-environment-request";
 export import CreateLifecycleEnvironmentRequest = CreateLifecycleEnvironmentRequest.CreateLifecycleEnvironmentRequest;
 import * as DeleteLifecycleEnvironmentRequest from "./delete-lifecycle-environment-request";
@@ -34,8 +53,14 @@ import * as PromoteSoftwareSourceToLifecycleStageRequest from "./promote-softwar
 export import PromoteSoftwareSourceToLifecycleStageRequest = PromoteSoftwareSourceToLifecycleStageRequest.PromoteSoftwareSourceToLifecycleStageRequest;
 import * as UpdateLifecycleEnvironmentRequest from "./update-lifecycle-environment-request";
 export import UpdateLifecycleEnvironmentRequest = UpdateLifecycleEnvironmentRequest.UpdateLifecycleEnvironmentRequest;
+import * as AttachProfileToManagedInstanceRequest from "./attach-profile-to-managed-instance-request";
+export import AttachProfileToManagedInstanceRequest = AttachProfileToManagedInstanceRequest.AttachProfileToManagedInstanceRequest;
 import * as AttachSoftwareSourcesToManagedInstanceRequest from "./attach-software-sources-to-managed-instance-request";
 export import AttachSoftwareSourcesToManagedInstanceRequest = AttachSoftwareSourcesToManagedInstanceRequest.AttachSoftwareSourcesToManagedInstanceRequest;
+import * as DeleteManagedInstanceRequest from "./delete-managed-instance-request";
+export import DeleteManagedInstanceRequest = DeleteManagedInstanceRequest.DeleteManagedInstanceRequest;
+import * as DetachProfileFromManagedInstanceRequest from "./detach-profile-from-managed-instance-request";
+export import DetachProfileFromManagedInstanceRequest = DetachProfileFromManagedInstanceRequest.DetachProfileFromManagedInstanceRequest;
 import * as DetachSoftwareSourcesFromManagedInstanceRequest from "./detach-software-sources-from-managed-instance-request";
 export import DetachSoftwareSourcesFromManagedInstanceRequest = DetachSoftwareSourcesFromManagedInstanceRequest.DetachSoftwareSourcesFromManagedInstanceRequest;
 import * as DisableModuleStreamOnManagedInstanceRequest from "./disable-module-stream-on-managed-instance-request";
@@ -44,24 +69,36 @@ import * as EnableModuleStreamOnManagedInstanceRequest from "./enable-module-str
 export import EnableModuleStreamOnManagedInstanceRequest = EnableModuleStreamOnManagedInstanceRequest.EnableModuleStreamOnManagedInstanceRequest;
 import * as GetManagedInstanceRequest from "./get-managed-instance-request";
 export import GetManagedInstanceRequest = GetManagedInstanceRequest.GetManagedInstanceRequest;
+import * as GetWindowsUpdateRequest from "./get-windows-update-request";
+export import GetWindowsUpdateRequest = GetWindowsUpdateRequest.GetWindowsUpdateRequest;
+import * as InstallAllWindowsUpdatesOnManagedInstancesInCompartmentRequest from "./install-all-windows-updates-on-managed-instances-in-compartment-request";
+export import InstallAllWindowsUpdatesOnManagedInstancesInCompartmentRequest = InstallAllWindowsUpdatesOnManagedInstancesInCompartmentRequest.InstallAllWindowsUpdatesOnManagedInstancesInCompartmentRequest;
 import * as InstallModuleStreamProfileOnManagedInstanceRequest from "./install-module-stream-profile-on-managed-instance-request";
 export import InstallModuleStreamProfileOnManagedInstanceRequest = InstallModuleStreamProfileOnManagedInstanceRequest.InstallModuleStreamProfileOnManagedInstanceRequest;
 import * as InstallPackagesOnManagedInstanceRequest from "./install-packages-on-managed-instance-request";
 export import InstallPackagesOnManagedInstanceRequest = InstallPackagesOnManagedInstanceRequest.InstallPackagesOnManagedInstanceRequest;
+import * as InstallWindowsUpdatesOnManagedInstanceRequest from "./install-windows-updates-on-managed-instance-request";
+export import InstallWindowsUpdatesOnManagedInstanceRequest = InstallWindowsUpdatesOnManagedInstanceRequest.InstallWindowsUpdatesOnManagedInstanceRequest;
 import * as ListManagedInstanceAvailablePackagesRequest from "./list-managed-instance-available-packages-request";
 export import ListManagedInstanceAvailablePackagesRequest = ListManagedInstanceAvailablePackagesRequest.ListManagedInstanceAvailablePackagesRequest;
 import * as ListManagedInstanceAvailableSoftwareSourcesRequest from "./list-managed-instance-available-software-sources-request";
 export import ListManagedInstanceAvailableSoftwareSourcesRequest = ListManagedInstanceAvailableSoftwareSourcesRequest.ListManagedInstanceAvailableSoftwareSourcesRequest;
+import * as ListManagedInstanceAvailableWindowsUpdatesRequest from "./list-managed-instance-available-windows-updates-request";
+export import ListManagedInstanceAvailableWindowsUpdatesRequest = ListManagedInstanceAvailableWindowsUpdatesRequest.ListManagedInstanceAvailableWindowsUpdatesRequest;
 import * as ListManagedInstanceErrataRequest from "./list-managed-instance-errata-request";
 export import ListManagedInstanceErrataRequest = ListManagedInstanceErrataRequest.ListManagedInstanceErrataRequest;
 import * as ListManagedInstanceInstalledPackagesRequest from "./list-managed-instance-installed-packages-request";
 export import ListManagedInstanceInstalledPackagesRequest = ListManagedInstanceInstalledPackagesRequest.ListManagedInstanceInstalledPackagesRequest;
+import * as ListManagedInstanceInstalledWindowsUpdatesRequest from "./list-managed-instance-installed-windows-updates-request";
+export import ListManagedInstanceInstalledWindowsUpdatesRequest = ListManagedInstanceInstalledWindowsUpdatesRequest.ListManagedInstanceInstalledWindowsUpdatesRequest;
 import * as ListManagedInstanceModulesRequest from "./list-managed-instance-modules-request";
 export import ListManagedInstanceModulesRequest = ListManagedInstanceModulesRequest.ListManagedInstanceModulesRequest;
 import * as ListManagedInstanceUpdatablePackagesRequest from "./list-managed-instance-updatable-packages-request";
 export import ListManagedInstanceUpdatablePackagesRequest = ListManagedInstanceUpdatablePackagesRequest.ListManagedInstanceUpdatablePackagesRequest;
 import * as ListManagedInstancesRequest from "./list-managed-instances-request";
 export import ListManagedInstancesRequest = ListManagedInstancesRequest.ListManagedInstancesRequest;
+import * as ListWindowsUpdatesRequest from "./list-windows-updates-request";
+export import ListWindowsUpdatesRequest = ListWindowsUpdatesRequest.ListWindowsUpdatesRequest;
 import * as ManageModuleStreamsOnManagedInstanceRequest from "./manage-module-streams-on-managed-instance-request";
 export import ManageModuleStreamsOnManagedInstanceRequest = ManageModuleStreamsOnManagedInstanceRequest.ManageModuleStreamsOnManagedInstanceRequest;
 import * as RefreshSoftwareOnManagedInstanceRequest from "./refresh-software-on-managed-instance-request";
@@ -82,6 +119,8 @@ import * as AttachManagedInstancesToManagedInstanceGroupRequest from "./attach-m
 export import AttachManagedInstancesToManagedInstanceGroupRequest = AttachManagedInstancesToManagedInstanceGroupRequest.AttachManagedInstancesToManagedInstanceGroupRequest;
 import * as AttachSoftwareSourcesToManagedInstanceGroupRequest from "./attach-software-sources-to-managed-instance-group-request";
 export import AttachSoftwareSourcesToManagedInstanceGroupRequest = AttachSoftwareSourcesToManagedInstanceGroupRequest.AttachSoftwareSourcesToManagedInstanceGroupRequest;
+import * as ChangeManagedInstanceGroupCompartmentRequest from "./change-managed-instance-group-compartment-request";
+export import ChangeManagedInstanceGroupCompartmentRequest = ChangeManagedInstanceGroupCompartmentRequest.ChangeManagedInstanceGroupCompartmentRequest;
 import * as CreateManagedInstanceGroupRequest from "./create-managed-instance-group-request";
 export import CreateManagedInstanceGroupRequest = CreateManagedInstanceGroupRequest.CreateManagedInstanceGroupRequest;
 import * as DeleteManagedInstanceGroupRequest from "./delete-managed-instance-group-request";
@@ -100,6 +139,8 @@ import * as InstallModuleStreamProfileOnManagedInstanceGroupRequest from "./inst
 export import InstallModuleStreamProfileOnManagedInstanceGroupRequest = InstallModuleStreamProfileOnManagedInstanceGroupRequest.InstallModuleStreamProfileOnManagedInstanceGroupRequest;
 import * as InstallPackagesOnManagedInstanceGroupRequest from "./install-packages-on-managed-instance-group-request";
 export import InstallPackagesOnManagedInstanceGroupRequest = InstallPackagesOnManagedInstanceGroupRequest.InstallPackagesOnManagedInstanceGroupRequest;
+import * as InstallWindowsUpdatesOnManagedInstanceGroupRequest from "./install-windows-updates-on-managed-instance-group-request";
+export import InstallWindowsUpdatesOnManagedInstanceGroupRequest = InstallWindowsUpdatesOnManagedInstanceGroupRequest.InstallWindowsUpdatesOnManagedInstanceGroupRequest;
 import * as ListManagedInstanceGroupAvailableModulesRequest from "./list-managed-instance-group-available-modules-request";
 export import ListManagedInstanceGroupAvailableModulesRequest = ListManagedInstanceGroupAvailableModulesRequest.ListManagedInstanceGroupAvailableModulesRequest;
 import * as ListManagedInstanceGroupAvailablePackagesRequest from "./list-managed-instance-group-available-packages-request";
@@ -118,10 +159,14 @@ import * as RemoveModuleStreamProfileFromManagedInstanceGroupRequest from "./rem
 export import RemoveModuleStreamProfileFromManagedInstanceGroupRequest = RemoveModuleStreamProfileFromManagedInstanceGroupRequest.RemoveModuleStreamProfileFromManagedInstanceGroupRequest;
 import * as RemovePackagesFromManagedInstanceGroupRequest from "./remove-packages-from-managed-instance-group-request";
 export import RemovePackagesFromManagedInstanceGroupRequest = RemovePackagesFromManagedInstanceGroupRequest.RemovePackagesFromManagedInstanceGroupRequest;
+import * as SwitchModuleStreamOnManagedInstanceGroupRequest from "./switch-module-stream-on-managed-instance-group-request";
+export import SwitchModuleStreamOnManagedInstanceGroupRequest = SwitchModuleStreamOnManagedInstanceGroupRequest.SwitchModuleStreamOnManagedInstanceGroupRequest;
 import * as UpdateAllPackagesOnManagedInstanceGroupRequest from "./update-all-packages-on-managed-instance-group-request";
 export import UpdateAllPackagesOnManagedInstanceGroupRequest = UpdateAllPackagesOnManagedInstanceGroupRequest.UpdateAllPackagesOnManagedInstanceGroupRequest;
 import * as UpdateManagedInstanceGroupRequest from "./update-managed-instance-group-request";
 export import UpdateManagedInstanceGroupRequest = UpdateManagedInstanceGroupRequest.UpdateManagedInstanceGroupRequest;
+import * as ChangeManagementStationCompartmentRequest from "./change-management-station-compartment-request";
+export import ChangeManagementStationCompartmentRequest = ChangeManagementStationCompartmentRequest.ChangeManagementStationCompartmentRequest;
 import * as CreateManagementStationRequest from "./create-management-station-request";
 export import CreateManagementStationRequest = CreateManagementStationRequest.CreateManagementStationRequest;
 import * as DeleteManagementStationRequest from "./delete-management-station-request";
@@ -132,12 +177,16 @@ import * as ListManagementStationsRequest from "./list-management-stations-reque
 export import ListManagementStationsRequest = ListManagementStationsRequest.ListManagementStationsRequest;
 import * as ListMirrorsRequest from "./list-mirrors-request";
 export import ListMirrorsRequest = ListMirrorsRequest.ListMirrorsRequest;
+import * as RefreshManagementStationConfigRequest from "./refresh-management-station-config-request";
+export import RefreshManagementStationConfigRequest = RefreshManagementStationConfigRequest.RefreshManagementStationConfigRequest;
 import * as SynchronizeMirrorsRequest from "./synchronize-mirrors-request";
 export import SynchronizeMirrorsRequest = SynchronizeMirrorsRequest.SynchronizeMirrorsRequest;
 import * as SynchronizeSingleMirrorsRequest from "./synchronize-single-mirrors-request";
 export import SynchronizeSingleMirrorsRequest = SynchronizeSingleMirrorsRequest.SynchronizeSingleMirrorsRequest;
 import * as UpdateManagementStationRequest from "./update-management-station-request";
 export import UpdateManagementStationRequest = UpdateManagementStationRequest.UpdateManagementStationRequest;
+import * as ChangeProfileCompartmentRequest from "./change-profile-compartment-request";
+export import ChangeProfileCompartmentRequest = ChangeProfileCompartmentRequest.ChangeProfileCompartmentRequest;
 import * as CreateProfileRequest from "./create-profile-request";
 export import CreateProfileRequest = CreateProfileRequest.CreateProfileRequest;
 import * as DeleteProfileRequest from "./delete-profile-request";
@@ -154,6 +203,8 @@ import * as GetManagedInstanceContentRequest from "./get-managed-instance-conten
 export import GetManagedInstanceContentRequest = GetManagedInstanceContentRequest.GetManagedInstanceContentRequest;
 import * as SummarizeManagedInstanceAnalyticsRequest from "./summarize-managed-instance-analytics-request";
 export import SummarizeManagedInstanceAnalyticsRequest = SummarizeManagedInstanceAnalyticsRequest.SummarizeManagedInstanceAnalyticsRequest;
+import * as ChangeScheduledJobCompartmentRequest from "./change-scheduled-job-compartment-request";
+export import ChangeScheduledJobCompartmentRequest = ChangeScheduledJobCompartmentRequest.ChangeScheduledJobCompartmentRequest;
 import * as CreateScheduledJobRequest from "./create-scheduled-job-request";
 export import CreateScheduledJobRequest = CreateScheduledJobRequest.CreateScheduledJobRequest;
 import * as DeleteScheduledJobRequest from "./delete-scheduled-job-request";
@@ -166,8 +217,12 @@ import * as RunScheduledJobNowRequest from "./run-scheduled-job-now-request";
 export import RunScheduledJobNowRequest = RunScheduledJobNowRequest.RunScheduledJobNowRequest;
 import * as UpdateScheduledJobRequest from "./update-scheduled-job-request";
 export import UpdateScheduledJobRequest = UpdateScheduledJobRequest.UpdateScheduledJobRequest;
+import * as AddPackagesToSoftwareSourceRequest from "./add-packages-to-software-source-request";
+export import AddPackagesToSoftwareSourceRequest = AddPackagesToSoftwareSourceRequest.AddPackagesToSoftwareSourceRequest;
 import * as ChangeAvailabilityOfSoftwareSourcesRequest from "./change-availability-of-software-sources-request";
 export import ChangeAvailabilityOfSoftwareSourcesRequest = ChangeAvailabilityOfSoftwareSourcesRequest.ChangeAvailabilityOfSoftwareSourcesRequest;
+import * as ChangeSoftwareSourceCompartmentRequest from "./change-software-source-compartment-request";
+export import ChangeSoftwareSourceCompartmentRequest = ChangeSoftwareSourceCompartmentRequest.ChangeSoftwareSourceCompartmentRequest;
 import * as CreateEntitlementRequest from "./create-entitlement-request";
 export import CreateEntitlementRequest = CreateEntitlementRequest.CreateEntitlementRequest;
 import * as CreateSoftwareSourceRequest from "./create-software-source-request";
@@ -184,8 +239,12 @@ import * as GetPackageGroupRequest from "./get-package-group-request";
 export import GetPackageGroupRequest = GetPackageGroupRequest.GetPackageGroupRequest;
 import * as GetSoftwarePackageRequest from "./get-software-package-request";
 export import GetSoftwarePackageRequest = GetSoftwarePackageRequest.GetSoftwarePackageRequest;
+import * as GetSoftwarePackageByNameRequest from "./get-software-package-by-name-request";
+export import GetSoftwarePackageByNameRequest = GetSoftwarePackageByNameRequest.GetSoftwarePackageByNameRequest;
 import * as GetSoftwareSourceRequest from "./get-software-source-request";
 export import GetSoftwareSourceRequest = GetSoftwareSourceRequest.GetSoftwareSourceRequest;
+import * as ListAllSoftwarePackagesRequest from "./list-all-software-packages-request";
+export import ListAllSoftwarePackagesRequest = ListAllSoftwarePackagesRequest.ListAllSoftwarePackagesRequest;
 import * as ListEntitlementsRequest from "./list-entitlements-request";
 export import ListEntitlementsRequest = ListEntitlementsRequest.ListEntitlementsRequest;
 import * as ListErrataRequest from "./list-errata-request";
@@ -196,6 +255,8 @@ import * as ListModuleStreamsRequest from "./list-module-streams-request";
 export import ListModuleStreamsRequest = ListModuleStreamsRequest.ListModuleStreamsRequest;
 import * as ListPackageGroupsRequest from "./list-package-groups-request";
 export import ListPackageGroupsRequest = ListPackageGroupsRequest.ListPackageGroupsRequest;
+import * as ListSoftwarePackageSoftwareSourcesRequest from "./list-software-package-software-sources-request";
+export import ListSoftwarePackageSoftwareSourcesRequest = ListSoftwarePackageSoftwareSourcesRequest.ListSoftwarePackageSoftwareSourcesRequest;
 import * as ListSoftwarePackagesRequest from "./list-software-packages-request";
 export import ListSoftwarePackagesRequest = ListSoftwarePackagesRequest.ListSoftwarePackagesRequest;
 import * as ListSoftwareSourceVendorsRequest from "./list-software-source-vendors-request";

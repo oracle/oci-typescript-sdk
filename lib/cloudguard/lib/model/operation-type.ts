@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible operation types.
+ * Possible operation types
  **/
 export enum OperationType {
   Create = "CREATE",

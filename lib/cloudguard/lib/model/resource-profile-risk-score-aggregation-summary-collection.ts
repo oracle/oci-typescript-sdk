@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of resource profile risk score trends.
+ * Collection of resource profile risk score aggregation summaries.
  */
 export interface ResourceProfileRiskScoreAggregationSummaryCollection {
   /**
-   * List of ResourceProfileRiskScoreAggregationSummary
+   * List of ResourceProfileRiskScoreAggregationSummary resources
    */
   "items": Array<model.ResourceProfileRiskScoreAggregationSummary>;
 }

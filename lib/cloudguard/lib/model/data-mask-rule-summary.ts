@@ -18,27 +18,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of DataMaskRule.
+ * Summary information for a data mask rule.
  */
 export interface DataMaskRuleSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * Data Mask Rule Name.
+   * Data mask rule display name
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * The data mask rule description.
+   * The data mask rule description
    */
   "description"?: string;
   /**
-   * IAM Group id associated with the data mask rule
+   * IAM group ID associated with the data mask rule
    */
   "iamGroupId": string;
   "targetSelected":
@@ -46,7 +46,7 @@ export interface DataMaskRuleSummary {
     | model.TargetResourceTypesSelected
     | model.TargetIdsSelected;
   /**
-   * Data Mask Categories
+   * List of data mask rule categories
    */
   "dataMaskCategories"?: Array<DataMaskRuleSummary.DataMaskCategories>;
   /**
@@ -58,15 +58,15 @@ export interface DataMaskRuleSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * The status of the dataMaskRule.
+   * The current status of the data mask rule
    */
   "dataMaskRuleStatus"?: model.DataMaskRuleStatus;
   /**
-   * The current state of the DataMaskRule.
+   * The current lifecycle state of the data mask rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state. [DEPRECATE]
    */
   "lifecyleDetails"?: string;
   /**

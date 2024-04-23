@@ -18,11 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A security policy defines a security requirement for resources in a security zone. If a security zone enables a policy (using a recipe), then any action that attempts to violate that policy is denied.
+ * A security policy (SecurityPolicy resource) defines security requirements
+ * for resources in a security zone. If a security zone enables a security policy through
+ * a security recipe (SecurityRecipe resource), then any action that would violate that
+ * policy is blocked.
+ *
  */
 export interface SecurityPolicy {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can\u2019t be changed after creation
    */
   "id": string;
   /**
@@ -30,7 +34,7 @@ export interface SecurityPolicy {
    */
   "friendlyName"?: string;
   /**
-   * The security policy's full name
+   * The security policy's display name
    */
   "displayName"?: string;
   /**
@@ -38,7 +42,7 @@ export interface SecurityPolicy {
    */
   "description"?: string;
   /**
-   * The id of the security policy's compartment
+   * The OCID of the security policy's compartment
    */
   "compartmentId": string;
   /**
@@ -46,7 +50,7 @@ export interface SecurityPolicy {
    */
   "owner": model.OwnerType;
   /**
-   * The category of security policy
+   * The category of the security policy
    */
   "category"?: string;
   /**
@@ -62,13 +66,17 @@ export interface SecurityPolicy {
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the security policy
+   * The current lifecycle state of the security policy
    */
   "lifecycleState"?: model.LifecycleState;
   /**
    * A message describing the current state in more detail. For example, this can be used to provide actionable information for a resource in a {@code Failed} state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * Example: {@code {\"bar-key\": \"value\"}}
@@ -96,12 +104,30 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 
 export namespace SecurityPolicy {
   export function getJsonObj(obj: SecurityPolicy): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: SecurityPolicy): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

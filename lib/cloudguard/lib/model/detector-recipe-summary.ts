@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of Detector recipe
+ * Summary information for a detector recipe.
  */
 export interface DetectorRecipeSummary {
   /**
-   * Ocid for detector recipe
+   * OCID for detector recipe
    */
   "id": string;
   /**
-   * DisplayName of detector recipe
+   * Display name for detector recipe
    */
   "displayName": string;
   /**
@@ -34,23 +34,27 @@ export interface DetectorRecipeSummary {
    */
   "description"?: string;
   /**
-   * compartmentId of detector recipe
+   * Compartment OCID of detector recipe
    */
   "compartmentId": string;
   /**
-   * Recipe Ocid of the Source Recipe to be cloned
+   * Recipe OCID of the source recipe to be cloned
    */
   "sourceDetectorRecipeId"?: string;
   /**
-   * Owner of detector recipe
+   * Owner of the detector recipe
    */
   "owner": model.OwnerType;
+  /**
+   * Recipe type ( STANDARD, ENTERPRISE )
+   */
+  "detectorRecipeType"?: model.DetectorRecipeEnum;
   /**
    * Type of detector
    */
   "detector": model.DetectorEnum;
   /**
-   * List of detetor rules for the detector type
+   * List of detector rules for the detector type
    */
   "detectorRules"?: Array<model.DetectorRecipeDetectorRule>;
   /**
@@ -58,11 +62,11 @@ export interface DetectorRecipeSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the detector recipe was updated. Format defined by RFC3339.
+   * The date and time the detector recipe was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
   /**

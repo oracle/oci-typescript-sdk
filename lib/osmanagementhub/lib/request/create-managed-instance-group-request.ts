@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateManagedInstanceGroupRequest extends common.BaseRequest {
   /**
-   * Details for the new managed instance group.
+   * Provides the information used to create the managed instance group.
    */
   "createManagedInstanceGroupDetails": model.CreateManagedInstanceGroupDetails;
   /**

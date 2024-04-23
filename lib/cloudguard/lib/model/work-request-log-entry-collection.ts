@@ -18,13 +18,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a workRequestLog search. Contains both workRequestLog items and other information, such as metadata.
+ * The collection of work request log entries. These result from a
+ * workRequestLog search. Contains both workRequestLog items and
+ * other information, such as metadata.
+ *
  */
 export interface WorkRequestLogEntryCollection {
   /**
-   * List of workRequestLogEntries.
+   * List of workRequestLogEntry resources
    */
   "items": Array<model.WorkRequestLogEntry>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace WorkRequestLogEntryCollection {
@@ -35,6 +42,11 @@ export namespace WorkRequestLogEntryCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.WorkRequestLogEntry.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +61,11 @@ export namespace WorkRequestLogEntryCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.WorkRequestLogEntry.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

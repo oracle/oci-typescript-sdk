@@ -50,6 +50,10 @@ export interface InstanceReservationConfig {
    * The amount of capacity in use out of the total capacity reserved in this capacity configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usedCount": number;
+  /**
+   * The OCID of the cluster placement group for this instance reservation capacity configuration.
+   */
+  "clusterPlacementGroupId"?: string;
 }
 
 export namespace InstanceReservationConfig {

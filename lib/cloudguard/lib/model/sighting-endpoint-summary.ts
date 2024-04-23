@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Sighting Endpoints summary.
+ * A summary of sighting endpoints.
  */
 export interface SightingEndpointSummary {
   /**
@@ -26,51 +26,51 @@ export interface SightingEndpointSummary {
    */
   "id": string;
   /**
-   * Sighitng Id for sighting endpoints
+   * Sighting ID for sighting endpoints
    */
   "sightingId": string;
   /**
-   * Problem Id for sighting endpoints
+   * Problem ID for sighting endpoints
    */
   "problemId"?: string;
   /**
-   * IP Address
+   * IP address involved in sighting
    */
   "ipAddress": string;
   /**
-   * IP Address type
+   * Type of IP address involved in sighting
    */
   "ipAddressType": string;
   /**
-   * IP Address classification type
+   * IP address classification type
    */
   "ipClassificationType"?: string;
   /**
-   * Country
+   * Country involved in sighting
    */
   "country"?: string;
   /**
-   * Latitude Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Latitude of sighting Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "latitude"?: number;
   /**
-   * Longitude Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Longitude of sighting Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "longitude"?: number;
   /**
-   * ASN number
+   * ASN number of sighting
    */
   "asnNumber"?: string;
   /**
-   * Regions where activities were performed from this IP
+   * List of regions where activities were performed from this IP address
    */
   "regions"?: Array<string>;
   /**
-   * Services where activities were performed from this IP
+   * List of services where activities were performed from this IP address
    */
   "services"?: Array<string>;
   /**
-   * Time when activities were created
+   * Date and time when activities were created
    */
   "timeLastDetected": Date;
 }

@@ -18,29 +18,37 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A single configuration applied to a detector
+ * Configuration details for a detector.
  */
 export interface DetectorConfiguration {
   /**
-   * Unique name of the configuration
+   * Unique identifier of the configuration
    */
   "configKey": string;
   /**
-   * configuration name
+   * Configuration name
    */
   "name": string;
   /**
-   * configuration value
+   * Configuration value
    */
   "value"?: string;
   /**
-   * configuration data type
+   * Configuration data type
    */
   "dataType"?: string;
   /**
    * List of configuration values
    */
   "values"?: Array<model.ConfigValue>;
+  /**
+   * Map property Value data type
+   */
+  "allowedValuesDataType"?: string;
+  /**
+   * Map of possible values for configuration
+   */
+  "allowedValues"?: Array<model.PropertyTuple>;
 }
 
 export namespace DetectorConfiguration {
@@ -51,6 +59,12 @@ export namespace DetectorConfiguration {
         "values": obj.values
           ? obj.values.map(item => {
               return model.ConfigValue.getJsonObj(item);
+            })
+          : undefined,
+
+        "allowedValues": obj.allowedValues
+          ? obj.allowedValues.map(item => {
+              return model.PropertyTuple.getJsonObj(item);
             })
           : undefined
       }
@@ -65,6 +79,12 @@ export namespace DetectorConfiguration {
         "values": obj.values
           ? obj.values.map(item => {
               return model.ConfigValue.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "allowedValues": obj.allowedValues
+          ? obj.allowedValues.map(item => {
+              return model.PropertyTuple.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,37 +17,40 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A software source contains a collection of packages.
+ * The object that defines a software source. A software source contains a collection of packages. For more information, see [Managing Software Sources](https://docs.cloud.oracle.com/iaas/osmh/doc/software-sources.htm).
  */
 export interface SoftwareSource {
   /**
-   * OCID for the software source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
    */
   "id": string;
   /**
-   * The OCID of the tenancy containing the software source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the software source.
    */
   "compartmentId": string;
   /**
-   * User friendly name for the software source.
+   * User-friendly name for the software source.
    */
   "displayName": string;
   /**
-   * The date and time the software source was created, as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * The date and time the software source was created (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeCreated": Date;
   /**
-   * Information specified by the user about the software source.
+   * User-specified description for the software source.
    */
   "description"?: string;
   /**
-   * Possible availabilities of a software source.
+   * Availability of the software source (for non-OCI environments).
    */
   "availability": model.Availability;
   /**
-   * The Repo ID for the software source.
+   * Availability of the software source (for OCI environments).
+   */
+  "availabilityAtOci": model.Availability;
+  /**
+   * The repository ID for the software source.
    */
   "repoId": string;
   /**
@@ -62,11 +66,11 @@ export interface SoftwareSource {
    */
   "lifecycleState"?: SoftwareSource.LifecycleState;
   /**
-   * Number of packages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of packages the software source contains. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "packageCount"?: number;
   /**
-   * URL for the repository.
+   * URL for the repository. For vendor software sources, this is the URL to the regional yum server. For custom software sources, this is 'custom/<repoId>'.
    */
   "url": string;
   /**
@@ -85,6 +89,10 @@ export interface SoftwareSource {
    * Fingerprint of the GPG key for this software source.
    */
   "gpgKeyFingerprint"?: string;
+  /**
+   * The size of the software source in gigabytes (GB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "size"?: number;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -114,6 +122,7 @@ export namespace SoftwareSource {
     Creating = "CREATING",
     Updating = "UPDATING",
     Active = "ACTIVE",
+    Inactive = "INACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",

@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
+ * Parameters to be used to update a security policy.
  */
 export interface UpdateSecurityPolicyDetails {
   /**
-   * SecurityPolicy Identifier
+   * Dis;lay name for the security policy
    */
   "displayName": string;
   /**

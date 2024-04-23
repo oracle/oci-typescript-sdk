@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Responder Execution.
+ * A summary of detailed information on responder execution.
  */
 export interface ResponderExecutionSummary {
   /**
@@ -26,11 +26,11 @@ export interface ResponderExecutionSummary {
    */
   "id": string;
   /**
-   * Responder Rule id for the responder execution
+   * Responder rule ID for the responder execution
    */
   "responderRuleId": string;
   /**
-   * Rule Type for the responder execution
+   * Rule type for the responder execution
    */
   "responderRuleType": model.ResponderType;
   /**
@@ -38,7 +38,7 @@ export interface ResponderExecutionSummary {
    */
   "responderRuleName": string;
   /**
-   * Problem id associated with the responder execution
+   * Problem ID associated with the responder execution
    */
   "problemId": string;
   /**
@@ -50,11 +50,11 @@ export interface ResponderExecutionSummary {
    */
   "region": string;
   /**
-   * Target Id of the problem for the responder execution
+   * Target ID of the problem for the responder execution
    */
   "targetId": string;
   /**
-   * compartment id of the problem for the responder execution
+   * Compartment OCID of the problem for the responder execution
    */
   "compartmentId": string;
   /**
@@ -62,7 +62,7 @@ export interface ResponderExecutionSummary {
    */
   "resourceType": string;
   /**
-   * resource name of the problem for the responder execution. TODO-DOC link to resource definition doc
+   * Resource name of the problem for the responder execution.
    */
   "resourceName": string;
   /**
@@ -74,11 +74,11 @@ export interface ResponderExecutionSummary {
    */
   "timeCompleted"?: Date;
   /**
-   * current execution status of the responder
+   * Current execution status of the responder
    */
   "responderExecutionStatus": model.ResponderExecutionStates;
   /**
-   * possible type of responder execution modes
+   * Possible type of responder execution modes
    */
   "responderExecutionMode": model.ResponderExecutionModes;
   /**

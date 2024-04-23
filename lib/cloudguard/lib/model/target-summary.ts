@@ -18,23 +18,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Target.
+ * Summary information for a target.
  */
 export interface TargetSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier for target that can't be changed after creation
    */
   "id": string;
   /**
-   * DetectorTemplate Identifier, can be renamed
+   * Target display name
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * possible type of targets(compartment/HCMCloud/ERPCloud)
+   * Type of resource that's associated with the target(compartment/HCMCloud/ERPCloud)
    */
   "targetResourceType": model.TargetResourceType;
   /**
@@ -50,15 +50,15 @@ export interface TargetSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the target was updated. Format defined by RFC3339.
+   * The date and time the target was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state. [DEPRECATE]
    */
   "lifecyleDetails"?: string;
   /**

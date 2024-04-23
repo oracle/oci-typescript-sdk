@@ -24,6 +24,7 @@ export enum ConditionTypeEnum {
   ActivityCondition = "ActivityCondition",
   SecurityCondition = "SecurityCondition",
   CloudGuardCondition = "CloudGuardCondition",
+  InstanceSecurityCondition = "InstanceSecurityCondition",
   ThreatCondition = "ThreatCondition"
 }
 

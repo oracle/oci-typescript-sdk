@@ -22,11 +22,11 @@ import common = require("oci-common");
  */
 export interface WorkRequestLogEntry {
   /**
-   * Human-readable log message.
+   * A human-readable log message
    */
   "message": string;
   /**
-   * The time the log message was written.
+   * The time the log message was written
    */
   "timestamp": Date;
 }

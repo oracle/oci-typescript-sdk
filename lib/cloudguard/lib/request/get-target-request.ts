@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetTargetRequest extends common.BaseRequest {
   /**
-   * OCID of target
+   * OCID of the target
    */
   "targetId": string;
   /**

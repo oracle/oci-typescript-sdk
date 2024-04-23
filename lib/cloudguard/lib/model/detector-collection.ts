@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Detector.
+ * The collection of detector summaries.
  */
 export interface DetectorCollection {
   /**
-   * List of DetectorSummary
+   * List of DetectorSummary resources
    */
   "items": Array<model.DetectorSummary>;
 }

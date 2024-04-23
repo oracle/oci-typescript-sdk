@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of a versioned custom software source to be created.
+ * Provides the information used to create a versioned custom software source.
  */
 export interface CreateVersionedCustomSoftwareSourceDetails
   extends model.CreateSoftwareSourceDetails {
@@ -29,6 +30,18 @@ export interface CreateVersionedCustomSoftwareSourceDetails
    * The version to assign to this custom software source.
    */
   "softwareSourceVersion": string;
+  /**
+   * Indicates whether the service should automatically resolve package dependencies when including specific packages in the software source.
+   */
+  "isAutoResolveDependencies"?: boolean;
+  /**
+   * Indicates whether the service should create the software source from a list of packages provided by the user.
+   */
+  "isCreatedFromPackageList"?: boolean;
+  /**
+   * A property used for compatibility only. It doesn't provide a complete list of packages. See {@link #addPackagesToSoftwareSourceDetails(AddPackagesToSoftwareSourceDetailsRequest) addPackagesToSoftwareSourceDetails} for providing the list of packages used to create the software source when isCreatedFromPackageList is set to true.
+   */
+  "packages"?: Array<string>;
 
   "softwareSourceType": string;
 }

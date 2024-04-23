@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Logging Query of type DataSource.
+ * Information for a logging query for a data source.
  */
 export interface LoggingQueryDataSourceDetails extends model.DataSourceDetails {
   /**
-   * Logging Query regions
+   * List of logging query regions
    */
   "regions"?: Array<string>;
   /**
-   * The continuous query expression that is run periodically.
+   * The continuous query expression that is run periodicall
    */
   "query"?: string;
   /**
@@ -34,20 +34,20 @@ export interface LoggingQueryDataSourceDetails extends model.DataSourceDetails {
    */
   "intervalInMinutes"?: number;
   /**
-   * The integer value that must be exceeded, fall below or equal to (depending on the operator), the query result to trigger an event. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The integer value that must be exceeded, fall below or equal to (depending on the operator), for the query result to trigger an event Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "threshold"?: number;
   "queryStartTime"?: model.AbsoluteTimeStartPolicy | model.NoDelayStartPolicy;
   /**
-   * Operator used in Data Soruce
+   * Operator used in data source
    */
   "operator"?: model.LoggingQueryOperatorType;
   /**
-   * Logging query type for data source (Sighting/Insight)
+   * Type of logging query for data source (Sighting/Insight)
    */
   "loggingQueryType"?: model.LoggingQueryType;
   /**
-   * The additional entities count used for data source query. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The additional entities count used for data source query Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "additionalEntitiesCount"?: number;
   "loggingQueryDetails"?: model.InsightTypeLoggingQueryDetails;

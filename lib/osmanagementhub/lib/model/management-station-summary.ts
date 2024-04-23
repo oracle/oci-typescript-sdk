@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -20,55 +21,59 @@ import common = require("oci-common");
  */
 export interface ManagementStationSummary {
   /**
-   * OCID for the Management Station
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
    */
   "id": string;
   /**
-   * OCID for the Instance associated with the Management Station
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance that is acting as the management station.
    */
   "managedInstanceId"?: string;
   /**
-   * The OCID of the tenancy containing the Management Station.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the management station.
    */
   "compartmentId": string;
   /**
-   * OCID of the Registration Profile associated with the Management Station
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile used for the management station.
    */
   "profileId"?: string;
   /**
-   * OCID of the Scheduled Job for mirror sync
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the scheduled job for the mirror sync.
    */
   "scheduledJobId"?: string;
   /**
-   * the time/date of the next scheduled execution of the Scheduled Job
+   * The date and time of the next scheduled mirror sync (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeNextExecution"?: Date;
   /**
-   * ManagementStation name
+   * User-friendly name for the management station.
    */
   "displayName": string;
   /**
-   * Details describing the Management Station config.
+   * User-specified description of the management station.
    */
   "description"?: string;
   /**
-   * Name of the host
+   * Hostname of the management station.
    */
   "hostname": string;
   /**
-   * Current state of the mirroring
+   * Current state of the mirror sync for the management station.
    */
   "overallState"?: model.OverallState;
   /**
-   * A decimal number representing the completeness percentage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Overall health status of the managment station.
+   */
+  "healthState"?: model.HealthState;
+  /**
+   * A decimal number representing the progress of the current mirror sync. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "overallPercentage"?: number;
   /**
-   * A decimal number representing the mirror capacity Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A decimal number representing the amount of mirror capacity used by the sync. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mirrorCapacity"?: number;
   /**
-   * The current state of the Management Station config.
+   * The current state of the management station.
    */
   "lifecycleState"?: string;
   /**

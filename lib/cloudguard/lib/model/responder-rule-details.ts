@@ -18,20 +18,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of ResponderRule.
+ * Detailed information for a responder rule
  */
 export interface ResponderRuleDetails {
   "condition"?: model.SimpleCondition | model.CompositeCondition;
   /**
-   * ResponderRule configurations
+   * List of responder rule configurations
    */
   "configurations"?: Array<model.ResponderConfiguration>;
   /**
-   * Identifies state for ResponderRule
+   * Enabled state for the responder rule
    */
   "isEnabled": boolean;
   /**
-   * Execution Mode for ResponderRule
+   * Execution mode for the responder rule
    */
   "mode"?: model.ResponderModeTypes;
 }

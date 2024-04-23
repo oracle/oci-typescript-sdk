@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible Responder activity types
+ * Possible Responder activity types.
  **/
 export enum ResponderActivityType {
   Started = "STARTED",

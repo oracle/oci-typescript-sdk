@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An existing compartment to remove from a security zone
+ * Detailed information on a compartment to be removed from a security zone.
  */
 export interface RemoveCompartmentDetails {
   /**

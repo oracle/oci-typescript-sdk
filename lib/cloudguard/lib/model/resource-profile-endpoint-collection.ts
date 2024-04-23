@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of Resource Profile endpoint summaries
+ * Collection of resource profile endpoint summaries.
  */
 export interface ResourceProfileEndpointCollection {
   /**
-   * List of ResourceProfileEndpointSummary
+   * List of ResourceProfileEndpointSummary resources
    */
   "items": Array<model.ResourceProfileEndpointSummary>;
 }

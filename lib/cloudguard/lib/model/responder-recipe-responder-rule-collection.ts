@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the ResponderRule within ResponderRecipe.
+ * The collection of responder rule summaries for a responder recipe.
  */
 export interface ResponderRecipeResponderRuleCollection {
   /**
-   * List of ResponderRecipeResponderRuleSummary
+   * List of ResponderRecipeResponderRuleSummary resources
    */
   "items": Array<model.ResponderRecipeResponderRuleSummary>;
 }

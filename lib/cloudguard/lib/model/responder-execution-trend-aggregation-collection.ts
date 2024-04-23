@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Responder Execution Trend Collection
+ * Collection of ResponderExecutionTrendAggregation resources.
  */
 export interface ResponderExecutionTrendAggregationCollection {
   /**
-   * The items consist of all the ResponderExecutionTrendAggregation objects.
+   * List of all the ResponderExecutionTrendAggregation resources.
    */
   "items": Array<model.ResponderExecutionTrendAggregation>;
 }

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetDataSourceRequest extends common.BaseRequest {
   /**
-   * DataSource OCID
+   * Data source OCID.
    */
   "dataSourceId": string;
   /**

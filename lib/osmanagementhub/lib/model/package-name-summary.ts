@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A simple representation of a package using its displayName and NEVRA parts.
+ * Provides summary information about a package.
  */
 export interface PackageNameSummary {
   /**
-   * Full package NEVRA name - this value should be unique.
+   * Full package name in NERVA format. This value should be unique.
    */
   "displayName": string;
   /**
@@ -32,11 +33,11 @@ export interface PackageNameSummary {
    */
   "type"?: string;
   /**
-   * Version of the installed package.
+   * The version of the software package.
    */
   "version"?: string;
   /**
-   * The architecture for which this package was built.
+   * The CPU architecture type for which this package was built.
    */
   "architecture"?: model.ArchType;
 }

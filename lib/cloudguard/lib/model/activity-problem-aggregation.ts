@@ -22,13 +22,13 @@ import common = require("oci-common");
  */
 export interface ActivityProblemAggregation {
   /**
-   * The key-value pairs of dimensions and their names.
+   * The key-value pairs of dimensions and their names
    */
   "dimensionsMap": { [key: string]: string };
   "politicalLocation": model.PoliticalLocation;
   "geographicalLocation": model.GeographicalLocation;
   /**
-   * The number of occurences with given dimension/s Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of occurrences with given dimensions Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
 }

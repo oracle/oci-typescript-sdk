@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface TriggerResponderRequest extends common.BaseRequest {
   /**
-   * OCId of the problem.
+   * OCID of the problem.
    */
   "problemId": string;
   /**
-   * The responder may update the problem.
+   * The responder may update the problem
    */
   "triggerResponderDetails": model.TriggerResponderDetails;
   /**

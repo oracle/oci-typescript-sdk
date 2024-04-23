@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListLifecycleStagesRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
@@ -31,11 +31,11 @@ export interface ListLifecycleStagesRequest extends common.BaseRequest {
    */
   "displayNameContains"?: string;
   /**
-   * The OCID of the lifecycle stage.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage.
    */
   "lifecycleStageId"?: string;
   /**
-   * The OCID for the software source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source. This filter returns resources associated with this software source.
    */
   "softwareSourceId"?: string;
   /**
@@ -43,9 +43,17 @@ export interface ListLifecycleStagesRequest extends common.BaseRequest {
    */
   "archType"?: model.ArchType;
   /**
-   * A filter to return only profiles that match the given osFamily.
+   * A filter to return only resources that match the given operating system family.
    */
   "osFamily"?: model.OsFamily;
+  /**
+   * A filter to return only resources whose location matches the given value.
+   */
+  "location"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources whose location does not match the given value.
+   */
+  "locationNotEqualTo"?: Array<model.ManagedInstanceLocation>;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
@@ -63,7 +71,7 @@ Example: {@code 3}
  */
   "page"?: string;
   /**
-   * A filter to return only lifecycle stage whose lifecycle state matches the given lifecycle state.
+   * A filter to return only lifecycle stages whose lifecycle state matches the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**

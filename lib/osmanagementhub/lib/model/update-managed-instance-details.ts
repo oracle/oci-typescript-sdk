@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,27 +17,53 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
+ * Provides the information used to update a managed instance.
  */
 export interface UpdateManagedInstanceDetails {
   /**
-   * The OCID of a management station to be used as the preferred primary.
+   * User-specified description of the managed instance. Avoid entering confidential information.
+   */
+  "description"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station for the instance to use as primary management station.
+   *
    */
   "primaryManagementStationId"?: string;
   /**
-   * The OCID of a management station to be used as the preferred secondary.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station for the instance to use as secondary management station.
+   *
    */
   "secondaryManagementStationId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Oracle Notifications service (ONS) topic. ONS is the channel used to send notifications to the customer.
+   *
+   */
+  "notificationTopicId"?: string;
+  "autonomousSettings"?: model.UpdatableAutonomousSettings;
 }
 
 export namespace UpdateManagedInstanceDetails {
   export function getJsonObj(obj: UpdateManagedInstanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "autonomousSettings": obj.autonomousSettings
+          ? model.UpdatableAutonomousSettings.getJsonObj(obj.autonomousSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateManagedInstanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "autonomousSettings": obj.autonomousSettings
+          ? model.UpdatableAutonomousSettings.getDeserializedJsonObj(obj.autonomousSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Create detector rule in a detector recipe
+ * Parameters to use to create details in a detector rule in a detector recipe.
  */
 export interface CreateDetectorRecipeDetectorRuleDetails {
   "details"?: model.CreateDetectorRuleDetails;

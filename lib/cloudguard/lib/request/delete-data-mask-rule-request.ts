@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteDataMaskRuleRequest extends common.BaseRequest {
   /**
-   * OCID of dataMaskRule
+   * OCID of the data mask rule
    */
   "dataMaskRuleId": string;
   /**

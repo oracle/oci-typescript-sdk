@@ -54,6 +54,10 @@ Example: {@code FAULT-DOMAIN-1}
    * The total number of instances that can be launched from the capacity configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "reservedCount": number;
+  /**
+   * The OCID of the cluster placement group for this instance reservation capacity configuration.
+   */
+  "clusterPlacementGroupId"?: string;
 }
 
 export namespace InstanceReservationConfigDetails {

@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of tactic summaries in Cloud Guard
+ * Collection of tactic summaries.
  */
 export interface TacticCollection {
   /**
-   * List of tactic summary.
+   * List of TacticSummay resources
    */
   "items": Array<model.TacticSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace TacticCollection {
@@ -35,6 +39,11 @@ export namespace TacticCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.TacticSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace TacticCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.TacticSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

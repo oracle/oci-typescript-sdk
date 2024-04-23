@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,15 +17,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of an entitlement.
+ * Provides summary information for an entitlement.
  */
 export interface EntitlementSummary {
   /**
-   * The OCID of the tenancy containing the entitlement.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy containing the entitlement.
    */
   "compartmentId": string;
   /**
-   * The Customer Support Identifier (CSI). CSI is a unique key given to a customer to unlock software sources. It uniquely identifies the entitlement.
+   * The Customer Support Identifier (CSI) which unlocks the software sources. The CSI is is a unique key given to a customer and it uniquely identifies the entitlement.
    */
   "csi": string;
   /**

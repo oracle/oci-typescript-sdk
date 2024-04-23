@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new SecurityPolicy.
+ * Parameters to be used to create a new security policy.
  */
 export interface CreateSecurityPolicyDetails {
   /**
-   * SecurityPolicy friendly name
+   * Short version of security policy name
    */
   "friendlyName"?: string;
   /**
-   * SecurityPolicy Identifier
+   * Security policy display name
    */
   "displayName": string;
   /**
@@ -34,15 +34,15 @@ export interface CreateSecurityPolicyDetails {
    */
   "description"?: string;
   /**
-   * The category of security policy.
+   * The category of the security policy
    */
   "category"?: string;
   /**
-   * The list of services for policy.
+   * The list of services for the security policy
    */
   "services"?: Array<string>;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**

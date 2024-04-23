@@ -18,13 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the summary of responder executions and their corresponding count value.
+ * Collection of aggregated responder execution information,
+ * including their corresponding count values.
+ *
  */
 export interface ResponderExecutionCollection {
   /**
-   * List of ResponderExecutionSummary
+   * List of ResponderExecutionSummary resources
    */
   "items": Array<model.ResponderExecutionSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResponderExecutionCollection {
@@ -35,6 +41,11 @@ export namespace ResponderExecutionCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ResponderExecutionSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +60,11 @@ export namespace ResponderExecutionCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ResponderExecutionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

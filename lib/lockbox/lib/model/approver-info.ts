@@ -29,6 +29,10 @@ export interface ApproverInfo {
    * The group or user ocid of the approver for this approver level.
    */
   "approverId": string;
+  /**
+   * The identity domain ocid of the approver.
+   */
+  "domainId"?: string;
 }
 
 export namespace ApproverInfo {

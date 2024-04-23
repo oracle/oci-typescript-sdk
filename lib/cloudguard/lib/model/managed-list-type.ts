@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible cloud guard list types
+ * Type of information in the managed list.
  **/
 export enum ManagedListType {
   CidrBlock = "CIDR_BLOCK",

@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface UpdateTargetDetectorRecipeRequest extends common.BaseRequest {
   /**
-   * OCID of target
+   * OCID of the target
    */
   "targetId": string;
   /**
-   * OCID of TargetDetectorRecipe
+   * OCID of the target detector recipe.
    */
   "targetDetectorRecipeId": string;
   /**
-   * The details to be updated.
+   * The details to be updated
    */
   "updateTargetDetectorRecipeDetails": model.UpdateTargetDetectorRecipeDetails;
   /**

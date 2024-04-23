@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Responder Execution Object.
+ * Attributes for a responder execution (ResponderExecution resource).
  */
 export interface ResponderExecution {
   /**
@@ -26,39 +26,39 @@ export interface ResponderExecution {
    */
   "id": string;
   /**
-   * Responder Rule id for the responder execution
+   * Responder rule ID for the responder execution
    */
   "responderRuleId": string;
   /**
-   * Rule Type for the responder execution
+   * Responder rule type for the responder execution
    */
   "responderRuleType": model.ResponderType;
   /**
-   * Rule name for the responder execution
+   * Responder rule name for the responder execution
    */
   "responderRuleName": string;
   /**
-   * Problem id associated with the responder execution
+   * Problem ID associated with the responder execution
    */
   "problemId": string;
   /**
-   * region where the problem is found
+   * Region where the problem is found
    */
   "region": string;
   /**
-   * targetId of the problem for the responder execution
+   * Target ID of the problem for the responder execution
    */
   "targetId": string;
   /**
-   * compartment id of the responder execution for the problem
+   * Compartment OCID of the responder execution for the problem
    */
   "compartmentId": string;
   /**
-   * resource type of the problem for the responder execution
+   * Resource type of the problem for the responder execution
    */
   "resourceType": string;
   /**
-   * resource name of the problem for the responder execution. TODO-DOC link to resource definition doc
+   * Resource name of the problem for the responder execution.
    */
   "resourceName": string;
   /**
@@ -70,18 +70,22 @@ export interface ResponderExecution {
    */
   "timeCompleted"?: Date;
   /**
-   * current execution status of the responder
+   * Current execution status of the responder
    */
   "responderExecutionStatus": model.ResponderExecutionStates;
   /**
-   * execution mode of the responder
+   * Execution mode of the responder
    */
   "responderExecutionMode": model.ResponderExecutionModes;
   /**
-   * Message about the responder execution.
+   * Message about the responder execution
    */
   "message"?: string;
   "responderRuleExecutionDetails"?: model.ResponderRuleExecutionDetails;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResponderExecution {
@@ -91,6 +95,11 @@ export namespace ResponderExecution {
       ...{
         "responderRuleExecutionDetails": obj.responderRuleExecutionDetails
           ? model.ResponderRuleExecutionDetails.getJsonObj(obj.responderRuleExecutionDetails)
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -105,6 +114,11 @@ export namespace ResponderExecution {
           ? model.ResponderRuleExecutionDetails.getDeserializedJsonObj(
               obj.responderRuleExecutionDetails
             )
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

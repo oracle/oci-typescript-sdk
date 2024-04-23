@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateBulkProblemStatusRequest extends common.BaseRequest {
   /**
-   * A list of problem ids to be passed in to update the Problem status
+   * A list of Problem IDs to be passed in to update the Problem status
    */
   "updateBulkProblemStatusDetails": model.UpdateBulkProblemStatusDetails;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateScheduledJobRequest extends common.BaseRequest {
   /**
-   * Details for the new scheduled job.
+   * Provides the information used to create the scheduled job.
    */
   "createScheduledJobDetails": model.CreateScheduledJobDetails;
   /**

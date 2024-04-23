@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the DetectorRule within Target.
+ * Collection of summary information for target detector recipe detector rules.
  */
 export interface TargetDetectorRecipeDetectorRuleCollection {
   /**
-   * List of TargetDetectorRecipeDetectorRuleSummary
+   * List of TargetDetectorRecipeDetectorRuleSummary resources
    */
   "items": Array<model.TargetDetectorRecipeDetectorRuleSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace TargetDetectorRecipeDetectorRuleCollection {
@@ -35,6 +39,11 @@ export namespace TargetDetectorRecipeDetectorRuleCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.TargetDetectorRecipeDetectorRuleSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace TargetDetectorRecipeDetectorRuleCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.TargetDetectorRecipeDetectorRuleSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

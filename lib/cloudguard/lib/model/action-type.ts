@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible types of actions.
+ * Possible types of actions
  **/
 export enum ActionType {
   Created = "CREATED",

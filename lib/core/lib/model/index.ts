@@ -876,6 +876,8 @@ import * as UpdateInstancePoolPlacementConfigurationDetails from "./update-insta
 export import UpdateInstancePoolPlacementConfigurationDetails = UpdateInstancePoolPlacementConfigurationDetails.UpdateInstancePoolPlacementConfigurationDetails;
 import * as UpdateInstanceShapeConfigDetails from "./update-instance-shape-config-details";
 export import UpdateInstanceShapeConfigDetails = UpdateInstanceShapeConfigDetails.UpdateInstanceShapeConfigDetails;
+import * as UpdateInstanceSourceDetails from "./update-instance-source-details";
+export import UpdateInstanceSourceDetails = UpdateInstanceSourceDetails.UpdateInstanceSourceDetails;
 import * as UpdateInternetGatewayDetails from "./update-internet-gateway-details";
 export import UpdateInternetGatewayDetails = UpdateInternetGatewayDetails.UpdateInternetGatewayDetails;
 import * as UpdateIpv6Details from "./update-ipv6-details";
@@ -1163,6 +1165,10 @@ import * as TopologyRoutesToEntityRelationship from "./topology-routes-to-entity
 export import TopologyRoutesToEntityRelationship = TopologyRoutesToEntityRelationship.TopologyRoutesToEntityRelationship;
 import * as UpdateDedicatedCapacitySourceDetails from "./update-dedicated-capacity-source-details";
 export import UpdateDedicatedCapacitySourceDetails = UpdateDedicatedCapacitySourceDetails.UpdateDedicatedCapacitySourceDetails;
+import * as UpdateInstanceSourceViaBootVolumeDetails from "./update-instance-source-via-boot-volume-details";
+export import UpdateInstanceSourceViaBootVolumeDetails = UpdateInstanceSourceViaBootVolumeDetails.UpdateInstanceSourceViaBootVolumeDetails;
+import * as UpdateInstanceSourceViaImageDetails from "./update-instance-source-via-image-details";
+export import UpdateInstanceSourceViaImageDetails = UpdateInstanceSourceViaImageDetails.UpdateInstanceSourceViaImageDetails;
 import * as VcnDrgAttachmentNetworkCreateDetails from "./vcn-drg-attachment-network-create-details";
 export import VcnDrgAttachmentNetworkCreateDetails = VcnDrgAttachmentNetworkCreateDetails.VcnDrgAttachmentNetworkCreateDetails;
 import * as VcnDrgAttachmentNetworkDetails from "./vcn-drg-attachment-network-details";

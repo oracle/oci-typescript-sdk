@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateDataSourceRequest extends common.BaseRequest {
   /**
-   * DataSource OCID
+   * Data source OCID.
    */
   "dataSourceId": string;
   /**
-   * Details for the DataSource to be updated
+   * Details for the DataSource resource to be updated
    */
   "updateDataSourceDetails": model.UpdateDataSourceDetails;
   /**

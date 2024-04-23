@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeResponderRecipeCompartmentRequest extends common.BaseRequest {
   /**
-   * OCID of ResponderRecipe
+   * OCID of the responder recipe.
    */
   "responderRecipeId": string;
   /**
-   * The target compartment id.
+   * The target compartment OCID
    */
   "changeResponderRecipeCompartmentDetails": model.ChangeResponderRecipeCompartmentDetails;
   /**

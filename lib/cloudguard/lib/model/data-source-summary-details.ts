@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary specific to the data source type.
+ * Summary information for a data source of a specified data source type.
  */
 export interface DataSourceSummaryDetails {
   "dataSourceFeedProvider": string;
@@ -30,6 +30,11 @@ export namespace DataSourceSummaryDetails {
 
     if (obj && "dataSourceFeedProvider" in obj && obj.dataSourceFeedProvider) {
       switch (obj.dataSourceFeedProvider) {
+        case "SCHEDULEDQUERY":
+          return model.ScheduledQueryDataSourceSummaryObjDetails.getJsonObj(
+            <model.ScheduledQueryDataSourceSummaryObjDetails>(<object>jsonObj),
+            true
+          );
         case "LOGGINGQUERY":
           return model.LoggingQueryDataSourceSummaryDetails.getJsonObj(
             <model.LoggingQueryDataSourceSummaryDetails>(<object>jsonObj),
@@ -47,6 +52,11 @@ export namespace DataSourceSummaryDetails {
 
     if (obj && "dataSourceFeedProvider" in obj && obj.dataSourceFeedProvider) {
       switch (obj.dataSourceFeedProvider) {
+        case "SCHEDULEDQUERY":
+          return model.ScheduledQueryDataSourceSummaryObjDetails.getDeserializedJsonObj(
+            <model.ScheduledQueryDataSourceSummaryObjDetails>(<object>jsonObj),
+            true
+          );
         case "LOGGINGQUERY":
           return model.LoggingQueryDataSourceSummaryDetails.getDeserializedJsonObj(
             <model.LoggingQueryDataSourceSummaryDetails>(<object>jsonObj),

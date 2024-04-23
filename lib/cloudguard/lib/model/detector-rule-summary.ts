@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Detector Rules.
+ * Summary information for a detector rule.
  */
 export interface DetectorRuleSummary {
   /**
@@ -26,48 +26,48 @@ export interface DetectorRuleSummary {
    */
   "id": string;
   /**
-   * DetectorTemplate Identifier, can be renamed
+   * Display name for the detector rule
    */
   "displayName"?: string;
   /**
-   * Description for detector rule
+   * Description for the detector rule
    */
   "description"?: string;
   /**
-   * Recommendation for detector rule
+   * Recommendation for the detector rule
    */
   "recommendation"?: string;
   /**
-   * possible type of detectors
+   * Possible types of detectors
    */
   "detector": model.DetectorEnum;
   /**
-   * service type of the configuration to which the rule is applied
+   * Service type of the configuration to which the rule is applied
    */
   "serviceType"?: string;
   /**
-   * resource type of the configuration to which the rule is applied
+   * Resource type of the configuration to which the rule is applied
    */
   "resourceType"?: string;
   /**
-   * List of cloudguard managed list types related to this rule
+   * List of managed list types related to this rule
    */
   "managedListTypes"?: Array<DetectorRuleSummary.ManagedListTypes>;
   /**
-   * List of CandidateResponderRule related to this rule
+   * List of responder rules that can be used to remediate a problem triggered by this detector rule
    */
   "candidateResponderRules"?: Array<model.CandidateResponderRule>;
   "detectorDetails"?: model.DetectorDetails;
   /**
-   * The date and time the detector rule was created. Format defined by RFC3339.
+   * The date and time the detector rule was first created. Format defined by RFC3339.
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the detector rule was updated. Format defined by RFC3339.
+   * The date and time the detector rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the detector rule
+   * The current lifecycle state of the detector rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**

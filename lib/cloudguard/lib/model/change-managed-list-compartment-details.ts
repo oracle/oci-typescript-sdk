@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Changing compartmentId for ManagedList
+ * Parameters to use to move a managed list to a different compartment.
  */
 export interface ChangeManagedListCompartmentDetails {
   /**
-   * The OCID of the compartment into which the ManagedList should be moved
+   * The OCID of the compartment into which the managed list is to be moved
    */
   "compartmentId": string;
 }

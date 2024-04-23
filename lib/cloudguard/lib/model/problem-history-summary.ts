@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Problem History Definition.
+ * Problem history definition.
  */
 export interface ProblemHistorySummary {
   /**
@@ -26,15 +26,15 @@ export interface ProblemHistorySummary {
    */
   "id": string;
   /**
-   * problemId for which history is associated to.
+   * Problem ID with which history is associated
    */
   "problemId": string;
   /**
-   * Actor type who performed the operation
+   * Type of actor who performed the operation
    */
   "actorType": model.ActorType;
   /**
-   * Resource Name who performed activity
+   * Resource name who performed the activity
    */
   "actorName": string;
   /**
@@ -42,7 +42,7 @@ export interface ProblemHistorySummary {
    */
   "explanation": string;
   /**
-   * Problem Lifecycle Detail Status
+   * Additional details on the substate of the lifecycle state
    */
   "lifecycleDetail": model.ProblemLifecycleDetail;
   /**
@@ -50,27 +50,49 @@ export interface ProblemHistorySummary {
    */
   "eventStatus"?: model.EventStatus;
   /**
-   * Type of the Entity
+   * Date and time the problem was created
    */
   "timeCreated": Date;
   /**
-   * Impacted Resource Names in a comma-separated string.
+   * Impacted resource names in a comma-separated string
    */
   "delta": string;
   /**
-   * User Defined Comments
+   * User-defined comments
    */
   "comment"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ProblemHistorySummary {
   export function getJsonObj(obj: ProblemHistorySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ProblemHistorySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

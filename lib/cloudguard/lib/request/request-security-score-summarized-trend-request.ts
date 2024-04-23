@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface RequestSecurityScoreSummarizedTrendRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -31,7 +31,7 @@ export interface RequestSecurityScoreSummarizedTrendRequest extends common.BaseR
    */
   "timeScoreComputedLessThanOrEqualTo"?: Date;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**

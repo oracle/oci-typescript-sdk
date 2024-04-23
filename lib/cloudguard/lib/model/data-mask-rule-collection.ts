@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of Data Mask Rule
+ * Collection of data mask rules.
  */
 export interface DataMaskRuleCollection {
   /**
-   * List of Data Mask Rule Summary
+   * List of DataMaskRuleSummary resources
    */
   "items": Array<model.DataMaskRuleSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace DataMaskRuleCollection {
@@ -35,6 +39,11 @@ export namespace DataMaskRuleCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.DataMaskRuleSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace DataMaskRuleCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.DataMaskRuleSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

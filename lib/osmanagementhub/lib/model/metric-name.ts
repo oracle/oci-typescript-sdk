@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -27,8 +28,12 @@ export enum MetricName {
   WarningInstanceCount = "WARNING_INSTANCE_COUNT",
   UnreachableInstanceCount = "UNREACHABLE_INSTANCE_COUNT",
   RegistrationFailedInstanceCount = "REGISTRATION_FAILED_INSTANCE_COUNT",
+  DeletingInstanceCount = "DELETING_INSTANCE_COUNT",
+  OnboardingInstanceCount = "ONBOARDING_INSTANCE_COUNT",
   InstanceSecurityUpdatesCount = "INSTANCE_SECURITY_UPDATES_COUNT",
   InstanceBugfixUpdatesCount = "INSTANCE_BUGFIX_UPDATES_COUNT",
+  InstanceSecurityAdvisoryCount = "INSTANCE_SECURITY_ADVISORY_COUNT",
+  InstanceBugfixAdvisoryCount = "INSTANCE_BUGFIX_ADVISORY_COUNT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Entities type for data source.
+ * Type of entitiy for data source
  **/
 export enum EntityType {
   ExternalIp = "EXTERNAL_IP",

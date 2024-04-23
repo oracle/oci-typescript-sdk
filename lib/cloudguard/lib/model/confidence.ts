@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Indication that conveys our certainty that a Sighting is a True Positive
+ * Level of confidence that a sighting is not a false positive.
  **/
 export enum Confidence {
   Critical = "CRITICAL",

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * provider of the feed (Oracle/Customer)
+ * Provider of the feed (Oracle/Customer).
  **/
 export enum FeedProviderType {
   Customer = "CUSTOMER",

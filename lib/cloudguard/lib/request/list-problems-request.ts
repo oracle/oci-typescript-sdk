@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListProblemsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -39,23 +39,23 @@ export interface ListProblemsRequest extends common.BaseRequest {
    */
   "timeFirstDetectedLessThanOrEqualTo"?: Date;
   /**
-   * The field life cycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
+   * The field life cycle state. Only one state can be provided. Default value for state is active.
    */
   "lifecycleDetail"?: model.ProblemLifecycleDetail;
   /**
-   * The field life cycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
+   * The field lifecycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
    */
   "lifecycleState"?: model.ProblemLifecycleState;
   /**
-   * OCI Monitoring region.
+   * OCI monitoring region.
    */
   "region"?: string;
   /**
-   * Risk level of the Problem.
+   * Risk level of the problem.
    */
   "riskLevel"?: string;
   /**
-   * Resource Type associated with the resource.
+   * Resource type associated with the resource.
    */
   "resourceType"?: string;
   /**
@@ -63,7 +63,7 @@ export interface ListProblemsRequest extends common.BaseRequest {
    */
   "city"?: string;
   /**
-   * State of the problem.
+   * State or province of the problem.
    */
   "state"?: string;
   /**
@@ -71,15 +71,15 @@ export interface ListProblemsRequest extends common.BaseRequest {
    */
   "country"?: string;
   /**
-   * Label associated with the Problem.
+   * User-defined label associated with the problem.
    */
   "label"?: string;
   /**
-   * Comma seperated list of detector rule ids to be passed in to match against Problems.
+   * Comma seperated list of detector rule IDs to be passed in to match against Problems.
    */
   "detectorRuleIdList"?: Array<string>;
   /**
-   * The field to list the Problems by Detector Type. Valid values are IAAS_ACTIVITY_DETECTOR and IAAS_CONFIGURATION_DETECTOR
+   * The field to list the problems by detector type.
    *
    */
   "detectorType"?: model.DetectorEnum;
@@ -88,7 +88,7 @@ export interface ListProblemsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
-   * Setting this to {@code SECURITY_ZONE} returns only security-zone related violations.
+   * Setting this to {@code SECURITY_ZONE} returns only security zone-related violations.
    *
    */
   "problemCategory"?: model.ProblemCategoryEnum;
@@ -96,7 +96,7 @@ export interface ListProblemsRequest extends common.BaseRequest {
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -114,7 +114,7 @@ export interface ListProblemsRequest extends common.BaseRequest {
    */
   "resourceId"?: string;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -122,7 +122,7 @@ export interface ListProblemsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

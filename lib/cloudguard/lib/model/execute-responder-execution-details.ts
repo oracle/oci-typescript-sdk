@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for Responder Configuration
+ * The configuration details for a responder rule execution.
  */
 export interface ExecuteResponderExecutionDetails {
   /**
-   * ResponderRule configurations
+   * List of responder rule configurations
    */
   "configurations"?: Array<model.ResponderConfiguration>;
 }

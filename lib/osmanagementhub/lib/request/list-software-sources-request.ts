@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListSoftwareSourcesRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
-   * The OCID for the software source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the software source.
    */
   "softwareSourceId"?: string;
   /**
@@ -31,11 +31,11 @@ export interface ListSoftwareSourcesRequest extends common.BaseRequest {
    */
   "softwareSourceType"?: Array<model.SoftwareSourceType>;
   /**
-   * A filter to return only profiles that match the given vendorName.
+   * A filter to return only resources that match the given vendor name.
    */
   "vendorName"?: model.VendorName;
   /**
-   * A filter to return only instances whose OS family type matches the given OS family.
+   * A filter to return only resources that match the given operating system family.
    */
   "osFamily"?: Array<model.OsFamily>;
   /**
@@ -43,15 +43,24 @@ export interface ListSoftwareSourcesRequest extends common.BaseRequest {
    */
   "archType"?: Array<model.ArchType>;
   /**
-   * The availabilities of the software source for a tenant.
+   * The availabilities of the software source in a non-OCI environment for a tenancy.
    */
   "availability"?: Array<model.Availability>;
   /**
- * A user-friendly name. Does not have to be unique, and it's changeable.
-* <p>
-Example: {@code My new resource}
-* 
- */
+   * The availabilities of the software source in an OCI environment for a tenancy.
+   */
+  "availabilityAtOci"?: Array<model.Availability>;
+  /**
+   * The availabilities of the software source. Use this query parameter to filter across availabilities in different environments.
+   */
+  "availabilityAnywhere"?: Array<model.Availability>;
+  /**
+   * Indicates whether the software source is mandatory for the Autonomous Linux service.
+   */
+  "isMandatoryForAutonomousLinux"?: boolean;
+  /**
+   * A filter to return resources that match the given user-friendly name.
+   */
   "displayName"?: string;
   /**
    * A filter to return resources that may partially match the given display name.
@@ -87,7 +96,7 @@ Example: {@code 3}
    */
   "sortBy"?: ListSoftwareSourcesRequest.SortBy;
   /**
-   * A filter to return only resources whose lifecycleState matches the given lifecycleStates.
+   * A filter to return only software sources whose state matches the given state.
    */
   "lifecycleState"?: Array<model.SoftwareSource.LifecycleState>;
   /**

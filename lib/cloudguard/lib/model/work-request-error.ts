@@ -18,21 +18,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An error encountered while executing a work request.
+ * Summary information for an error (WorkRequestError resource)
+ * encountered while executing a work request
+ *
  */
 export interface WorkRequestError {
   /**
    * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.cloud.oracle.com/Content/API/References/apierrors.htm)
+   * (https://docs.cloud.oracle.com/Content/API/References/apierrors.htm).
    *
    */
   "code": string;
   /**
-   * A human readable description of the issue encountered.
+   * A human readable description of the issue encountered
    */
   "message": string;
   /**
-   * The time the error occured.
+   * The time the error occured
    */
   "timestamp": Date;
 }

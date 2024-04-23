@@ -23,27 +23,44 @@ export interface SummarizeManagedInstanceAnalyticsRequest extends common.BaseReq
    */
   "metricNames": Array<model.MetricName>;
   /**
-   * This compartmentId is used to list managed instances within a compartment.
-   * Or serve as an additional filter to restrict only managed instances with in certain compartment if other filter presents.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * This filter returns only resources contained within the specified compartment.
    *
    */
   "compartmentId"?: string;
   /**
-   * The OCID of the managed instance group for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group. This filter returns resources associated with this group.
    */
   "managedInstanceGroupId"?: string;
   /**
-   * The OCID of the lifecycle environment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle environment. This filter returns only resource contained with the specified lifecycle environment.
    */
   "lifecycleEnvironmentId"?: string;
   /**
-   * The OCID of the lifecycle stage for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage. This resource returns resources associated with this lifecycle stage.
    */
   "lifecycleStageId"?: string;
   /**
-   * A filter to return only instances whose managed instance status matches the given status.
+   * A filter to return only managed instances whose status matches the status provided.
    */
   "status"?: Array<model.ManagedInstanceStatus>;
+  /**
+   * A filter to return only resources whose location matches the given value.
+   */
+  "location"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources whose location does not match the given value.
+   */
+  "locationNotEqualTo"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources that match the given operating system family.
+   */
+  "osFamily"?: Array<model.OsFamily>;
+  /**
+   * Indicates whether to list only resources managed by the Autonomous Linux service.
+   *
+   */
+  "isManagedByAutonomousLinux"?: boolean;
   /**
    * A filter to return resources that match the given display names.
    */
@@ -52,10 +69,6 @@ export interface SummarizeManagedInstanceAnalyticsRequest extends common.BaseReq
    * A filter to return resources that may partially match the given display name.
    */
   "displayNameContains"?: string;
-  /**
-   * Filter instances by Location. Used when report target type is compartment or group.
-   */
-  "instanceLocation"?: model.ManagedInstanceLocation;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
@@ -73,7 +86,8 @@ Example: {@code 3}
  */
   "page"?: string;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for name is ascending.
+   * The field to sort by. Only one sort order may be provided. The default is to sort in ascending order by metricName (previously name, which is now depricated).
+   * You can also sort by displayName (default is ascending order).
    *
    */
   "sortBy"?: SummarizeManagedInstanceAnalyticsRequest.SortBy;
@@ -89,6 +103,8 @@ Example: {@code 3}
 
 export namespace SummarizeManagedInstanceAnalyticsRequest {
   export enum SortBy {
-    Name = "name"
+    Name = "name",
+    MetricName = "metricName",
+    DisplayName = "displayName"
   }
 }

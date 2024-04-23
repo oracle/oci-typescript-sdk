@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface ResourceRiskScoreAggregation {
   /**
-   * Tactics used for evaluating the risk scrore
+   * List of tactics used for evaluating the risk score
    */
   "tactics": Array<string>;
   /**
@@ -30,11 +30,11 @@ export interface ResourceRiskScoreAggregation {
    */
   "scoreTimestamp": number;
   /**
-   * Risk Score Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The risk score Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "riskScore": number;
   /**
-   * The Risk Level
+   * The risk level
    */
   "riskLevel": model.RiskLevel;
 }

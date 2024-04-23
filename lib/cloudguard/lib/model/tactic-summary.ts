@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Tactic summary.
+ * Summary information for a tactic.
  */
 export interface TacticSummary {
   /**
-   * Unique identifier for the tactic.
+   * Unique identifier for the tactic
    */
   "id": string;
   /**

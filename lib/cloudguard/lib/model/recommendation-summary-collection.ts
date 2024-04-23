@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of the RecommendationSummary
+ * Collection of RecommendationSummary resources.
  */
 export interface RecommendationSummaryCollection {
   /**
-   * List of Recommendation
+   * List of RecommendationSummary resources
    */
   "items": Array<model.RecommendationSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace RecommendationSummaryCollection {
@@ -35,6 +39,11 @@ export namespace RecommendationSummaryCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.RecommendationSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace RecommendationSummaryCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.RecommendationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

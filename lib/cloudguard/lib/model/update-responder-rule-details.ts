@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of UpdateResponderRuleDetails.
+ * Parameters to be updated for a responder rule within a responder recipe.
  */
 export interface UpdateResponderRuleDetails {
   /**
-   * Identifies state for ResponderRule
+   * Enablement state for the responder rule
    */
   "isEnabled": boolean;
 }

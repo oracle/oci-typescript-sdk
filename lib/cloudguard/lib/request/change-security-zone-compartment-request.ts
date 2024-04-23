@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeSecurityZoneCompartmentRequest extends common.BaseRequest {
   /**
-   * The unique identifier of the security zone ({@code SecurityZone})
+   * The unique identifier of the security zone ({@code SecurityZone} resource).
    */
   "securityZoneId": string;
   /**
-   * The compartment to which you want to move the security zone.
+   * The compartment to which you want to move the security zone
    */
   "changeSecurityZoneCompartmentDetails": model.ChangeSecurityZoneCompartmentDetails;
   /**

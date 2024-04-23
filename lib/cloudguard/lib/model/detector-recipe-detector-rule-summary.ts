@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Detector Recipe Rule.
+ * Summary information for a DetectorRecipeDetectorRule resoource.
  */
 export interface DetectorRecipeDetectorRuleSummary {
   /**
@@ -26,35 +26,35 @@ export interface DetectorRecipeDetectorRuleSummary {
    */
   "id": string;
   /**
-   * DetectorTemplate Identifier, can be renamed
+   * Display name of the detector rule
    */
   "displayName"?: string;
   /**
-   * DetectorTemplate Identifier, can be renamed
+   * Description of the detector rule
    */
   "description"?: string;
   /**
-   * Recommendation for DetectorRecipeDetectorRule
+   * Recommendation for the Display name of the detector rule
    */
   "recommendation"?: string;
   /**
-   * possible type of detectors
+   * Possible types of detectors
    */
   "detector": model.DetectorEnum;
   /**
-   * service type of the configuration to which the rule is applied
+   * Service type of the configuration to which the rule is applied
    */
   "serviceType"?: string;
   /**
-   * resource type of the configuration to which the rule is applied
+   * Resource type of the configuration to which the rule is applied
    */
   "resourceType"?: string;
   /**
-   * List of cloudguard managed list types related to this rule
+   * List of managed list types related to this rule
    */
   "managedListTypes"?: Array<DetectorRecipeDetectorRuleSummary.ManagedListTypes>;
   /**
-   * List of CandidateResponderRule related to this rule
+   * List of responder rules that can be used to remediate problems triggered by this detector rule
    */
   "candidateResponderRules"?: Array<model.CandidateResponderRule>;
   "detectorDetails"?: model.DetectorDetails;
@@ -63,11 +63,11 @@ export interface DetectorRecipeDetectorRuleSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the detector recipe rule was updated. Format defined by RFC3339.
+   * The date and time the detector recipe rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the detector recipe rule
+   * The current lifecycle state of the detector recipe rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -75,11 +75,11 @@ export interface DetectorRecipeDetectorRuleSummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * The id of the attached DataSource.
+   * The ID of the attached data source
    */
   "dataSourceId"?: string;
   /**
-   * Data Source entities mapping for a Detector Rule
+   * Data source entities mapping for the detector rule
    */
   "entitiesMappings"?: Array<model.EntitiesMapping>;
 }

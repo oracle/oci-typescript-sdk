@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible Metadata keys for workRequest resource metadata
+ * Metadata key for WorkRequest resource
  **/
 export enum WorkRequestResourceMetadataKey {
   IsDryRun = "IS_DRY_RUN",

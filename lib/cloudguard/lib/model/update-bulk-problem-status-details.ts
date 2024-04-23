@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of problem ids to be passed in to update the Problem status.
+ * List of problem IDs to be passed in to update problem status.
  */
 export interface UpdateBulkProblemStatusDetails {
   /**
@@ -26,11 +26,11 @@ export interface UpdateBulkProblemStatusDetails {
    */
   "status": model.ProblemLifecycleDetail;
   /**
-   * List of ProblemIds to be passed in to update the Problem status.
+   * List of problem IDs to be passed in to update the problem status
    */
   "problemIds": Array<string>;
   /**
-   * User defined comment to be passed in to update the problem.
+   * User-defined comment to be passed in to update the problem
    */
   "comment"?: string;
 }

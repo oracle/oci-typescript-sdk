@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Entities Details for a data source
+ * Detailed information for the entities mapped to a data source.
  */
 export interface EntityDetails {
   /**

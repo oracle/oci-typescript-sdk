@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Indication that represents the threat level of a Sighting
+ * The threat level of a sighting.
  **/
 export enum Severity {
   Critical = "CRITICAL",

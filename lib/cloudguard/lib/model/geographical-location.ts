@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Geographical Location of a problem
+ * The geographical location of a problem in terms of latitude and longitude.
  */
 export interface GeographicalLocation {
   /**
-   * Latitude Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Latitude of problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "latitude": number;
   /**
-   * Longitude Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Longitude of problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "longitude": number;
 }

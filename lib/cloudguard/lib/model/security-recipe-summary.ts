@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a security zone recipe. A security zone recipe is a collection of security zone policies. Oracle Cloud Infrastructure enforces these policies on security zones that use the recipe.
+ * Summary information for a Security Zones recipe.
  */
 export interface SecurityRecipeSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
@@ -34,7 +34,7 @@ export interface SecurityRecipeSummary {
    */
   "description"?: string;
   /**
-   * The id of the compartment that contains the recipe
+   * The OCID of the compartment that contains the recipe
    */
   "compartmentId": string;
   /**
@@ -42,7 +42,7 @@ export interface SecurityRecipeSummary {
    */
   "owner": model.OwnerType;
   /**
-   * The list of {@code SecurityPolicy} ids that are included in the recipe
+   * The list of security policy IDs that are included in the recipe
    */
   "securityPolicies": Array<string>;
   /**
@@ -54,7 +54,7 @@ export interface SecurityRecipeSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the recipe
+   * The current lifecycle state of the recipe
    */
   "lifecycleState"?: model.LifecycleState;
   /**

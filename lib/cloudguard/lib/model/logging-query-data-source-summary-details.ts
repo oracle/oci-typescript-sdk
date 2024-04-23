@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Logging Query of type DataSourceSummary.
+ * Summary information for a logging query for a data source.
  */
 export interface LoggingQueryDataSourceSummaryDetails extends model.DataSourceSummaryDetails {
   /**
-   * DataSource customer specified regions
+   * Data source customer-specified regions
    */
   "regions"?: Array<string>;
   /**
-   * DataSource mapping with detectorRecipe and detectorRule
+   * Data source mapping with detector recipe and detector rule
    */
   "dataSourceDetectorMappingInfo"?: Array<model.DataSourceMappingInfo>;
   /**
-   * DataSource query metadata replication region and status.
+   * Data source query metadata replication region and status.
    */
   "regionStatusDetail"?: Array<model.RegionStatusDetail>;
 

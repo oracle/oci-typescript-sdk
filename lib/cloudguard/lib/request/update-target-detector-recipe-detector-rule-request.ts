@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface UpdateTargetDetectorRecipeDetectorRuleRequest extends common.BaseRequest {
   /**
-   * OCID of target
+   * OCID of the target
    */
   "targetId": string;
   /**
-   * OCID of TargetDetectorRecipe
+   * OCID of the target detector recipe.
    */
   "targetDetectorRecipeId": string;
   /**
-   * The id of DetectorRule
+   * The unique identifier of the detector rule.
    */
   "detectorRuleId": string;
   /**
-   * The details to be updated for DetectorRule.
+   * The details to be updated for the detector rule
    */
   "updateTargetDetectorRecipeDetectorRuleDetails": model.UpdateTargetDetectorRecipeDetectorRuleDetails;
   /**

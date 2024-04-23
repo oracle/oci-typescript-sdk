@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ManageModuleStreamsOnManagedInstanceGroupRequest extends common.BaseRequest {
   /**
-   * The managed instance group OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**
-   * A description of an operation to perform against the modules, streams, and profiles of a managed instance group
+   * The set of changes to make to the modules, streams, and profiles on a managed instance group.
    */
   "manageModuleStreamsOnManagedInstanceGroupDetails": model.ManageModuleStreamsOnManagedInstanceGroupDetails;
   /**

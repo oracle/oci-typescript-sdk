@@ -26,6 +26,8 @@ import * as AccessRequestActionType from "./access-request-action-type";
 export import AccessRequestActionType = AccessRequestActionType.AccessRequestActionType;
 import * as AccessRequestCollection from "./access-request-collection";
 export import AccessRequestCollection = AccessRequestCollection.AccessRequestCollection;
+import * as AccessRequestExt from "./access-request-ext";
+export import AccessRequestExt = AccessRequestExt.AccessRequestExt;
 import * as AccessRequestSummary from "./access-request-summary";
 export import AccessRequestSummary = AccessRequestSummary.AccessRequestSummary;
 import * as ActionType from "./action-type";

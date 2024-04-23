@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Detector sub type associated with the target.
+ * Detector sub-type associated with the target.
  **/
 export enum ProblemCategoryEnum {
   SecurityZone = "SECURITY_ZONE"

@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The collection of datasource events.
+ * The collection of events related to a data source.
  */
 export interface DataSourceEventCollection {
   /**
-   * List of event related to a DataSource
+   * List of events related to a data source
    */
   "items": Array<model.DataSourceEventSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace DataSourceEventCollection {
@@ -35,6 +39,11 @@ export namespace DataSourceEventCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.DataSourceEventSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace DataSourceEventCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.DataSourceEventSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

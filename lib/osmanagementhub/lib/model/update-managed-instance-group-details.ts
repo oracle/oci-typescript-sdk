@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,17 +17,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
+ * Provides the information used to update the managed instance group.
  */
 export interface UpdateManagedInstanceGroupDetails {
   /**
-   * A user-friendly name for the managed instance group job. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name for the managed instance group. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * User specified information about the managed instance group. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * User-specified description of the managed instance group. Avoid entering confidential information.
    */
   "description"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Oracle Notifications service (ONS) topic. ONS is the channel used to send notifications to the customer.
+   */
+  "notificationTopicId"?: string;
+  "autonomousSettings"?: model.UpdatableAutonomousSettings;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -45,12 +51,26 @@ export interface UpdateManagedInstanceGroupDetails {
 
 export namespace UpdateManagedInstanceGroupDetails {
   export function getJsonObj(obj: UpdateManagedInstanceGroupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "autonomousSettings": obj.autonomousSettings
+          ? model.UpdatableAutonomousSettings.getJsonObj(obj.autonomousSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateManagedInstanceGroupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "autonomousSettings": obj.autonomousSettings
+          ? model.UpdatableAutonomousSettings.getDeserializedJsonObj(obj.autonomousSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

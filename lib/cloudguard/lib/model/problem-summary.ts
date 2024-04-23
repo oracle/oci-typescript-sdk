@@ -18,43 +18,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Problem.
+ * Summary information for a problem.
  */
 export interface ProblemSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * Identifier of the rule
+   * Unique identifier of the detector rule
    */
   "detectorRuleId"?: string;
   /**
-   * The Risk Level
+   * The risk level of the problem
    */
   "riskLevel"?: model.RiskLevel;
   /**
-   * Risk Score for the problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The risk score for the problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "riskScore"?: number;
   /**
-   * Identifier of the Resource
+   * Unique identifier of the resource that's impacted by the problem
    */
   "resourceId"?: string;
   /**
-   * DisplayName of the Resource
+   * Display name of the resource impacted by the problem
    */
   "resourceName"?: string;
   /**
-   * Type of the Resource
+   * Type of the resource impacted by the problem
    */
   "resourceType"?: string;
   /**
-   * user defined labels on the problem
+   * User-defined labels on the problem
    */
   "labels"?: Array<string>;
   /**
@@ -66,15 +66,15 @@ export interface ProblemSummary {
    */
   "timeLastDetected"?: Date;
   /**
-   * The current state of the Problem.
+   * The current lifecycle state of the problem
    */
   "lifecycleState"?: model.ProblemLifecycleState;
   /**
-   * The lifecycleDetail will give more detail on the substate of the lifecycleState.
+   * Additional details on the substate of the lifecycle state
    */
   "lifecycleDetail"?: model.ProblemLifecycleDetail;
   /**
-   * Id of detector associated with the Problem.
+   * Unique identifier of the detector associated with the problem
    */
   "detectorId"?: model.DetectorEnum;
   /**
@@ -82,23 +82,45 @@ export interface ProblemSummary {
    */
   "region"?: string;
   /**
-   * Regions where the problem is found
+   * List of regions where the problem is found
    */
   "regions"?: Array<string>;
   /**
-   * targetId associated with the problem.
+   * Unique target identifier associated with the problem
    */
   "targetId"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ProblemSummary {
   export function getJsonObj(obj: ProblemSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ProblemSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

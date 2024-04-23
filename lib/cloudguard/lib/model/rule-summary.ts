@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of rules
+ * Summary information for a rule.
  */
 export interface RuleSummary {
   /**
-   * id of the rule
+   * Unique identifier of the rule
    */
   "id": string;
   /**
-   * description of the rule
+   * Description of the rule
    */
   "description": string;
   /**
-   * List of parameters applicable for rule
+   * List of parameters applicable for the rule
    */
   "parameters": Array<model.OperatorSummary>;
 }

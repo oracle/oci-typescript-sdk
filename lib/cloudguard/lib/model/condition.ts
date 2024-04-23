@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Base condition object
+ * The base condition resource.
  */
 export interface Condition {
   "kind": string;

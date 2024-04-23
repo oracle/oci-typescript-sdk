@@ -18,11 +18,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a security zone policy. A security policy defines a security requirement for resources in a security zone. If a security zone enables a policy (using a recipe), then any action that attempts to violate that policy is denied.
+ * Summary information for a Security Zones policy. A security policy
+ * defines a security requirement for resources in a security zone.
+ *
  */
 export interface SecurityPolicySummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can\u2019t be changed after creation
    */
   "id": string;
   /**
@@ -30,7 +32,7 @@ export interface SecurityPolicySummary {
    */
   "friendlyName"?: string;
   /**
-   * The security policy's full name
+   * The security policy's display name
    */
   "displayName"?: string;
   /**
@@ -38,7 +40,7 @@ export interface SecurityPolicySummary {
    */
   "description"?: string;
   /**
-   * The id of the security policy's compartment
+   * The OCID of the security policy's compartment
    */
   "compartmentId": string;
   /**
@@ -46,7 +48,7 @@ export interface SecurityPolicySummary {
    */
   "owner": model.OwnerType;
   /**
-   * The category of security policy
+   * The category of the security policy
    */
   "category"?: string;
   /**
@@ -54,15 +56,15 @@ export interface SecurityPolicySummary {
    */
   "services"?: Array<string>;
   /**
-   * The time the security policy was created. An RFC3339 formatted datetime string.
+   * The date and time the security policy was created. An RFC3339 formatted datetime string.
    */
   "timeCreated"?: Date;
   /**
-   * The time the security policy was last updated. An RFC3339 formatted datetime string.
+   * The date and time the security policy was last updated. An RFC3339 formatted datetime string.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the security policy
+   * The current lifecycle state of the security policy
    */
   "lifecycleState"?: model.LifecycleState;
   /**

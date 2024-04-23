@@ -18,27 +18,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A data mask rule specifies the conditions in which the value for a sensitive data field in the UI is to be hidden or displayed when viewed by specified groups of users. The DataMaskRule object contains the parameters for a data mask rule.
+ * A data mask rule specifies the conditions in which the value for a sensitive data field in the UI is to be hidden or displayed when viewed by specified groups of users. The DataMaskRule resource contains the parameters for a data mask rule.
  */
 export interface DataMaskRule {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * Data Mask Rule Identifier, can be renamed.
+   * Data mask rule display name
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier where the resource is created.
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * The data mask rule description.
+   * The data mask rule description
    */
   "description"?: string;
   /**
-   * IAM Group id associated with the data mask rule
+   * IAM Group ID associated with the data mask rule
    */
   "iamGroupId": string;
   "targetSelected":
@@ -46,7 +46,7 @@ export interface DataMaskRule {
     | model.TargetResourceTypesSelected
     | model.TargetIdsSelected;
   /**
-   * Data Mask Categories
+   * List of data mask rule categories
    */
   "dataMaskCategories"?: Array<DataMaskRule.DataMaskCategories>;
   /**
@@ -58,17 +58,21 @@ export interface DataMaskRule {
    */
   "timeUpdated"?: Date;
   /**
-   * The status of the dataMaskRule.
+   * The current status of the data mask rule
    */
   "dataMaskRuleStatus"?: model.DataMaskRuleStatus;
   /**
-   * The current state of the DataMaskRule.
+   * The current lifecycle state of the data mask rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * Additional details on the substate of the lifecycle state [DEPRECATE]
    */
   "lifecyleDetails"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * Example: {@code {\"bar-key\": \"value\"}}
@@ -115,6 +119,12 @@ export namespace DataMaskRule {
       ...{
         "targetSelected": obj.targetSelected
           ? model.TargetSelected.getJsonObj(obj.targetSelected)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -127,6 +137,12 @@ export namespace DataMaskRule {
       ...{
         "targetSelected": obj.targetSelected
           ? model.TargetSelected.getDeserializedJsonObj(obj.targetSelected)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

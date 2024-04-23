@@ -18,27 +18,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of Operator
+ * Summary information on available operators.
  */
 export interface OperatorSummary {
   /**
-   * name of the operand
+   * Name of the operand
    */
   "name": string;
   /**
-   * display name of the operand
+   * Display name of the operand
    */
   "displayName": string;
   /**
-   * data type of operand
+   * Data type of the operand
    */
   "datatype": string;
   /**
-   * operand list type
+   * Operand list type
    */
   "managedListtype": string;
   /**
-   * Filter type can be config filter or condition filter
+   * Type of filter
    */
   "filterType": model.ConditionFilterType;
   /**
@@ -46,7 +46,7 @@ export interface OperatorSummary {
    */
   "operators": Array<model.ConditionOperator>;
   /**
-   * configuration value type list for multilist data type
+   * Configuration value type list for multi-list data type
    */
   "multiListTypes"?: Array<string>;
 }

@@ -70,6 +70,13 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeCreated": Date;
   /**
+    * The date and time the boot volume attachment was updated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeUpdated"?: Date;
+  /**
    * Whether in-transit encryption for the boot volume's paravirtualized attachment is enabled or not.
    *
    */

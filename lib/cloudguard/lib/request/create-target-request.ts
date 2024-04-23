@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateTargetRequest extends common.BaseRequest {
   /**
-   * Details for the new Target.
+   * Contains generic target information which is required for all target types
    */
   "createTargetDetails": model.CreateTargetDetails;
   /**

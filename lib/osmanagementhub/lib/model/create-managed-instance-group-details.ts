@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,43 +17,54 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new managed instance group.
+ * Provides the information used to create a new managed instance group.
  */
 export interface CreateManagedInstanceGroupDetails {
   /**
-   * A user-friendly name for the managed instance group. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name for the managed instance group. Does not have to be unique and you can change the name later. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * Details about the managed instance group.
+   * User-specified description of the managed instance group. Avoid entering confidential information.
    */
   "description"?: string;
   /**
-   * The OCID of the tenancy containing the managed instance group.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the managed instance group.
    */
   "compartmentId": string;
   /**
-   * The operating system type of the managed instance(s) that this managed instance group will contain.
+   * The operating system type of the managed instances that will be attached to this group.
    *
    */
   "osFamily": model.OsFamily;
   /**
-   * The CPU architecture type of the managed instance(s) that this managed instance group will contain.
+   * The CPU architecture type of the managed instances that will be attached to this group.
    *
    */
   "archType": model.ArchType;
   /**
-   * The software source vendor name.
+   * The vendor of the operating system that will be used by the managed instances in the group.
+   *
    */
   "vendorName": model.VendorName;
   /**
-   * The list of software source OCIDs available to the managed instances in the managed instance group.
+   * The location of managed instances attached to the group. If no location is provided, the default is on premises.
+   *
    */
-  "softwareSourceIds": Array<string>;
+  "location"?: model.ManagedInstanceLocation;
   /**
-   * The list of managed instance OCIDs to be added to the managed instance group.
+   * The list of software source [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) available to the managed instances in the group.
+   */
+  "softwareSourceIds"?: Array<string>;
+  /**
+   * The list of managed instance [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) to be added to the group.
    */
   "managedInstanceIds"?: Array<string>;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Oracle Notifications service (ONS) topic. ONS is the channel used to send notifications to the customer.
+   */
+  "notificationTopicId"?: string;
+  "autonomousSettings"?: model.UpdatableAutonomousSettings;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -71,12 +83,26 @@ export interface CreateManagedInstanceGroupDetails {
 
 export namespace CreateManagedInstanceGroupDetails {
   export function getJsonObj(obj: CreateManagedInstanceGroupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "autonomousSettings": obj.autonomousSettings
+          ? model.UpdatableAutonomousSettings.getJsonObj(obj.autonomousSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateManagedInstanceGroupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "autonomousSettings": obj.autonomousSettings
+          ? model.UpdatableAutonomousSettings.getDeserializedJsonObj(obj.autonomousSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The status of the data source.
+ * The enablement status of the data source
  **/
 export enum DataSourceStatus {
   Enabled = "ENABLED",

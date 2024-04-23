@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of ManagedInstanceAnalyticSummary.
+ * A set of managed instance metrics returned for the {@link #summarizeManagedInstanceAnalytics(SummarizeManagedInstanceAnalyticsRequest) summarizeManagedInstanceAnalytics} operation.
  */
 export interface ManagedInstanceAnalyticCollection {
   /**
-   * List of managed instance analytic summary.
+   * List of managed instance analytic summary objects.
    */
   "items": Array<model.ManagedInstanceAnalyticSummary>;
 }

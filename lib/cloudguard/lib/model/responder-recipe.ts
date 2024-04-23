@@ -18,23 +18,39 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of ResponderRecipe.
- */
+* A ResponderRecipe resource contains a specific instance of one of
+* the supported detector types (for example, activity, configuration,
+* or threat).
+* <p>
+A ResponderRecipe resource:
+* * Is effectively a copy of a Responder resource in which users can make
+* very limited changes if it\u2019s Oracle-managed, and more changes if it\u2019s user-managed.
+* * Can also be created by cloning an existing ResponderRecipe resource, either
+* user-managed or Oracle-managed.
+* * Is visible on Cloud Guard\u2019s Responder Recipes page.
+* * Is located in a specific OCI compartment.
+* * Can be modified by users, programmatically or through the UI.
+* * Changes that can be made here apply globally, to resources in all OCI compartments
+* mapped to a target that attaches the responder recipe, but are overridden by
+* any changes made in the corresponding TargetResponderRecipe resource (effectively
+* created when the responder recipe is attached to the target).
+* 
+*/
 export interface ResponderRecipe {
   /**
-   * Identifier for ResponderRecipe.
+   * Unique identifier for the responder recip
    */
   "id": string;
   /**
-   * ResponderRecipe display name.
+   * Responder recipe display name
    */
   "displayName"?: string;
   /**
-   * ResponderRecipe description.
+   * Responder recipe description
    */
   "description"?: string;
   /**
-   * Owner of ResponderRecipe
+   * Owner of responder recipe
    */
   "owner"?: model.OwnerType;
   /**
@@ -42,15 +58,15 @@ export interface ResponderRecipe {
    */
   "responderRules"?: Array<model.ResponderRecipeResponderRule>;
   /**
-   * List of responder rules associated with the recipe
+   * List of currently enabled responder rules for the responder type, for recipe after applying defaults
    */
   "effectiveResponderRules"?: Array<model.ResponderRecipeResponderRule>;
   /**
-   * The id of the source responder recipe.
+   * The unique identifier of the source responder recipe
    */
   "sourceResponderRecipeId"?: string;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
@@ -58,11 +74,11 @@ export interface ResponderRecipe {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the responder recipe was updated. Format defined by RFC3339.
+   * The date and time the responder recipe was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the Example.
+   * The current lifecycle state of the example
    */
   "lifecycleState"?: model.LifecycleState;
   /**

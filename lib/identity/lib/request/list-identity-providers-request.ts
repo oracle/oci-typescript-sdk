@@ -21,7 +21,7 @@ export interface ListIdentityProvidersRequest extends common.BaseRequest {
   /**
    * The protocol used for federation.
    */
-  "protocol": ListIdentityProvidersRequest.Protocol;
+  "protocol": string;
   /**
    * The OCID of the compartment (remember that the tenancy is simply the root compartment).
    *
@@ -68,10 +68,6 @@ export interface ListIdentityProvidersRequest extends common.BaseRequest {
 }
 
 export namespace ListIdentityProvidersRequest {
-  export enum Protocol {
-    Saml2 = "SAML2"
-  }
-
   export enum SortBy {
     Timecreated = "TIMECREATED",
     Name = "NAME"

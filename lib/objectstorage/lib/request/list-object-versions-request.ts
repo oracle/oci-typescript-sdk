@@ -64,7 +64,7 @@ export interface ListObjectVersionsRequest extends common.BaseRequest {
    * For example 'name,etag,timeCreated,md5,timeModified,storageTier,archivalState'.
    *
    */
-  "fields"?: ListObjectVersionsRequest.Fields;
+  "fields"?: string;
   /**
    * The client request ID for tracing.
    */
@@ -79,17 +79,4 @@ export interface ListObjectVersionsRequest extends common.BaseRequest {
    *
    */
   "page"?: string;
-}
-
-export namespace ListObjectVersionsRequest {
-  export enum Fields {
-    Name = "name",
-    Size = "size",
-    Etag = "etag",
-    TimeCreated = "timeCreated",
-    Md5 = "md5",
-    TimeModified = "timeModified",
-    StorageTier = "storageTier",
-    ArchivalState = "archivalState"
-  }
 }

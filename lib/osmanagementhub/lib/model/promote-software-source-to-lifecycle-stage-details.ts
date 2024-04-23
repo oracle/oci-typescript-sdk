@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,30 +17,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* A versioned custom software source OCID (softwareSourceId)
-* is required when promoting software source content to
-* lifecycle stage rank one. Software source content must be
-* promoted to lifecycle stage rank one before being
-* eligible for promotion to subsequent lifecycle stages,
-* else an error is returned. Software source content is
-* expected to be promoted in order starting with
-* lifecycle stage rank one, followed by rank two, then rank
-* three and so on.
-* <p>
-When promoting software source content to lifecycle stage
-* rank two, three, four or five, softwareSourceId is optional.
-* If a softwareSourceId is provided for a lifecycle stage
-* between two and five, the system validates that the
-* softwareSourceId is already promoted to the previous lifecycle stage.
-* If the softwareSourceId from the previous lifecycle stage
-* does not match the provided softwareSourceId an error returns.
-* If a softwareSourceId is not provided for a lifecycle stage
-* between two and five, the system promotes the
-* softwareSourceId from the previous lifecycle stage. If the
-* previous lifecycle stage has no SourceSource content
-* an error returns.
-* 
-*/
+ * Provides detailed information about the lifecycle stage promotion.
+ *
+ */
 export interface PromoteSoftwareSourceToLifecycleStageDetails {
   "workRequestDetails"?: model.WorkRequestDetails;
 }

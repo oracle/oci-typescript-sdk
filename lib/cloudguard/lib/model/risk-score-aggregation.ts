@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface RiskScoreAggregation {
   /**
-   * The key-value pairs of dimensions and their names.
+   * The key-value pairs of dimensions and their names
    */
   "dimensionsMap": { [key: string]: string };
   /**

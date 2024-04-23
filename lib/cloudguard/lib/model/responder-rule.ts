@@ -18,31 +18,40 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Definition of ResponderRule.
- */
+* A ResponderRule resource contains the default settings for a single
+* responder rule that Cloud Guard provides.
+* <p>
+A ResponderRule resource:
+* * Is used as the original source for a rule in an Oracle-managed
+* responder of the specified type.
+* * Is not directly visible in the Cloud Guard UI.
+* * Can\u2019t be modified by users, programmatically or through the UI.
+* * May be modified from time to time by Cloud Guard.
+* 
+*/
 export interface ResponderRule {
   /**
-   * Identifier for ResponderRule.
+   * Unique identifier for the responder rule
    */
   "id": string;
   /**
-   * ResponderRule Display Name
+   * Responder rule display name
    */
   "displayName": string;
   /**
-   * ResponderRule Description
+   * Responder rule description
    */
   "description": string;
   /**
-   * Type of Responder
+   * Type of responder
    */
   "type": model.ResponderType;
   /**
-   * List of Policy
+   * List of policies
    */
   "policies"?: Array<string>;
   /**
-   * Supported Execution Modes
+   * Supported execution modes for the responder rule
    */
   "supportedModes"?: Array<ResponderRule.SupportedModes>;
   "details"?: model.ResponderRuleDetails;
@@ -51,17 +60,21 @@ export interface ResponderRule {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the responder rule was updated. Format defined by RFC3339.
+   * The date and time the responder rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the ResponderRule.
+   * The current lifecycle state of the responder rule.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResponderRule {
@@ -79,7 +92,13 @@ export namespace ResponderRule {
     const jsonObj = {
       ...obj,
       ...{
-        "details": obj.details ? model.ResponderRuleDetails.getJsonObj(obj.details) : undefined
+        "details": obj.details ? model.ResponderRuleDetails.getJsonObj(obj.details) : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -91,6 +110,12 @@ export namespace ResponderRule {
       ...{
         "details": obj.details
           ? model.ResponderRuleDetails.getDeserializedJsonObj(obj.details)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

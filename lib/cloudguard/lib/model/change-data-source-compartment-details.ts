@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Changing compartmentId for DataSource
+ * The compartmentId for the compartment into which the data source is to be moved.
  */
 export interface ChangeDataSourceCompartmentDetails {
   /**
-   * The OCID of the compartment into which the DataSource should be moved
+   * The OCID of the compartment into which the data source is to be moved
    */
   "compartmentId": string;
 }

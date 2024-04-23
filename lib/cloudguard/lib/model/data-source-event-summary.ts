@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about Event details of DataSource.
+ * Summary information about a data source event.
  */
 export interface DataSourceEventSummary {
   /**
@@ -26,15 +26,15 @@ export interface DataSourceEventSummary {
    */
   "region": string;
   /**
-   * Data source event date time
+   * Data source event date and time
    */
   "eventDate": Date;
   /**
-   * Attached data Source
+   * Unique identifier of data source.
    */
   "dataSourceId": string;
   /**
-   * Data source event created time
+   * Data source event creation date and time
    */
   "timeCreated": Date;
   /**

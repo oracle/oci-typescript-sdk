@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about problem entities details of DataSource for a CloudGuard Problem.
+ * Summary information about problem entities for a data source for a problem.
  */
 export interface ProblemEntitySummary {
   /**
@@ -30,7 +30,7 @@ export interface ProblemEntitySummary {
    */
   "timeFirstDetected": Date;
   /**
-   * Attached problem id
+   * Attached problem ID
    */
   "problemId": string;
   /**
@@ -38,11 +38,11 @@ export interface ProblemEntitySummary {
    */
   "timeLastDetected": Date;
   /**
-   * Log result query url for a data source query
+   * Log result query URL for a data source query
    */
   "resultUrl"?: string;
   /**
-   * List of event related to a DataSource
+   * List of entity details related to a data source
    */
   "entityDetails"?: Array<model.EntityDetails>;
 }

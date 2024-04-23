@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of ResponderExecutionAggregation objects
+ * Collection of ResponderExecutionAggregation resources.
  */
 export interface ResponderExecutionAggregationCollection {
   /**
-   * The items consist of all the ResponderExecutionAggregation objects.
+   * List of all the ResponderExecutionAggregation resources
    */
   "items": Array<model.ResponderExecutionAggregation>;
 }

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListDataSourceEventsRequest extends common.BaseRequest {
   /**
-   * DataSource OCID
+   * Data source OCID.
    */
   "dataSourceId": string;
   /**
-   * A filter to return only resource their region matches the given region.
+   * A filter to return only resource where their region matches the given region.
    */
   "region"?: string;
   /**
@@ -31,11 +31,11 @@ export interface ListDataSourceEventsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListProblemEndpointsRequest extends common.BaseRequest {
   /**
-   * OCId of the problem.
+   * OCID of the problem.
    */
   "problemId": string;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -31,7 +31,7 @@ export interface ListProblemEndpointsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

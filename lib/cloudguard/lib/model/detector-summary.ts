@@ -18,31 +18,53 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Detector.
+ * Summary information for a detector.
  */
 export interface DetectorSummary {
   /**
-   * detector Identifier
+   * Unique identifier for the detector
    */
   "id": string;
   /**
-   * detector description
+   * Detector description
    */
   "description"?: string;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace DetectorSummary {
   export function getJsonObj(obj: DetectorSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DetectorSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

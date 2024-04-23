@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details to be updated in ResponderRule
+ * Parameters to use to update a responder rule within a responder recipe.
  */
 export interface UpdateResponderRecipeResponderRuleDetails {
   "details": model.UpdateResponderRuleDetails;

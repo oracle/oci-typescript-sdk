@@ -18,31 +18,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the ResponderRule.
+ * Summary information for a responder rule.
  */
 export interface ResponderRuleSummary {
   /**
-   * Identifier for ResponderRule.
+   * Unique identifier for responder rule
    */
   "id": string;
   /**
-   * ResponderRule Display Name
+   * Display name for responder rule
    */
   "displayName": string;
   /**
-   * ResponderRule Description
+   * Responder rule description
    */
   "description": string;
   /**
-   * Type of Responder
+   * Type of responder
    */
   "type": model.ResponderType;
   /**
-   * List of Policy
+   * List of policies
    */
   "policies"?: Array<string>;
   /**
-   * Supported Execution Modes
+   * Supported execution modes for responder rule
    */
   "supportedModes"?: Array<ResponderRuleSummary.SupportedModes>;
   "details"?: model.ResponderRuleDetails;
@@ -51,11 +51,11 @@ export interface ResponderRuleSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the responder rule was updated. Format defined by RFC3339.
+   * The date and time the responder rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the ResponderRule.
+   * The current lifecycle state of the responder rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**

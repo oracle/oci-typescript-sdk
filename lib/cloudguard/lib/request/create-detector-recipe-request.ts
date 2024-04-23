@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDetectorRecipeRequest extends common.BaseRequest {
   /**
-   * Details for the new DetectorRecipe.
+   * Details for the new DetectorRecipe
    */
   "createDetectorRecipeDetails": model.CreateDetectorRecipeDetails;
   /**

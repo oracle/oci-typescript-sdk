@@ -18,31 +18,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of ResponderRecipe
+ * Summary information for a target responder recipe.
  */
 export interface TargetResponderRecipeSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
-   * Unique identifier for Responder Recipe of which this is an extension
+   * Unique identifier for responder recipe of which this is an extension
    */
   "responderRecipeId": string;
   /**
-   * ResponderRecipe Identifier Name
+   * Display name of the responder recipe
    */
   "displayName": string;
   /**
-   * ResponderRecipe Description
+   * Description of the responder recipe
    */
   "description": string;
   /**
-   * Owner of ResponderRecipe
+   * Owner of the responder recipe
    */
   "owner": model.OwnerType;
   /**
@@ -50,27 +50,49 @@ export interface TargetResponderRecipeSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the target responder recipe was updated. Format defined by RFC3339.
+   * The date and time the target responder recipe was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the Example.
+   * The current lifecycle state of the example
    */
   "lifecycleState"?: model.LifecycleState;
   /**
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace TargetResponderRecipeSummary {
   export function getJsonObj(obj: TargetResponderRecipeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: TargetResponderRecipeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

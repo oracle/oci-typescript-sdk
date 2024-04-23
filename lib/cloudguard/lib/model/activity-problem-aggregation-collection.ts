@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Activity Problem Aggregation Collection.
+ * A collection of ProblemAggregation resources for problem analytics.
  */
 export interface ActivityProblemAggregationCollection {
   /**
-   * The items consists of all the ActivityProblemAggregation objects.
+   * List of all the ActivityProblemAggregation resources
    */
   "items": Array<model.ActivityProblemAggregation>;
 }

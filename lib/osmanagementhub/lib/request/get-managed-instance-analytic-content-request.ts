@@ -19,25 +19,25 @@ import common = require("oci-common");
  */
 export interface GetManagedInstanceAnalyticContentRequest extends common.BaseRequest {
   /**
-   * This compartmentId is used to list managed instances within a compartment.
-   * Or serve as an additional filter to restrict only managed instances with in certain compartment if other filter presents.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * This filter returns only resources contained within the specified compartment.
    *
    */
   "compartmentId"?: string;
   /**
-   * The OCID of the managed instance group for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group. This filter returns resources associated with this group.
    */
   "managedInstanceGroupId"?: string;
   /**
-   * The OCID of the lifecycle environment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle environment. This filter returns only resource contained with the specified lifecycle environment.
    */
   "lifecycleEnvironmentId"?: string;
   /**
-   * The OCID of the lifecycle stage for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage. This resource returns resources associated with this lifecycle stage.
    */
   "lifecycleStageId"?: string;
   /**
-   * A filter to return only instances whose managed instance status matches the given status.
+   * A filter to return only managed instances whose status matches the status provided.
    */
   "status"?: Array<model.ManagedInstanceStatus>;
   /**
@@ -49,27 +49,63 @@ export interface GetManagedInstanceAnalyticContentRequest extends common.BaseReq
    */
   "displayNameContains"?: string;
   /**
-   * Filter instances by Location. Used when report target type is compartment or group.
-   */
-  "instanceLocation"?: model.ManagedInstanceLocation;
-  /**
-   * A filter to return instances with number of available security updates equals to the number specified.
+   * A filter to return instances that have the specified number of available security updates.
    */
   "securityUpdatesAvailableEqualsTo"?: number;
   /**
-   * A filter to return instances with number of available bug updates equals to the number specified.
+   * A filter to return instances that have the specified number of available bug updates.
    */
   "bugUpdatesAvailableEqualsTo"?: number;
   /**
-   * A filter to return instances with number of available security updates greater than the number specified.
+   * A filter to return instances that have more available security updates than the number specified.
    */
   "securityUpdatesAvailableGreaterThan"?: number;
   /**
-   * A filter to return instances with number of available bug updates greater than the number specified.
+   * A filter to return instances that have more available bug updates than the number specified.
    */
   "bugUpdatesAvailableGreaterThan"?: number;
+  /**
+   * A filter to return only resources whose location matches the given value.
+   */
+  "location"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources whose location does not match the given value.
+   */
+  "locationNotEqualTo"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources that match the given operating system family.
+   */
+  "osFamily"?: Array<model.OsFamily>;
+  /**
+   * Indicates whether to list only resources managed by the Autonomous Linux service.
+   *
+   */
+  "isManagedByAutonomousLinux"?: boolean;
+  /**
+   * The format of the report to download. Default is CSV.
+   */
+  "reportFormat"?: GetManagedInstanceAnalyticContentRequest.ReportFormat;
+  /**
+   * The type of the report the user wants to download. Default is ALL.
+   */
+  "reportType"?: GetManagedInstanceAnalyticContentRequest.ReportType;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
+}
+
+export namespace GetManagedInstanceAnalyticContentRequest {
+  export enum ReportFormat {
+    Csv = "csv",
+    Json = "json",
+    Xml = "xml"
+  }
+
+  export enum ReportType {
+    Security = "SECURITY",
+    Bugfix = "BUGFIX",
+    Activity = "ACTIVITY",
+    All = "ALL"
+  }
 }

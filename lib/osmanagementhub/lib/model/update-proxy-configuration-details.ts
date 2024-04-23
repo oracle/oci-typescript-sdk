@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,23 +17,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information for updating a proxy configuration
+ * Provides the information used to update the proxy configuration for a management station.
  */
 export interface UpdateProxyConfigurationDetails {
   /**
-   * To enable or disable the proxy (default true)
+   * Indicates if the proxy should be enabled or disabled. Default is enabled.
    */
   "isEnabled": boolean;
   /**
-   * List of hosts
+   * List of hosts.
    */
   "hosts"?: Array<string>;
   /**
-   * Port that the proxy will use
+   * Listening port used for the proxy.
    */
   "port"?: string;
   /**
-   * URL that the proxy will forward to
+   * The URL the proxy will forward to.
    */
   "forward"?: string;
 }

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
+ * Parameters to be used to move a security policy to a different compartment.
  */
 export interface ChangeSecurityPolicyCompartmentDetails {
   /**

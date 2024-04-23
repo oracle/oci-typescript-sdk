@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Additional details specific to the data source type (Sighting/Insight).
+ * Details for a logging query for a data source.
  */
 export interface LoggingQueryDetails {
   "loggingQueryType": string;

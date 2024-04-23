@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Yum/DNF package group that associated with a software source.
+ * The yum or DNF package group that is associated with a software source.
  */
 export interface PackageGroupSummary {
   /**
@@ -28,11 +29,11 @@ export interface PackageGroupSummary {
    */
   "name": string;
   /**
-   * description of the package group.
+   * Description of the package group.
    */
   "description"?: string;
   /**
-   * Indicates if this package group is visible by users.
+   * Indicates if this package group is visible to users.
    */
   "isUserVisible"?: boolean;
   /**
@@ -40,7 +41,7 @@ export interface PackageGroupSummary {
    */
   "isDefault"?: boolean;
   /**
-   * the IDs of the package group's repositories.
+   * The repository IDs of the package group.
    */
   "repositories"?: Array<string>;
   /**

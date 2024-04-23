@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The additional details for the problem
+ * The additional details to be updated for the problem.
  */
 export interface UpdateProblemStatusDetails {
   /**
@@ -26,7 +26,7 @@ export interface UpdateProblemStatusDetails {
    */
   "status": model.ProblemLifecycleDetail;
   /**
-   * User Comments
+   * User comments
    */
   "comment"?: string;
 }

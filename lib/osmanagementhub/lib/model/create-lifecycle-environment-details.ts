@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,40 +17,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Creates a lifecycle environment.
- * A lifecycle environment is a user-defined pipeline to deliver curated,
- * versioned content in a prescribed, methodical manner.
+ * Provides the information used to create a lifecycle environment. A lifecycle environment is a user-defined pipeline to deliver curated, versioned content in a prescribed, methodical manner.
  *
  */
 export interface CreateLifecycleEnvironmentDetails {
   /**
-   * The OCID of the tenancy containing the lifecycle environment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the lifecycle environment.
    */
   "compartmentId": string;
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name for the lifecycle environment. Does not have to be unique and you can change the name later. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * User specified information about the lifecycle environment.
+   * User-specified information about the lifecycle environment. Avoid entering confidential information.
    */
   "description"?: string;
   /**
-   * User specified list of ranked lifecycle stages to be created for the lifecycle environment.
+   * User-specified list of ranked lifecycle stages used within the lifecycle environment.
    */
   "stages": Array<model.CreateLifecycleStageDetails>;
   /**
-   * The CPU architecture of the managed instance(s) in the lifecycle environment.
+   * The CPU architecture of the managed instances in the lifecycle environment.
    */
   "archType": model.ArchType;
   /**
-   * The operating system type of the managed instance(s) in the lifecycle environment.
+   * The operating system of the managed instances in the lifecycle environment.
    */
   "osFamily": model.OsFamily;
   /**
-   * The software source vendor name.
+   * The vendor of the operating system used by the managed instances in the lifecycle environment.
    */
   "vendorName": model.VendorName;
+  /**
+   * The location of managed instances attached to the lifecycle environment. If no location is provided, the default is 'ON_PREMISE.'
+   *
+   */
+  "location"?: model.ManagedInstanceLocation;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

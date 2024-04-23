@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Changing compartmentId for DetectorRecipe
+ * Parameters to use to move a detector recipe to a different compartment.
  */
 export interface ChangeDetectorRecipeCompartmentDetails {
   /**
-   * The OCID of the compartment into which the DetectorRecipe should be moved
+   * The OCID of the compartment into which the detector recipe is to be moved
    */
   "compartmentId": string;
 }

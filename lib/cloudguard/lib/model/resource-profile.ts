@@ -18,55 +18,55 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Resource profile details
+ * Resource profile details.
  */
 export interface ResourceProfile {
   /**
-   * Number of sightings associated with this resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of sightings associated with the resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sightingsCount"?: number;
   /**
-   * Unique identifier for resource profile
+   * Unique identifier for the resource profile
    */
   "id": string;
   /**
-   * Unique identifier for resource profile
+   * Unique identifier for the resource associated with the resource profile
    */
   "resourceId": string;
   /**
-   * Resource name for resource profile
+   * Display name for the resource profile
    */
   "displayName": string;
   /**
-   * Resource type for resource profile
+   * Resource type for the resource profile
    */
   "type": string;
   /**
-   * List of Problems associated with the resource profile.
+   * List of problems IDs associated with the resource profile
    */
   "problemIds"?: Array<string>;
   /**
-   * Compartment Id for resource profile
+   * Compartment OCID for the resource profile
    */
   "compartmentId": string;
   /**
-   * Target Id for resource profile
+   * Unique target ID for the resource profile
    */
   "targetId"?: string;
   /**
-   * Risk Score for the resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Risk score for the resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "riskScore": number;
   /**
-   * Risk Level associated with resource profile
+   * Risk level associated with resource profile
    */
   "riskLevel"?: model.RiskLevel;
   /**
-   * Peak Risk Score for the resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Peak risk score for the resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "peakRiskScore"?: number;
   /**
-   * The date and time for peak risk score. Format defined by RFC3339.
+   * The date and time for the peak risk score. Format defined by RFC3339.
    */
   "timePeakScore"?: Date;
   /**
@@ -78,9 +78,13 @@ export interface ResourceProfile {
    */
   "timeLastDetected": Date;
   /**
-   * List of tactic summary associated with the resource profile.
+   * List of tactic summaries associated with the resource profile
    */
   "tactics": Array<model.TacticSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResourceProfile {
@@ -91,6 +95,11 @@ export namespace ResourceProfile {
         "tactics": obj.tactics
           ? obj.tactics.map(item => {
               return model.TacticSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -105,6 +114,11 @@ export namespace ResourceProfile {
         "tactics": obj.tactics
           ? obj.tactics.map(item => {
               return model.TacticSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

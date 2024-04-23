@@ -22,13 +22,17 @@ import common = require("oci-common");
  */
 export interface ConditionMetadataType {
   /**
-   * Name used to identify
+   * Name used to identify the condition metadata type
    */
   "name": string;
   /**
-   * collection of Service type
+   * Collection of ServiceTypeSummary resources
    */
   "serviceTypes": Array<model.ServiceTypeSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ConditionMetadataType {
@@ -39,6 +43,11 @@ export namespace ConditionMetadataType {
         "serviceTypes": obj.serviceTypes
           ? obj.serviceTypes.map(item => {
               return model.ServiceTypeSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -53,6 +62,11 @@ export namespace ConditionMetadataType {
         "serviceTypes": obj.serviceTypes
           ? obj.serviceTypes.map(item => {
               return model.ServiceTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

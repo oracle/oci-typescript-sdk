@@ -18,23 +18,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of Resource risk scores
+ * Collection of risk score aggregations.
  */
 export interface ResourceRiskScoreAggregationCollection {
   /**
-   * Type of filter. Valid Values - problem_id and resource_id
+   * Type of filter
    */
   "filterType": string;
   /**
-   * Id value on which risk scores are filtered
+   * ID for filter that to be used to filter risk scores
    */
   "filterId": string;
   /**
-   * Risk Score Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Risk score value that triggers a problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "riskThreshold"?: number;
   /**
-   * List of ResourceRiskScoreAggregation
+   * List of ResourceRiskScoreAggregation resources
    */
   "items": Array<model.ResourceRiskScoreAggregation>;
 }

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetResponderExecutionRequest extends common.BaseRequest {
   /**
-   * The identifier of the responder execution.
+   * The unique identifier of the responder execution.
    */
   "responderExecutionId": string;
   /**

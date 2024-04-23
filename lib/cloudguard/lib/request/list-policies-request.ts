@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListPoliciesRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -27,7 +27,7 @@ export interface ListPoliciesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -35,7 +35,7 @@ export interface ListPoliciesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

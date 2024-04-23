@@ -26,31 +26,31 @@ export interface ProblemEndpointSummary {
    */
   "id": string;
   /**
-   * Unique id for sighting associated with the endpoint.
+   * Unique identifier for sighting associated with the endpoint
    */
   "sightingId": string;
   /**
-   * Unique id for cloudguard problem
+   * Unique identifier for problem associated with the endpoint
    */
   "problemId": string;
   /**
-   * Identifier for the sighting type
+   * Unique identifier for the sighting type associated with the endpoint
    */
   "sightingType": string;
   /**
-   * Display Name of the sighting type
+   * Display name of the sighting type
    */
   "sightingTypeDisplayName": string;
   /**
-   * IP Address of the Endpoint
+   * IP address of the endpoint
    */
   "ipAddress": string;
   /**
-   * IP Address type of the Endpoint
+   * Type of IP address for the endpoint
    */
   "ipAddressType": string;
   /**
-   * IP Address classification type of the endpoint
+   * IP address classification type for the endpoint
    */
   "ipClassificationType"?: string;
   /**
@@ -70,11 +70,11 @@ export interface ProblemEndpointSummary {
    */
   "asnNumber"?: string;
   /**
-   * Regions where activities were performed from this IP
+   * Regions where activities were performed from this IP address
    */
   "regions"?: Array<string>;
   /**
-   * Services where activities were performed from this IP
+   * List of services where activities were performed from this IP address
    */
   "services"?: Array<string>;
   /**

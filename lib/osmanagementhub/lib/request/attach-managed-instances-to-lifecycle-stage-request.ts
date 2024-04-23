@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface AttachManagedInstancesToLifecycleStageRequest extends common.BaseRequest {
   /**
-   * The OCID of the lifecycle stage.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage.
    */
   "lifecycleStageId": string;
   /**

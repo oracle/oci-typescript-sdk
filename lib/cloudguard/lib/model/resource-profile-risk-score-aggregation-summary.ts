@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Resource profile risk score trend-line
+ * Summary of resource profile risk score aggregations.
  */
 export interface ResourceProfileRiskScoreAggregationSummary {
   /**
@@ -30,11 +30,11 @@ export interface ResourceProfileRiskScoreAggregationSummary {
    */
   "resourceProfileDisplayName": string;
   /**
-   * Risk threshold Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Risk score value that triggers a problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "riskThreshold"?: number;
   /**
-   * List of ResourceRiskScoreAggregation
+   * List of ResourceRiskScoreAggregation resources
    */
   "items": Array<model.ResourceRiskScoreAggregation>;
 }

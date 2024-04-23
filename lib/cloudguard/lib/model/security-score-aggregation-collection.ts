@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Security Score Aggregation Collection.
+ * Collection of security score aggregation information.
  */
 export interface SecurityScoreAggregationCollection {
   /**
-   * The items consist of all the SecurityScoreAggregation objects.
+   * List of all the SecurityScoreAggregation resources objects.
    */
   "items": Array<model.SecurityScoreAggregation>;
 }

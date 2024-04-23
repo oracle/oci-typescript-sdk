@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListManagedInstanceInstalledPackagesRequest extends common.BaseRequest {
   /**
-   * The OCID of the managed instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
    */
   "managedInstanceId": string;
   /**
@@ -38,14 +38,14 @@ Example: 2017-07-14T02:40:00.000Z
  */
   "timeInstallDateStart"?: Date;
   /**
- * The install date before which to list all packages, in ISO 8601 format.
+ * A filter to return only packages that were installed on or before the date provided, in ISO 8601 format.
 * <p>
 Example: 2017-07-14T02:40:00.000Z
 * 
  */
   "timeInstallDateEnd"?: Date;
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**

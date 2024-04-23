@@ -18,26 +18,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Creation of Data Source.
+ * Parameters for creating a data source (DataSource resource).
  */
 export interface CreateDataSourceDetails {
   /**
-   * Data Source display name.
+   * Data source display name
    */
   "displayName": string;
   /**
-   * Status of DataSource. Default value is DISABLED.
+   * Enablement status of data source.
    */
   "status"?: model.DataSourceStatus;
   /**
-   * CompartmentId of Data Source.
+   * Compartment OCID of the data source
    */
   "compartmentId": string;
   /**
-   * Possible type of dataSourceFeed Provider(LoggingQuery)
+   * Type of data source feed provider (LoggingQuery)
    */
   "dataSourceFeedProvider": model.DataSourceFeedProvider;
-  "dataSourceDetails"?: model.LoggingQueryDataSourceDetails;
+  "dataSourceDetails"?:
+    | model.ScheduledQueryDataSourceObjDetails
+    | model.LoggingQueryDataSourceDetails;
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * Example: {@code {\"bar-key\": \"value\"}}

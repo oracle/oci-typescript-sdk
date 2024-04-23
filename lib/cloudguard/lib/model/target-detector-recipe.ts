@@ -18,15 +18,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Target Detector recipe
- */
+* A TargetDetectorRecipe resource contains a specific instance of one of the
+* supported detector types (for example, activity, configuration, or threat)
+* in which some settings can be modified specifically for a single target.
+* <p>
+A TargetDetectorRecipe resource:
+* * Is effectively a copy of a DetectorRecipe resource in which users can make
+* very limited changes if it\u2019s Oracle-managed, and more changes if it\u2019s user-managed.
+* * Is visible on the Cloud Guard Targets, Target Details page.
+* * Is located in a specific OCI compartment.
+* * Can be modified by users, programmatically or through the UI.
+* * Changes that can be made here override any settings in the corresponding
+* DetectorRecipe, of which the TargetDetectorRecipe resource is effectively a copy,
+* created when the detector recipe is attached to the target.
+* 
+*/
 export interface TargetDetectorRecipe {
   /**
-   * Ocid for detector recipe
+   * OCID for the detector recipe
    */
   "id": string;
   /**
-   * Display name of detector recipe.
+   * Display name of the detector recipe
    */
   "displayName": string;
   /**
@@ -34,15 +47,15 @@ export interface TargetDetectorRecipe {
    */
   "description"?: string;
   /**
-   * compartmentId of detector recipe
+   * Compartment OCID of the detector recipe
    */
   "compartmentId": string;
   /**
-   * Unique identifier for Detector Recipe of which this is an extension
+   * Unique identifier for of original Oracle-managed detector recipe on which the TargetDetectorRecipe is based
    */
   "detectorRecipeId": string;
   /**
-   * Owner of detector recipe
+   * Owner of the detector recipe
    */
   "owner": model.OwnerType;
   /**
@@ -50,11 +63,11 @@ export interface TargetDetectorRecipe {
    */
   "detector": model.DetectorEnum;
   /**
-   * List of detector rules for the detector type for recipe - user input
+   * List of detector rules for the detector recipe - user input
    */
   "detectorRules"?: Array<model.TargetDetectorRecipeDetectorRule>;
   /**
-   * List of effective detector rules for the detector type for recipe after applying defaults
+   * List of currently enabled detector rules for the detector type for recipe after applying defaults
    */
   "effectiveDetectorRules"?: Array<model.TargetDetectorRecipeDetectorRule>;
   /**
@@ -62,13 +75,21 @@ export interface TargetDetectorRecipe {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the target detector recipe was updated. Format defined by RFC3339.
+   * The date and time the target detector recipe was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
+   * Recipe type ( STANDARD, ENTERPRISE )
+   */
+  "detectorRecipeType"?: model.DetectorRecipeEnum;
   /**
    * The number of days for which source data is retained Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -89,6 +110,12 @@ export namespace TargetDetectorRecipe {
           ? obj.effectiveDetectorRules.map(item => {
               return model.TargetDetectorRecipeDetectorRule.getJsonObj(item);
             })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -107,6 +134,12 @@ export namespace TargetDetectorRecipe {
         "effectiveDetectorRules": obj.effectiveDetectorRules
           ? obj.effectiveDetectorRules.map(item => {
               return model.TargetDetectorRecipeDetectorRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

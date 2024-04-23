@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a Detector Rule to be created in Detector Recipe
+ * Details of a detector rule to be created in a detector recipe.
  */
 export interface CreateDetectorRuleDetails {
   /**
-   * Id of source detector rule
+   * ID of source detector rule
    */
   "sourceDetectorRuleId"?: string;
   /**
@@ -34,32 +34,32 @@ export interface CreateDetectorRuleDetails {
    */
   "description"?: string;
   /**
-   * Identifies state for detector rule
+   * Enablement state of the detector rule
    */
   "isEnabled"?: boolean;
   /**
-   * The Risk Level
+   * The risk level for the detector rule
    */
   "riskLevel"?: model.RiskLevel;
   /**
-   * Configuration details
+   * List of detector rule configurations
    */
   "configurations"?: Array<model.DetectorConfiguration>;
   "condition"?: model.SimpleCondition | model.CompositeCondition;
   /**
-   * user defined labels for a detector rule
+   * User-defined labels for the detector rule
    */
   "labels"?: Array<string>;
   /**
-   * Recommendations of the detector rule
+   * Recommendations for the detector rule
    */
   "recommendation"?: string;
   /**
-   * ocid of the data source which needs to attached
+   * OCID of the data source which is attached
    */
   "dataSourceId"?: string;
   /**
-   * Data Source entities mapping for a Detector Rule
+   * Data source entities mapping for the detector rule
    */
   "entitiesMappings"?: Array<model.EntitiesMapping>;
 }

@@ -64,7 +64,7 @@ export interface ListObjectsRequest extends common.BaseRequest {
    * For example 'name,etag,timeCreated,md5,timeModified,storageTier,archivalState'.
    *
    */
-  "fields"?: ListObjectsRequest.Fields;
+  "fields"?: string;
   /**
    * The client request ID for tracing.
    */
@@ -73,17 +73,4 @@ export interface ListObjectsRequest extends common.BaseRequest {
    * Object names returned by a list query must be greater than this parameter.
    */
   "startAfter"?: string;
-}
-
-export namespace ListObjectsRequest {
-  export enum Fields {
-    Name = "name",
-    Size = "size",
-    Etag = "etag",
-    TimeCreated = "timeCreated",
-    Md5 = "md5",
-    TimeModified = "timeModified",
-    StorageTier = "storageTier",
-    ArchivalState = "archivalState"
-  }
 }

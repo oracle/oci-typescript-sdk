@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,27 +17,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Status summary of all repos
+ * Status summary of the mirror sync.
  */
 export interface MirrorSyncStatus {
   /**
-   * Total of mirrors in 'failed' state Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of software sources that have not yet been synced. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "unsynced": number;
   /**
-   * Total of mirrors in 'queued' state Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of software sources that are queued for sync. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "queued": number;
   /**
-   * Total of mirrors in 'syncing' state Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of software sources currently syncing. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "syncing": number;
   /**
-   * Total of mirrors in 'synced' state Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of software sources that successfully synced. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "synced": number;
   /**
-   * Total of mirrors in 'failed' state Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of software sources that failed to sync. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "failed": number;
 }

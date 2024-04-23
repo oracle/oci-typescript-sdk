@@ -18,11 +18,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a workRequestError search. Contains both WorkRequestError items and other information, such as metadata.
+ * The collection of work request error resources. These result from a
+ * workRequestError search. Contains WorkRequestError items and other
+ * information, such as metadata.
+ *
  */
 export interface WorkRequestErrorCollection {
   /**
-   * List of workRequestError objects.
+   * List of workRequestError resources
    */
   "items": Array<model.WorkRequestError>;
 }

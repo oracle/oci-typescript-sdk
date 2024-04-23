@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDataSourcesRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -27,15 +27,15 @@ export interface ListDataSourcesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * A filter to return only resources their feedProvider matches the given DataSourceFeedProvider.
+   * A filter to return only resources when their feed provider matches the given feed provider ({@code DataSourceFeedProvider} resource).
    */
   "dataSourceFeedProvider"?: model.DataSourceFeedProvider;
   /**
-   * The field life cycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
+   * The field lifecycle state. Only one state can be provided. Default value for state is active. If no value is specified state is active.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -43,14 +43,14 @@ export interface ListDataSourcesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * A filter to return only resources their query type matches the given LoggingQueryType.
+   * A filter to return only resources where their query type matches the given LoggingQueryType.
    */
   "loggingQueryType"?: model.LoggingQueryType;
   /**
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -64,7 +64,7 @@ export interface ListDataSourcesRequest extends common.BaseRequest {
    */
   "accessLevel"?: ListDataSourcesRequest.AccessLevel;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

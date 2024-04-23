@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a security zone search. Contains {@code SecurityZoneSummary} items.
+ * A collection of security zones. Results of a security zone search.
  */
 export interface SecurityZoneCollection {
   /**
-   * List of security zone summaries
+   * List of SecurityZoneSummary resources
    */
   "items": Array<model.SecurityZoneSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace SecurityZoneCollection {
@@ -35,6 +39,11 @@ export namespace SecurityZoneCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SecurityZoneSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace SecurityZoneCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SecurityZoneSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

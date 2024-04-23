@@ -226,7 +226,12 @@ export class CloudGuardClient {
   }
 
   /**
-   * Add an existing compartment to a security zone. If you previously removed a subcompartment from a security zone, you can add it back to the same security zone. The security zone ensures that resources in the subcompartment comply with the security zone's policies.
+   * Adds a compartment to an existing security zone (SecurityZone resource), identified by
+   * securityZoneId. Specify parameters in an AddCompartmentDetails resource that you pass.
+   * If you previously removed a subcompartment from a security zone, you can add it back to the
+   * same security zone. The security zone ensures that resources in the subcompartment comply with
+   * the security zone's policies.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddCompartmentRequest
    * @return AddCompartmentResponse
@@ -309,7 +314,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Cancels the work request with the given ID.
+   * Cancels a work request identified by workRequestId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
@@ -377,7 +382,10 @@ export class CloudGuardClient {
   }
 
   /**
-   * Moves the DataSource from current compartment to another.
+   * Moves a data source (DataSource resource), identified by parameters
+   * passed in a ChangeDataSourceCompartmentDetails resource, from the current
+   * compartment to another.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDataSourceCompartmentRequest
    * @return ChangeDataSourceCompartmentResponse
@@ -457,7 +465,11 @@ export class CloudGuardClient {
   }
 
   /**
-   * Moves the detector recipe (DetectorRecipe object), identified by detectorRecipeId, from the current compartment to another compartment.
+   * Moves the detector recipe (DetectorRecipe resource),
+   * identified by detectorRecipeId, from the current compartment to
+   * another compartment. When provided, If-Match is checked against
+   * etag values of the resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDetectorRecipeCompartmentRequest
    * @return ChangeDetectorRecipeCompartmentResponse
@@ -532,7 +544,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Moves the managed list (ManagedList object), identified by managedListId, from the current compartment to another compartment.
+   * Moves the managed list (ManagedList resource), identified by managedListId, from the current compartment to another compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeManagedListCompartmentRequest
    * @return ChangeManagedListCompartmentResponse
@@ -607,7 +619,10 @@ export class CloudGuardClient {
   }
 
   /**
-   * Moves the ResponderRecipe from current compartment to another.
+   * Moves the responder recipe (ResponderRecipe resource), identified by responderRecipeId
+   * in a ChangeResponderRecipeCompartmentDetails resource, from the current compartment to another compartment.
+   * When provided, if-match is checked against etag values of the resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeResponderRecipeCompartmentRequest
    * @return ChangeResponderRecipeCompartmentResponse
@@ -682,7 +697,85 @@ export class CloudGuardClient {
   }
 
   /**
-   * Moves a security zone recipe to a different compartment. When provided, `If-Match` is checked against `ETag` values of the resource.
+   * Moves the SavedQuery resource into a different compartment. When provided, If-Match is checked against etag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSavedQueryCompartmentRequest
+   * @return ChangeSavedQueryCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSavedQueryCompartment.ts.html |here} to see how to use ChangeSavedQueryCompartment API.
+   */
+  public async changeSavedQueryCompartment(
+    changeSavedQueryCompartmentRequest: requests.ChangeSavedQueryCompartmentRequest
+  ): Promise<responses.ChangeSavedQueryCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeSavedQueryCompartment.");
+    const operationName = "changeSavedQueryCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SavedQuery/ChangeSavedQueryCompartment";
+    const pathParams = {
+      "{savedQueryId}": changeSavedQueryCompartmentRequest.savedQueryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSavedQueryCompartmentRequest.ifMatch,
+      "opc-request-id": changeSavedQueryCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSavedQueryCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSavedQueryCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/savedQueries/{savedQueryId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSavedQueryCompartmentRequest.changeSavedQueryCompartmentDetails,
+        "ChangeSavedQueryCompartmentDetails",
+        model.ChangeSavedQueryCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSavedQueryCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the security recipe (SecurityRecipe resource), identified by securityRecipeId,
+   * from the current compartment to another compartment. When provided, `if-match` is checked
+   * against `etag` values of the resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSecurityRecipeCompartmentRequest
    * @return ChangeSecurityRecipeCompartmentResponse
@@ -757,7 +850,10 @@ export class CloudGuardClient {
   }
 
   /**
-   * Moves a security zone to a different compartment. When provided, `If-Match` is checked against `ETag` values of the resource.
+   * Moves a security zone, identified by securityZoneId, to a different compartment.
+   * Pass parameters through a ChangeSecurityZoneCompartmentDetails resource.
+   * When provided, `if-match` is checked against `etag` values of the resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSecurityZoneCompartmentRequest
    * @return ChangeSecurityZoneCompartmentResponse
@@ -832,7 +928,88 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a new DataMaskRule object definition.
+   * Creates a AdhocQuery resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateAdhocQueryRequest
+   * @return CreateAdhocQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateAdhocQuery.ts.html |here} to see how to use CreateAdhocQuery API.
+   */
+  public async createAdhocQuery(
+    createAdhocQueryRequest: requests.CreateAdhocQueryRequest
+  ): Promise<responses.CreateAdhocQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createAdhocQuery.");
+    const operationName = "createAdhocQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/AdhocQuery/CreateAdhocQuery";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAdhocQueryRequest.opcRetryToken,
+      "opc-request-id": createAdhocQueryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAdhocQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/adhocQueries",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAdhocQueryRequest.createAdhocQueryDetails,
+        "CreateAdhocQueryDetails",
+        model.CreateAdhocQueryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAdhocQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "adhocQuery",
+        bodyModel: model.AdhocQuery,
+        type: "model.AdhocQuery",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new DataMaskRule resource definition.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataMaskRuleRequest
@@ -913,7 +1090,8 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a DataSource
+   * Creates a data source (DataSource resource), using parameters passed
+   * through a CreateDataSourceDetails resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDataSourceRequest
@@ -990,7 +1168,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a new DetectorRecipe object.
+   * Creates a new DetectorRecipe resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDetectorRecipeRequest
@@ -1071,7 +1249,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Create the DetectorRule
+   * Creates a detector rule.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDetectorRecipeDetectorRuleRequest
    * @return CreateDetectorRecipeDetectorRuleResponse
@@ -1154,7 +1332,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a new ManagedList object.
+   * Creates a new ManagedList resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateManagedListRequest
@@ -1235,7 +1413,8 @@ export class CloudGuardClient {
   }
 
   /**
-   * Create a ResponderRecipe.
+   * Creates a responder recipe (ResponderRecipe resource), from values passed in a
+   * CreateResponderRecipeDetails resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateResponderRecipeRequest
@@ -1316,7 +1495,89 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a security zone recipe. A security zone recipe is a collection of security zone policies.
+   * Creates a SavedQuery resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSavedQueryRequest
+   * @return CreateSavedQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSavedQuery.ts.html |here} to see how to use CreateSavedQuery API.
+   */
+  public async createSavedQuery(
+    createSavedQueryRequest: requests.CreateSavedQueryRequest
+  ): Promise<responses.CreateSavedQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createSavedQuery.");
+    const operationName = "createSavedQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SavedQuery/CreateSavedQuery";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSavedQueryRequest.opcRetryToken,
+      "opc-request-id": createSavedQueryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSavedQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/savedQueries",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSavedQueryRequest.createSavedQueryDetails,
+        "CreateSavedQueryDetails",
+        model.CreateSavedQueryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSavedQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "savedQuery",
+        bodyModel: model.SavedQuery,
+        type: "model.SavedQuery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a security zone recipe (SecurityRecipe resource), using parameters
+   * passed in a CreateSecurityRecipeDetails resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSecurityRecipeRequest
@@ -1397,7 +1658,8 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a security zone for a compartment. A security zone enforces all security zone policies in a given security zone recipe. Any actions that violate a policy are denied. By default, any subcompartments are also in the same security zone.
+   * Creates a security zone (SecurityZone resource) for a compartment. Pass parameters
+   * through a CreateSecurityZoneDetails resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSecurityZoneRequest
@@ -1478,7 +1740,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Creates a new Target
+   * Creates a target (Target resource), using parameters passed in a CreateTargetDetails resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTargetRequest
@@ -1559,6 +1821,8 @@ export class CloudGuardClient {
   }
 
   /**
+   * Attaches a DetectorRecipe to a target (Target resource) identified by targetId,
+   * using parameters passed in a TargetAttachTargetDetectorRecipeDetails resource.
    * Attach a DetectorRecipe with the Target
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1643,7 +1907,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Attach a ResponderRecipe with the Target
+   * Attaches a responder recipe to a target.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTargetResponderRecipeRequest
@@ -1727,7 +1991,158 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes a DataMaskRule object, identified by dataMaskRuleId.
+   * Creates and registers a WLP agent for an
+   * on-premise resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateWlpAgentRequest
+   * @return CreateWlpAgentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateWlpAgent.ts.html |here} to see how to use CreateWlpAgent API.
+   */
+  public async createWlpAgent(
+    createWlpAgentRequest: requests.CreateWlpAgentRequest
+  ): Promise<responses.CreateWlpAgentResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createWlpAgent.");
+    const operationName = "createWlpAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WlpAgent/CreateWlpAgent";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createWlpAgentRequest.opcRetryToken,
+      "opc-request-id": createWlpAgentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createWlpAgentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/wlpAgents",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createWlpAgentRequest.createWlpAgentDetails,
+        "CreateWlpAgentDetails",
+        model.CreateWlpAgentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateWlpAgentResponse>{},
+        body: await response.json(),
+        bodyKey: "wlpAgent",
+        bodyModel: model.WlpAgent,
+        type: "model.WlpAgent",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a AdhocQuery resource identified by adhocQueryId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteAdhocQueryRequest
+   * @return DeleteAdhocQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteAdhocQuery.ts.html |here} to see how to use DeleteAdhocQuery API.
+   */
+  public async deleteAdhocQuery(
+    deleteAdhocQueryRequest: requests.DeleteAdhocQueryRequest
+  ): Promise<responses.DeleteAdhocQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteAdhocQuery.");
+    const operationName = "deleteAdhocQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/AdhocQuery/DeleteAdhocQuery";
+    const pathParams = {
+      "{adhocQueryId}": deleteAdhocQueryRequest.adhocQueryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAdhocQueryRequest.ifMatch,
+      "opc-request-id": deleteAdhocQueryRequest.opcRequestId,
+      "opc-retry-token": deleteAdhocQueryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAdhocQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/adhocQueries/{adhocQueryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAdhocQueryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a DataMaskRule resource, identified by dataMaskRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataMaskRuleRequest
    * @return DeleteDataMaskRuleResponse
@@ -1795,7 +2210,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes a DataSource identified by dataSourceId
+   * Deletes a data source (DataSource resource) identified by dataSourceId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataSourceRequest
    * @return DeleteDataSourceResponse
@@ -1869,7 +2284,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes a detector recipe (DetectorRecipe object) identified by detectorRecipeId.
+   * Deletes a detector recipe (DetectorRecipe resource) identified by detectorRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDetectorRecipeRequest
    * @return DeleteDetectorRecipeResponse
@@ -1938,7 +2353,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes DetectorRecipeDetectorRule
+   * Deletes the DetectorRecipeDetectorRule resource identified by detectorRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDetectorRecipeDetectorRuleRequest
    * @return DeleteDetectorRecipeDetectorRuleResponse
@@ -2008,7 +2423,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Delete the DetectorRecipeDetectorRuleDataSource resource by identifier
+   * Deletes the DetectorRecipeDetectorRuleDataSource resource by identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDetectorRecipeDetectorRuleDataSourceRequest
    * @return DeleteDetectorRecipeDetectorRuleDataSourceResponse
@@ -2151,7 +2566,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Delete the ResponderRecipe resource by identifier
+   * Deletes a responder recipe (ResponderRecipe resource) identified by responderRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteResponderRecipeRequest
    * @return DeleteResponderRecipeResponse
@@ -2219,7 +2634,76 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes a security zone recipe. The recipe can't be associated with an existing security zone.
+   * Deletes a SavedQuery resource identified by savedQueryId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSavedQueryRequest
+   * @return DeleteSavedQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSavedQuery.ts.html |here} to see how to use DeleteSavedQuery API.
+   */
+  public async deleteSavedQuery(
+    deleteSavedQueryRequest: requests.DeleteSavedQueryRequest
+  ): Promise<responses.DeleteSavedQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteSavedQuery.");
+    const operationName = "deleteSavedQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SavedQuery/DeleteSavedQuery";
+    const pathParams = {
+      "{savedQueryId}": deleteSavedQueryRequest.savedQueryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSavedQueryRequest.ifMatch,
+      "opc-request-id": deleteSavedQueryRequest.opcRequestId,
+      "opc-retry-token": deleteSavedQueryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSavedQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/savedQueries/{savedQueryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSavedQueryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a security zone recipe, identified by securityRecipeId. The recipe can't be associated with an existing security zone.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSecurityRecipeRequest
    * @return DeleteSecurityRecipeResponse
@@ -2287,7 +2771,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes an existing security zone with a given identifier.
+   * Deletes a security zone, identified by securityZoneId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteSecurityZoneRequest
    * @return DeleteSecurityZoneResponse
@@ -2355,7 +2839,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Deletes a Target identified by targetId
+   * Deletes a target (Target resource) identified by targetId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTargetRequest
    * @return DeleteTargetResponse
@@ -2423,7 +2907,9 @@ export class CloudGuardClient {
   }
 
   /**
-   * Delete the TargetDetectorRecipe resource by identifier
+   * Deletes the target detector recipe (TargetDetectorRecipe resource) identified by
+   * targetDetectorRecipeId, from a target (Target resource) identified by targetId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTargetDetectorRecipeRequest
    * @return DeleteTargetDetectorRecipeResponse
@@ -2493,7 +2979,10 @@ export class CloudGuardClient {
   }
 
   /**
-   * Delete the TargetResponderRecipe resource by identifier
+   * Detaches a target responder recipe (TargetResponderRecipe resource)
+   * identified by targetResponderRecipeId, from a target (Target resource)
+   * identified by targetId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTargetResponderRecipeRequest
    * @return DeleteTargetResponderRecipeResponse
@@ -2563,7 +3052,111 @@ export class CloudGuardClient {
   }
 
   /**
-   * Executes the responder execution. When provided, If-Match is checked against ETag values of the resource.
+   * Deletes and unregisters the WLP agent for an on-premise resource.
+   * x-obmcs-splat:
+   * routing:
+   *   strategy: route-to-any-ad
+   * serviceList: [ 'cloudguard-cp-SPLAT_ENV' ]
+   * resources:
+   *   wlpAgent:
+   *     serviceResourceName: WlpAgent
+   *     targetCompartmentId: downstream.getOr404('cloudguard-cp-SPLAT_ENV', 'GetWlpAgent', request.resourceId).compartmentId
+   *     actionKind: delete
+   *     resourceOcid: request.resourceId
+   *     reconciliationCanStartAfterSecs: 30
+   *     permissions: [ \"WLP_AGENT_DELETE\" ]
+   * authorization:
+   *   mode: automated
+   *   check: resources['wlpAgent'].grantedPermissions.contains('WLP_AGENT_DELETE')
+   *   allowCrossTenancy: true
+   * tagStore:
+   *   mode: automated
+   * maximumAttemptCount: 3
+   * throttling:
+   *   perUserLimit:
+   *     rpsLimit: 15
+   *   perTenantLimit:
+   *     rpsLimit: 30
+   * quotas:
+   *   mode: automated
+   * search:
+   *   mode: backfilling
+   *   operationResourceName: wlpAgent
+   * lock:
+   *   mode: test
+   *   operationResourceName: wlpAgent
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteWlpAgentRequest
+   * @return DeleteWlpAgentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteWlpAgent.ts.html |here} to see how to use DeleteWlpAgent API.
+   */
+  public async deleteWlpAgent(
+    deleteWlpAgentRequest: requests.DeleteWlpAgentRequest
+  ): Promise<responses.DeleteWlpAgentResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteWlpAgent.");
+    const operationName = "deleteWlpAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WlpAgent/DeleteWlpAgent";
+    const pathParams = {
+      "{wlpAgentId}": deleteWlpAgentRequest.wlpAgentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteWlpAgentRequest.ifMatch,
+      "opc-request-id": deleteWlpAgentRequest.opcRequestId,
+      "opc-retry-token": deleteWlpAgentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWlpAgentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/wlpAgents/{wlpAgentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteWlpAgentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Executes the responder execution. When provided, if-match is checked
+   * against etag values of the resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ExecuteResponderExecutionRequest
    * @return ExecuteResponderExecutionResponse
@@ -2640,7 +3233,160 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a ConditionMetatDataType object with its details.
+   * Returns an adhoc query identified by adhocQueryId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAdhocQueryRequest
+   * @return GetAdhocQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetAdhocQuery.ts.html |here} to see how to use GetAdhocQuery API.
+   */
+  public async getAdhocQuery(
+    getAdhocQueryRequest: requests.GetAdhocQueryRequest
+  ): Promise<responses.GetAdhocQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getAdhocQuery.");
+    const operationName = "getAdhocQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/AdhocQuery/GetAdhocQuery";
+    const pathParams = {
+      "{adhocQueryId}": getAdhocQueryRequest.adhocQueryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAdhocQueryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAdhocQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/adhocQueries/{adhocQueryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAdhocQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "adhocQuery",
+        bodyModel: model.AdhocQuery,
+        type: "model.AdhocQuery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the results for a given adhoc ID (from includes results from all monitoring regions).
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAdhocQueryResultContentRequest
+   * @return GetAdhocQueryResultContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetAdhocQueryResultContent.ts.html |here} to see how to use GetAdhocQueryResultContent API.
+   */
+  public async getAdhocQueryResultContent(
+    getAdhocQueryResultContentRequest: requests.GetAdhocQueryResultContentRequest
+  ): Promise<responses.GetAdhocQueryResultContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#getAdhocQueryResultContent.");
+    const operationName = "getAdhocQueryResultContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/AdhocQueryResultCollection/GetAdhocQueryResultContent";
+    const pathParams = {
+      "{adhocQueryId}": getAdhocQueryResultContentRequest.adhocQueryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAdhocQueryResultContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAdhocQueryResultContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/adhocQueries/{adhocQueryId}/results/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAdhocQueryResultContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a ConditionMetatDataType resource with its details.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConditionMetadataTypeRequest
@@ -2721,7 +3467,9 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns the configuration details for a Cloud Guard tenancy, identified by root compartment OCID.
+   * Returns the configuration details for a Cloud Guard tenancy,
+   * identified by root compartment OCID.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
@@ -2802,7 +3550,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a DataMaskRule object, identified by DataMaskRuleId.
+   * Returns a DataMaskRule resource, identified by dataMaskRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataMaskRuleRequest
    * @return GetDataMaskRuleResponse
@@ -2878,7 +3626,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a DataSource identified by dataSourceId
+   * Returns a data source (DataSource resource) identified by dataSourceId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDataSourceRequest
    * @return GetDataSourceResponse
@@ -2954,7 +3702,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a Detector object, identified by detectorId.
+   * Returns a Detector resource, identified by detectorId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRequest
@@ -3031,7 +3779,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a detector recipe (DetectorRecipe object) identified by detectorRecipeId.
+   * Returns a detector recipe (DetectorRecipe resource) identified by detectorRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRecipeRequest
    * @return GetDetectorRecipeResponse
@@ -3107,7 +3855,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a detector rule (DetectorRule object) identified by detectorRuleId.
+   * Returns a detector rule (DetectorRule resource) identified by detectorRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRecipeDetectorRuleRequest
    * @return GetDetectorRecipeDetectorRuleResponse
@@ -3185,7 +3933,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a detector rule (DetectorRule object) identified by detectorRuleId.
+   * Returns a detector rule (DetectorRule resource) identified by detectorRuleId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDetectorRuleRequest
@@ -3344,7 +4092,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns the Problem object identified by a problemId.
+   * Returns the Problem resource identified by problemId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetProblemRequest
    * @return GetProblemResponse
@@ -3420,7 +4168,83 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns resource profile details
+   * Returns a resource identified by resourceId
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetResourceRequest
+   * @return GetResourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResource.ts.html |here} to see how to use GetResource API.
+   */
+  public async getResource(
+    getResourceRequest: requests.GetResourceRequest
+  ): Promise<responses.GetResourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResource.");
+    const operationName = "getResource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Resource/GetResource";
+    const pathParams = {
+      "{resourceId}": getResourceRequest.resourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getResourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resources/{resourceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetResourceResponse>{},
+        body: await response.json(),
+        bodyKey: "resource",
+        bodyModel: model.Resource,
+        type: "model.Resource",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns details for a resource profile, identified by resourceProfileId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResourceProfileRequest
    * @return GetResourceProfileResponse
@@ -3496,7 +4320,85 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a Responder Execution identified by responderExecutionId
+   * Returns the vulnerability details associated with the cveId where resource is an instance
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetResourceVulnerabilityRequest
+   * @return GetResourceVulnerabilityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResourceVulnerability.ts.html |here} to see how to use GetResourceVulnerability API.
+   */
+  public async getResourceVulnerability(
+    getResourceVulnerabilityRequest: requests.GetResourceVulnerabilityRequest
+  ): Promise<responses.GetResourceVulnerabilityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#getResourceVulnerability.");
+    const operationName = "getResourceVulnerability";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceVulnerability/GetResourceVulnerability";
+    const pathParams = {
+      "{resourceId}": getResourceVulnerabilityRequest.resourceId,
+      "{vulnerabilityKey}": getResourceVulnerabilityRequest.vulnerabilityKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getResourceVulnerabilityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResourceVulnerabilityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resources/{resourceId}/vulnerabilities/{vulnerabilityKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetResourceVulnerabilityResponse>{},
+        body: await response.json(),
+        bodyKey: "resourceVulnerability",
+        bodyModel: model.ResourceVulnerability,
+        type: "model.ResourceVulnerability",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a responder execution identified by responderExecutionId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResponderExecutionRequest
@@ -3573,7 +4475,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Get a ResponderRecipe by identifier
+   * Returns a responder recipe (ResponderRecipe resource) identified by responderRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResponderRecipeRequest
    * @return GetResponderRecipeResponse
@@ -3649,7 +4551,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Get ResponderRule by identifier
+   * Returns a responder rule (ResponderRule resource) identified by responderRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResponderRecipeResponderRuleRequest
    * @return GetResponderRecipeResponderRuleResponse
@@ -3727,7 +4629,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Get a ResponderRule by identifier
+   * Returns a responder rule (ResponderRule resource) identified by resonderRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetResponderRuleRequest
    * @return GetResponderRuleResponse
@@ -3803,7 +4705,86 @@ export class CloudGuardClient {
   }
 
   /**
-   * Gets a security zone policy using its identifier. When a policy is enabled in a security zone, then any action in the zone that attempts to violate that policy is denied.
+   * Returns a SavedQuery resource identified by savedQueryId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSavedQueryRequest
+   * @return GetSavedQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSavedQuery.ts.html |here} to see how to use GetSavedQuery API.
+   */
+  public async getSavedQuery(
+    getSavedQueryRequest: requests.GetSavedQueryRequest
+  ): Promise<responses.GetSavedQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSavedQuery.");
+    const operationName = "getSavedQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SavedQuery/GetSavedQuery";
+    const pathParams = {
+      "{savedQueryId}": getSavedQueryRequest.savedQueryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSavedQueryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSavedQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/savedQueries/{savedQueryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSavedQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "savedQuery",
+        bodyModel: model.SavedQuery,
+        type: "model.SavedQuery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a security zone policy (SecurityPolicy resource), identified by its unique ID
+   * (securityPolicyId). When a policy is enabled in a security zone, then any action in
+   * the zone that attempts to violate that policy is blocked.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecurityPolicyRequest
    * @return GetSecurityPolicyResponse
@@ -3879,7 +4860,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Gets a security zone recipe by identifier. A security zone recipe is a collection of security zone policies.
+   * Returns a security zone recipe (SecurityRecipe resource) identified by securityRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecurityRecipeRequest
    * @return GetSecurityRecipeResponse
@@ -3955,7 +4936,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Gets a security zone by its identifier. A security zone is associated with a security zone recipe and enforces all security zone policies in the recipe. Any actions in the zone's compartments that violate a policy are denied.
+   * Returns a security zone (SecurityZone resource) identified by securityZoneId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSecurityZoneRequest
    * @return GetSecurityZoneResponse
@@ -4031,7 +5012,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns Sighting details
+   * Returns a single sighting (Sighting resource) identified by sightingId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSightingRequest
    * @return GetSightingResponse
@@ -4107,7 +5088,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a Target identified by targetId
+   * Returns a target (Target resource) identified by targetId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetRequest
    * @return GetTargetResponse
@@ -4183,7 +5164,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Get a TargetDetectorRecipe by identifier
+   * Returns a target detector recipe (TargetDetectorRecipe resource) identified by targetDetectorRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetDetectorRecipeRequest
    * @return GetTargetDetectorRecipeResponse
@@ -4261,7 +5242,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Get DetectorRule by identifier
+   * Returns DetectorRule resource by identified by targetDetectorRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetDetectorRecipeDetectorRuleRequest
    * @return GetTargetDetectorRecipeDetectorRuleResponse
@@ -4341,7 +5322,9 @@ export class CloudGuardClient {
   }
 
   /**
-   * Get a TargetResponderRecipe by identifier
+   * Returns a target responder recipe (TargetResponderRecipe) identified by
+   * targetResponderRecipeId for a target (Target resource) identified by targetId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetResponderRecipeRequest
    * @return GetTargetResponderRecipeResponse
@@ -4419,7 +5402,11 @@ export class CloudGuardClient {
   }
 
   /**
-   * Get ResponderRule by identifier
+   * Returns a responder rule (ResponderRule resource) identified by
+   * responderRuleId, from a target responder recipe (TargetResponderRecipe resource)
+   * identified by targetResponderRecipeId, attached to a target (Target resource)
+   * identified by targetId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetTargetResponderRecipeResponderRuleRequest
    * @return GetTargetResponderRecipeResponderRuleResponse
@@ -4502,7 +5489,83 @@ export class CloudGuardClient {
   }
 
   /**
-   * Gets details of the work request with the given ID.
+   * Returns a WlpAgent resource for an on-premise resource identified by wlpAgentId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetWlpAgentRequest
+   * @return GetWlpAgentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetWlpAgent.ts.html |here} to see how to use GetWlpAgent API.
+   */
+  public async getWlpAgent(
+    getWlpAgentRequest: requests.GetWlpAgentRequest
+  ): Promise<responses.GetWlpAgentResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getWlpAgent.");
+    const operationName = "getWlpAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WlpAgent/GetWlpAgent";
+    const pathParams = {
+      "{wlpAgentId}": getWlpAgentRequest.wlpAgentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWlpAgentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWlpAgentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/wlpAgents/{wlpAgentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWlpAgentResponse>{},
+        body: await response.json(),
+        bodyKey: "wlpAgent",
+        bodyModel: model.WlpAgent,
+        type: "model.WlpAgent",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns details for a work request (WorkRequest resource) identified by workRequestId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
@@ -4583,7 +5646,191 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a list of ConditionMetadataType objects.
+     * Returns a list of all adhoc queries (AdhocQuery resources) for a compartment
+* identified by compartmentId. List is returned in a AdhocQueryCollection resource
+* with page of AdhocQuerySummary resources.
+* <p>
+The ListAdhocQueries operation returns only the adhoc queries in 'compartmentId' passed.
+* The list does not include any subcompartments of the compartmentId passed.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListAdhocQueriesRequest
+     * @return ListAdhocQueriesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListAdhocQueries.ts.html |here} to see how to use ListAdhocQueries API.
+     */
+  public async listAdhocQueries(
+    listAdhocQueriesRequest: requests.ListAdhocQueriesRequest
+  ): Promise<responses.ListAdhocQueriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listAdhocQueries.");
+    const operationName = "listAdhocQueries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/AdhocQuery/ListAdhocQueries";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAdhocQueriesRequest.compartmentId,
+      "adhocQueryStatus": listAdhocQueriesRequest.adhocQueryStatus,
+      "timeStartedFilterQueryParam": listAdhocQueriesRequest.timeStartedFilterQueryParam,
+      "timeEndedFilterQueryParam": listAdhocQueriesRequest.timeEndedFilterQueryParam,
+      "limit": listAdhocQueriesRequest.limit,
+      "page": listAdhocQueriesRequest.page,
+      "compartmentIdInSubtree": listAdhocQueriesRequest.compartmentIdInSubtree,
+      "accessLevel": listAdhocQueriesRequest.accessLevel,
+      "sortOrder": listAdhocQueriesRequest.sortOrder,
+      "sortBy": listAdhocQueriesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAdhocQueriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAdhocQueriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/adhocQueries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAdhocQueriesResponse>{},
+        body: await response.json(),
+        bodyKey: "adhocQueryCollection",
+        bodyModel: model.AdhocQueryCollection,
+        type: "model.AdhocQueryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the results for a given adhoc ID (from includes results from all monitoring regions).
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAdhocQueryResultsRequest
+   * @return ListAdhocQueryResultsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListAdhocQueryResults.ts.html |here} to see how to use ListAdhocQueryResults API.
+   */
+  public async listAdhocQueryResults(
+    listAdhocQueryResultsRequest: requests.ListAdhocQueryResultsRequest
+  ): Promise<responses.ListAdhocQueryResultsResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listAdhocQueryResults.");
+    const operationName = "listAdhocQueryResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/AdhocQueryResultCollection/ListAdhocQueryResults";
+    const pathParams = {
+      "{adhocQueryId}": listAdhocQueryResultsRequest.adhocQueryId
+    };
+
+    const queryParams = {
+      "compartmentId": listAdhocQueryResultsRequest.compartmentId,
+      "limit": listAdhocQueryResultsRequest.limit,
+      "page": listAdhocQueryResultsRequest.page,
+      "sortOrder": listAdhocQueryResultsRequest.sortOrder,
+      "sortBy": listAdhocQueryResultsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAdhocQueryResultsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAdhocQueryResultsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/adhocQueries/{adhocQueryId}/results",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAdhocQueryResultsResponse>{},
+        body: await response.json(),
+        bodyKey: "adhocQueryResultCollection",
+        bodyModel: model.AdhocQueryResultCollection,
+        type: "model.AdhocQueryResultCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of ConditionMetadataType resources.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConditionMetadataTypesRequest
@@ -4666,7 +5913,7 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a list of all DataMaskRule objects in the specified compartmentId (OCID) and its subcompartments.
+   * Returns a list of all DataMaskRule resources in the specified compartmentId (OCID) and its subcompartments.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataMaskRulesRequest
@@ -4754,7 +6001,9 @@ export class CloudGuardClient {
   }
 
   /**
-   * Returns a list of events from CloudGuard DataSource
+   * Returns a list of data source events
+   * (DataSourceEventCollection  resource) from the data source
+   * (DataSource resource) identified by dataSourceId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDataSourceEventsRequest
@@ -4837,9 +6086,11 @@ export class CloudGuardClient {
   }
 
   /**
-     * Returns a list of all Data Sources in a compartment
+     * Returns a list of all data sources (DataSource resources) for a compartment
+* identified by compartmentId. List is returned in a DataSourceCollection resource
+* with page of DataSourceSummary resources.
 * <p>
-The ListDataSources operation returns only the data Sources in `compartmentId` passed.
+The ListAdhocQueries operation returns only the adhoc queries in 'compartmentId' passed.
 * The list does not include any subcompartments of the compartmentId passed.
 * <p>
 The parameter `accessLevel` specifies whether to return only those compartments for which the
@@ -4848,7 +6099,7 @@ The parameter `accessLevel` specifies whether to return only those compartments 
 * Principal doesn't have access to even one of the child compartments. This is valid only when
 * `compartmentIdInSubtree` is set to `true`.
 * <p>
-The parameter `compartmentIdInSubtree` applies when you perform ListdataSources on the
+The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries on the
 * `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
@@ -4938,7 +6189,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListdataSources 
   }
 
   /**
-   * Returns a list of detector rules (DetectorRule objects) for a detector recipe (DetectorRecipe object), identified by detectorRecipeId.
+   * Returns a list of detector rules (DetectorRule resources) for a detector recipe (DetectorRecipe resource), identified by detectorRecipeId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorRecipeDetectorRulesRequest
@@ -5024,7 +6275,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListdataSources 
   }
 
   /**
-     * Returns a list of all detector recipes (DetectorRecipe objects) in a compartment, identified by compartmentId.
+     * Returns a list of all detector recipes (DetectorRecipe resources) in a compartment, identified by compartmentId.
 * <p>
 The ListDetectorRecipes operation returns only the detector recipes in `compartmentId` passed.
 * The list does not include any subcompartments of the compartmentId passed.
@@ -5124,7 +6375,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-   * Returns a list of detector rules for the DetectorRecipe object identified by detectorId.
+   * Returns a list of detector rules for the DetectorRecipe resource identified by detectorId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorRulesRequest
@@ -5209,7 +6460,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-   * Returns a detector catalog (DetectorCollection object) with a list of DetectorSummary objects.
+   * Returns a detector catalog (DetectorCollection resource) with a list of DetectorSummary resources.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDetectorsRequest
@@ -5291,7 +6542,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-   * Returns a list of impacted resources for a Cloud Guard problem with a specified problem ID.
+   * Returns a list of impacted resources for a problem identified by problemId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListImpactedResourcesRequest
@@ -5454,7 +6705,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
   }
 
   /**
-     * Returns a list of all ManagedList objects in a compartment, identified by compartmentId.
+     * Returns a list of all ManagedList resources in a compartment, identified by compartmentId.
 * The ListManagedLists operation returns only the managed lists in `compartmentId` passed.
 * The list does not include any subcompartments of the compartmentId passed.
 * <p>
@@ -5717,7 +6968,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   }
 
   /**
-   * Returns a list of entities for a CloudGuard Problem
+   * Returns a list of entities for a problem.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProblemEntitiesRequest
@@ -5799,7 +7050,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
   }
 
   /**
-   * Returns a list of actions taken on a Cloud Guard problem.
+   * Returns a list of actions taken on a problem.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProblemHistoriesRequest
@@ -5999,7 +7250,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   }
 
   /**
-   * Returns a list of all Recommendations.
+   * Returns a list of recommendations (RecommendationSummaryCollection resource with a page of
+   * RecommendationSummary resources) for a specified compartment OCID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRecommendationsRequest
@@ -6085,7 +7337,91 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   }
 
   /**
-   * Returns a list of endpoints for Cloud Guard resource profile
+   * Returns the list of open ports associated with the resourceId where resource is an instance
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListResourcePortsRequest
+   * @return ListResourcePortsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourcePorts.ts.html |here} to see how to use ListResourcePorts API.
+   */
+  public async listResourcePorts(
+    listResourcePortsRequest: requests.ListResourcePortsRequest
+  ): Promise<responses.ListResourcePortsResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResourcePorts.");
+    const operationName = "listResourcePorts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourcePortCollection/ListResourcePorts";
+    const pathParams = {
+      "{resourceId}": listResourcePortsRequest.resourceId
+    };
+
+    const queryParams = {
+      "openPort": listResourcePortsRequest.openPort,
+      "limit": listResourcePortsRequest.limit,
+      "page": listResourcePortsRequest.page,
+      "sortOrder": listResourcePortsRequest.sortOrder,
+      "sortBy": listResourcePortsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResourcePortsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourcePortsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resources/{resourceId}/ports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResourcePortsResponse>{},
+        body: await response.json(),
+        bodyKey: "resourcePortCollection",
+        bodyModel: model.ResourcePortCollection,
+        type: "model.ResourcePortCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of endpoints (ResourceProfileEndpointCollection resource with a page of
+   * ResourceProfileEndpointSummary resources) for a resource profile identified by resourceProfileId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourceProfileEndpointsRequest
    * @return ListResourceProfileEndpointsResponse
@@ -6167,7 +7503,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   }
 
   /**
-   * Returns a list of impacted resources for Cloud Guard resource profile
+   * Returns a list of impacted resources (ResourceProfileImpactedResourceCollection resource
+   * with a page of ResourceProfileImpactedResourceSummary resources) for a resource profile
+   * identified by resourceProfileId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourceProfileImpactedResourcesRequest
    * @return ListResourceProfileImpactedResourcesResponse
@@ -6249,8 +7588,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   }
 
   /**
-     * Returns a list of all resource profiles identified by the Cloud Guard
-* The ListResourceProfiles operation returns only resource profiles that match the passed filters.
+     * Returns a list of all resource profile summaries (ResourceProfileCollection resource with a page of
+* ResourceProfileSummary resources) for a compartment, identified by compartmentId and filtered as specified.
 * <p>
 The ListResourceProfiles operation returns only the resource profiles in `compartmentId` passed.
 * The parameter `accessLevel` specifies whether to return only those compartments for which the
@@ -6358,7 +7697,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   }
 
   /**
-   * Returns a list of resource types.
+   * Returns a single ResourceTypeCollection resource, containing a list of resource types,
+   * identified by parameters specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourceTypesRequest
@@ -6441,7 +7781,200 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   }
 
   /**
-   * Returns a list of Responder activities done on CloudGuard Problem
+   * Returns the list of vulnerabilities associated with the resourceId where resource is an instance
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListResourceVulnerabilitiesRequest
+   * @return ListResourceVulnerabilitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceVulnerabilities.ts.html |here} to see how to use ListResourceVulnerabilities API.
+   */
+  public async listResourceVulnerabilities(
+    listResourceVulnerabilitiesRequest: requests.ListResourceVulnerabilitiesRequest
+  ): Promise<responses.ListResourceVulnerabilitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#listResourceVulnerabilities.");
+    const operationName = "listResourceVulnerabilities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceVulnerabilityCollection/ListResourceVulnerabilities";
+    const pathParams = {
+      "{resourceId}": listResourceVulnerabilitiesRequest.resourceId
+    };
+
+    const queryParams = {
+      "cveId": listResourceVulnerabilitiesRequest.cveId,
+      "riskLevel": listResourceVulnerabilitiesRequest.riskLevel,
+      "limit": listResourceVulnerabilitiesRequest.limit,
+      "page": listResourceVulnerabilitiesRequest.page,
+      "sortOrder": listResourceVulnerabilitiesRequest.sortOrder,
+      "sortBy": listResourceVulnerabilitiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResourceVulnerabilitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourceVulnerabilitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resources/{resourceId}/vulnerabilities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResourceVulnerabilitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "resourceVulnerabilityCollection",
+        bodyModel: model.ResourceVulnerabilityCollection,
+        type: "model.ResourceVulnerabilityCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Returns a list of all resources in a compartment
+* <p>
+The ListResources operation returns only the resources in `compartmentId` passed.
+* The list does not include any subcompartments of the compartmentId passed.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListResources on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListResourcesRequest
+     * @return ListResourcesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResources.ts.html |here} to see how to use ListResources API.
+     */
+  public async listResources(
+    listResourcesRequest: requests.ListResourcesRequest
+  ): Promise<responses.ListResourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResources.");
+    const operationName = "listResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Resource/ListResources";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listResourcesRequest.compartmentId,
+      "targetId": listResourcesRequest.targetId,
+      "region": listResourcesRequest.region,
+      "cvssScore": listResourcesRequest.cvssScore,
+      "cvssScoreGreaterThan": listResourcesRequest.cvssScoreGreaterThan,
+      "cvssScoreLessThan": listResourcesRequest.cvssScoreLessThan,
+      "cveId": listResourcesRequest.cveId,
+      "riskLevel": listResourcesRequest.riskLevel,
+      "riskLevelGreaterThan": listResourcesRequest.riskLevelGreaterThan,
+      "riskLevelLessThan": listResourcesRequest.riskLevelLessThan,
+      "detectorRuleIdList": listResourcesRequest.detectorRuleIdList,
+      "detectorType": listResourcesRequest.detectorType,
+      "limit": listResourcesRequest.limit,
+      "page": listResourcesRequest.page,
+      "compartmentIdInSubtree": listResourcesRequest.compartmentIdInSubtree,
+      "accessLevel": listResourcesRequest.accessLevel,
+      "sortOrder": listResourcesRequest.sortOrder,
+      "sortBy": listResourcesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/resources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "resourceCollection",
+        bodyModel: model.ResourceCollection,
+        type: "model.ResourceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of responder activities for a problem, identified by problemId, in a
+   * ResponderActivityCollection resource, with a page of ResponderActivitySummary resources.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResponderActivitiesRequest
@@ -6524,7 +8057,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   }
 
   /**
-   * Returns a list of Responder Executions. A Responder Execution is an entity that tracks the collective execution of multiple Responder Rule Executions for a given Problem.
+   * Returns a list of responder executions. A responder execution is an entity that tracks
+   * the collective execution of multiple responder rule executions for a given problem.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResponderExecutionsRequest
@@ -6621,7 +8155,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   }
 
   /**
-   * Returns a list of ResponderRule associated with ResponderRecipe.
+   * Returns a list of responder rules (ResponderRule resources in a
+   * responderRecipeResponderRuleCollection resource, with page of ResponderRuleSummary resources),
+   * for a responder recipe (ResponderRecipe resource), identified by responderRecipeId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResponderRecipeResponderRulesRequest
@@ -6707,7 +8243,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   }
 
   /**
-     * Returns a list of all ResponderRecipes in a compartment
+     * Returns a list (ResponderRecipeCollection resource, with a page of ResponderRecipeSummary resources)
+* of all responder recipes (RespponderRecipe resources) in a compartment, identified by compartmentId.
 * The ListResponderRecipe operation returns only the targets in `compartmentId` passed.
 * The list does not include any subcompartments of the compartmentId passed.
 * <p>
@@ -6806,7 +8343,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   }
 
   /**
-   * Returns a list of ResponderRule.
+   * Returns a list of responder rules for the ResponderRecipe resource
+   * identified by responderId. The list is contained in a ResponderRuleCollection
+   * resource with a page of ResponderRuleSummary resources.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResponderRulesRequest
@@ -6889,7 +8428,92 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   }
 
   /**
-   * Returns a list of security zone policies. Specify any compartment.
+   * Returns a list of saved queries run in a tenancy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSavedQueriesRequest
+   * @return ListSavedQueriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSavedQueries.ts.html |here} to see how to use ListSavedQueries API.
+   */
+  public async listSavedQueries(
+    listSavedQueriesRequest: requests.ListSavedQueriesRequest
+  ): Promise<responses.ListSavedQueriesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSavedQueries.");
+    const operationName = "listSavedQueries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SavedQuery/ListSavedQueries";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSavedQueriesRequest.compartmentId,
+      "displayName": listSavedQueriesRequest.displayName,
+      "limit": listSavedQueriesRequest.limit,
+      "page": listSavedQueriesRequest.page,
+      "compartmentIdInSubtree": listSavedQueriesRequest.compartmentIdInSubtree,
+      "accessLevel": listSavedQueriesRequest.accessLevel,
+      "sortOrder": listSavedQueriesRequest.sortOrder,
+      "sortBy": listSavedQueriesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSavedQueriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSavedQueriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/savedQueries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSavedQueriesResponse>{},
+        body: await response.json(),
+        bodyKey: "savedQueryCollection",
+        bodyModel: model.SavedQueryCollection,
+        type: "model.SavedQueryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of security zone policies (SecurityPolicySummary resources),
+   * identified by compartmentId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSecurityPoliciesRequest
@@ -6973,7 +8597,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   }
 
   /**
-   * Gets a list of all security zone recipes in a compartment.
+   * Returns a list of security zone recipes (SecurityRecipeSummary resources) in a
+   * compartment, identified by compartmentId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSecurityRecipesRequest
@@ -7057,7 +8682,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   }
 
   /**
-   * Gets a list of all security zones in a compartment.
+   * Returns a list of security zones (SecurityZone resources) in a compartment identified by
+   * compartmentId. List is contained in a page of SecurityZoneSummary resources.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSecurityZonesRequest
@@ -7143,7 +8769,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   }
 
   /**
-   * Returns Sighting endpoints details
+   * Returns sighting endpoints details in a
+   * SightingEndpointsCollection resource
+   * with a page of SightingEndpointSummary resources.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSightingEndpointsRequest
    * @return ListSightingEndpointsResponse
@@ -7224,7 +8853,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   }
 
   /**
-   * Return a list of Impacted Resources for a CloudGuard Sighting
+   * Returns a list of impacted resources for a sighting, identified by sightingId, in a
+   * SightingImpactedResourceCollection resource with a page of SightingImpactedResourceSummary resources.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSightingImpactedResourcesRequest
    * @return ListSightingImpactedResourcesResponse
@@ -7306,8 +8937,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   }
 
   /**
-     * Returns a list of all Sightings identified by the Cloud Guard
-* The ListSightings operation returns only sightings that match the passed filters.
+     * For the parameters passed, returns a list of sightings
+* (SightingCollection resource) with a page of SightingSummary resources.
 * <p>
 The parameter `accessLevel` specifies whether to return only those compartments for which the
 * requestor has INSPECT permissions on at least one resource directly
@@ -7406,8 +9037,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   }
 
   /**
-   * Returns a list of tactics associated with detector rules.
-   *
+   * Returns a list of TacticSummary resources for a compartment, identified by compartmentId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTacticsRequest
    * @return ListTacticsResponse
@@ -7578,7 +9208,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   }
 
   /**
-   * Returns a list of all detector recipes associated with the target identified by targetId
+   * Returns a list of all target detector recipes (TargetDetectorRecipe resources)
+   * associated with a target (Target resource), identified by targetId. The list is contained
+   * in a TargetDetectorRecipeCollection resource with page of TargetDetectorRecipeSummary resources.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTargetDetectorRecipesRequest
    * @return ListTargetDetectorRecipesResponse
@@ -7663,7 +9296,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   }
 
   /**
-   * Returns a list of ResponderRule associated with ResponderRecipe within a Target.
+   * Returns a list of responder rules (ResponderRule resources) associated with a
+   * responder recipe (ResponderRecipe resource) attached to a Target.
+   * List is returned in a TargetResponderRecipeResponderRuleCollection resource
+   * with page of TargetResponderRecipeResponderRuleSummary resources.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTargetResponderRecipeResponderRulesRequest
@@ -7753,7 +9389,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   }
 
   /**
-   * Returns a list of all responder recipes associated with the target identified by targetId
+   * Returns a list of summary information for all responder recipes
+   * (TargetResponderRecipeCollection resource, with a page of TargetResponderRecipeSummary resources)
+   * attached to a target identified by targetId, located in a compartment identified by compartmentId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListTargetResponderRecipesRequest
    * @return ListTargetResponderRecipesResponse
@@ -7838,9 +9477,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   }
 
   /**
-     * Returns a list of all Targets in a compartment
-* The ListTargets operation returns only the targets in `compartmentId` passed.
-* The list does not include any subcompartments of the compartmentId passed.
+     * Returns a list of targets (TargetCollection resource with page of TargetSummary
+* resources) for the target identified by compartmentId. By default, only the target
+* associated with the compartment is returned. Setting compartmentIdInSubtree to true
+* returns the entire hierarchy of targets in subcompartments.
 * <p>
 The parameter `accessLevel` specifies whether to return only those compartments for which the
 * requestor has INSPECT permissions on at least one resource directly
@@ -7850,7 +9490,7 @@ The parameter `accessLevel` specifies whether to return only those compartments 
 * <p>
 The parameter `compartmentIdInSubtree` applies when you perform ListTargets on the
 * `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
-* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* To get a full list of all targets in compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
@@ -8020,7 +9660,90 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Returns a list of WLP agents in a compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListWlpAgentsRequest
+   * @return ListWlpAgentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWlpAgents.ts.html |here} to see how to use ListWlpAgents API.
+   */
+  public async listWlpAgents(
+    listWlpAgentsRequest: requests.ListWlpAgentsRequest
+  ): Promise<responses.ListWlpAgentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listWlpAgents.");
+    const operationName = "listWlpAgents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WlpAgent/ListWlpAgents";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listWlpAgentsRequest.compartmentId,
+      "limit": listWlpAgentsRequest.limit,
+      "page": listWlpAgentsRequest.page,
+      "sortOrder": listWlpAgentsRequest.sortOrder,
+      "sortBy": listWlpAgentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWlpAgentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWlpAgentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/wlpAgents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWlpAgentsResponse>{},
+        body: await response.json(),
+        bodyKey: "wlpAgentCollection",
+        bodyModel: model.WlpAgentCollection,
+        type: "model.WlpAgentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of errors for a work request
+   * identified by workRequestId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
@@ -8101,7 +9824,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
-   * Return a (paginated) list of logs for a given work request.
+   * Returns a paginated list (WorkRequestLogEntryCollection resource)
+   * of log entries for a request, identified by workRequestId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
@@ -8182,7 +9907,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
-   * Lists the work requests in a compartment.
+   * Returns a list of work requests (WorkRequestSummaryCollection resource),
+   * in a compartment identified by compartmentId.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
@@ -8264,7 +9991,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
-   * Removes an existing compartment from a security zone. When you remove a subcompartment from a security zone, it no longer enforces security zone policies on the resources in the subcompartment. You can't remove the primary compartment that was used to create the security zone.
+   * Removes a compartment from a security zone (SecurityZone resource), identified by securityZoneId.
+   * Pass compartmentId of compartment to remove through a RemoveCompartmentDetails resource. When you remove a
+   * subcompartment from a security zone, it no longer enforces security zone policies on the resources in the
+   * subcompartment. You can't remove the primary compartment that was used to create the security zone.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveCompartmentRequest
    * @return RemoveCompartmentResponse
@@ -8347,7 +10078,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
-   * Examines the number of problems related to the resource and the relative severity of those problems.
+   * Returns a page of RiskScoreAggregation resources for a compartment,
+   * identified by compartmentId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestRiskScoresRequest
@@ -8426,8 +10158,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
-   * Measures the number of resources examined across all regions and compares it with the
-   * number of problems detected, for a given time period.
+   * Returns a page of SecurityScoreTrendAggregation resources. These measure the number
+   * of resources examined across all regions and compare it with the number of problems detected.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSecurityScoreSummarizedTrendRequest
@@ -8511,7 +10243,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
-   * Measures the number of resources examined across all regions and compares it with the number of problems detected.
+   * Returns a page of SecurityScoreAggregation resources. These measure the number
+   * of resources examined across all regions and compare it with the number of problems detected.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSecurityScoresRequest
@@ -8781,18 +10514,18 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-     * Returns the number of Responder Executions, for a given set of dimensions.
+     * Returns the number of responder executions, identified by parameters specified, in a page of
+* ResponderExecutionAggregation resources.
 * <p>
-The parameter `accessLevel` specifies whether to return only those compartments for which the
-* requestor has INSPECT permissions on at least one resource directly
-* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
-* Principal doesn't have access to even one of the child compartments. This is valid only when
-* `compartmentIdInSubtree` is set to `true`.
+Setting accessLevel to ACCESSIBLE returns only those compartments for which the user has INSPECT permissions,
+* directly or indirectly (permissions can be on a resource in a subcompartment). \u201CNot Authorized\u201D is returned
+* if user doesn't have access to at least one of the child compartments. When accessLevel is set to RESTRICTED,
+* permissions are checked and no partial results are displayed. This is valid only when compartmentIdInSubtree is set to true.
 * <p>
-The parameter `compartmentIdInSubtree` applies when you perform summarize API on the
-* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
-* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
-* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+Setting accessLevel to ACCESSIBLE returns only those compartments for which the user has INSPECT permissions, directly or
+* indirectly (permissions can be on a resource in a subcompartment). \u201CNot Authorized\u201D is returned if user doesn't have
+* access to at least one of the child compartments. When accessLevel is set to RESTRICTED, permissions are checked
+* and no partial results are displayed. This is valid only when compartmentIdInSubtree is set to true.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param RequestSummarizedResponderExecutionsRequest
@@ -9039,7 +10772,10 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Summarizes the resource profile risk score top trends for the given time range based on the search filters.
+   * Returns a list of resource profile risk score aggregation summaries
+   * (ResourceProfileRiskScoreAggregationSummaryCollection resource with a page of
+   * ResourceProfileRiskScoreAggregationSummary resources) for a specified compartment.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSummarizedTopTrendResourceProfileRiskScoresRequest
    * @return RequestSummarizedTopTrendResourceProfileRiskScoresResponse
@@ -9226,7 +10962,10 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Summarizes the resource risk score trend for the given time range based on the search filters.
+   * Returns a summary of risk score trends in a  ResourceRiskScoreAggregationCollection resource,
+   * with a page of ResourceRiskScoreAggregation resources, filtered by parameters that you specify
+   * in a RequestSummarizedTrendResourceRiskScoresDetailsresource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestSummarizedTrendResourceRiskScoresRequest
    * @return RequestSummarizedTrendResourceRiskScoresResponse
@@ -9503,9 +11242,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Skips the execution for a bulk of responder executions
-   * The operation is atomic in nature
-   *
+   * Skips the execution for a bulk of responder executions.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SkipBulkResponderExecutionRequest
    * @return SkipBulkResponderExecutionResponse
@@ -9576,7 +11313,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Skips the execution of the responder execution. When provided, If-Match is checked against ETag values of the resource.
+   * Skips the execution of the responder execution. When provided, If-Match is checked against etag values of the resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SkipResponderExecutionRequest
    * @return SkipResponderExecutionResponse
@@ -9648,7 +11385,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Sends the problem identified by problemId to the responder engine, to be processed by rule that\u2019s identified by responderRuleId, in the TriggerResponderDetails resource that\u2019s passed.
+   * Sends the problem identified by problemId to the responder engine, to be processed by rule
+   * that\u2019s identified by responderRuleId, in the TriggerResponderDetails resource that\u2019s passed.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TriggerResponderRequest
@@ -9795,7 +11533,8 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Update configuration details for a Cloud Guard tenancy, identified by root compartment OCID. The reporting region cannot be updated once created.
+   * Updates configuration details for a Cloud Guard tenancy, identified by root compartment OCID.
+   * The reporting region cannot be updated once created.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateConfigurationRequest
@@ -9879,7 +11618,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a data mask rule (DataMaskRule object) identified by dataMaskRuleId.
+   * Updates a data mask rule (DataMaskRule resource) identified by dataMaskRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataMaskRuleRequest
    * @return UpdateDataMaskRuleResponse
@@ -9961,7 +11700,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a data source identified by dataSourceId
+   * Updates a data source (DataSource resource) identified by dataSourceId,
+   * using values passed in an UpdateDataSourceDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataSourceRequest
    * @return UpdateDataSourceResponse
@@ -10040,7 +11781,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a detector recipe (DetectorRecipe object) identified by detectorRecipeId.
+   * Updates a detector recipe (DetectorRecipe resource) identified by detectorRecipeId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDetectorRecipeRequest
    * @return UpdateDetectorRecipeResponse
@@ -10123,7 +11864,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a detector rule (DetectorRule object) identified by detectorRuleId.
+   * Updates a detector rule (DetectorRule resource) identified by detectorRuleId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDetectorRecipeDetectorRuleRequest
    * @return UpdateDetectorRecipeDetectorRuleResponse
@@ -10207,7 +11948,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a ManagedList object, identified by managedList.
+   * Updates a ManagedList resource, identified by managedList.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateManagedListRequest
    * @return UpdateManagedListResponse
@@ -10374,7 +12115,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Update the ResponderRecipe resource by identifier
+   * Updates a responder recipe (ResponderRecipe resource) identified by
+   * responderRecipeId, passed in an UpdateResponderRecipeDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateResponderRecipeRequest
    * @return UpdateResponderRecipeResponse
@@ -10456,7 +12199,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Update the ResponderRule by identifier
+   * Updates a responder rule (ResponderRule resource) identified by responderRuleId,
+   * passed in a UpdateResponderRecipeResponderRuleDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateResponderRecipeResponderRuleRequest
    * @return UpdateResponderRecipeResponderRuleResponse
@@ -10540,7 +12285,92 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a security zone recipe. A security zone recipe is a collection of security zone policies.
+   * Updates a saved query identified by savedQueryId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSavedQueryRequest
+   * @return UpdateSavedQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSavedQuery.ts.html |here} to see how to use UpdateSavedQuery API.
+   */
+  public async updateSavedQuery(
+    updateSavedQueryRequest: requests.UpdateSavedQueryRequest
+  ): Promise<responses.UpdateSavedQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateSavedQuery.");
+    const operationName = "updateSavedQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SavedQuery/UpdateSavedQuery";
+    const pathParams = {
+      "{savedQueryId}": updateSavedQueryRequest.savedQueryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSavedQueryRequest.ifMatch,
+      "opc-request-id": updateSavedQueryRequest.opcRequestId,
+      "opc-retry-token": updateSavedQueryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSavedQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/savedQueries/{savedQueryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSavedQueryRequest.updateSavedQueryDetails,
+        "UpdateSavedQueryDetails",
+        model.UpdateSavedQueryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSavedQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "savedQuery",
+        bodyModel: model.SavedQuery,
+        type: "model.SavedQuery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a security zone recipe (SecurityRecipe resource), identified by securityRecipeId,
+   * using parameters passed in an UpdateSecurityRecipeDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSecurityRecipeRequest
    * @return UpdateSecurityRecipeResponse
@@ -10622,7 +12452,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates the security zone identified by its id
+   * Updates a security zone (SecurityZone resource) identified by securityZoneId.
+   * Pass parameters through an UpdateSecurityZoneDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSecurityZoneRequest
    * @return UpdateSecurityZoneResponse
@@ -10704,7 +12536,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Updates a Target identified by targetId
+   * Updates a target (Target resource) identified by targetId, using parameters
+   * passed in an UpdateTargetDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetRequest
    * @return UpdateTargetResponse
@@ -10786,7 +12620,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Update the TargetDetectorRecipe resource by identifier
+   * Updates a target detector recipe (TargtetDetectorRecipe resource) identified by
+   * targetDetectorRecipeId, using parameters passed in an UpdateTargetDetectorRecipeDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetDetectorRecipeRequest
    * @return UpdateTargetDetectorRecipeResponse
@@ -10870,7 +12706,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Update the DetectorRule by identifier
+   * Updates the DetectorRule resource identified by targetDetectorRecipeId
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetDetectorRecipeDetectorRuleRequest
    * @return UpdateTargetDetectorRecipeDetectorRuleResponse
@@ -10959,7 +12795,11 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Update the TargetResponderRecipe resource by identifier
+   * Updates the target responder recipe (TargetResponderRecipe resource)
+   * identified by targetResponderRecipeId, attached to a target identified
+   * by targetId. Pass parameters for the update through an
+   * UpdateTargetResponderRecipeDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetResponderRecipeRequest
    * @return UpdateTargetResponderRecipeResponse
@@ -11043,7 +12883,12 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   }
 
   /**
-   * Update the ResponderRule by identifier
+   * Updates a responder rule (ResponderRule resource) identified by
+   * responderRuleId, for a target responder recipe (TargetResponderRecipe resource)
+   * identified by targetResponderRecipeId, for a target (Target resource)
+   * identified by targetId. Parameters for the update are passed through an
+   * UpdateTargetResponderRecipeResponderRuleDetails resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateTargetResponderRecipeResponderRuleRequest
    * @return UpdateTargetResponderRecipeResponderRuleResponse
@@ -11111,6 +12956,89 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
         bodyKey: "targetResponderRecipeResponderRule",
         bodyModel: model.TargetResponderRecipeResponderRule,
         type: "model.TargetResponderRecipeResponderRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates and renews the certificate for an on-premise WLP agent identified by wlpAgentId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateWlpAgentRequest
+   * @return UpdateWlpAgentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateWlpAgent.ts.html |here} to see how to use UpdateWlpAgent API.
+   */
+  public async updateWlpAgent(
+    updateWlpAgentRequest: requests.UpdateWlpAgentRequest
+  ): Promise<responses.UpdateWlpAgentResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateWlpAgent.");
+    const operationName = "updateWlpAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WlpAgent/UpdateWlpAgent";
+    const pathParams = {
+      "{wlpAgentId}": updateWlpAgentRequest.wlpAgentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateWlpAgentRequest.ifMatch,
+      "opc-request-id": updateWlpAgentRequest.opcRequestId,
+      "opc-retry-token": updateWlpAgentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWlpAgentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/wlpAgents/{wlpAgentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateWlpAgentRequest.updateWlpAgentDetails,
+        "UpdateWlpAgentDetails",
+        model.UpdateWlpAgentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateWlpAgentResponse>{},
+        body: await response.json(),
+        bodyKey: "wlpAgent",
+        bodyModel: model.WlpAgent,
+        type: "model.WlpAgent",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated in DetectorRecipe
+ * Parameters to be used to update a target detector recipe.
  */
 export interface UpdateTargetDetectorRecipeDetails {
   /**
-   * Detector recipe identifier associated with the target
+   * Unique identifier for the target detector recipe
    */
   "detectorRecipeId"?: string;
   /**
-   * When enabled, validation is performed for attaching the detector recipe.
+   * Is validation to be performed for attaching the detector recipe?
    */
   "isValidationOnlyQuery"?: boolean;
   /**
-   * Update detector rules associated with detector recipe in a target.
+   * List of updates to be applied to detector rules in target detector recipe
    */
   "detectorRules"?: Array<model.UpdateTargetRecipeDetectorRuleDetails>;
 }

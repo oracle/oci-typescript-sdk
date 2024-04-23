@@ -19,22 +19,22 @@ import common = require("oci-common");
  */
 export interface RequestSummarizedTrendResponderExecutionsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
-   * Completion End Time
+   * Completion end time.
    */
   "timeCompletedGreaterThanOrEqualTo"?: Date;
   /**
-   * Completion Start Time
+   * Completion start time.
    */
   "timeCompletedLessThanOrEqualTo"?: Date;
   /**
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -48,7 +48,7 @@ export interface RequestSummarizedTrendResponderExecutionsRequest extends common
    */
   "accessLevel"?: RequestSummarizedTrendResponderExecutionsRequest.AccessLevel;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**

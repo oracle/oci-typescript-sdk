@@ -18,27 +18,30 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of Target.
+ * A target defines the scope of resources that Cloud Guard
+ * monitors and the rules to be enforced in that monitoring. A Target resource
+ * contains the settings for a specific target.
+ *
  */
 export interface Target {
   /**
-   * Unique identifier that is immutable on creation.
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * Target display name, can be renamed.
+   * Target display name
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * The target description.
+   * The target description
    */
   "description"?: string;
   /**
-   * possible type of targets
+   * Type of target
    */
   "targetResourceType": model.TargetResourceType;
   /**
@@ -50,11 +53,11 @@ export interface Target {
    */
   "recipeCount": number;
   /**
-   * List of detector recipes associated with target
+   * List of detector recipes attached to target
    */
   "targetDetectorRecipes"?: Array<model.TargetDetectorRecipe>;
   /**
-   * List of responder recipes associated with target
+   * List of responder recipes attached to target
    */
   "targetResponderRecipes"?: Array<model.TargetResponderRecipe>;
   "targetDetails"?: model.SecurityZoneTargetDetails;
@@ -67,15 +70,15 @@ export interface Target {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the target was updated. Format defined by RFC3339.
+   * The date and time the target was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the Target.
+   * The current lifecycle state of the target
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * A message describing the current lifecycle state in more detail. For example, can be used to provide actionable information for a resource in Failed state. [DEPRECATE]
    */
   "lifecyleDetails"?: string;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface RemoveModuleStreamProfileFromManagedInstanceRequest extends common.BaseRequest {
   /**
-   * The OCID of the managed instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
    */
   "managedInstanceId": string;
   /**

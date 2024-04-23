@@ -18,10 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Data Source Feed Provider
+ * Provider of data source feed
  **/
 export enum DataSourceFeedProvider {
   Loggingquery = "LOGGINGQUERY",
+  Scheduledquery = "SCHEDULEDQUERY",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

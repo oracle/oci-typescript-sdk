@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Recommendation Definition.
+ * Recommendation definition.
  */
 export interface RecommendationSummary {
   /**
-   * Unique identifier for Recommendation
+   * Unique identifier for the recommendation
    */
   "id": string;
   /**
@@ -30,15 +30,15 @@ export interface RecommendationSummary {
    */
   "type"?: model.RecommendationType;
   /**
-   * Tenant Identifier
+   * Tenant identifier
    */
   "tenantId"?: string;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
-   * targetId associated with the problem
+   * Target ID associated with the problem
    */
   "targetId": string;
   /**
@@ -46,7 +46,7 @@ export interface RecommendationSummary {
    */
   "details": { [key: string]: string };
   /**
-   * The Risk Level
+   * The risk level of the problem
    */
   "riskLevel"?: model.RiskLevel;
   /**
@@ -54,27 +54,27 @@ export interface RecommendationSummary {
    */
   "problemCount": number;
   /**
-   * The current state of the Recommendation.
+   * The current lifecycle state of the recommendation
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * The lifecycleDetail will give more detail on the substate of the lifecycleState.
+   * Additional details on the substate of the lifecycle state
    */
   "lifecycleDetail": model.RecommendationLifecycleDetail;
   /**
-   * problem creating time
+   * The date and time the problem was first created
    */
   "timeCreated"?: Date;
   /**
-   * problem updating time
+   * The date and time the problem was last updated
    */
   "timeUpdated"?: Date;
   /**
-   * recommendation string showing on UX
+   * Recommendation string that appears in the UI for the problem
    */
   "name": string;
   /**
-   * description of the recommendation
+   * Description of the recommendation
    */
   "description": string;
 }

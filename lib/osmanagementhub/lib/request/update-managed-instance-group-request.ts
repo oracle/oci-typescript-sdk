@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateManagedInstanceGroupRequest extends common.BaseRequest {
   /**
-   * The managed instance group OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**
-   * The information to be updated.
+   * Provides the details used to update the managed instance group.
    */
   "updateManagedInstanceGroupDetails": model.UpdateManagedInstanceGroupDetails;
   /**

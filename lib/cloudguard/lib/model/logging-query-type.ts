@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Logging query type for data source (Sighting/Insight)
+ * Type of logging query for data source (Sighting/Insight)
  **/
 export enum LoggingQueryType {
   Insight = "INSIGHT",

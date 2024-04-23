@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PromoteSoftwareSourceToLifecycleStageRequest extends common.BaseRequest {
   /**
-   * The OCID of the lifecycle stage.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage.
    */
   "lifecycleStageId": string;
   /**
@@ -27,7 +27,7 @@ export interface PromoteSoftwareSourceToLifecycleStageRequest extends common.Bas
    */
   "promoteSoftwareSourceToLifecycleStageDetails": model.PromoteSoftwareSourceToLifecycleStageDetails;
   /**
-   * The OCID for the software source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source. This filter returns resources associated with this software source.
    */
   "softwareSourceId"?: string;
   /**

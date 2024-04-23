@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface UpdateResponderRecipeResponderRuleRequest extends common.BaseRequest {
   /**
-   * OCID of ResponderRecipe
+   * OCID of the responder recipe.
    */
   "responderRecipeId": string;
   /**
-   * The id of ResponderRule
+   * Unique identifier of the responder rule.
    */
   "responderRuleId": string;
   /**
-   * The details to be updated for ResponderRule.
+   * The details to be updated for responder rule
    */
   "updateResponderRecipeResponderRuleDetails": model.UpdateResponderRecipeResponderRuleDetails;
   /**

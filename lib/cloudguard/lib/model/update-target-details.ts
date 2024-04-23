@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
+ * The target information to be updated.
  */
 export interface UpdateTargetDetails {
   /**
@@ -29,15 +29,15 @@ Avoid entering confidential information.
     */
   "displayName"?: string;
   /**
-   * The current state of the Target.
+   * The current lifecycle state of the Target.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * The details of target detector recipes to be updated.
+   * The details of target detector recipes to be updated
    */
   "targetDetectorRecipes"?: Array<model.UpdateTargetDetectorRecipe>;
   /**
-   * The details of target responder recipes to be updated.
+   * The details of target responder recipes to be updated
    */
   "targetResponderRecipes"?: Array<model.UpdateTargetResponderRecipe>;
   /**

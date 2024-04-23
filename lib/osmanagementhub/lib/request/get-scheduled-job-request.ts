@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetScheduledJobRequest extends common.BaseRequest {
   /**
-   * The OCID of the scheduled job.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the scheduled job.
    */
   "scheduledJobId": string;
   /**

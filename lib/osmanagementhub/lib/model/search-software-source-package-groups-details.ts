@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,11 +17,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains a list of software sources to get the list of associated package groups.
+ * Provides the software sources and search parameters to get a list of associated package groups.
  */
 export interface SearchSoftwareSourcePackageGroupsDetails {
   /**
-   * List of software source OCIDs.
+   * List of software source [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "softwareSourceIds": Array<string>;
   /**
@@ -32,7 +33,7 @@ export interface SearchSoftwareSourcePackageGroupsDetails {
    */
   "sortBy"?: SearchSoftwareSourcePackageGroupsDetails.SortBy;
   /**
-   * filters results, allowing only those with a Name which contains the string.
+   * A filter that returns package groups with a name that contains the given string.
    */
   "nameContains"?: string;
   /**

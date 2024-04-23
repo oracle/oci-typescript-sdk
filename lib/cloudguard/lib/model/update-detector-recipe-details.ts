@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Update of detector recipe
+ * Parameters to use to update details for a detector recipe.
  */
 export interface UpdateDetectorRecipeDetails {
   /**
@@ -36,11 +36,12 @@ Avoid entering confidential information.
     */
   "description"?: string;
   /**
-   * Detector Rules to update
+   * List of detector rules to update
    */
   "detectorRules"?: Array<model.UpdateDetectorRecipeDetectorRule>;
   /**
-    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+    * Simple key-value pair that is applied without any predefined 
+* name, type or scope. Exists for cross-compatibility only.
 * Example: {@code {\"bar-key\": \"value\"}}
 * <p>
 Avoid entering confidential information.

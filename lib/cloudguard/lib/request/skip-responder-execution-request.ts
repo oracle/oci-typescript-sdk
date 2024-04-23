@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface SkipResponderExecutionRequest extends common.BaseRequest {
   /**
-   * The identifier of the responder execution.
+   * The unique identifier of the responder execution.
    */
   "responderExecutionId": string;
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**

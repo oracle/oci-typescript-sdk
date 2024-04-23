@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,18 +17,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information for updating a custom or software source.
+ * Provides the information used to update a custom software source.
  */
 export interface UpdateCustomSoftwareSourceDetails extends model.UpdateSoftwareSourceDetails {
   /**
-   * List of vendor software sources.
+   * List of vendor software sources that are used for the basis of the custom software source.
    */
   "vendorSoftwareSources"?: Array<model.Id>;
   "customSoftwareSourceFilter"?: model.CustomSoftwareSourceFilter;
   /**
-   * Indicates whether service should automatically update the custom software source for the user.
+   * Indicates whether the service should automatically update the custom software source to use the latest package versions available. The service reviews packages levels once a day.
    */
   "isAutomaticallyUpdated"?: boolean;
+  /**
+   * Indicates whether the service should automatically resolve package dependencies when including specific packages in the software source.
+   */
+  "isAutoResolveDependencies"?: boolean;
 
   "softwareSourceType": string;
 }
